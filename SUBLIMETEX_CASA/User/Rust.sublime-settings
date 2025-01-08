@@ -1,0 +1,108 @@
+
+
+ 
+
+
+
+
+// These settings override both User and Default settings for the Rust syntax
+{
+	
+
+	/*LE PREFERENZE DI SUBLIME TEXT - Preferences---> Settings - Sintax spcific
+        attenzione lo schema del comando è questo:
+    
+            "args": {" ......"},
+    
+            "command": " ..............",
+    
+            "contest" : 
+                [
+                    {
+    
+                    }
+                    
+                ],
+            "keys" :
+                [
+                    "....",
+                    "...."
+                ], 
+            
+    */
+
+	//AGGIUNTO FOCUS SULLA BARRA ED I PROGRAMMI ATTIVI
+    /*
+
+        "args": 
+        {
+            "target_type": "view"
+        },
+        
+        "command": "toggle_panel_focus",
+        
+        "context": 
+        [
+            {
+                "key": "panel_has_focus",
+                "operand": true,
+                "operator": "equal"
+            }       //DENTRO LA [] la } non ha la virgola.
+        ],          
+        
+        "keys": 
+        [
+            "super+t",
+            "super+f"
+        ],              //dopo la ], inserire sempre la virgola
+
+
+    */
+     
+     /* @LENTE@WINDOS_(tasto super +/- per aprire la @lente di @ingrandimento)
+     tasto windows+ e - PER APRIRE LA LENTE DI INGRANDIMENTO DI WINDOWS */
+      
+     /*
+
+        "args": 
+        {
+            "target_type": "panel"
+        },              //dopo args la }, inserire sempre la virgola
+        
+        "command": "toggle_panel_focus",
+        
+        "context": 
+        [
+            {
+                "key": "panel_has_focus",
+                "operand": true,
+                "operator": "equal"
+            }   //DENTRO LA [] la } non ha la virgola.
+        ],
+        
+        "keys": 
+        [
+            "super+t",
+            "super+f"
+        ],
+    
+
+        //il terminus toggle panel
+        "keys": ["ctrl+shift+'"], "command": "change_quotes",
+
+        "keys": ["alt+`"], "command": "toggle_terminus_panel",
+
+
+        "keys": ["ctrl+alt+t"], "command": "terminus_open", "args": {
+            "cwd": "${file_path:${folder}}"} 
+
+    */
+
+
+
+}
+
+
+
+
+ 

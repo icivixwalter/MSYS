@@ -1,0 +1,18 @@
+// These settings override both User and Default settings for the Markdown syntax
+{
+	// Adaptive theme only: controls if a custom or default title bar is used.
+	// Note that on Windows, the hamburger menu is used whenever this is
+	// enabled and the adaptive theme is in use.
+	// Queste impostazioni sovrascrivono sia le impostazioni Utente che quelle predefinite per la sintassi Markdown
+	// Solo tema adattivo: controlla se viene utilizzata una barra del titolo personalizzata o predefinita.
+	// Tieni presente che su Windows, il menu hamburger viene utilizzato ogni volta che ciò accade
+	// abilitato e il tema adattivo è in uso.
+	//
+	//"themed_title_bar": true,
+
+		// Shows the Build Results panel when building. 
+		//If set to false, the Build
+	// Results can be shown via the Tools/Build Results menu.
+	//"show_panel_on_build": true,
+	//	"show_full_path": false,
+}

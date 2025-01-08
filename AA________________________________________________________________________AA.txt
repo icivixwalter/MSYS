@@ -1,0 +1,97 @@
+ Il volume nell'unit… C non ha etichetta.
+ Numero di serie del volume: 5C6B-8914
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS
+
+[.]
+[..]
+AA.TXT
+AA________________________________________________________________________AA.txt
+[MDB]
+MSYS.ZIP
+MSYS_N02________________________________________________________________MSYS.txt
+MSYS_README.MD
+[OBJECT]
+Project_MSYS_N01_OGGETTI.sublime-project
+Project_MSYS_N01_OGGETTI.sublime-workspace
+ZZ________________________________________________________________________ZZ.txt
+               8 File     10.038.035 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB
+
+[.]                    MSYS_N01_OGGETTI.ldb   MSYS_N01_OGGETTI.zip
+[..]                   MSYS_N01_OGGETTI.mdb   
+               3 File     25.812.360 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\OBJECT
+
+[.]        [FORM]     [MACRO]    [QUERY]    [TUTORIAL] 
+[..]       [HELP]     [MODULI]   [TABELLE]  
+               0 File              0 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\OBJECT\FORM
+
+[.]
+[..]
+AA_MSys_FORM_M01_GESTIONE_OGGETTI_MASTER.MD
+IMPORTA_OGGETTI_TREEVIEW.MD
+
+               2 File          1.160 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\OBJECT\HELP
+
+[.]         [..]        [HELP_FORM] 
+               0 File              0 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\OBJECT\HELP\HELP_FORM
+
+[.]
+[..]
+HELP_Msys_DF11_PROGETTI_Frm00_M01_GESTIONE.pdf
+HELP_Msys_DF11_PROGETTI_Frm02_S01_TIPO_OGGETTI.pdf
+
+               2 File        761.462 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\OBJECT\MACRO
+
+[.]  [..] 
+               0 File              0 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\OBJECT\MODULI
+
+[.]
+[..]
+UTILITA_Msys_Mdl03_DLL_REFERENZIA_LE_LIBRERIE.MD
+
+               1 File         12.119 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\OBJECT\QUERY
+
+[.]
+[..]
+Msys_DF13Qry01_00_}-----------------------------------------@DLL.MD
+Msys_DF14Qry01_01_DLL_LIBRERIE.MD
+Msys_DLLQry01_01_LIBRERIE_ATTIVE.MD
+Msys_DLL_Qry01_01_DF13_DLL_LIBRERIE.MD
+utile.md
+
+               5 File          2.163 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\OBJECT\TABELLE
+
+[.]                    MSys_TABELLE_LINK.md   
+[..]                   
+               1 File          1.700 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\OBJECT\TUTORIAL
+
+[.]
+[..]
+APRI_GIORNALE_OPERAZIONI_PROGETTO_MSYS.bat
+GIORNALE_OPERAZIONI_PROGETTO_MSYS.doc
+
+               2 File        312.794 byte
+
+     Totale file elencati:
+              24 File     36.941.793 byte
+              32 Directory  122.637.221.888 byte disponibili

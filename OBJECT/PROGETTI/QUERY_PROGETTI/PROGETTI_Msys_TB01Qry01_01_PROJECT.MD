@@ -1,0 +1,14 @@
+PROGETTI_Msys_TB01Qry01_01_PROJECT.MD
+
+
+	Note
+		@query@PROGGETTI_(query di estrazione DI PROGETTI)
+
+
+	schema
+
+		SELECT 
+				PROGETTI_Msys_TB01_PROJECT.*, "" AS TxtChiavi, 
+				PROGETTI_Msys_TB01_PROJECT.COD_PROGETTO_s AS KeyCOD_PROGETTO_s
+			FROM 
+				PROGETTI_Msys_TB01_PROJECT;

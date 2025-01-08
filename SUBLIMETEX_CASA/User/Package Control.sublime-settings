@@ -1,0 +1,14 @@
+{
+	"installed_packages":
+	[
+		"Package Control",
+		"Rust Enhanced",
+		"Terminal In Packages",
+		"TerminalProjectFolder",
+		"Terminus",
+	],
+	"in_process_packages":
+	[
+	],
+	"bootstrapped": true,
+}

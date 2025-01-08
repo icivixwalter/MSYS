@@ -1,0 +1,52 @@
+NOTA_QUERY:
+	Query di esportazione DEGLI OGGETTI MACRO MSYS
+		@query@ESPORTA@OGGETTI@MACRO_(la query estrae GLI OGGETTI MACRO @MSYS da @esportare)
+
+
+
+
+SELECT
+
+	Msys_Qry01_01_ESPORTA_OGGETTI_Macro.md
+		
+		Note
+			query di estrazione delle macro da ARCHIVIO
+
+
+	Msys_Qry01_01_ESPORTA_OGGETTI_Macro_TMP
+		Note
+			query DI CARICAMENTO DELLE MACRO con il codice progetto in tmp
+
+
+
+		SCHEMA_SELECT_IN_TMP
+			
+			SELECT 
+					Msys_ESPORTA_DB_EST.PATH_s, 
+					Msys_ESPORTA_ELENCO_OGGETTI_DB.NRO_OGGETTO_i, 
+					Msys_ESPORTA_ELENCO_OGGETTI_DB.TIPOGGETTO_s, 
+					Msys_ESPORTA_ELENCO_OGGETTI_DB.NOMEOGGETTO_s, 
+					Msys_ESPORTA_DB_EST.Scel_b
+
+					FROM 
+						Msys_ESPORTA_DB_EST_TMP 
+						INNER JOIN 
+							(Msys_ESPORTA_DB_EST INNER JOIN Msys_ESPORTA_ELENCO_OGGETTI_DB 
+							ON 
+							(Msys_ESPORTA_DB_EST.COD_PROGETTO_s = Msys_ESPORTA_ELENCO_OGGETTI_DB.COD_PROGETTO_s) 
+							AND 
+							(Msys_ESPORTA_DB_EST.PATH_s = Msys_ESPORTA_ELENCO_OGGETTI_DB.PATH_s)) 
+							ON 
+							(Msys_ESPORTA_DB_EST.PATH_s = Msys_ESPORTA_DB_EST_TMP.PATH_s) 
+							AND 
+							(Msys_ESPORTA_DB_EST_TMP.COD_PROGETTO_s = Msys_ESPORTA_DB_EST.COD_PROGETTO_s)
+
+					WHERE 
+							(((Msys_ESPORTA_ELENCO_OGGETTI_DB.TIPOGGETTO_s)="MACRO") 
+						AND 
+							((Msys_ESPORTA_ELENCO_OGGETTI_DB.NOMEOGGETTO_s)>""))
+
+					WITH 
+						OWNERACCESS OPTION;
+
+
