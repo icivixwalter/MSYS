@@ -72,14 +72,14 @@ GIT_REMOTE
 	    git remote add <name> <url> = 	git remote add "walter" "https://github.com/icivixwalter/MSYS_OGGETTI"
 	and then push using the remote name
 
-    git push <name> = git push --set-upstream walter master
+    git push <name> = git push --set-upstream origin calcolo
 
 
     se da questo errore:
-    fatal: The current branch master has no upstream branch.
+    fatal: The current branch calcolo has no upstream branch.
 	To push the current branch and set the remote as upstream, use
 
 		    eseguire il comando:
-		    	 git push --set-upstream walter master
+		    	 git push --set-upstream origin calcolo
 
 "# MSYS" 
