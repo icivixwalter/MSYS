@@ -1,0 +1,5 @@
+//ATTENZIONE QUESTE SONO LE CARTELLE ESCLUSE
+//.........................................................................AA_SALVATAGGI
+AA_SALVATAGGI
+.git
+

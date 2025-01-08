@@ -15,29 +15,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "README.md",
-			"redo_stack":
-			[
-				[
-					54,
-					1,
-					"",
-					null,
-					"AgAAAAUHAAAAAAAAQgcAAAAAAAAAAAAAZwcAAAAAAABnBwAAAAAAAD0AAAAKCSAgICBnaXQgcmVtb3RlIGFkZCA8bmFtZT4gPHVybD4gPSAJZ2l0IHJlbW90ZSBhZGQgIndhbHRlciIg",
-					"AQAAAAAAAAABAAAAKgcAAAAAAABnBwAAAAAAAAAAAAAAAPC/"
-				]
-			],
-			"settings":
-			{
-				"buffer_size": 2230,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			},
-			"undo_stack":
-			[
-			]
-		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -151,8 +128,11 @@
 	],
 	"file_history":
 	[
-		"/C/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/README.md",
+		"/C/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/ZIP_7ZIP_INCREMENTALE_FILE_UNICO_(CRIPTA+DECODIFICA_INTERNO).BAT",
+		"/C/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/Zip_N70_DECODIFICA.bat",
+		"/C/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/Zip_N70_ElencoFile.txt",
 		"/C/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/OBJECT/PROGETTI/PROGETTI_ANALISI.MD",
+		"/C/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/README.md",
 		"/C/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/OBJECT/PROGETTI/QUERY_PROGETTI/PROGETTI_Msys_TB03Qry01_01_ELENCO_ObjProgetti.MD",
 		"/C/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/OBJECT/PROGETTI/QUERY_PROGETTI/PROGETTI_Msys_TB01Qry01_01_PROJECT.MD",
 		"/C/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/OBJECT/PROGETTI/QUERY_PROGETTI/PROGETTI_Msys_TB02Qry01_01_TIPO_OGGETTI.MD",
@@ -275,14 +255,11 @@
 		"/C/TMP/TMP_oggi/DA_PUBBLICARE/LPDD_200_2021_DET_1409_2021/DET_XXX_2022_TEXT.txt",
 		"/Y/LAVORI_PUBBLICI_FINO_AL_30_09_2019/Valter/OPERE_PUBBLICHE/85_EX_DISCARICA_LE_LAME/40_EXDISCARICA_APQ8/FASCICOLO_03/03.00_ELENCO_EX_DISCARICA_COPIA_RENDICONTAZIONE_A3_FASCICOLO_03.txt",
 		"/Y/LAVORI_PUBBLICI_FINO_AL_30_09_2019/Valter/OPERE_PUBBLICHE/85_EX_DISCARICA_LE_LAME/40_EXDISCARICA_APQ8/FASCICOLO_02/02.00_ELENCO_EX_DISCARICA_COPIA_RENDICONTAZIONE_A3_FASCICOLO_02.txt",
-		"/Y/LAVORI_PUBBLICI_FINO_AL_30_09_2019/Valter/OPERE_PUBBLICHE/85_EX_DISCARICA_LE_LAME/40_EXDISCARICA_APQ8/FASCICOLO_01/01.00_ELENCO_EX_DISCARICA_COPIA_RENDICONTAZIONE_A3_FASCICOLO_01.txt",
-		"/C/GESTIONI/GESTIONE_LLPP/25_GESTIONE_LLPP/PRES3000_GESTIONE/ARCHIVI_PRES3000/PRES3000_Tb02_ElencoGiornaliere/ANALISI_SUBLIME_TXT/WORKSPACE_Giornaliere.sublime-workspace",
-		"/C/TMP/TMP_oggi/DA_SCANSIONARE_EX_DICARICA_REGIONE/FASCICOLO_03/03.00_ELENCO_EX_DISCARICA_COPIA_RENDICONTAZIONE_A3_FASCICOLO_03.txt",
-		"/C/TMP/TMP_oggi/DA_SCANSIONARE_EX_DICARICA_REGIONE/FASCICOLO_03/03.00_ELENCO_EX_DISCARICA_APRI_TUTTO.bat"
+		"/Y/LAVORI_PUBBLICI_FINO_AL_30_09_2019/Valter/OPERE_PUBBLICHE/85_EX_DISCARICA_LE_LAME/40_EXDISCARICA_APQ8/FASCICOLO_01/01.00_ELENCO_EX_DISCARICA_COPIA_RENDICONTAZIONE_A3_FASCICOLO_01.txt"
 	],
 	"find":
 	{
-		"height": 29.6
+		"height": 42.4
 	},
 	"find_in_files":
 	{
@@ -296,6 +273,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"ZIP_SALVATAGGI_Access",
+			"c:\\CASA\\LINGUAGGI\\ACCESS\\"
 		],
 		"highlight": false,
 		"in_selection": false,
@@ -317,39 +296,6 @@
 		{
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "README.md",
-					"selected": true,
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2230,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1891,
-								1903
-							]
-						],
-						"settings":
-						{
-							"mde.match_heading_hashes": false,
-							"syntax": "Packages/Markdown/Markdown.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 1353.6,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"stack_multiselect": false,
-					"type": "text"
-				}
 			]
 		}
 	],

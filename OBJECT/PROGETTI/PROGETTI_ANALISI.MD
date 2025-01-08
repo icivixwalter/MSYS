@@ -9,3 +9,6 @@ piu facile la estrazione dei gruppi di oggetti da creare e/o da modificare o man
 
 
 
+
+
+
