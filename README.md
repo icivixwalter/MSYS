@@ -69,7 +69,8 @@ CREARE I RAMI
 
 GIT_REMOTE
 	per attivare il salvataggio all'inizio eseguire i due comandi:
-	    git remote add <name> <url> = 	git remote add "walter" "https://github.com/icivixwalter/MSYS_OGGETTI"
+	    git remote add <name> <url> = 	git remote add "walter" "https://github.com/icivixwalter/MSYS.git"
+	    															
 	and then push using the remote name
 
     git push <name> = git push --set-upstream origin calcolo
@@ -81,6 +82,9 @@ GIT_REMOTE
 
 		    eseguire il comando:T&
 		    	 git push --set-upstream origin calcolo
+
+
+
 
 GIT_ADD
 	per aggiornare la REPOSITORY occorre eseguire i seguenti comandi concatenati:
