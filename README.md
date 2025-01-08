@@ -79,7 +79,11 @@ GIT_REMOTE
     fatal: The current branch calcolo has no upstream branch.
 	To push the current branch and set the remote as upstream, use
 
-		    eseguire il comando:
+		    eseguire il comando:T&
 		    	 git push --set-upstream origin calcolo
 
-"# MSYS" 
+GIT_ADD
+	per aggiornare la REPOSITORY occorre eseguire i seguenti comandi concatenati:
+		
+		git pull & git status & git add . & git commit -m "agg ufficio" & git push
+
