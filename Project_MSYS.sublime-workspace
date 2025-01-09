@@ -15,72 +15,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "README.md",
-			"settings":
-			{
-				"buffer_size": 2423,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			},
-			"undo_stack":
-			[
-				[
-					8,
-					1,
-					"insert",
-					{
-						"characters": "\n\n\n"
-					},
-					"AwAAALoIAAAAAAAAuwgAAAAAAAAAAAAAuwgAAAAAAAC8CAAAAAAAAAAAAAC8CAAAAAAAAL0IAAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAuggAAAAAAAC6CAAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					11,
-					1,
-					"insert",
-					{
-						"characters": "\n\t\t\t\t\t\t\t\t\t\t\t\t\t"
-					},
-					"EAAAAHAHAAAAAAAAcQcAAAAAAAAAAAAAcQcAAAAAAAB2BwAAAAAAAAAAAAB2BwAAAAAAAHcHAAAAAAAAAAAAAHcHAAAAAAAAeAcAAAAAAAAAAAAAeAcAAAAAAAB5BwAAAAAAAAAAAAB5BwAAAAAAAHoHAAAAAAAAAAAAAHoHAAAAAAAAewcAAAAAAAAAAAAAewcAAAAAAAB8BwAAAAAAAAAAAAB8BwAAAAAAAH0HAAAAAAAAAAAAAH0HAAAAAAAAfgcAAAAAAAAAAAAAfgcAAAAAAAB/BwAAAAAAAAAAAAB/BwAAAAAAAIAHAAAAAAAAAAAAAIAHAAAAAAAAgQcAAAAAAAAAAAAAgQcAAAAAAACCBwAAAAAAAAAAAACCBwAAAAAAAIMHAAAAAAAAAAAAAIMHAAAAAAAAhAcAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAcAcAAAAAAABwBwAAAAAAAP///////+9/"
-				],
-				[
-					12,
-					1,
-					"paste",
-					null,
-					"AQAAAIQHAAAAAAAArAcAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAhAcAAAAAAACEBwAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					14,
-					1,
-					"insert",
-					{
-						"characters": "\t"
-					},
-					"AQAAAIQHAAAAAAAAhQcAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAhAcAAAAAAACEBwAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					17,
-					1,
-					"cut",
-					null,
-					"AQAAAIUHAAAAAAAAhQcAAAAAAAAoAAAAaHR0cHM6Ly9naXRodWIuY29tL2ljaXZpeHdhbHRlci9NU1lTLmdpdA",
-					"AQAAAAAAAAABAAAAhQcAAAAAAACtBwAAAAAAAP///////+9/"
-				],
-				[
-					22,
-					1,
-					"paste",
-					null,
-					"AgAAAEMHAAAAAAAAawcAAAAAAAAAAAAAawcAAAAAAABrBwAAAAAAACwAAABodHRwczovL2dpdGh1Yi5jb20vaWNpdml4d2FsdGVyL01TWVNfT0dHRVRUSQ",
-					"AQAAAAAAAAABAAAAQwcAAAAAAABvBwAAAAAAAAAAAAAAAPC/"
-				]
-			]
-		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -194,11 +128,11 @@
 	],
 	"file_history":
 	[
+		"/C/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/README.md",
 		"/C/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/ZIP_7ZIP_INCREMENTALE_FILE_UNICO_(CRIPTA+DECODIFICA_INTERNO).BAT",
 		"/C/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/Zip_N70_DECODIFICA.bat",
 		"/C/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/Zip_N70_ElencoFile.txt",
 		"/C/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/OBJECT/PROGETTI/PROGETTI_ANALISI.MD",
-		"/C/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/README.md",
 		"/C/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/OBJECT/PROGETTI/QUERY_PROGETTI/PROGETTI_Msys_TB03Qry01_01_ELENCO_ObjProgetti.MD",
 		"/C/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/OBJECT/PROGETTI/QUERY_PROGETTI/PROGETTI_Msys_TB01Qry01_01_PROJECT.MD",
 		"/C/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/OBJECT/PROGETTI/QUERY_PROGETTI/PROGETTI_Msys_TB02Qry01_01_TIPO_OGGETTI.MD",
@@ -362,39 +296,6 @@
 		{
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "README.md",
-					"selected": true,
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2423,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2423,
-								2423
-							]
-						],
-						"settings":
-						{
-							"mde.match_heading_hashes": false,
-							"syntax": "Packages/Markdown/Markdown.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 1487.2,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"stack_multiselect": false,
-					"type": "text"
-				}
 			]
 		}
 	],

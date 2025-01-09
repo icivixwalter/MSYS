@@ -89,5 +89,7 @@ GIT_REMOTE
 GIT_ADD
 	per aggiornare la REPOSITORY occorre eseguire i seguenti comandi concatenati:
 		
+		@comando@unico@git
+
 		git pull & git status & git add . & git commit -m "agg ufficio" & git push
 
