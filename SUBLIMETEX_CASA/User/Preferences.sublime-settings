@@ -1,0 +1,17 @@
+{
+	"ignored_packages":
+	[
+		"Rust",
+		"TerminalProjectFolder",
+		"Vintage",
+	],
+	"color_scheme": "Mariana.sublime-color-scheme",
+	"font_size": 18,
+
+
+
+	"index_files": false,
+	"theme": "Default Dark.sublime-theme",
+	"dark_theme": "Adaptive.sublime-theme",
+	"light_theme": "Adaptive.sublime-theme",
+}

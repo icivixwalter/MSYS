@@ -1,0 +1,151 @@
+//IMPOSTA_SUBLIMETEXT_Mariana.md
+//MONOKAI - COLORI PERSONALIZZATI - PER MARIANNA
+		//@impostazioni@Mariana_(impostazioni colori dello @schermo Mariana)
+
+	//FILE:  C:\Users\icivi\AppData\Roaming\Sublime Text\Packages\User\Mariana.sublime-color-scheme
+		{
+			 "name": "Example COLORE ACQUA",
+				/* NOTE
+
+
+
+					
+						le impostazioni personalizzate del Monokai nel file
+						Monokai.sublime-color-scheme
+						La documentazione dei colori si trova qui:
+						 	Documentation at https://www.sublimetext.com/docs/color_schemes.html
+						    per definire i colori 
+						    	https://www.w3schools.com/html/html_colors_hsl.asp#:~:text=HSL%20Color%20Values&text=0%25%20means%20a%20shade%20of,%2C%20and%20100%25%20is%20white.
+
+
+						I COLORI POSSONO AVERE QUESTE NOTAZIONI:
+							Notazione funzionale HSL
+							Notazione funzionale RGBA
+
+							elenco colori sublimeText
+
+							Named colors: white, tan, etc
+
+									Shorthand hex: #fff
+
+									Shorthand hex with alpha: #fff8
+
+									Full hex: #ffffff
+
+									Full hex with alpha: #ffffff80
+
+									RGB functional notation: rgb(255, 255, 255)
+
+									RGBA functional notation: rgba(255, 255, 255, 0.5)
+
+									HSL functional notation: hsl(0, 100%, 100%)
+
+									HSLA functional notation: hsla(0, 100%, 100%, 0.5)
+
+									HWB functional notation: hwb(0, 20%, 20%), hwb(0, 20%, 20%, 0.5)
+
+
+						*/	
+			//LE VARIABILI =
+				"variables":{
+
+					/* LE IMPOSTAZIONI DI COLORE NELLE VARIABILI
+						//---------------------------------------------------------------//
+
+						    Colore  Valore  Definizione
+						    Nero    #000000 Assenza di tutti colori.
+						    Bianco  #FFFFFF Presenza di tutti i colori.
+						    Rosso   #FF0000 Presenza solo del rosso.
+						    Giallo  #FFFF00 Rosso + verde – blu.
+						    */
+						    //impostazioni di base di sblime text 
+
+						    	"celeste": "hsl(185, 68%, 81%)",
+						    	"azzurro": "hsl(39, 800%, 50%)",
+
+						    	
+						    	"blue": "hsl(210, 50%, 60%)",
+						        "blue-vibrant": "hsl(210, 60%, 60%)",
+						        "blue2": "hsla(210, 13%, 40%, 0.7)",
+						        "blue3": "hsl(210, 15%, 22%)",
+						        "blue4": "hsl(210, 13%, 45%)",
+						        "blue5": "hsl(180, 36%, 54%)",
+						        "blue6": "hsl(221, 12%, 69%)",
+								
+								"green": "hsla(153, 80%, 40%, 1)",
+						        "green68": "hsl(114, 31%, 68%)",
+
+						        "red": "hsl(357, 79%, 65%)",
+        						"red2": "hsl(13, 93%, 66%)",
+        
+						        
+								"orange": "hsl(32, 93%, 66%)",
+								"orange2": "hsl(32, 85%, 55%)",
+								"orange3": "hsl(40, 94%, 68%)",
+								
+								"yellow": "hsl(39, 100%, 50%)",
+								"yellow4": "hsl(55, 90%, 75%)",
+
+								
+								"white": "hsl(0, 0%, 100%)",
+						        "white2": "hsl(0, 0%, 97%)",
+						        "white3": "hsl(219, 28%, 88%)",
+						    
+							    
+								"acqua" : "#00FFFF"                 //creato nuovo
+
+						//---------------------------------------------------------------//
+
+						},
+				
+			//LE GLOBALI = VARIABILI GLOBALI
+					"globals": {
+								/*
+									NEI GLOBALS IMPOSTO
+										foreground	= colore testo acqua
+										background 	= sfondo nero		
+										selection 	= seleziono il testo in rosso		
+								*/
+							//
+							"foreground": "var(yellow4)",
+							//"foreground": "var(orange)",
+					        "background": "var(black)",
+					        //"selection": "var(green)"
+					        
+					        //@selezione@marianana_(@comando per la selezione in @azzurro o @blu per @casa)
+					        "selection": "var(azzurro)"
+					      
+							},
+
+			//RULES = SONO LE REGOLE 
+				"rules":[
+							//@regole_(INSERISCO NUOVE REGOLE, commenti, costanti)
+
+							 {
+								            "name": "Comment",
+								            "scope": "comment, punctuation.definition.comment", //??
+								            "foreground": "green"	//@commenti in @verde
+								            //"foreground": "#888888"  //commenti gialli
+
+								        },
+								        {
+								        	//regole per le stringhe
+								            "name": "String",
+								            "scope": "string",
+								            "foreground": "hsla(40, 100%, 50%, 1",
+								        },
+
+								    
+								        {
+								        	//regole per i numeri @costanti
+								            "name": "Number",
+								            "scope": "constant.numeric",
+								            "foreground": "#7F00FF",
+								            "font_style": "italic",		//@stile@costanti
+								        }
+							
+						]
+
+			}
+
+
