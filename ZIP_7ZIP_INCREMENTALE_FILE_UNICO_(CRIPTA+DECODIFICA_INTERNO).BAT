@@ -451,7 +451,7 @@
 					@ECHO 07.05 recupero i file processati nel .zip e li salvo in .txt
 					@ECHO VADO NELLA PATH DI DESTINAZIONE E SALVO L'ELENCO DEI FILE 
 					CD %PATH_DEST_S%
-					"c:\Program Files\7-Zip\7z.exe" l %TODAY%_%FILE_S% -bsp1 > %TODAY%_%FILE_S%_LISTA.TXT
+					"c:\Program Files\7-Zip\7z.exe" l %TODAY%_%FILE_S%.zip -bsp1 > %TODAY%_%FILE_S%_LISTA.TXT
 					
 
 				@ECHO.  					

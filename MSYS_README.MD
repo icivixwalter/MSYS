@@ -240,9 +240,29 @@ MSYS_REDME
 			progetto e la tabella QUOTE, deputata alla costruzione dei codici per ogni progetto. 
 				PROGETTI_Msys_TB03_ELENCO_ObjProgetti
 				QUOTE_MsysTB01_CODICI_QUOTE
-				J5KZj8s34pSCRtagblJ60vjS
+				
+
+		2025_01_12=INSERITO IL NOME DELLA FORM IN OGNI SOTTOFORM DEL PROGETTO MSys_PROGETTI_GE.mdb
+
+			- LABEL UTILITA
+				TIT_00_LBL = ho aggiunto in ogni sottoform progetti una LABEL con il NOME DELLA FORM per meglio distinguere la singola form in opzione di modifica.
 
 
+				TIT_01_LBL = aggiunto la label utilita con la query sottostante
+							+ 2 campi:
+								- 1 help   .... DA SISTEMARE PER OGNI FORM
+								- 2 nome form ... SI CARICA AUTOMATICAMENTE.
+
+				TIT_02_LBL = aggiunto la label 2 
+
+				Con questi aggiornamenti le form sono immediatamente leggibili con il nome ed hanno
+				un help proprio ancora da predisporre.
+
+
+
+		2025_01_12=ALLA CHIUSURA DEI VARI PROGETTI DB DEL MDB VI E STATO AGGIUNTA LA OPZIONE COMPATTA
+			tutti i mini progetti msys hanno l'opzione compatta alla chiusura al fine di risparmiare
+			spazioni nella compressione.
 
 
 			
