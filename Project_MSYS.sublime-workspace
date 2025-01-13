@@ -15,6 +15,119 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "MSYS_README.MD",
+			"settings":
+			{
+				"buffer_size": 8993,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "git_PULL.BAT",
+			"settings":
+			{
+				"buffer_size": 542,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			},
+			"undo_stack":
+			[
+				[
+					7,
+					1,
+					"right_delete",
+					null,
+					"AQAAABsBAAAAAAAAGwEAAAAAAAA1AAAAZ2l0IGFkZCAuCmdpdCBjb21taXQgLW0gImFnZ2lvcm5hbWVudG8gb2dnZXR0aSBNU1lTIgo",
+					"AQAAAAAAAAABAAAAUAEAAAAAAAAbAQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					9,
+					1,
+					"insert",
+					{
+						"characters": "GIT"
+					},
+					"AwAAABoBAAAAAAAAGwEAAAAAAAAAAAAAGwEAAAAAAAAcAQAAAAAAAAAAAAAcAQAAAAAAAB0BAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAGgEAAAAAAAAaAQAAAAAAAAAAAAAAAAAA"
+				],
+				[
+					10,
+					3,
+					"left_delete",
+					null,
+					"AwAAABwBAAAAAAAAHAEAAAAAAAABAAAAVBsBAAAAAAAAGwEAAAAAAAABAAAASRoBAAAAAAAAGgEAAAAAAAABAAAARw",
+					"AQAAAAAAAAABAAAAHQEAAAAAAAAdAQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					11,
+					1,
+					"insert",
+					{
+						"characters": "gi"
+					},
+					"AgAAABoBAAAAAAAAGwEAAAAAAAAAAAAAGwEAAAAAAAAcAQAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAGgEAAAAAAAAaAQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					12,
+					1,
+					"insert",
+					{
+						"characters": " "
+					},
+					"AQAAABwBAAAAAAAAHQEAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAHAEAAAAAAAAcAQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					13,
+					1,
+					"left_delete",
+					null,
+					"AQAAABwBAAAAAAAAHAEAAAAAAAABAAAAIA",
+					"AQAAAAAAAAABAAAAHQEAAAAAAAAdAQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					14,
+					1,
+					"insert",
+					{
+						"characters": "t"
+					},
+					"AQAAABwBAAAAAAAAHQEAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAHAEAAAAAAAAcAQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					15,
+					1,
+					"insert",
+					{
+						"characters": " pull"
+					},
+					"BQAAAB0BAAAAAAAAHgEAAAAAAAAAAAAAHgEAAAAAAAAfAQAAAAAAAAAAAAAfAQAAAAAAACABAAAAAAAAAAAAACABAAAAAAAAIQEAAAAAAAAAAAAAIQEAAAAAAAAiAQAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAHQEAAAAAAAAdAQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					16,
+					1,
+					"insert",
+					{
+						"characters": " "
+					},
+					"AQAAACIBAAAAAAAAIwEAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAIgEAAAAAAAAiAQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					24,
+					1,
+					"right_delete",
+					null,
+					"AQAAAB4CAAAAAAAAHgIAAAAAAAB6AAAACmdpdCBwdXNoCgoKQHJlbSBwYXVzYSBkaSAgc2Vjb25kaSBwZXIgaWwgY29udHJvbGxvCkVDSE8KCkVDSE8gcGF1c2EgZGkgMyBzZWNvbmRpIHBlciBpbCBjb250cm9sbG8KQFRJTUVPVVQgL1QgMyAvTk9CUkVBSwo",
+					"AQAAAAAAAAABAAAAHgIAAAAAAACYAgAAAAAAAAAAAAAAAFVA"
+				]
+			]
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -296,6 +409,67 @@
 		{
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "MSYS_README.MD",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 8993,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Markdown/Markdown.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 120.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"stack_multiselect": false,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "git_PULL.BAT",
+					"selected": true,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 542,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								519,
+								519
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Batch File/Batch File.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"stack_multiselect": false,
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -424,7 +598,7 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 294.0,
+	"side_bar_width": 384.0,
 	"status_bar_visible": false,
 	"template_settings":
 	{
