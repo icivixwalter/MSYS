@@ -22,7 +22,10 @@
 				"buffer_size": 2784,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
-			}
+			},
+			"undo_stack":
+			[
+			]
 		}
 	],
 	"build_system": "",
@@ -115,6 +118,7 @@
 	},
 	"expanded_folders":
 	[
+		"/c/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS"
 	],
 	"file_history":
 	[
@@ -248,8 +252,8 @@
 						"selection":
 						[
 							[
-								0,
-								0
+								657,
+								657
 							]
 						],
 						"settings":
