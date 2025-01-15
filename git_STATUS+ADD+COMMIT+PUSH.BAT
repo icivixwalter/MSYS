@@ -13,7 +13,7 @@ ECHO pausa di 3 secondi per il controllo
 git add .
 git commit -m "aggiornamento oggetti MSYS"
 
-@rem pausa di 20 secondi per consentire il commit
+@rem pausa per consentire il commit
 
 @REM 01)
 @REM sospensione per 1 secondo con crononometro 
@@ -21,9 +21,9 @@ git commit -m "aggiornamento oggetti MSYS"
 @REM ---->
 ECHO
 ECHO
-ECHO  pausa di 20 secondi per consentire il commit
+ECHO  pausa di 5 secondi per consentire il commit
 ECHO
-@TIMEOUT /T 20 /NOBREAK
+@TIMEOUT /T 5 /NOBREAK
 
 git push
 
