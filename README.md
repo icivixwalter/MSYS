@@ -93,3 +93,16 @@ GIT_ADD
 
 		git pull & git status & git add . & git commit -m "agg ufficio" & git push
 
+
+
+	per escludere file e cartelle utilizzare il file:
+
+	.gitignore
+
+	senza estensione per le cartelle al suo interno 
+	utilizzare il nome della cartella:
+		AA_SALVATAGGI/
+
+		per il file in sotto cartelle il percorso completo
+		esempio: 
+			c:\GESTIONI\GESTIONE_LLPP\25_GESTIONE_LLPP\LLPP_ARCHIVI_MDB\IMPEGNI\MDB\X_IMPEGNI_RICREA_OGGETTI.mdb
