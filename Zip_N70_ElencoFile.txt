@@ -5,6 +5,7 @@ OBJECT\
 
 AA__________________________________________________________________________AA.txt
 .gitignore
+ATTIVA_SALVATAGGI_COLLETTIVI_MSYS_OGGETTI+MENU+IMPEGNI.BAT
 CANCELLA_{MDB+OBJECT+PROJECT}.BAT
 git_OPEN_OVERLEAF.BAT
 git_OpenGitHub.bat
