@@ -16,15 +16,51 @@
 	"buffers":
 	[
 		{
-			"file": "/c/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/README.md",
+			"file": "/c/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/git_PULL.BAT",
 			"settings":
 			{
-				"buffer_size": 2784,
+				"buffer_size": 526,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			},
 			"undo_stack":
 			[
+				[
+					4,
+					1,
+					"insert",
+					{
+						"characters": "5"
+					},
+					"AQAAAN0BAAAAAAAA3gEAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA3QEAAAAAAADdAQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					5,
+					2,
+					"right_delete",
+					null,
+					"AgAAAN4BAAAAAAAA3gEAAAAAAAABAAAAMt4BAAAAAAAA3gEAAAAAAAABAAAAMA",
+					"AQAAAAAAAAABAAAA3gEAAAAAAADeAQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					11,
+					2,
+					"right_delete",
+					null,
+					"AgAAADABAAAAAAAAMAEAAAAAAAANAAAAZGkgMjAgc2Vjb25kaTABAAAAAAAAMAEAAAAAAAABAAAAIA",
+					"AQAAAAAAAAABAAAAPQEAAAAAAAAwAQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					16,
+					1,
+					"insert",
+					{
+						"characters": "5"
+					},
+					"AgAAAAMCAAAAAAAABAIAAAAAAAAAAAAABAIAAAAAAAAEAgAAAAAAAAIAAAAyMA",
+					"AQAAAAAAAAABAAAABQIAAAAAAAADAgAAAAAAAAAAAAAAAPC/"
+				]
 			]
 		}
 	],
@@ -240,28 +276,25 @@
 			[
 				{
 					"buffer": 0,
-					"file": "/c/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/README.md",
+					"file": "/c/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/git_PULL.BAT",
 					"selected": true,
-					"semi_transient": true,
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2784,
+						"buffer_size": 526,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								657,
-								657
+								329,
+								329
 							]
 						],
 						"settings":
 						{
-							"mde.match_heading_hashes": false,
-							"syntax": "Packages/Markdown/Markdown.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/Batch File/Batch File.sublime-syntax"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
