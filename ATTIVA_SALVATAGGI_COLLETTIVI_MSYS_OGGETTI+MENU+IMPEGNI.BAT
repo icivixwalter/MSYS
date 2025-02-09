@@ -76,5 +76,5 @@ ECHO
 ECHO
 ECHO  pausa di 20 secondi per consentire il commit
 ECHO
-@TIMEOUT /T 20 /NOBREAK
+@TIMEOUT /T 5 /NOBREAK
 

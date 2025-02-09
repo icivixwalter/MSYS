@@ -12,8 +12,8 @@ git_OpenGitHub.bat
 git_PULL.BAT
 git_STATUS.BAT
 git_STATUS+ADD+COMMIT+PUSH.BAT
-Project_MENU.sublime-project
-Project_MENU.sublime-workspace
+Project_PREZZARIO_OPERE_PUBBLICHE.sublime-project
+Project_PREZZARIO_OPERE_PUBBLICHE.sublime-workspace
 README.md
 ZIP_7ZIP_________________________________________________________________ZZ.txt
 ZIP_7ZIP_INCREMENTALE_{CRIPTA+DECODIFICA_INTERNO}.BAT

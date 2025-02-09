@@ -85,9 +85,6 @@ PROFILO GIT SE DA ERRORE
 
 
 
-
-
-
 CREARE I RAMI
 	Gestione delle filiali
 		Un singolo repository Git può mantenere più rami di sviluppo. Per creare 
@@ -140,8 +137,6 @@ GIT_REMOTE
 		    	 git push --set-upstream origin calcolo
 
 
-
-
 GIT_ADD
 	per aggiornare la REPOSITORY occorre eseguire i seguenti comandi concatenati:
 		
@@ -163,46 +158,7 @@ GIT_ADD
 		esempio: 
 			c:\GESTIONI\GESTIONE_LLPP\25_GESTIONE_LLPP\LLPP_ARCHIVI_MDB\IMPEGNI\MDB\X_IMPEGNI_RICREA_OGGETTI.mdb
 
-<<<<<<< HEAD
 
-IMPOSTAZIONi_JSON_PROGETTO:
-
-	Perfetto, hai configurato correttamente il tuo file Project_MSYS.sublime-project!
-
-	Verifica e Uso:
-	Percorso della cartella: La cartella c:/Casa/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS è ora parte del tuo progetto in Sublime Text. Quando apri il file .sublime-project in Sublime Text, questa cartella verrà automaticamente aggiunta al tuo progetto e sarà visibile nel pannello laterale a sinistra.
-
-	Impostazioni specifiche del progetto: Hai anche configurato il tuo progetto per:
-
-	Usare una dimensione di tab di 4 spazi.
-	Convertire i tab in spazi (translate_tabs_to_spaces: true).
-	Come funziona:
-	Aprire il progetto:
-
-	Puoi aprire il progetto in Sublime Text selezionando File > Open Project e selezionando il tuo file .sublime-project.
-	Una volta aperto, la cartella configurata verrà mostrata nel pannello laterale.
-	Verifica le impostazioni:
-
-	Le impostazioni definite (come il tab_size e translate_tabs_to_spaces) si applicano solo al progetto in questione, quindi non influenzeranno altre configurazioni globali di Sublime Text.
-	Aggiunta di altre cartelle (facoltativo): Se desideri aggiungere altre cartelle al progetto, puoi farlo facilmente aggiungendo più voci sotto "folders". Ecco un esempio:
-
-	
-
-	{
-    "folders": [
-        {
-            "path": "c:/Casa/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS"
-        },
-        {
-            "path": "c:/Casa/ALTRA_CARTELLA"
-        }
-    ],
-    "settings": {
-        "tab_size": 4,
-        "translate_tabs_to_spaces": true
-    }
-}
-=======
 GIT_ERRORI
 	ERRORE DI fast-forward  (AVANTI VELOCE, INOLTRARE VELEOCE)
 		:: Risolve il problema di git push con errori di fast-forward
@@ -244,4 +200,4 @@ GIT_ERRORI
 
 						git reset --hard
 						git pull --rebase
->>>>>>> 2f2bb48 (agg)
+

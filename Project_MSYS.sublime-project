@@ -2,11 +2,11 @@
     "folders":
     [
         {
-            "path": "c:/Casa/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS"
+            "path": "c:\\Casa\\LINGUAGGI\\ACCESS\\PROGETTI_MDB\\MSYS_OGGETTI\\MSYS",
         }
     ],
     "settings": {
         "tab_size": 3,
-        "translate_tabs_to_spaces": true
-    }
+        "translate_tabs_to_spaces": true,
+    },
 }
