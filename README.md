@@ -29,6 +29,62 @@ PROFILO GIT SE DA ERRORE
 					git config user.email "icivixwalter@gmail.com"
 					git config user.name "walter"
 
+		W
+			warning LF
+				warning: in the working copy of 'Project_MSYS.sublime-workspace', LF will be replaced by CRLF the next time Git touches it
+
+			Cosa significa il messaggio:
+				LF (Line Feed): È il carattere di fine riga standard su sistemi Unix-like (Linux, macOS).
+				CRLF (Carriage Return + Line Feed): È il carattere di fine riga standard su Windows.
+				Git cerca di gestire queste differenze automaticamente per evitare problemi tra i sistemi operativi.
+
+			1 Come eliminare il warning:
+				Configurare Git per gestire i fine riga automaticamente: Puoi impostare una politica globale in Git per gestire i line endings e evitare che venga visualizzato il warning.
+
+				Esegui il comando:
+					git config --global core.autocrlf true
+
+				Questo farà in modo che Git convertirà automaticamente i fine riga CRLF in LF quando effettui il commit, e li convertirà di nuovo in CRLF quando fai il checkout su Windows. Questa configurazione è molto utile se lavori su un sistema Windows, ma collabora con altri che usano Linux/macOS.
+
+
+			2 Alternative:
+
+					Se non vuoi che Git faccia nessuna conversione automatica dei fine riga e preferisci mantenere i line endings così come sono, puoi usare:
+						git config --global core.autocrlf false
+
+
+					Tuttavia, questa configurazione può portare a conflitti tra LF e CRLF se più sviluppatori usano diversi sistemi operativi.
+
+
+				Se vuoi forzare Git a usare solo LF (sempre uguali per tutti), puoi configurarlo con:
+
+						git config --global core.eol lf
+
+
+				Questo dirà a Git di usare sempre LF, ignorando le differenze tra CRLF e LF sui sistemi operativi.
+
+			3 Aggiornare i file esistenti: 
+				Se il warning si riferisce a file già esistenti, come nel caso di Project_MSYS.sublime-workspace, potresti voler normalizzare i line endings per questi file esistenti. Puoi fare così:
+
+				a. Rimuovere il file dal controllo versione (senza eliminarlo dal disco):
+
+					git rm --cached Project_MSYS.sublime-workspace
+
+				b. Aggiungere di nuovo il file con il line ending corretto:
+					git add Project_MSYS.sublime-workspace
+
+				c. Eseguire il commit:
+
+					git commit -m "Normalizza i line endings del file Project_MSYS.sublime-workspace"
+
+
+			In breve:
+				Se vuoi evitare il messaggio di warning e lasciare che Git gestisca automaticamente i fine riga, esegui:
+
+					git config --global core.autocrlf true
+
+
+
 
 
 
@@ -106,3 +162,86 @@ GIT_ADD
 		per il file in sotto cartelle il percorso completo
 		esempio: 
 			c:\GESTIONI\GESTIONE_LLPP\25_GESTIONE_LLPP\LLPP_ARCHIVI_MDB\IMPEGNI\MDB\X_IMPEGNI_RICREA_OGGETTI.mdb
+
+<<<<<<< HEAD
+
+IMPOSTAZIONi_JSON_PROGETTO:
+
+	Perfetto, hai configurato correttamente il tuo file Project_MSYS.sublime-project!
+
+	Verifica e Uso:
+	Percorso della cartella: La cartella c:/Casa/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS è ora parte del tuo progetto in Sublime Text. Quando apri il file .sublime-project in Sublime Text, questa cartella verrà automaticamente aggiunta al tuo progetto e sarà visibile nel pannello laterale a sinistra.
+
+	Impostazioni specifiche del progetto: Hai anche configurato il tuo progetto per:
+
+	Usare una dimensione di tab di 4 spazi.
+	Convertire i tab in spazi (translate_tabs_to_spaces: true).
+	Come funziona:
+	Aprire il progetto:
+
+	Puoi aprire il progetto in Sublime Text selezionando File > Open Project e selezionando il tuo file .sublime-project.
+	Una volta aperto, la cartella configurata verrà mostrata nel pannello laterale.
+	Verifica le impostazioni:
+
+	Le impostazioni definite (come il tab_size e translate_tabs_to_spaces) si applicano solo al progetto in questione, quindi non influenzeranno altre configurazioni globali di Sublime Text.
+	Aggiunta di altre cartelle (facoltativo): Se desideri aggiungere altre cartelle al progetto, puoi farlo facilmente aggiungendo più voci sotto "folders". Ecco un esempio:
+
+	
+
+	{
+    "folders": [
+        {
+            "path": "c:/Casa/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS"
+        },
+        {
+            "path": "c:/Casa/ALTRA_CARTELLA"
+        }
+    ],
+    "settings": {
+        "tab_size": 4,
+        "translate_tabs_to_spaces": true
+    }
+}
+=======
+GIT_ERRORI
+	ERRORE DI fast-forward  (AVANTI VELOCE, INOLTRARE VELEOCE)
+		:: Risolve il problema di git push con errori di fast-forward
+		:: --rebase assicura che le modifiche locali vengano applicate sopra le modifiche remote
+		:: senza creare un merge non necessario
+		@echo Correggere errore di git push...
+		git pull --rebase
+		git push
+
+	ERRORE_PULL_REBASE
+
+			git pull --rebase
+			error: cannot pull with rebase: You have unstaged changes.
+			error: Please commit or stash them.
+
+			L'errore indica che ci sono modifiche non salvate nel repository locale. Per risolverlo, hai alcune opzioni:
+
+				Opzione 1: Committare le modifiche LOCALI e poi fare il pull
+					Se vuoi mantenere le modifiche:
+
+					git add .
+					git commit -m "Salvataggio delle modifiche prima del pull"
+					git pull --rebase
+
+
+				Opzione 2: Salvare temporaneamente le modifiche con stash
+
+						Se vuoi applicare il pull senza committare subito le modifiche:
+
+						git stash
+						git pull --rebase
+						git stash pop  # Ripristina le modifiche salvate
+
+
+				Opzione 3: Scartare le modifiche locali (Attenzione: perderai i cambiamenti non salvati!)
+
+					Se non hai bisogno delle modifiche locali e vuoi forzare l'allineamento con il repository remoto:
+
+
+						git reset --hard
+						git pull --rebase
+>>>>>>> 2f2bb48 (agg)
