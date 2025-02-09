@@ -98,4 +98,4 @@ git push
 ECHO
 
 ECHO pausa di 5 secondi per il controllo
-@TIMEOUT /T 15 /NOBREAK
+@TIMEOUT /T 5 /NOBREAK

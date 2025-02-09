@@ -15,6 +15,26 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "/c/Casa/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/git_STATUS+ADD+COMMIT+PUSH.BAT",
+			"settings":
+			{
+				"buffer_size": 2849,
+				"encoding": "Western (Windows 1252)",
+				"line_ending": "Windows"
+			},
+			"undo_stack":
+			[
+				[
+					21,
+					1,
+					"right_delete",
+					null,
+					"AQAAABYLAAAAAAAAFgsAAAAAAAABAAAAMQ",
+					"AQAAAAAAAAABAAAAFgsAAAAAAAAWCwAAAAAAAAAAAAAAAPC/"
+				]
+			]
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -261,6 +281,38 @@
 		{
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "/c/Casa/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/git_STATUS+ADD+COMMIT+PUSH.BAT",
+					"selected": true,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2849,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2838,
+								2838
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Batch File/Batch File.sublime-syntax",
+							"tab_size": 3,
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1543.2,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"stack_multiselect": false,
+					"type": "text"
+				}
 			]
 		}
 	],
