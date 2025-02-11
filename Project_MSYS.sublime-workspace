@@ -78,7 +78,9 @@
 	[
 		"/c/Casa/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS",
 		"/c/Casa/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/OBJECT",
-		"/c/Casa/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/OBJECT/ANALISI"
+		"/c/Casa/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/OBJECT/ANALISI",
+		"/c/Casa/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/OBJECT/MACRO",
+		"/c/Casa/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/OBJECT/TABELLE"
 	],
 	"file_history":
 	[
@@ -213,7 +215,7 @@
 	],
 	"find":
 	{
-		"height": 31.2
+		"height": 29.6
 	},
 	"find_in_files":
 	{
@@ -390,7 +392,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 31.2
+		"height": 29.6
 	},
 	"input":
 	{
@@ -435,7 +437,7 @@
 	"project": "Project_MSYS.sublime-project",
 	"replace":
 	{
-		"height": 59.2
+		"height": 56.0
 	},
 	"save_all_on_build": false,
 	"select_file":
