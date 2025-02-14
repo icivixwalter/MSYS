@@ -6,10 +6,10 @@ dir
 
 @ECHO   fai un controllo con status, poi aggiungi con add tutto l'albero + il PULL + IL  COMMITT e il PUSH
 git status
-GIT PULL
+git pull
 
-ECHO pausa di 3 secondi per il controllo
-@TIMEOUT /T 3 /NOBREAK
+@ECHO pausa  per il controllo status ed il pull
+@TIMEOUT /T 5 /NOBREAK
 
 
 
