@@ -16,293 +16,15 @@
 	"buffers":
 	[
 		{
-			"file": "/c/Casa/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/OBJECT/FORM/Form_UTILITA_MsysDbEst_Frm20_IMPORTA_PROGETTO.cls",
+			"file": "/c/Casa/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/OBJECT/FORM/UTILITA_Msys_Frm21_IMPORTA_OGGETTI.md",
 			"settings":
 			{
-				"buffer_size": 152296,
-				"encoding": "Western (Windows 1252)",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "OBJECT/FORM/UTILITA_Msys_Frm21_IMPORTA_OGGETTI.md",
-			"settings":
-			{
-				"buffer_size": 455195,
+				"buffer_size": 462814,
 				"encoding": "UTF-8",
-				"line_ending": "Windows",
-				"name": "UTILITA_Msys_Frm21_IMPORTA_OGGETTI.md"
+				"line_ending": "Windows"
 			},
 			"undo_stack":
 			[
-				[
-					1,
-					1,
-					"paste",
-					null,
-					"AQAAAAAAAAAAAAAAIgAAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					2,
-					1,
-					"insert",
-					{
-						"characters": ".md"
-					},
-					"AwAAACIAAAAAAAAAIwAAAAAAAAAAAAAAIwAAAAAAAAAkAAAAAAAAAAAAAAAkAAAAAAAAACUAAAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAIgAAAAAAAAAiAAAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					4,
-					1,
-					"insert",
-					{
-						"characters": "\n"
-					},
-					"AQAAACUAAAAAAAAAJgAAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAJQAAAAAAAAAlAAAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					5,
-					1,
-					"reindent",
-					null,
-					"AQAAACYAAAAAAAAAKQAAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAJgAAAAAAAAAmAAAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					6,
-					1,
-					"insert",
-					{
-						"characters": "@form@"
-					},
-					"BgAAACkAAAAAAAAAKgAAAAAAAAAAAAAAKgAAAAAAAAArAAAAAAAAAAAAAAArAAAAAAAAACwAAAAAAAAAAAAAACwAAAAAAAAALQAAAAAAAAAAAAAALQAAAAAAAAAuAAAAAAAAAAAAAAAuAAAAAAAAAC8AAAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAKQAAAAAAAAApAAAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					7,
-					1,
-					"insert",
-					{
-						"characters": "UTILITA_"
-					},
-					"CAAAAC8AAAAAAAAAMAAAAAAAAAAAAAAAMAAAAAAAAAAxAAAAAAAAAAAAAAAxAAAAAAAAADIAAAAAAAAAAAAAADIAAAAAAAAAMwAAAAAAAAAAAAAAMwAAAAAAAAA0AAAAAAAAAAAAAAA0AAAAAAAAADUAAAAAAAAAAAAAADUAAAAAAAAANgAAAAAAAAAAAAAANgAAAAAAAAA3AAAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAALwAAAAAAAAAvAAAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					8,
-					1,
-					"insert_snippet",
-					{
-						"contents": "($0)"
-					},
-					"AQAAADcAAAAAAAAAOQAAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAANwAAAAAAAAA3AAAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					9,
-					1,
-					"insert",
-					{
-						"characters": "classe"
-					},
-					"BgAAADgAAAAAAAAAOQAAAAAAAAAAAAAAOQAAAAAAAAA6AAAAAAAAAAAAAAA6AAAAAAAAADsAAAAAAAAAAAAAADsAAAAAAAAAPAAAAAAAAAAAAAAAPAAAAAAAAAA9AAAAAAAAAAAAAAA9AAAAAAAAAD4AAAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAOAAAAAAAAAA4AAAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					10,
-					1,
-					"insert",
-					{
-						"characters": " della"
-					},
-					"BgAAAD4AAAAAAAAAPwAAAAAAAAAAAAAAPwAAAAAAAABAAAAAAAAAAAAAAABAAAAAAAAAAEEAAAAAAAAAAAAAAEEAAAAAAAAAQgAAAAAAAAAAAAAAQgAAAAAAAABDAAAAAAAAAAAAAABDAAAAAAAAAEQAAAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAPgAAAAAAAAA+AAAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					11,
-					1,
-					"insert",
-					{
-						"characters": " form"
-					},
-					"BQAAAEQAAAAAAAAARQAAAAAAAAAAAAAARQAAAAAAAABGAAAAAAAAAAAAAABGAAAAAAAAAEcAAAAAAAAAAAAAAEcAAAAAAAAASAAAAAAAAAAAAAAASAAAAAAAAABJAAAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAARAAAAAAAAABEAAAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					12,
-					1,
-					"insert",
-					{
-						"characters": " utilita"
-					},
-					"CAAAAEkAAAAAAAAASgAAAAAAAAAAAAAASgAAAAAAAABLAAAAAAAAAAAAAABLAAAAAAAAAEwAAAAAAAAAAAAAAEwAAAAAAAAATQAAAAAAAAAAAAAATQAAAAAAAABOAAAAAAAAAAAAAABOAAAAAAAAAE8AAAAAAAAAAAAAAE8AAAAAAAAAUAAAAAAAAAAAAAAAUAAAAAAAAABRAAAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAASQAAAAAAAABJAAAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					15,
-					1,
-					"insert",
-					{
-						"characters": "\n\n\n\n"
-					},
-					"CwAAAFIAAAAAAAAAUwAAAAAAAAAAAAAAUwAAAAAAAABWAAAAAAAAAAAAAABWAAAAAAAAAFcAAAAAAAAAAAAAAFcAAAAAAAAAWgAAAAAAAAAAAAAAUwAAAAAAAABTAAAAAAAAAAMAAAAgICBXAAAAAAAAAFgAAAAAAAAAAAAAAFgAAAAAAAAAWwAAAAAAAAAAAAAAVAAAAAAAAABUAAAAAAAAAAMAAAAgICBYAAAAAAAAAFkAAAAAAAAAAAAAAFkAAAAAAAAAXAAAAAAAAAAAAAAAVQAAAAAAAABVAAAAAAAAAAMAAAAgICA",
-					"AQAAAAAAAAABAAAAUgAAAAAAAABSAAAAAAAAAP///////+9/"
-				],
-				[
-					16,
-					1,
-					"unindent",
-					null,
-					"AQAAAFYAAAAAAAAAVgAAAAAAAAADAAAAICAg",
-					"AQAAAAAAAAABAAAAWQAAAAAAAABZAAAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					17,
-					1,
-					"insert",
-					{
-						"characters": "codice"
-					},
-					"BgAAAFYAAAAAAAAAVwAAAAAAAAAAAAAAVwAAAAAAAABYAAAAAAAAAAAAAABYAAAAAAAAAFkAAAAAAAAAAAAAAFkAAAAAAAAAWgAAAAAAAAAAAAAAWgAAAAAAAABbAAAAAAAAAAAAAABbAAAAAAAAAFwAAAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAVgAAAAAAAABWAAAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					19,
-					6,
-					"left_delete",
-					null,
-					"BgAAAFsAAAAAAAAAWwAAAAAAAAABAAAAZVoAAAAAAAAAWgAAAAAAAAABAAAAY1kAAAAAAAAAWQAAAAAAAAABAAAAaVgAAAAAAAAAWAAAAAAAAAABAAAAZFcAAAAAAAAAVwAAAAAAAAABAAAAb1YAAAAAAAAAVgAAAAAAAAABAAAAYw",
-					"AQAAAAAAAAABAAAAXAAAAAAAAABcAAAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					20,
-					1,
-					"insert",
-					{
-						"characters": "cod"
-					},
-					"AwAAAFYAAAAAAAAAVwAAAAAAAAAAAAAAVwAAAAAAAABYAAAAAAAAAAAAAABYAAAAAAAAAFkAAAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAVgAAAAAAAABWAAAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					21,
-					3,
-					"left_delete",
-					null,
-					"AwAAAFgAAAAAAAAAWAAAAAAAAAABAAAAZFcAAAAAAAAAVwAAAAAAAAABAAAAb1YAAAAAAAAAVgAAAAAAAAABAAAAYw",
-					"AQAAAAAAAAABAAAAWQAAAAAAAABZAAAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					22,
-					1,
-					"insert",
-					{
-						"characters": "CODICE_CLASSE"
-					},
-					"DQAAAFYAAAAAAAAAVwAAAAAAAAAAAAAAVwAAAAAAAABYAAAAAAAAAAAAAABYAAAAAAAAAFkAAAAAAAAAAAAAAFkAAAAAAAAAWgAAAAAAAAAAAAAAWgAAAAAAAABbAAAAAAAAAAAAAABbAAAAAAAAAFwAAAAAAAAAAAAAAFwAAAAAAAAAXQAAAAAAAAAAAAAAXQAAAAAAAABeAAAAAAAAAAAAAABeAAAAAAAAAF8AAAAAAAAAAAAAAF8AAAAAAAAAYAAAAAAAAAAAAAAAYAAAAAAAAABhAAAAAAAAAAAAAABhAAAAAAAAAGIAAAAAAAAAAAAAAGIAAAAAAAAAYwAAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAVgAAAAAAAABWAAAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					23,
-					1,
-					"insert",
-					{
-						"characters": "\n"
-					},
-					"AQAAAGMAAAAAAAAAZAAAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAYwAAAAAAAABjAAAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					24,
-					1,
-					"insert",
-					{
-						"characters": "\n"
-					},
-					"AQAAAGQAAAAAAAAAZQAAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAZAAAAAAAAABkAAAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					25,
-					1,
-					"paste",
-					null,
-					"AQAAAGUAAAAAAAAAFvIGAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAZQAAAAAAAABlAAAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					32,
-					1,
-					"insert",
-					{
-						"characters": "##"
-					},
-					"AgAAAFYAAAAAAAAAVwAAAAAAAAAAAAAAVwAAAAAAAABYAAAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAVgAAAAAAAABWAAAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					33,
-					1,
-					"insert",
-					{
-						"characters": "#"
-					},
-					"AQAAAFgAAAAAAAAAWQAAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAWAAAAAAAAABYAAAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					34,
-					1,
-					"insert",
-					{
-						"characters": " "
-					},
-					"AQAAAFkAAAAAAAAAWgAAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAWQAAAAAAAABZAAAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					38,
-					1,
-					"insert",
-					{
-						"characters": "\n"
-					},
-					"AQAAAGkAAAAAAAAAagAAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAaQAAAAAAAABpAAAAAAAAAAAAAAAAAPC/"
-				]
-			]
-		},
-		{
-			"contents": "UTILITA_Msys_Frm21_IMPORTA_OGGETTI.md",
-			"settings":
-			{
-				"buffer_size": 37,
-				"line_ending": "Windows",
-				"name": "UTILITA_Msys_Frm21_IMPORTA_OGGETTI.md"
-			},
-			"undo_stack":
-			[
-				[
-					1,
-					1,
-					"paste",
-					null,
-					"AQAAAAAAAAAAAAAAIgAAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					2,
-					1,
-					"insert",
-					{
-						"characters": ".md"
-					},
-					"AwAAACIAAAAAAAAAIwAAAAAAAAAAAAAAIwAAAAAAAAAkAAAAAAAAAAAAAAAkAAAAAAAAACUAAAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAIgAAAAAAAAAiAAAAAAAAAAAAAAAAAPC/"
-				]
 			]
 		}
 	],
@@ -368,11 +90,12 @@
 	[
 		"/c/Casa/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS",
 		"/c/Casa/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/OBJECT",
-		"/c/Casa/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/OBJECT/ANALISI",
 		"/c/Casa/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/OBJECT/FORM"
 	],
 	"file_history":
 	[
+		"/C/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/OBJECT/FORM/IMPORTA_OGGETTI.MD",
+		"/C/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/OBJECT/FORM/UTILITA_Msys_Frm21_IMPORTA_OGGETTI.md",
 		"/c/Casa/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/README.md",
 		"/c/Casa/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/Zip_N70_ElencoFile.txt",
 		"/c/Casa/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/ATTIVA_SALVATAGGI_COLLETTIVI_MSYS_OGGETTI+MENU+IMPEGNI.BAT",
@@ -498,13 +221,11 @@
 		"/C/CASA/CDM/GE_COND/ANAGR/ANAGR_ANALISI/ANAGR_TB04_PEC_EMAIL.md",
 		"/C/CASA/LTT/ANALISI/SublimeText_Analisi/Lotto_Progetto/Lotto_Progetto.md",
 		"/C/GESTIONI/GESTIONE_LLPP/25_GESTIONE_LLPP./NUMERI_TELEFONICI_Dipendenti in Servizio",
-		"/C/Users/walter.rossi/Desktop/FF Documento Progettuale Prot 0076218030.txt",
-		"/C/GESTIONI/GESTIONE_LLPP/25_GESTIONE_LLPP./NUMERI_TELEFONICI_Dipendenti in Servizio.md",
-		"/C/Users/walter.rossi/Desktop/Documento1.txt"
+		"/C/Users/walter.rossi/Desktop/FF Documento Progettuale Prot 0076218030.txt"
 	],
 	"find":
 	{
-		"height": 29.6
+		"height": 31.2
 	},
 	"find_in_files":
 	{
@@ -522,6 +243,13 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"Msys_DLLQry01_01_LIBRERIE_ATTIVE",
+			"Msys_DF13Qry01_00_}-----------------------------------------@DLL",
+			"@utilita@macro",
+			"InCollectionMacrosDELETE_Funct_b",
+			"CollectionMACRO_DbSource",
+			"macrosCollection",
+			"'//ATTIVO LA COLLEZIONE DELLE MACRO DA CANCELLARE",
 			"MENU",
 			"menu",
 			"Project_MENU",
@@ -642,14 +370,7 @@
 			"fabrizia",
 			"protocollo",
 			"lorena",
-			"aurora",
-			"gabriele",
-			"lorena",
-			"maria",
-			"aurora",
-			"VESPAZIANI",
-			"aurora",
-			"caringi"
+			"aurora"
 		],
 		"highlight": false,
 		"in_selection": false,
@@ -678,11 +399,12 @@
 			[
 				{
 					"buffer": 0,
-					"file": "/c/Casa/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/OBJECT/FORM/Form_UTILITA_MsysDbEst_Frm20_IMPORTA_PROGETTO.cls",
-					"semi_transient": true,
+					"file": "/c/Casa/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/OBJECT/FORM/UTILITA_Msys_Frm21_IMPORTA_OGGETTI.md",
+					"selected": true,
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 152296,
+						"buffer_size": 462814,
 						"regions":
 						{
 						},
@@ -695,41 +417,9 @@
 						],
 						"settings":
 						{
-							"syntax": "Packages/LaTeX/TeX.sublime-syntax",
-							"tab_size": 4,
+							"syntax": "Packages/Markdown/Markdown.sublime-syntax",
+							"tab_size": 3,
 							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"stack_multiselect": false,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "OBJECT/FORM/UTILITA_Msys_Frm21_IMPORTA_OGGETTI.md",
-					"selected": true,
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 455195,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								106,
-								106
-							]
-						],
-						"settings":
-						{
-							"auto_name": "UTILITA_Msys_Frm21_IMPORTA_OGGETTI.md",
-							"mde.match_heading_hashes": false,
-							"syntax": "Packages/Markdown/Markdown.sublime-syntax"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -738,43 +428,13 @@
 					"stack_index": 0,
 					"stack_multiselect": false,
 					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 37,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								37,
-								37
-							]
-						],
-						"settings":
-						{
-							"auto_name": "UTILITA_Msys_Frm21_IMPORTA_OGGETTI.md",
-							"default_dir": "c:\\Casa\\LINGUAGGI\\ACCESS\\PROGETTI_MDB\\MSYS_OGGETTI\\MSYS\\OBJECT\\FORM\\MSys_TB0401_FORM",
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"stack_multiselect": false,
-					"type": "text"
 				}
 			]
 		}
 	],
 	"incremental_find":
 	{
-		"height": 29.6
+		"height": 31.2
 	},
 	"input":
 	{
@@ -819,7 +479,7 @@
 	"project": "Project_MSYS.sublime-project",
 	"replace":
 	{
-		"height": 56.0
+		"height": 59.2
 	},
 	"save_all_on_build": false,
 	"select_file":
@@ -860,8 +520,8 @@
 	"show_minimap": false,
 	"show_open_files": true,
 	"show_tabs": true,
-	"side_bar_visible": true,
-	"side_bar_width": 582.0,
+	"side_bar_visible": false,
+	"side_bar_width": 460.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

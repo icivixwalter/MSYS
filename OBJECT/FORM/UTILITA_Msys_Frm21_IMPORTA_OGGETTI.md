@@ -6,6 +6,8 @@ UTILITA_Msys_Frm21_IMPORTA_OGGETTI.md
 ### CODICE_CLASSE
 
 
+
+
 '# CLASSE_Form_UTILITA_Msys_Frm21_IMPORTA_OGGETTI.md
 '//@VERSIONE_DEL_2025_02_12=COMPLETA E FUNZIONANTE
 
@@ -259,7 +261,15 @@ Option Compare Database
          Dim deletetMacroCount_i As Integer
          Dim importedMacro_s As String
          Dim importedMacroCount_i As Integer
-     
+            
+        '//DIM oggetti Access del db interno
+        Dim obj As AccessObject
+        Dim importedMacrosCount_i As Integer
+        
+        '//LA MATRICE DELLE MACRO INTERNE NEL DB
+        Dim MATRICE_MACRO_Names_s() As String             'matrice di MACRO CON LE () SIGNIFICA MATRICE
+    
+    
          
     '//...................................
 
@@ -930,12 +940,12 @@ On Error GoTo CollectionQuery_PFunct_Err
                 '//@COLLECTION@DLL@QUERY
                 objectQUERY.Add "Msys_DF13Qry01_00_}-----------------------------------------@DLL"
                 objectQUERY.Add "Msys_DF13Qry01_01_DLL_PROGETTO"
-                objectQUERY.Add "Msys_DF14Qry01_01_DLL_LIBRERIE"
-                objectQUERY.Add "Msys_DLL_Qry01_81_}--------------------------------------------@"
-                objectQUERY.Add "Msys_DLL_Qry01_81_DELETE_LIBRERIE"
+                objectQUERY.Add "Msys_DF14Qry01_01_DELETE_LIBRERIE"
+                objectQUERY.Add "Msys_DF14Qry01_02_DLL_LIBRERIE"
+                objectQUERY.Add "Msys_DF14Qry01_03_UPDATE_CAMPI"
                 objectQUERY.Add "Msys_DLLQry01_00_}---------------------------------------------@"
-                objectQUERY.Add "Msys_DLLQry01_01_LIBRERIE_ATTIVE"
-                objectQUERY.Add "Msys_DLLQry01_10_GROUP_DLL_Correnti"
+                objectQUERY.Add ""
+                objectQUERY.Add ""
                 objectQUERY.Add ""
 
 
@@ -2990,7 +3000,7 @@ On Error GoTo Err_Cmd_Delete_QUERY_Click
                      Set dbCurrent = CurrentDb
                      
                      '//CALCOLO INDICE QUERY
-                     icount = dbCurrent.QueryDefs.Count
+                     icount = dbCurrent.QueryDefs.count
                                        
                     '//APRO IL CORRENTE DB
                     Set dbCurrent = CurrentDb
@@ -3249,7 +3259,7 @@ Private Sub Cmd_Importa_FORM_Click()
     Set formsCollection = CollectionForm_PFunct()
 
     ' SE LA COLLECTION E' VUOTA ESCI DALLA ROUTINE
-    If formsCollection.Count = 0 Then Exit Sub
+    If formsCollection.count = 0 Then Exit Sub
 
     ' Controllo path ed il file.mdb per le importazioni
     sourceDBPath = PathFile_s_pFunct
@@ -3328,7 +3338,7 @@ Private Sub Cmd_Importa_FORM_Click()
                     Set dbCurrent = CurrentDb
                     
                     ' Controlla se ci sono form nel database corrente
-                    If CurrentProject.AllForms.Count = 0 Then
+                    If CurrentProject.AllForms.count = 0 Then
                         MsgBox "Nessun form presente nel database corrente.", vbExclamation, "Attenzione"
                     Else
                         ' Itera sugli oggetti form per trovare l'ultimo
@@ -3509,7 +3519,7 @@ Private Sub Cmd_Delete_FORM_Click()
                       Set dbCurrent = CurrentDb
                   
                       '//CALCOLO INDICE FORM
-                      icount = Application.CurrentProject.AllForms.Count
+                      icount = Application.CurrentProject.AllForms.count
                   
                       '//se ci sono FORM da cancellare
                       If icount > 0 Then
@@ -3578,7 +3588,7 @@ Private Sub Cmd_Delete_FORM_Click()
                                       tableVisibili = 0
                                       
                                       ' Conta le maschere visibili nel database
-                                      For i = 0 To Application.CurrentProject.AllForms.Count - 1
+                                      For i = 0 To Application.CurrentProject.AllForms.count - 1
                                           formVisibili = formVisibili + 1
                                       Next i
                                       
@@ -3967,7 +3977,7 @@ Private Sub Cmd_Importa_MACRO_Click()
                         faccio un controllo sul numero degli oggetti della collection se = 0 allora _
                         non ci sono oggetti da caricare per cui si esce dalla routine.
                         
-            If objectMacros.Count = 0 Then Exit Sub
+            If objectMacros.count = 0 Then Exit Sub
    
         
     '//------------------------------------------------------------------------//
@@ -4126,7 +4136,6 @@ Private Sub Cmd_Delete_MACRO_Click()
 
     Dim dbCurrent As DAO.Database
     Dim Dbs As Object
-
     Dim obj As AccessObject
     
     Dim macrosCollection As Collection
@@ -4135,7 +4144,7 @@ Private Sub Cmd_Delete_MACRO_Click()
     Dim tempCount As Integer
     Dim macrosCount_i As Integer
     Dim od As AccessObject
-    Dim icount As Integer
+    Dim icount As Integer                              'I CONTATORI
     Dim i As Integer
     Dim Bool1 As Boolean
     
@@ -4190,117 +4199,152 @@ Private Sub Cmd_Delete_MACRO_Click()
                 '//=====================================================================================================================//
     
     
-    '//ATTIVO LA COLLEZIONE
-    '//------------------------------------------------------------------------//
-    '//Note: CHIAMO LA FUNZIONE COLLECTION MACRO per ottenere la collezione di MACRO
-
-    Set macrosCollection = CollectionMacro_PFunct()
-    '//------------------------------------------------------------------------//
-
-    ' Loop attraverso tutte le MACRO nel database corrente
-    Set dbCurrent = CurrentDb
-
-    '//CALCOLO INDICE MACRO
-    icount = CurrentProject.AllMacros.Count
     
-
-    '//se ci sono MACRO da cancellare
-    If icount > 0 Then
-
-        '//reimposto la matrice sulle MACRO esistenti nel db corrente
-        ReDim MATRICE_MACRO_Names_s(icount - 1)
-
-        ' Costruisci un array con i nomi delle MACRO
-        tempCount = 0
-
-            '//CARICO LA MATRICE: ciclo for per caricare MATRICE_MACRO_Names_s(tempCount)
-            Set Dbs = Application.CurrentProject
-            ' Ricerca oggetti AccessObject aperti in insieme AllMacros.
-            For Each obj In Dbs.AllMacros
-                    ' Stampa nome di obj.
-                    Debug.Print obj.Name
-                    MATRICE_MACRO_Names_s(tempCount) = obj.Name
-                    tempCount = tempCount + 1
-            Next obj
-    
-    
+    '//CANCELLO LE MACRO DEL DB CORRENTE SE UGUALI ALLA MATRICE MACRO DA IMPORTARE **** INIZIO ****
+    '//=====================================================================================================================//
         
-
-        ' Cancella le MACRO usando l'array dei nomi
-        For i = 0 To tempCount - 1
-            On Error Resume Next  ' Aggiungi gestione errori specifica per ogni iterazione
-            Debug.Print "Cancellazione MACRO: " & MATRICE_MACRO_Names_s(i)
-
-            '//CONTROLLO MATRICE = COLLECTION
-            Bool1 = InCollectionMacrosDELETE_Funct_b(macrosCollection, MATRICE_MACRO_Names_s(i))
-
-            '//cancello solo se la matrice (i) esiste nella collection
-            If Bool1 = True Then
-                Debug.Print
-                Debug.Print "cancello la MACRO trovata sia nella collezione che nella matrice : " & MATRICE_MACRO_Names_s(i)
-                DoCmd.DeleteObject acMacro, MATRICE_MACRO_Names_s(i)
-
-                If Err.number <> 0 Then
-                    Debug.Print "Errore durante la cancellazione della MACRO: " & MATRICE_MACRO_Names_s(i) & " - " & Err.Description
-                    Err.Clear  ' Pulisci l'errore per la prossima iterazione
-                Else
-                    deletetMacrosCount_i = deletetMacrosCount_i + 1
-                End If
-
-            End If '//If Bool1 = True Then
-
-            On Error GoTo 0  ' Reimposta gestione errori
-        Next i
-    End If
-
-
-
-              '//APRI RIQUADRO MACRO INDIPENDENTEMENTE DALLA LORO PRESENZA
-              '//-------------------------------------------------------------------------------------------------//
-              '//NOTE= Apri la sezione macro indipendentemente dalla presenza di oggetti _
-
-                    
-                    Dim db As DAO.Database
-                    Dim doc As Document
-                    Dim macroVisibili As Integer
-                    
-                    Set db = CurrentDb
-                    macroVisibili = 0 ' Inizializza il contatore
-                    
-                    ' Conta solo le macro visibili nel database
-                    For Each doc In db.Containers("Scripts").Documents
-                        If Left(doc.Name, 1) <> "~" Then ' Esclude eventuali macro di sistema nascoste
-                            macroVisibili = macroVisibili + 1
-                        End If
-                    Next doc
-                    
-                    ' Se ci sono macro visibili, apri la sezione Macro
-                    If macroVisibili > 0 Then
-                        DoCmd.SelectObject acMacro, , True
-                    Else
-                        ' Se non ci sono macro, prova a selezionare un altro oggetto per forzare l'apertura del riquadro
-                        On Error Resume Next
-                        DoCmd.SelectObject acTable, , True ' Seleziona una tabella (se esiste)
-                        DoCmd.SelectObject acMacro, , True ' Ora prova a selezionare la sezione Macro
-                        On Error GoTo 0
-                    End If
-                    
-                    ' Pulizia memoria
-                    Set doc = Nothing
-                    Set db = Nothing
-                    
-                    
-                    
-              '//APRI RIQUADRO MACRO INDIPENDENTEMENTE DALLA LORO PRESENZA *** FINE ***
-              '//-------------------------------------------------------------------------------------------------//
+        '//@01MACRO_CARICO_LA_COLLEZIONE_OGGETTI=imposto la collection dei nomi delle _
+                macro da caricare nell'oggetto colletion
+        '//------------------------------------------------------------------------//
+        
+            Set macrosCollection = CollectionMacro_PFunct()
             
+        '//------------------------------------------------------------------------//
+        
+        '//@02MACRO_IMPOSTO_OGGETTI_DB_CORRENTE=imposto le variabili oggetto del _
+            DB CORRENTE e del CONTATORE MACRO
+        '//------------------------------------------------------------------------//
+            '// Loop attraverso tutte le MACRO nel database corrente _
+                Dim dbCurrent As DAO.Database
+            Set dbCurrent = CurrentDb
+        
+            '//CALCOLO INDICE MACRO
+            icount = CurrentProject.AllMacros.count
+        '//------------------------------------------------------------------------//
+            
+        
+        
+            '//@03MACRO_IF_DI_CONTROLLO_MACRO=IF>0 CI SONO MACRO DA CANCELLARE NE DB CORRENTE *** INIZIO ***
+            '//--------------------------------------------------------------------------------------------------------//
+                  If icount > 0 Then
+                                 
+                    '//@03MACRO_IF.01=REIMPOSTO LA MATRICE DELLE MACRO+RESET CONTATORE
+                    '//............................................................................................//
+                        '//reimposto la matrice sulle MACRO esistenti nel db corrente _
+                        Dim MATRICE_MACRO_Names_s() As String             'matrice di MACRO
+                        ReDim MATRICE_MACRO_Names_s(icount - 1)
+                        ' e reset contatore temporaneo
+                        tempCount = 0
+                        
+                    '//............................................................................................//
+                    
+                            
+                    '//@03MACRO_IF.02=CARICO LA MATRICE_MACRO_Names_s(tempCount)
+                    '//............................................................................................//
+                                     
+                                Set Dbs = Application.CurrentProject
+                                ' Ricerca oggetti AccessObject aperti in insieme AllMacros. _
+                                    Dim obj As AccessObject
+                                For Each obj In Dbs.AllMacros
+                                        ' Stampa nome di obj.
+                                        Debug.Print obj.Name
+                                        MATRICE_MACRO_Names_s(tempCount) = obj.Name
+                                        tempCount = tempCount + 1
+                                Next obj
+                        
+                    '//............................................................................................//
+                        
+                            
+                            '//@03MACRO_IF.03=CANCELLO LE MACRO DEL DB CORRENTE SE = ARRAY MATRICE_MACRO_Names_s(tempCount)
+                            '//............................................................................................//
+                            
+                                    ' Cancella le MACRO usando l'array dei nomi
+                                    For i = 0 To tempCount - 1
+                                        On Error Resume Next  ' Aggiungi gestione errori specifica per ogni iterazione
+                                        Debug.Print "Cancellazione MACRO: " & MATRICE_MACRO_Names_s(i)
+                            
+                                        '//CONTROLLO MATRICE = COLLECTION
+                                        Bool1 = InCollectionMacrosDELETE_Funct_b(macrosCollection, MATRICE_MACRO_Names_s(i))
+                            
+                                        '//cancello solo se la matrice (i) esiste nella collection
+                                        If Bool1 = True Then
+                                            Debug.Print
+                                            Debug.Print "cancello la MACRO trovata sia nella collezione che nella matrice : " & MATRICE_MACRO_Names_s(i)
+                                            DoCmd.DeleteObject acMacro, MATRICE_MACRO_Names_s(i)
+                            
+                                            If Err.number <> 0 Then
+                                                Debug.Print "Errore durante la cancellazione della MACRO: " & MATRICE_MACRO_Names_s(i) & " - " & Err.Description
+                                                Err.Clear  ' Pulisci l'errore per la prossima iterazione
+                                            Else
+                                                deletetMacrosCount_i = deletetMacrosCount_i + 1
+                                            End If
+                            
+                                        End If '//If Bool1 = True Then
+                            
+                                        On Error GoTo 0  ' Reimposta gestione errori
+                                    Next i
+                                    
+                            '//............................................................................................//
+                            
+                    End If '// If icount > 0 Then
+        
+            '//@03MACRO_IF_DI_CONTROLLO_MACRO=IF>0 CI SONO MACRO DA CANCELLARE NE DB CORRENTE *** INIZIO ***
+            '//--------------------------------------------------------------------------------------------------------//
+
+    '//CANCELLO LE MACRO DEL DB CORRENTE SE UGUALI ALLA MATRICE MACRO DA IMPORTARE **** FINE ****
+    '//=====================================================================================================================//
+                
+                
+                
+                
+                      '//APRI RIQUADRO MACRO INDIPENDENTEMENTE DALLA LORO PRESENZA
+                      '//-------------------------------------------------------------------------------------------------//
+                      '//NOTE= Apri la sezione macro indipendentemente dalla presenza di oggetti _
+
+                            
+                            Dim db As DAO.Database
+                            Dim doc As Document
+                            Dim macroVisibili As Integer
+                            
+                            Set db = CurrentDb
+                            macroVisibili = 0 ' Inizializza il contatore
+                            
+                            ' Conta solo le macro visibili nel database
+                            For Each doc In db.Containers("Scripts").Documents
+                                If Left(doc.Name, 1) <> "~" Then ' Esclude eventuali macro di sistema nascoste
+                                    macroVisibili = macroVisibili + 1
+                                End If
+                            Next doc
+                            
+                            ' Se ci sono macro visibili, apri la sezione Macro
+                            If macroVisibili > 0 Then
+                                DoCmd.SelectObject acMacro, , True
+                            Else
+                                ' Se non ci sono macro, prova a selezionare un altro oggetto per forzare l'apertura del riquadro
+                                On Error Resume Next
+                                DoCmd.SelectObject acTable, , True ' Seleziona una tabella (se esiste)
+                                DoCmd.SelectObject acMacro, , True ' Ora prova a selezionare la sezione Macro
+                                On Error GoTo 0
+                            End If
+                            
+                            ' Pulizia memoria
+                            Set doc = Nothing
+                            Set db = Nothing
+                            
+                            
+                            
+                      '//APRI RIQUADRO MACRO INDIPENDENTEMENTE DALLA LORO PRESENZA *** FINE ***
+                      '//-------------------------------------------------------------------------------------------------//
+    
 
 
 
-    ' Messaggio finale di riepilogo SE ABILITATO CON TRUE - FALSE DISABILITATO
-    If Me.ctr_AVVISO_ABILITATO_TXT = True Then
-        MsgBox "Le MACRO CANCELLATE DA QUESTO DATABASE SONO :  " & deletetMacrosCount_i, vbExclamation, "MSG CHIAMATO LA FUNZIONE PATHFILE"
-    End If
+                    ' Messaggio finale di riepilogo SE ABILITATO CON TRUE - FALSE DISABILITATO
+                    If Me.ctr_AVVISO_ABILITATO_TXT = True Then
+                        MsgBox "Le MACRO CANCELLATE DA QUESTO DATABASE SONO :  " & deletetMacrosCount_i, vbExclamation, "MSG CHIAMATO LA FUNZIONE PATHFILE"
+                    End If
+
+
 
 '//USCITA E GESTIONE ERRORI
 '//..............................................................................................................
@@ -4493,13 +4537,65 @@ Private Sub Cmd_IMPORTA_OGGETTI_UTILITA_Click()
     Dim importedNameMacros_s As String
     Dim varItem As Variant
 
+    ' Percorso del database sorgente
+    Dim sourceDBPath_s As String
+    sourceDBPath_s = "c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSYS_ATTIVA_GEST_OGGETTI.mdb"
+
+    ' Crea le collezioni per tabelle, query, moduli, form, report e macro
+    Dim colTables_UTILITA As Collection
+    Dim colQueryes_UTILITA As Collection
+    Dim colModules_UTILITA As Collection
+    Dim colForms_UTILITA As Collection
+    Dim colReports_UTILITA As Collection
+    Dim colMacros_UTILITA As Collection
+
+    ' Carica gli oggetti nelle collection
+    Call CaricaOggetti_UTILITA(colTables_UTILITA, colQueryes_UTILITA, colModules_UTILITA, colForms_UTILITA, colReports_UTILITA, colMacros_UTILITA)
+
+    ' Apri il database corrente
+    Set dbCurrent = CurrentDb
+
+    ' Apri il database di origine
+    Set dbSource = DBEngine.Workspaces(0).OpenDatabase(sourceDBPath_s)
 
 
 
 
+    ' --- INIZIALIZZA I CONTATORI ---
+    importedTableCount_i = 0
+    importedQueryesCount_i = 0
+    importedModuliCount_i = 0
+    importedFormsCount_i = 0
+    importedReportsCount_i = 0
+    importedMacrosCount_i = 0
+
+    deleteTablesCount_i = 0
+    deleteQueryesCount_i = 0
+    deleteModulesCount_i = 0
+    deleteFormsCount_i = 0
+    deleteReportsCount_i = 0
+    deleteMacrosCount_i = 0
+
+    deleteNameTables_s = ""
+    importedNameTables_s = ""
+    deleteNameQueryes_s = ""
+    importedNameQueryes_s = ""
+    deleteNameForms_s = ""
+    importedNameForms_s = ""
+    deleteNameReports_s = ""
+    importedNameReports_s = ""
+    deleteNameMacros_s = ""
+    importedNameMacros_s = ""
 
 
-                '//=====================================================================================================================//
+
+    ' --- Collega le tabelle ---
+    Dim tblName As String
+    Dim rs As DAO.Recordset
+    Dim TableExists As Boolean
+    
+    
+    '//=====================================================================================================================//
                 '//                             STEP_02 = @CONTROLLO@PROGETTO
                 '//CHIAMO IL CONTROLLO DEL PROGETTO  - 01 E 02) CONTROLLO - *** INIZIO ***
                 '//=====================================================================================================================//
@@ -4542,59 +4638,6 @@ Private Sub Cmd_IMPORTA_OGGETTI_UTILITA_Click()
     
         
 
-
-
-
-
-
-    ' Percorso del database sorgente
-    Dim sourceDBPath_s As String
-    sourceDBPath_s = "c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSYS_ATTIVA_GEST_OGGETTI.mdb"
-
-    ' Crea le collezioni per tabelle, query, moduli, form, report e macro
-    Dim colTables_UTILITA As Collection
-    Dim colQueryes_UTILITA As Collection
-    Dim colModules_UTILITA As Collection
-    Dim colForms_UTILITA As Collection
-    Dim colReports_UTILITA As Collection
-    Dim colMacros_UTILITA As Collection
-
-    ' Carica gli oggetti nelle collection
-    Call CaricaOggetti_UTILITA(colTables_UTILITA, colQueryes_UTILITA, colModules_UTILITA, colForms_UTILITA, colReports_UTILITA, colMacros_UTILITA)
-
-    ' Apri il database corrente
-    Set dbCurrent = CurrentDb
-
-    ' Apri il database di origine
-    Set dbSource = DBEngine.Workspaces(0).OpenDatabase(sourceDBPath_s)
-
-    ' Inizializza i contatori
-    countTabelle = 0
-    countQuery = 0
-    countModuli = 0
-    countForms = 0
-    countReports = 0
-    countMacros = 0
-    deleteTablesCount_i = 0
-    importedTableCount_i = 0
-    deleteQueryesCount_i = 0
-    importedQueryesCount_i = 0
-    deleteNameTables_s = ""
-    importedNameTables_s = ""
-    deleteNameQueryes_s = ""
-    importedNameQueryes_s = ""
-    deleteNameForms_s = ""
-    importedNameForms_s = ""
-    deleteNameReports_s = ""
-    importedNameReports_s = ""
-    deleteNameMacros_s = ""
-    importedNameMacros_s = ""
-
-    ' --- Collega le tabelle ---
-    Dim tblName As String
-    Dim rs As DAO.Recordset
-    Dim TableExists As Boolean
-
     For Each varItem In colTables_UTILITA
         tblName = CStr(varItem) ' Assicura che sia una stringa
         Debug.Print "CONTROLLO TABELLA DA COLLEGARE --> : "; tblName
@@ -4633,7 +4676,7 @@ Private Sub Cmd_IMPORTA_OGGETTI_UTILITA_Click()
         End If
     Next varItem
 
-    ' --- Importazione delle query ---
+    ' -------------- Importazione delle query ---
     Dim qryName As String
     Dim QueryExists As Boolean
 
@@ -4672,12 +4715,12 @@ Private Sub Cmd_IMPORTA_OGGETTI_UTILITA_Click()
         End If
     Next varItem
 
-    ' --- Importazione dei moduli ---
+    ' -------------- Importazione dei moduli ---
     Dim myNameModule_s As String
     Dim moduleExists As Boolean
 
-    For Each mdl In colModules_UTILITA
-        myNameModule_s = mdl
+    For Each MDL In colModules_UTILITA
+        myNameModule_s = MDL
         Debug.Print "CONTROLLO MODULO DA IMPORTARE --> : "; myNameModule_s
         Debug.Print
 
@@ -4707,9 +4750,9 @@ Private Sub Cmd_IMPORTA_OGGETTI_UTILITA_Click()
             importedModuliCount_i = importedModuliCount_i + 1
             importedNameModules_s = importedNameModules_s & myNameModule_s & vbCrLf
         End If
-    Next mdl
+    Next MDL
 
-    ' --- Importazione dei form ---
+    ' -------------- Importazione dei form ---
     Dim formExists As Boolean
 
     For Each varItem In colForms_UTILITA
@@ -4718,15 +4761,12 @@ Private Sub Cmd_IMPORTA_OGGETTI_UTILITA_Click()
 
         ' Verifica se la form esiste nel database di origine
         formExists = False
-
-        On Error Resume Next
         Set rs = dbSource.OpenRecordset("SELECT Name FROM MSysObjects WHERE Type = 6 AND Name = '" & varItem & "'", dbOpenSnapshot)
         If Not rs.EOF Then
             formExists = True
         End If
         rs.Close
         Set rs = Nothing
-        On Error GoTo 0
 
         ' Se la form esiste nel database di origine, esegui la cancellazione e l'importazione
         If formExists Then
@@ -4753,8 +4793,9 @@ Private Sub Cmd_IMPORTA_OGGETTI_UTILITA_Click()
         End If
     Next varItem
 
-    ' --- Importazione dei report ---
+    ' -------------- Importazione dei report ---
     Dim reportExists As Boolean
+    Dim reportExistsInDestination As Boolean
 
     For Each varItem In colReports_UTILITA
         Debug.Print "CONTROLLO REPORT DA IMPORTARE --> : "; varItem
@@ -4762,11 +4803,19 @@ Private Sub Cmd_IMPORTA_OGGETTI_UTILITA_Click()
 
         ' Verifica se il report esiste nel database di origine
         reportExists = False
-
-        On Error Resume Next
+        reportExistsInDestination = False
         Set rs = dbSource.OpenRecordset("SELECT Name FROM MSysObjects WHERE Type = -32764 AND Name = '" & varItem & "'", dbOpenSnapshot)
         If Not rs.EOF Then
             reportExists = True
+        End If
+        rs.Close
+        Set rs = Nothing
+
+        ' Verifica se il report esiste nel database di destinazione
+        On Error Resume Next
+        Set rs = dbCurrent.OpenRecordset("SELECT Name FROM MSysObjects WHERE Type = -32764 AND Name = '" & varItem & "'", dbOpenSnapshot)
+        If Not rs.EOF Then
+            reportExistsInDestination = True
         End If
         rs.Close
         Set rs = Nothing
@@ -4774,6 +4823,12 @@ Private Sub Cmd_IMPORTA_OGGETTI_UTILITA_Click()
 
         ' Se il report esiste nel database di origine, esegui l'importazione
         If reportExists Then
+            ' Se il report esiste già nel database di destinazione, cancellalo prima di importare
+            If reportExistsInDestination Then
+                DoCmd.DeleteObject acReport, varItem
+                Debug.Print "Report esistente cancellato: "; varItem
+            End If
+
             ' Importa il report dal database di origine
             DoCmd.TransferDatabase acImport, "Microsoft Access", sourceDBPath_s, acReport, varItem, varItem
 
@@ -4785,8 +4840,9 @@ Private Sub Cmd_IMPORTA_OGGETTI_UTILITA_Click()
         End If
     Next varItem
 
-    ' --- Importazione delle macro ---
+    ' -------------- Importazione delle macro ---
     Dim macroExists As Boolean
+    Dim macroExistsInDestination As Boolean
 
     For Each varItem In colMacros_UTILITA
         Debug.Print "CONTROLLO MACRO DA IMPORTARE --> : "; varItem
@@ -4794,11 +4850,19 @@ Private Sub Cmd_IMPORTA_OGGETTI_UTILITA_Click()
 
         ' Verifica se la macro esiste nel database di origine
         macroExists = False
-
-        On Error Resume Next
+        macroExistsInDestination = False
         Set rs = dbSource.OpenRecordset("SELECT Name FROM MSysObjects WHERE Type = -32766 AND Name = '" & varItem & "'", dbOpenSnapshot)
         If Not rs.EOF Then
             macroExists = True
+        End If
+        rs.Close
+        Set rs = Nothing
+
+        ' Verifica se la macro esiste nel database di destinazione
+        On Error Resume Next
+        Set rs = dbCurrent.OpenRecordset("SELECT Name FROM MSysObjects WHERE Type = -32766 AND Name = '" & varItem & "'", dbOpenSnapshot)
+        If Not rs.EOF Then
+            macroExistsInDestination = True
         End If
         rs.Close
         Set rs = Nothing
@@ -4806,6 +4870,12 @@ Private Sub Cmd_IMPORTA_OGGETTI_UTILITA_Click()
 
         ' Se la macro esiste nel database di origine, esegui l'importazione
         If macroExists Then
+            ' Se la macro esiste già nel database di destinazione, cancellala prima di importare
+            If macroExistsInDestination Then
+                DoCmd.DeleteObject acMacro, varItem
+                Debug.Print "Macro esistente cancellata: "; varItem
+            End If
+
             ' Importa la macro dal database di origine
             DoCmd.TransferDatabase acImport, "Microsoft Access", sourceDBPath_s, acMacro, varItem, varItem
 
@@ -4817,11 +4887,6 @@ Private Sub Cmd_IMPORTA_OGGETTI_UTILITA_Click()
         End If
     Next varItem
 
-    ' Rilascia le risorse
-    dbSource.Close
-    Set dbSource = Nothing
-    Set dbCurrent = Nothing
-
     ' Messaggio finale con il numero di oggetti importati
     MsgBox "Importazione completata con successo!" & vbCrLf & vbCrLf & _
            "Tabelle collegate: " & importedTableCount_i & vbCrLf & _
@@ -4831,6 +4896,11 @@ Private Sub Cmd_IMPORTA_OGGETTI_UTILITA_Click()
            "Report importati: " & importedReportsCount_i & vbCrLf & _
            "Macro importate: " & importedMacrosCount_i, _
            vbInformation, "Operazione completata"
+
+    ' Rilascia le risorse
+    dbSource.Close
+    Set dbSource = Nothing
+    Set dbCurrent = Nothing
 
     Exit Sub
 
@@ -4846,9 +4916,6 @@ ErrHandler:
            "Errore " & Err.number & ": " & Err.Description, _
            vbCritical, "Errore"
 
-    Resume ExitHandler
-
-ExitHandler:
     ' Rilascia le risorse in caso di errore
     If Not dbSource Is Nothing Then
         dbSource.Close
@@ -4861,8 +4928,31 @@ ExitHandler:
         rs.Close
         Set rs = Nothing
     End If
-    Exit Sub
 End Sub
+
+' Funzione per verificare se un elemento esiste nella collezione di MACRO
+Function InCollectionMacrosDbIntern_DELETE_Funct_b(col As Collection, key As String) As Boolean
+    Dim varItem As Variant
+    On Error Resume Next
+    '//ITERNO NELLA COLLECTION PASSATA COME PARAMETRO
+    For Each varItem In col
+        Debug.Print
+        Debug.Print "CONTROLLO COLLEZIONE = MATRICE (I)"
+        Debug.Print "collezione: " & varItem & " = " & "matrice key: " & key
+        Debug.Print
+        If varItem = key Then
+            InCollectionMacrosDbIntern_DELETE_Funct_b = True
+            Debug.Print "trovato restituisco : " & InCollectionMacrosDbIntern_DELETE_Funct_b
+            Exit Function
+        End If
+    Next varItem
+    InCollectionMacrosDbIntern_DELETE_Funct_b = False
+    On Error GoTo 0
+End Function
+
+
+
+
 
 ' Funzione per caricare gli oggetti nelle collection
 Public Sub CaricaOggetti_UTILITA(ByRef colTables_UTILITA As Collection, _
@@ -4879,32 +4969,47 @@ Public Sub CaricaOggetti_UTILITA(ByRef colTables_UTILITA As Collection, _
     Set colReports_UTILITA = New Collection
     Set colMacros_UTILITA = New Collection
 
-    
+    '//@UTILITA@COLLECTION@TABLES_(LE @TABELLE  per la @GESTIONE DELLE @UTILITA@TABELLE)
     '//@UTILITA@COLLETION_(Aggiungi @abelle, @query, @moduli, @form, @report e @macro alle rispettive collezioni)
-    colTables_UTILITA.Add "MSys_DF13_}----------------------------------------------------@"
-    colTables_UTILITA.Add "Msys_DF13_DLL_PROGETTO"
-    colTables_UTILITA.Add "Msys_DF14_DLL_LIBRERIE"
+        colTables_UTILITA.Add "MSys_DF13_}----------------------------------------------------@"
+        colTables_UTILITA.Add "Msys_DF13_DLL_PROGETTO"
+        colTables_UTILITA.Add "Msys_DF14_DLL_LIBRERIE"
     
-    colQueryes_UTILITA.Add "Msys_DF13Qry01_00_}-----------------------------------------@DLL"
-    colQueryes_UTILITA.Add "Msys_DF13Qry01_01_DLL_PROGETTO"
-    colQueryes_UTILITA.Add "Msys_DF14Qry01_01_DLL_LIBRERIE"
+    '//@UTILITA@COLLECTION@QUERYES_(LE @QUERY  per la @GESTIONE DELLE @UTILITA@QUERY)
+        colQueryes_UTILITA.Add "Msys_DF13Qry01_00_}-----------------------------------------@DLL"
+        colQueryes_UTILITA.Add "Msys_DF13Qry01_01_DLL_PROGETTO"
+        colQueryes_UTILITA.Add "Msys_DF14Qry01_02_DLL_LIBRERIE"
+        colQueryes_UTILITA.Add "Msys_DF14Qry01_01_DELETE_LIBRERIE"
+        colQueryes_UTILITA.Add "Msys_DF14Qry01_03_UPDATE_CAMPI"
+
     
-    colModules_UTILITA.Add "UTILITA_MsysDF13_Mdl00_}-----------------------------------@"
-    colModules_UTILITA.Add "UTILITA_MsysDF13Mdl01_DLL_REFERENZIA_LE_LIBRERIE"
     
+    
+    '//@UTILITA@COLLECTION@MODULES_(I MODULI  per la @GESTIONE DELLE @UTILITA@MODULI)
+        colModules_UTILITA.Add "UTILITA_MsysDF13_Mdl00_}-----------------------------------@"
+        colModules_UTILITA.Add "UTILITA_MsysDF13Mdl01_DLL_REFERENZIA_LE_LIBRERIE"
+    
+    '//@UTILITA@COLLECTION@FORMS_(LE @FORM  per la @GESTIONE DELLE @UTILITA@FORMS)
     colForms_UTILITA.Add "UTILITA_Msys_Frm21_}-------------------------------------------@"
     colForms_UTILITA.Add ""
     
+    '//@UTILITA@COLLECTION@REPORTS_(I @REPORT  per la @GESTIONE DELLE @UTILITA@REPORT)
     colReports_UTILITA.Add "Msys_Rpt01_01_ESPORTA_DB_}-------------------------------------@"
     colReports_UTILITA.Add "Msys_Rpt01_01_ESPORTA_DB_EST"
     
     colReports_UTILITA.Add "Msys_Rpt01_01_ESPORTA_OGGETT_}---------------------------------@"
     colReports_UTILITA.Add "Msys_Rpt01_01_ESPORTA_OGGETTI"
     
+    '//@UTILITA@COLLECTION@MACROS_(le @MACRO per la @GESTIONE DELLE @UTILITA@MACRO)
+        colMacros_UTILITA.Add "CERCA_Mcr_{@==================================================@}"
+        colMacros_UTILITA.Add "CERCA_Mcr_FORM"
+        colMacros_UTILITA.Add "CERCA_Mcr_MODULO"
+        colMacros_UTILITA.Add "CERCA_Mcr_QUERY"
+        colMacros_UTILITA.Add "CERCA_Mcr_TABELLA"
+        colMacros_UTILITA.Add "UTILITA_MSys_Mcr00_}----------------------------------------@DLL"
+        colMacros_UTILITA.Add "UTILITA_Msys_Mcr01_STAMPA_LIBRERIE_ATTIVE_DLL"
+        
     
-    colMacros_UTILITA.Add "CERCA_Mcr_{@==================================================@}"
-    colMacros_UTILITA.Add "CERCA_Mcr_FORM"
-    colMacros_UTILITA.Add "CERCA_Mcr_MODULO"
     
 End Sub
 
@@ -5231,7 +5336,7 @@ Private Sub Cmd_Importa_REPORT_Click()
                         faccio un controllo sul numero degli oggetti della collection se = 0 allora _
                         non ci sono oggetti da caricare per cui si esce dalla routine.
                         
-            If reportsCollection.Count = 0 Then GoTo Exit_Cmd_Import_REPORT_Click
+            If reportsCollection.count = 0 Then GoTo Exit_Cmd_Import_REPORT_Click
    
         
     '//------------------------------------------------------------------------//
@@ -5495,7 +5600,7 @@ Private Sub Cmd_Delete_REPORT_Click()
     Set dbCurrent = CurrentDb
 
     '//CALCOLO INDICE REPORT
-    icount = Application.CurrentProject.AllReports.Count
+    icount = Application.CurrentProject.AllReports.count
 
     '//se ci sono REPORT da cancellare
     If icount > 0 Then
@@ -5929,7 +6034,7 @@ On Error GoTo ErrorHandler
                         faccio un controllo sul numero degli oggetti della collection se = 0 allora _
                         non ci sono oggetti da caricare per cui si esce dalla routine.
                         
-            If objectQueries.Count = 0 Then Exit Sub
+            If objectQueries.count = 0 Then Exit Sub
                 
     '//------------------------------------------------------------------------//
     
@@ -6128,7 +6233,7 @@ On Error GoTo ErrorHandler
                         Set dbCurrent = CurrentDb
                         
                         ' Controlla se ci sono query nel database corrente
-                        If dbCurrent.QueryDefs.Count = 0 Then
+                        If dbCurrent.QueryDefs.count = 0 Then
                             MsgBox "Nessuna query presente nel database corrente.", vbExclamation, "Attenzione"
                         Else
                             ' Itera sulle query esistenti per trovare l'ultima
@@ -6372,7 +6477,7 @@ Private Sub Cmd_Importa_TABLE_Click()
                         faccio un controllo sul numero degli oggetti della collection se = 0 allora _
                         non ci sono oggetti da caricare per cui si esce dalla routine.
                         
-                    If tablesCollection.Count = 0 Then Exit Sub
+                    If tablesCollection.count = 0 Then Exit Sub
    
     
                 
@@ -6602,7 +6707,7 @@ Private Sub Cmd_Importa_TABLE_Click()
                             systemTables.Add "MSysResources"
                             
                             ' Controlla se ci sono tabelle nel database corrente
-                            If dbCurrent.TableDefs.Count = 0 Then
+                            If dbCurrent.TableDefs.count = 0 Then
                                 MsgBox "Nessuna tabella presente nel database corrente.", vbExclamation, "Attenzione"
                             Else
                                 ' Itera sulle tabelle esistenti per trovare l'ultima tabella non di sistema
@@ -6612,7 +6717,7 @@ Private Sub Cmd_Importa_TABLE_Click()
                                     
                                     ' Controlla se la tabella è una tabella di sistema
                                     Dim i As Integer
-                                    For i = 1 To systemTables.Count
+                                    For i = 1 To systemTables.count
                                         If tdf.Name = systemTables.Item(i) Then
                                             isSystemTable = True
                                             Exit For
@@ -7077,7 +7182,7 @@ On Error GoTo Err_Cmd_Delete_TABELLE_Click
              Set dbCurrent = CurrentDb
 
              '//CALCOLO INDICE TABELLE
-             icount = dbCurrent.TableDefs.Count
+             icount = dbCurrent.TableDefs.count
 
             Set dbCurrent = CurrentDb
 
@@ -7261,7 +7366,7 @@ On Error GoTo ErrorHandler
                         faccio un controllo sul numero degli oggetti della collection se = 0 allora _
                         non ci sono oggetti da caricare per cui si esce dalla routine.
 
-            If objectModules.Count = 0 Then Exit Sub
+            If objectModules.count = 0 Then Exit Sub
                 
     '//------------------------------------------------------------------------//
     
@@ -7686,7 +7791,7 @@ Public Function CheckProjectName_b_PFunct() As Boolean
     
     '//2024.08.10 =CHECKPROJECT_MODIFICA_CONTROLLO_CON_RAFFORZAMENTO
     ' Controlla se il nome del DATABASE QUELLO ORIGINARIO OSSIA "MSYS_ATTIVA_GEST_OGGETTI.mdb"
-    If projectName = "MSYS_ATTIVA_GEST_OGGETTI.mdb" And Me.Cmb_01_txt = "MSYS_ATTIVA_GEST_OGGETTI.mdb" Then
+    If projectName = "MSYS_ATTIVA_GEST_OGGETTI.mdb" Then
         MsgBox "USCITA DALLA FUNZIONE: ATTENZIONE CI TROVIAMO NEL PROGETTO ORIGINALE E NON POSSIAMO CARICARE NE CANCELLARE " & _
                "NESSUN OGGETTO SUL PROGETTO DI PARTENZA DENOMINATO : " & projectName & vbCrLf & _
                "La funzione puo essere usata solo in un progetto Esterno.", vbCritical
@@ -9638,6 +9743,15 @@ End Sub
 '                                    @ROUTINE@GENERICHE              **** FINE ****
 '
 '***********************************************************************************************************************
+
+
+
+
+
+
+
+
+
 
 
 
