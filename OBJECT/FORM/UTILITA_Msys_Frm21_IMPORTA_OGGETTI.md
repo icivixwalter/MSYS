@@ -8,6 +8,7 @@ UTILITA_Msys_Frm21_IMPORTA_OGGETTI.md
 
 
 
+
 '# CLASSE_Form_UTILITA_Msys_Frm21_IMPORTA_OGGETTI.md
 '//@VERSIONE_DEL_2025_02_12=COMPLETA E FUNZIONANTE
 
@@ -5780,6 +5781,7 @@ End Sub
 
 
 
+
 '//DELETE REPORT HELP *** FINE ***
 '//-----------------------------------------------------------------------------------//
 
@@ -9622,6 +9624,116 @@ End Sub
 '***********************************************************************************************************************
 
 
+
+
+
+'***********************************************************************************************************************
+'                                    STAMPA OGGETTI *** INIZIO ***
+'
+'***********************************************************************************************************************
+'//01@STAMPA@TABELLE = STAMPO LE TABELLE DEL DB CORRENTE
+'//
+'//
+
+
+'//01@STAMPA@TABELLE _
+Impostazione del database corrente: Set db = CurrentDb() imposta il database corrente come oggetto db. _
+Ciclo attraverso le tabelle: Il ciclo For Each tdf In db.TableDefs scorre tutte le tabelle (TableDefs) nel database. _
+Esclusione delle tabelle di sistema: Le tabelle di sistema (che iniziano con "MSys" o "~") vengono escluse dalla stampa. _
+Stampa dei nomi delle tabelle: I nomi delle tabelle vengono stampati nella finestra di debug (Debug.Print). _
+Rilascio delle risorse: Le risorse vengono rilasciate impostando tdf e db su Nothing. _
+Messaggio di conferma: Un messaggio di conferma viene visualizzato per indicare che la stampa è stata completata. _
+
+
+
+
+Private Sub Cmd_STAMPA_TABLE_DB_CORRENTE_Click()
+    On Error GoTo ErrorHandler ' Attiva il controllo degli errori
+    
+    Dim db As DAO.Database
+    Dim tdf As DAO.TableDef
+    Dim tblName As String
+    Dim i As Integer
+    Dim logFilePath As String
+    Dim fileNumber As Integer
+    Dim dbPath As String
+    Dim dbFolder As String
+    
+    ' Imposta il database corrente
+    Set db = CurrentDb()
+    
+    ' Ottieni il percorso della cartella corrente del database
+    dbPath = CurrentDb.Name
+    dbFolder = Left(dbPath, InStrRev(dbPath, "\")) ' Estrae la cartella
+    
+    ' Definisci il percorso del file di log nella stessa cartella del database
+    logFilePath = dbFolder & "LogTabelle.txt" ' Nome del file di log
+    
+    ' Inizializza il contatore
+    i = 1
+    Me.TXT_GESTIONE_UTILITA.Value = ""
+    Me.TXT_GESTIONE_UTILITA.Requery
+    
+    ' Apri il file di log in modalità scrittura
+    fileNumber = FreeFile
+    Open logFilePath For Output As #fileNumber
+    
+    ' Cicla attraverso tutte le tabelle nel database
+    For Each tdf In db.TableDefs
+            tblName = tdf.Name
+                
+        ' Escludi le tabelle di sistema che iniziano con "MSys" o "~"
+        If Left(tdf.Name, 4) <> "MSys" And Left(tdf.Name, 1) <> "~" Then
+            ' Verifica se la tabella è collegata o locale
+            If (tdf.Attributes And dbAttachedTable) = 0 Then
+                tblName = tdf.Name
+                
+                ' Stampa il nome della tabella nella casella di testo
+                Me.TXT_GESTIONE_UTILITA.Value = Me.TXT_GESTIONE_UTILITA.Value & "Tabella " & i & ": " & tblName & vbCrLf
+                
+                ' Scrivi il nome della tabella nel file di log
+                Print #fileNumber, "Tabella " & i & ": " & tblName
+                
+                i = i + 1
+            End If
+        End If
+          
+                 ' Scrivi il nome della tabella nel file di log
+                Print #fileNumber, "Tabella " & i & ": " & tblName
+              
+                ' Stampa il nome della tabella nella casella di testo
+                Me.TXT_GESTIONE_UTILITA.Value = Me.TXT_GESTIONE_UTILITA.Value & "Tabella " & i & ": " & tblName & vbCrLf
+             
+    Next tdf
+    
+    ' Chiudi il file di log
+    Close #fileNumber
+    
+    ' Aggiorna la casella di testo
+    Me.TXT_GESTIONE_UTILITA.Requery
+    
+    ' Rilascia le risorse
+    Set tdf = Nothing
+    Set db = Nothing
+    
+    ' Messaggio di conferma
+    MsgBox "Stampa delle tabelle completata! File di log creato in: " & logFilePath, vbInformation
+    
+    Exit Sub ' Esci dalla routine per evitare di eseguire il gestore degli errori
+
+ErrorHandler:
+    ' Gestione degli errori
+    MsgBox "Si è verificato un errore: " & Err.Description, vbCritical
+    ' Rilascia le risorse in caso di errore
+    If Not tdf Is Nothing Then Set tdf = Nothing
+    If Not db Is Nothing Then Set db = Nothing
+    ' Chiudi il file di log se aperto
+    If fileNumber > 0 Then Close #fileNumber
+End Sub
+'***********************************************************************************************************************
+'                                    STAMPA OGGETTI *** FINE ***
+'
+'***********************************************************************************************************************
 
 
 
