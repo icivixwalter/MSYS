@@ -9,6 +9,7 @@ UTILITA_Msys_Frm21_IMPORTA_OGGETTI.md
 
 
 
+
 '# CLASSE_Form_UTILITA_Msys_Frm21_IMPORTA_OGGETTI.md
 '//@VERSIONE_DEL_2025_02_12=COMPLETA E FUNZIONANTE
 
@@ -3001,7 +3002,7 @@ On Error GoTo Err_Cmd_Delete_QUERY_Click
                      Set dbCurrent = CurrentDb
                      
                      '//CALCOLO INDICE QUERY
-                     icount = dbCurrent.QueryDefs.count
+                     icount = dbCurrent.QueryDefs.Count
                                        
                     '//APRO IL CORRENTE DB
                     Set dbCurrent = CurrentDb
@@ -3036,7 +3037,7 @@ On Error GoTo Err_Cmd_Delete_QUERY_Click
                                     Debug.Print "cancello la query trovata sia nella collezione che nella matrice : " & MATRICE_queryNames_s(i)
                                     DoCmd.DeleteObject acQuery, MATRICE_queryNames_s(i)
                                     
-                                    If Err.number <> 0 Then
+                                    If Err.Number <> 0 Then
                                         Debug.Print "Errore durante la cancellazione del Query: " & MATRICE_queryNames_s(i) & " - " & Err.Description
                                         Err.Clear  ' Pulisci l'errore per la prossima iterazione
                                     Else
@@ -3260,7 +3261,7 @@ Private Sub Cmd_Importa_FORM_Click()
     Set formsCollection = CollectionForm_PFunct()
 
     ' SE LA COLLECTION E' VUOTA ESCI DALLA ROUTINE
-    If formsCollection.count = 0 Then Exit Sub
+    If formsCollection.Count = 0 Then Exit Sub
 
     ' Controllo path ed il file.mdb per le importazioni
     sourceDBPath = PathFile_s_pFunct
@@ -3339,7 +3340,7 @@ Private Sub Cmd_Importa_FORM_Click()
                     Set dbCurrent = CurrentDb
                     
                     ' Controlla se ci sono form nel database corrente
-                    If CurrentProject.AllForms.count = 0 Then
+                    If CurrentProject.AllForms.Count = 0 Then
                         MsgBox "Nessun form presente nel database corrente.", vbExclamation, "Attenzione"
                     Else
                         ' Itera sugli oggetti form per trovare l'ultimo
@@ -3520,7 +3521,7 @@ Private Sub Cmd_Delete_FORM_Click()
                       Set dbCurrent = CurrentDb
                   
                       '//CALCOLO INDICE FORM
-                      icount = Application.CurrentProject.AllForms.count
+                      icount = Application.CurrentProject.AllForms.Count
                   
                       '//se ci sono FORM da cancellare
                       If icount > 0 Then
@@ -3552,7 +3553,7 @@ Private Sub Cmd_Delete_FORM_Click()
                                   Debug.Print "cancello la FORM trovata sia nella collezione che nella matrice : " & MATRICE_FORM_Names_s(i)
                                   DoCmd.DeleteObject acForm, MATRICE_FORM_Names_s(i)
                   
-                                  If Err.number <> 0 Then
+                                  If Err.Number <> 0 Then
                                       Debug.Print "Errore durante la cancellazione del FORM: " & MATRICE_FORM_Names_s(i) & " - " & Err.Description
                                       Err.Clear  ' Pulisci l'errore per la prossima iterazione
                                   Else
@@ -3589,7 +3590,7 @@ Private Sub Cmd_Delete_FORM_Click()
                                       tableVisibili = 0
                                       
                                       ' Conta le maschere visibili nel database
-                                      For i = 0 To Application.CurrentProject.AllForms.count - 1
+                                      For i = 0 To Application.CurrentProject.AllForms.Count - 1
                                           formVisibili = formVisibili + 1
                                       Next i
                                       
@@ -3978,7 +3979,7 @@ Private Sub Cmd_Importa_MACRO_Click()
                         faccio un controllo sul numero degli oggetti della collection se = 0 allora _
                         non ci sono oggetti da caricare per cui si esce dalla routine.
                         
-            If objectMacros.count = 0 Then Exit Sub
+            If objectMacros.Count = 0 Then Exit Sub
    
         
     '//------------------------------------------------------------------------//
@@ -4220,7 +4221,7 @@ Private Sub Cmd_Delete_MACRO_Click()
             Set dbCurrent = CurrentDb
         
             '//CALCOLO INDICE MACRO
-            icount = CurrentProject.AllMacros.count
+            icount = CurrentProject.AllMacros.Count
         '//------------------------------------------------------------------------//
             
         
@@ -4273,7 +4274,7 @@ Private Sub Cmd_Delete_MACRO_Click()
                                             Debug.Print "cancello la MACRO trovata sia nella collezione che nella matrice : " & MATRICE_MACRO_Names_s(i)
                                             DoCmd.DeleteObject acMacro, MATRICE_MACRO_Names_s(i)
                             
-                                            If Err.number <> 0 Then
+                                            If Err.Number <> 0 Then
                                                 Debug.Print "Errore durante la cancellazione della MACRO: " & MATRICE_MACRO_Names_s(i) & " - " & Err.Description
                                                 Err.Clear  ' Pulisci l'errore per la prossima iterazione
                                             Else
@@ -4720,8 +4721,8 @@ Private Sub Cmd_IMPORTA_OGGETTI_UTILITA_Click()
     Dim myNameModule_s As String
     Dim moduleExists As Boolean
 
-    For Each MDL In colModules_UTILITA
-        myNameModule_s = MDL
+    For Each mdl In colModules_UTILITA
+        myNameModule_s = mdl
         Debug.Print "CONTROLLO MODULO DA IMPORTARE --> : "; myNameModule_s
         Debug.Print
 
@@ -4751,7 +4752,7 @@ Private Sub Cmd_IMPORTA_OGGETTI_UTILITA_Click()
             importedModuliCount_i = importedModuliCount_i + 1
             importedNameModules_s = importedNameModules_s & myNameModule_s & vbCrLf
         End If
-    Next MDL
+    Next mdl
 
     ' -------------- Importazione dei form ---
     Dim formExists As Boolean
@@ -4768,7 +4769,8 @@ Private Sub Cmd_IMPORTA_OGGETTI_UTILITA_Click()
         End If
         rs.Close
         Set rs = Nothing
-
+        
+        '@ciclo@forms_(questo è il ciclo negli oggetti @form)
         ' Se la form esiste nel database di origine, esegui la cancellazione e l'importazione
         If formExists Then
             ' Verifica se la form esiste già nel database corrente
@@ -4908,13 +4910,13 @@ Private Sub Cmd_IMPORTA_OGGETTI_UTILITA_Click()
 ErrHandler:
     ' Log dell'errore nel Debug Window
     Debug.Print "Errore in Cmd_IMPORTA_OGGETTI_UTILITA_Click"
-    Debug.Print "Numero errore: " & Err.number
+    Debug.Print "Numero errore: " & Err.Number
     Debug.Print "Descrizione errore: " & Err.Description
     Debug.Print "Origine errore: " & Err.Source
 
     ' Messaggio di errore all'utente
     MsgBox "Si è verificato un errore durante l'importazione." & vbCrLf & _
-           "Errore " & Err.number & ": " & Err.Description, _
+           "Errore " & Err.Number & ": " & Err.Description, _
            vbCritical, "Errore"
 
     ' Rilascia le risorse in caso di errore
@@ -5209,7 +5211,7 @@ Cleanup:
     Exit Sub
 
 ErrHandler:
-    MsgBox "Errore " & Err.number & ": " & Err.Description, vbCritical, "Errore"
+    MsgBox "Errore " & Err.Number & ": " & Err.Description, vbCritical, "Errore"
     Resume Cleanup
 
 End Sub
@@ -5337,7 +5339,7 @@ Private Sub Cmd_Importa_REPORT_Click()
                         faccio un controllo sul numero degli oggetti della collection se = 0 allora _
                         non ci sono oggetti da caricare per cui si esce dalla routine.
                         
-            If reportsCollection.count = 0 Then GoTo Exit_Cmd_Import_REPORT_Click
+            If reportsCollection.Count = 0 Then GoTo Exit_Cmd_Import_REPORT_Click
    
         
     '//------------------------------------------------------------------------//
@@ -5601,7 +5603,7 @@ Private Sub Cmd_Delete_REPORT_Click()
     Set dbCurrent = CurrentDb
 
     '//CALCOLO INDICE REPORT
-    icount = Application.CurrentProject.AllReports.count
+    icount = Application.CurrentProject.AllReports.Count
 
     '//se ci sono REPORT da cancellare
     If icount > 0 Then
@@ -5633,7 +5635,7 @@ Private Sub Cmd_Delete_REPORT_Click()
                 Debug.Print "cancello il REPORT trovato sia nella collezione che nella matrice : " & MATRICE_REPORT_Names_s(i)
                 DoCmd.DeleteObject acReport, MATRICE_REPORT_Names_s(i)
 
-                If Err.number <> 0 Then
+                If Err.Number <> 0 Then
                     Debug.Print "Errore durante la cancellazione del REPORT: " & MATRICE_REPORT_Names_s(i) & " - " & Err.Description
                     Err.Clear  ' Pulisci l'errore per la prossima iterazione
                 Else
@@ -5777,6 +5779,8 @@ Private Sub Cmd_Delete_REPORT_HELP_Click()
     '//--------------------------------------------------------------------------------//--------//
 
 End Sub
+
+
 
 
 
@@ -6036,7 +6040,7 @@ On Error GoTo ErrorHandler
                         faccio un controllo sul numero degli oggetti della collection se = 0 allora _
                         non ci sono oggetti da caricare per cui si esce dalla routine.
                         
-            If objectQueries.count = 0 Then Exit Sub
+            If objectQueries.Count = 0 Then Exit Sub
                 
     '//------------------------------------------------------------------------//
     
@@ -6235,7 +6239,7 @@ On Error GoTo ErrorHandler
                         Set dbCurrent = CurrentDb
                         
                         ' Controlla se ci sono query nel database corrente
-                        If dbCurrent.QueryDefs.count = 0 Then
+                        If dbCurrent.QueryDefs.Count = 0 Then
                             MsgBox "Nessuna query presente nel database corrente.", vbExclamation, "Attenzione"
                         Else
                             ' Itera sulle query esistenti per trovare l'ultima
@@ -6479,7 +6483,7 @@ Private Sub Cmd_Importa_TABLE_Click()
                         faccio un controllo sul numero degli oggetti della collection se = 0 allora _
                         non ci sono oggetti da caricare per cui si esce dalla routine.
                         
-                    If tablesCollection.count = 0 Then Exit Sub
+                    If tablesCollection.Count = 0 Then Exit Sub
    
     
                 
@@ -6709,7 +6713,7 @@ Private Sub Cmd_Importa_TABLE_Click()
                             systemTables.Add "MSysResources"
                             
                             ' Controlla se ci sono tabelle nel database corrente
-                            If dbCurrent.TableDefs.count = 0 Then
+                            If dbCurrent.TableDefs.Count = 0 Then
                                 MsgBox "Nessuna tabella presente nel database corrente.", vbExclamation, "Attenzione"
                             Else
                                 ' Itera sulle tabelle esistenti per trovare l'ultima tabella non di sistema
@@ -6719,7 +6723,7 @@ Private Sub Cmd_Importa_TABLE_Click()
                                     
                                     ' Controlla se la tabella è una tabella di sistema
                                     Dim i As Integer
-                                    For i = 1 To systemTables.count
+                                    For i = 1 To systemTables.Count
                                         If tdf.Name = systemTables.Item(i) Then
                                             isSystemTable = True
                                             Exit For
@@ -7184,7 +7188,7 @@ On Error GoTo Err_Cmd_Delete_TABELLE_Click
              Set dbCurrent = CurrentDb
 
              '//CALCOLO INDICE TABELLE
-             icount = dbCurrent.TableDefs.count
+             icount = dbCurrent.TableDefs.Count
 
             Set dbCurrent = CurrentDb
 
@@ -7218,7 +7222,7 @@ On Error GoTo Err_Cmd_Delete_TABELLE_Click
                     Debug.Print "cancello la TABELLE trovata sia nella collezione che nella matrice : " & MATRICE_TABLE_Names_s(i)
                     DoCmd.DeleteObject acTABELLE, MATRICE_TABLE_Names_s(i)
 
-                    If Err.number <> 0 Then
+                    If Err.Number <> 0 Then
                     Debug.Print "Errore durante la cancellazione del TABELLE: " & MATRICE_TABLE_Names_s(i) & " - " & Err.Description
                     Err.Clear  ' Pulisci l'errore per la prossima iterazione
                     Else
@@ -7368,7 +7372,7 @@ On Error GoTo ErrorHandler
                         faccio un controllo sul numero degli oggetti della collection se = 0 allora _
                         non ci sono oggetti da caricare per cui si esce dalla routine.
 
-            If objectModules.count = 0 Then Exit Sub
+            If objectModules.Count = 0 Then Exit Sub
                 
     '//------------------------------------------------------------------------//
     
@@ -9631,22 +9635,20 @@ End Sub
 '                                    STAMPA OGGETTI *** INIZIO ***
 '
 '***********************************************************************************************************************
-'//01@STAMPA@TABELLE = STAMPO LE TABELLE DEL DB CORRENTE
-'//
-'//
+'//01@STAMPA@TABELLE    = STAMPO LE TABELLE DEL DB CORRENTE;    FILE 01_LOG_TABELLE SALVATO NELLA PATH CORRENTE
+'//02@STAMPA@QUERY      = STAMPO LE QUERY DEL DB CORRENTE;      FILE 02_LOG_QUERY SALVATO NELLA PATH CORRENTE
+'//03@STAMPA@FORM       = STAMPO LE FORM DEL DB CORRENTE;       FILE 03_LOG_FORM SALVATO NELLA PATH CORRENTE
+'//04@STAMPA@REPORT     = STAMPO LE REPORT DEL DB CORRENTE;     FILE 04_LOG_REPORT SALVATO NELLA PATH CORRENTE
+'//05@STAMPA@MODULI     = STAMPO LE MODULI DEL DB CORRENTE;     FILE 05_LOG_MODULI SALVATO NELLA PATH CORRENTE
+'//06)@STAMPA@TUTTO     = STAMPO TUTTI GLI OGGETTI DEL DB CORRENTE.
 
-
-'//01@STAMPA@TABELLE _
+'//01@STAMPA@TABELLE    = STAMPO LE TABELLE DEL DB CORRENTE;    FILE 01_LOG_TABELLE SALVATO NELLA PATH CORRENTE _
 Impostazione del database corrente: Set db = CurrentDb() imposta il database corrente come oggetto db. _
 Ciclo attraverso le tabelle: Il ciclo For Each tdf In db.TableDefs scorre tutte le tabelle (TableDefs) nel database. _
 Esclusione delle tabelle di sistema: Le tabelle di sistema (che iniziano con "MSys" o "~") vengono escluse dalla stampa. _
 Stampa dei nomi delle tabelle: I nomi delle tabelle vengono stampati nella finestra di debug (Debug.Print). _
 Rilascio delle risorse: Le risorse vengono rilasciate impostando tdf e db su Nothing. _
 Messaggio di conferma: Un messaggio di conferma viene visualizzato per indicare che la stampa è stata completata. _
-
-
-
-
 Private Sub Cmd_STAMPA_TABLE_DB_CORRENTE_Click()
     On Error GoTo ErrorHandler ' Attiva il controllo degli errori
     
@@ -9667,7 +9669,7 @@ Private Sub Cmd_STAMPA_TABLE_DB_CORRENTE_Click()
     dbFolder = Left(dbPath, InStrRev(dbPath, "\")) ' Estrae la cartella
     
     ' Definisci il percorso del file di log nella stessa cartella del database
-    logFilePath = dbFolder & "LogTabelle.txt" ' Nome del file di log
+    logFilePath = dbFolder & "01_LOG_TABELLE.txt" ' Nome del file di log
     
     ' Inizializza il contatore
     i = 1
@@ -9676,33 +9678,47 @@ Private Sub Cmd_STAMPA_TABLE_DB_CORRENTE_Click()
     
     ' Apri il file di log in modalità scrittura
     fileNumber = FreeFile
-    Open logFilePath For Output As #fileNumber
+    '//APRE CON APPEND che aggiugne ai dati precedenti altrimenti se Open logFilePath For Output As #fileNumber _
+                       cancella i dati precedenti on Output
+    Open logFilePath For Append As #fileNumber
+    
     
     ' Cicla attraverso tutte le tabelle nel database
     For Each tdf In db.TableDefs
             tblName = tdf.Name
                 
-        ' Escludi le tabelle di sistema che iniziano con "MSys" o "~"
-        If Left(tdf.Name, 4) <> "MSys" And Left(tdf.Name, 1) <> "~" Then
+        ' Escludi le tabelle di sistema che iniziano con "MSysA ...ecc"
+        If Left(tdf.Name, 5) <> "MSysA" And Left(tdf.Name, 5) <> "MSysN" And Left(tdf.Name, 5) <> "MSysO" _
+                            And Left(tdf.Name, 5) <> "MSysQ" And Left(tdf.Name, 5) <> "MSysR" _
+                            And Left(tdf.Name, 5) <> "MSysS" Then
+                            
             ' Verifica se la tabella è collegata o locale
             If (tdf.Attributes And dbAttachedTable) = 0 Then
                 tblName = tdf.Name
                 
-                ' Stampa il nome della tabella nella casella di testo
+                ' Stampa il nome della tabella  COLLEGATA nella casella di testo
                 Me.TXT_GESTIONE_UTILITA.Value = Me.TXT_GESTIONE_UTILITA.Value & "Tabella " & i & ": " & tblName & vbCrLf
                 
                 ' Scrivi il nome della tabella nel file di log
                 Print #fileNumber, "Tabella " & i & ": " & tblName
                 
                 i = i + 1
-            End If
-        End If
-          
+            
+            Else
+                '//tabella LOCALE non collegata stampata e salvata nel log
+                i = i + 1
+                ' Stampa il nome della tabella nella casella di testo
+                Me.TXT_GESTIONE_UTILITA.Value = Me.TXT_GESTIONE_UTILITA.Value & "Tabella " & i & ": " & tblName & vbCrLf
+                 
                  ' Scrivi il nome della tabella nel file di log
                 Print #fileNumber, "Tabella " & i & ": " & tblName
               
-                ' Stampa il nome della tabella nella casella di testo
-                Me.TXT_GESTIONE_UTILITA.Value = Me.TXT_GESTIONE_UTILITA.Value & "Tabella " & i & ": " & tblName & vbCrLf
+            End If
+            
+            
+            
+        End If
+          
              
     Next tdf
     
@@ -9730,6 +9746,402 @@ ErrorHandler:
     ' Chiudi il file di log se aperto
     If fileNumber > 0 Then Close #fileNumber
 End Sub
+
+
+
+
+'//02@STAMPA@QUERY      = STAMPO LE QUERY DEL DB CORRENTE;   FILE 02_LOG_QUERY SALVATO NELLA PATH CORRENTE
+'//@ESEMPIO@STAMPA@QUERY_(Esempio di @stampa@oggetti@QUERY nel @database corrente)
+'//@faq@QUERY           =  @COME @STARE LE @QUERY DEL DATABASE CORRENTE _
+                        =  @STAMPARE@LE@QUERY@DEL@DATABASE _
+                        =  @STAMPA@DELLE@QUERY  @NEL @DATABASE @CORRENTE _
+                        =  @FAQ@STAMPA@QUERY _
+                        =  @ROUTINE@STAMPA@QUERY _
+                        =  @COME@STAMPARE@LE@QUERY
+
+
+Private Sub Cmd_STAMPA_QUERY_DB_CORRENTE_Click()
+    On Error GoTo ErrorHandler ' Attiva il controllo degli errori
+    
+    Dim db As DAO.Database
+    Dim qry As DAO.QueryDef
+    Dim qryName As String
+    Dim i As Integer
+    Dim logFilePath As String
+    Dim fileNumber As Integer
+    Dim dbPath As String
+    Dim dbFolder As String
+    
+    ' Imposta il database corrente
+    Set db = CurrentDb()
+    
+    ' Ottieni il @percorso della cartella corrente del database  @estrazione@path@corrente_(vba @estra la @cartella @corrente)
+    dbPath = CurrentDb.Name
+    dbFolder = Left(dbPath, InStrRev(dbPath, "\")) ' Estrae la cartella @path@corrente_(la path della @cartella@corrente)
+    
+    ' Definisci il percorso del file di log nella stessa cartella del database
+    logFilePath = dbFolder & "02_LOG_QUERY.txt" ' Nome del file di log
+    
+    ' Inizializza il contatore
+    i = 1
+    Me.TXT_GESTIONE_UTILITA.Value = ""
+    Me.TXT_GESTIONE_UTILITA.Requery
+    
+    ' Apri il file di log in modalità scrittura
+    fileNumber = FreeFile
+    Open logFilePath For Output As #fileNumber
+    
+    ' Cicla attraverso tutte le QUERY nel database
+    For Each qry In db.QueryDefs
+            qryName = qry.Name
+                
+                ' Escludi le QUERY di sistema che iniziano con "MSys" o "~"
+                If Left(qry.Name, 5) <> "~sq_c" Then
+                    qryName = qry.Name
+                
+                
+                ' Stampa il nome della Query nella casella di testo
+                Me.TXT_GESTIONE_UTILITA.Value = Me.TXT_GESTIONE_UTILITA.Value & "Query " & i & ": " & qryName & vbCrLf
+                
+                ' Scrivi il nome della Query nel file di log
+                Print #fileNumber, "Query " & i & ": " & qryName
+                
+                i = i + 1
+           
+                End If
+                
+                
+    Next qry
+    
+    
+    ' Chiudi il file di log
+    Close #fileNumber
+    
+    ' Aggiorna la casella di testo
+    Me.TXT_GESTIONE_UTILITA.Requery
+    
+    ' Rilascia le risorse
+    Set qry = Nothing
+    Set db = Nothing
+    
+    ' Messaggio di conferma
+    MsgBox "Stampa delle QUERY completata! File di log creato in: " & logFilePath, vbInformation
+    
+    Exit Sub ' Esci dalla routine per evitare di eseguire il gestore degli errori
+
+ErrorHandler:
+    ' Gestione degli errori
+    MsgBox "Si è verificato un errore: " & Err.Description, vbCritical
+    ' Rilascia le risorse in caso di errore
+    If Not qry Is Nothing Then Set qry = Nothing
+    If Not db Is Nothing Then Set db = Nothing
+    ' Chiudi il file di log se aperto
+    If fileNumber > 0 Then Close #fileNumber
+End Sub
+
+
+
+
+'//03@STAMPA@FORM       = STAMPO LE FORM DEL DB CORRENTE;       FILE 03_LOG_FORM SALVATO NELLA PATH CORRENTE
+'//@ESEMPIO@STAMPA@FORM_(Esempio di @stampa@oggetti@FORM nel @database corrente)
+'//@faq@FORM            =  @COME @STARE LE @FORM DEL DATABASE CORRENTE _
+                        =  @STAMPARE@LE@FORM@DEL@DATABASE _
+                        =  @STAMPA@DELLE@FORM  @NEL @DATABASE @CORRENTE _
+                        =  @FAQ@STAMPA@FORM _
+                        =  @ROUTINE@STAMPA@FORM _
+                        =  @COME@STAMPARE@LE@FORM
+Private Sub Cmd_STAMPA_FORM_DB_CORRENTE_Click()
+    On Error GoTo ErrorHandler ' Attiva il controllo degli errori
+    
+    Dim db As DAO.Database
+    Dim frm As Object
+    Dim frmName As String
+    Dim i As Integer
+    Dim logFilePath As String
+    Dim fileNumber As Integer
+    Dim dbPath As String
+    Dim dbFolder As String
+    
+    ' Imposta il database corrente
+    Set db = CurrentDb()
+    
+    ' Ottieni il percorso della cartella corrente del database
+    dbPath = CurrentDb.Name
+    dbFolder = Left(dbPath, InStrRev(dbPath, "\")) ' Estrae la cartella
+    
+    ' Definisci il percorso del file di log nella stessa cartella del database
+    logFilePath = dbFolder & "03_LOG_FORM.txt" ' Nome del file di log
+    
+    ' Inizializza il contatore
+    i = 1
+    Me.TXT_GESTIONE_UTILITA.Value = ""
+    Me.TXT_GESTIONE_UTILITA.Requery
+    
+    ' Apri il file di log in modalità scrittura
+    fileNumber = FreeFile
+    Open logFilePath For Output As #fileNumber
+    
+    ' Cicla attraverso tutte le FORM nel database
+    For Each frm In db.Containers("Forms").Documents
+        frmName = frm.Name
+        
+        ' Escludi le FORM che iniziano con "~sq_c" (se necessario)
+        If Left(frmName, 5) <> "~sq_c" Then
+            ' Stampa il nome della Form nella casella di testo
+            Me.TXT_GESTIONE_UTILITA.Value = Me.TXT_GESTIONE_UTILITA.Value & "Form " & i & ": " & frmName & vbCrLf
+            
+            ' Scrivi il nome della Form nel file di log
+            Print #fileNumber, "Form " & i & ": " & frmName
+            
+            ' Incrementa il contatore solo per le form valide
+            i = i + 1
+        End If
+    Next frm
+    
+    ' Chiudi il file di log
+    Close #fileNumber
+    
+    ' Aggiorna la casella di testo
+    Me.TXT_GESTIONE_UTILITA.Requery
+    
+    ' Rilascia le risorse
+    Set frm = Nothing
+    Set db = Nothing
+    
+    ' Messaggio di conferma
+    MsgBox "Stampa delle FORM completata! File di log creato in: " & logFilePath, vbInformation
+    
+    Exit Sub ' Esci dalla routine per evitare di eseguire il gestore degli errori
+
+ErrorHandler:
+    ' Gestione degli errori
+    MsgBox "Si è verificato un errore nella riga " & Erl & ": " & Err.Description, vbCritical
+    ' Rilascia le risorse in caso di errore
+    If Not frm Is Nothing Then Set frm = Nothing
+    If Not db Is Nothing Then Set db = Nothing
+    ' Chiudi il file di log se aperto
+    If fileNumber > 0 Then Close #fileNumber
+End Sub
+
+
+
+
+
+
+
+
+
+
+'//04@STAMPA@REPORT     = STAMPO LE REPORT DEL DB CORRENTE;       FILE 04_LOG_REPORT SALVATO NELLA PATH CORRENTE
+'//@ESEMPIO@STAMPA@REPORT_(Esempio di @stampa@oggetti@REPORT nel @database corrente)
+'//@faq@REPORT          =  @COME @STARE LE @REPORT DEL DATABASE CORRENTE _
+                        =  @STAMPARE@LE@REPORT@DEL@DATABASE _
+                        =  @STAMPA@DELLE@REPORT  @NEL @DATABASE @CORRENTE _
+                        =  @FAQ@STAMPA@REPORT _
+                        =  @ROUTINE@STAMPA@REPORT _
+                        =  @COME@STAMPARE@LE@REPORT
+
+'//Vantaggi delle correzioni _
+01) Accesso corretto ai report usando CurrentProject.AllReports invece di db.Containers("REPORTs").Documents. _
+02) Migliore gestione del file di log: ora aggiunge (Append) invece di sovrascrivere (Output). _
+03) Gestione dei Null nella casella di testo per evitare errori. _
+04) Gestione degli errori più chiara senza Erl, con Err.Number e Err.Description. _
+05) Rilascio sicuro delle risorse per evitare file bloccati o oggetti non deallocati.
+
+Private Sub Cmd_STAMPA_REPORT_DB_CORRENTE_Click()
+    On Error GoTo ErrorHandler ' Attiva il controllo degli errori
+    
+    Dim db As DAO.Database
+    Dim rpt As AccessObject
+    Dim rptName As String
+    Dim i As Integer
+    Dim logFilePath As String
+    Dim fileNumber As Integer
+    Dim dbPath As String
+    Dim dbFolder As String
+    
+    ' Imposta il database corrente
+    Set db = CurrentDb()
+    
+    ' Ottieni il percorso della cartella corrente del database
+    dbPath = CurrentDb.Name
+    dbFolder = Left(dbPath, InStrRev(dbPath, "\")) ' Estrae la cartella
+    
+    ' Definisci il percorso del file di log nella stessa cartella del database
+    logFilePath = dbFolder & "04_LOG_REPORT.txt"
+    
+    ' Inizializza il contatore
+    i = 1
+    If IsNull(Me.TXT_GESTIONE_UTILITA.Value) Then
+        Me.TXT_GESTIONE_UTILITA.Value = ""
+    Else
+        Me.TXT_GESTIONE_UTILITA.Value = ""
+    End If
+    Me.TXT_GESTIONE_UTILITA.Requery
+    
+    ' Apri il file di log in modalità APPEND per non sovrascrivere i dati precedenti
+    fileNumber = FreeFile
+    Open logFilePath For Append As #fileNumber
+    
+    
+    ' Cicla attraverso tutti i report nel database
+    For Each rpt In CurrentProject.AllReports
+        rptName = rpt.Name
+        
+        ' Escludi i report che iniziano con "~sq_c"
+        If Left(rptName, 5) <> "~sq_c" Then
+            ' Scrivi il nome del report nella casella di testo
+            Me.TXT_GESTIONE_UTILITA.Value = Me.TXT_GESTIONE_UTILITA.Value & "REPORT " & i & ": " & rptName & vbCrLf
+            
+            ' Scrivi il nome del report nel file di log
+            Print #fileNumber, "REPORT " & i & ": " & rptName
+            
+            ' Incrementa il contatore solo per i report validi
+            i = i + 1
+        End If
+    Next rpt
+    
+    ' Chiudi il file di log
+    Close #fileNumber
+    
+    ' Aggiorna la casella di testo
+    Me.TXT_GESTIONE_UTILITA.Requery
+    
+    ' Rilascia le risorse
+    Set rpt = Nothing
+    Set db = Nothing
+    
+    ' Messaggio di conferma
+    MsgBox "Stampa dei REPORT completata! File di log creato in: " & logFilePath, vbInformation
+    
+    Exit Sub ' Esci dalla routine per evitare di eseguire il gestore degli errori
+
+ErrorHandler:
+    ' Gestione degli errori
+    MsgBox "Si è verificato un errore: " & Err.Number & " - " & Err.Description, vbCritical
+    
+    ' Rilascia le risorse in caso di errore
+    If Not rpt Is Nothing Then Set rpt = Nothing
+    If Not db Is Nothing Then Set db = Nothing
+    
+    ' Chiudi il file di log se aperto
+    If fileNumber > 0 Then Close #fileNumber
+End Sub
+
+
+
+
+
+'//05@STAMPA@MODULI     = STAMPO LE MODULI DEL DB CORRENTE;     FILE 05_LOG_MODULI SALVATO NELLA PATH CORRENTE
+'//@ESEMPIO@STAMPA@MODULI_(Esempio di @stampa@oggetti@MODULI nel @database corrente)
+'//@faq@MODULI          =  @COME @STARE LE @MODULI DEL DATABASE CORRENTE _
+                        =  @STAMPARE@LE@MODULI@DEL@DATABASE _
+                        =  @STAMPA@DELLE@MODULI  @NEL @DATABASE @CORRENTE _
+                        =  @FAQ@STAMPA@MODULI _
+                        =  @ROUTINE@STAMPA@MODULI _
+                        =  @COME@STAMPARE@LE@MODULI
+
+'//Vantaggi delle correzioni _
+01) Accesso corretto ai MODULI usando CurrentProject.AllMODULIs invece di db.Containers("MODULIs").Documents. _
+02) Migliore gestione del file di log: ora aggiunge (Append) invece di sovrascrivere (Output). _
+03) Gestione dei Null nella casella di testo per evitare errori. _
+04) Gestione degli errori più chiara senza Erl, con Err.Number e Err.Description. _
+05) Rilascio sicuro delle risorse per evitare file bloccati o oggetti non deallocati.
+
+
+Private Sub Cmd_STAMPA_MODULI_DB_CORRENTE_Click()
+    On Error GoTo ErrorHandler ' Attiva il controllo degli errori
+    
+    Dim db As DAO.Database
+    Dim mdl As Object
+    Dim mdlName As String
+    Dim i As Integer
+    Dim logFilePath As String
+    Dim fileNumber As Integer
+    Dim dbPath As String
+    Dim dbFolder As String
+    
+    ' Imposta il database corrente
+    Set db = CurrentDb()
+    
+    ' Ottieni il percorso della cartella corrente del database
+    dbPath = CurrentDb.Name
+    dbFolder = Left(dbPath, InStrRev(dbPath, "\")) ' Estrae la cartella
+    
+    ' Definisci il percorso del file di log nella stessa cartella del database
+    logFilePath = dbFolder & "05_LOG_MODULI.txt"
+    
+    ' Inizializza il contatore
+    i = 1
+    If IsNull(Me.TXT_GESTIONE_UTILITA.Value) Then
+        Me.TXT_GESTIONE_UTILITA.Value = ""
+    Else
+        Me.TXT_GESTIONE_UTILITA.Value = ""
+    End If
+    Me.TXT_GESTIONE_UTILITA.Requery
+    
+    ' Apri il file di log in modalità APPEND per non sovrascrivere i dati precedenti
+    fileNumber = FreeFile
+    Open logFilePath For Append As #fileNumber
+    
+    ' Cicla attraverso tutti i moduli del database
+    For Each mdl In Application.VBE.VBProjects(1).VBComponents
+        mdlName = mdl.Name
+        
+        ' Filtra solo i moduli standard (1) e di classe (2), escludendo form (3) e report (100)
+        If mdl.Type = 1 Or mdl.Type = 2 Then
+            ' Stampa il nome del modulo nella casella di testo
+            Me.TXT_GESTIONE_UTILITA.Value = Me.TXT_GESTIONE_UTILITA.Value & "Modulo " & i & ": " & mdlName & vbCrLf
+            
+            ' Scrivi il nome del modulo nel file di log
+            Print #fileNumber, "Modulo " & i & ": " & mdlName
+            
+            ' Incrementa il contatore solo per i moduli validi
+            i = i + 1
+        End If
+    Next mdl
+    
+    ' Chiudi il file di log
+    Close #fileNumber
+    
+    ' Aggiorna la casella di testo
+    Me.TXT_GESTIONE_UTILITA.Requery
+    
+    ' Rilascia le risorse
+    Set mdl = Nothing
+    Set db = Nothing
+    
+    ' Messaggio di conferma
+    MsgBox "Stampa dei moduli completata! File di log creato in: " & logFilePath, vbInformation
+    
+    Exit Sub ' Esci dalla routine per evitare di eseguire il gestore degli errori
+
+ErrorHandler:
+    ' Gestione degli errori
+    MsgBox "Si è verificato un errore: " & Err.Number & " - " & Err.Description, vbCritical
+    
+    ' Rilascia le risorse in caso di errore
+    If Not mdl Is Nothing Then Set mdl = Nothing
+    If Not db Is Nothing Then Set db = Nothing
+    
+    ' Chiudi il file di log se aperto
+    If fileNumber > 0 Then Close #fileNumber
+End Sub
+
+
+'//06)@STAMPA@TUTTO     = STAMPO TUTTI GLI OGGETTI DEL DB CORRENTE.
+Private Sub Cmd_STAMPA_TUTTI_GLI_OGGETTI_DB_CORRENTE_Click()
+        '//STAMPO TUTTI GLI OGGETTI
+        Call Cmd_STAMPA_FORM_DB_CORRENTE_Click
+        Call Cmd_STAMPA_TABLE_DB_CORRENTE_Click
+        Call Cmd_STAMPA_QUERY_DB_CORRENTE_Click
+        Call Cmd_STAMPA_REPORT_DB_CORRENTE_Click
+        Call Cmd_STAMPA_MODULI_DB_CORRENTE_Click
+
+End Sub
+
+
+
 '***********************************************************************************************************************
 '                                    STAMPA OGGETTI *** FINE ***
 '
@@ -9740,77 +10152,11 @@ End Sub
 
 
 
-'***********************************************************************************************************************
-'                                    @ROUTINE@GENERICHE              **** INIZIO ****
-'
-'***********************************************************************************************************************
 
 
-'// IMPOSTA IL COLORE                               *** inizio ***
-'//-------------------------------------------------------------------------------------------------------------//
-'//NOTE:    imposto il colore delle caselle di testo
-'//CODICE   ---> @IMPOSTA@COLORE.03_(LE CASELLE DI TESTO DA IMPOSTARE)
+
+'//ROUTINE PER IL COLORE
 '//
-'Esempio delle proprietà BorderColor, BackColor, ForeColor
-'L'esempio riportato di seguito utilizza la funzione RGB per impostare le proprietà BorderColor, _
- BackColor e ForeColor a seconda del valore presente nella casella di testo txtScaduto. _
- Per impostare queste proprietà è anche possibile utilizzare la funzione QBColor. _
- L'immissione del codice riportato di seguito all'interno dell'evento Form_Current( ) _
- imposta le caratteristiche di visualizzazione del controllo non appena l'utente apre una maschera o si sposta in un nuovo record.
- 
- '// In VBA, il valore 6723891 corrisponde al colore verde e può essere espresso in formato RGB utilizzando la funzione RGB(R, G, B). _
-    Per calcolare i valori Red (R), Green (G), Blue (B) da un numero long come 6723891, dobbiamo scomporlo nei tre canali di colore.
-    
-
-'// Conversione di 6723891 in RGB: _
-    Utilizzando la formula di conversione: _
-        Red (R) = long Mod 256 _
-        Green (G) = (long \ 256) Mod 256 _
-        Blue (B) = (long \ 65536) Mod 256
-        
-' /Se applichiamo questa formula a 6723891, otteniamo: _
-            Print R = 3 _
-            Print G = 184 _
-            Print B = 89 _
-
-'// Quindi, il colore 6723891 in formato RGB è:
-
-'// Passaggio 1: Capire la rappresentazione dei colori in VBA _
-        In VBA, i colori sono memorizzati come un numero Long (a 4 byte), dove: _
-            I primi 8 bit (meno significativi) rappresentano il Rosso (Red - R) _
-            I secondi 8 bit rappresentano il Verde (Green - G) _
-            I terzi 8 bit rappresentano il Blu (Blue - B) _
-        Quindi, un valore colore come 6723891 è un numero intero che contiene i tre componenti RGB.
-        
-
-
-
-'// Passaggio 2: Applicare le formule per estrarre R, G, B _
-    Per ottenere i tre valori, usiamo queste formule: _
-        Red(R) = valore Mod 256 _
-            Questo estrae gli 8 bit meno significativi (colore Rosso) _
-        Green(G) = (valore \ 256) Mod 256 _
-            Qui spostiamo il valore di 8 bit a destra e otteniamo il Verde _
-        Blue(B) = (valore \ 65536) Mod 256 _
-            Qui spostiamo il valore di 16 bit a destra e otteniamo il Blu
-            
-'// Applichiamo le formule: _
-    1 Troviamo il valore di Rosso (R) _
-        6723891 Mod 256 = 3 _
-            (Rosso = 3) (con mod resistisco il resto tra i due numeri) _
-    2 Troviamo il valore di Verde (G) _
-        (6723891 \ 256) Mod 256 = (26264) Mod 256 = 184 _
-            (Verde = 184) _
-    3 Troviamo il valore di Blu (B) _
-        (6723891 \ 65536) Mod 256 = (102) Mod 256 = 89 _
-            (Blu = 89)
-'// Passaggio 4: Il colore in formato RGB _
-    Abbiamo ottenuto: _
-        Print R = 3 _
-        Print G = 184 _
-        Print B = 89 _
-        Quindi il valore VBA 6723891 è equivalente a: _
-            RGB(3, 184, 89)
 
 
 Sub Imposta_Colore_Sub()

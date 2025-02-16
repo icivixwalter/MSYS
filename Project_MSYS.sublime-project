@@ -3,7 +3,10 @@
     [
         {
             "path": "c:\\Casa\\LINGUAGGI\\ACCESS\\PROGETTI_MDB\\MSYS_OGGETTI\\MSYS",
-        }
+        },
+        {
+			"path": "C:\\CASA\\LINGUAGGI\\ACCESS\\MODELLI_ROUTINE_CLASSI"
+		},
     ],
     "settings": {
         "tab_size": 3,
