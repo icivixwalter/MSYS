@@ -5,11 +5,6 @@ UTILITA_Msys_Frm21_IMPORTA_OGGETTI.md
 
 ### CODICE_CLASSE
 
-
-
-
-
-
 '# CLASSE_Form_UTILITA_Msys_Frm21_IMPORTA_OGGETTI.md
 '//@VERSIONE_DEL_2025_02_12=COMPLETA E FUNZIONANTE
 
@@ -2173,6 +2168,14 @@ End Function
 
 
 
+
+
+
+
+
+
+
+
 '//=====================================================================================================================//
 '//                     CASELLE DI TESTO E COMBINATE DEL PROGETTO IMPORTA  *** INIZIO ***
 '//                     + CurrentProject_txt + Cmb_01_txt + Cmb_02_txt + sourceDBPath_s_Txt  = @CMB_01, CMB_02 @CMB @PROGETTO
@@ -2858,6 +2861,8 @@ Private Sub Cmb_02_txt_AfterUpdate()
 End Sub
 
 
+
+
 '//CMB_02 = CASELLA COMBINATA DI SCELTA DEL PROGETTO   *** FINE ***
 
 '//-------------------------------------------------------------------------------------------//
@@ -2870,6 +2875,368 @@ End Sub
 '//=====================================================================================================================//
 
 
+
+
+
+
+
+
+
+
+
+
+'//***********************************************************************************************//
+'//*        -----------------------------------------------------------------------------------
+'//*                     ROUTINE PER AUMENTARE E RIDURRE LE DIMENSIONI      *** INIZIO ***
+'//*
+'//*        -----------------------------------------------------------------------------------
+'//*
+'//***********************************************************************************************//
+'//*  CODICE ----> @AUMENTA@DIMENSIONI,  @RIDUCI@DIMENSIONI@FORM
+'//*
+'//*  FAQ: _
+         come aumentare le dimensione della form _
+         come RIUDRRE le dimensione della form
+
+'//*
+'//* ROUTINE COSTRUITE:
+'//* @01_@AUMENTA@DIMENSIONI           = AUMENTO LE DIMENSIONE DELLE FORM MASTER E DEGLI OGGETTI INCORPORATI
+'//* @02_@RIDUCI@DIMENSIONI            = RIDUCO LE DIMENSIONE DELLE FORM MASTER E DEGLI OGGETTI INCORPORATI
+'//* @03_@CONTROLLO@ESISTENZA@FORM     = AUMENTO ORIDUCO LA DIMENSIONE DELLE FORM SOLO SE ESISTONO NEL DB CORRENTE
+
+
+
+
+
+Private Sub Cmb_01_FORM_GotFocus()
+    
+    ' Pulisco il valore corrente
+    Me.Cmb_01_FORM.Value = ""
+
+    ' Definisco la stringa con i dati per la combo
+    Dim Str1 As String
+    Str1 = ""
+    Str1 = Str1 & "OGGETTI MSYS;OGGETTO;"
+    Str1 = Str1 & "IMPORTA_OGGETTI_MSYS_DLL;FORM 1;"
+    Str1 = Str1 & "AA_PROVA;FORM 2;"
+    Str1 = Str1 & "3;FORM 3;"
+    Str1 = Str1 & "4;FORM 4;"
+    Str1 = Str1 & "-;-"
+
+    ' Imposto la casella combinata
+    Me.Cmb_01_FORM.RowSourceType = "Value List"  ' Corretta impostazione
+    Me.Cmb_01_FORM.RowSource = Str1
+    Me.Cmb_01_FORM.ColumnCount = 2               ' Due colonne
+    Me.Cmb_01_FORM.BoundColumn = 1               ' La colonna legata è la prima
+
+    ' Opzionale: Se vuoi selezionare un valore predefinito, assicurati che sia nella lista
+    Me.Cmb_01_FORM.Value = "*SCELTA DELLA FORM*"  ' Deve esistere nella lista
+
+    ' Aggiorno i dati della casella combinata
+    Me.Cmb_01_FORM.Requery
+
+End Sub
+
+
+'//SU MODIFICA DELLA COMBINATA
+Private Sub Cmb_01_FORM_Change()
+  
+
+  Select Case Me.Cmb_01_FORM.Value
+      Case "FORM 3"
+          Stop
+      Case Else
+          'MsgBox "SCELTA EFFTTUATA NON ATTIVA  : " & Me.Cmb_01_FORM.Value, vbInformation, "TITOLO SCELTA FORM"
+    End Select
+
+End Sub
+
+
+
+'//* @01_@AUMENTA@DIMENSIONI           = AUMENTO LE DIMENSIONE DELLE FORM MASTER E DEGLI OGGETTI INCORPORATI
+'//-------------------------------------------------------------------------------------------------------------------//
+'//Note: _
+      Recupera il nome della form dalla casella combinata Cmb_01_FORM. _
+      Scansiona tutte le form nel database con CurrentProject.AllForms. _
+      Se il nome esiste, chiama AumentaDimensioni O RIDUCEDimensioni, altrimenti mostra un messaggio di errore. _
+      Questo codice ti assicura che AumentaDimensioni venga chiamata solo se la form esiste nel database.
+      
+Private Sub Cmd_AUMENTA_DIMENSIONI_FORM_Click()
+    On Error GoTo ErroreHandler ' Attiva la gestione degli errori
+    
+    Dim NomeForm As String
+    
+    ' Recupero il nome della form dalla casella combinata
+    NomeForm = Nz(Me.Cmb_01_FORM.Value, "") ' Evita errori se la combo è vuota
+    
+    ' Controllo se la combo è vuota
+    If NomeForm = "" Then
+        MsgBox "Selezionare una form prima di procedere.", vbExclamation, "Attenzione"
+        Exit Sub
+    End If
+    
+    ' Verifica se la form esiste usando la funzione
+    If FormEsisteNelDatabase(NomeForm) Then
+        Call AumentaDimensioni
+        'Apro la form modificata
+        DoCmd.OpenForm NomeForm
+    Else
+        MsgBox "La form '" & NomeForm & "' non esiste nel database.", vbExclamation, "Errore"
+    End If
+
+    Exit Sub ' Evita l'esecuzione del codice di gestione errori se tutto va bene
+
+ErroreHandler:
+    MsgBox "Si è verificato un errore in Cmd_AUMENTA_DIMENSIONI_FORM_Click: " & Err.Description, vbCritical, "Errore " & Err.number
+End Sub
+
+'//* @02_@RIDUCI@DIMENSIONI            = RIDUCO LE DIMENSIONE DELLE FORM MASTER E DEGLI OGGETTI INCORPORATI
+Private Sub Cmd_RIDUCI_DIMENSIONI_FORM_Click()
+    On Error GoTo ErroreHandler ' Attiva la gestione degli errori
+    
+    Dim NomeForm As String
+    
+    ' Recupero il nome della form dalla casella combinata
+    NomeForm = Nz(Me.Cmb_01_FORM.Value, "") ' Evita errori se la combo è vuota
+    
+    ' Controllo se la combo è vuota
+    If NomeForm = "" Then
+        MsgBox "Selezionare una form prima di procedere.", vbExclamation, "Attenzione"
+        Exit Sub
+    End If
+    
+    ' Verifica se la form esiste usando la funzione
+    If FormEsisteNelDatabase(NomeForm) Then
+        Call AumentaDimensioni
+        
+        'Apro la form modificata
+        DoCmd.OpenForm NomeForm
+    Else
+        MsgBox "La form '" & NomeForm & "' non esiste nel database.", vbExclamation, "Errore"
+    End If
+
+    Exit Sub ' Evita l'esecuzione del codice di gestione errori se tutto va bene
+
+ErroreHandler:
+    MsgBox "Si è verificato un errore in Cmd_RIDUCI_DIMENSIONI_FORM_Click: " & Err.Description, vbCritical, "Errore " & Err.number
+End Sub
+
+'//-------------------------------------------------------------------------------------------------------------------//
+
+'//* @03_@CONTROLLO@ESISTENZA@FORM     = AUMENTO ORIDUCO LA DIMENSIONE DELLE FORM SOLO SE ESISTONO NEL DB CORRENTE
+'//-------------------------------------------------------------------------------------------------------------------//
+
+Public Function FormEsisteNelDatabase(NomeForm As String) As Boolean
+    Dim obj As Object
+    FormEsisteNelDatabase = False ' Default: la form non esiste
+
+    ' Scansiona tutte le form del database
+    For Each obj In CurrentProject.AllForms
+        If obj.Name = NomeForm Then
+            FormEsisteNelDatabase = True ' La form esiste
+            Exit Function
+        End If
+    Next obj
+End Function
+'//-------------------------------------------------------------------------------------------------------------------//
+
+
+
+'//@01_@AUMENTA@DIMENSIONI           = AUMENTO LE DIMENSIONE DELLE FORM MASTER E DEGLI OGGETTI INCORPORATI
+Private Sub AumentaDimensioni()
+    Dim frm As Form
+    Dim errMsg As String
+    
+
+    ' Chiudi la form se è aperta
+    If SysCmd(acSysCmdGetObjectState, acForm, "AA_PROVA") <> 0 Then
+        DoCmd.Close acForm, "AA_PROVA", acSaveYes
+    End If
+
+    ' Apri la form in modalità DESIGN
+    DoCmd.OpenForm "AA_PROVA", acDesign
+    Set frm = forms("AA_PROVA")
+    
+    Dim Larghezza_d As Double
+    Dim Altezza_d As Double
+   
+    '// FORM PRINCIPALE
+    '//..........................L  , H
+    ' **Ordine corretto per AUMENTARE: FORM ? CORPO ? TAB CONTROL ? SOTTOFORM**
+    Larghezza_d = 27
+    Call ModificaFormPrincipale(frm, Larghezza_d)      ' Form principale a 36 cm : larghezza
+    
+    
+   
+   '// PAGINE DEL TAB CONTROL -                            ATTENZIONE modifiche le pagine trascinano a se gli oggetti sottoform
+    '//..........................L  , H
+    'Call ModificaPagineTab(frm, 19.551, 22.555)        ' Pagine del Tab Control a 32x23 cm
+    Larghezza_d = 24.3
+    Altezza_d = 16.383
+  
+    Call ModificaPagineTab(frm, Larghezza_d, Altezza_d)        ' Pagine del Tab Control a 32x23 cm
+    
+  
+    '// SOTTOFORM
+    '//..........................L , H
+    Larghezza_d = 23.599
+    Altezza_d = 15.376
+    Call ModificaSottoform(frm, Larghezza_d, Altezza_d)               ' Sottoform a 15x31 cm    : larghezza, altezza
+    
+  
+    '// TAB CONTROL
+    '//..........................L  , H       ' TAB CONTROLL
+    Larghezza_d = 24.999
+    Altezza_d = 17.333
+    Call ModificaTabControl(frm, Larghezza_d, Altezza_d)      ' Tab Control a 32x23 cm  : larghezza, altezza
+
+    '// CORPO MASCHERA
+    '//..........................L  , H
+    Altezza_d = 17.555
+    Call ModificaCorpoMaschera(frm, Altezza_d)       ' Corpo maschera a 30 cm  : altezza
+  
+    
+  
+    ' Salva e chiudi la form
+    DoCmd.Close acForm, "AA_PROVA", acSaveYes
+    Set frm = Nothing
+    MsgBox "? Dimensioni aumentate con successo!", vbInformation, "Operazione Completata"
+End Sub
+
+' --------------------------------
+' ROUTINE PER RIDURRE LE DIMENSIONI
+' --------------------------------
+'// @02_@RIDUCI@DIMENSIONI            = RIDUCO LE DIMENSIONE DELLE FORM MASTER E DEGLI OGGETTI INCORPORATI
+Public Sub RiduciDimensioni()
+    Dim frm As Form
+    Dim errMsg As String
+
+    ' Chiudi la form se è aperta
+    If SysCmd(acSysCmdGetObjectState, acForm, "AA_PROVA") <> 0 Then
+        DoCmd.Close acForm, "AA_PROVA", acSaveYes
+    End If
+
+    ' Apri la form in modalità DESIGN
+    DoCmd.OpenForm "AA_PROVA", acDesign
+    Set frm = forms("AA_PROVA")
+
+    ' **Ordine corretto per RIDURRE: SOTTOFORM ? TAB CONTROL ? CORPO ? FORM**
+    Call ModificaSottoform(frm, 20, 20)       ' Sottoform a 13x15 cm
+    Call ModificaPagineTab(frm, 21, 21)       ' Pagine del Tab Control a 17x17 cm
+    Call ModificaTabControl(frm, 21, 22)      ' Tab Control a 17x17 cm
+    Call ModificaCorpoMaschera(frm, 22.101)   ' Corpo maschera a 17.101 cm
+    Call ModificaFormPrincipale(frm, 26)      ' Form principale a 27 cm
+
+    ' Salva e chiudi la form
+    DoCmd.Close acForm, "AA_PROVA", acSaveYes
+    Set frm = Nothing
+    MsgBox "? Dimensioni ridotte con successo!", vbInformation, "Operazione Completata"
+End Sub
+
+' -------------------------------
+' **FUNZIONI DI SUPPORTO**
+' -------------------------------
+
+' Modifica la larghezza della Form principale
+Private Sub ModificaFormPrincipale(frm As Form, larghezza As Double)
+    frm.Width = cmToTwips(larghezza)
+    'DoCmd.Save
+    DoEvents
+End Sub
+
+' Modifica l'altezza del Corpo Maschera
+Private Sub ModificaCorpoMaschera(frm As Form, altezza As Double)
+    frm.Section(acDetail).Height = cmToTwips(altezza)
+    DoCmd.Save
+    DoEvents
+End Sub
+
+' Modifica le dimensioni del Tab Control
+Private Sub ModificaTabControl(frm As Form, larghezza As Double, altezza As Double)
+    Dim tabCtl As Control
+    On Error Resume Next
+    Set tabCtl = frm("TabCtl1")
+    On Error GoTo 0
+    If Not tabCtl Is Nothing Then
+        tabCtl.Width = cmToTwips(larghezza)
+        tabCtl.Height = cmToTwips(altezza)
+        DoCmd.Save
+        DoEvents
+        DoCmd.Save
+    End If
+      
+    Set tabCtl = Nothing
+End Sub
+
+' Modifica le dimensioni di tutte le pagine del Tab Control
+Private Sub ModificaPagineTab(frm As Form, larghezza As Double, altezza As Double)
+    Dim tabCtl As Control
+    Dim i As Integer
+    
+    ' Ottiene il controllo TabCtl1
+    On Error Resume Next
+    Set tabCtl = frm("TabCtl1")
+    On Error GoTo 0
+    
+    ' Se il Tab Control esiste, modifica le pagine
+    If Not tabCtl Is Nothing Then
+        For i = 0 To tabCtl.Pages.count - 1
+            tabCtl.Pages(i).Width = cmToTwips(larghezza)
+            tabCtl.Pages(i).Height = cmToTwips(altezza)
+            DoEvents
+            DoCmd.Save
+        Next i
+    End If
+    
+    ' Pulizia memoria
+    Set tabCtl = Nothing
+End Sub
+
+' Modifica le dimensioni di tutti i sottoform e imposta il bordo
+Private Sub ModificaSottoform(frm As Form, larghezza As Double, altezza As Double)
+    Dim i As Integer, ctl As Control
+    For i = 1 To 12
+        On Error Resume Next
+        Set ctl = frm("sottoform_" & Format(i, "00"))
+        On Error GoTo 0
+        If Not ctl Is Nothing Then
+            ' Modifica dimensioni
+            ctl.Width = cmToTwips(larghezza)
+            ctl.Height = cmToTwips(altezza)
+            Debug.Print ctl.Name
+            
+             ' Imposta l'aspetto piatto, il colore e lo spessore del bordo
+            ctl.BorderStyle = 1 ' Aspetto piatto (fmBorderStyleSingle)
+            ctl.BorderColor = RGB(&HBA, &H14, &H19) ' Colore bordo: #BA1419
+            ctl.BorderWidth = 2 ' Spessore bordo: 2 pt
+            
+            
+            
+            
+            DoCmd.Save
+            DoEvents
+        End If
+        Set ctl = Nothing
+    Next i
+End Sub
+
+' Funzione per convertire cm in twips
+Private Function cmToTwips(cm As Double) As Long
+    cmToTwips = cm * 567
+End Function
+
+
+
+
+
+
+'//***********************************************************************************************//
+'//*        -----------------------------------------------------------------------------------
+'//*                     ROUTINE PER AUMENTARE E RIDURRE LE DIMENSIONI      *** FINE ***
+'//*
+'//*        -----------------------------------------------------------------------------------
+'//*
+'//***********************************************************************************************//
 
 
 
@@ -3002,7 +3369,7 @@ On Error GoTo Err_Cmd_Delete_QUERY_Click
                      Set dbCurrent = CurrentDb
                      
                      '//CALCOLO INDICE QUERY
-                     icount = dbCurrent.QueryDefs.Count
+                     icount = dbCurrent.QueryDefs.count
                                        
                     '//APRO IL CORRENTE DB
                     Set dbCurrent = CurrentDb
@@ -3037,7 +3404,7 @@ On Error GoTo Err_Cmd_Delete_QUERY_Click
                                     Debug.Print "cancello la query trovata sia nella collezione che nella matrice : " & MATRICE_queryNames_s(i)
                                     DoCmd.DeleteObject acQuery, MATRICE_queryNames_s(i)
                                     
-                                    If Err.Number <> 0 Then
+                                    If Err.number <> 0 Then
                                         Debug.Print "Errore durante la cancellazione del Query: " & MATRICE_queryNames_s(i) & " - " & Err.Description
                                         Err.Clear  ' Pulisci l'errore per la prossima iterazione
                                     Else
@@ -3261,7 +3628,7 @@ Private Sub Cmd_Importa_FORM_Click()
     Set formsCollection = CollectionForm_PFunct()
 
     ' SE LA COLLECTION E' VUOTA ESCI DALLA ROUTINE
-    If formsCollection.Count = 0 Then Exit Sub
+    If formsCollection.count = 0 Then Exit Sub
 
     ' Controllo path ed il file.mdb per le importazioni
     sourceDBPath = PathFile_s_pFunct
@@ -3340,7 +3707,7 @@ Private Sub Cmd_Importa_FORM_Click()
                     Set dbCurrent = CurrentDb
                     
                     ' Controlla se ci sono form nel database corrente
-                    If CurrentProject.AllForms.Count = 0 Then
+                    If CurrentProject.AllForms.count = 0 Then
                         MsgBox "Nessun form presente nel database corrente.", vbExclamation, "Attenzione"
                     Else
                         ' Itera sugli oggetti form per trovare l'ultimo
@@ -3521,7 +3888,7 @@ Private Sub Cmd_Delete_FORM_Click()
                       Set dbCurrent = CurrentDb
                   
                       '//CALCOLO INDICE FORM
-                      icount = Application.CurrentProject.AllForms.Count
+                      icount = Application.CurrentProject.AllForms.count
                   
                       '//se ci sono FORM da cancellare
                       If icount > 0 Then
@@ -3553,7 +3920,7 @@ Private Sub Cmd_Delete_FORM_Click()
                                   Debug.Print "cancello la FORM trovata sia nella collezione che nella matrice : " & MATRICE_FORM_Names_s(i)
                                   DoCmd.DeleteObject acForm, MATRICE_FORM_Names_s(i)
                   
-                                  If Err.Number <> 0 Then
+                                  If Err.number <> 0 Then
                                       Debug.Print "Errore durante la cancellazione del FORM: " & MATRICE_FORM_Names_s(i) & " - " & Err.Description
                                       Err.Clear  ' Pulisci l'errore per la prossima iterazione
                                   Else
@@ -3590,7 +3957,7 @@ Private Sub Cmd_Delete_FORM_Click()
                                       tableVisibili = 0
                                       
                                       ' Conta le maschere visibili nel database
-                                      For i = 0 To Application.CurrentProject.AllForms.Count - 1
+                                      For i = 0 To Application.CurrentProject.AllForms.count - 1
                                           formVisibili = formVisibili + 1
                                       Next i
                                       
@@ -3979,7 +4346,7 @@ Private Sub Cmd_Importa_MACRO_Click()
                         faccio un controllo sul numero degli oggetti della collection se = 0 allora _
                         non ci sono oggetti da caricare per cui si esce dalla routine.
                         
-            If objectMacros.Count = 0 Then Exit Sub
+            If objectMacros.count = 0 Then Exit Sub
    
         
     '//------------------------------------------------------------------------//
@@ -4221,7 +4588,7 @@ Private Sub Cmd_Delete_MACRO_Click()
             Set dbCurrent = CurrentDb
         
             '//CALCOLO INDICE MACRO
-            icount = CurrentProject.AllMacros.Count
+            icount = CurrentProject.AllMacros.count
         '//------------------------------------------------------------------------//
             
         
@@ -4274,7 +4641,7 @@ Private Sub Cmd_Delete_MACRO_Click()
                                             Debug.Print "cancello la MACRO trovata sia nella collezione che nella matrice : " & MATRICE_MACRO_Names_s(i)
                                             DoCmd.DeleteObject acMacro, MATRICE_MACRO_Names_s(i)
                             
-                                            If Err.Number <> 0 Then
+                                            If Err.number <> 0 Then
                                                 Debug.Print "Errore durante la cancellazione della MACRO: " & MATRICE_MACRO_Names_s(i) & " - " & Err.Description
                                                 Err.Clear  ' Pulisci l'errore per la prossima iterazione
                                             Else
@@ -4910,13 +5277,13 @@ Private Sub Cmd_IMPORTA_OGGETTI_UTILITA_Click()
 ErrHandler:
     ' Log dell'errore nel Debug Window
     Debug.Print "Errore in Cmd_IMPORTA_OGGETTI_UTILITA_Click"
-    Debug.Print "Numero errore: " & Err.Number
+    Debug.Print "Numero errore: " & Err.number
     Debug.Print "Descrizione errore: " & Err.Description
     Debug.Print "Origine errore: " & Err.Source
 
     ' Messaggio di errore all'utente
     MsgBox "Si è verificato un errore durante l'importazione." & vbCrLf & _
-           "Errore " & Err.Number & ": " & Err.Description, _
+           "Errore " & Err.number & ": " & Err.Description, _
            vbCritical, "Errore"
 
     ' Rilascia le risorse in caso di errore
@@ -4991,10 +5358,17 @@ Public Sub CaricaOggetti_UTILITA(ByRef colTables_UTILITA As Collection, _
     '//@UTILITA@COLLECTION@MODULES_(I MODULI  per la @GESTIONE DELLE @UTILITA@MODULI)
         colModules_UTILITA.Add "UTILITA_MsysDF13_Mdl00_}-----------------------------------@"
         colModules_UTILITA.Add "UTILITA_MsysDF13Mdl01_DLL_REFERENZIA_LE_LIBRERIE"
+        colModules_UTILITA.Add "UTILITA_MsysDF13Mdl01_DLL_REFERENZIA_LE_LIBRERIE"
+        
+        '//.... per la gestione delle @API@ WINDOWS
+        colModules_UTILITA.Add "GEFILE_Mdl01_GESTIONI_FILE_API_VBA"
     
     '//@UTILITA@COLLECTION@FORMS_(LE @FORM  per la @GESTIONE DELLE @UTILITA@FORMS)
     colForms_UTILITA.Add "UTILITA_Msys_Frm21_}-------------------------------------------@"
-    colForms_UTILITA.Add ""
+    
+    '// ... questa è la form per la gestione dei file windows a cui si unisce ache il modulo PER LE @API@WINDOWS
+    colForms_UTILITA.Add "GEFILE_Frm01_{@===============================================@}"
+    colForms_UTILITA.Add "GEFILE_Frm01_GESTIONI"
     
     '//@UTILITA@COLLECTION@REPORTS_(I @REPORT  per la @GESTIONE DELLE @UTILITA@REPORT)
     colReports_UTILITA.Add "Msys_Rpt01_01_ESPORTA_DB_}-------------------------------------@"
@@ -5211,7 +5585,7 @@ Cleanup:
     Exit Sub
 
 ErrHandler:
-    MsgBox "Errore " & Err.Number & ": " & Err.Description, vbCritical, "Errore"
+    MsgBox "Errore " & Err.number & ": " & Err.Description, vbCritical, "Errore"
     Resume Cleanup
 
 End Sub
@@ -5339,7 +5713,7 @@ Private Sub Cmd_Importa_REPORT_Click()
                         faccio un controllo sul numero degli oggetti della collection se = 0 allora _
                         non ci sono oggetti da caricare per cui si esce dalla routine.
                         
-            If reportsCollection.Count = 0 Then GoTo Exit_Cmd_Import_REPORT_Click
+            If reportsCollection.count = 0 Then GoTo Exit_Cmd_Import_REPORT_Click
    
         
     '//------------------------------------------------------------------------//
@@ -5603,7 +5977,7 @@ Private Sub Cmd_Delete_REPORT_Click()
     Set dbCurrent = CurrentDb
 
     '//CALCOLO INDICE REPORT
-    icount = Application.CurrentProject.AllReports.Count
+    icount = Application.CurrentProject.AllReports.count
 
     '//se ci sono REPORT da cancellare
     If icount > 0 Then
@@ -5635,7 +6009,7 @@ Private Sub Cmd_Delete_REPORT_Click()
                 Debug.Print "cancello il REPORT trovato sia nella collezione che nella matrice : " & MATRICE_REPORT_Names_s(i)
                 DoCmd.DeleteObject acReport, MATRICE_REPORT_Names_s(i)
 
-                If Err.Number <> 0 Then
+                If Err.number <> 0 Then
                     Debug.Print "Errore durante la cancellazione del REPORT: " & MATRICE_REPORT_Names_s(i) & " - " & Err.Description
                     Err.Clear  ' Pulisci l'errore per la prossima iterazione
                 Else
@@ -5779,11 +6153,6 @@ Private Sub Cmd_Delete_REPORT_HELP_Click()
     '//--------------------------------------------------------------------------------//--------//
 
 End Sub
-
-
-
-
-
 
 
 '//DELETE REPORT HELP *** FINE ***
@@ -6040,7 +6409,7 @@ On Error GoTo ErrorHandler
                         faccio un controllo sul numero degli oggetti della collection se = 0 allora _
                         non ci sono oggetti da caricare per cui si esce dalla routine.
                         
-            If objectQueries.Count = 0 Then Exit Sub
+            If objectQueries.count = 0 Then Exit Sub
                 
     '//------------------------------------------------------------------------//
     
@@ -6239,7 +6608,7 @@ On Error GoTo ErrorHandler
                         Set dbCurrent = CurrentDb
                         
                         ' Controlla se ci sono query nel database corrente
-                        If dbCurrent.QueryDefs.Count = 0 Then
+                        If dbCurrent.QueryDefs.count = 0 Then
                             MsgBox "Nessuna query presente nel database corrente.", vbExclamation, "Attenzione"
                         Else
                             ' Itera sulle query esistenti per trovare l'ultima
@@ -6483,7 +6852,7 @@ Private Sub Cmd_Importa_TABLE_Click()
                         faccio un controllo sul numero degli oggetti della collection se = 0 allora _
                         non ci sono oggetti da caricare per cui si esce dalla routine.
                         
-                    If tablesCollection.Count = 0 Then Exit Sub
+                    If tablesCollection.count = 0 Then Exit Sub
    
     
                 
@@ -6713,7 +7082,7 @@ Private Sub Cmd_Importa_TABLE_Click()
                             systemTables.Add "MSysResources"
                             
                             ' Controlla se ci sono tabelle nel database corrente
-                            If dbCurrent.TableDefs.Count = 0 Then
+                            If dbCurrent.TableDefs.count = 0 Then
                                 MsgBox "Nessuna tabella presente nel database corrente.", vbExclamation, "Attenzione"
                             Else
                                 ' Itera sulle tabelle esistenti per trovare l'ultima tabella non di sistema
@@ -6723,7 +7092,7 @@ Private Sub Cmd_Importa_TABLE_Click()
                                     
                                     ' Controlla se la tabella è una tabella di sistema
                                     Dim i As Integer
-                                    For i = 1 To systemTables.Count
+                                    For i = 1 To systemTables.count
                                         If tdf.Name = systemTables.Item(i) Then
                                             isSystemTable = True
                                             Exit For
@@ -7188,7 +7557,7 @@ On Error GoTo Err_Cmd_Delete_TABELLE_Click
              Set dbCurrent = CurrentDb
 
              '//CALCOLO INDICE TABELLE
-             icount = dbCurrent.TableDefs.Count
+             icount = dbCurrent.TableDefs.count
 
             Set dbCurrent = CurrentDb
 
@@ -7222,7 +7591,7 @@ On Error GoTo Err_Cmd_Delete_TABELLE_Click
                     Debug.Print "cancello la TABELLE trovata sia nella collezione che nella matrice : " & MATRICE_TABLE_Names_s(i)
                     DoCmd.DeleteObject acTABELLE, MATRICE_TABLE_Names_s(i)
 
-                    If Err.Number <> 0 Then
+                    If Err.number <> 0 Then
                     Debug.Print "Errore durante la cancellazione del TABELLE: " & MATRICE_TABLE_Names_s(i) & " - " & Err.Description
                     Err.Clear  ' Pulisci l'errore per la prossima iterazione
                     Else
@@ -7372,7 +7741,7 @@ On Error GoTo ErrorHandler
                         faccio un controllo sul numero degli oggetti della collection se = 0 allora _
                         non ci sono oggetti da caricare per cui si esce dalla routine.
 
-            If objectModules.Count = 0 Then Exit Sub
+            If objectModules.count = 0 Then Exit Sub
                 
     '//------------------------------------------------------------------------//
     
@@ -9640,7 +10009,9 @@ End Sub
 '//03@STAMPA@FORM       = STAMPO LE FORM DEL DB CORRENTE;       FILE 03_LOG_FORM SALVATO NELLA PATH CORRENTE
 '//04@STAMPA@REPORT     = STAMPO LE REPORT DEL DB CORRENTE;     FILE 04_LOG_REPORT SALVATO NELLA PATH CORRENTE
 '//05@STAMPA@MODULI     = STAMPO LE MODULI DEL DB CORRENTE;     FILE 05_LOG_MODULI SALVATO NELLA PATH CORRENTE
-'//06)@STAMPA@TUTTO     = STAMPO TUTTI GLI OGGETTI DEL DB CORRENTE.
+'//06@STAMPA@TUTTO      = STAMPO TUTTI GLI OGGETTI DEL DB CORRENTE.
+'//07@STAMPA@LOG@ERRORI = STAMPO IL @FILE@LOG DI @GESTIONE DEGLI @ERRORI DELLA SINGOLA FUNZIONE O ROUTINE
+
 
 '//01@STAMPA@TABELLE    = STAMPO LE TABELLE DEL DB CORRENTE;    FILE 01_LOG_TABELLE SALVATO NELLA PATH CORRENTE _
 Impostazione del database corrente: Set db = CurrentDb() imposta il database corrente come oggetto db. _
@@ -9649,6 +10020,7 @@ Esclusione delle tabelle di sistema: Le tabelle di sistema (che iniziano con "MS
 Stampa dei nomi delle tabelle: I nomi delle tabelle vengono stampati nella finestra di debug (Debug.Print). _
 Rilascio delle risorse: Le risorse vengono rilasciate impostando tdf e db su Nothing. _
 Messaggio di conferma: Un messaggio di conferma viene visualizzato per indicare che la stampa è stata completata. _
+
 Private Sub Cmd_STAMPA_TABLE_DB_CORRENTE_Click()
     On Error GoTo ErrorHandler ' Attiva il controllo degli errori
     
@@ -10018,7 +10390,7 @@ Private Sub Cmd_STAMPA_REPORT_DB_CORRENTE_Click()
 
 ErrorHandler:
     ' Gestione degli errori
-    MsgBox "Si è verificato un errore: " & Err.Number & " - " & Err.Description, vbCritical
+    MsgBox "Si è verificato un errore: " & Err.number & " - " & Err.Description, vbCritical
     
     ' Rilascia le risorse in caso di errore
     If Not rpt Is Nothing Then Set rpt = Nothing
@@ -10118,7 +10490,7 @@ Private Sub Cmd_STAMPA_MODULI_DB_CORRENTE_Click()
 
 ErrorHandler:
     ' Gestione degli errori
-    MsgBox "Si è verificato un errore: " & Err.Number & " - " & Err.Description, vbCritical
+    MsgBox "Si è verificato un errore: " & Err.number & " - " & Err.Description, vbCritical
     
     ' Rilascia le risorse in caso di errore
     If Not mdl Is Nothing Then Set mdl = Nothing
@@ -10129,7 +10501,7 @@ ErrorHandler:
 End Sub
 
 
-'//06)@STAMPA@TUTTO     = STAMPO TUTTI GLI OGGETTI DEL DB CORRENTE.
+'//06@STAMPA@TUTTO      = STAMPO TUTTI GLI OGGETTI DEL DB CORRENTE.
 Private Sub Cmd_STAMPA_TUTTI_GLI_OGGETTI_DB_CORRENTE_Click()
         '//STAMPO TUTTI GLI OGGETTI
         Call Cmd_STAMPA_FORM_DB_CORRENTE_Click
@@ -10139,6 +10511,50 @@ Private Sub Cmd_STAMPA_TUTTI_GLI_OGGETTI_DB_CORRENTE_Click()
         Call Cmd_STAMPA_MODULI_DB_CORRENTE_Click
 
 End Sub
+
+
+'//07@STAMPA@LOG@ERRORI = STAMPO IL @FILE@LOG DI @GESTIONE DEGLI @ERRORI DELLA SINGOLA FUNZIONE O ROUTINE
+
+Public Sub ScriviLogErrore(NomeRoutine As String, NumeroErrore As Long, MessaggioErrore As String)
+
+'//FILE LOG ERRORI
+'//.................................................................//
+    'ScriviLogErrore(NomeRoutine As String, _
+                    NumeroErrore As Long, _
+                    MessaggioErrore As String)
+
+'//.................................................................//
+
+
+    Dim FileNum As Integer
+    Dim TestoLog_s As String
+    Dim FileLog_s As String
+    
+    '//reset variabili
+    FileLog_s = ""
+    FileLog_s = "\LOG_ERRORI_ROUTINE_E_FUNZIONI.TXT"
+    
+    ' Percorso e nome del file di log (stesso percorso del database)
+    FileLog = CurrentProject.Path & FileLog_s
+    
+    ' Formato del testo da scrivere nel file di log
+    TestoLog_s = "--------------------------------------------------" & vbCrLf
+    TestoLog_s = TestoLog_s & "Data:        " & Now & vbCrLf
+    TestoLog_s = TestoLog_s & "Routine:     " & NomeRoutine & vbCrLf
+    TestoLog_s = TestoLog_s & "Errore #:    " & NumeroErrore & vbCrLf
+    TestoLog_s = TestoLog_s & "Descrizione: " & MessaggioErrore & vbCrLf
+    TestoLog_s = TestoLog_s & "--------------------------------------------------" & vbCrLf & vbCrLf
+
+    ' Apre il file in modalità Append (aggiunge il nuovo errore senza sovrascrivere i precedenti)
+    FileNum = FreeFile()
+    Open FileLog For Append As #FileNum
+    Print #FileNum, TestoLog_s
+    Close #FileNum
+    
+    MsgBox "LOG ERRORI STAMPATO NELLA PATH: " & CurrentProject.Path & " FILE_LOG_ERRORI: " & FileLog_s
+    
+End Sub
+
 
 
 
@@ -10201,6 +10617,7 @@ End Sub
 '                                    @ROUTINE@GENERICHE              **** FINE ****
 '
 '***********************************************************************************************************************
+
 
 
 

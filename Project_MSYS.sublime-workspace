@@ -16,32 +16,15 @@
 	"buffers":
 	[
 		{
-			"file": "/c/Casa/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/OBJECT/FORM/Msys_Frm01_S01_ESPORTA_OGGETTI_TUTTI.md",
+			"file": "/c/Casa/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/OBJECT/FORM/UTILITA_Msys_Frm21_IMPORTA_OGGETTI.md",
 			"settings":
 			{
-				"buffer_size": 150,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "OBJECT/MODULI/GESTIONE_Mdl10_FILE_APRI_PDF.MD",
-			"settings":
-			{
-				"buffer_size": 12899,
+				"buffer_size": 493625,
 				"encoding": "UTF-8",
-				"line_ending": "Windows",
-				"name": "'//MODULO"
+				"line_ending": "Windows"
 			},
 			"undo_stack":
 			[
-				[
-					1,
-					1,
-					"paste",
-					null,
-					"AQAAAAAAAAAAAAAAYzIAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/"
-				]
 			]
 		}
 	],
@@ -111,6 +94,7 @@
 	],
 	"file_history":
 	[
+		"/C/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/OBJECT/MODULI/GESTIONE_Mdl10_FILE_APRI_PDF.MD",
 		"/c/Casa/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/GEFILE_Mdl01_GESTIONI_FILE_API_VBA_OLD.MD",
 		"/c/Casa/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/GEFILE_Frm01_GESTIONI_old.MD",
 		"/C/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/OBJECT/FORM/GEFILE_Frm01_GESTIONI.MD",
@@ -237,16 +221,15 @@
 		"/C/GESTIONI/GESTIONE_LLPP/25_GESTIONE_LLPP/NUMERI_TELEFONICI_Dipendenti in Servizio.md",
 		"/C/GESTIONI/GESTIONE_LLPP/25_GESTIONE_LLPP/NUMERI_TELEFONICI_Dipendenti in Servizio.sublime-project",
 		"/C/GESTIONI/GESTIONE_LLPP/25_GESTIONE_LLPP/NUMERI_TELEFONICI_Dipendenti in Servizio.sublime-workspace",
-		"/Y/LAVORI_PUBBLICI_FINO_AL_30_09_2019/Valter/OPERE_PUBBLICHE/112_SETTORE_LAVORI_PUBBLICI/01_LAVORI_PUBBLICI/BDAP_PROGETTI/209_{MESSA IN SICUREZZA DEL FIUME COSA}_{W_R}/209_{MESSA IN SICUREZZA DEL FIUME COSA}.md",
-		"/C/GESTIONI/GESTIONE_LLPP/25_GESTIONE_LLPP./PRES3000_GESTIONE/ARCHIVI_PRES3000/PRES3000_N26_SALARIO_ACCESSORIO/PEO_MICRO_ORGANIZZAZIONI/PEO/ORDINE_ALFABETICO_PEO_QryTb26_11_GROUP_TUTTE_LE_PEO_XANNO.MD"
+		"/Y/LAVORI_PUBBLICI_FINO_AL_30_09_2019/Valter/OPERE_PUBBLICHE/112_SETTORE_LAVORI_PUBBLICI/01_LAVORI_PUBBLICI/BDAP_PROGETTI/209_{MESSA IN SICUREZZA DEL FIUME COSA}_{W_R}/209_{MESSA IN SICUREZZA DEL FIUME COSA}.md"
 	],
 	"find":
 	{
-		"height": 29.6
+		"height": 42.4
 	},
 	"find_in_files":
 	{
-		"height": 116.0,
+		"height": 111.0,
 		"where_history":
 		[
 			"",
@@ -260,6 +243,9 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"@utilita",
+			"Cmb_01_FORM_txt",
+			"Cmb_02",
 			"ZIP_SALVATAGGI_MSYS_UFFICIO",
 			"ZIP_SALVATAGGI_MSYS",
 			"MENU",
@@ -384,10 +370,7 @@
 			"lorena",
 			"aurora",
 			"gabriele",
-			"lorena",
-			"maria",
-			"aurora",
-			"VESPAZIANI"
+			"lorena"
 		],
 		"highlight": false,
 		"in_selection": false,
@@ -416,58 +399,27 @@
 			[
 				{
 					"buffer": 0,
-					"file": "/c/Casa/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/OBJECT/FORM/Msys_Frm01_S01_ESPORTA_OGGETTI_TUTTI.md",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 150,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Markdown/Markdown.sublime-syntax",
-							"tab_size": 3,
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"stack_multiselect": false,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "OBJECT/MODULI/GESTIONE_Mdl10_FILE_APRI_PDF.MD",
+					"file": "/c/Casa/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/OBJECT/FORM/UTILITA_Msys_Frm21_IMPORTA_OGGETTI.md",
 					"selected": true,
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 12899,
+						"buffer_size": 493625,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								476,
-								502
+								474,
+								474
 							]
 						],
 						"settings":
 						{
-							"auto_name": "'//MODULO",
+							"mde.match_heading_hashes": false,
 							"syntax": "Packages/Markdown/Markdown.sublime-syntax",
-							"tab_size": 4,
+							"tab_size": 3,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
