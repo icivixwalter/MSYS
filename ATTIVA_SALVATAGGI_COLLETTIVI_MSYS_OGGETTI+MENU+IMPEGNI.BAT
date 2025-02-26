@@ -1,3 +1,5 @@
+
+
 @REM  cd.. devi posizionarti su git_desktop
 CD c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\
 
