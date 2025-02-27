@@ -5,11 +5,12 @@ UTILITA_Msys_Frm21_IMPORTA_OGGETTI.md
 
 ### CODICE_CLASSE
 
+
 '# CLASSE_Form_UTILITA_Msys_Frm21_IMPORTA_OGGETTI.md
 '//@VERSIONE_DEL_2025_02_12=COMPLETA E FUNZIONANTE
 
 '*****************************************************************************************************//
-'*  CLASSE DELLA FORM: Form_UTILITA_Msys_Frm21_IMPORTA_OGGETTI
+'*  CLASSE DELLA FORM: Form_UTILITA_Msys_Frm21_IMPORTA_OGGETTI    @classe@form@importa@oggetti_(CODICE Della classe form importa oggetti)
 '*
 '*  ATTIVITA        :questa classe della @form@IMPORTA@PROGETTO viene utilizzata per importare
 '*                  tutti gli oggetti (tabelle, query, form, report ecc..) che in questo caso appartengono
@@ -2176,6 +2177,8 @@ End Function
 
 
 
+
+
 '//=====================================================================================================================//
 '//                     CASELLE DI TESTO E COMBINATE DEL PROGETTO IMPORTA  *** INIZIO ***
 '//                     + CurrentProject_txt + Cmb_01_txt + Cmb_02_txt + sourceDBPath_s_Txt  = @CMB_01, CMB_02 @CMB @PROGETTO
@@ -2696,6 +2699,7 @@ End Sub
         oggetti MSYS  e non per i Treeview.
 
 
+
 Private Sub Cmb_02_txt_DblClick(Cancel As Integer)
     Cmb_02_txt_AfterUpdate
 End Sub
@@ -2896,57 +2900,88 @@ End Sub
 '//*
 '//*  FAQ: _
          come aumentare le dimensione della form _
-         come RIUDRRE le dimensione della form
+         come RIDURRE le dimensione della form
 
 '//*
 '//* ROUTINE COSTRUITE:
-'//* @01_@AUMENTA@DIMENSIONI           = AUMENTO LE DIMENSIONE DELLE FORM MASTER E DEGLI OGGETTI INCORPORATI
-'//* @02_@RIDUCI@DIMENSIONI            = RIDUCO LE DIMENSIONE DELLE FORM MASTER E DEGLI OGGETTI INCORPORATI
-'//* @03_@CONTROLLO@ESISTENZA@FORM     = AUMENTO ORIDUCO LA DIMENSIONE DELLE FORM SOLO SE ESISTONO NEL DB CORRENTE
+'//* @01_@AUMENTA@DIMENSIONI              = AUMENTO LE DIMENSIONE DELLE FORM MASTER E DEGLI OGGETTI INCORPORATI
+'//* @02_@RIDUCI@DIMENSIONI               = RIDUCO LE DIMENSIONE DELLE FORM MASTER E DEGLI OGGETTI INCORPORATI
+'//* @03_@CONTROLLO@ESISTENZA@FORM        = AUMENTO O RIDUCO LA DIMENSIONE DELLE FORM SOLO SE ESISTONO NEL DB CORRENTE
+'//* @04_@CMB@02@FORM@LARGHEZZA@ALTEZZA   = @Cmb_02_FORM_L_H_TXT @LARGHEZZA E @ALTEZZA DELLA @FORM @CMB@02_(combinata @misure @L@H della form)
 
 
 
 
+Private Sub Cmb_01_FORM_TXT_GotFocus()
+    On Error GoTo ErrHandler ' Attiva la gestione degli errori
 
-Private Sub Cmb_01_FORM_GotFocus()
+    ' Verifico se la casella combinata esiste
+    If Not Me.Cmb_01_FORM_TXT Is Nothing Then
+        ' Pulisco il valore corrente
+        Me.Cmb_01_FORM_TXT.Value = ""
+
+        ' Definisco la stringa con i dati per la combo
+        Dim Str1 As String
+        Str1 = "OGGETTI MSYS;OGGETTO;" & _
+               "IMPORTA_OGGETTI_MSYS_DLL;FORM 1;" & _
+               "AA_PROVA;FORM 2;" & _
+               "3;FORM 3;" & _
+               "4;FORM 4;" & _
+               "-;-"
+
+        ' Imposto la casella combinata
+        Me.Cmb_01_FORM_TXT.RowSourceType = "Value List"
+        Me.Cmb_01_FORM_TXT.RowSource = Str1
+        Me.Cmb_01_FORM_TXT.ColumnCount = 2
+        Me.Cmb_01_FORM_TXT.BoundColumn = 1
+
+        ' Verifica se il valore predefinito è valido prima di assegnarlo
+        If InStr(1, Str1, "*SCELTA DELLA FORM*", vbTextCompare) > 0 Then
+            Me.Cmb_01_FORM_TXT.Value = "*SCELTA DELLA FORM*"
+        Else
+            Me.Cmb_01_FORM_TXT.Value = ""
+        End If
+
+        ' Aggiorno i dati della casella combinata
+        Me.Cmb_01_FORM_TXT.Requery
+    End If
+
+ExitSub:
+    Exit Sub
+
+ErrHandler:
+    MsgBox "Si è verificato un errore: " & Err.Description, vbExclamation, "Errore " & Err.number
     
-    ' Pulisco il valore corrente
-    Me.Cmb_01_FORM.Value = ""
-
-    ' Definisco la stringa con i dati per la combo
-    Dim Str1 As String
-    Str1 = ""
-    Str1 = Str1 & "OGGETTI MSYS;OGGETTO;"
-    Str1 = Str1 & "IMPORTA_OGGETTI_MSYS_DLL;FORM 1;"
-    Str1 = Str1 & "AA_PROVA;FORM 2;"
-    Str1 = Str1 & "3;FORM 3;"
-    Str1 = Str1 & "4;FORM 4;"
-    Str1 = Str1 & "-;-"
-
-    ' Imposto la casella combinata
-    Me.Cmb_01_FORM.RowSourceType = "Value List"  ' Corretta impostazione
-    Me.Cmb_01_FORM.RowSource = Str1
-    Me.Cmb_01_FORM.ColumnCount = 2               ' Due colonne
-    Me.Cmb_01_FORM.BoundColumn = 1               ' La colonna legata è la prima
-
-    ' Opzionale: Se vuoi selezionare un valore predefinito, assicurati che sia nella lista
-    Me.Cmb_01_FORM.Value = "*SCELTA DELLA FORM*"  ' Deve esistere nella lista
-
-    ' Aggiorno i dati della casella combinata
-    Me.Cmb_01_FORM.Requery
-
+      '//@FILE@LOG@ERRORI
+      '//.................................................................//
+          Dim NomeRoutine_s As String
+          Dim NumeroErrore_lng As Long
+          Dim MessaggioErrore_s  As String
+          
+          NomeRoutine_s = "ROUTINE: Cmb_01_FORM_TXT_GotFocus"
+          NumeroErrore_lng = Err.number
+          MessaggioErrore_s = "ERRORE DI ESECUZIONE ROUTINE : " & Err.Description
+          
+          ScriviLogErrore NomeRoutine_s, _
+                          NumeroErrore_lng, _
+                          MessaggioErrore_s
+      
+      '//.................................................................//
+      
+    Resume ExitSub
 End Sub
 
 
+
 '//SU MODIFICA DELLA COMBINATA
-Private Sub Cmb_01_FORM_Change()
+Private Sub Cmb_01_FORM_TXT_Change()
   
 
-  Select Case Me.Cmb_01_FORM.Value
+  Select Case Me.Cmb_01_FORM_TXT.Value
       Case "FORM 3"
           Stop
       Case Else
-          'MsgBox "SCELTA EFFTTUATA NON ATTIVA  : " & Me.Cmb_01_FORM.Value, vbInformation, "TITOLO SCELTA FORM"
+          'MsgBox "SCELTA EFFTTUATA NON ATTIVA  : " & Me.Cmb_01_FORM_TXT.Value, vbInformation, "TITOLO SCELTA FORM"
     End Select
 
 End Sub
@@ -2956,7 +2991,7 @@ End Sub
 '//* @01_@AUMENTA@DIMENSIONI           = AUMENTO LE DIMENSIONE DELLE FORM MASTER E DEGLI OGGETTI INCORPORATI
 '//-------------------------------------------------------------------------------------------------------------------//
 '//Note: _
-      Recupera il nome della form dalla casella combinata Cmb_01_FORM. _
+      Recupera il nome della form dalla casella combinata Cmb_01_FORM_TXT. _
       Scansiona tutte le form nel database con CurrentProject.AllForms. _
       Se il nome esiste, chiama AumentaDimensioni O RIDUCEDimensioni, altrimenti mostra un messaggio di errore. _
       Questo codice ti assicura che AumentaDimensioni venga chiamata solo se la form esiste nel database.
@@ -2967,7 +3002,7 @@ Private Sub Cmd_AUMENTA_DIMENSIONI_FORM_Click()
     Dim NomeForm As String
     
     ' Recupero il nome della form dalla casella combinata
-    NomeForm = Nz(Me.Cmb_01_FORM.Value, "") ' Evita errori se la combo è vuota
+    NomeForm = Nz(Me.Cmb_01_FORM_TXT.Value, "") ' Evita errori se la combo è vuota
     
     ' Controllo se la combo è vuota
     If NomeForm = "" Then
@@ -2997,7 +3032,7 @@ Private Sub Cmd_RIDUCI_DIMENSIONI_FORM_Click()
     Dim NomeForm As String
     
     ' Recupero il nome della form dalla casella combinata
-    NomeForm = Nz(Me.Cmb_01_FORM.Value, "") ' Evita errori se la combo è vuota
+    NomeForm = Nz(Me.Cmb_01_FORM_TXT.Value, "") ' Evita errori se la combo è vuota
     
     ' Controllo se la combo è vuota
     If NomeForm = "" Then
@@ -3023,7 +3058,7 @@ End Sub
 
 '//-------------------------------------------------------------------------------------------------------------------//
 
-'//* @03_@CONTROLLO@ESISTENZA@FORM     = AUMENTO ORIDUCO LA DIMENSIONE DELLE FORM SOLO SE ESISTONO NEL DB CORRENTE
+'//* @03_@CONTROLLO@ESISTENZA@FORM      =  AUMENTO O RIDUCO LA DIMENSIONE DELLE FORM SOLO SE ESISTONO NEL DB CORRENTE
 '//-------------------------------------------------------------------------------------------------------------------//
 
 Public Function FormEsisteNelDatabase(NomeForm As String) As Boolean
@@ -3230,6 +3265,14 @@ End Function
 
 
 
+
+'//* @04_@CMB@02@FORM@LARGHEZZA@ALTEZZA  = @Cmb_02_FORM_L_H_TXT @LARGHEZZA E @ALTEZZA DELLA @FORM @CMB@02_(combinata @misure @L@H della form)
+Private Sub Cmb_02_FORM_L_H_TXT_GotFocus()
+
+End Sub
+
+
+
 '//***********************************************************************************************//
 '//*        -----------------------------------------------------------------------------------
 '//*                     ROUTINE PER AUMENTARE E RIDURRE LE DIMENSIONI      *** FINE ***
@@ -3252,24 +3295,12 @@ End Function
 
 
 
-
-
-
-
-
-
-
-
-
 '//@attiva@controllo@oggetti@esterni
 '//CHIAMO LA FUNZIONE DI CONTROLLO OGGETTI DI SISTEMA ESTERNI
 '//Note: controllo oggetti esterni.@CONTROLLO@OGGETTI_(attivo la procedura per il controllo degli oggetti esterni)
 Private Sub Cmd_CONTROLLO_OGGETTI_ESTERNI_Click()
     ListExternalDBObjects
 End Sub
-
-
-
 
 
 
@@ -10010,7 +10041,7 @@ End Sub
 '//04@STAMPA@REPORT     = STAMPO LE REPORT DEL DB CORRENTE;     FILE 04_LOG_REPORT SALVATO NELLA PATH CORRENTE
 '//05@STAMPA@MODULI     = STAMPO LE MODULI DEL DB CORRENTE;     FILE 05_LOG_MODULI SALVATO NELLA PATH CORRENTE
 '//06@STAMPA@TUTTO      = STAMPO TUTTI GLI OGGETTI DEL DB CORRENTE.
-'//07@STAMPA@LOG@ERRORI = STAMPO IL @FILE@LOG DI @GESTIONE DEGLI @ERRORI DELLA SINGOLA FUNZIONE O ROUTINE
+'//07@STAMPA@LOG@ERRORI = @STAMPO IL @FILE@LOG DI @GESTIONE DEGLI @ERRORI DELLA SINGOLA FUNZIONE O ROUTINE
 
 
 '//01@STAMPA@TABELLE    = STAMPO LE TABELLE DEL DB CORRENTE;    FILE 01_LOG_TABELLE SALVATO NELLA PATH CORRENTE _
@@ -10513,17 +10544,26 @@ Private Sub Cmd_STAMPA_TUTTI_GLI_OGGETTI_DB_CORRENTE_Click()
 End Sub
 
 
-'//07@STAMPA@LOG@ERRORI = STAMPO IL @FILE@LOG DI @GESTIONE DEGLI @ERRORI DELLA SINGOLA FUNZIONE O ROUTINE
+'//07@STAMPA@LOG@ERRORI = @STAMPO IL @FILE@LOG DI @GESTIONE DEGLI @ERRORI DELLA SINGOLA FUNZIONE O ROUTINE
 
 Public Sub ScriviLogErrore(NomeRoutine As String, NumeroErrore As Long, MessaggioErrore As String)
-
-'//FILE LOG ERRORI
-'//.................................................................//
-    'ScriviLogErrore(NomeRoutine As String, _
-                    NumeroErrore As Long, _
-                    MessaggioErrore As String)
-
-'//.................................................................//
+      
+      '//@FILE@LOG@ERRORI@MODELLO_(per l'attivazione della routine errori)
+      '//.................................................................//
+          'Dim NomeRoutine_s As String
+          'Dim NumeroErrore_lng As Long
+          'Dim MessaggioErrore_s  As String
+          
+          'NomeRoutine_s = "ROUTINE: Cmb_01_FORM_TXT_GotFocus"
+          'NumeroErrore_lng = Err.number
+          'MessaggioErrore_s = "ERRORE DI ESECUZIONE ROUTINE : " & Err.Description
+          
+          'ScriviLogErrore NomeRoutine_s, _
+                          NumeroErrore_lng, _
+                          MessaggioErrore_s
+      
+      '//.................................................................//
+      
 
 
     Dim FileNum As Integer
@@ -10617,6 +10657,10 @@ End Sub
 '                                    @ROUTINE@GENERICHE              **** FINE ****
 '
 '***********************************************************************************************************************
+
+
+
+
 
 
 

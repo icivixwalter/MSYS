@@ -15,18 +15,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "/c/Casa/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/OBJECT/FORM/UTILITA_Msys_Frm21_IMPORTA_OGGETTI.md",
-			"settings":
-			{
-				"buffer_size": 493625,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			},
-			"undo_stack":
-			[
-			]
-		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -94,6 +82,8 @@
 	],
 	"file_history":
 	[
+		"/c/Casa/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/OBJECT/FORM/Form_UTILITA_Frm12_SERVIZI_TUTTI.cls",
+		"/c/Casa/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/OBJECT/FORM/UTILITA_Msys_Frm21_IMPORTA_OGGETTI.md",
 		"/C/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/OBJECT/MODULI/GESTIONE_Mdl10_FILE_APRI_PDF.MD",
 		"/c/Casa/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/GEFILE_Mdl01_GESTIONI_FILE_API_VBA_OLD.MD",
 		"/c/Casa/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/GEFILE_Frm01_GESTIONI_old.MD",
@@ -219,17 +209,15 @@
 		"/C/GESTIONI/GESTIONE_LLPP/25_GESTIONE_LLPP/NUMERI_TELEFONICI_Dipendenti in Servizio/NUMERI_TELEFONICI_Dipendenti in Servizio.md",
 		"/C/CASA/GE_MARINO/GE_CASA/BANCA/Notiziario/NotiziarioEconominco/Notizie_Economiche.md",
 		"/C/GESTIONI/GESTIONE_LLPP/25_GESTIONE_LLPP/NUMERI_TELEFONICI_Dipendenti in Servizio.md",
-		"/C/GESTIONI/GESTIONE_LLPP/25_GESTIONE_LLPP/NUMERI_TELEFONICI_Dipendenti in Servizio.sublime-project",
-		"/C/GESTIONI/GESTIONE_LLPP/25_GESTIONE_LLPP/NUMERI_TELEFONICI_Dipendenti in Servizio.sublime-workspace",
-		"/Y/LAVORI_PUBBLICI_FINO_AL_30_09_2019/Valter/OPERE_PUBBLICHE/112_SETTORE_LAVORI_PUBBLICI/01_LAVORI_PUBBLICI/BDAP_PROGETTI/209_{MESSA IN SICUREZZA DEL FIUME COSA}_{W_R}/209_{MESSA IN SICUREZZA DEL FIUME COSA}.md"
+		"/C/GESTIONI/GESTIONE_LLPP/25_GESTIONE_LLPP/NUMERI_TELEFONICI_Dipendenti in Servizio.sublime-project"
 	],
 	"find":
 	{
-		"height": 42.4
+		"height": 41.6
 	},
 	"find_in_files":
 	{
-		"height": 111.0,
+		"height": 111.2,
 		"where_history":
 		[
 			"",
@@ -243,6 +231,14 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"@importa@oggetti",
+			"AUMENTO O RIDUCO",
+			"@03_@CONTROLLO@ESISTENZA@FORM        \\=  AUMENTO O RIDUCO LA DIMENSIONE DELLE FORM SOLO SE ESISTONO NEL DB CORRENTE",
+			"@01_@AUMENTA@DIMENSIONI           \\= AUMENTO LE DIMENSIONE DELLE FORM MASTER E DEGLI OGGETTI INCORPORATI",
+			"@02_@RIDUCI@DIMENSIONI            \\= RIDUCO LE DIMENSIONE DELLE FORM MASTER E DEGLI OGGETTI INCORPORATI",
+			"@04_@CMB@02@FORM@LARGHEZZA@ALTEZZA  \\= @Cmb_02_FORM_L_H_TXT @LARGHEZZA E @ALTEZZA DELLA @FORM @CMB@02_\\(combinata @misure @L@H della form\\)",
+			"@04_@CMB@02@FORM@LARGHEZZA@ALTEZZA \\= @Cmb_02_FORM_L_H_TXT @LARGHEZZA E @ALTEZZA DELLA @FORM @CMB@02_\\(combinata @misure @L@H della form\\)",
+			"@04_@CMB@02@FORM@LARGHEZZA@ALTEZZA",
 			"@utilita",
 			"Cmb_01_FORM_txt",
 			"Cmb_02",
@@ -362,15 +358,7 @@
 			"CARINGI",
 			"ANNA MARIA",
 			"lorena",
-			"MARROCCO",
-			"URBANO",
-			"aurelia",
-			"fabrizia",
-			"protocollo",
-			"lorena",
-			"aurora",
-			"gabriele",
-			"lorena"
+			"MARROCCO"
 		],
 		"highlight": false,
 		"in_selection": false,
@@ -397,39 +385,6 @@
 		{
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "/c/Casa/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/OBJECT/FORM/UTILITA_Msys_Frm21_IMPORTA_OGGETTI.md",
-					"selected": true,
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 493625,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								474,
-								474
-							]
-						],
-						"settings":
-						{
-							"mde.match_heading_hashes": false,
-							"syntax": "Packages/Markdown/Markdown.sublime-syntax",
-							"tab_size": 3,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"stack_multiselect": false,
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -474,7 +429,7 @@
 	},
 	"output.find_results":
 	{
-		"height": 138.399993896
+		"height": 246.0
 	},
 	"pinned_build_system": "",
 	"project": "Project_MSYS.sublime-project",
