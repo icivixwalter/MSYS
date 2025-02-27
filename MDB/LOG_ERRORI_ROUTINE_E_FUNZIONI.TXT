@@ -1,0 +1,40 @@
+--------------------------------------------------
+Data:        27/02/2025 18:03:50
+Routine:     ROUTINE: Cmb_02_FORM_L_H_TXT_AfterUpdate
+Errore #:    2450
+Descrizione: ERRORE DI ESECUZIONE ROUTINE : Impossibile trovare la maschera 'AA_PROVA' a cui si fa riferimento in un'espressione macro o nel codice di Visual Basic.
+--------------------------------------------------
+
+
+--------------------------------------------------
+Data:        27/02/2025 18:04:55
+Routine:     ROUTINE: Cmb_02_FORM_L_H_TXT_AfterUpdate
+Errore #:    2450
+Descrizione: ERRORE DI ESECUZIONE ROUTINE : Impossibile trovare la maschera 'AA_PROVA' a cui si fa riferimento in un'espressione macro o nel codice di Visual Basic.
+--------------------------------------------------
+
+
+--------------------------------------------------
+Data:        27/02/2025 18:14:16
+Routine:     ROUTINE: Cmb_02_FORM_L_H_TXT_AfterUpdate
+Errore #:    6
+Descrizione: ERRORE DI ESECUZIONE ROUTINE : Overflow
+--------------------------------------------------
+
+
+--------------------------------------------------
+Data:        27/02/2025 18:40:04
+Routine:     ROUTINE: Cmb_02_FORM_L_H_TXT_AfterUpdate
+Errore #:    6
+Descrizione: ERRORE DI ESECUZIONE ROUTINE : Overflow
+--------------------------------------------------
+
+
+--------------------------------------------------
+Data:        27/02/2025 19:19:48
+Routine:     ROUTINE: Cmb_02_FORM_L_H_TXT_AfterUpdate
+Errore #:    6
+Descrizione: ERRORE DI ESECUZIONE ROUTINE : Overflow
+--------------------------------------------------
+
+
