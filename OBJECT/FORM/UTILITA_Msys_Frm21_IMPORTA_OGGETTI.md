@@ -1,10 +1,9 @@
 UTILITA_Msys_Frm21_IMPORTA_OGGETTI.md
    @form@UTILITA_(classe della form utilita)
 
-
+@INIZIO
 
 ### CODICE_CLASSE
-
 
 '# CLASSE_Form_UTILITA_Msys_Frm21_IMPORTA_OGGETTI.md
 '//@VERSIONE_DEL_2025_02_12=COMPLETA E FUNZIONANTE
@@ -1741,6 +1740,10 @@ On Error GoTo CollectionModuli_PFunct_Err
                   objectModules.Add "LLPP_IMPEGNI_TB01Mdl01_OGGETTI_ATTI_DI_IMPEGNO_Semplice"
                   objectModules.Add "LLPP_IMPEGNI_TB01Mdl02_ESPORTA_TUTTI_GLI_OGGETTI"
                   objectModules.Add "LLPP_IMPEGNI_TB01Mdl00_{@=============IMPEGNI=================@}"
+                  
+                  '// la macro che attiva il modulo per l'esportazione della form UTILITA
+                  objectModules.Add "ESPORTA_Mdl_}--------------------------------------------------@"
+                  objectModules.Add "ESPORTA_Mdl01_FORM_UTILITA_Msys_Frm21_IMPORTA_OGGETTI"
               
 
          
@@ -2999,24 +3002,24 @@ End Sub
 Private Sub Cmd_AUMENTA_DIMENSIONI_FORM_Click()
     On Error GoTo ErroreHandler ' Attiva la gestione degli errori
     
-    Dim NomeForm As String
+    Dim NomeForm_s As String
     
     ' Recupero il nome della form dalla casella combinata
-    NomeForm = Nz(Me.Cmb_01_FORM_TXT.Value, "") ' Evita errori se la combo è vuota
+    NomeForm_s = Nz(Me.Cmb_01_FORM_TXT.Value, "") ' Evita errori se la combo è vuota
     
     ' Controllo se la combo è vuota
-    If NomeForm = "" Then
+    If NomeForm_s = "" Then
         MsgBox "Selezionare una form prima di procedere.", vbExclamation, "Attenzione"
         Exit Sub
     End If
     
     ' Verifica se la form esiste usando la funzione
-    If FormEsisteNelDatabase(NomeForm) Then
+    If FormEsisteNelDatabase(NomeForm_s) Then
         Call AumentaDimensioni
         'Apro la form modificata
-        DoCmd.OpenForm NomeForm
+        DoCmd.OpenForm NomeForm_s
     Else
-        MsgBox "La form '" & NomeForm & "' non esiste nel database.", vbExclamation, "Errore"
+        MsgBox "La form '" & NomeForm_s & "' non esiste nel database.", vbExclamation, "Errore"
     End If
 
     Exit Sub ' Evita l'esecuzione del codice di gestione errori se tutto va bene
@@ -3029,25 +3032,25 @@ End Sub
 Private Sub Cmd_RIDUCI_DIMENSIONI_FORM_Click()
     On Error GoTo ErroreHandler ' Attiva la gestione degli errori
     
-    Dim NomeForm As String
+    Dim NomeForm_s As String
     
     ' Recupero il nome della form dalla casella combinata
-    NomeForm = Nz(Me.Cmb_01_FORM_TXT.Value, "") ' Evita errori se la combo è vuota
+    NomeForm_s = Nz(Me.Cmb_01_FORM_TXT.Value, "") ' Evita errori se la combo è vuota
     
     ' Controllo se la combo è vuota
-    If NomeForm = "" Then
+    If NomeForm_s = "" Then
         MsgBox "Selezionare una form prima di procedere.", vbExclamation, "Attenzione"
         Exit Sub
     End If
     
     ' Verifica se la form esiste usando la funzione
-    If FormEsisteNelDatabase(NomeForm) Then
+    If FormEsisteNelDatabase(NomeForm_s) Then
         Call AumentaDimensioni
         
         'Apro la form modificata
-        DoCmd.OpenForm NomeForm
+        DoCmd.OpenForm NomeForm_s
     Else
-        MsgBox "La form '" & NomeForm & "' non esiste nel database.", vbExclamation, "Errore"
+        MsgBox "La form '" & NomeForm_s & "' non esiste nel database.", vbExclamation, "Errore"
     End If
 
     Exit Sub ' Evita l'esecuzione del codice di gestione errori se tutto va bene
@@ -3061,13 +3064,13 @@ End Sub
 '//* @03_@CONTROLLO@ESISTENZA@FORM      =  AUMENTO O RIDUCO LA DIMENSIONE DELLE FORM SOLO SE ESISTONO NEL DB CORRENTE
 '//-------------------------------------------------------------------------------------------------------------------//
 
-Public Function FormEsisteNelDatabase(NomeForm As String) As Boolean
+Public Function FormEsisteNelDatabase(NomeForm_s As String) As Boolean
     Dim obj As Object
     FormEsisteNelDatabase = False ' Default: la form non esiste
 
     ' Scansiona tutte le form del database
     For Each obj In CurrentProject.AllForms
-        If obj.Name = NomeForm Then
+        If obj.Name = NomeForm_s Then
             FormEsisteNelDatabase = True ' La form esiste
             Exit Function
         End If
@@ -3173,28 +3176,28 @@ End Sub
 ' -------------------------------
 
 ' Modifica la larghezza della Form principale
-Private Sub ModificaFormPrincipale(frm As Form, larghezza As Double)
-    frm.Width = cmToTwips(larghezza)
+Private Sub ModificaFormPrincipale(frm As Form, Larghezza As Double)
+    frm.Width = CmToTwips(Larghezza)
     'DoCmd.Save
     DoEvents
 End Sub
 
 ' Modifica l'altezza del Corpo Maschera
-Private Sub ModificaCorpoMaschera(frm As Form, altezza As Double)
-    frm.Section(acDetail).Height = cmToTwips(altezza)
+Private Sub ModificaCorpoMaschera(frm As Form, Altezza As Double)
+    frm.Section(acDetail).Height = CmToTwips(Altezza)
     DoCmd.Save
     DoEvents
 End Sub
 
 ' Modifica le dimensioni del Tab Control
-Private Sub ModificaTabControl(frm As Form, larghezza As Double, altezza As Double)
+Private Sub ModificaTabControl(frm As Form, Larghezza As Double, Altezza As Double)
     Dim tabCtl As Control
     On Error Resume Next
     Set tabCtl = frm("TabCtl1")
     On Error GoTo 0
     If Not tabCtl Is Nothing Then
-        tabCtl.Width = cmToTwips(larghezza)
-        tabCtl.Height = cmToTwips(altezza)
+        tabCtl.Width = CmToTwips(Larghezza)
+        tabCtl.Height = CmToTwips(Altezza)
         DoCmd.Save
         DoEvents
         DoCmd.Save
@@ -3204,7 +3207,7 @@ Private Sub ModificaTabControl(frm As Form, larghezza As Double, altezza As Doub
 End Sub
 
 ' Modifica le dimensioni di tutte le pagine del Tab Control
-Private Sub ModificaPagineTab(frm As Form, larghezza As Double, altezza As Double)
+Private Sub ModificaPagineTab(frm As Form, Larghezza As Double, Altezza As Double)
     Dim tabCtl As Control
     Dim i As Integer
     
@@ -3216,8 +3219,8 @@ Private Sub ModificaPagineTab(frm As Form, larghezza As Double, altezza As Doubl
     ' Se il Tab Control esiste, modifica le pagine
     If Not tabCtl Is Nothing Then
         For i = 0 To tabCtl.Pages.count - 1
-            tabCtl.Pages(i).Width = cmToTwips(larghezza)
-            tabCtl.Pages(i).Height = cmToTwips(altezza)
+            tabCtl.Pages(i).Width = CmToTwips(Larghezza)
+            tabCtl.Pages(i).Height = CmToTwips(Altezza)
             DoEvents
             DoCmd.Save
         Next i
@@ -3228,7 +3231,7 @@ Private Sub ModificaPagineTab(frm As Form, larghezza As Double, altezza As Doubl
 End Sub
 
 ' Modifica le dimensioni di tutti i sottoform e imposta il bordo
-Private Sub ModificaSottoform(frm As Form, larghezza As Double, altezza As Double)
+Private Sub ModificaSottoform(frm As Form, Larghezza As Double, Altezza As Double)
     Dim i As Integer, ctl As Control
     For i = 1 To 12
         On Error Resume Next
@@ -3236,8 +3239,8 @@ Private Sub ModificaSottoform(frm As Form, larghezza As Double, altezza As Doubl
         On Error GoTo 0
         If Not ctl Is Nothing Then
             ' Modifica dimensioni
-            ctl.Width = cmToTwips(larghezza)
-            ctl.Height = cmToTwips(altezza)
+            ctl.Width = CmToTwips(Larghezza)
+            ctl.Height = CmToTwips(Altezza)
             Debug.Print ctl.Name
             
              ' Imposta l'aspetto piatto, il colore e lo spessore del bordo
@@ -3255,21 +3258,262 @@ Private Sub ModificaSottoform(frm As Form, larghezza As Double, altezza As Doubl
     Next i
 End Sub
 
-' Funzione per convertire cm in twips
-Private Function cmToTwips(cm As Double) As Long
-    cmToTwips = cm * 567
+'//CALCOLO TWIPS CON IL CONTROLLO DEI LIMITI MAX E MIN
+Function CmToTwips(cm As Variant) As Long
+    Const TWIPS_PER_CM As Double = 567 ' 1 cm = 567 twips
+    Const MAX_TWIPS As Long = 32767 ' Limite massimo per larghezza/altezza degli oggetti
+    Const MIN_TWIPS As Long = 1 ' Limite minimo per evitare valori negativi o nulli
+    
+    Dim result As Long
+    
+    On Error GoTo ErrHandler ' Abilita la gestione degli errori
+
+    ' Controllo se il valore è numerico
+    If IsNull(cm) Or Not IsNumeric(cm) Then
+        MsgBox "Errore: Il valore inserito non è numerico o è nullo.", vbCritical, "Errore di conversione"
+        Exit Function
+    End If
+
+    ' Controllo valori negativi
+    If cm < 0 Then
+        MsgBox "Errore: Il valore in cm non può essere negativo.", vbCritical, "Errore di conversione"
+        Exit Function
+    End If
+
+    ' Conversione
+    result = cm * TWIPS_PER_CM
+
+    ' Applicare i limiti con messaggi di avviso
+    If result > MAX_TWIPS Then
+        MsgBox "Attenzione: Il valore convertito supera il limite massimo e verrà impostato a " & MAX_TWIPS & " twips.", vbInformation, "Limite superato"
+        result = MAX_TWIPS
+    ElseIf result < MIN_TWIPS Then
+        MsgBox "Attenzione: Il valore convertito è troppo basso e verrà impostato a " & MIN_TWIPS & " twips.", vbInformation, "Limite minimo"
+        result = MIN_TWIPS
+    End If
+    
+    CmToTwips = result
+    
+ExitFunction:
+    Exit Function
+
+ErrHandler:
+    MsgBox "Si è verificato un errore: " & Err.Description, vbExclamation, "Errore " & Err.number
+
+    ' //@FILE@LOG@ERRORI
+    ' //.................................................................//
+    Dim NomeRoutine_s As String
+    Dim NumeroErrore_lng As Long
+    Dim MessaggioErrore_s As String
+
+    NomeRoutine_s = "ROUTINE: CmToTwips"
+    NumeroErrore_lng = Err.number
+    MessaggioErrore_s = "ERRORE DI ESECUZIONE ROUTINE : " & Err.Description
+
+    ScriviLogErrore NomeRoutine_s, _
+                    NumeroErrore_lng, _
+                    MessaggioErrore_s
+
+    ' //.................................................................//
+
+    Resume ExitFunction
 End Function
 
 
 
 
+'//***********************************************************************************//
+'//**           COMBINATA 02 @CMB_02 = ALTEZZA LARGHEZZA FORM   *** INIZIO ***
+'//**
+'//***********************************************************************************//
+'//* @04_@CMB@02@FORM@LARGHEZZA@ALTEZZA   = @Cmb_02_FORM_L_H_TXT @LARGHEZZA E @ALTEZZA DELLA @FORM @CMB@02_(combinata @misure @L@H della form)
 
-
-
-'//* @04_@CMB@02@FORM@LARGHEZZA@ALTEZZA  = @Cmb_02_FORM_L_H_TXT @LARGHEZZA E @ALTEZZA DELLA @FORM @CMB@02_(combinata @misure @L@H della form)
+'//EVENTO SU ATTIVATO IMPOSTO IL VALORE H+L DELLA FORM
 Private Sub Cmb_02_FORM_L_H_TXT_GotFocus()
+    On Error GoTo ErrHandler ' Attiva la gestione degli errori
 
+    ' Verifico se la casella combinata esiste
+    If Not Me.Cmb_02_FORM_L_H_TXT Is Nothing Then
+        ' Creazione della lista di valori incrementali
+        Dim Str1 As String
+        Dim i As Integer
+        Dim Larghezza As Integer
+        Dim Altezza As Integer
+
+        ' Aggiunge il valore predefinito come prima voce della lista
+        Str1 = "LxH Larghezza form;;;" ' Testo visibile + colonne vuote
+
+        ' Imposta i valori iniziali
+        Larghezza = 10
+        Altezza = 15
+
+        ' Genera 10 valori incrementando di 50 twips
+        For i = 1 To 10
+            Str1 = Str1 & "L" & Larghezza & " H" & Altezza & ";" & Larghezza & ";" & Altezza & ";"
+            Larghezza = Larghezza + 5
+            Altezza = Altezza + 5
+        Next i
+
+        ' Imposto la casella combinata
+        Me.Cmb_02_FORM_L_H_TXT.RowSourceType = "Value List"
+        Me.Cmb_02_FORM_L_H_TXT.RowSource = Str1
+        Me.Cmb_02_FORM_L_H_TXT.ColumnCount = 3 ' Tre colonne: Testo visibile, Larghezza, Altezza
+        Me.Cmb_02_FORM_L_H_TXT.ColumnWidths = "3cm;0cm;0cm" ' Nasconde le colonne 2 e 3
+        Me.Cmb_02_FORM_L_H_TXT.BoundColumn = 1 ' La colonna legata è la prima
+
+        ' **Forza il valore predefinito dopo aver impostato la RowSource**
+        Me.Cmb_02_FORM_L_H_TXT.Value = "LxH Larghezza form"
+
+        ' Aggiorno i dati della casella combinata
+        Me.Cmb_02_FORM_L_H_TXT.Requery
+    End If
+    
+        
+
+ExitSub:
+    Exit Sub
+
+ErrHandler:
+    MsgBox "Si è verificato un errore: " & Err.Description, vbExclamation, "Errore " & Err.number
+    
+    ' //@FILE@LOG@ERRORI
+    ' //.................................................................//
+    Dim NomeRoutine_s As String
+    Dim NumeroErrore_lng As Long
+    Dim MessaggioErrore_s As String
+
+    NomeRoutine_s = "ROUTINE: Cmb_02_FORM_L_H_TXT_GotFocus"
+    NumeroErrore_lng = Err.number
+    MessaggioErrore_s = "ERRORE DI ESECUZIONE ROUTINE : " & Err.Description
+
+    ScriviLogErrore NomeRoutine_s, _
+                    NumeroErrore_lng, _
+                    MessaggioErrore_s
+
+    ' //.................................................................//
+    
+    Resume ExitSub
 End Sub
+
+'==========================================
+' Evento AfterUpdate LARGHEZZA + ALTEZZA DELLA FORM
+'==========================================
+'//Note: Dopo aver recuperato i valori di H + L dall'evento su ATTIVATO con questo _
+        evento su modifica controllo se la form esiste (cmb_01) e poi attivo le _
+        routine di attivazione larghezza form ed altezza pagina form.
+        
+Private Sub Cmb_02_FORM_L_H_TXT_AfterUpdate()
+    On Error GoTo ErrHandler ' Attiva la gestione degli errori
+
+    Dim ValoreSelezionato As String
+    Dim Parti() As String
+    Dim var1_L_dbl As Double
+    Dim var2_H_dbl As Double
+    Dim frm As Form                         '//oggetto della form fa modificare
+
+    ' Verifica se la casella combinata contiene un valore valido
+    If IsNull(Me.Cmb_02_FORM_L_H_TXT.Value) Or Me.Cmb_02_FORM_L_H_TXT.Value = "" Then
+        Exit Sub
+    End If
+
+    ' Ottiene il valore selezionato dalla casella combinata (es. "L150 H145")
+    ValoreSelezionato = Me.Cmb_02_FORM_L_H_TXT.Value
+
+    ' Divide il valore in due parti utilizzando lo spazio come separatore
+    Parti = Split(ValoreSelezionato, " ") ' Ora Parti(0) = "L150", Parti(1) = "H145"
+
+    ' Verifica che ci siano almeno due parti valide
+    If UBound(Parti) < 1 Then
+        Err.Raise 1001, , "Formato valore non valido: " & ValoreSelezionato
+    End If
+
+    ' Rimuove la lettera "L" e converte in numero
+    var1_L_dbl = CDbl(CInt(CVar(Mid(Parti(0), 2))))  ' Prende tutto tranne la prima lettera "L"
+
+    ' Rimuove la lettera "H" e converte in numero
+    var2_H_dbl = CDbl(CInt(CVar(Mid(Parti(1), 2)))) ' Prende tutto tranne la prima lettera "H"
+
+    ' Ora var1_L_dbl  contiene la larghezza (es. 150) e var2_H_dbl l'altezza (es. 145)
+    MsgBox "Larghezza: " & var1_L_dbl & " - Altezza: " & var2_H_dbl, vbInformation, "Valori Selezionati"
+
+    ' Qui puoi chiamare altre routine passando var1_L_dbl  e var2_H_dbl
+    ' Call ImpostaDimensioni(var1_L_dbl , var2_H_dbl)
+    '//controllo prima se esiste la form da modificare
+        If Cmb_01_FORM_TXT > "" Then
+                
+                Dim NomeForm_s As String
+                ' Recupero il nome della form dalla casella combinata
+                NomeForm_s = Nz(Me.Cmb_01_FORM_TXT.Value, "") ' Evita errori se la combo è vuota
+                
+        
+            '//chiamo la procedura di controllo esistenza form se esiste TRUE
+            Bool1 = False
+            Bool1 = FormEsisteNelDatabase(NomeForm_s)
+            
+            If (Bool1) = True Then
+            
+                    ' Chiudi la form se è aperta
+                    If SysCmd(acSysCmdGetObjectState, acForm, NomeForm_s) <> 0 Then
+                        DoCmd.Close acForm, Trim(Me.Cmb_01_FORM_TXT), acSaveYes
+                    End If
+                
+                    ' Apri la form in modalità DESIGN
+                    DoCmd.OpenForm NomeForm_s, acDesign
+                    Set frm = forms(NomeForm_s)
+                    
+               
+            
+                '// FORM PRINCIPALE L = LARGHEZZA H = CORPO MASCHERA
+                '// Note: attivo le 2 routine che modificano la larghezza della form _
+                          e l'altezza della pagina della form
+                '//..........................L  , H
+                Call ModificaFormPrincipale(frm, var1_L_dbl)        ' Form principale : larghezza
+                
+                
+                  '// CORPO MASCHERA
+                  '//..........................L  , H
+                  Call ModificaCorpoMaschera(frm, var2_H_dbl)       ' Corpo maschera : altezza
+                
+                        '//PULISCO LE RISORSE
+                        Set frm = Nothing
+                       
+            
+            End If
+            
+            
+        
+        End If
+
+ExitSub:
+    Exit Sub
+
+ErrHandler:
+    MsgBox "Si è verificato un errore: " & Err.Description, vbExclamation, "Errore " & Err.number
+    
+    ' //@FILE@LOG@ERRORI
+    ' //.................................................................//
+    Dim NomeRoutine_s As String
+    Dim NumeroErrore_lng As Long
+    Dim MessaggioErrore_s  As String
+
+    NomeRoutine_s = "ROUTINE: Cmb_02_FORM_L_H_TXT_AfterUpdate"
+    NumeroErrore_lng = Err.number
+    MessaggioErrore_s = "ERRORE DI ESECUZIONE ROUTINE : " & Err.Description
+
+    ScriviLogErrore NomeRoutine_s, _
+                    NumeroErrore_lng, _
+                    MessaggioErrore_s
+
+    ' //.................................................................//
+    
+    Resume ExitSub
+End Sub
+
+
+'//***********************************************************************************//
+'//**           COMBINATA 02 @CMB_02 = ALTEZZA LARGHEZZA FORM   *** FINE ***
+'//**
+'//***********************************************************************************//
 
 
 
@@ -10657,6 +10901,10 @@ End Sub
 '                                    @ROUTINE@GENERICHE              **** FINE ****
 '
 '***********************************************************************************************************************
+
+
+
+
 
 
 
