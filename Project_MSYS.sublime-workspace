@@ -33,7 +33,7 @@
 						"characters": "@INI"
 					},
 					"BAAAAFQAAAAAAAAAVQAAAAAAAAAAAAAAVQAAAAAAAABWAAAAAAAAAAAAAABWAAAAAAAAAFcAAAAAAAAAAAAAAFcAAAAAAAAAWAAAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAVAAAAAAAAABUAAAAAAAAAAAAAAAAAAAA"
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABUAAAAAAAAAFQAAAAAAAAAAAAAAAAAAAA"
 				],
 				[
 					14,
@@ -43,7 +43,7 @@
 						"characters": "ZIO"
 					},
 					"AwAAAFgAAAAAAAAAWQAAAAAAAAAAAAAAWQAAAAAAAABaAAAAAAAAAAAAAABaAAAAAAAAAFsAAAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAWAAAAAAAAABYAAAAAAAAAAAAAAAAAPC/"
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABYAAAAAAAAAFgAAAAAAAAAAAAAAAAA8L8"
 				]
 			]
 		}
@@ -59,6 +59,10 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"pref",
+				"Preferences: Settings"
+			],
 			[
 				"Package Control: ",
 				"Package Control: Install Package"
@@ -431,8 +435,8 @@
 						"selection":
 						[
 							[
-								84,
-								91
+								2692,
+								2692
 							]
 						],
 						"settings":
@@ -443,7 +447,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1448.8,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -455,7 +459,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 29.6
+		"height": 32.0
 	},
 	"input":
 	{
@@ -500,7 +504,7 @@
 	"project": "Project_MSYS.sublime-project",
 	"replace":
 	{
-		"height": 56.0
+		"height": 60.8
 	},
 	"save_all_on_build": false,
 	"select_file":

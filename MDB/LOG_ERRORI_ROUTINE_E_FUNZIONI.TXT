@@ -22,3 +22,19 @@ Descrizione: ERRORE DI ESECUZIONE ROUTINE : Controllo o controllo di sottomasche
 --------------------------------------------------
 
 
+--------------------------------------------------
+Data:        28/02/2025 16:01:35
+Routine:     ROUTINE: CMB_04_TAB_CONTROL_L_H_TXT_AfterUpdate
+Errore #:    2100
+Descrizione: ERRORE DI ESECUZIONE ROUTINE : Controllo o controllo di sottomaschera troppo grande per questa posizione.
+--------------------------------------------------
+
+
+--------------------------------------------------
+Data:        28/02/2025 16:03:28
+Routine:     ROUTINE: CMB_04_TAB_CONTROL_L_H_TXT_AfterUpdate
+Errore #:    2100
+Descrizione: ERRORE DI ESECUZIONE ROUTINE : Controllo o controllo di sottomaschera troppo grande per questa posizione.
+--------------------------------------------------
+
+
