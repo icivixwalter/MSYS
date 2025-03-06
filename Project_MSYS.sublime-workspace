@@ -16,34 +16,314 @@
 	"buffers":
 	[
 		{
-			"file": "/c/Casa/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/OBJECT/FORM/UTILITA_Msys_Frm21_IMPORTA_OGGETTI.md",
+			"file": "/c/Casa/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/README.md",
 			"settings":
 			{
-				"buffer_size": 505184,
+				"buffer_size": 6432,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			},
 			"undo_stack":
 			[
 				[
-					13,
+					17,
 					1,
 					"insert",
 					{
-						"characters": "@INI"
+						"characters": "oo"
 					},
-					"BAAAAFQAAAAAAAAAVQAAAAAAAAAAAAAAVQAAAAAAAABWAAAAAAAAAAAAAABWAAAAAAAAAFcAAAAAAAAAAAAAAFcAAAAAAAAAWAAAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAVAAAAAAAAABUAAAAAAAAAAAAAAAAAAAA"
+					"AgAAAEAAAAAAAAAAQQAAAAAAAAAAAAAAQQAAAAAAAABCAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAQAAAAAAAAABAAAAAAAAAAAAAAAAAAPC/"
 				],
 				[
-					14,
+					18,
+					1,
+					"insert_completion",
+					{
+						"completion": "occorre",
+						"format": "text",
+						"keep_prefix": false,
+						"must_insert": false,
+						"trigger": "occorre"
+					},
+					"AgAAAEAAAAAAAAAAQAAAAAAAAAACAAAAb29AAAAAAAAAAEcAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAQgAAAAAAAABCAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					19,
 					1,
 					"insert",
 					{
-						"characters": "ZIO"
+						"characters": "\nww"
 					},
-					"AwAAAFgAAAAAAAAAWQAAAAAAAAAAAAAAWQAAAAAAAABaAAAAAAAAAAAAAABaAAAAAAAAAFsAAAAAAAAAAAAAAA",
+					"AwAAAEcAAAAAAAAASAAAAAAAAAAAAAAASAAAAAAAAABJAAAAAAAAAAAAAABJAAAAAAAAAEoAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAARwAAAAAAAABHAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					20,
+					1,
+					"insert_completion",
+					{
+						"completion": "Windows",
+						"format": "text",
+						"keep_prefix": false,
+						"must_insert": false,
+						"trigger": "Windows"
+					},
+					"AgAAAEgAAAAAAAAASAAAAAAAAAACAAAAd3dIAAAAAAAAAE8AAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAASgAAAAAAAABKAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					21,
+					1,
+					"insert",
+					{
+						"characters": "\n\\"
+					},
+					"AgAAAE8AAAAAAAAAUAAAAAAAAAAAAAAAUAAAAAAAAABRAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAATwAAAAAAAABPAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					22,
+					1,
+					"left_delete",
+					null,
+					"AQAAAFAAAAAAAAAAUAAAAAAAAAABAAAAXA",
+					"AQAAAAAAAAABAAAAUQAAAAAAAABRAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					23,
+					1,
+					"reindent",
+					null,
+					"AQAAAFAAAAAAAAAAUQAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAUAAAAAAAAABQAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					24,
+					1,
+					"insert",
+					{
+						"characters": "ss"
+					},
+					"AgAAAFEAAAAAAAAAUgAAAAAAAAAAAAAAUgAAAAAAAABTAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAUQAAAAAAAABRAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					25,
+					1,
+					"insert_completion",
+					{
+						"completion": "sistemi",
+						"format": "text",
+						"keep_prefix": false,
+						"must_insert": false,
+						"trigger": "sistemi"
+					},
+					"AgAAAFEAAAAAAAAAUQAAAAAAAAACAAAAc3NRAAAAAAAAAFgAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAUwAAAAAAAABTAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					27,
+					1,
+					"reindent",
+					null,
+					"AQAAAFkAAAAAAAAAWgAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAWQAAAAAAAABZAAAAAAAAAAAAAAAAAFZA"
+				],
+				[
+					28,
+					1,
+					"insert",
+					{
+						"characters": "\t\t\tsss"
+					},
+					"BgAAAFoAAAAAAAAAWwAAAAAAAAAAAAAAWwAAAAAAAABcAAAAAAAAAAAAAABcAAAAAAAAAF0AAAAAAAAAAAAAAF0AAAAAAAAAXgAAAAAAAAAAAAAAXgAAAAAAAABfAAAAAAAAAAAAAABfAAAAAAAAAGAAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAWgAAAAAAAABaAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					31,
+					1,
+					"right_delete",
+					null,
+					"AQAAAEAAAAAAAAAAQAAAAAAAAAAgAAAAb2Njb3JyZQpXaW5kb3dzCglzaXN0ZW1pCgkJCQlzc3M",
+					"AQAAAAAAAAABAAAAYAAAAAAAAABAAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					35,
+					1,
+					"insert",
+					{
+						"characters": "dfù"
+					},
+					"AwAAAEAAAAAAAAAAQQAAAAAAAAAAAAAAQQAAAAAAAABCAAAAAAAAAAAAAABCAAAAAAAAAEMAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAQAAAAAAAAABAAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					36,
+					1,
+					"insert",
+					{
+						"characters": "\nfffffffff"
+					},
+					"CgAAAEMAAAAAAAAARAAAAAAAAAAAAAAARAAAAAAAAABFAAAAAAAAAAAAAABFAAAAAAAAAEYAAAAAAAAAAAAAAEYAAAAAAAAARwAAAAAAAAAAAAAARwAAAAAAAABIAAAAAAAAAAAAAABIAAAAAAAAAEkAAAAAAAAAAAAAAEkAAAAAAAAASgAAAAAAAAAAAAAASgAAAAAAAABLAAAAAAAAAAAAAABLAAAAAAAAAEwAAAAAAAAAAAAAAEwAAAAAAAAATQAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAQwAAAAAAAABDAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					37,
+					1,
+					"insert",
+					{
+						"characters": "\t"
+					},
+					"AQAAAE0AAAAAAAAATgAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAATQAAAAAAAABNAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					38,
+					1,
+					"insert",
+					{
+						"characters": "\n"
+					},
+					"AQAAAE4AAAAAAAAATwAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAATgAAAAAAAABOAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					39,
+					1,
+					"reindent",
+					null,
+					"AQAAAE8AAAAAAAAAUAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAATwAAAAAAAABPAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					40,
+					1,
+					"insert",
+					{
+						"characters": "\t\t\t\teere"
+					},
+					"CAAAAFAAAAAAAAAAUQAAAAAAAAAAAAAAUQAAAAAAAABSAAAAAAAAAAAAAABSAAAAAAAAAFMAAAAAAAAAAAAAAFMAAAAAAAAAVAAAAAAAAAAAAAAAVAAAAAAAAABVAAAAAAAAAAAAAABVAAAAAAAAAFYAAAAAAAAAAAAAAFYAAAAAAAAAVwAAAAAAAAAAAAAAVwAAAAAAAABYAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAUAAAAAAAAABQAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					41,
+					1,
+					"insert_completion",
+					{
+						"completion": "escludere",
+						"format": "text",
+						"keep_prefix": false,
+						"must_insert": false,
+						"trigger": "escludere"
+					},
+					"AgAAAFQAAAAAAAAAVAAAAAAAAAAEAAAAZWVyZVQAAAAAAAAAXQAAAAAAAAAAAAAA",
 					"AQAAAAAAAAABAAAAWAAAAAAAAABYAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					42,
+					1,
+					"insert",
+					{
+						"characters": "\n\n\n"
+					},
+					"CAAAAF0AAAAAAAAAXgAAAAAAAAAAAAAAXgAAAAAAAABjAAAAAAAAAAAAAABjAAAAAAAAAGQAAAAAAAAAAAAAAGQAAAAAAAAAaQAAAAAAAAAAAAAAXgAAAAAAAABeAAAAAAAAAAUAAAAJCQkJCWQAAAAAAAAAZQAAAAAAAAAAAAAAZQAAAAAAAABqAAAAAAAAAAAAAABfAAAAAAAAAF8AAAAAAAAABQAAAAkJCQkJ",
+					"AQAAAAAAAAABAAAAXQAAAAAAAABdAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					47,
+					1,
+					"right_delete",
+					null,
+					"AgAAAEAAAAAAAAAAQAAAAAAAAAAfAAAAZGbDuQpmZmZmZmZmZmYJCgkJCQkJZXNjbHVkZXJlCkIAAAAAAAAAQgAAAAAAAAAFAAAACQkJCQk",
+					"AQAAAAAAAAABAAAAQAAAAAAAAABeAAAAAAAAAAAAAAAAAAAA"
+				],
+				[
+					51,
+					2,
+					"left_delete",
+					null,
+					"AgAAAF8AAAAAAAAAXwAAAAAAAAABAAAACV4AAAAAAAAAXgAAAAAAAAABAAAACQ",
+					"AQAAAAAAAAABAAAAYAAAAAAAAABgAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					52,
+					1,
+					"insert",
+					{
+						"characters": "\t\t"
+					},
+					"AgAAAF4AAAAAAAAAXwAAAAAAAAAAAAAAXwAAAAAAAABgAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAXgAAAAAAAABeAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					53,
+					2,
+					"unindent",
+					null,
+					"AgAAAF4AAAAAAAAAXgAAAAAAAAABAAAACV4AAAAAAAAAXgAAAAAAAAABAAAACQ",
+					"AQAAAAAAAAABAAAAYAAAAAAAAABgAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					54,
+					1,
+					"insert",
+					{
+						"characters": "\t\t"
+					},
+					"AgAAAF4AAAAAAAAAXwAAAAAAAAAAAAAAXwAAAAAAAABgAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAXgAAAAAAAABeAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					56,
+					2,
+					"unindent",
+					null,
+					"AgAAAF4AAAAAAAAAXgAAAAAAAAABAAAACV4AAAAAAAAAXgAAAAAAAAABAAAACQ",
+					"AQAAAAAAAAABAAAAYAAAAAAAAABgAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					61,
+					1,
+					"insert",
+					{
+						"characters": "\t\t"
+					},
+					"AgAAAF4AAAAAAAAAXwAAAAAAAAAAAAAAXwAAAAAAAABgAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAXgAAAAAAAABeAAAAAAAAAAAAAAAAAAAA"
+				]
+			]
+		},
+		{
+			"file": "/c/Casa/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/OBJECT/ANALISI/MSYS_README.MD",
+			"settings":
+			{
+				"buffer_size": 9819,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			},
+			"undo_stack":
+			[
+			]
+		},
+		{
+			"file": "/C/Users/walter.rossi/AppData/Roaming/Sublime Text/Packages/Terminal/Mariana.sublime-color-scheme",
+			"settings":
+			{
+				"buffer_size": 11818,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			},
+			"undo_stack":
+			[
+				[
+					2,
+					1,
+					"paste",
+					null,
+					"AgAAAAAAAAAAAAAAKi4AAAAAAAAAAAAAKi4AAAAAAAAqLgAAAAAAAAUSAAAvL0lNUE9TVEFfU1VCTElNRVRFWFRfTWFyaWFuYS5tZAovL01BUklBTk5BIC0gQ09MT1JJIFBFUlNPTkFMSVpaQVRJIC0gUEVSIE1BUklBTk5BCgkJLy9AaW1wb3N0YXppb25pQE1hcmlhbmFfKGltcG9zdGF6aW9uaSBjb2xvcmkgZGVsbG8gQHNjaGVybW8gTWFyaWFuYSkKCgkvL0ZJTEU6ICBDOlxVc2Vyc1xpY2l2aVxBcHBEYXRhXFJvYW1pbmdcU3VibGltZSBUZXh0XFBhY2thZ2VzXFVzZXJcTWFyaWFuYS5zdWJsaW1lLWNvbG9yLXNjaGVtZQoJCXsKCQkJICJuYW1lIjogIkV4YW1wbGUgQ09MT1JFIEFDUVVBIiwKCQkJCS8qIE5PVEUKCgoKCQkJCQkKCQkJCQkJbGUgaW1wb3N0YXppb25pIHBlcnNvbmFsaXp6YXRlIGRlbCBNb25va2FpIG5lbCBmaWxlCgkJCQkJCU1vbm9rYWkuc3VibGltZS1jb2xvci1zY2hlbWUKCQkJCQkJTGEgZG9jdW1lbnRhemlvbmUgZGVpIGNvbG9yaSBzaSB0cm92YSBxdWk6CgkJCQkJCSAJRG9jdW1lbnRhdGlvbiBhdCBodHRwczovL3d3dy5zdWJsaW1ldGV4dC5jb20vZG9jcy9jb2xvcl9zY2hlbWVzLmh0bWwKCQkJCQkJICAgIHBlciBkZWZpbmlyZSBpIGNvbG9yaSAKCQkJCQkJICAgIAlodHRwczovL3d3dy53M3NjaG9vbHMuY29tL2h0bWwvaHRtbF9jb2xvcnNfaHNsLmFzcCM6fjp0ZXh0PUhTTCUyMENvbG9yJTIwVmFsdWVzJnRleHQ9MCUyNSUyMG1lYW5zJTIwYSUyMHNoYWRlJTIwb2YsJTJDJTIwYW5kJTIwMTAwJTI1JTIwaXMlMjB3aGl0ZS4KCgoJCQkJCQlJIENPTE9SSSBQT1NTT05PIEFWRVJFIFFVRVNURSBOT1RBWklPTkk6CgkJCQkJCQlOb3RhemlvbmUgZnVuemlvbmFsZSBIU0wKCQkJCQkJCU5vdGF6aW9uZSBmdW56aW9uYWxlIFJHQkEKCgkJCQkJCQllbGVuY28gY29sb3JpIHN1YmxpbWVUZXh0CgoJCQkJCQkJTmFtZWQgY29sb3JzOiB3aGl0ZSwgdGFuLCBldGMKCgkJCQkJCQkJCVNob3J0aGFuZCBoZXg6ICNmZmYKCgkJCQkJCQkJCVNob3J0aGFuZCBoZXggd2l0aCBhbHBoYTogI2ZmZjgKCgkJCQkJCQkJCUZ1bGwgaGV4OiAjZmZmZmZmCgoJCQkJCQkJCQlGdWxsIGhleCB3aXRoIGFscGhhOiAjZmZmZmZmODAKCgkJCQkJCQkJCVJHQiBmdW5jdGlvbmFsIG5vdGF0aW9uOiByZ2IoMjU1LCAyNTUsIDI1NSkKCgkJCQkJCQkJCVJHQkEgZnVuY3Rpb25hbCBub3RhdGlvbjogcmdiYSgyNTUsIDI1NSwgMjU1LCAwLjUpCgoJCQkJCQkJCQlIU0wgZnVuY3Rpb25hbCBub3RhdGlvbjogaHNsKDAsIDEwMCUsIDEwMCUpCgoJCQkJCQkJCQlIU0xBIGZ1bmN0aW9uYWwgbm90YXRpb246IGhzbGEoMCwgMTAwJSwgMTAwJSwgMC41KQoKCQkJCQkJCQkJSFdCIGZ1bmN0aW9uYWwgbm90YXRpb246IGh3YigwLCAyMCUsIDIwJSksIGh3YigwLCAyMCUsIDIwJSwgMC41KQoKCgkJCQkJCSovCQoJCQkvL0xFIFZBUklBQklMSSA9CgkJCQkidmFyaWFibGVzIjp7CgoJCQkJCS8qIExFIElNUE9TVEFaSU9OSSBESSBDT0xPUkUgTkVMTEUgVkFSSUFCSUxJCgkJCQkJCS8vLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLy8KCgkJCQkJCSAgICBDb2xvcmUgIFZhbG9yZSAgRGVmaW5pemlvbmUKCQkJCQkJICAgIE5lcm8gICAgIzAwMDAwMCBBc3NlbnphIGRpIHR1dHRpIGNvbG9yaS4KCQkJCQkJICAgIEJpYW5jbyAgI0ZGRkZGRiBQcmVzZW56YSBkaSB0dXR0aSBpIGNvbG9yaS4KCQkJCQkJICAgIFJvc3NvICAgI0ZGMDAwMCBQcmVzZW56YSBzb2xvIGRlbCByb3Nzby4KCQkJCQkJICAgIEdpYWxsbyAgI0ZGRkYwMCBSb3NzbyArIHZlcmRlIOKAkyBibHUuCgkJCQkJCSAgICAqLwoJCQkJCQkgICAgLy9pbXBvc3RhemlvbmkgZGkgYmFzZSBkaSBzYmxpbWUgdGV4dCAKCgkJCQkJCSAgICAJImNlbGVzdGUiOiAiaHNsKDE4NSwgNjglLCA4MSUpIiwKCQkJCQkJICAgIAkiYXp6dXJybyI6ICJoc2woMzksIDgwMCUsIDUwJSkiLAoKCQkJCQkJICAgIAkKCQkJCQkJICAgIAkiYmx1ZSI6ICJoc2woMjEwLCA1MCUsIDYwJSkiLAoJCQkJCQkgICAgICAgICJibHVlLXZpYnJhbnQiOiAiaHNsKDIxMCwgNjAlLCA2MCUpIiwKCQkJCQkJICAgICAgICAiYmx1ZTIiOiAiaHNsYSgyMTAsIDEzJSwgNDAlLCAwLjcpIiwKCQkJCQkJICAgICAgICAiYmx1ZTMiOiAiaHNsKDIxMCwgMTUlLCAyMiUpIiwKCQkJCQkJICAgICAgICAiYmx1ZTQiOiAiaHNsKDIxMCwgMTMlLCA0NSUpIiwKCQkJCQkJICAgICAgICAiYmx1ZTUiOiAiaHNsKDE4MCwgMzYlLCA1NCUpIiwKCQkJCQkJICAgICAgICAiYmx1ZTYiOiAiaHNsKDIyMSwgMTIlLCA2OSUpIiwKCQkJCQkJCQkKCQkJCQkJCQkiZ3JlZW4iOiAiaHNsYSgxNTMsIDgwJSwgNDAlLCAxKSIsCgkJCQkJCSAgICAgICAgImdyZWVuNjgiOiAiaHNsKDExNCwgMzElLCA2OCUpIiwKCgkJCQkJCSAgICAgICAgInJlZCI6ICJoc2woMzU3LCA3OSUsIDY1JSkiLAogICAgICAgIAkJCQkJCSJyZWQyIjogImhzbCgxMywgOTMlLCA2NiUpIiwKICAgICAgICAKCQkJCQkJICAgICAgICAKCQkJCQkJCQkib3JhbmdlIjogImhzbCgzMiwgOTMlLCA2NiUpIiwKCQkJCQkJCQkib3JhbmdlMiI6ICJoc2woMzIsIDg1JSwgNTUlKSIsCgkJCQkJCQkJIm9yYW5nZTMiOiAiaHNsKDQwLCA5NCUsIDY4JSkiLAoJCQkJCQkJCQoJCQkJCQkJCSJ5ZWxsb3ciOiAiaHNsKDM5LCAxMDAlLCA1MCUpIiwKCQkJCQkJCQkieWVsbG93MyI6ICJoc2woNzksIDEwMCUsIDUwJSkiLAoJCQkJCQkJCSJ5ZWxsb3c0IjogImhzbCg1NSwgOTAlLCA3NSUpIiwKCgkJCQkJCQkJCgkJCQkJCQkJIndoaXRlIjogImhzbCgwLCAwJSwgMTAwJSkiLAoJCQkJCQkgICAgICAgICJ3aGl0ZTIiOiAiaHNsKDAsIDAlLCA5NyUpIiwKCQkJCQkJICAgICAgICAid2hpdGUzIjogImhzbCgyMTksIDI4JSwgODglKSIsCgkJCQkJCSAgICAKCQkJCQkJCSAgICAKCQkJCQkJCQkiYWNxdWEiIDogIiMwMEZGRkYiICAgICAgICAgICAgICAgICAvL2NyZWF0byBudW92bwoKCQkJCQkJLy8tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0vLwoKCQkJCQkJfSwKCQkJCQoJCQkvL0xFIEdMT0JBTEkgPSBWQVJJQUJJTEkgR0xPQkFMSQoJCQkJCSJnbG9iYWxzIjogewoJCQkJCQkJCS8qCgkJCQkJCQkJCU5FSSBHTE9CQUxTIElNUE9TVE8KCQkJCQkJCQkJCWZvcmVncm91bmQJPSBjb2xvcmUgdGVzdG8gYWNxdWEKCQkJCQkJCQkJCWJhY2tncm91bmQgCT0gc2ZvbmRvIG5lcm8JCQoJCQkJCQkJCQkJc2VsZWN0aW9uIAk9IHNlbGV6aW9ubyBpbCB0ZXN0byBpbiByb3NzbwkJCgkJCQkJCQkJKi8KCQkJCQkJCS8vIHllbGxvdzMgPSBHSUFMTE8gQUNJRE8KCQkJCQkJCS8vIHllbGxvdyAgPSBHSUFMTE8gTk9STUFMRQoJCQkJCQkJLy8geWVsbG93NCA9IEdJQUxMTyBQQUxMSURPCgkJCQkJCQkiZm9yZWdyb3VuZCI6ICJ2YXIoeWVsbG93MykiLAoJCQkJCQkJLy8iZm9yZWdyb3VuZCI6ICJ2YXIob3JhbmdlKSIsCgkJCQkJICAgICAgICAiYmFja2dyb3VuZCI6ICJ2YXIoYmxhY2spIiwKCQkJCQkgICAgICAgIC8vInNlbGVjdGlvbiI6ICJ2YXIoZ3JlZW4pIgoJCQkJCSAgICAgICAgCgkJCQkJICAgICAgICAvL0BzZWxlemlvbmVAbWFyaWFuYW5hXyhAY29tYW5kbyBwZXIgbGEgc2VsZXppb25lIGluIEBhenp1cnJvIG8gQGJsdSBwZXIgQGNhc2EpCgkJCQkJICAgICAgICAic2VsZWN0aW9uIjogInZhcihhenp1cnJvKSIKCQkJCQkgICAgICAKCQkJCQkJCX0sCgoJCQkvL1JVTEVTID0gU09OTyBMRSBSRUdPTEUgCgkJCQkicnVsZXMiOlsKCQkJCQkJCS8vQHJlZ29sZV8oSU5TRVJJU0NPIE5VT1ZFIFJFR09MRSwgY29tbWVudGksIGNvc3RhbnRpKQoKCQkJCQkJCSB7CgkJCQkJCQkJICAgICAgICAgICAgIm5hbWUiOiAiQ29tbWVudCIsCgkJCQkJCQkJICAgICAgICAgICAgInNjb3BlIjogImNvbW1lbnQsIHB1bmN0dWF0aW9uLmRlZmluaXRpb24uY29tbWVudCIsIC8vPz8KCQkJCQkJCQkgICAgICAgICAgICAiZm9yZWdyb3VuZCI6ICJncmVlbiIJLy9AY29tbWVudGkgaW4gQHZlcmRlCgkJCQkJCQkJICAgICAgICAgICAgLy8iZm9yZWdyb3VuZCI6ICIjODg4ODg4IiAgLy9jb21tZW50aSBnaWFsbGkKCgkJCQkJCQkJICAgICAgICB9LAoJCQkJCQkJCSAgICAgICAgewoJCQkJCQkJCSAgICAgICAgCS8vcmVnb2xlIHBlciBsZSBzdHJpbmdoZQoJCQkJCQkJCSAgICAgICAgICAgICJuYW1lIjogIlN0cmluZyIsCgkJCQkJCQkJICAgICAgICAgICAgInNjb3BlIjogInN0cmluZyIsCgkJCQkJCQkJICAgICAgICAgICAgImZvcmVncm91bmQiOiAiaHNsYSg0MCwgMTAwJSwgNTAlLCAxIiwKCQkJCQkJCQkgICAgICAgIH0sCgoJCQkJCQkJCSAgICAKCQkJCQkJCQkgICAgICAgIHsKCQkJCQkJCQkgICAgICAgIAkvL3JlZ29sZSBwZXIgaSBudW1lcmkgQGNvc3RhbnRpCgkJCQkJCQkJICAgICAgICAgICAgIm5hbWUiOiAiTnVtYmVyIiwKCQkJCQkJCQkgICAgICAgICAgICAic2NvcGUiOiAiY29uc3RhbnQubnVtZXJpYyIsCgkJCQkJCQkJICAgICAgICAgICAgImZvcmVncm91bmQiOiAiIzdGMDBGRiIsCgkJCQkJCQkJICAgICAgICAgICAgImZvbnRfc3R5bGUiOiAiaXRhbGljIiwJCS8vQHN0aWxlQGNvc3RhbnRpCgkJCQkJCQkJICAgICAgICB9CgkJCQkJCQkKCQkJCQkJXQoKCQkJfQoKCg",
+					"AQAAAAAAAAABAAAAAAAAAAAAAAADEgAAAAAAAAAAAAAAAPC/"
 				]
 			]
 		}
@@ -110,12 +390,14 @@
 	[
 		"/c/Casa/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS",
 		"/c/Casa/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/OBJECT",
-		"/c/Casa/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/OBJECT/FORM"
+		"/c/Casa/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/OBJECT/ANALISI"
 	],
 	"file_history":
 	[
-		"/c/Casa/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/OBJECT/FORM/Form_UTILITA_Frm12_SERVIZI_TUTTI.cls",
+		"/c/Casa/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/CANCELLA_{MDB+OBJECT+PROJECT}.BAT",
+		"/c/Casa/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/OBJECT/FORM/Form_Msys_DF11_PROGETTI_Frm01_M01_ELEMENTI.cls",
 		"/c/Casa/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/OBJECT/FORM/UTILITA_Msys_Frm21_IMPORTA_OGGETTI.md",
+		"/c/Casa/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/OBJECT/FORM/Form_UTILITA_Frm12_SERVIZI_TUTTI.cls",
 		"/C/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/OBJECT/MODULI/GESTIONE_Mdl10_FILE_APRI_PDF.MD",
 		"/c/Casa/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/GEFILE_Mdl01_GESTIONI_FILE_API_VBA_OLD.MD",
 		"/c/Casa/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/GEFILE_Frm01_GESTIONI_old.MD",
@@ -239,13 +521,11 @@
 		"/C/GESTIONI/GESTIONE_LLPP/25_GESTIONE_LLPP/LLPP_ARCHIVI_MDB/PREZZARIO_OPERE_PUBBLICHE/OBJECT/QUERY/PREZOP_Tb01AQry01_02_OperEdil_TMP_EtraiCodici_2_01",
 		"/C/GESTIONI/GESTIONE_LLPP/25_GESTIONE_LLPP/LLPP_ARCHIVI_MDB/PREZZARIO_OPERE_PUBBLICHE/Project_PREZZARIO.sublime-project",
 		"/C/GESTIONI/GESTIONE_LLPP/25_GESTIONE_LLPP/NUMERI_TELEFONICI_Dipendenti in Servizio/NUMERI_TELEFONICI_Dipendenti in Servizio.md",
-		"/C/CASA/GE_MARINO/GE_CASA/BANCA/Notiziario/NotiziarioEconominco/Notizie_Economiche.md",
-		"/C/GESTIONI/GESTIONE_LLPP/25_GESTIONE_LLPP/NUMERI_TELEFONICI_Dipendenti in Servizio.md",
-		"/C/GESTIONI/GESTIONE_LLPP/25_GESTIONE_LLPP/NUMERI_TELEFONICI_Dipendenti in Servizio.sublime-project"
+		"/C/CASA/GE_MARINO/GE_CASA/BANCA/Notiziario/NotiziarioEconominco/Notizie_Economiche.md"
 	],
 	"find":
 	{
-		"height": 42.4
+		"height": 28.0
 	},
 	"find_in_files":
 	{
@@ -263,6 +543,17 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"ModificaTabControl",
+			"le pagine trascinano a se gli oggetti sottoform",
+			"pagine DELLE SOTTOFORM",
+			"TAB CONTROL",
+			"SOTTOFORMl",
+			"DELLE SOTTOFORMl",
+			"DEL TAB CONTROL",
+			"CMB_04_TAB_CONTROL",
+			"CMB_04_TAB_CONTROL_L_H_TXT",
+			"CMB_04_TAB_CONTROL_L_H_TXT_A",
+			"DEL TAB CONTROL",
 			"@INIZIO",
 			"@importa@oggetti",
 			"AUMENTO O RIDUCO",
@@ -379,18 +670,7 @@
 			"emilia",
 			"santoro",
 			"BENITO",
-			"fabrizia",
-			"posta",
-			"raccomandate",
-			"BENITO",
-			"alessandro",
-			"Anna maria",
-			"anna maria",
-			"sarracino",
-			"agronomo",
-			"CARINGI",
-			"ANNA MARIA",
-			"lorena"
+			"fabrizia"
 		],
 		"highlight": false,
 		"in_selection": false,
@@ -419,20 +699,19 @@
 			[
 				{
 					"buffer": 0,
-					"file": "/c/Casa/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/OBJECT/FORM/UTILITA_Msys_Frm21_IMPORTA_OGGETTI.md",
-					"selected": true,
+					"file": "/c/Casa/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/README.md",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 505184,
+						"buffer_size": 6432,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								84,
-								91
+								96,
+								96
 							]
 						],
 						"settings":
@@ -440,10 +719,73 @@
 							"mde.match_heading_hashes": false,
 							"syntax": "Packages/Markdown/Markdown.sublime-syntax",
 							"tab_size": 3,
-							"translate_tabs_to_spaces": true
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"stack_multiselect": false,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/c/Casa/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/OBJECT/ANALISI/MSYS_README.MD",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 9819,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								574,
+								574
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Markdown/Markdown.sublime-syntax",
+							"tab_size": 3,
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"stack_multiselect": false,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/C/Users/walter.rossi/AppData/Roaming/Sublime Text/Packages/Terminal/Mariana.sublime-color-scheme",
+					"selected": true,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 11818,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								11818,
+								11818
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JSON/JSON.sublime-syntax",
+							"tab_size": 3,
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 3811.2,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -455,7 +797,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 29.6
+		"height": 28.0
 	},
 	"input":
 	{
@@ -500,7 +842,7 @@
 	"project": "Project_MSYS.sublime-project",
 	"replace":
 	{
-		"height": 56.0
+		"height": 52.8
 	},
 	"save_all_on_build": false,
 	"select_file":
