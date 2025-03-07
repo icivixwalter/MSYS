@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Log Importazione Form - 06/03/2025 13:32:52
 Form importata: LLPP_IMPEGNI_Frm_S99_01_{@====================================@}
 Form importata: LLPP_IMPEGNI_Tb01Frm01_M01_OGGETTI_GEST
@@ -38,3 +39,47 @@ Form importata: PROGETTI_Msys_TB03Frm01_02_ObjProgetti_QUERY=COD_PROGETTO_s
 Form importata: PROGETTI_Msys_TB03Frm01_02_ObjProgetti_REPORT=COD_PROGETTO_s
 Form importata: PROGETTI_Msys_TB03Frm01_02_ObjProgetti_TABLE=COD_PROGETTO_s
 Importazione completata con -38 forms importate.
+=======
+Log Importazione Form - 06/03/2025 20:12:06
+------------------------------------------------
+
+NRO: -1 Form importata: LLPP_IMPEGNI_Frm_S99_01_{@====================================@}
+NRO: -2 Form importata: LLPP_IMPEGNI_Tb01Frm01_M01_OGGETTI_GEST
+NRO: -3 Form importata: LLPP_IMPEGNI_Tb01Frm01_S01_OGGETTI_FORMS
+NRO: -4 Form importata: LLPP_IMPEGNI_Tb01Frm01_S02_OGGETTI_QUERY
+NRO: -5 Form importata: LLPP_IMPEGNI_Tb01Frm01_S02_OGGETTI_QUERY_SOTTOSTANTE
+NRO: -6 Form importata: LLPP_IMPEGNI_Tb01Frm01_S03_OGGETTI_MODULI
+NRO: -7 Form importata: LLPP_IMPEGNI_Tb01Frm01_S04_OGGETTI_REPORT
+NRO: -8 Form importata: LLPP_IMPEGNI_Tb01Frm01_S05_OGGETTI_TABLE
+NRO: -9 Form importata: LLPP_IMPEGNI_Tb01Frm01_S06_ELENCO_TUTTI
+NRO: -10 Form importata: LLPP_IMPEGNI_Tb01Frm01_S07_{@=================================@}
+Form non trovata nel database di origine: LLPP_IMPEGNI_Tb01Frm17_}---------------------------------------@
+Form non trovata nel database di origine: LLPP_IMPEGNI_Tb01Frm17-00_M01_GE_CUP
+Form non trovata nel database di origine: LLPP_IMPEGNI_Tb01Frm17-01_S01_GROUPxANNO_CUP
+Form non trovata nel database di origine: LLPP_IMPEGNI_Tb01FrmM01_}-------------------------------------@
+NRO: -11 Form importata: LLPP_IMPEGNI_Tb01FrmM01_01_GESTIONE_IMPEGNI_MASTER
+NRO: -12 Form importata: LLPP_IMPEGNI_Tb01FrmS01_12_GRUPPO_IMPEGNI_ANNO
+NRO: -13 Form importata: LLPP_IMPEGNI_Tb01FrmS01_13_GRUPPO_IMPEGNI_CLASSIFICAZIONE
+NRO: -14 Form importata: LLPP_IMPEGNI_Tb01FrmS01_13_GRUPPO_IMPEGNI_CLASSIFICAZIONE_OLD
+NRO: -15 Form importata: LLPP_IMPEGNI_Tb01FrmS01_14_00_GE_ELENCO_IMPEGNI
+NRO: -16 Form importata: LLPP_IMPEGNI_Tb01FrmS01_14_ELENCO_IMPEGNI
+NRO: -17 Form importata: LLPP_IMPEGNI_Tb01FrmS01_15_ELENCO_DI_SPESA
+NRO: -18 Form importata: LLPP_IMPEGNI_Tb01FrmS01_16_ELENCO_DI_SPESA_Totali
+Form non trovata nel database di origine: LLPP_IMPEGNI_Tb01FrmS17-02_S01_CUP
+NRO: -19 Form importata: LLPP_IMPEGNI_Tb01FrmS99_}--------------------------------------@
+NRO: -20 Form importata: LLPP_IMPEGNI_Tb01FrmS99_UTILITA_IMPORTA_OGGETTI
+NRO: -21 Form importata: PROGETTI_Msys_{@==============GESTITI_DA_MSYS============@}_Tb00
+NRO: -22 Form importata: PROGETTI_Msys_Tb00FrmM01_GE_PROGETTI
+NRO: -23 Form importata: PROGETTI_Msys_TB01Frm00_}--------------------------------------@
+NRO: -24 Form importata: PROGETTI_Msys_TB01Frm01_01_PROJECT
+NRO: -25 Form importata: PROGETTI_Msys_TB01Frm01_01_PROJECT_TMP
+NRO: -26 Form importata: PROGETTI_Msys_TB02Frm00_}--------------------------------------@
+NRO: -27 Form importata: PROGETTI_Msys_TB02Frm01_01_TIPO_OGGETTI
+NRO: -28 Form importata: PROGETTI_Msys_TB03Frm01_01_ELENCO_ObjProgetti
+NRO: -29 Form importata: PROGETTI_Msys_TB03Frm01_02_ObjProgetti_FORM=COD_PROGETTO_s
+NRO: -30 Form importata: PROGETTI_Msys_TB03Frm01_02_ObjProgetti_MACRO=COD_PROGETTO_s
+NRO: -31 Form importata: PROGETTI_Msys_TB03Frm01_02_ObjProgetti_QUERY=COD_PROGETTO_s
+NRO: -32 Form importata: PROGETTI_Msys_TB03Frm01_02_ObjProgetti_REPORT=COD_PROGETTO_s
+NRO: -33 Form importata: PROGETTI_Msys_TB03Frm01_02_ObjProgetti_TABLE=COD_PROGETTO_s
+Importazione completata con -33 forms importate.
+>>>>>>> 9f385f5f08346ae4086311d1c4192082a3e95389

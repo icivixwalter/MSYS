@@ -1,0 +1,40 @@
+--------------------------------------------------
+Data:        28/02/2025 10:18:30
+Routine:     ROUTINE: CMB_03_TAB_CONTROL_L_H_TXT_AfterUpdate
+Errore #:    13
+Descrizione: ERRORE DI ESECUZIONE ROUTINE : Tipo non corrispondente
+--------------------------------------------------
+
+
+--------------------------------------------------
+Data:        28/02/2025 13:09:57
+Routine:     ROUTINE: CMB_04_TAB_CONTROL_L_H_TXT_AfterUpdate
+Errore #:    2100
+Descrizione: ERRORE DI ESECUZIONE ROUTINE : Controllo o controllo di sottomaschera troppo grande per questa posizione.
+--------------------------------------------------
+
+
+--------------------------------------------------
+Data:        28/02/2025 13:13:23
+Routine:     ROUTINE: CMB_04_TAB_CONTROL_L_H_TXT_AfterUpdate
+Errore #:    2100
+Descrizione: ERRORE DI ESECUZIONE ROUTINE : Controllo o controllo di sottomaschera troppo grande per questa posizione.
+--------------------------------------------------
+
+
+--------------------------------------------------
+Data:        28/02/2025 16:01:35
+Routine:     ROUTINE: CMB_04_TAB_CONTROL_L_H_TXT_AfterUpdate
+Errore #:    2100
+Descrizione: ERRORE DI ESECUZIONE ROUTINE : Controllo o controllo di sottomaschera troppo grande per questa posizione.
+--------------------------------------------------
+
+
+--------------------------------------------------
+Data:        28/02/2025 16:03:28
+Routine:     ROUTINE: CMB_04_TAB_CONTROL_L_H_TXT_AfterUpdate
+Errore #:    2100
+Descrizione: ERRORE DI ESECUZIONE ROUTINE : Controllo o controllo di sottomaschera troppo grande per questa posizione.
+--------------------------------------------------
+
+
