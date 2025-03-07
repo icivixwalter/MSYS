@@ -5,6 +5,7 @@ UTILITA_Msys_Frm21_IMPORTA_OGGETTI.md
 
 ### CODICE_CLASSE
 
+
 '# CLASSE_Form_UTILITA_Msys_Frm21_IMPORTA_OGGETTI.md
 '//@VERSIONE_DEL_2025_02_12=COMPLETA E FUNZIONANTE
 
@@ -413,39 +414,48 @@ On Error GoTo CollectionForm_PFunct_Err
         
         '//@IMPEGNI@FORM@UTILITA_(LA @collection DELLE @FORM per la gestione degli impegni)
         Case "IMPORTA_OGGETTI_IMPEGNI"
-                
-              objectFORMS.Add "LLPP_IMPEGNI_Tb01FrmS99_}--------------------------------------@"
-              objectFORMS.Add "LLPP_IMPEGNI_Tb01FrmS99_UTILITA_IMPORTA_OGGETTI"
-              objectFORMS.Add "FileList"
-              objectFORMS.Add "LLPP_IMPEGNI_Tb01FrmS01_13_GRUPPO_IMPEGNI_CLASSIFICAZIONE"
-              objectFORMS.Add "LLPP_IMPEGNI_Tb01FrmS01_12_GRUPPO_IMPEGNI_ANNO"
-              objectFORMS.Add "LLPP_IMPEGNI_Tb01FrmS01_16_ELENCO_DI_SPESA_Totali"
-              objectFORMS.Add "LLPP_IMPEGNI_Tb01FrmS01_15_ELENCO_DI_SPESA"
-              objectFORMS.Add "LLPP_IMPEGNI_Tb01FrmS01_14_ELENCO_IMPEGNI"
-              objectFORMS.Add "LLPP_IMPEGNI_Tb01Frm01_S06_ELENCO_TUTTI"
-              objectFORMS.Add "LLPP_IMPEGNI_Tb01Frm01_S04_OGGETTI_REPORT"
-              objectFORMS.Add "LLPP_IMPEGNI_Tb01Frm01_S03_OGGETTI_MODULI"
-              objectFORMS.Add "LLPP_IMPEGNI_Tb01Frm01_S02_OGGETTI_QUERY"
-              objectFORMS.Add "LLPP_IMPEGNI_Tb01Frm01_S07_{@=================================@}"
-              objectFORMS.Add "LLPP_IMPEGNI_Tb01Frm01_M01_OGGETTI_GEST"
-              objectFORMS.Add "LLPP_IMPEGNI_Tb01Frm01_S05_OGGETTI_TABLE"
-              objectFORMS.Add "LLPP_IMPEGNI_Tb01Frm01_S01_OGGETTI_FORMS"
-              objectFORMS.Add "LLPP_IMPEGNI_Frm_S99_01_{@====================================@}"
-              objectFORMS.Add "LLPP_IMPEGNI_Tb01Frm01_S02_OGGETTI_QUERY_SOTTOSTANTE"
-              objectFORMS.Add "LLPP_IMPEGNI_Tb01FrmM01_01_GESTIONE_IMPEGNI"
-              objectFORMS.Add "PROGETTI_Msys_{@==============GESTITI_DA_MSYS============@}_Tb00"
-              objectFORMS.Add "PROGETTI_Msys_Tb00FrmM01_GE_PROGETTI"
-              objectFORMS.Add "PROGETTI_Msys_TB01Frm00_}--------------------------------------@"
-              objectFORMS.Add "PROGETTI_Msys_TB01Frm01_01_PROJECT"
-              objectFORMS.Add "PROGETTI_Msys_TB01Frm01_01_PROJECT_TMP"
-              objectFORMS.Add "PROGETTI_Msys_TB02Frm00_}--------------------------------------@"
-              objectFORMS.Add "PROGETTI_Msys_TB02Frm01_01_TIPO_OGGETTI"
-              objectFORMS.Add "PROGETTI_Msys_TB03Frm01_01_ELENCO_ObjProgetti"
-              objectFORMS.Add "PROGETTI_Msys_TB03Frm01_02_ObjProgetti_FORM=COD_PROGETTO_s"
-              objectFORMS.Add "PROGETTI_Msys_TB03Frm01_02_ObjProgetti_MACRO=COD_PROGETTO_s"
-              objectFORMS.Add "PROGETTI_Msys_TB03Frm01_02_ObjProgetti_QUERY=COD_PROGETTO_s"
-              objectFORMS.Add "PROGETTI_Msys_TB03Frm01_02_ObjProgetti_REPORT=COD_PROGETTO_s"
-              objectFORMS.Add "PROGETTI_Msys_TB03Frm01_02_ObjProgetti_TABLE=COD_PROGETTO_s"
+                 
+            objectFORMS.Add "LLPP_IMPEGNI_Frm_S99_01_{@====================================@}"
+            objectFORMS.Add "LLPP_IMPEGNI_Tb01Frm01_M01_OGGETTI_GEST"
+            objectFORMS.Add "LLPP_IMPEGNI_Tb01Frm01_S01_OGGETTI_FORMS"
+            objectFORMS.Add "LLPP_IMPEGNI_Tb01Frm01_S02_OGGETTI_QUERY"
+            objectFORMS.Add "LLPP_IMPEGNI_Tb01Frm01_S02_OGGETTI_QUERY_SOTTOSTANTE"
+            objectFORMS.Add "LLPP_IMPEGNI_Tb01Frm01_S03_OGGETTI_MODULI"
+            objectFORMS.Add "LLPP_IMPEGNI_Tb01Frm01_S04_OGGETTI_REPORT"
+            objectFORMS.Add "LLPP_IMPEGNI_Tb01Frm01_S05_OGGETTI_TABLE"
+            objectFORMS.Add "LLPP_IMPEGNI_Tb01Frm01_S06_ELENCO_TUTTI"
+            objectFORMS.Add "LLPP_IMPEGNI_Tb01Frm01_S07_{@=================================@}"
+            objectFORMS.Add "LLPP_IMPEGNI_Tb01Frm17_}---------------------------------------@"
+            objectFORMS.Add "LLPP_IMPEGNI_Tb01Frm17-00_M01_GE_CUP"
+            objectFORMS.Add "LLPP_IMPEGNI_Tb01Frm17-01_S01_GROUPxANNO_CUP"
+            objectFORMS.Add "LLPP_IMPEGNI_Tb01FrmM01_}-------------------------------------@"
+            objectFORMS.Add "LLPP_IMPEGNI_Tb01FrmM01_01_GESTIONE_IMPEGNI_MASTER"
+            objectFORMS.Add "LLPP_IMPEGNI_Tb01FrmS01_12_GRUPPO_IMPEGNI_ANNO"
+            objectFORMS.Add "LLPP_IMPEGNI_Tb01FrmS01_13_GRUPPO_IMPEGNI_CLASSIFICAZIONE"
+            objectFORMS.Add "LLPP_IMPEGNI_Tb01FrmS01_13_GRUPPO_IMPEGNI_CLASSIFICAZIONE_OLD"
+            objectFORMS.Add "LLPP_IMPEGNI_Tb01FrmS01_14_00_GE_ELENCO_IMPEGNI"
+            objectFORMS.Add "LLPP_IMPEGNI_Tb01FrmS01_14_ELENCO_IMPEGNI"
+            objectFORMS.Add "LLPP_IMPEGNI_Tb01FrmS01_15_ELENCO_DI_SPESA"
+            objectFORMS.Add "LLPP_IMPEGNI_Tb01FrmS01_16_ELENCO_DI_SPESA_Totali"
+            objectFORMS.Add "LLPP_IMPEGNI_Tb01FrmS17-02_S01_CUP"
+            objectFORMS.Add "LLPP_IMPEGNI_Tb01FrmS99_}--------------------------------------@"
+            objectFORMS.Add "LLPP_IMPEGNI_Tb01FrmS99_UTILITA_IMPORTA_OGGETTI"
+            objectFORMS.Add "PROGETTI_Msys_{@==============GESTITI_DA_MSYS============@}_Tb00"
+            objectFORMS.Add "PROGETTI_Msys_Tb00FrmM01_GE_PROGETTI"
+            objectFORMS.Add "PROGETTI_Msys_TB01Frm00_}--------------------------------------@"
+            objectFORMS.Add "PROGETTI_Msys_TB01Frm01_01_PROJECT"
+            objectFORMS.Add "PROGETTI_Msys_TB01Frm01_01_PROJECT_TMP"
+            objectFORMS.Add "PROGETTI_Msys_TB02Frm00_}--------------------------------------@"
+            objectFORMS.Add "PROGETTI_Msys_TB02Frm01_01_TIPO_OGGETTI"
+            objectFORMS.Add "PROGETTI_Msys_TB03Frm01_01_ELENCO_ObjProgetti"
+            objectFORMS.Add "PROGETTI_Msys_TB03Frm01_02_ObjProgetti_FORM=COD_PROGETTO_s"
+            objectFORMS.Add "PROGETTI_Msys_TB03Frm01_02_ObjProgetti_MACRO=COD_PROGETTO_s"
+            objectFORMS.Add "PROGETTI_Msys_TB03Frm01_02_ObjProgetti_QUERY=COD_PROGETTO_s"
+            objectFORMS.Add "PROGETTI_Msys_TB03Frm01_02_ObjProgetti_REPORT=COD_PROGETTO_s"
+            objectFORMS.Add "PROGETTI_Msys_TB03Frm01_02_ObjProgetti_TABLE=COD_PROGETTO_s"
+            
+       
+       
        
         '//@collection@FORM@MSYS@OBJECT
         Case "MSYS_ATTIVA_GEST_OGGETTI.mdb"
@@ -767,48 +777,52 @@ On Error GoTo CollectionQuery_PFunct_Err
             
             '//@IMPEGNI@QUERY@UTILITA_(LA @collection delle query relative agli impegni)
             Case "IMPORTA_OGGETTI_IMPEGNI"
-                '//@collection@query@impegni
-                 objectQUERY.Add "LLPP_ATTI_Qry01_01_Gestione"
-                 objectQUERY.Add "LLPP_ATTI_Qry01_12_Gestione_Elenco"
-                 objectQUERY.Add "LLPP_ATTI_Qry02_01_ALLEGATI"
-                 objectQUERY.Add "LLPP_IMPEGNI_Qry01_13_ELENCO_IMPEGNI"
-                 objectQUERY.Add "LLPP_IMPEGNI_Qry01_13_GRUPPO_ELENCO_IMPEGNI_ANNO"
-                 objectQUERY.Add "LLPP_IMPEGNI_Qry01_13_GRUPPO_ELENCO_IMPEGNI_ANNO_CLASSIFICAZIONE"
-                 objectQUERY.Add "LLPP_IMPEGNI_Qry01_19_ELENCO_IMPEGNI_COD_PRAT"
-                 objectQUERY.Add "LLPP_IMPEGNI_Qry01_20_01_GRUPPO_IMPEGNI_XANNO"
-                 objectQUERY.Add "LLPP_IMPEGNI_Qry01_20_02_GRUPPO_IMPEGNI_XANNO_XCLASSIFICAZ"
-                 objectQUERY.Add "LLPP_IMPEGNI_Qry02_01_ELENCO_DI_SPESA"
-                 objectQUERY.Add "LLPP_IMPEGNI_Qry02_02_ELENCO_DI_SPESA_Totali"
-                 objectQUERY.Add "LLPP_IMPEGNI_QryDF02_01_VOCE_ATTI_IMPEGNO"
-                 objectQUERY.Add "LLPP_IMPEGNI_QryDF02_02_GRUPPO_CODICE_VOCE_ATTI_IMPEGNO"
-                 objectQUERY.Add "LLPP_IMPEGNI_Tb01Qry_01_OGGETTI"
-                 objectQUERY.Add "LLPP_IMPEGNI_Tb01Qry01_12_GRUPPO_ELENCO_IMPEGNI_ANNO"
-                 objectQUERY.Add "LLPP_IMPEGNI_Tb01Qry01_13_GRUPPO_ELENCO_IMPEGNI_ANNO_CLASSIF"
-                 objectQUERY.Add "LLPP_IMPEGNI_Tb01Qry01_13_GRUPPO_ELENCO_IMPEGNI_ANNO_CLASSIFICAZ"
-                 objectQUERY.Add "LLPP_IMPEGNI_Tb01Qry01_14_ELENCO_IMPEGNI_COD_PRAT"
-                 objectQUERY.Add "LLPP_IMPEGNI_Tb01Qry02_15_ELENCO_DI_SPESA"
-                 objectQUERY.Add "LLPP_IMPEGNI_Tb01Qry02_16_ELENCO_DI_SPESA_Totali"
-                 objectQUERY.Add "Msys_DF02_Qry01_}----------------------------------------------@"
-                 objectQUERY.Add "Msys_DF02_Qry01_01_TIPO_OGGETTI"
-                 objectQUERY.Add "MSys_QUERY_Qry00_{@===========================================@}"
-                 objectQUERY.Add "MSys_QUERY_Qry01_}---------------------------------------------@"
-                 objectQUERY.Add "MSys_QUERY_Qry01_01_SELECT_TUTTE"
-                 objectQUERY.Add "MSys_QUERY_Qry01_01_SELECT_TUTTE_TMP"
-                 objectQUERY.Add "MSys_QUERY_Qry01_71_INSERT_toMsys_DF12"
-                 objectQUERY.Add "MSys_QUERY_Qry01_80_}------------------------------------@DELETE"
-                 objectQUERY.Add "MSys_QUERY_Qry01_81_DELETE_TUTTE"
-                 objectQUERY.Add "PROGETTI_Msys_Tb00_Qry00_{@===================================@}"
-                 objectQUERY.Add "PROGETTI_Msys_TB01Qry01_01_PROJECT"
-                 objectQUERY.Add "PROGETTI_Msys_TB01Qry01_01_PROJECT_TMP"
-                 objectQUERY.Add "PROGETTI_Msys_TB01Qry01_01_PROJECT_TMP_Delete"
-                 objectQUERY.Add "PROGETTI_Msys_TB02Qry01_01_TIPO_OGGETTI"
-                 objectQUERY.Add "PROGETTI_Msys_TB03Qry01_01_ELENCO_ObjProgetti"
-                 objectQUERY.Add "PROGETTI_Msys_TB03Qry01_02_ObjProgetti_FORM=COD_PROGETTO_s"
-                 objectQUERY.Add "PROGETTI_Msys_TB03Qry01_02_ObjProgetti_MACRO=COD_PROGETTO_s"
-                 objectQUERY.Add "PROGETTI_Msys_TB03Qry01_02_ObjProgetti_QUERY=COD_PROGETTO_s"
-                 objectQUERY.Add "PROGETTI_Msys_TB03Qry01_02_ObjProgetti_REPORT=COD_PROGETTO_s"
-                 objectQUERY.Add "PROGETTI_Msys_TB03Qry01_02_ObjProgetti_TABLE=COD_PROGETTO_s"
                 
+                '//@collection@query@impegni
+                
+                  objectQUERY.Add "LLPP_ATTI_Qry01_01_Gestione"
+                  objectQUERY.Add "LLPP_ATTI_Qry01_12_Gestione_Elenco"
+                  objectQUERY.Add "LLPP_ATTI_Qry02_01_ALLEGATI"
+                  objectQUERY.Add "LLPP_IMPEGNI_Qry01_13_ELENCO_IMPEGNI"
+                  objectQUERY.Add "LLPP_IMPEGNI_Qry01_13_GRUPPO_ELENCO_IMPEGNI_ANNO"
+                  objectQUERY.Add "LLPP_IMPEGNI_Qry01_13_GRUPPO_ELENCO_IMPEGNI_ANNO_CLASSIFICAZIONE"
+                  objectQUERY.Add "LLPP_IMPEGNI_Qry01_19_ELENCO_IMPEGNI_COD_PRAT"
+                  objectQUERY.Add "LLPP_IMPEGNI_Qry01_20_01_GRUPPO_IMPEGNI_XANNO"
+                  objectQUERY.Add "LLPP_IMPEGNI_Qry01_20_02_GRUPPO_IMPEGNI_XANNO_XCLASSIFICAZ"
+                  objectQUERY.Add "LLPP_IMPEGNI_Qry02_01_ELENCO_DI_SPESA"
+                  objectQUERY.Add "LLPP_IMPEGNI_Qry02_02_ELENCO_DI_SPESA_Totali"
+                  objectQUERY.Add "LLPP_IMPEGNI_QryDF02_01_VOCE_ATTI_IMPEGNO"
+                  objectQUERY.Add "LLPP_IMPEGNI_QryDF02_02_GRUPPO_CODICE_VOCE_ATTI_IMPEGNO"
+                  objectQUERY.Add "LLPP_IMPEGNI_Tb01Qry_01_OGGETTI"
+                  objectQUERY.Add "LLPP_IMPEGNI_Tb01Qry01_12_GRUPPO_ELENCO_IMPEGNI_ANNO"
+                  objectQUERY.Add "LLPP_IMPEGNI_Tb01Qry01_13_GRUPPO_ELENCO_IMPEGNI_ANNO_CLASSIF"
+                  objectQUERY.Add "LLPP_IMPEGNI_Tb01Qry01_13_GRUPPO_ELENCO_IMPEGNI_ANNO_CLASSIFICAZ"
+                  objectQUERY.Add "LLPP_IMPEGNI_Tb01Qry01_14_ELENCO_IMPEGNI_COD_PRAT"
+                  objectQUERY.Add "LLPP_IMPEGNI_Tb01Qry02_15_ELENCO_DI_SPESA"
+                  objectQUERY.Add "LLPP_IMPEGNI_Tb01Qry02_16_ELENCO_DI_SPESA_Totali"
+                  objectQUERY.Add "LLPP_IMPEGNI_Tb01Qry02_17-01_CUP_GROUPxANNO"
+                  objectQUERY.Add "LLPP_IMPEGNI_Tb01Qry02_17-02_CUP"
+                  objectQUERY.Add "Msys_DF02_Qry01_}----------------------------------------------@"
+                  objectQUERY.Add "Msys_DF02_Qry01_01_TIPO_OGGETTI"
+                  objectQUERY.Add "MSys_QUERY_Qry00_{@===========================================@}"
+                  objectQUERY.Add "MSys_QUERY_Qry01_}---------------------------------------------@"
+                  objectQUERY.Add "MSys_QUERY_Qry01_01_SELECT_TUTTE"
+                  objectQUERY.Add "MSys_QUERY_Qry01_01_SELECT_TUTTE_TMP"
+                  objectQUERY.Add "MSys_QUERY_Qry01_71_INSERT_toMsys_DF12"
+                  objectQUERY.Add "MSys_QUERY_Qry01_80_}------------------------------------@DELETE"
+                  objectQUERY.Add "MSys_QUERY_Qry01_81_DELETE_TUTTE"
+                  objectQUERY.Add "PROGETTI_Msys_Tb00_Qry00_{@===================================@}"
+                  objectQUERY.Add "PROGETTI_Msys_TB01Qry01_01_PROJECT"
+                  objectQUERY.Add "PROGETTI_Msys_TB01Qry01_01_PROJECT_TMP"
+                  objectQUERY.Add "PROGETTI_Msys_TB01Qry01_01_PROJECT_TMP_Delete"
+                  objectQUERY.Add "PROGETTI_Msys_TB02Qry01_01_TIPO_OGGETTI"
+                  objectQUERY.Add "PROGETTI_Msys_TB03Qry01_01_ELENCO_ObjProgetti"
+                  objectQUERY.Add "PROGETTI_Msys_TB03Qry01_02_ObjProgetti_FORM=COD_PROGETTO_s"
+                  objectQUERY.Add "PROGETTI_Msys_TB03Qry01_02_ObjProgetti_MACRO=COD_PROGETTO_s"
+                  objectQUERY.Add "PROGETTI_Msys_TB03Qry01_02_ObjProgetti_QUERY=COD_PROGETTO_s"
+                  objectQUERY.Add "PROGETTI_Msys_TB03Qry01_02_ObjProgetti_REPORT=COD_PROGETTO_s"
+                  objectQUERY.Add "PROGETTI_Msys_TB03Qry01_02_ObjProgetti_TABLE=COD_PROGETTO_s"
+ 
 
             
             Case "MSYS_ATTIVA_GEST_OGGETTI.mdb"
@@ -1108,6 +1122,7 @@ On Error GoTo CollectionTable_PFunct_Err
                 objectTables.Add "LLPP_IMPEGNI_TB01_}--------------------------------------------@"
                 objectTables.Add "LLPP_IMPEGNI_Tb01_ATTI_DI_IMPEGNO"
                 objectTables.Add "LLPP_IMPEGNI_Tb01_ATTI_DI_IMPEGNO_TMP"
+                objectTables.Add "LLPP_IMPEGNI_Tb01_OGGETTI"
                 objectTables.Add "LLPP_IMPEGNI_Tb02_{@==========================================@}"
                 objectTables.Add "LLPP_IMPEGNI_Tb02_}--------------------------------------------@"
                 objectTables.Add "LLPP_IMPEGNI_Tb02_ELENCO_DI_SPESA"
@@ -1127,6 +1142,8 @@ On Error GoTo CollectionTable_PFunct_Err
                 objectTables.Add "PROGETTI_Msys_TB03_ELENCO_ObjProgetti"
                 
                 
+                
+   
 
             
             '//@TABELLE@OGGETTI@MSYS_(LA @COLLECTION DI TABELLE DEL PROGETTO MSYS)
@@ -1720,26 +1737,28 @@ On Error GoTo CollectionModuli_PFunct_Err
             Case "IMPORTA_OGGETTI_IMPEGNI"
             
                 '//@COLLECTION@ESPROPRI@MODULI
-                  objectModules.Add "UTIL_Nrx1003_n01_RECUPERO_PARAMETRI_TABELLA_OGGETTI"
-                  objectModules.Add "UTIL_Nrx1001_n01_CLASSE_OGGETTI_DELLA_FORM"
-                  objectModules.Add "UTIL_Nrx1001_{@=============CLASSI_OGGETTI====================@}"
-                  objectModules.Add "CLASSE_ATTI_Tb01_Gestione"
-                  objectModules.Add "LLPP_IMPEGNI_Mdl01_02_LLPP_ATTI"
-                  objectModules.Add "LLPP_IMPEGNI_Mdl01_02------------------------------------------@"
-                  objectModules.Add "BARRA_ATTI_Tb01_12_}-----------------------------------------@"
-                  objectModules.Add "LLPP_DF06_APRI_N06_FASCICOLI"
-                  objectModules.Add "LLPP_DF06_{@==============================================@}_Mdl"
-                  objectModules.Add "GEST_FrmM00_GESTIONE_Mdl05_}-----------------------------@_FALD"
-                  objectModules.Add "FILE_Mdl10_APRI_FILE_E_PATH"
-                  objectModules.Add "FILE_Mdl00_{@=================================================@}"
-                  objectModules.Add "GEST_FrmM00_GESTIONE_Mdl05_DF05_FALDONI"
-                  objectModules.Add "CLASSE_GESTIONE_OGGETTI_DATABASE"
-                  objectModules.Add "CLASSE_GESTIONE_OGGETTI_}--------------------------------------@"
-                  objectModules.Add "BARRA_ATTI_Tb01_12_Gestione_Elenco"
-                  objectModules.Add "GEST_FrmM00_GESTIONE_Mdl01_ControlloFormAperta"
-                  objectModules.Add "LLPP_IMPEGNI_TB01Mdl01_OGGETTI_ATTI_DI_IMPEGNO_Semplice"
-                  objectModules.Add "LLPP_IMPEGNI_TB01Mdl02_ESPORTA_TUTTI_GLI_OGGETTI"
-                  objectModules.Add "LLPP_IMPEGNI_TB01Mdl00_{@=============IMPEGNI=================@}"
+                objectModules.Add "LLPP_IMPEGNI_TB01Mdl02_ESPORTA_TUTTI_GLI_OGGETTI"
+                objectModules.Add "LLPP_IMPEGNI_TB01Mdl01_OGGETTI_ATTI_DI_IMPEGNO_Semplice"
+                objectModules.Add "LLPP_IMPEGNI_TB01Mdl00_{@=============IMPEGNI=================@}"
+                objectModules.Add "GEST_FrmM00_GESTIONE_Mdl01_ControlloFormAperta"
+                objectModules.Add "BARRA_ATTI_Tb01_12_Gestione_Elenco"
+                objectModules.Add "CLASSE_GESTIONE_OGGETTI_}--------------------------------------@"
+                objectModules.Add "CLASSE_GESTIONE_OGGETTI_DATABASE"
+                objectModules.Add "GEST_FrmM00_GESTIONE_Mdl05_DF05_FALDONI"
+                objectModules.Add "FILE_Mdl00_{@=================================================@}"
+                objectModules.Add "FILE_Mdl10_APRI_FILE_E_PATH"
+                objectModules.Add "GEST_FrmM00_GESTIONE_Mdl05_}-----------------------------@_FALD"
+                objectModules.Add "LLPP_DF06_{@==============================================@}_Mdl"
+                objectModules.Add "LLPP_DF06_APRI_N06_FASCICOLI"
+                objectModules.Add "BARRA_ATTI_Tb01_12_}-----------------------------------------@"
+                objectModules.Add "LLPP_IMPEGNI_Mdl01_02------------------------------------------@"
+                objectModules.Add "LLPP_IMPEGNI_Mdl01_02_LLPP_ATTI"
+                objectModules.Add "CLASSE_ATTI_Tb01_Gestione"
+                objectModules.Add "UTIL_Nrx1001_{@=============CLASSI_OGGETTI====================@}"
+                objectModules.Add "UTIL_Nrx1001_n01_CLASSE_OGGETTI_DELLA_FORM"
+                objectModules.Add "UTIL_Nrx1003_n01_RECUPERO_PARAMETRI_TABELLA_OGGETTI"
+                
+
                   
                   '// la macro che attiva il modulo per l'esportazione della form UTILITA
                   objectModules.Add "ESPORTA_Mdl_}--------------------------------------------------@"
@@ -2922,13 +2941,14 @@ Private Sub Cmb_01_FORM_TXT_GotFocus()
     If Not Me.Cmb_01_FORM_TXT Is Nothing Then
         ' Pulisco il valore corrente
         Me.Cmb_01_FORM_TXT.Value = ""
-
+        
+        '//@CONTROLLO@FORM@DIMENSIONI_(individuo la form da @RIDURRE oppure da @AUMENTARE nelle dimensioni)
         ' Definisco la stringa con i dati per la combo
         Dim Str1 As String
         Str1 = "OGGETTI MSYS;OGGETTO;" & _
                "IMPORTA_OGGETTI_MSYS_DLL;FORM 1;" & _
                "AA_PROVA;FORM 2;" & _
-               "3;FORM 3;" & _
+               "LLPP_IMPEGNI_Tb01FrmM01_01_GESTIONE_IMPEGNI_MASTER;FORM 3;" & _
                "4;FORM 4;" & _
                "-;-"
 
@@ -2999,6 +3019,10 @@ End Sub
       Se il nome esiste, chiama AumentaDimensioni O RIDUCEDimensioni, altrimenti mostra un messaggio di errore. _
       Questo codice ti assicura che AumentaDimensioni venga chiamata solo se la form esiste nel database.
       
+
+
+
+
 Private Sub Cmd_AUMENTA_DIMENSIONI_FORM_Click()
     On Error GoTo ErroreHandler ' Attiva la gestione degli errori
     
@@ -3013,9 +3037,9 @@ Private Sub Cmd_AUMENTA_DIMENSIONI_FORM_Click()
         Exit Sub
     End If
     
-    ' Verifica se la form esiste usando la funzione
-    If FormEsisteNelDatabase(NomeForm_s) Then
-        Call AumentaDimensioni
+    ' Verifica se la form esiste usando la funzione DI CONTROLLO (con trim per togliere gli spazi)
+    If FormEsisteNelDatabase(Trim(NomeForm_s)) Then
+        Call AumentaDimensioni(NomeForm_s)
         'Apro la form modificata
         DoCmd.OpenForm NomeForm_s
     Else
@@ -3043,9 +3067,9 @@ Private Sub Cmd_RIDUCI_DIMENSIONI_FORM_Click()
         Exit Sub
     End If
     
-    ' Verifica se la form esiste usando la funzione
-    If FormEsisteNelDatabase(NomeForm_s) Then
-        Call AumentaDimensioni
+    ' Verifica se la form esiste usando la funzione usando la funzione DI CONTROLLO (con trim per togliere gli spazi)
+    If FormEsisteNelDatabase(Trim(NomeForm_s)) Then
+        Call RiduciDimensioni(NomeForm_s)
         
         'Apro la form modificata
         DoCmd.OpenForm NomeForm_s
@@ -3081,94 +3105,127 @@ End Function
 
 
 '//@01_@AUMENTA@DIMENSIONI           = AUMENTO LE DIMENSIONE DELLE FORM MASTER E DEGLI OGGETTI INCORPORATI
-Private Sub AumentaDimensioni()
+Private Sub AumentaDimensioni(par_NameForm_s As String)
     Dim frm As Form
     Dim errMsg As String
     
-
-    ' Chiudi la form se è aperta
-    If SysCmd(acSysCmdGetObjectState, acForm, "AA_PROVA") <> 0 Then
-        DoCmd.Close acForm, "AA_PROVA", acSaveYes
-    End If
-
-    ' Apri la form in modalità DESIGN
-    DoCmd.OpenForm "AA_PROVA", acDesign
-    Set frm = forms("AA_PROVA")
+    If par_NameForm_s > "" Then
     
-    Dim Larghezza_d As Double
-    Dim Altezza_d As Double
-   
-    '// FORM PRINCIPALE
-    '//..........................L  , H
-    ' **Ordine corretto per AUMENTARE: FORM ? CORPO ? TAB CONTROL ? SOTTOFORM**
-    Larghezza_d = 27
-    Call ModificaFormPrincipale(frm, Larghezza_d)      ' Form principale a 36 cm : larghezza
+        ' Chiudi la form se è aperta
+        'If SysCmd(acSysCmdGetObjectState, acForm, "AA_PROVA") <> 0 Then
+        '    DoCmd.Close acForm, "AA_PROVA", acSaveYes
+        'End If
+        
+        If SysCmd(acSysCmdGetObjectState, acForm, par_NameForm_s) <> 0 Then
+            DoCmd.Close acForm, par_NameForm_s, acSaveYes
+        End If
     
+        ' Apri la form in modalità DESIGN
+        'DoCmd.OpenForm "AA_PROVA", acDesign
+        'Set frm = forms("AA_PROVA")
+        
+        DoCmd.OpenForm par_NameForm_s, acDesign
+        Set frm = forms(par_NameForm_s)
+        
+        
+        
+        Dim Larghezza_d As Double
+        Dim Altezza_d As Double
+       
+        '// FORM PRINCIPALE
+        '//..........................L  , H
+        ' **Ordine corretto per AUMENTARE: FORM ? CORPO ? TAB CONTROL ? SOTTOFORM**
+        Larghezza_d = 27
+        Call ModificaFormPrincipale(frm, Larghezza_d)      ' Form principale a 36 cm : larghezza
+        
+        
+       
+       '// PAGINE DEL TAB CONTROL -                            ATTENZIONE modifiche le pagine trascinano a se gli oggetti sottoform
+        '//..........................L  , H
+        'Call ModificaPagineTab(frm, 19.551, 22.555)        ' Pagine del Tab Control a 32x23 cm
+        Larghezza_d = 26.101
+        Altezza_d = 16.383
+      
+        Call ModificaPagineTab(frm, Larghezza_d, Altezza_d)        ' Pagine del Tab Control a 32x23 cm
+        
+      
+        '// SOTTOFORM
+        '//..........................L , H
+        Larghezza_d = 25.701
+        Altezza_d = 15.376
+        Call ModificaSottoform(frm, Larghezza_d, Altezza_d)               ' Sottoform a 15x31 cm    : larghezza, altezza
+        
+      
+        '// TAB CONTROL
+        '//..........................L  , H       ' TAB CONTROLL
+        Larghezza_d = 25.999
+        Altezza_d = 17.333
+        Call ModificaTabControl(frm, Larghezza_d, Altezza_d)      ' Tab Control a 32x23 cm  : larghezza, altezza
     
-   
-   '// PAGINE DEL TAB CONTROL -                            ATTENZIONE modifiche le pagine trascinano a se gli oggetti sottoform
-    '//..........................L  , H
-    'Call ModificaPagineTab(frm, 19.551, 22.555)        ' Pagine del Tab Control a 32x23 cm
-    Larghezza_d = 24.3
-    Altezza_d = 16.383
-  
-    Call ModificaPagineTab(frm, Larghezza_d, Altezza_d)        ' Pagine del Tab Control a 32x23 cm
-    
-  
-    '// SOTTOFORM
-    '//..........................L , H
-    Larghezza_d = 23.599
-    Altezza_d = 15.376
-    Call ModificaSottoform(frm, Larghezza_d, Altezza_d)               ' Sottoform a 15x31 cm    : larghezza, altezza
-    
-  
-    '// TAB CONTROL
-    '//..........................L  , H       ' TAB CONTROLL
-    Larghezza_d = 24.999
-    Altezza_d = 17.333
-    Call ModificaTabControl(frm, Larghezza_d, Altezza_d)      ' Tab Control a 32x23 cm  : larghezza, altezza
-
-    '// CORPO MASCHERA
-    '//..........................L  , H
-    Altezza_d = 17.555
-    Call ModificaCorpoMaschera(frm, Altezza_d)       ' Corpo maschera a 30 cm  : altezza
-  
-    
-  
-    ' Salva e chiudi la form
-    DoCmd.Close acForm, "AA_PROVA", acSaveYes
-    Set frm = Nothing
-    MsgBox "? Dimensioni aumentate con successo!", vbInformation, "Operazione Completata"
+        '// CORPO MASCHERA
+        '//..........................L  , H
+        Altezza_d = 17.555
+        Call ModificaCorpoMaschera(frm, Altezza_d)       ' Corpo maschera a 30 cm  : altezza
+      
+        
+      
+        ' Salva e chiudi la form
+        'DoCmd.Close acForm, "AA_PROVA", acSaveYes
+        DoCmd.Close acForm, par_NameForm_s, acSaveYes
+        
+        
+        Set frm = Nothing
+        MsgBox "? Dimensioni aumentate con successo!", vbInformation, "Operazione Completata"
+        
+      Else
+          MsgBox "? NON ESISTE LA FORM DA MODIFICARE!", vbInformation, "Operazione NON ESEGUITA"
+          
+      End If '//If par_NameForm_s > "" Then
 End Sub
 
 ' --------------------------------
 ' ROUTINE PER RIDURRE LE DIMENSIONI
 ' --------------------------------
 '// @02_@RIDUCI@DIMENSIONI            = RIDUCO LE DIMENSIONE DELLE FORM MASTER E DEGLI OGGETTI INCORPORATI
-Public Sub RiduciDimensioni()
+Public Sub RiduciDimensioni(par_NameForm_s As String)
     Dim frm As Form
     Dim errMsg As String
-
-    ' Chiudi la form se è aperta
-    If SysCmd(acSysCmdGetObjectState, acForm, "AA_PROVA") <> 0 Then
-        DoCmd.Close acForm, "AA_PROVA", acSaveYes
-    End If
-
-    ' Apri la form in modalità DESIGN
-    DoCmd.OpenForm "AA_PROVA", acDesign
-    Set frm = forms("AA_PROVA")
-
-    ' **Ordine corretto per RIDURRE: SOTTOFORM ? TAB CONTROL ? CORPO ? FORM**
-    Call ModificaSottoform(frm, 20, 20)       ' Sottoform a 13x15 cm
-    Call ModificaPagineTab(frm, 21, 21)       ' Pagine del Tab Control a 17x17 cm
-    Call ModificaTabControl(frm, 21, 22)      ' Tab Control a 17x17 cm
-    Call ModificaCorpoMaschera(frm, 22.101)   ' Corpo maschera a 17.101 cm
-    Call ModificaFormPrincipale(frm, 26)      ' Form principale a 27 cm
-
-    ' Salva e chiudi la form
-    DoCmd.Close acForm, "AA_PROVA", acSaveYes
-    Set frm = Nothing
-    MsgBox "? Dimensioni ridotte con successo!", vbInformation, "Operazione Completata"
+      
+      If par_NameForm_s > "" Then
+          ' Chiudi la form se è aperta
+          'If SysCmd(acSysCmdGetObjectState, acForm, "AA_PROVA") <> 0 Then
+          '    DoCmd.Close acForm, "AA_PROVA", acSaveYes
+          'End If
+          
+          If SysCmd(acSysCmdGetObjectState, acForm, par_NameForm_s) <> 0 Then
+              DoCmd.Close acForm, par_NameForm_s, acSaveYes
+          End If
+      
+      
+          ' Apri la form in modalità DESIGN
+          'DoCmd.OpenForm "AA_PROVA", acDesign
+          'Set frm = forms("AA_PROVA")
+          
+          DoCmd.OpenForm par_NameForm_s, acDesign
+          Set frm = forms(par_NameForm_s)
+      
+          ' **Ordine corretto per RIDURRE: SOTTOFORM ? TAB CONTROL ? CORPO ? FORM**
+          Call ModificaSottoform(frm, 20.301, 15.899)         ' Sottoform a 13x15 cm
+          Call ModificaPagineTab(frm, 20.702, 16.109)         ' Pagine del Tab Control a 17x17 cm
+          Call ModificaTabControl(frm, 20.999, 16.943)     ' Tab Control a 17x17 cm
+          Call ModificaCorpoMaschera(frm, 17.243)   ' Corpo maschera a 17.101 cm
+          Call ModificaFormPrincipale(frm, 18)      ' Form principale a 27 cm
+      
+          ' Salva e chiudi la form
+          DoCmd.Close acForm, "AA_PROVA", acSaveYes
+          Set frm = Nothing
+          MsgBox "? Dimensioni ridotte con successo!", vbInformation, "Operazione Completata"
+          
+      Else
+          MsgBox "? NON ESISTE LA FORM DA MODIFICARE!", vbInformation, "Operazione NON ESEGUITA"
+          
+      End If '//If par_NameForm_s > "" Then
+    
 End Sub
 
 ' -------------------------------
@@ -3218,7 +3275,7 @@ Private Sub ModificaPagineTab(frm As Form, Larghezza As Double, Altezza As Doubl
     
     ' Se il Tab Control esiste, modifica le pagine
     If Not tabCtl Is Nothing Then
-        For i = 0 To tabCtl.Pages.count - 1
+        For i = 0 To tabCtl.Pages.Count - 1
             tabCtl.Pages(i).Width = CmToTwips(Larghezza)
             tabCtl.Pages(i).Height = CmToTwips(Altezza)
             DoEvents
@@ -3230,26 +3287,36 @@ Private Sub ModificaPagineTab(frm As Form, Larghezza As Double, Altezza As Doubl
     Set tabCtl = Nothing
 End Sub
 
-' Modifica le dimensioni di tutti i sottoform e imposta il bordo
+
+' Modifica le dimensioni di tutti i sottoform e imposta il bordo con limiti MIN e MAX
 Private Sub ModificaSottoform(frm As Form, Larghezza As Double, Altezza As Double)
+    Const MIN_LARGHEZZA As Double = 5    ' Larghezza minima in cm
+    Const MAX_LARGHEZZA As Double = 30   ' Larghezza massima in cm
+    Const MIN_ALTEZZA As Double = 5      ' Altezza minima in cm
+    Const MAX_ALTEZZA As Double = 25     ' Altezza massima in cm
+    
     Dim i As Integer, ctl As Control
+    Dim larghezzaEffettiva As Double, altezzaEffettiva As Double
+    
+    ' Verifica e limita le dimensioni nei range definiti
+    larghezzaEffettiva = IIf(Larghezza < MIN_LARGHEZZA, MIN_LARGHEZZA, IIf(Larghezza > MAX_LARGHEZZA, MAX_LARGHEZZA, Larghezza))
+    altezzaEffettiva = IIf(Altezza < MIN_ALTEZZA, MIN_ALTEZZA, IIf(Altezza > MAX_ALTEZZA, MAX_ALTEZZA, Altezza))
+    
     For i = 1 To 12
         On Error Resume Next
         Set ctl = frm("sottoform_" & Format(i, "00"))
         On Error GoTo 0
         If Not ctl Is Nothing Then
-            ' Modifica dimensioni
-            ctl.Width = CmToTwips(Larghezza)
-            ctl.Height = CmToTwips(Altezza)
-            Debug.Print ctl.Name
+            ' Modifica dimensioni con i valori limitati
+            ctl.Width = CmToTwips(larghezzaEffettiva)
+            ctl.Height = CmToTwips(altezzaEffettiva)
+            Debug.Print "Modificato: "; ctl.Name; " - Larghezza: "; larghezzaEffettiva; " cm, Altezza: "; altezzaEffettiva; " cm"
             
-             ' Imposta l'aspetto piatto, il colore e lo spessore del bordo
-            ctl.BorderStyle = 1 ' Aspetto piatto (fmBorderStyleSingle)
+            ' Imposta l'aspetto piatto, il colore e lo spessore del bordo
+            ctl.BorderStyle = 1 ' Stile continuo (fmBorderStyleSingle)
+            ctl.SpecialEffect = 0 ' Aspetto piatto (fmSpecialEffectFlat)
             ctl.BorderColor = RGB(&HBA, &H14, &H19) ' Colore bordo: #BA1419
             ctl.BorderWidth = 2 ' Spessore bordo: 2 pt
-            
-            
-            
             
             DoCmd.Save
             DoEvents
@@ -3257,6 +3324,15 @@ Private Sub ModificaSottoform(frm As Form, Larghezza As Double, Altezza As Doubl
         Set ctl = Nothing
     Next i
 End Sub
+
+
+
+
+
+
+
+
+
 
 '//CALCOLO TWIPS CON IL CONTROLLO DEI LIMITI MAX E MIN
 Function CmToTwips(cm As Variant) As Long
@@ -3517,6 +3593,593 @@ End Sub
 
 
 
+'//***********************************************************************************//
+'//**           COMBINATA 03 @CMB_03 = ALTEZZA LARGHEZZA @PAGINE@TAB@CONTROL   *** INIZIO ***
+'//**
+'//***********************************************************************************//
+'//* @04_@CMB@02@FORM@LARGHEZZA@ALTEZZA   = @CMB_03_PAGINE_TAB_CONTROL_L_H_TXT @LARGHEZZA E @ALTEZZA DELLE @PAGINE@TAB@CONTROL_(combinata @misure @L@H PAGINE DEL TAB CONTROL)
+
+'//EVENTO SU ATTIVATO IMPOSTO IL VALORE H+L DELLE PAGINE DEL TAB CONTROL
+Private Sub CMB_03_PAGINE_TAB_CONTROL_L_H_TXT_GotFocus()
+      On Error GoTo ErrHandler ' Attiva la gestione degli errori
+
+    ' Verifico se la casella combinata esiste
+    If Not Me.CMB_03_PAGINE_TAB_CONTROL_L_H_TXT Is Nothing Then
+        ' Creazione della lista di valori incrementali
+        Dim Str1 As String
+        Dim i As Integer
+        Dim Larghezza_dbl As Double
+        Dim Altezza_dbl As Double
+
+        ' Aggiunge il valore predefinito come prima voce della lista
+        Str1 = "LxH PAGINE TAB CONTROL;;;" ' Testo visibile + colonne vuote
+        
+        
+        ' Imposta i valori iniziali @dimensione@pagine@tab@control_(qui impostiamo la larghezza e l'altezza @delle@pagine del tab controll)
+        Larghezza_dbl = 24.401
+        Altezza_dbl = 16.501
+
+        ' Genera 10 valori incrementando di 50 twips
+        For i = 1 To 10
+            Str1 = Str1 & "L" & Larghezza_dbl & " H" & Altezza_dbl & ";" & Larghezza_dbl & ";" & Altezza_dbl & ";"
+            
+            Larghezza_dbl = Larghezza_dbl + 1
+            Altezza_dbl = Altezza_dbl + 1
+        Next i
+
+        ' Imposto la casella combinata
+        Me.CMB_03_PAGINE_TAB_CONTROL_L_H_TXT.RowSourceType = "Value List"
+        Me.CMB_03_PAGINE_TAB_CONTROL_L_H_TXT.RowSource = Str1
+        Me.CMB_03_PAGINE_TAB_CONTROL_L_H_TXT.ColumnCount = 3 ' Tre colonne: Testo visibile, Larghezza, Altezza
+        Me.CMB_03_PAGINE_TAB_CONTROL_L_H_TXT.ColumnWidths = "3cm;0cm;0cm" ' Nasconde le colonne 2 e 3
+        Me.CMB_03_PAGINE_TAB_CONTROL_L_H_TXT.BoundColumn = 1 ' La colonna legata è la prima
+
+        ' **Forza il valore predefinito dopo aver impostato la RowSource**
+        Me.CMB_03_PAGINE_TAB_CONTROL_L_H_TXT.Value = "LxH Larghezza+Altezza PAGINE TAB CONTROLL"
+
+        ' Aggiorno i dati della casella combinata
+        Me.CMB_03_PAGINE_TAB_CONTROL_L_H_TXT.Requery
+    End If
+    
+        
+
+ExitSub:
+    Exit Sub
+
+ErrHandler:
+    MsgBox "Si è verificato un errore: " & Err.Description, vbExclamation, "Errore " & Err.number
+    
+    ' //@FILE@LOG@ERRORI
+    ' //.................................................................//
+    Dim NomeRoutine_s As String
+    Dim NumeroErrore_lng As Long
+    Dim MessaggioErrore_s As String
+
+    NomeRoutine_s = "ROUTINE: CMB_03_PAGINE_TAB_CONTROL_L_H_TXT_GotFocus"
+    NumeroErrore_lng = Err.number
+    MessaggioErrore_s = "ERRORE DI ESECUZIONE ROUTINE : " & Err.Description
+
+    ScriviLogErrore NomeRoutine_s, _
+                    NumeroErrore_lng, _
+                    MessaggioErrore_s
+
+    ' //.................................................................//
+    
+    Resume ExitSub
+End Sub
+
+'==========================================
+' Evento AfterUpdate LARGHEZZA + ALTEZZA DELLE PAGINE DEL TAB CONTROL
+'==========================================
+'//Note: Dopo aver recuperato i valori di H + L dall'evento su ATTIVATO con questo _
+        evento su modifica controllo se la form esiste (cmb_01) e poi attivo le _
+        routine di attivazione larghezza DELLE PAGINE DEL TAB CONTROLL  della  form principale
+        
+Private Sub CMB_03_PAGINE_TAB_CONTROL_L_H_TXT_AfterUpdate()
+    On Error GoTo ErrHandler ' Attiva la gestione degli errori
+
+    Dim ValoreSelezionato As String
+    Dim Parti() As String
+    Dim var1_L_dbl As Double
+    Dim var2_H_dbl As Double
+    Dim frm As Form                         '//oggetto della form fa modificare
+
+    ' Verifica se la casella combinata contiene un valore valido
+    If IsNull(Me.CMB_03_PAGINE_TAB_CONTROL_L_H_TXT.Value) Or Me.CMB_03_PAGINE_TAB_CONTROL_L_H_TXT.Value = "" Then
+        Exit Sub
+    End If
+
+    ' Ottiene il valore selezionato dalla casella combinata (es. "L150 H145")
+    ValoreSelezionato = Me.CMB_03_PAGINE_TAB_CONTROL_L_H_TXT.Value
+
+    ' Divide il valore in due parti utilizzando lo spazio come separatore
+    Parti = Split(ValoreSelezionato, " ") ' Ora Parti(0) = "L150", Parti(1) = "H145"
+
+    ' Verifica che ci siano almeno due parti valide
+    If UBound(Parti) < 1 Then
+        Err.Raise 1001, , "Formato valore non valido: " & ValoreSelezionato
+    End If
+
+    ' Rimuove la lettera "L" e converte in numero
+    var1_L_dbl = CDbl(CVar(Mid(Parti(0), 2)))  ' Prende tutto tranne la prima lettera "L"
+
+    ' Rimuove la lettera "H" e converte in numero
+    var2_H_dbl = CDbl(CVar(Mid(Parti(1), 2))) ' Prende tutto tranne la prima lettera "H"
+
+    ' Ora var1_L_dbl  contiene la larghezza (es. 150) e var2_H_dbl l'altezza (es. 145)
+    MsgBox "DIMENSIONI DELLE PAGINE DEL TAB CONTROLL: Larghezza: " & var1_L_dbl & " - Altezza: " & var2_H_dbl, vbInformation, "Valori Selezionati"
+
+    ' Qui puoi chiamare altre routine passando var1_L_dbl  e var2_H_dbl
+    ' Call ImpostaDimensioni(var1_L_dbl , var2_H_dbl)
+    '//controllo prima se esiste la form da modificare
+        If Cmb_01_FORM_TXT > "" Then
+                
+                Dim NomeForm_s As String
+                ' Recupero il nome della form dalla casella combinata
+                NomeForm_s = Nz(Me.Cmb_01_FORM_TXT.Value, "") ' Evita errori se la combo è vuota
+                
+        
+            '//chiamo la procedura di controllo esistenza form se esiste TRUE
+            Bool1 = False
+            Bool1 = FormEsisteNelDatabase(NomeForm_s)
+            
+            If (Bool1) = True Then
+            
+                    ' Chiudi la form se è aperta
+                    If SysCmd(acSysCmdGetObjectState, acForm, NomeForm_s) <> 0 Then
+                        DoCmd.Close acForm, Trim(Me.Cmb_01_FORM_TXT), acSaveYes
+                    End If
+                
+                    ' Apri la form in modalità DESIGN
+                    DoCmd.OpenForm NomeForm_s, acDesign
+                    Set frm = forms(NomeForm_s)
+                    
+               
+            
+                '// TAB CONTROLL DELLA FORM PRINCIPALE L = LARGHEZZA H = ALTEZZA
+                '// Note: attivo la routine che modificano la larghezza e l'altezza  delle pagine del tab controll
+                        
+                       
+            '// PAGINE DEL TAB CONTROL -                            ATTENZIONE modifiche le pagine trascinano a se gli oggetti sottoform
+            '//..........................L  , H
+            'Call ModificaPagineTab(frm, 19.551, 22.555)           Pagine del Tab Control a 32x23 cm
+            
+            Call ModificaPagineTab(frm, var1_L_dbl, var2_H_dbl)      ' Pagine del Tab Control a 32x23 cm
+            
+            End If
+            
+            
+        
+        End If
+
+ExitSub:
+    Exit Sub
+
+ErrHandler:
+    MsgBox "Si è verificato un errore: " & Err.Description, vbExclamation, "Errore " & Err.number
+    
+    ' //@FILE@LOG@ERRORI
+    ' //.................................................................//
+    Dim NomeRoutine_s As String
+    Dim NumeroErrore_lng As Long
+    Dim MessaggioErrore_s  As String
+
+    NomeRoutine_s = "ROUTINE: CMB_03_PAGINE_TAB_CONTROL_L_H_TXT_AfterUpdate"
+    NumeroErrore_lng = Err.number
+    MessaggioErrore_s = "ERRORE DI ESECUZIONE ROUTINE : " & Err.Description
+
+    ScriviLogErrore NomeRoutine_s, _
+                    NumeroErrore_lng, _
+                    MessaggioErrore_s
+
+    ' //.................................................................//
+    
+    Resume ExitSub
+End Sub
+
+
+'//***********************************************************************************//
+'//**           COMBINATA 03 @CMB_03 = ALTEZZA LARGHEZZA PAGINE TAB CONTROL   *** FINE ***
+'//**
+'//***********************************************************************************//
+
+
+
+
+
+
+'//***********************************************************************************//
+'//**           COMBINATA 04 @CMB_04 = ALTEZZA LARGHEZZA DEL@TAB@CONTROL   *** INIZIO ***
+'//**
+'//***********************************************************************************//
+'//* @04_@CMB@02@TAB@CONTROL@LARGHEZZA@ALTEZZA   = @CMB_04_TAB_CONTROL_L_H_TXT @LARGHEZZA E @ALTEZZA DEL @TAB@CONTROL_(combinata @misure @L@H DEL TAB CONTROL)
+
+'//EVENTO SU ATTIVATO IMPOSTO IL VALORE H+L DEL TAB CONTROL
+Private Sub CMB_04_TAB_CONTROL_L_H_TXT_GotFocus()
+    On Error GoTo ErrHandler ' Attiva la gestione degli errori
+
+    ' Verifico se la casella combinata esiste
+    If Not Me.CMB_04_TAB_CONTROL_L_H_TXT Is Nothing Then
+        ' Creazione della lista di valori incrementali
+        Dim Str1 As String
+        Dim i As Integer
+        Dim Larghezza_dbl As Double
+        Dim Altezza_dbl As Double
+
+        ' Aggiunge il valore predefinito come prima voce della lista
+        Str1 = "LxH TAB CONTROL;;;" ' Testo visibile + colonne vuote
+        
+        
+        ' Imposta i valori iniziali @dimensione@pagine@tab@control_(qui impostiamo la larghezza e l'altezza @delle@pagine del tab controll)
+        Larghezza_dbl = 24.4783
+        Altezza_dbl = 176.333
+
+        ' Genera 10 valori incrementando di 50 twips
+        For i = 1 To 10
+            Str1 = Str1 & "L" & Larghezza_dbl & " H" & Altezza_dbl & ";" & Larghezza_dbl & ";" & Altezza_dbl & ";"
+            
+            Larghezza_dbl = Larghezza_dbl + 0.75
+            Altezza_dbl = Altezza_dbl + 0.75
+        Next i
+
+        ' Imposto la casella combinata
+        Me.CMB_04_TAB_CONTROL_L_H_TXT.RowSourceType = "Value List"
+        Me.CMB_04_TAB_CONTROL_L_H_TXT.RowSource = Str1
+        Me.CMB_04_TAB_CONTROL_L_H_TXT.ColumnCount = 3 ' Tre colonne: Testo visibile, Larghezza, Altezza
+        Me.CMB_04_TAB_CONTROL_L_H_TXT.ColumnWidths = "3cm;0cm;0cm" ' Nasconde le colonne 2 e 3
+        Me.CMB_04_TAB_CONTROL_L_H_TXT.BoundColumn = 1 ' La colonna legata è la prima
+
+        ' **Forza il valore predefinito dopo aver impostato la RowSource**
+        Me.CMB_04_TAB_CONTROL_L_H_TXT.Value = "LxH Larghezza+Altezza TAB CONTROL"
+
+        ' Aggiorno i dati della casella combinata
+        Me.CMB_04_TAB_CONTROL_L_H_TXT.Requery
+    End If
+    
+        
+
+ExitSub:
+    Exit Sub
+
+ErrHandler:
+    MsgBox "Si è verificato un errore: " & Err.Description, vbExclamation, "Errore " & Err.number
+    
+    ' //@FILE@LOG@ERRORI
+    ' //.................................................................//
+    Dim NomeRoutine_s As String
+    Dim NumeroErrore_lng As Long
+    Dim MessaggioErrore_s As String
+
+    NomeRoutine_s = "ROUTINE: CMB_04_TAB_CONTROL_L_H_TXT_GotFocus"
+    NumeroErrore_lng = Err.number
+    MessaggioErrore_s = "ERRORE DI ESECUZIONE ROUTINE : " & Err.Description
+
+    ScriviLogErrore NomeRoutine_s, _
+                    NumeroErrore_lng, _
+                    MessaggioErrore_s
+
+    ' //.................................................................//
+    
+    Resume ExitSub
+End Sub
+
+'==========================================
+' Evento AfterUpdate LARGHEZZA + ALTEZZA DEL TAB CONTROL
+'==========================================
+'//Note: Dopo aver recuperato i valori di H + L dall'evento su ATTIVATO con questo _
+        evento su modifica controllo se la form esiste (cmb_01) e poi attivo le _
+        routine di attivazione larghezza DEL TAB CONTROL  della  form principale
+        
+        
+Private Sub CMB_04_TAB_CONTROL_L_H_TXT_AfterUpdate()
+    On Error GoTo ErrHandler ' Attiva la gestione degli errori
+
+    Dim ValoreSelezionato As String
+    Dim Parti() As String
+    Dim var1_L_dbl As Double
+    Dim var2_H_dbl As Double
+    Dim frm As Form                         '//oggetto della form fa modificare
+
+    ' Verifica se la casella combinata contiene un valore valido
+    If IsNull(Me.CMB_04_TAB_CONTROL_L_H_TXT.Value) Or Me.CMB_04_TAB_CONTROL_L_H_TXT.Value = "" Then
+        Exit Sub
+    End If
+
+    ' Ottiene il valore selezionato dalla casella combinata (es. "L150 H145")
+    ValoreSelezionato = Me.CMB_04_TAB_CONTROL_L_H_TXT.Value
+
+    ' Divide il valore in due parti utilizzando lo spazio come separatore
+    Parti = Split(ValoreSelezionato, " ") ' Ora Parti(0) = "L150", Parti(1) = "H145"
+
+    ' Verifica che ci siano almeno due parti valide
+    If UBound(Parti) < 1 Then
+        Err.Raise 1001, , "Formato valore non valido: " & ValoreSelezionato
+    End If
+
+    ' Rimuove la lettera "L" e converte in numero
+    var1_L_dbl = CDbl(CVar(Mid(Parti(0), 2)))  ' Prende tutto tranne la prima lettera "L"
+
+    ' Rimuove la lettera "H" e converte in numero
+    var2_H_dbl = CDbl(CVar(Mid(Parti(1), 2))) ' Prende tutto tranne la prima lettera "H"
+
+    ' Ora var1_L_dbl  contiene la larghezza (es. 150) e var2_H_dbl l'altezza (es. 145)
+    MsgBox "DIMENSIONI DEL TAB CONTROL: Larghezza: " & var1_L_dbl & " - Altezza: " & var2_H_dbl, vbInformation, "Valori Selezionati"
+
+    ' Qui puoi chiamare altre routine passando var1_L_dbl  e var2_H_dbl
+    ' Call ImpostaDimensioni(var1_L_dbl , var2_H_dbl)
+    '//controllo prima se esiste la form da modificare
+        If Cmb_01_FORM_TXT > "" Then
+                
+                Dim NomeForm_s As String
+                ' Recupero il nome della form dalla casella combinata
+                NomeForm_s = Nz(Me.Cmb_01_FORM_TXT.Value, "") ' Evita errori se la combo è vuota
+                
+        
+            '//chiamo la procedura di controllo esistenza form se esiste TRUE
+            Bool1 = False
+            Bool1 = FormEsisteNelDatabase(NomeForm_s)
+            
+            If (Bool1) = True Then
+            
+                    ' Chiudi la form se è aperta
+                    If SysCmd(acSysCmdGetObjectState, acForm, NomeForm_s) <> 0 Then
+                        DoCmd.Close acForm, Trim(Me.Cmb_01_FORM_TXT), acSaveYes
+                    End If
+                
+                    ' Apri la form in modalità DESIGN
+                    DoCmd.OpenForm NomeForm_s, acDesign
+                    Set frm = forms(NomeForm_s)
+                    
+               
+            
+                '// TAB CONTROL DELLA FORM PRINCIPALE L = LARGHEZZA H = ALTEZZA
+                '// Note: attivo la routine che modificano la larghezza e l'altezza  delle pagine del tab controll
+                        
+                       
+            '// DEL TAB CONTROL -                            ATTENZIONE modifiche le pagine trascinano a se gli oggetti sottoform
+            '//..........................L  , H
+              Call ModificaTabControl(frm, var1_L_dbl, var2_H_dbl)      ' Tab Control DIMENZIONI
+            
+            End If
+            
+            
+        
+        End If
+
+ExitSub:
+    Exit Sub
+
+ErrHandler:
+    MsgBox "Si è verificato un errore: " & Err.Description, vbExclamation, "Errore " & Err.number
+    
+    ' //@FILE@LOG@ERRORI
+    ' //.................................................................//
+    Dim NomeRoutine_s As String
+    Dim NumeroErrore_lng As Long
+    Dim MessaggioErrore_s  As String
+
+    NomeRoutine_s = "ROUTINE: CMB_04_TAB_CONTROL_L_H_TXT_AfterUpdate"
+    NumeroErrore_lng = Err.number
+    MessaggioErrore_s = "ERRORE DI ESECUZIONE ROUTINE : " & Err.Description
+
+    ScriviLogErrore NomeRoutine_s, _
+                    NumeroErrore_lng, _
+                    MessaggioErrore_s
+
+    ' //.................................................................//
+    
+    Resume ExitSub
+End Sub
+
+
+'//***********************************************************************************//
+'//**           COMBINATA 04 @CMB_04 = ALTEZZA E LARGHEZZA DEL TAB CONTROL   *** FINE ***
+'//**
+'//***********************************************************************************//
+
+
+
+
+
+
+
+
+
+'//***********************************************************************************//
+'//**           COMBINATA 05 @CMB_05 = ALTEZZA E LARGHEZZA DELLE SOTTOFORM   *** FINE ***
+'//**
+'//***********************************************************************************//
+
+
+'//EVENTO SU ATTIVATO IMPOSTO IL VALORE H+L DELLE SOTTOFORM
+Private Sub CMB_05_SottoForm_L_H_TXT_GotFocus()
+    On Error GoTo ErrHandler ' Attiva la gestione degli errori
+
+    ' Verifico se la casella combinata esiste
+    If Not Me.CMB_05_SottoForm_L_H_TXT Is Nothing Then
+        ' Creazione della lista di valori incrementali
+        Dim Str1 As String
+        Dim i As Integer
+        Dim Larghezza_dbl As Double
+        Dim Altezza_dbl As Double
+
+        ' Aggiunge il valore predefinito come prima voce della lista
+        Str1 = "LxH SottoForm;;;" ' Testo visibile + colonne vuote
+        
+        
+        ' Imposta i valori iniziali @dimensione@pagine@tab@control_(qui impostiamo la larghezza e l'altezza @delle@SottoForm)
+        Larghezza_dbl = 24.4783
+        Altezza_dbl = 15.333
+
+        ' Genera 10 valori incrementando di 50 twips
+        For i = 1 To 10
+            Str1 = Str1 & "L" & Larghezza_dbl & " H" & Altezza_dbl & ";" & Larghezza_dbl & ";" & Altezza_dbl & ";"
+            
+            Larghezza_dbl = Larghezza_dbl + 0.75
+            Altezza_dbl = Altezza_dbl + 0.75
+        Next i
+
+        ' Imposto la casella combinata
+        Me.CMB_05_SottoForm_L_H_TXT.RowSourceType = "Value List"
+        Me.CMB_05_SottoForm_L_H_TXT.RowSource = Str1
+        Me.CMB_05_SottoForm_L_H_TXT.ColumnCount = 3 ' Tre colonne: Testo visibile, Larghezza, Altezza
+        Me.CMB_05_SottoForm_L_H_TXT.ColumnWidths = "3cm;0cm;0cm" ' Nasconde le colonne 2 e 3
+        Me.CMB_05_SottoForm_L_H_TXT.BoundColumn = 1 ' La colonna legata è la prima
+
+        ' **Forza il valore predefinito dopo aver impostato la RowSource**
+        Me.CMB_05_SottoForm_L_H_TXT.Value = "LxH Larghezza+Altezza SottoForm"
+
+        ' Aggiorno i dati della casella combinata
+        Me.CMB_05_SottoForm_L_H_TXT.Requery
+    End If
+    
+        
+
+ExitSub:
+    Exit Sub
+
+ErrHandler:
+    MsgBox "Si è verificato un errore: " & Err.Description, vbExclamation, "Errore " & Err.number
+    
+    ' //@FILE@LOG@ERRORI
+    ' //.................................................................//
+    Dim NomeRoutine_s As String
+    Dim NumeroErrore_lng As Long
+    Dim MessaggioErrore_s As String
+
+    NomeRoutine_s = "ROUTINE: CMB_05_SottoForm_L_H_TXT_GotFocus"
+    NumeroErrore_lng = Err.number
+    MessaggioErrore_s = "ERRORE DI ESECUZIONE ROUTINE : " & Err.Description
+
+    ScriviLogErrore NomeRoutine_s, _
+                    NumeroErrore_lng, _
+                    MessaggioErrore_s
+
+    ' //.................................................................//
+    
+    Resume ExitSub
+End Sub
+
+'==========================================
+' Evento AfterUpdate LARGHEZZA + ALTEZZA DELLE SOTTOFORM
+'==========================================
+'//Note: Dopo aver recuperato i valori di H + L dall'evento su ATTIVATO con questo _
+        evento su modifica controllo se la form esiste (cmb_01) e poi attivo le _
+        routine di attivazione larghezza DELLE SOTTOFORM  della  form principale
+        
+        
+Private Sub CMB_05_SottoForm_L_H_TXT_AfterUpdate()
+    On Error GoTo ErrHandler ' Attiva la gestione degli errori
+
+    Dim ValoreSelezionato As String
+    Dim Parti() As String
+    Dim var1_L_dbl As Double
+    Dim var2_H_dbl As Double
+    Dim frm As Form                         '//oggetto della form fa modificare
+
+    ' Verifica se la casella combinata contiene un valore valido
+    If IsNull(Me.CMB_05_SottoForm_L_H_TXT.Value) Or Me.CMB_05_SottoForm_L_H_TXT.Value = "" Then
+        Exit Sub
+    End If
+
+    ' Ottiene il valore selezionato dalla casella combinata (es. "L150 H145")
+    ValoreSelezionato = Me.CMB_05_SottoForm_L_H_TXT.Value
+
+    ' Divide il valore in due parti utilizzando lo spazio come separatore
+    Parti = Split(ValoreSelezionato, " ") ' Ora Parti(0) = "L150", Parti(1) = "H145"
+
+    ' Verifica che ci siano almeno due parti valide
+    If UBound(Parti) < 1 Then
+        Err.Raise 1001, , "Formato valore non valido: " & ValoreSelezionato
+    End If
+
+    ' Rimuove la lettera "L" e converte in numero
+    var1_L_dbl = CDbl(CVar(Mid(Parti(0), 2)))  ' Prende tutto tranne la prima lettera "L"
+
+    ' Rimuove la lettera "H" e converte in numero
+    var2_H_dbl = CDbl(CVar(Mid(Parti(1), 2))) ' Prende tutto tranne la prima lettera "H"
+
+    ' Ora var1_L_dbl  contiene la larghezza (es. 150) e var2_H_dbl l'altezza (es. 145)
+    MsgBox "DIMENSIONI DELLE SOTTOFORM: Larghezza: " & var1_L_dbl & " - Altezza: " & var2_H_dbl, vbInformation, "Valori Selezionati"
+
+    ' Qui puoi chiamare altre routine passando var1_L_dbl  e var2_H_dbl
+    ' Call ImpostaDimensioni(var1_L_dbl , var2_H_dbl)
+    '//controllo prima se esiste la form da modificare
+        If Cmb_01_FORM_TXT > "" Then
+                
+                Dim NomeForm_s As String
+                ' Recupero il nome della form dalla casella combinata
+                NomeForm_s = Nz(Me.Cmb_01_FORM_TXT.Value, "") ' Evita errori se la combo è vuota
+                
+        
+            '//chiamo la procedura di controllo esistenza form se esiste TRUE
+            Bool1 = False
+            Bool1 = FormEsisteNelDatabase(NomeForm_s)
+            
+            If (Bool1) = True Then
+            
+                    ' Chiudi la form se è aperta
+                    If SysCmd(acSysCmdGetObjectState, acForm, NomeForm_s) <> 0 Then
+                        DoCmd.Close acForm, Trim(Me.Cmb_01_FORM_TXT), acSaveYes
+                    End If
+                
+                    ' Apri la form in modalità DESIGN
+                    DoCmd.OpenForm NomeForm_s, acDesign
+                    Set frm = forms(NomeForm_s)
+                    
+               
+            
+                '// SottoForm DELLA FORM PRINCIPALE L = LARGHEZZA H = ALTEZZA
+                '// Note: attivo la routine che modificano la larghezza e l'altezza  delle SottoForm
+                        
+                       
+            '// DELLE SOTTOFORM - ATTENZIONE modifiche sugli oggetti SottoForm
+            '//..........................L  , H
+              Call ModificaSottoform(frm, var1_L_dbl, var2_H_dbl)      ' SottoForm DIMENZIONI
+            
+            End If
+            
+            
+        
+        End If
+
+ExitSub:
+    Exit Sub
+
+ErrHandler:
+    MsgBox "Si è verificato un errore: " & Err.Description, vbExclamation, "Errore " & Err.number
+    
+    ' //@FILE@LOG@ERRORI
+    ' //.................................................................//
+    Dim NomeRoutine_s As String
+    Dim NumeroErrore_lng As Long
+    Dim MessaggioErrore_s  As String
+
+    NomeRoutine_s = "ROUTINE: CMB_05_SottoForm_L_H_TXT_AfterUpdate"
+    NumeroErrore_lng = Err.number
+    MessaggioErrore_s = "ERRORE DI ESECUZIONE ROUTINE : " & Err.Description
+
+    ScriviLogErrore NomeRoutine_s, _
+                    NumeroErrore_lng, _
+                    MessaggioErrore_s
+
+    ' //.................................................................//
+    
+    Resume ExitSub
+End Sub
+
+
+'//***********************************************************************************//
+'//**           COMBINATA 05 @CMB_05 = ALTEZZA E LARGHEZZA DELLE SOTTOFORM   *** FINE ***
+'//**
+'//***********************************************************************************//
+
+
+
+
+
+
+
 '//***********************************************************************************************//
 '//*        -----------------------------------------------------------------------------------
 '//*                     ROUTINE PER AUMENTARE E RIDURRE LE DIMENSIONI      *** FINE ***
@@ -3644,7 +4307,7 @@ On Error GoTo Err_Cmd_Delete_QUERY_Click
                      Set dbCurrent = CurrentDb
                      
                      '//CALCOLO INDICE QUERY
-                     icount = dbCurrent.QueryDefs.count
+                     icount = dbCurrent.QueryDefs.Count
                                        
                     '//APRO IL CORRENTE DB
                     Set dbCurrent = CurrentDb
@@ -3875,8 +4538,18 @@ End Sub
 '//@TABLE@.03 ......
 '//@TABLE@INSERT.24=CICLO FOR PER ANDARE ALL'@ULTIMA@FORM @IMPORTATA E FARE IL DoCmd.SelectObject  DELL'OGGETTO
 
+
+'//IMPORTA TUTTI GLI OGGETTI FORM DEL DB MSYSDBEST
+'//----------------------------------------------------------------------------------------//
+'//Note:
+'//OPERAZIONI:
+'//@TABLE@.01 ......
+'//@TABLE@.02 ......
+'//@TABLE@.03 ......
+'//@TABLE@INSERT.24=CICLO FOR PER ANDARE ALL'@ULTIMA@FORM @IMPORTATA E FARE IL DoCmd.SelectObject  DELL'OGGETTO
+
 Private Sub Cmd_Importa_FORM_Click()
-    '//DIM della collezione form da importare
+    ' Dichiarazione delle variabili
     Dim formsCollection As Collection
     Dim formName_v As Variant
     Dim sourceDB As DAO.Database
@@ -3888,9 +4561,11 @@ Private Sub Cmd_Importa_FORM_Click()
     Dim deletedCount_i As Integer
     Dim deletedForms_s As String
     Dim importedForms_s As String
+    
     Dim Bool1 As Boolean
     Dim MyValue As Integer
-
+    Dim logFile As Integer
+    
     On Error GoTo ErrorHandler
     
     ' Inizializza i contatori e le stringhe di riepilogo
@@ -3898,117 +4573,209 @@ Private Sub Cmd_Importa_FORM_Click()
     deletedCount_i = 0
     deletedForms_s = ""
     importedForms_s = ""
-
-    ' RECUPERO LA COLLEZIONE FORM DA IMPORTARE E FACCIO IL CONTROLLO
-    Set formsCollection = CollectionForm_PFunct()
-
-    ' SE LA COLLECTION E' VUOTA ESCI DALLA ROUTINE
-    If formsCollection.count = 0 Then Exit Sub
-
-    ' Controllo path ed il file.mdb per le importazioni
-    sourceDBPath = PathFile_s_pFunct
-    If sourceDBPath = "" Then
-        MsgBox "ATTENZIONE ERRORE path e file sono null uscita dalla routine", vbCritical, "MSG CONTROLLO PATH E FILE VALORIZZATI"
+    
+    '@FILE@LOG@FORM: Apre il file di log per scrivere i dettagli dell'importazione apre nella path corrente.
+    logFile = FreeFile()
+    Open CurrentProject.PATH & "\LOG_IMPORTA_FORM.TXT" For Output As #logFile
+    Print #logFile, "Log Importazione Form - " & Now
+    Print #logFile, "------------------------------------------------"
+    Print #logFile,
+    
+    ' Recupero la collezione di form da importare
+      Set formsCollection = CollectionForm_PFunct()
+      
+    If formsCollection.Count = 0 Then
+        Print #logFile, "Nessuna form da importare."
+        Close #logFile
         Exit Sub
     End If
-
-    ' Primo controllo progetto
+    
+    ' Controllo se il percorso del database di origine è valido
+    sourceDBPath = PathFile_s_pFunct
+    If sourceDBPath = "" Then
+        MsgBox "Errore: path e file nulli.", vbCritical
+        Print #logFile, "Errore: path e file nulli."
+        Close #logFile
+        Exit Sub
+    End If
+    
+    ' Controllo se il file del database di origine esiste
+    If Dir(sourceDBPath) = "" Then
+        MsgBox "Errore: il file del database di origine non esiste.", vbCritical
+        Print #logFile, "Errore: il file del database di origine non esiste."
+        Close #logFile
+        Exit Sub
+    End If
+    
+    ' Controllo del valore di avviso
     MyValue = CheckAvviso_i_PFunct(Me.ctr_AVVISO_ABILITATO_TXT)
     If MyValue = 0 Then Exit Sub
-
-    ' Secondo controllo progetto
-    Bool1 = CheckProjectName_b_PFunct
+    
+    ' Controllo del nome del progetto
+    Bool1 = CheckProjectName_b_PFunct()
     If Bool1 = True Then Exit Sub
+    
+    
+    
+    '//BARRA DI PROGRESSIONE RESET VARIABILI    @progress@bar
+    '//---------------------------------------------------------------------------//
+            Dim i As Integer
+            Dim progressValue_dbl As Double
+            Dim frm_obj As Form_frmProgressBar ' <-- Cast esplicito al tipo corretto
+            Dim NroCollection_i As Integer
+            Dim PercIncr_dbl As Double
+            Dim Twips_dbl As Double
+            Dim TipoImport_s As String
+            
+           '//reset
+           progressValue_dbl = 0                               '// la % di incremento della label
+           Twips_dbl = 0                                       '//twips di incremento del rettangolo
+           TipoImport_s = ""                                   '//tipo di importazione
+           Dim T As Double                                     '// timer per la barra
+           Dbl1 = 0
+           
+           '//calcolo parametri
+           NroCollection_i = formsCollection.Count             '//calcolo il numero di collection form da controllare
+           Twips_dbl = CInt(5670 / NroCollection_i)             '// imposto il nuro di twips in base alla collection
+           PercIncr_dbl = (100 / NroCollection_i)              '// calcolo la % di incremento ad ogni passaggio
+           TipoImport_s = "IMPORTA_FORM"
+      
+        ' Apri il form @frmProgressBar prima di passare il parametro  @APRI@progress@bar
+        DoCmd.OpenForm "frmProgressBar", acNormal
 
-                ' Se siamo su un progetto esterno (Bool1 = False), procedo con l'importazione
-                If Bool1 = False Then
-                    ' Apri il database di origine e il database di destinazione
-                    Set ws = DBEngine.Workspaces(0)
-                    Set sourceDB = ws.OpenDatabase(sourceDBPath)
-                    Set db = CurrentDb
+        ' Aspetta che il form sia effettivamente caricato
+        DoEvents
+    
+      
+        ' Ottieni un riferimento al form aperto e CAST alla classe specifica
+        Set frm_obj = forms("frmProgressBar")
+
+    '//---------------------------------------------------------------------------//
+      
+    
+    ' Se siamo su un progetto esterno (Bool1 = False), procedo con l'importazione
+    If Bool1 = False Then
+        ' Apertura del database di origine e connessione al database corrente
+        Set ws = DBEngine.Workspaces(0)
+        Set sourceDB = ws.OpenDatabase(sourceDBPath)
+        Set db = CurrentDb
+        
+        
+        
+        ' Ciclo attraverso la collezione di form da importare
+        For Each formName_v In formsCollection
+            myformName_s = formName_v
             
-                    ' Ciclo nella collezione per il controllo delle form precaricate
-                    For Each formName_v In formsCollection
-                        myformName_s = formName_v
-                        
-                        ' Controlla se il modulo esiste nel database di origine
-                        If ObjectExists(sourceDB, acForm, myformName_s) Then
-                            ' Se esiste nel db esterno, controlla se esiste anche nel db corrente e cancellalo
-                            If ObjectExists(db, acForm, myformName_s) Then
-                                DoCmd.DeleteObject acForm, myformName_s
-                                deletedCount_i = deletedCount_i + 1
-                                deletedForms_s = deletedForms_s & myformName_s & vbCrLf
-                            End If
-                            
-                            ' Importa il modulo dal database di origine
-                            DoCmd.TransferDatabase acImport, "Microsoft Access", sourceDBPath, acForm, myformName_s, myformName_s
-                            importedCount_i = importedCount_i + 1
-                            importedForms_s = importedForms_s & myformName_s & vbCrLf
-                        Else
-                            MsgBox "La form '" & myformName_s & "' non esiste nel database di origine.", vbExclamation
-                        End If
-                    Next formName_v
             
-                            '
-                            
-                    ' Chiudi il database di origine
-                    sourceDB.Close
-                    Set sourceDB = Nothing
-                    Set ws = Nothing
-            
-                    ' Messaggio finale di riepilogo
-                    If Me.ctr_AVVISO_ABILITATO_TXT = True Then
-                        MsgBox "Importazione completata." & vbCrLf & _
-                            "Forms importate: " & importedCount_i & vbCrLf & importedForms_s & _
-                            "Forms esistenti cancellate: " & deletedCount_i & vbCrLf & deletedForms_s, vbInformation
-                    End If
-            
-                    ' Rilascia gli oggetti
-                    Set db = Nothing
-                    Set formsCollection = Nothing
+            ' Controllo se la form esiste nel database di origine
+            If ObjectExists(sourceDB, acForm, myformName_s) Then
+                ' Se la form esiste nel database corrente, la elimino prima di importarla
+                If ObjectExists(db, acForm, myformName_s) Then
+                    DoCmd.DeleteObject acForm, myformName_s
+                    deletedCount_i = deletedCount_i + 1
+                    deletedForms_s = deletedForms_s & myformName_s & vbCrLf
+                    Print #logFile, "Form eliminata: " & myformName_s
+                     
+                      
                 End If
                 
-                                
-                                
-                    '//@TABLE@INSERT.24=CICLO FOR PER ANDARE ALL'@ULTIMA@FORM @IMPORTATA E FARE IL DoCmd.SelectObject  DELL'OGGETTO
-                    '//ciclo nella collezione per il controllo delle FORM precaricate per SELEZIONARE LA PRIMA
-                    '//--------------------------------------------------------------------------------------//
-                    '//CODICE: @SELECT@ULTIMA@QUERY_(@selezione l'ultima FORM @salvata con @Docmd@selectObject)
-                                                  
-                    Dim lastFormName As String
-                    Dim dbCurrent As DAO.Database
-                    Dim doc As Object
-                    
-                    Set dbCurrent = CurrentDb
-                    
-                    ' Controlla se ci sono form nel database corrente
-                    If CurrentProject.AllForms.count = 0 Then
-                        MsgBox "Nessun form presente nel database corrente.", vbExclamation, "Attenzione"
-                    Else
-                        ' Itera sugli oggetti form per trovare l'ultimo
-                        For Each doc In CurrentProject.AllForms
-                            lastFormName = doc.Name
-                        Next doc
+                
+                  ' Importazione della form dal database di origine
+                  DoCmd.TransferDatabase acImport, "Microsoft Access", sourceDBPath, acForm, myformName_s, myformName_s
+                  importedCount_i = importedCount_i - 1
+                  importedForms_s = importedForms_s & myformName_s & vbCrLf
+                  
+                  '//SCRIVO SUL @FILE@LOG
+                  Print #logFile, "NRO: " & importedCount_i & " Form importata: " & myformName_s
+                  
+                     
+                '//BARRA DI PROGRESSIONE ATTIVAZIONE ED INVIO PARAMETRI   @progress@bar
+                '//---------------------------------------------------------------------------//
+    
+           
+                     ' Aspetta che il form sia effettivamente caricato
+                          DoEvents
+                      
+                          ' Esegui un ciclo per aggiornare la progress secondo il numero delle _
+                            collection importate.
+                              TipoImport_s = "FORM IMPORTATE NRO : " & importedCount_i        '// TIPO DI IMPORTAZIONE E NRO OGGETTI
+                              progressValue_dbl = progressValue_dbl + PercIncr_dbl            '//la % di accrescimento barra
+                              Dbl1 = Dbl1 + Twips_dbl                                         '//twips di aumento barra
+                              
+                              ' Chiama la funzione pubblica del form
+                              frm_obj.AggiornaBarralabel progressValue_dbl, Dbl1, TipoImport_s
+                      
+                              DoEvents  ' Permetti il refresh dell'interfaccia
+                      
+                              ' Pausa di 1 secondo usando Timer
+                              
+                              T = Timer
+                              While Timer < T + 0.01
+                                  DoEvents  ' Continua a gestire gli eventi durante l'attesa
+                              Wend
                         
-                        ' Seleziona e attiva l'ultimo form trovato
-                        DoCmd.SelectObject acForm, lastFormName, True
-                    End If
+                          
+                '//---------------------------------------------------------------------------//
+    
+                
+            Else
+                ' Se la form non esiste nel database di origine, lo scrivo nel log
+                Print #logFile, "Form non trovata nel database di origine: " & myformName_s
+            End If
+        Next formName_v
+
+
+                                
+                              
+                '//CHIUSURA CON RITARDO DELLA BARRA DI PROGRESSIONE @progress@bar
+                '//---------------------------------------------------------------------------//
+            
+                                T = Timer
+                                
+                                '// RITARDO CHIUSURA DI 5 SECONDI
+                                While Timer < T + 5
+                                    DoEvents  ' Continua a gestire gli eventi durante l'attesa
+                                Wend
+                                
+                                ' Chiudi la form frmProgressBar
+                                DoCmd.Close acForm, "frmProgressBar", acSaveNo
+                                
+                '//---------------------------------------------------------------------------//
+                
+                
+                
+                      
+        ' Chiudo il database di origine
+          Set frm_obj = Nothing                 ' Rilascia il riferimento al form PROGRES BARR
                     
-                    ' Rilascia gli oggetti
-                    Set doc = Nothing
-                    Set dbCurrent = Nothing
-                                    
-                            
-                    '//--------------------------------------------------------------------------------------//
-
-
-    Exit Sub
-
-ErrorHandler:
-    MsgBox "Errore durante l'importazione: " & Err.Description, vbCritical
-    If Not sourceDB Is Nothing Then
         sourceDB.Close
+        Set sourceDB = Nothing
+        Set ws = Nothing
+    
+        ' Messaggio finale con riepilogo delle operazioni
+        If Me.ctr_AVVISO_ABILITATO_TXT = True Then
+            MsgBox "Importazione completata." & vbCrLf & _
+                "Forms importate: " & importedCount_i & vbCrLf & importedForms_s & _
+                "Forms esistenti cancellate: " & deletedCount_i & vbCrLf & deletedForms_s, vbInformation
+        End If
+    
+        ' Scrivo nel file di log il riepilogo finale
+        Print #logFile, "Importazione completata con " & importedCount_i & " forms importate."
+        Close #logFile
+    
+        ' Pulizia delle variabili
+        Set db = Nothing
+        Set formsCollection = Nothing
     End If
+    
+    Exit Sub
+    
+ErrorHandler:
+    ' Gestione degli errori con messaggio a video e scrittura nel log
+    MsgBox "Errore durante l'importazione: " & Err.Description, vbCritical
+    Print #logFile, "Errore durante l'importazione: " & Err.Description
+    If Not sourceDB Is Nothing Then sourceDB.Close
+    Close #logFile
     Set sourceDB = Nothing
     Set ws = Nothing
 End Sub
@@ -4031,6 +4798,15 @@ Function ObjectExists(db As DAO.Database, objType As Integer, objName As String)
     ObjectExists = moduleExists
     On Error GoTo 0
 End Function
+'//IMPORTA TUTTI GLI OGGETTI FORM DEL DB MSYSDBEST *** FINE ***
+'//----------------------------------------------------------------------------------------//
+
+
+
+'//         IMPORTA PROGETTO OGGETTI FORM *** FINE ***
+'//=========================================================================================//
+
+
 '//IMPORTA TUTTI GLI OGGETTI FORM DEL DB MSYSDBEST *** FINE ***
 '//----------------------------------------------------------------------------------------//
 
@@ -4163,7 +4939,7 @@ Private Sub Cmd_Delete_FORM_Click()
                       Set dbCurrent = CurrentDb
                   
                       '//CALCOLO INDICE FORM
-                      icount = Application.CurrentProject.AllForms.count
+                      icount = Application.CurrentProject.AllForms.Count
                   
                       '//se ci sono FORM da cancellare
                       If icount > 0 Then
@@ -4232,7 +5008,7 @@ Private Sub Cmd_Delete_FORM_Click()
                                       tableVisibili = 0
                                       
                                       ' Conta le maschere visibili nel database
-                                      For i = 0 To Application.CurrentProject.AllForms.count - 1
+                                      For i = 0 To Application.CurrentProject.AllForms.Count - 1
                                           formVisibili = formVisibili + 1
                                       Next i
                                       
@@ -4556,6 +5332,7 @@ Private Sub Cmd_Importa_MACRO_Click()
     Dim myNameMACRO_s As String
     Dim Bool1 As Boolean
     Dim MyValue As Integer
+    Dim logFile As Integer
 
     On Error GoTo ErrorHandler
 
@@ -4564,73 +5341,56 @@ Private Sub Cmd_Importa_MACRO_Click()
     deleteMacrosCount_i = 0
     deleteNameMACRO_s = ""
     importedNameMACRO_s = ""
-    
-    
-    
-    
-    
-    
-                '//=====================================================================================================================//
-                '//                             STEP_02 = @CONTROLLO@PROGETTO
-                '//CHIAMO IL CONTROLLO DEL PROGETTO  - 01 E 02) CONTROLLO - *** INIZIO ***
-                '//=====================================================================================================================//
-                '//NOTE: chiamo la funzione che controlla se il progetto corrente è il progetto originale, infatti _
-                         non si possono caricare gli oggetti nel PROGETTO MSYS_ATTIVA_GEST_OGGETTI.mdb perhè è originale _
-                         e vi è una distruzione degli stessi. LA FUNZIONE CONTROLLO SE E' UN PROGETTO ESTERNO AMMISSIBILE _
-                         per caricare gli oggetti table, query , form ecc. da importare. _
-                         01) CONTROLLO = MSG DI AVVISO CON POSSIBILITA DI ANNULLARE _
-                         02) CONTROLLO = CONTROLLO SE STIAMO NEL PROGETTO ORIGINALE  E QUINDI ESCLUSIONE.
-                                 
-                           '//01) PRIMO CONTROLLO _
-                             MESSAGGIO DI IMPORTAZIONE 0 = ANNULLA  1 = CONTINUA
-                           '//..........................................................//
-                             '//Attenzione L'AVVISO produce il messaggio solo se il _
-                                parametro è TRUE altrimenti il messaggio viene escluso.
-                             MyValue = CheckAvviso_i_PFunct(Me.ctr_AVVISO_ABILITATO_TXT)
-                             
-                             If MyValue = 0 Then Exit Sub
-                           '//..........................................................//
-                                 
-                           '//02) SECONDO CONTROLLO
-                           '//CHIAMO IL CONTROLLO DEL PROGETTO
-                           '//..........................................................//
-                           '//Note  : True = siamo nel progetto originale non possiamo _
-                                      importare nessun oggetto perche distruggiamo il db corrente. _
-                                      False = siamo in un progetto esterno possiamo caricare tutto.
-                                          
-                               '//SE VIENE RESTITUITO TRUE è FUORI PROGETTO PUO CARICARE, SE FALSE EXIT PERCHE PROGETTO ORIGINALE  @CONTROLLO@PROGETTO
-                               Bool1 = CheckProjectName_b_PFunct
-                               
-                               If Bool1 = True Then Exit Sub
-                           '//..........................................................//
-                
-                '//=====================================================================================================================//
-                '//                             STEP_02 = @CONTROLLO@PROGETTO
-                '//CHIAMO IL CONTROLLO DEL PROGETTO  - 01 E 02) CONTROLLO - *** FINE ***
-                '//=====================================================================================================================//
+
+    '@FILE@LOG@MACRO: Apre il file di log per scrivere i dettagli dell'importazione apre nella path corrente.
+    logFile = FreeFile()
+    Open CurrentProject.PATH & "\LOG_IMPORTA_MACRO.TXT" For Output As #logFile
+    Print #logFile, "Log Importazione Macro - " & Now
+    Print #logFile, "------------------------------------------------"
+    Print #logFile,
 
     
 
-    '// ATTIVA LA COLLEZIONE DI MACRO
-    '//------------------------------------------------------------------------//
+    '=====================================================================================================================//
+    '                             STEP_02 = @CONTROLLO@PROGETTO
+    'CHIAMO IL CONTROLLO DEL PROGETTO  - 01 E 02) CONTROLLO - *** INIZIO ***
+    '=====================================================================================================================//
+    'NOTE: chiamo la funzione che controlla se il progetto corrente è il progetto originale, infatti _
+           non si possono caricare gli oggetti nel PROGETTO MSYS_ATTIVA_GEST_OGGETTI.mdb perhè è originale _
+           e vi è una distruzione degli stessi. LA FUNZIONE CONTROLLO SE E' UN PROGETTO ESTERNO AMMISSIBILE _
+           per caricare gli oggetti table, query , form ecc. da importare. _
+           01) CONTROLLO = MSG DI AVVISO CON POSSIBILITA DI ANNULLARE _
+           02) CONTROLLO = CONTROLLO SE STIAMO NEL PROGETTO ORIGINALE  E QUINDI ESCLUSIONE.
 
-        Set objectMacros = CollectionMacro_PFunct()
-        
-        
-            '//2024.08.03_CollectionMacro_PFunct = SE LA COLLECTION E' VUOTA ESCI DALLA ROUTINE _
-                        faccio un controllo sul numero degli oggetti della collection se = 0 allora _
-                        non ci sono oggetti da caricare per cui si esce dalla routine.
-                        
-            If objectMacros.count = 0 Then Exit Sub
-   
-        
-    '//------------------------------------------------------------------------//
+    '01) PRIMO CONTROLLO _ MESSAGGIO DI IMPORTAZIONE 0 = ANNULLA  1 = CONTINUA
+    MyValue = CheckAvviso_i_PFunct(Me.ctr_AVVISO_ABILITATO_TXT)
+    If MyValue = 0 Then Exit Sub
 
+    '02) SECONDO CONTROLLO
+    'SE VIENE RESTITUITO TRUE è FUORI PROGETTO PUO CARICARE, SE FALSE EXIT PERCHE PROGETTO ORIGINALE
+    Bool1 = CheckProjectName_b_PFunct
+    If Bool1 = True Then Exit Sub
+
+    '=====================================================================================================================//
+    '                             STEP_02 = @CONTROLLO@PROGETTO - *** FINE ***
+    '=====================================================================================================================//
+
+    ' ATTIVA LA COLLEZIONE DI MACRO
+    Set objectMacros = CollectionMacro_PFunct()
+
+    ' SE LA COLLECTION È VUOTA ESCI DALLA ROUTINE
+    If objectMacros.Count = 0 Then
+        Print #logFile, "Nessuna macro da importare."
+        Close #logFile
+        Exit Sub
+    End If
 
     ' STEP 01: RECUPERO PATH E FILE DI ORIGINE
     strSourceDbPath = PathFile_s_pFunct()
     If strSourceDbPath = "" Then
-        MsgBox "ATTENZIONE: Path e nome del file di origine non specificati.", vbCritical, "Errore di importazione"
+        Print #logFile, "Errore: Path e file di origine non specificati."
+        MsgBox "Errore: Path e file di origine non specificati.", vbCritical
+        Close #logFile
         Exit Sub
     End If
 
@@ -4655,46 +5415,47 @@ Private Sub Cmd_Importa_MACRO_Click()
         If objectExistsInCollectionMacros_Funct_b Then
             ' Prova a eliminare la macro esistente nel database corrente
             On Error Resume Next
-            
             DoCmd.DeleteObject acMacro, myNameMACRO_s
-            
             deleteMacrosCount_i = deleteMacrosCount_i + 1
             deleteNameMACRO_s = deleteNameMACRO_s & myNameMACRO_s & vbCrLf
+            Print #logFile, "Macro eliminata: " & myNameMACRO_s
             On Error GoTo 0
 
             ' Importa la macro dal database di origine al database corrente
             DoCmd.TransferDatabase acImport, "Microsoft Access", strSourceDbPath, acMacro, myNameMACRO_s, myNameMACRO_s
             importedMACROesCount_i = importedMACROesCount_i + 1
             importedNameMACRO_s = importedNameMACRO_s & myNameMACRO_s & vbCrLf
+            
+            
+            '//SCRIVO SUL @FILE@LOG
+            Print #logFile, "NRO: " & importedMACROesCount_i & " MACRO importata: " & myNameMACRO_s
+
+            
+        Else
+            ' Macro non presente nella collezione
+            Print #logFile, "Macro non importata (non in collezione): " & myNameMACRO_s
         End If
     Loop
 
     ' Messaggio di riepilogo
     If Me.ctr_AVVISO_ABILITATO_TXT = True Then
         MsgBox "Importazione completata:" & vbCrLf & _
-               "Macro importate: " & importedMACROesCount_i & vbCrLf & _
-               "Macro eliminate: " & deleteMacrosCount_i & vbCrLf & _
-               "Elenco macro eliminate: " & vbCrLf & deleteNameMACRO_s, vbInformation
+               "Macro importate: " & importedMACROesCount_i & vbCrLf & importedNameMACRO_s & _
+               "Macro eliminate: " & deleteMacrosCount_i & vbCrLf & deleteNameMACRO_s, vbInformation
     End If
-    
-    
-                '//ciclo nella collezione per il controllo DELLE MACRO per SELEZIONARE LA PRIMA
-                '//--------------------------------------------------------------------------------------//
-                     
-                     '//itero nelle macro per la selezione dell'ultima
-                    Set Dbs = Application.CurrentProject
-            
-                     For Each obj In Dbs.AllMacros
-                     '//vado all'ultima query
-                        DoCmd.SelectObject acMacro, obj.Name, True
-                    
-                     Next obj
-                     
-                     
-            
 
-                '//--------------------------------------------------------------------------------------//
+    '=====================================================================================================================//
+    '                             SELEZIONE ULTIMA MACRO IMPORTATA
+    '=====================================================================================================================//
+    Set Dbs = Application.CurrentProject
+    For Each obj In Dbs.AllMacros
+        ' Seleziona l'ultima macro importata
+        DoCmd.SelectObject acMacro, obj.Name, True
+    Next obj
 
+    ' Chiude il file di log
+    Print #logFile, "Importazione completata con " & importedMACROesCount_i & " macro importate."
+    Close #logFile
 
     ' Libera le risorse
     rs.Close
@@ -4707,11 +5468,13 @@ Private Sub Cmd_Importa_MACRO_Click()
 
 ErrorHandler:
     MsgBox "Errore durante l'importazione: " & Err.Description, vbCritical
-    Debug.Print "Errore durante l'importazione: " & Err.Description
+    Print #logFile, "Errore durante l'importazione: " & Err.Description
+    Close #logFile
     If Not rs Is Nothing Then rs.Close
-    If Not qdf Is Nothing Then Set qdf = Nothing
-    If Not dbSource Is Nothing Then Set dbSource = Nothing
-    If Not dbCurrent Is Nothing Then Set dbCurrent = Nothing
+    Set rs = Nothing
+    Set qdf = Nothing
+    Set dbSource = Nothing
+    Set dbCurrent = Nothing
 End Sub
 
 '//funzione di controllo Macro in collection
@@ -4863,7 +5626,7 @@ Private Sub Cmd_Delete_MACRO_Click()
             Set dbCurrent = CurrentDb
         
             '//CALCOLO INDICE MACRO
-            icount = CurrentProject.AllMacros.count
+            icount = CurrentProject.AllMacros.Count
         '//------------------------------------------------------------------------//
             
         
@@ -5916,104 +6679,77 @@ Private Sub Cmd_Importa_REPORT_Click()
     Dim sourceDBPath As String
     Dim externalDB As DAO.Database
     Dim rs As DAO.Recordset
-    
+
     On Error GoTo Err_Cmd_Import_REPORT_Click
-   
+
     ' Reset counts and strings
     deletetReportesCount_i = 0
     importedReportesCount_i = 0
     importedReports_s = ""
-    
-    
-    
-    
-    
-                '//=====================================================================================================================//
-                '//                             STEP_02 = @CONTROLLO@PROGETTO
-                '//CHIAMO IL CONTROLLO DEL PROGETTO  - 01 E 02) CONTROLLO - *** INIZIO ***
-                '//=====================================================================================================================//
-                '//NOTE: chiamo la funzione che controlla se il progetto corrente è il progetto originale, infatti _
-                         non si possono caricare gli oggetti nel PROGETTO MSYS_ATTIVA_GEST_OGGETTI.mdb perhè è originale _
-                         e vi è una distruzione degli stessi. LA FUNZIONE CONTROLLO SE E' UN PROGETTO ESTERNO AMMISSIBILE _
-                         per caricare gli oggetti table, query , form ecc. da importare. _
-                         01) CONTROLLO = MSG DI AVVISO CON POSSIBILITA DI ANNULLARE _
-                         02) CONTROLLO = CONTROLLO SE STIAMO NEL PROGETTO ORIGINALE  E QUINDI ESCLUSIONE.
-                                 
-                           '//01) PRIMO CONTROLLO _
-                             MESSAGGIO DI IMPORTAZIONE 0 = ANNULLA  1 = CONTINUA
-                           '//..........................................................//
-                             '//Attenzione L'AVVISO produce il messaggio solo se il _
-                                parametro è TRUE altrimenti il messaggio viene escluso.
-                             MyValue = CheckAvviso_i_PFunct(Me.ctr_AVVISO_ABILITATO_TXT)
-                             
-                             If MyValue = 0 Then Exit Sub
-                           '//..........................................................//
-                                 
-                           '//02) SECONDO CONTROLLO
-                           '//CHIAMO IL CONTROLLO DEL PROGETTO
-                           '//..........................................................//
-                           '//Note  : True = siamo nel progetto originale non possiamo _
-                                      importare nessun oggetto perche distruggiamo il db corrente. _
-                                      False = siamo in un progetto esterno possiamo caricare tutto.
-                                          
-                               '//SE VIENE RESTITUITO TRUE è FUORI PROGETTO PUO CARICARE, SE FALSE EXIT PERCHE PROGETTO ORIGINALE  @CONTROLLO@PROGETTO
-                               Bool1 = CheckProjectName_b_PFunct
-                               
-                               If Bool1 = True Then Exit Sub
-                           '//..........................................................//
-                
-                '//=====================================================================================================================//
-                '//                             STEP_02 = @CONTROLLO@PROGETTO
-                '//CHIAMO IL CONTROLLO DEL PROGETTO  - 01 E 02) CONTROLLO - *** FINE ***
-                '//=====================================================================================================================//
 
-    
-    
-    
-    
-    
-    
-    
-    
-    '// ATTIVA LA COLLEZIONE DEI REPORT
-    '//------------------------------------------------------------------------//
+    '//=====================================================================================================================//
+    '//                             STEP_02 = @CONTROLLO@PROGETTO
+    '// CHIAMO IL CONTROLLO DEL PROGETTO  - 01 E 02) CONTROLLO - *** INIZIO ***
+    '//=====================================================================================================================//
+    '//NOTE: chiamo la funzione che controlla se il progetto corrente è il progetto originale, infatti _
+    '// non si possono caricare gli oggetti nel PROGETTO MSYS_ATTIVA_GEST_OGGETTI.mdb perche è originale _
+    '// e vi è una distruzione degli stessi. LA FUNZIONE CONTROLLO SE E' UN PROGETTO ESTERNO AMMISSIBILE _
+    '// per caricare gli oggetti table, query , form ecc. da importare.
+    '// 01) CONTROLLO = MSG DI AVVISO CON POSSIBILITA DI ANNULLARE
+    '// 02) CONTROLLO = CONTROLLO SE STIAMO NEL PROGETTO ORIGINALE E QUINDI ESCLUSIONE.
 
-        ' Recupero la collezione di report da importare
-        Set reportsCollection = CollectionReport_PFunct()
-        
-    
-        
-        
-            '//2024.08.03_CollectionReport_PFunct  = SE LA COLLECTION E' VUOTA ESCI DALLA ROUTINE _
-                        faccio un controllo sul numero degli oggetti della collection se = 0 allora _
-                        non ci sono oggetti da caricare per cui si esce dalla routine.
-                        
-            If reportsCollection.count = 0 Then GoTo Exit_Cmd_Import_REPORT_Click
-   
-        
-    '//------------------------------------------------------------------------//
-    
-    
+    ' 01) PRIMO CONTROLLO _ MESSAGGIO DI IMPORTAZIONE 0 = ANNULLA  1 = CONTINUA
+    '//...........................................................................//
+    ' Attenzione: L'AVVISO produce il messaggio solo se il parametro è TRUE, altrimenti il messaggio viene escluso.
+    MyValue = CheckAvviso_i_PFunct(Me.ctr_AVVISO_ABILITATO_TXT)
+
+    If MyValue = 0 Then Exit Sub
+
+    ' 02) SECONDO CONTROLLO
+    ' CHIAMO IL CONTROLLO DEL PROGETTO
+    '//...........................................................................//
+    ' Note: True = siamo nel progetto originale non possiamo importare nessun oggetto perché distruggiamo il db corrente.
+    ' False = siamo in un progetto esterno possiamo caricare tutto.
+    Bool1 = CheckProjectName_b_PFunct
+
+    If Bool1 = True Then Exit Sub
+
+    '//=====================================================================================================================//
+    '//                             STEP_02 = @CONTROLLO@PROGETTO
+    '// CHIAMO IL CONTROLLO DEL PROGETTO  - 01 E 02) CONTROLLO - *** FINE ***
+    '//=====================================================================================================================//
+
+    ' ATTIVA LA COLLEZIONE DEI REPORT
+    '------------------------------------------------------------------------//
+
+    ' Recupero la collezione di report da importare
+    Set reportsCollection = CollectionReport_PFunct()
+
+    ' 2024.08.03_CollectionReport_PFunct = SE LA COLLECTION E' VUOTA ESCI DALLA ROUTINE
+    ' Faccio un controllo sul numero degli oggetti della collection. Se = 0, allora non ci sono oggetti da caricare.
+    If reportsCollection.Count = 0 Then GoTo Exit_Cmd_Import_REPORT_Click
+
+    '------------------------------------------------------------------------//
+
     ' Recupero il percorso e il nome del file del database esterno
     sourceDBPath = PathFile_s_pFunct
-    
+
     If sourceDBPath = "" Then
         MsgBox "ATTENZIONE ERRORE: il percorso del file del database esterno non è stato specificato. Uscita dalla routine.", vbCritical, "Errore: Percorso del File Non Specificato"
         Exit Sub
     End If
-    
+
     If Me.ctr_AVVISO_ABILITATO_TXT = True Then
         MsgBox "IMPORTO I REPORT DA QUESTO DATABASE; Percorso del file: " & sourceDBPath, vbExclamation, "Informazione: Chiamata Funzione PathFile"
     End If
-    
-    
+
     ' Apro il database esterno
     Set externalDB = DBEngine.Workspaces(0).OpenDatabase(sourceDBPath)
-    
+
     ' Ciclo nella collezione per il controllo dei report precaricati
     For Each reportName In reportsCollection
         Debug.Print "Report nella collezione: " & myreportName_s
-        
+
         ' Verifica se il report esiste nel database corrente
         reportExists = False
         Set Dbs = Application.CurrentProject
@@ -6023,71 +6759,58 @@ Private Sub Cmd_Importa_REPORT_Click()
                 Exit For
             End If
         Next obj
-        
+
         If reportExists Then
             ' Se il report esiste nel database corrente, cancellalo
             DoCmd.DeleteObject acReport, reportName
             deletetReportesCount_i = deletetReportesCount_i + 1
             Debug.Print "Report eliminato: " & reportName
         End If
-        
-        '//CONTROLLO SULLA TABELLA DI SISTEMA DEL DB ESTERNO MSysObjects
-        '//----------------------------------------------------------------------------------------------------------------------//
-        ' Verifica se il modulo esiste nel database esterno
-        ' La riga SELECT Name FROM MSysObjects WHERE Type=-32761 è una query SQL utilizzata per selezionare i
-        ' nomi degli oggetti di tipo modulo nel database di Access. Ecco una spiegazione dettagliata:
 
-        ' MSysObjects: è una tabella di sistema in Microsoft Access che contiene informazioni su tutti gli oggetti nel database, _
-          come tabelle, query, moduli, report, ecc. Type=-32761: questo filtro nella clausola WHERE specifica il tipo di oggetto _
-          da selezionare. In Access, ogni tipo di oggetto ha un valore numerico associato nella tabella MSysObjects. _
-          Il valore -32761 è il codice che rappresenta i moduli (VBA Modules).
-         'Quindi, la query SELECT Name FROM MSysObjects WHERE Type=-32761 seleziona tutti i nomi degli oggetti nella tabella _
-         di sistema MSysObjects che sono identificati come moduli VBA.
-         ' Verifica se il report esiste nel database esterno
-        ' Utilizzo una query SQL per verificare l'esistenza del report nel database esterno
-        ' il codice del report è : -32764 controllato con la funzione codici esterni.
-        
+        ' CONTROLLO SULLA TABELLA DI SISTEMA DEL DB ESTERNO MSysObjects
+        '----------------------------------------------------------------------------------------------------------------------//
+        ' Verifica se il report esiste nel database esterno utilizzando una query SQL
+        ' La riga SELECT Name FROM MSysObjects WHERE Type=-32764 è una query SQL utilizzata per selezionare i
+        ' report dal database esterno.
 
         reportExists = False
-        Set rs = externalDB.OpenRecordset("SELECT Name FROM MSysObjects WHERE Type= -32764 AND Name='" & reportName & "'")
-            If Not rs.EOF Then
-                reportExists = True
-            End If
-                rs.Close
-            
-            If reportExists Then
-                ' Se il report esiste nel database esterno, importalo
-                DoCmd.TransferDatabase acImport, "Microsoft Access", sourceDBPath, acReport, reportName, reportName
-                importedReportesCount_i = importedReportesCount_i + 1
-                importedReports_s = importedReports_s & reportName & vbCrLf
-                Debug.Print "Report importato: " & reportName
-            Else
-                ' Report non trovato nel database esterno
-                Debug.Print "Report non trovato nel database esterno: " & reportName
-            End If
-        Next reportName
-        
-            ' Chiudo il database esterno
-            externalDB.Close
-        '//----------------------------------------------------------------------------------------------------------------------//
-        
+        Set rs = externalDB.OpenRecordset("SELECT Name FROM MSysObjects WHERE Type=-32764 AND Name='" & reportName & "'")
+        If Not rs.EOF Then
+            reportExists = True
+        End If
+        rs.Close
+
+        If reportExists Then
+            ' Se il report esiste nel database esterno, importalo
+            DoCmd.TransferDatabase acImport, "Microsoft Access", sourceDBPath, acReport, reportName, reportName
+            importedReportesCount_i = importedReportesCount_i + 1
+            importedReports_s = importedReports_s & reportName & vbCrLf
+            Debug.Print "Report importato: " & reportName
+        Else
+            ' Report non trovato nel database esterno
+            Debug.Print "Report non trovato nel database esterno: " & reportName
+        End If
+    Next reportName
+
+    ' Chiudo il database esterno
+    externalDB.Close
+
+    '----------------------------------------------------------------------------------------------------------------------//
+
     ' Messaggio di riepilogo finale
     If Me.ctr_AVVISO_ABILITATO_TXT = True Then
         MsgBox "CONTROLLO REPORT PRECARICATI DA IMPORTARE:" & vbCrLf & _
                "Report importati: " & importedReportesCount_i & vbCrLf & importedReports_s & _
                "Report esistenti cancellati: " & deletetReportesCount_i, vbInformation
     End If
-    
-    
-                '//ciclo nella collezione per il controllo delle QUERY precaricate per SELEZIONARE LA PRIMA
-                '//--------------------------------------------------------------------------------------//
-                     For Each obj In Dbs.AllReports
-                            '//vado all'ultima query
-                        DoCmd.SelectObject acReport, obj.Name, True
-                    
-                     Next obj
-                '//--------------------------------------------------------------------------------------//
 
+    ' Ciclo nella collezione per il controllo delle QUERY precaricate per SELEZIONARE LA PRIMA
+    '--------------------------------------------------------------------------------------//
+    For Each obj In Dbs.AllReports
+        ' Vado all'ultima query
+        DoCmd.SelectObject acReport, obj.Name, True
+    Next obj
+    '--------------------------------------------------------------------------------------//
 
 Exit_Cmd_Import_REPORT_Click:
     Exit Sub
@@ -6252,7 +6975,7 @@ Private Sub Cmd_Delete_REPORT_Click()
     Set dbCurrent = CurrentDb
 
     '//CALCOLO INDICE REPORT
-    icount = Application.CurrentProject.AllReports.count
+    icount = Application.CurrentProject.AllReports.Count
 
     '//se ci sono REPORT da cancellare
     If icount > 0 Then
@@ -6649,21 +7372,21 @@ End Sub
 '//Cmd_Importa_QUERY_Click         = ESEGUE IL CONTROLLO E L'IMPORTAZIONE
 Private Sub Cmd_Importa_QUERY_Click()
 
-Dim dbCurrent As DAO.Database
-Dim dbSource As DAO.Database
-Dim qdf As DAO.QueryDef
-Dim strSourceDbPath As String
-Dim strObjectName As String
-Dim objectQueries As Collection
-Dim varItem As Variant
-Dim objectExistsInCollectionQueries_Funct_b As Boolean
+    Dim dbCurrent As DAO.Database
+    Dim dbSource As DAO.Database
+    Dim qdf As DAO.QueryDef
+    Dim strSourceDbPath As String
+    Dim strObjectName As String
+    Dim objectQueries As Collection
+    Dim varItem As Variant
+    Dim objectExistsInCollectionQueries_Funct_b As Boolean
 
-On Error GoTo ErrorHandler
+    On Error GoTo ErrorHandler
 
-'//=====================================================================================================================//
-'//                            STEP_01 = RECUPERO PATH E COLLECTION
-'//RECUPERO LA COLLEZIONE DELLE QUERY DA IMPORTARE E FACCIO IL CONTROLLO
-'//=====================================================================================================================//
+    '//=====================================================================================================================//
+    '//                            STEP_01 = RECUPERO PATH E COLLECTION
+    '//RECUPERO LA COLLEZIONE DELLE QUERY DA IMPORTARE E FACCIO IL CONTROLLO
+    '//=====================================================================================================================//
 
     '//RESET
     'Inizializza i contatori e le stringhe di riepilogo
@@ -6672,58 +7395,44 @@ On Error GoTo ErrorHandler
     importedObjects_s = ""
     deleteQueryesCount_i = 0
     deleteNameQueryes_s = ""
-    
-    
+
     '//@QUERY@INSERT.01=CHIAMO LA FUNZIONE CHE CREA LA COLLECTION QUERY E LA CARICA CON GLI OGGETTI SCELTI
     '//ATTIVO LA COLLEZIONE
     '//------------------------------------------------------------------------//
-    '//Note: CHIAMO LA FUNZIONE COLLECTION QUERY per ottenere la collezione di TABELLE E QUERY
+    '//Note: CHIAMO LA FUNZIONE COLLECTION QUERY per ottenere la collezione di QUERY
     Set objectQueries = CollectionQuery_PFunct()
-    
-            '//2024.08.03_CollectionQuery_PFunct = SE LA COLLECTION E' VUOTA ESCI DALLA ROUTINE _
-                        faccio un controllo sul numero degli oggetti della collection se = 0 allora _
-                        non ci sono oggetti da caricare per cui si esce dalla routine.
-                        
-            If objectQueries.count = 0 Then Exit Sub
-                
+
+    '//2024.08.03_CollectionQuery_PFunct = SE LA COLLECTION E' VUOTA ESCI DALLA ROUTINE
+    'facciamo un controllo sul numero degli oggetti della collection, se = 0 allora
+    'non ci sono oggetti da caricare per cui si esce dalla routine.
+    If objectQueries.Count = 0 Then Exit Sub
+
     '//------------------------------------------------------------------------//
-    
-    
-    
+
     '//@QUERY@INSERT.11=ITERNO NELLA COLLECTION QUERY PER UNA STAMPA DI CONTROLLO DI STAMPA
     '//I° CONTROLLO SULLA COLLECTION QUERY RECUPERATA
-    '//ciclo nella collezione per il controllo delle TABELLE E QUERY precaricate
+    '//ciclo nella collezione per il controllo delle QUERY precaricate
     For Each objCollection_objectName_v In objectQueries
         Debug.Print "Oggetto nella collezione: " & objCollection_objectName_v
         '//conteggio oggetti DA IMPORTARE
         icount = icount + 1
         importedNameQueryes_s = importedNameQueryes_s & objCollection_objectName_v & vbCrLf
     Next objCollection_objectName_v
-    
-    
+
     '//@QUERY@INSERT.12=Messaggio finale di riepilogo SE ABILITATO CON TRUE - FALSE DISABILITATO
     If Me.ctr_AVVISO_ABILITATO_TXT = True Then
         MsgBox "CONTROLLO OGGETTI COLLECTION PRECARICATI DA IMPORTARE:" & vbCrLf & _
                "Oggetti COLLECTION PRECARICATA DA IMPORTARE: " & icount & vbCrLf & importedNameQueryes_s & _
                "Oggetti esistenti cancellati: " & deleteQueryesCount_i & vbCrLf & deleteNameQueryes_s, vbInformation
     End If
-    
-            '//RESET
-            icount = 0
-             
-    
 
-'//---------------------------------------------------------------------------//
+    '//RESET
+    icount = 0
 
+    '//---------------------------------------------------------------------------//
 
-'//@QUERY@INSERT.13=RECUPERO LA PATH ED IL FILE.MDB PER LE IMPORTAZIONI DALLE CASELLE DI TESTO
-'//---------------------------------------------------------------------------//
-'//NOTE: chiamo la funzione e recupero la path ed il file.mdb facendo un controllo _
-        se la variabile è nulla msg di avviso ed uscita dalla routine.
-    '//reset
+    '//@QUERY@INSERT.13=RECUPERO LA PATH ED IL FILE.MDB PER LE IMPORTAZIONI DALLE CASELLE DI TESTO
     sourceDBPath_s = ""
-
-    '//@RECUPERO@PATH_(ed il file
     sourceDBPath_s = PathFile_s_pFunct
 
     If sourceDBPath_s = "" Then
@@ -6731,191 +7440,118 @@ On Error GoTo ErrorHandler
         If MyValue = 0 Then Exit Sub
     End If
 
-      ' Messaggio finale di riepilogo SE ABILITATO CON TRUE - FALSE DISABILITATO
     If Me.ctr_AVVISO_ABILITATO_TXT = True Then
         MsgBox "IMPORTO GLI OGGETTI DA QUESTO DATABASE; path e del file : " & sourceDBPath_s, vbExclamation, "MSG CHIAMATO LA FUNZIONE PATHFILE"
     End If
 
-'//=====================================================================================================================//
-'//                            STEP_01 = RECUPERO PATH E COLLECTION
-'//RECUPERO LA COLLEZIONE FORM DA IMPORTARE E FACCIO IL CONTROLLO          **** FINE ***
-'//=====================================================================================================================//
+    '//=====================================================================================================================//
+    '//                            STEP_01 = RECUPERO PATH E COLLECTION
+    '//RECUPERO LA COLLEZIONE QUERY DA IMPORTARE E FACCIO IL CONTROLLO          **** FINE ***
+    '//=====================================================================================================================//
 
-'//=====================================================================================================================//
-'//                             STEP_02 = @CONTROLLO@PROGETTO
-'//CHIAMO IL CONTROLLO DEL PROGETTO  - 01 E 02) CONTROLLO - *** INIZIO ***
-'//=====================================================================================================================//
-'//NOTE: chiamo la funzione che controlla se il progetto corrente è il progetto originale, infatti _
-         non si possono caricare gli oggetti nel PROGETTO MSYS_ATTIVA_GEST_OGGETTI.mdb perhè è originale _
-         e vi è una distruzione degli stessi. LA FUNZIONE CONTROLLO SE E' UN PROGETTO ESTERNO AMMISSIBILE _
-         per caricare gli oggetti table, query , form ecc. da importare. _
-         01) CONTROLLO = MSG DI AVVISO CON POSSIBILITA DI ANNULLARE _
-         02) CONTROLLO = CONTROLLO SE STIAMO NEL PROGETTO ORIGINALE  E QUINDI ESCLUSIONE.
-            
-            
-           '//@QUERY@INSERT.14=IF MESSAGGIO DI IMPORTAZIONE : TRUE = MESSAGGIO FALSO = NESSUN MESSAGGIO
-           '//01) PRIMO CONTROLLO _
-             MESSAGGIO DI IMPORTAZIONE 0 = ANNULLA  1 = CONTINUA
-           '//..........................................................//
-             '//Attenzione L'AVVISO produce il messaggio solo se il _
-                parametro è TRUE altrimenti il messaggio viene escluso.
-             MyValue = CheckAvviso_i_PFunct(Me.ctr_AVVISO_ABILITATO_TXT)
-             
-             If MyValue = 0 Then Exit Sub
-           '//..........................................................//
-                 
-                 
-           '//@QUERY@INSERT.15=CONTROLLO SE PROGETTO INTERNO (NON CARICA LE QUERY) OPPURE ESTERNO (CARICA LE QUERY)
-           '//02) SECONDO CONTROLLO
-           '//CHIAMO IL CONTROLLO DEL PROGETTO
-           '//..........................................................//
-           '//Note  : True = siamo nel progetto originale non possiamo _
-                      importare nessun oggetto perche distruggiamo il db corrente. _
-                      False = siamo in un progetto esterno possiamo caricare tutto.
-                          
-               '//SE VIENE RESTITUITO TRUE è FUORI PROGETTO PUO CARICARE, SE FALSE EXIT PERCHE PROGETTO ORIGINALE  @CONTROLLO@PROGETTO
-               Bool1 = CheckProjectName_b_PFunct
-               
-               If Bool1 = True Then Exit Sub
-           '//..........................................................//
+    '//=====================================================================================================================//
+    '//                             STEP_02 = @CONTROLLO@PROGETTO
+    '//CHIAMO IL CONTROLLO DEL PROGETTO - 01 E 02) CONTROLLO - *** INIZIO ***
+    '//=====================================================================================================================//
 
-'//=====================================================================================================================//
-'//                             STEP_02 = @CONTROLLO@PROGETTO
-'//CHIAMO IL CONTROLLO DEL PROGETTO  - 01 E 02) CONTROLLO - *** FINE ***
-'//=====================================================================================================================//
+    '//@QUERY@INSERT.14=IF MESSAGGIO DI IMPORTAZIONE : TRUE = MESSAGGIO FALSO = NESSUN MESSAGGIO
+    MyValue = CheckAvviso_i_PFunct(Me.ctr_AVVISO_ABILITATO_TXT)
 
-'//=====================================================================================================================//
-'//                            STEP_03 = IMPORTO LE TABELLE E LE QUERY
-'//
-'//=====================================================================================================================//
-'//@QUERY@INSERT.16= INIZIO IMPORTAZIONE QUERY
+    If MyValue = 0 Then Exit Sub
 
+    '//@QUERY@INSERT.15=CONTROLLO SE PROGETTO INTERNO (NON CARICA LE QUERY) OPPURE ESTERNO (CARICA LE QUERY)
+    Bool1 = CheckProjectName_b_PFunct
+
+    If Bool1 = True Then Exit Sub
+
+    '//=====================================================================================================================//
+    '//                             STEP_02 = @CONTROLLO@PROGETTO
+    '//CHIAMO IL CONTROLLO DEL PROGETTO  - 01 E 02) CONTROLLO - *** FINE ***
+    '//=====================================================================================================================//
+
+    '//=====================================================================================================================//
+    '//                            STEP_03 = IMPORTO LE QUERY
+    '//=====================================================================================================================//
+
+    '//@QUERY@INSERT.16= INIZIO IMPORTAZIONE QUERY
     '//RESET
-    '//Inizializza i contatori e le stringhe di riepilogo
-    
-    
     importedQueriesCount_i = 0
     deleteQueryesCount_i = 0
     deleteNameQueryes_s = ""
     importedNameQueryes_s = ""
-    
-    
-    '//@QUERY@INSERT.17=INIZIO IMPORTAZIONE QUERY -> MA PRIMO CREO VARIABILI DB CORRENTE ED ESTERNO
-    ' Apri il database corrente
-    Set dbCurrent = CurrentDb
 
-    ' Apri il database di origine
+    '//@QUERY@INSERT.17=INIZIO IMPORTAZIONE QUERY -> MA PRIMO CREO VARIABILI DB CORRENTE ED ESTERNO
+    Set dbCurrent = CurrentDb
     Set dbSource = DBEngine.Workspaces(0).OpenDatabase(sourceDBPath_s)
-    
+
     '//@QUERY@INSERT.18=INIZIO IMPORTAZIONE QUERY -> APRO IL DB ESTERNO E CONFRONTO QUERY DB ESTERNO = QUERY COLLECTION
-    'Loop attraverso tutte le QUERY nel database di origine ossia del DATABASE ESTERNO
     For Each qdf In dbSource.QueryDefs
-        ' Salta le tabelle di sistema (i cui nomi iniziano con "MSys") aggiungo come parametro( la collezione table + nome tabella)
         If Left(qdf.Name, 3) <> "~sq" Or (Left(qdf.Name, 3) = "~sq" And InCollectionQueries_Funct_b(objectQueries, qdf.Name)) Then
-            ' Nome della tabella nel database di origine
             myNameQuery_s = qdf.Name
-            
+
             Debug.Print
             Debug.Print "CONTROLLO QUERY DA IMPORTARE --> : "; myNameQuery_s
             Debug.Print
-            
-            
-            ' Controlla se la QUERY è nella collezione
+
             objectExistsInCollectionQueries_Funct_b = False
-            
+
             For Each varItem In objectQueries
                 If myNameQuery_s = varItem Then
                     objectExistsInCollectionQueries_Funct_b = True
                     Exit For
                 End If
             Next varItem
-            
-            '//@QUERY@INSERT.19=INIZIO IMPORTAZIONE QUERY -> CHIAMO ROUTINE ESTERNA PER VERIFICARE ESISTENZA QUERY
+
             ' Se la QUERY è nella collezione, importala
             If objectExistsInCollectionQueries_Funct_b Then
-            
-                '//@QUERY@INSERT.21=INIZIO IMPORTAZIONE QUERY -> ROUTINE ESTERNA RESTITUISCE QUERY CHE GIA ESISTE NEL DB CORRENTE PRIMA CANCELLA POI IMPORTA (evito duplicati)
+
                 ' Elimina la QUERY se esiste già nel database corrente
                 On Error Resume Next
                 dbCurrent.QueryDefs.Delete myNameQuery_s
-                
-                '//@QUERY@INSERT.22=INIZIO IMPORTAZIONE QUERY -> CONTEGGIO LE QUERY CANCELLATE
+
                 deleteQueryesCount_i = deleteQueryesCount_i + 1
                 deleteNameQueryes_s = deleteNameQueryes_s & myNameQuery_s & vbCrLf
-                
                 On Error GoTo 0
-                
-                ' Copia la tabella dal database di origine al database corrente
+
+                ' Copia la query dal database di origine al database corrente
                 DoCmd.TransferDatabase acImport, "Microsoft Access", sourceDBPath_s, acQuery, myNameQuery_s, myNameQuery_s
-                
-                '//conteggio TABELLE IMPORTATE
-                '//@QUERY@INSERT.23=INIZIO IMPORTAZIONE QUERY -> CONTEGGIO LE QUERY IMPORTATE
-                importedQueryesCount_i = importedQueryesCount_i + 1
+
+                importedQueriesCount_i = importedQueriesCount_i + 1
                 importedNameQueryes_s = importedNameQueryes_s & myNameQuery_s & vbCrLf
-                
             End If
         End If
     Next qdf
-                
-        '//@QUERY@INSERT.23.BIS=TODO FARE IL CONTROLLO SULLA TABELLA DI SISTEMA ESTERNA?? _
-        '//TODO: MANCA IL CONTROLLO SULLA TABELLA DI SISTEMA DEL DB ESTERNO MSysObjects DA CREARE VEDI FUNZIONE Cmd_Importa_MODULI_Click
-        '//----------------------------------------------------------------------------------------------------------------------//
-            
-        
-            '//TODO: adattare il controllo sulla tabella di sistema esterna ... vai a Cmd_Importa_MODULI_Click
 
-        '//----------------------------------------------------------------------------------------------------------------------//
-        
-    '//@QUERY@INSERT.23.TRIS=II° MESSAGGIO DI RIEPILOGO QUERY IMPORTATE E CANCELLATE ABILITATO=TRUE DISABILITATO=FALSE _
-    ' Messaggio finale di riepilogo SE ABILITATO CON TRUE - FALSE DISABILITATO
+    '//@QUERY@INSERT.23.TRIS=II° MESSAGGIO DI RIEPILOGO QUERY IMPORTATE E CANCELLATE ABILITATO=TRUE DISABILITATO=FALSE
     If Me.ctr_AVVISO_ABILITATO_TXT = True Then
         MsgBox "CONTROLLO OGGETTI PRECARICATI DA IMPORTARE:" & vbCrLf & _
-               "Oggetti importati: " & importedQueryesCount_i & vbCrLf & importedNameQueryes_s & vbCrLf & _
+               "Oggetti importati: " & importedQueriesCount_i & vbCrLf & importedNameQueryes_s & vbCrLf & _
                "Oggetti esistenti cancellati: " & deleteQueryesCount_i & vbCrLf & deleteNameQueryes_s, vbInformation
     End If
-                
-                '//@QUERY@INSERT.24=CICLO FOR PER ANDARE ALL'ULTIMA QUERY @IMPORTATA E FARE IL DoCmd.SelectObject  DELL'OGGETTO
-                '//ciclo nella collezione per il controllo delle QUERY precaricate per SELEZIONARE LA PRIMA
-                '//--------------------------------------------------------------------------------------//
-                '//CODICE: @SELECT@ULTIMA@QUERY_(@selezione l'ultimo query @salvata con @Docmd@selectObject)
-                    
-                        Dim lastQueryName As String
-                        Set dbCurrent = CurrentDb
-                        
-                        ' Controlla se ci sono query nel database corrente
-                        If dbCurrent.QueryDefs.count = 0 Then
-                            MsgBox "Nessuna query presente nel database corrente.", vbExclamation, "Attenzione"
-                        Else
-                            ' Itera sulle query esistenti per trovare l'ultima
-                            For Each qdf In dbCurrent.QueryDefs
-                                lastQueryName = qdf.Name
-                            Next qdf
-                            
-                            ' Seleziona l'ultima query trovata
-                            DoCmd.SelectObject acQuery, lastQueryName, True
-                        End If
-                        
-                        ' Rilascia gli oggetti
-                        Set qdf = Nothing
-                        Set dbCurrent = Nothing
 
+    '//@QUERY@INSERT.24=CICLO FOR PER ANDARE ALL'ULTIMA QUERY @IMPORTATA E FARE IL DoCmd.SelectObject  DELL'OGGETTO
+    Dim lastQueryName As String
+    Set dbCurrent = CurrentDb
 
-                    
-                '//--------------------------------------------------------------------------------------//
-                
-                
-                
-                       
-                        
+    If dbCurrent.QueryDefs.Count = 0 Then
+        MsgBox "Nessuna query presente nel database corrente.", vbExclamation, "Attenzione"
+    Else
+        For Each qdf In dbCurrent.QueryDefs
+            lastQueryName = qdf.Name
+        Next qdf
 
-'//=====================================================================================================================//
-'//                            STEP_03 = IMPORTO LE TABELLE E LE QUERY *** fine ***
-'//
-'//=====================================================================================================================//
+        ' Seleziona l'ultima query trovata
+        DoCmd.SelectObject acQuery, lastQueryName, True
+    End If
 
-'// CHIUSURA E CONTROLLO ERRORI
-'//------------------------------------------------------------------------------------------------//
-Exit Sub
+    Set qdf = Nothing
+    Set dbCurrent = Nothing
+
+    '//=====================================================================================================================//
+    '//                            STEP_03 = IMPORTO LE QUERY *** fine ***
+    '//=====================================================================================================================//
+
+    Exit Sub
 
 ErrorHandler:
     MsgBox "Errore durante l'importazione: " & Err.Description, vbCritical
@@ -6926,6 +7562,7 @@ ErrorHandler:
     Set dbSource = Nothing
     Set dbCurrent = Nothing
 End Sub   '//Private Sub Cmd_Importa_QUERY_Click()
+
 
 '//@QUERY@INSERT.20=INIZIO IMPORTAZIONE QUERY -> ROUTINE ESTERNA VERIFICA SE QUERY DB ESTERNO ESISTE NELLA COLLETION QUERY DA CARICARE NEL DB CORRENTE
 ' Funzione per verificare se un elemento esiste nella collezione
@@ -7077,348 +7714,161 @@ End Sub
 '//NOTE:   dal database di origine importa solo gli oggetti Table controllando prima se _
             nel db corrente di destinazione già esiste la Table per effettuare la cancellazione _
             prima dell'importazione.
-
-
-'//@TABLE@INSERT.24=CICLO FOR PER ANDARE ALL'ULTIMA TABELLA IMPORTATA E FARE IL DoCmd.SelectObject  DELL'OGGETTO
+'//Cmd_Importa_TABLE_Click = ESEGUE IL CONTROLLO E L'IMPORTAZIONE DELLE TABELLE
 
 Private Sub Cmd_Importa_TABLE_Click()
-    
- Dim dbCurrent As DAO.Database
- Dim dbSource As DAO.Database
- Dim tdf As DAO.TableDef
- Dim strSourceDbPath As String
- Dim strTableName As String
-' Dim objectTables As Collection
- Dim connectedTABELLES As Collection
- Dim varItem As Variant
- Dim tableExistsInCollectionTables_Funct_b As Boolean
-         
 
+    Dim dbCurrent As DAO.Database
+    Dim dbSource As DAO.Database
+    Dim tdf As DAO.TableDef
+    Dim objectTables As Collection
+    Dim varItem As Variant
+    Dim sourceDBPath_s As String
+    Dim strTableName As String
+    Dim tableExistsInCollectionTables_Funct_b As Boolean
+    Dim logFile As Integer
 
     On Error GoTo ErrorHandler
 
-
-
     '//=====================================================================================================================//
     '//                            STEP_01 = RECUPERO PATH E COLLECTION
-    '//RECUPERO LA COLLEZIONE TABELLE DA IMPORTARE E FACCIO IL CONTROLLO
+    '//RECUPERO LA COLLEZIONE DELLE TABELLE DA IMPORTARE E FACCIO IL CONTROLLO
     '//=====================================================================================================================//
-    '//NOte Chiamo la funzione in cui vengo precaricate le form da importare in una _
-            collection che viene restituiscta con oggetto dalla funzione e impostata _
-            nella variabile oggetto formsCollection.
-        
-    
-                '//RESET
-                'Inizializza i contatori e le stringhe di riepilogo
-                importedTablesCount_i = 0
-                importedTables_s = ""
-                deletedTablesCount_i = 0
-                
-                                  
-              '//ATTIVO LA COLLEZIONE
-              '//------------------------------------------------------------------------//
-              '//Note: CHIAMO LA FUNZIONE COLLECTION TABLE per ottenere la collezione di TABELLE
-                
-                
-                    Set tablesCollection = CollectionTable_PFunct()
-                    
-                    
-                            '//2024.08.03_CollectionTable_PFunct  = SE LA COLLECTION E' VUOTA ESCI DALLA ROUTINE _
-                        faccio un controllo sul numero degli oggetti della collection se = 0 allora _
-                        non ci sono oggetti da caricare per cui si esce dalla routine.
-                        
-                    If tablesCollection.count = 0 Then Exit Sub
-   
-    
-                
-              '//------------------------------------------------------------------------//
 
-                
-                    
-                
-                
-        '//ciclo nella collezione per il controllo delle TABELLE precaricate
-        For Each objCollection_tableName_v In tablesCollection
-            Debug.Print "Form nella collezione: " & objCollection_tableName_v
-            ' Aggiungi qui il codice per lavorare con ciascuna TABELLA nella collezione
-               '//conteggio form DA IMPORTARE
-                importedTablesCount_i = importedTablesCount_i + 1
-                importedTables_s = importedTables_s & objCollection_tableName_v & vbCrLf
-    
-        Next objCollection_tableName_v
-        
-            
-            ' Messaggio finale di riepilogo SE ABILITATO CON TRUE - FALSE DISABILITATO
-            If Me.ctr_AVVISO_ABILITATO_TXT = True Then
-                MsgBox "CONTROLLO TABELLE PRECARICATE DA IMPORTARE:" & vbCrLf & _
-                       "Tables importate: " & importedTABLECount & vbCrLf & importedTables_s & _
-                       "Tables esistenti cancellate: " & deletedTABLECount & vbCrLf & deletedTables, vbInformation
-            End If
+    '//RESET
+    'Inizializza i contatori e le stringhe di riepilogo
+    importedTablesCount_i = 0
+    importedTables_s = ""
+    deletedTablesCount_i = 0
+    deletedTables_s = ""
 
-    '//---------------------------------------------------------------------------//
+    ' Apri il file di log
+    logFile = FreeFile()
+    Open CurrentProject.PATH & "\LOG_IMPORTA_TABELLE.TXT" For Output As #logFile
+    Print #logFile, "Log Importazione Tabelle - " & Now
+
+    '//@TABELLE@INSERT.01=CHIAMO LA FUNZIONE CHE CREA LA COLLECTION TABELLE E LA CARICA CON GLI OGGETTI SCELTI
+    '//ATTIVO LA COLLEZIONE
+    '//------------------------------------------------------------------------//
+    '//Note: CHIAMO LA FUNZIONE COLLECTION TABELLE per ottenere la collezione di TABELLE
+    Set objectTables = CollectionTable_PFunct()
+
+    '//2024.08.03_CollectionTable_PFunct = SE LA COLLECTION E' VUOTA ESCI DALLA ROUTINE
+    If objectTables.Count = 0 Then
+        Print #logFile, "Nessuna tabella da importare."
+        Close #logFile
+        Exit Sub
+    End If
     
+    '//------------------------------------------------------------------------//
     
-    '//RECUPERO LA PATH ED IL FILE.MDB PER LE IMPORTAZIONI
-    '//---------------------------------------------------------------------------//
-    '//NOTE: chiamo la funzione e recupero la path ed il file.mdb facendo un controllo _
-            se la variabile è nulla msg di avviso ed uscita dalla routine.
-            
-        '//reset
-        sourceDBPath_s = ""
-        
-        '//@RECUPERO@PATH_(ed il file
-        sourceDBPath_s = PathFile_s_pFunct
-        
-        If sourceDBPath_s = "" Then
-            MsgBox "ATTENZIONE ERRORE path e file sono null uscita dalla routine", vbCritical, "MSG CONTROLLO PATH E FILE VALORIZZATI"
-              If MyValue = 0 Then Exit Sub
-        End If
-        
-          ' Messaggio finale di riepilogo SE ABILITATO CON TRUE - FALSE DISABILITATO
-            If Me.ctr_AVVISO_ABILITATO_TXT = True Then
-                MsgBox "IMPORTO LE TABELLE DA QUESTO DATABASE; path e del file : " & sourceDBPath_s, vbExclamation, "MSG CHIAMATO LA FUNZIONE PATHFILE"
-            End If
-    '//=====================================================================================================================//
-    '//                            STEP_01 = RECUPERO PATH E COLLECTION
-    '//RECUPERO LA COLLEZIONE FORM DA IMPORTARE E FACCIO IL CONTROLLO          **** FINE ***
-    '//=====================================================================================================================//
-    
-            '//=====================================================================================================================//
-            '//                             STEP_02 = @CONTROLLO@PROGETTO
-            '//CHIAMO IL CONTROLLO DEL PROGETTO  - 01 E 02) CONTROLLO - *** INIZIO ***
-            '//=====================================================================================================================//
-            '//NOTE: chiamo la funzione che controlla se il progetto corrente è il progetto originale, infatti _
-                     non si possono caricare gli oggetti nel PROGETTO MSYS_ATTIVA_GEST_OGGETTI.mdb perhè è originale _
-                     e vi è una distruzione degli stessi. LA FUNZIONE CONTROLLO SE E' UN PROGETTO ESTERNO AMMISSIBILE _
-                     per caricare gli oggetti table, query , form ecc. da importare. _
-                     01) CONTROLLO = MSG DI AVVISO CON POSSIBILITA DI ANNULLARE _
-                     02) CONTROLLO = CONTROLLO SE STIAMO NEL PROGETTO ORIGINALE  E QUINDI ESCLUSIONE.
-                     
-                        
-                        
-                   '//01) PRIMO CONTROLLO _
-                     MESSAGGIO DI IMPORTAZIONE 0 = ANNULLA  1 = CONTINUA
-                   '//..........................................................//
-            
-                         '//Attenzione L'AVVISO produce il messaggio solo se il _
-                            parametro è TRUE altrimenti il messaggio viene escluso.
-                         MyValue = CheckAvviso_i_PFunct(Me.ctr_AVVISO_ABILITATO_TXT)
-                         
-                         If MyValue = 0 Then Exit Sub
-                     '//..........................................................//
-            
-                         
-                 
-                   
-                   '//02) SECONDO CONTROLLO
-                   '//CHIAMO IL CONTROLLO DEL PROGETTO
-                   '//..........................................................//
-                   '//Note  : True = siamo nel progetto originale non possiamo _
-                              importare nessun oggetto perche distruggiamo il db corrente. _
-                              Fale = siamo in un progetto esterno possiamo caricare tutto.
-                                  
-                                  
-                       '//SE VIENE RESTITUITO TRUE è FUORI PROGETTO PUO CARICARE, SE FALSE EXIT PERCHE PROGETTO ORIGINALE  @CONTROLLO@PROGETTO
-                       Bool1 = CheckProjectName_b_PFunct
-                       
-                       If Bool1 = True Then Exit Sub
-                   '//..........................................................//
-                   
-             
-            '//=====================================================================================================================//
-            '//                             STEP_02 = @CONTROLLO@PROGETTO
-            '//CHIAMO IL CONTROLLO DEL PROGETTO  - 01 E 02) CONTROLLO - *** FINE ***
-            '//=====================================================================================================================//
-            
-    
-       
-       
-   
-    
+    '//@TABELLE@INSERT.11=ITERNO NELLA COLLECTION TABELLE PER UNA STAMPA DI CONTROLLO
+    For Each varItem In objectTables
+        Debug.Print "Oggetto nella collezione: " & varItem
+        importedTablesCount_i = importedTablesCount_i + 1
+        importedTables_s = importedTables_s & varItem & vbCrLf
+    Next varItem
+
+    '//@TABELLE@INSERT.12=Messaggio finale di riepilogo
+    If Me.ctr_AVVISO_ABILITATO_TXT = True Then
+        MsgBox "CONTROLLO TABELLE PRECARICATE DA IMPORTARE:" & vbCrLf & _
+               "Tabelle da importare: " & importedTablesCount_i & vbCrLf & importedTables_s & _
+               "Tabelle esistenti cancellate: " & deletedTablesCount_i & vbCrLf & deletedTables_s, vbInformation
+    End If
+
+    '//RESET
+    importedTablesCount_i = 0
+    deletedTablesCount_i = 0
+    deletedTables_s = ""
+
+    '//@TABELLE@INSERT.13=RECUPERO LA PATH ED IL FILE.MDB PER LE IMPORTAZIONI
+    sourceDBPath_s = PathFile_s_pFunct()
+
+    If sourceDBPath_s = "" Then
+        Print #logFile, "Errore: Path e file di origine non specificati."
+        MsgBox "ATTENZIONE ERRORE: path e file sono null, uscita dalla routine", vbCritical, "MSG CONTROLLO PATH E FILE"
+        Close #logFile
+        Exit Sub
+    End If
+
+    If Me.ctr_AVVISO_ABILITATO_TXT = True Then
+        MsgBox "IMPORTO LE TABELLE DA QUESTO DATABASE: " & sourceDBPath_s, vbExclamation, "MSG CHIAMATO LA FUNZIONE PATHFILE"
+    End If
+
     '//=====================================================================================================================//
     '//                            STEP_03 = IMPORTO LE TABELLE
-    '//
     '//=====================================================================================================================//
-            
-            
-         
-    
-                '//RESET
-                '//Inizializza i contatori e le stringhe di riepilogo
-                importedTablesCount_i = 0
-                deletedTablesCount_i = 0
-                deletedTables_s = ""
-                importedTables_s = ""
-                
-          
-            ' Apri il database corrente
-            Set dbCurrent = CurrentDb
-            
-            ' Apri il database di origine
-            Set dbSource = DBEngine.Workspaces(0).OpenDatabase(sourceDBPath_s)
-            
-            'Loop attraverso tutte le tabelle nel database di origine ossia del DATABASE ESTERNO
-            For Each tdf In dbSource.TableDefs
-                
-                ' Salta le tabelle di sistema (i cui nomi iniziano con "MSys") aggiungo come parametro( la collezione table + nome tabella)
-                If Left(tdf.Name, 4) <> "MSys" Or (Left(tdf.Name, 4) = "MSys" And InCollectionTables_Funct_b(objectTables, tdf.Name)) Then
-                    ' Nome della tabella nel database di origine
-                    strTableName = tdf.Name
-                    
-                    ' Controlla se la tabella è nella collezione
-                    tableExistsInCollectionTables_Funct_b = False
-                    For Each varItem In objectTables
-                        If strTableName = varItem Then
-                            tableExistsInCollectionTables_Funct_b = True
-                            Exit For
-                        End If
-                    Next varItem
-                    
-                    ' Se la tabella è nella collezione, importala
-                    If tableExistsInCollectionTables_Funct_b Then
-                        ' Elimina la tabella se esiste già nel database corrente SE DA ERRORE SALTA alla successiva istruzione
-                        On Error Resume Next
-                        dbCurrent.TableDefs.Delete strTableName
-                        deletedTablesCount_i = deletedTablesCount_i + 1
-                        
-                        On Error GoTo 0
-                        
-                        ' Copia la tabella dal database di origine al database corrente
-                        DoCmd.TransferDatabase acImport, "Microsoft Access", sourceDBPath_s, acTable, strTableName, strTableName
-                        
-                           '//conteggio TABELLE IMPORTATE
-                            importedTablesCount_i = importedTablesCount_i + 1
-                            importedTables_s = importedTables_s & strTableName & vbCrLf
-                
-                        
-                    End If
-                End If
-            Next tdf
-            
-                    
-        '//TODO: MANCA IL CONTROLLO SULLA TABELLA DI SISTEMA DEL DB ESTERNO MSysObjects DA CREARE VEDI FUNZIONE Cmd_Importa_MODULI_Click
-        '//----------------------------------------------------------------------------------------------------------------------//
+    '//@TABELLE@INSERT.16= INIZIO IMPORTAZIONE TABELLE
+
+    ' Apri il database corrente
+    Set dbCurrent = CurrentDb
+
+    ' Apri il database di origine
+    Set dbSource = DBEngine.Workspaces(0).OpenDatabase(sourceDBPath_s)
+
+    ' Itera sugli oggetti TABELLE nel database di origine
+    For Each varItem In objectTables
+        strTableName = varItem
         
-            '//TODO: adattare il controllo sulla tabella di sistema esterna ... vai a Cmd_Importa_MODULI_Click
+        Debug.Print "CONTROLLO TABELLA DA IMPORTARE --> : "; strTableName
 
-        '//----------------------------------------------------------------------------------------------------------------------//
-                    
-                      ' Messaggio finale di riepilogo SE ABILITATO CON TRUE - FALSE DISABILITATO
-                        If Me.ctr_AVVISO_ABILITATO_TXT = True Then
-                            MsgBox "CONTROLLO TABELLE PRECARICATE DA IMPORTARE:" & vbCrLf & _
-                                   "Tables importate: " & importedTablesCount_i & vbCrLf & deleteTablesCount_i & _
-                                   "Tables esistenti cancellate: " & deletedTablesCount_i & vbCrLf & deletedTables_s, vbInformation
-                        End If
+        tableExistsInCollectionTables_Funct_b = False
+
+        ' Verifica se la tabella esiste nel database esterno
+        For Each tdf In dbSource.TableDefs
+            If tdf.Name = strTableName Then
+                tableExistsInCollectionTables_Funct_b = True
+                Exit For
+            End If
+        Next tdf
+
+        If tableExistsInCollectionTables_Funct_b Then
+            ' Se la tabella esiste, prima la elimino se è presente nel database corrente
+            On Error Resume Next
+            dbCurrent.TableDefs.Delete strTableName
+            deletedTablesCount_i = deletedTablesCount_i + 1
+            deletedTables_s = deletedTables_s & strTableName & vbCrLf
+            Print #logFile, "Tabella eliminata: " & strTableName
+            On Error GoTo 0
             
-                    
-                    
-                    Set dbCurrent = Nothing
-                    
-                '//ciclo nella collezione per il controllo delle TABELLE precaricate per SELEZIONARE LA PRIMA
-                '//--------------------------------------------------------------------------------------//
-                    For Each objCollection_objectName_v In tablesCollection
-                    
-                        
-                        '//vado all'ultima query
-                        DoCmd.SelectObject acTable, objCollection_tableName_v, True
-                        
-                    Next objCollection_objectName_v
-                                
-                    '//PRIMA DI USCIRE RILASCIO GLI OGGETTI
-                    Set dbCurrent = Nothing
-                    Set objectQueries = Nothing
-                    
-                '//--------------------------------------------------------------------------------------//
-                
-                
-                    
-                    
-                '//@TABLE@INSERT.24=CICLO FOR PER ANDARE ALL'ULTIMA QUERY @IMPORTATA E FARE IL DoCmd.SelectObject  DELL'OGGETTO
-                '//ciclo nella collezione per il controllo delle QUERY precaricate per SELEZIONARE LA PRIMA
-                '//--------------------------------------------------------------------------------------//
-                '//CODICE: @SELECT@ULTIMA@QUERY_(@selezione l'ultimo query @salvata con @Docmd@selectObject)
-                    
-                       ' Itera attraverso le tabelle importate, escludendo le tabelle di sistema elencate per nome
-                          
-                            Dim lastTableName As String
-                            Dim systemTables As Collection
-                            
-                            Set dbCurrent = CurrentDb
-                            Set systemTables = New Collection
-                            
-                            ' Aggiunge le tabelle di sistema conosciute alla collection CHE SONO DA ESCLUDERE
-                            systemTables.Add "MSysObjects"
-                            systemTables.Add "MSysACEs"
-                            systemTables.Add "MSysQueries"
-                            systemTables.Add "MSysRelationships"
-                            systemTables.Add "MSysAccessObjects"
-                            systemTables.Add "MSysNavPaneGroupToObjects"
-                            systemTables.Add "MSysNavPaneGroups"
-                            systemTables.Add "MSysResources"
-                            
-                            ' Controlla se ci sono tabelle nel database corrente
-                            If dbCurrent.TableDefs.count = 0 Then
-                                MsgBox "Nessuna tabella presente nel database corrente.", vbExclamation, "Attenzione"
-                            Else
-                                ' Itera sulle tabelle esistenti per trovare l'ultima tabella non di sistema
-                                For Each tdf In dbCurrent.TableDefs
-                                    Dim isSystemTable As Boolean
-                                    isSystemTable = False
-                                    
-                                    ' Controlla se la tabella è una tabella di sistema
-                                    Dim i As Integer
-                                    For i = 1 To systemTables.count
-                                        If tdf.Name = systemTables.Item(i) Then
-                                            isSystemTable = True
-                                            Exit For
-                                        End If
-                                    Next i
-                                    
-                                    ' Se la tabella non è di sistema, la memorizza
-                                    If Not isSystemTable Then
-                                        lastTableName = tdf.Name
-                                    End If
-                                Next tdf
-                                
-                                ' Se è stata trovata almeno una tabella valida, la seleziona
-                                If lastTableName <> "" Then
-                                    DoCmd.SelectObject acTable, lastTableName, True
-                                Else
-                                    MsgBox "Nessuna tabella importata trovata.", vbExclamation, "Attenzione"
-                                End If
-                            End If
-                            
-                            ' Rilascia gli oggetti
-                            Set tdf = Nothing
-                            Set dbCurrent = Nothing
-                            Set systemTables = Nothing
-
-                   
-                '//--------------------------------------------------------------------------------------//
-           
-  
-
-                    
+            ' Importa la tabella dal database esterno
+            DoCmd.TransferDatabase acImport, "Microsoft Access", sourceDBPath_s, acTable, strTableName, strTableName
             
-    '//=====================================================================================================================//
-    '//                            STEP_03 = IMPORTO LE TABELLE *** fine ***
-    '//
-    '//=====================================================================================================================//
+            importedTablesCount_i = importedTablesCount_i + 1
+            importedTables_s = importedTables_s & strTableName & vbCrLf
+            Print #logFile, "Tabella importata: " & strTableName
+        Else
+            ' Se la tabella non esiste nel database esterno
+            Print #logFile, "Tabella non trovata nel database esterno: " & strTableName
+        End If
+    Next varItem
+    
+    ' Messaggio finale di riepilogo
+    If Me.ctr_AVVISO_ABILITATO_TXT = True Then
+        MsgBox "CONTROLLO TABELLE PRECARICATE DA IMPORTARE:" & vbCrLf & _
+               "Tabelle importate: " & importedTablesCount_i & vbCrLf & importedTables_s & vbCrLf & _
+               "Tabelle esistenti cancellate: " & deletedTablesCount_i & vbCrLf & deletedTables_s, vbInformation
+    End If
 
+    ' Scrive nel file di log il riepilogo finale
+    Print #logFile, "Importazione completata con " & importedTablesCount_i & " tabelle importate."
+    Close #logFile
 
-'// CHIUSURA E CONTROLLO ERRORI
-'//------------------------------------------------------------------------------------------------//
+    ' Pulizia delle variabili
+    Set dbCurrent = Nothing
+    Set objectTables = Nothing
+    Set dbSource = Nothing
+
 Exit Sub
 
 ErrorHandler:
     MsgBox "Errore durante l'importazione: " & Err.Description, vbCritical
-    Debug.Print "Errore durante l'importazione: " & Err.Description, vbCritical
-    If Not sourceDB Is Nothing Then
-        sourceDB.Close
-    End If
-    Set sourceDB = Nothing
-    Set ws = Nothing
-End Sub   '//Private Sub Cmd_Importa_TABLE_Click()
+    Print #logFile, "Errore durante l'importazione: " & Err.Description
+    Close #logFile
+    If Not dbSource Is Nothing Then dbSource.Close
+    Set dbSource = Nothing
+    Set dbCurrent = Nothing
+End Sub  '//Private Sub Cmd_Importa_TABLE_Click()
 
 '//@CONTROLLO@ESISTENZA@TABELLE@IN.COLLECTION
 'Funzione per verificare se un elemento esiste nella collezione
@@ -7832,7 +8282,7 @@ On Error GoTo Err_Cmd_Delete_TABELLE_Click
              Set dbCurrent = CurrentDb
 
              '//CALCOLO INDICE TABELLE
-             icount = dbCurrent.TableDefs.count
+             icount = dbCurrent.TableDefs.Count
 
             Set dbCurrent = CurrentDb
 
@@ -7981,22 +8431,22 @@ End Function
 
 Private Sub Cmd_Importa_MODULI_Click()
 
-Dim dbCurrent As DAO.Database
-Dim dbSource As DAO.Database
-Dim rs As DAO.Recordset
-Dim objectModules As Collection
-Dim varItem As Variant
-Dim objectExistsInCollectionModules_Funct_b As Boolean
-Dim sourceDBPath_s As String
-Dim myNameModule_s As String
-Dim moduleExists As Boolean
+    Dim dbCurrent As DAO.Database
+    Dim dbSource As DAO.Database
+    Dim rs As DAO.Recordset
+    Dim objectModules As Collection
+    Dim varItem As Variant
+    Dim sourceDBPath_s As String
+    Dim myNameModule_s As String
+    Dim moduleExists As Boolean
+    Dim logFile As Integer
 
-On Error GoTo ErrorHandler
+    On Error GoTo ErrorHandler
 
-'//=====================================================================================================================//
-'//                            STEP_01 = RECUPERO PATH E COLLECTION
-'//RECUPERO LA COLLEZIONE DEI MODULI DA IMPORTARE E FACCIO IL CONTROLLO
-'//=====================================================================================================================//
+    '//=====================================================================================================================//
+    '//                            STEP_01 = RECUPERO PATH E COLLECTION
+    '//RECUPERO LA COLLEZIONE DEI MODULI DA IMPORTARE E FACCIO IL CONTROLLO
+    '//=====================================================================================================================//
 
     '//RESET
     'Inizializza i contatori e le stringhe di riepilogo
@@ -8006,61 +8456,61 @@ On Error GoTo ErrorHandler
     deleteModulesCount_i = 0
     deleteNameModules_s = ""
 
+    ' Apri il file di log
+    logFile = FreeFile()
+    Open CurrentProject.PATH & "\LOG_IMPORTA_MODULI.TXT" For Output As #logFile
+    Print #logFile, "Log Importazione Moduli - " & Now
+
     '//@MODULI@INSERT.01=CHIAMO LA FUNZIONE CHE CREA LA COLLECTION MODULI E LA CARICA CON GLI OGGETTI SCELTI
     '//ATTIVO LA COLLEZIONE
     '//------------------------------------------------------------------------//
     '//Note: CHIAMO LA FUNZIONE COLLECTION MODULI per ottenere la collezione di MODULI
     Set objectModules = CollectionModuli_PFunct()
     
-            '//2024.08.03_CollectionModules_PFunct = SE LA COLLECTION E' VUOTA ESCI DALLA ROUTINE _
-                        faccio un controllo sul numero degli oggetti della collection se = 0 allora _
-                        non ci sono oggetti da caricare per cui si esce dalla routine.
-
-            If objectModules.count = 0 Then Exit Sub
-                
+    '//2024.08.03_CollectionModules_PFunct = SE LA COLLECTION E' VUOTA ESCI DALLA ROUTINE
+    If objectModules.Count = 0 Then
+        Print #logFile, "Nessun modulo da importare."
+        Close #logFile
+        Exit Sub
+    End If
+    
     '//------------------------------------------------------------------------//
     
-    '//@MODULI@INSERT.11=ITERNO NELLA COLLECTION MODULI PER UNA STAMPA DI CONTROLLO DI STAMPA
-    '//I° CONTROLLO SULLA COLLECTION MODULI RECUPERATA
-    '//ciclo nella collezione per il controllo dei MODULI precaricati
+    '//@MODULI@INSERT.11=ITERNO NELLA COLLECTION MODULI PER UNA STAMPA DI CONTROLLO
     For Each objCollection_objectName_v In objectModules
         Debug.Print "Oggetto nella collezione: " & objCollection_objectName_v
-        '//conteggio oggetti DA IMPORTARE
         icount = icount + 1
         importedNameModules_s = importedNameModules_s & objCollection_objectName_v & vbCrLf
     Next objCollection_objectName_v
     
-    '//@MODULI@INSERT.12=Messaggio finale di riepilogo SE ABILITATO CON TRUE - FALSE DISABILITATO
+    '//@MODULI@INSERT.12=Messaggio finale di riepilogo
     If Me.ctr_AVVISO_ABILITATO_TXT = True Then
         MsgBox "CONTROLLO OGGETTI COLLECTION PRECARICATI DA IMPORTARE:" & vbCrLf & _
                "Oggetti COLLECTION PRECARICATA DA IMPORTARE: " & icount & vbCrLf & importedNameModules_s & _
                "Oggetti esistenti cancellati: " & deleteModulesCount_i & vbCrLf & deleteNameModules_s, vbInformation
     End If
 
-            '//RESET
-            icount = 0
+    '//RESET
+    icount = 0
 
-'//---------------------------------------------------------------------------//
-
-'//@MODULI@INSERT.13=RECUPERO LA PATH ED IL FILE.MDB PER LE IMPORTAZIONI DALLE CASELLE DI TESTO
-'//---------------------------------------------------------------------------//
-    sourceDBPath_s = ""
-    sourceDBPath_s = PathFile_s_pFunct
+    '//@MODULI@INSERT.13=RECUPERO LA PATH ED IL FILE.MDB PER LE IMPORTAZIONI
+    sourceDBPath_s = PathFile_s_pFunct()
 
     If sourceDBPath_s = "" Then
-        MsgBox "ATTENZIONE ERRORE path e file sono null uscita dalla routine", vbCritical, "MSG CONTROLLO PATH E FILE VALORIZZATI"
-        If MyValue = 0 Then Exit Sub
+        Print #logFile, "Errore: Path e file di origine non specificati."
+        MsgBox "ATTENZIONE ERRORE: path e file sono null, uscita dalla routine", vbCritical, "MSG CONTROLLO PATH E FILE"
+        Close #logFile
+        Exit Sub
     End If
 
     If Me.ctr_AVVISO_ABILITATO_TXT = True Then
-        MsgBox "IMPORTO GLI OGGETTI DA QUESTO DATABASE; path e del file : " & sourceDBPath_s, vbExclamation, "MSG CHIAMATO LA FUNZIONE PATHFILE"
+        MsgBox "IMPORTO GLI OGGETTI DA QUESTO DATABASE: " & sourceDBPath_s, vbExclamation, "MSG CHIAMATO LA FUNZIONE PATHFILE"
     End If
 
-'//=====================================================================================================================//
-'//                            STEP_03 = IMPORTO I MODULI
-'//
-'//=====================================================================================================================//
-'//@MODULI@INSERT.16= INIZIO IMPORTAZIONE MODULI
+    '//=====================================================================================================================//
+    '//                            STEP_03 = IMPORTO I MODULI
+    '//=====================================================================================================================//
+    '//@MODULI@INSERT.16= INIZIO IMPORTAZIONE MODULI
 
     importedModulesCount_i = 0
     deleteModulesCount_i = 0
@@ -8077,9 +8527,7 @@ On Error GoTo ErrorHandler
     For Each varItem In objectModules
         myNameModule_s = varItem
         
-        Debug.Print
         Debug.Print "CONTROLLO MODULO DA IMPORTARE --> : "; myNameModule_s
-        Debug.Print
         
         moduleExists = False
 
@@ -8097,6 +8545,7 @@ On Error GoTo ErrorHandler
             
             deleteModulesCount_i = deleteModulesCount_i + 1
             deleteNameModules_s = deleteNameModules_s & myNameModule_s & vbCrLf
+            Print #logFile, "Modulo eliminato: " & myNameModule_s
             On Error GoTo 0
             
             ' Importa il modulo dal database esterno
@@ -8104,9 +8553,10 @@ On Error GoTo ErrorHandler
             
             importedModulesCount_i = importedModulesCount_i + 1
             importedNameModules_s = importedNameModules_s & myNameModule_s & vbCrLf
+            Print #logFile, "Modulo importato: " & myNameModule_s
         Else
             ' Se il modulo non esiste nel database esterno
-            Debug.Print "Modulo non trovato nel database esterno: " & myNameModule_s
+            Print #logFile, "Modulo non trovato nel database esterno: " & myNameModule_s
         End If
     Next varItem
     
@@ -8117,22 +8567,28 @@ On Error GoTo ErrorHandler
                "Oggetti esistenti cancellati: " & deleteModulesCount_i & vbCrLf & deleteNameModules_s, vbInformation
     End If
 
+    ' Scrive nel file di log il riepilogo finale
+    Print #logFile, "Importazione completata con " & importedModulesCount_i & " moduli importati."
+    Close #logFile
+
     ' Pulizia delle variabili
     Set dbCurrent = Nothing
     Set objectModules = Nothing
+    Set dbSource = Nothing
 
 Exit Sub
 
 ErrorHandler:
     MsgBox "Errore durante l'importazione: " & Err.Description, vbCritical
-    Debug.Print "Errore durante l'importazione: " & Err.Description
+    Print #logFile, "Errore durante l'importazione: " & Err.Description
+    Close #logFile
     If Not rs Is Nothing Then rs.Close
     If Not dbSource Is Nothing Then dbSource.Close
     Set dbSource = Nothing
     Set dbCurrent = Nothing
 End Sub
 
-'//IMPORTA GLI OGGETTI MODULI DEL DB ESTERNO  NEL DB CORRENTE *** FINE ***
+'//IMPORTA GLI OGGETTI MODULI DEL DB ESTERNO NEL DB CORRENTE *** FINE ***
 '//----------------------------------------------------------------------------------------//
 
 
@@ -10819,7 +11275,7 @@ Public Sub ScriviLogErrore(NomeRoutine As String, NumeroErrore As Long, Messaggi
     FileLog_s = "\LOG_ERRORI_ROUTINE_E_FUNZIONI.TXT"
     
     ' Percorso e nome del file di log (stesso percorso del database)
-    FileLog = CurrentProject.Path & FileLog_s
+    FileLog = CurrentProject.PATH & FileLog_s
     
     ' Formato del testo da scrivere nel file di log
     TestoLog_s = "--------------------------------------------------" & vbCrLf
@@ -10835,7 +11291,7 @@ Public Sub ScriviLogErrore(NomeRoutine As String, NumeroErrore As Long, Messaggi
     Print #FileNum, TestoLog_s
     Close #FileNum
     
-    MsgBox "LOG ERRORI STAMPATO NELLA PATH: " & CurrentProject.Path & " FILE_LOG_ERRORI: " & FileLog_s
+    MsgBox "LOG ERRORI STAMPATO NELLA PATH: " & CurrentProject.PATH & " FILE_LOG_ERRORI: " & FileLog_s
     
 End Sub
 
@@ -10901,6 +11357,12 @@ End Sub
 '                                    @ROUTINE@GENERICHE              **** FINE ****
 '
 '***********************************************************************************************************************
+
+
+
+
+
+
 
 
 
