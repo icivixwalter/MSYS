@@ -1,0 +1,17 @@
+Log Importazione MACRO - 11/03/2025 17:12:27
+------------------------------------------------
+
+NRO: 1 MACRO importata: COLLEGA_Mcr_{@================Ricostruisci====================@}
+NRO: 2 MACRO importata: COLLEGA_Mcr_LLPP_ATTI_Tb01_Gestione
+NRO: 3 MACRO importata: COLLEGA_Mcr_LLPP_ATTI_Tb01_Gestione_TMP
+NRO: 4 MACRO importata: LLPP_IMPEGNI_Tb00Mcr00_}---------------------------------------@
+NRO: 5 MACRO importata: LLPP_IMPEGNI_Tb00Mcr01_IMPORTA_MODULI
+NRO: 6 MACRO importata: LLPP_IMPEGNI_Tb02Mcr10_ESPORTA_TUTTI_GLI_OGGETTI
+NRO: 7 MACRO importata: LLPP_IMPEGNI_Tb02Mcr10_}---------------------------------------@
+NRO: 8 MACRO importata: LLPP_IMPEGNI_Tb02Mcr09_RICOSTRUISCI_TUTTI_GLI_IMPEGNI
+NRO: 9 MACRO importata: LLPP_IMPEGNI_Tb02Mcr09_}---------------------------------------@
+NRO: 10 MACRO importata: ESPORTA_Mcr_{@================Esporta=========================@}
+NRO: 11 MACRO importata: ESPORTA_Mcr02_01_IMPEGNI_Tb02_TuttiGliOggetti
+NRO: 12 MACRO importata: ESPORTA_MACRO_DETERMINE->LLPP_ATTI_GESTIONE_mdb
+NRO: 13 MACRO importata: ESPORTA_Mcr_IMPEGNI_TUTTO**
+Importazione completata con 13 MACROs importate.
