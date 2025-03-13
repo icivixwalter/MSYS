@@ -28,96 +28,27 @@
 	"buffers":
 	[
 		{
-			"contents": "\n'//=====================================================================================================================//\n'//                     CMD_IMPORTA OGGETTI MACRO DEL DB ESTERNO *** INIZIO ***\n'//                     @IMPORTA@OGGETTI@MACRO@MSYS\n'//=====================================================================================================================//\n\n\n\n'//IMPORTA TUTTI GLI OGGETTI MACRO DEL DB MSYSDBEST - LE ATTIVITA\n'//----------------------------------------------------------------------------------------//\n'//@01_@IMPORTA@MACRO@DIM                  -------------------> DIM VARIABILI\n'//@02_@IMPORTA@MACRO@REST                 -------------------> RESET DELLE VARIABILI\n'//@03_@IMPORTA@MACRO@LOG                  -------------------> LOG FILE INIZIALE\n'//@04_@IMPORTA@MACRO@COLL                 -------------------> RECUPERO COLLECTION DA IMPORTARE\n'//@05_@IMPORTA@@MACROCONTROLLO 1          -------------------> CONTROLLO 1 ESISTONO OGGETTI COLLECTION\n'//@06_@IMPORTA@MACRO@CONTROLLO 2          -------------------> CONTROLLO 2 ESISTE PATH VALIDA\n'//@07_@IMPORTA@MACRO@CONTROLLO 3          -------------------> CONTROLLO 3 PATH NULL EXIT\n'//@08_@IMPORTA@MACRO@CONTROLLO 4          -------------------> CONTROLLO 4 SE DB NULL EXIT\n'//@09_@IMPORTA@MACRO@AVVISI+MSG           -------------------> AVVISI E IMPOSTAZIONE MESSAGGIO FINALE\n'//@10_@IMPORTA@MACRO@PROGRSESSBAR_01      -------------------> PROGRESS BAR STEP 01 RECUPERO PARAMETRI\n'//@11_@IMPORTA@MACRO@CONTROLLO_PROG       -------------------> CONTROLLO SE STIAMO NEL PROGETTO ESTERNO\n'//@12_@IMPORTA@MACRO@PROG@CICLO           -------------------> NEL PROGETTO ESTERNO CICLO NEGLI OGGETTI\n'//@13_@IMPORTA@MACRO@PROG@CONTR_01        -------------------> CONTROLLO 1 SE ESTE OGGETTO DA IMPORTARE\n'//@14_@IMPORTA@MACRO@PROG@IMPORT          -------------------> IMPORTAZIONE DELL'OGGETTO DAL DB ESTERNO\n'//@15_@IMPORTA@MACRO@PROGRSESSBAR_02      -------------------> PROGRESS BAR STEP 02 CALCOLO ED INVIO PARAMETRI\n'//@15.BIS_@IMPORTA@MACRO@PROGRESSBAR_CALL -------------------> VIENE CHIAMATA LA PROGRESS BAR CON I PARAMETRI\n'//@16_@IMPORTA@MACRO@LOG@FILE             -------------------> SE IL FILE NON VIENE TROVATO SCRITTURAZIONE LOG\n'//@17_@IMPORTA@MACRO@CLOSE                -------------------> CHIUSURA CON RITARDO DELLA PROGRESS BAR\n'//@18_@IMPORTA@MACRO@NOTHING              -------------------> IMPOSTO A NULL TUTTI GLI OGGETTI\n\n\nPrivate Sub Cmd_Importa_MACRO_Click()\n    \n    '//@01_@IMPORTA@MACRO@DIM                  -------------------> DIM VARIABILI\n    ' Dichiarazione delle variabili\n    '//oggetti MACRO e variabile nome MACRO\n    Dim Macros_Collection As Collection                       '//oggetti collezione\n    Dim MACROS_Name_v As Variant\n    Dim deleted_Macros_s As String\n    Dim imported_Macros_s As String\n    Dim myMACROS_Name_s As String\n    \n    '//il database + path\n    Dim sourceDB As DAO.Database\n    Dim db As DAO.Database\n    Dim ws As DAO.Workspace\n    Dim sourceDBPath As String\n    \n    '//contatori oggetti: TOTALE OGGETTI PREVISTI; da importare e cancellare\n    Dim TotCollection_MACROS_i As Integer                          '//totale degli oggetti MACRO della collezione da importare\n    Dim importedCount_i As Integer                              '//oggetti importati\n    Dim deletedCount_i As Integer                               '//oggetti cancellati\n    \n    \n    '//bool e log file\n    Dim Bool1 As Boolean\n    Dim MyValue As Integer\n    Dim logFile As Integer\n    \n    On Error GoTo ErrorHandler\n    \n    '//@02_@IMPORTA@MACRO@REST                 -------------------> RESET DELLE VARIABILI\n    '//RESET = Inizializza i contatori e le stringhe di riepilogo\n    TotCollection_MACROS_i = 0\n    importedCount_i = 0\n    deletedCount_i = 0\n    deleted_Macros_s = \"\"\n    imported_Macros_s = \"\"\n    TotPerc_dbl = 0\n    ProgressPercentTwips_dbl = 0\n    \n    '//@03_@IMPORTA@MACRO@LOG                  -------------------> LOG FILE INIZIALE\n    '@FILE@LOG@MACRO: Apre il file di log per scrivere i dettagli dell'importazione apre nella path corrente.\n    logFile = FreeFile()\n    Open CurrentProject.PATH & \"\\LOG_IMPORTA_MACRO.TXT\" For Output As #logFile\n    Print #logFile, \"Log Importazione MACRO - \" & Now\n    Print #logFile, \"------------------------------------------------\"\n    Print #logFile,\n    \n    '//@04_@IMPORTA@MACRO@COLL                 -------------------> RECUPERO COLLECTION DA IMPORTARE\n    'Recupero la collezione di MACRO da importare\n      Set Macros_Collection = CollectionMacro_PFunct()\n      \n    '//@05_@IMPORTA@@MACROCONTROLLO 1          -------------------> CONTROLLO 1 ESISTONO OGGETTI COLLECTION\n    '//se non esistono oggetti collection EXIT\n    If Macros_Collection.Count = 0 Then\n        Print #logFile, \"Nessuna MACRO da importare.\"\n        Close #logFile\n        '//Prima di uscire restto l'oggetto collection\n        Set Macros_Collection = Nothing\n        Exit Sub\n    End If\n    \n    '//@06_@IMPORTA@MACRO@CONTROLLO 2          -------------------> CONTROLLO 2 ESISTE PATH VALIDA\n    '//RECUPERO LA PATH =  Controllo se il percorso del database di origine è valido\n    sourceDBPath = PathFile_s_pFunct\n    \n    '//@07_@IMPORTA@MACRO@CONTROLLO 3          -------------------> CONTROLLO 3 PATH NULL EXIT\n    If sourceDBPath = \"\" Then\n        MsgBox \"Errore: path e file nulli.\", vbCritical\n        Print #logFile, \"Errore: path e file nulli.\"\n        Close #logFile\n        Exit Sub\n    End If\n    \n    '//@08_@IMPORTA@MACRO@CONTROLLO 4          -------------------> CONTROLLO 4 SE DB NULL EXIT\n    '//SE NON ESISTE IL FILE DB = Controllo se il file del database di origine esiste\n    If Dir(sourceDBPath) = \"\" Then\n        MsgBox \"Errore: il file del database di origine non esiste.\", vbCritical\n        Print #logFile, \"Errore: il file del database di origine non esiste.\"\n        Close #logFile\n        Exit Sub\n    End If\n    \n    '//@09_@IMPORTA@MACRO@AVVISI+MSG           -------------------> AVVISI E IMPOSTAZIONE MESSAGGIO FINALE\n    '//.......................................................................................//\n      '//AVVISI MESSAGGIO IMPOSTATO = TRUE - >  Controllo del valore di avviso\n      MyValue = CheckAvviso_i_PFunct(Me.ctr_AVVISO_ABILITATO_TXT)\n      If MyValue = 0 Then Exit Sub\n      \n      '//CONTROLLO NOME PROGETTO =  Controllo del nome del progetto\n      Bool1 = CheckProjectName_b_PFunct()\n      If Bool1 = True Then Exit Sub\n      \n    '//.......................................................................................//\n    \n    \n        '//@10_@IMPORTA@MACRO@PROGRSESSBAR_01      -------------------> PROGRESS BAR STEP 01 RECUPERO PARAMETRI\n        '//@PROGRESBAR_STEP_01=ATTIVO LA PROGRESS BAR CHIAMANDO ANCHE LE 4 FUNZIONI PER RECUPERARE I PARAMETRI  @progress@bar\n        '//********************************************************************************************************************//\n        '//@PROGRES@BAR@FASE_01_(imposto le variabili e recupero i valori dalle funzioni)\n        \n                \n                '//NOTE: devi creare 4 funzioni per avere i 4 parametri per chiamare la progress bar: _\n                     @01)@IMPOSTO@VARIABILE@NUMERO_COLLECTION          ----> recupero il NroCollection_i _\n                     @02)@FUNZIONE@NUMERO@TWIPS                        ----> restituisce Twips_dbl _\n                     @03)@FUNZIONE@PERCENTUALE_INCREMENTO              ----> restituisce PercIncr_dbl _\n                     @04)@FUNZIONE@TIPO_IMPORT                         ----> RESTITUISCE TipoImport_s _\n                     @05)@ROUTINE_APRI_LA_PROGRES_BAR                  ----> RESTITUISCE NULL\n                     \n             \n                  \n                      '//@01)@IMPOSTO@VARIABILE@NUMERO_COLLECTION          ----> recupero il NroCollection_i _\n                             Imposto il totale oggetti MACRO da importare se esistono\n                      TotCollection_MACROS_i = Macros_Collection.Count\n             \n                    \n                    '//@02)@FUNZIONE@NUMERO@TWIPS                        ----> restituisce Twips_dbl\n                       Twips_dbl = Calcola_Twips_pFunct(TotCollection_MACROS_i)\n                    \n                    '//@03)@FUNZIONE@PERCENTUALE_INCREMENTO              ----> restituisce PercIncr_dbl _\n                     '//chiama la funzione percentuale incremento e ne restituisce la _\n                         percentuale come double\n                     PercIncr_dbl = PercentualeIncremento_pFunct(TotCollection_MACROS_i)             '//calcolo il numero di collection MACRO da controllare\n         \n                     '//@04)@FUNZIONE@TIPO_IMPORT                         ----> RESTITUISCE TipoImport_s _\n                     '//chiama la funzione TIPO IMPORT\n                         TipoImport_s = TipoImport_pFunct(\"\\LOG_IMPORTA_MACRO.TXT\")\n         \n                     \n                     '//@05)@ROUTINE_APRI_LA_PROGRES_BAR                  ----> RESTITUISCE NULL\n                         '//Apri la MACRO della progressBar\n                         '//\n                             Call ApriProgressBar\n                             ' Aspetta che il MACRO sia effettivamente caricato\n                              DoEvents\n                         \n        '//@PROGRESBAR_STEP_01=ATTIVO LA PROGRESS BAR CHIAMANDO ANCHE LE 4 FUNZIONI PER RECUPERARE I PARAMETRI *** FINE ***\n        '//********************************************************************************************************************//\n    \n    \n    '//===========================================================================================================================//\n    '//             ATTIVAZIONE CICLO DI IMPORTAZIONE DAL PROGETTO ESTERNO        *** INIZIO ****\n    '//===========================================================================================================================//\n            \n          '//@11_@IMPORTA@MACRO@CONTROLLO_PROG       -------------------> CONTROLLO SE STIAMO NEL PROGETTO ESTERNO\n          ' Se siamo su un progetto esterno (Bool1 = False), procedo con l'importazione\n          If Bool1 = False Then\n                ' Apertura del database di origine e connessione al database corrente\n                Set ws = DBEngine.Workspaces(0)\n                Set sourceDB = ws.OpenDatabase(sourceDBPath)\n                Set db = CurrentDb\n                \n                \n                '//reset\n                ProgressPercentTwips_dbl = 0\n                \n                \n                '//@12_@IMPORTA@MACRO@PROG@CICLO           -------------------> NEL PROGETTO ESTERNO CICLO NEGLI OGGETTI\n                ' Ciclo attraverso la collezione di MACRO da importare\n                For Each MACROS_Name_v In Macros_Collection\n                    myMACROS_Name_s = MACROS_Name_v\n                    \n                    '//@13_@IMPORTA@MACRO@PROG@CONTR_01        -------------------> CONTROLLO 1 SE ESTE OGGETTO DA IMPORTARE\n                    ' Controllo se la MACRO esiste nel database di origine\n                    If ObjectExists_MACRO(sourceDB, acMacro, myMACROS_Name_s) Then\n                        ' Se la MACRO esiste nel database corrente, la elimino prima di importarla\n                        If ObjectExists_MACRO(db, acMacro, myMACROS_Name_s) Then\n                            DoCmd.DeleteObject acMacro, myMACROS_Name_s\n                            deletedCount_i = deletedCount_i + 1\n                            deleted_Macros_s = deleted_Macros_s & myMACROS_Name_s & vbCrLf\n                            Print #logFile, \"MACRO eliminata: \" & myMACROS_Name_s\n                             \n                              \n                        End If\n                        \n                          '//@14_@IMPORTA@MACRO@PROG@IMPORT          -------------------> IMPORTAZIONE DELL'OGGETTO DAL DB ESTERNO\n                          ' Importazione della MACRO dal database di origine\n                          DoCmd.TransferDatabase acImport, \"Microsoft Access\", sourceDBPath, acMacro, myMACROS_Name_s, myMACROS_Name_s\n                          importedCount_i = importedCount_i + 1\n                          imported_Macros_s = imported_Macros_s & myMACROS_Name_s & vbCrLf\n                          \n                          '//SCRIVO SUL @FILE@LOG\n                          Print #logFile, \"NRO: \" & importedCount_i & \" MACRO importata: \" & myMACROS_Name_s\n                          \n                              \n                        '//@15_@IMPORTA@MACRO@PROGRSESSBAR_02      -------------------> PROGRESS BAR STEP 02 CALCOLO ED INVIO PARAMETRI\n                        '//@PROGRESBAR_STEP_02= CALCOLO PARAMETRI ED INVIO DATI ALLA FUNZIONE DI AGGIORNAMENTO   @progress@bar\n                        '//********************************************************************************************************************//\n                        '//NOTE: impostazioni e recupero valori dalla funzioni base per la progress bar.\n                            \n                              '// RECUPERO il messaggio tipo di importazione delle collection e numero di oggetti da importare .\n                                TipoImport_s = \"MACRO IMPORTATE NRO : \" & importedCount_i & \" su TOTALE OGGETTI: \" & TotCollection_MACROS_i       '// STRINGA MESSAGGIO PER IL TIPO DI IMPORTAZIONE E NRO OGGETTI\n                                \n                                '//LA PERCENTUALE INCREMENTATA = totale di incremento % per ogni oggetto importato\n                                TotPerc_dbl = TotPerc_dbl + PercIncr_dbl\n                                \n                                '//TOTALE % DI INCREMENTO IN TWIPS, con la ProgressPercentTwips_dbl è la variabile che indica la %di incremento per ogni oggetto + i _\n                                   twips necessari per ogni elemento (su 10 totale della barra)\n                                ProgressPercentTwips_dbl = ProgressPercentTwips_dbl + (PercIncr_dbl + Twips_dbl)          '//la % di accrescimento barra\n                                \n                                '//TODO: DA CANCELLARE...\n                                'Dbl1 = Dbl1 + Twips_dbl                                         '//twips di aumento barra\n                                \n                                \n                                          '//@15.BIS_@IMPORTA@MACRO@PROGRESSBAR_CALL -------------------> VIENE CHIAMATA LA PROGRESS BAR CON I PARAMETRI\n                                          '//CHIAMO LA FUNZIONE @AGGIORNA@PROGRESS@BAR\n                                          '//.................................................................//\n                                          '//note: chiamo la routine di aggiornamento della progress bar che _\n                                              puo essere utilizzata per ulteriori integrazioni di calcolo. _\n                                              Devo inviare ma devo inviare 5 parametri : _\n                                                  TotCollection_MACROS_i       = il TOTALE POTENZIALE degli oggetti da importare _\n                                                  NroCollection_i           = il numero della collezione per il calcolo; _\n                                                  Twips                     = i twip di incremento _\n                                                  ProgressPercentTwips_dbl  =  La percentuale di incremento ( ProgressPercentTwips_dbl = ProgressPercentTwips_dbl + PercIncr_dbl) _\n                                                  TipoImport_s              = il tipo di importazione\n                                                  \n                                              AggiornaProgressBar _\n                                                          TotCollection_MACROS_i, _\n                                                          ProgressPercentTwips_dbl, _\n                                                          Twips_dbl, _\n                                                          TotPerc_dbl, _\n                                                          TipoImport_s\n                                          '//.................................................................//\n        \n                               \n                                T = Timer\n                                While Timer < T + 0.001\n                                    DoEvents  ' Continua a gestire gli eventi durante l'attesa\n                                Wend\n                          \n                                  \n                        '//@PROGRESBAR_STEP_02= CALCOLO PARAMETRI ED INVIO DATI ALLA FUNZIONE DI AGGIORNAMENTO   *** FINE ***\n                        '//********************************************************************************************************************//\n        \n            \n                        \n                    Else\n                        \n                        '//@16_@IMPORTA@MACRO@LOG@FILE             -------------------> SE IL FILE NON VIENE TROVATO SCRITTURAZIONE LOG\n                        ' Se la MACRO non esiste nel database di origine, lo scrivo nel log\n                        Print #logFile, \"MACRO non trovata nel database di origine: \" & myMACROS_Name_s\n                    End If\n                \n                Next MACROS_Name_v\n        \n        \n                                        \n                        '//@17_@IMPORTA@MACRO@CLOSE                -------------------> CHIUSURA CON RITARDO DELLA PROGRESS BAR\n                        '//CHIUSURA CON RITARDO DELLA BARRA DI PROGRESSIONE @progress@bar\n                        '//---------------------------------------------------------------------------//\n                    \n                                        T = Timer\n                                        \n                                        '// RITARDO CHIUSURA DI 5 SECONDI\n                                        While Timer < T + 5\n                                            DoEvents  ' Continua a gestire gli eventi durante l'attesa\n                                        Wend\n                                        \n                                        ' Chiudi la MACRO frmProgressBar\n                                        DoCmd.Close acForm, \"frmProgressBar\", acSaveNo\n                                        \n                        '//---------------------------------------------------------------------------//\n                        \n                        \n                        \n                '//@18_@IMPORTA@MACRO@NOTHING              -------------------> IMPOSTO A NULL TUTTI GLI OGGETTI\n                '//---------------------------------------------------------------------------//\n                ' Chiudo il database di origine\n                        Set frm_obj = Nothing                 ' Rilascia il riferimento al MACRO PROGRES BARR\n                      \n                      '//chiudo il db\n                      sourceDB.Close\n                      Set sourceDB = Nothing\n                      Set ws = Nothing\n                  \n                      ' Messaggio finale con riepilogo delle operazioni\n                      If Me.ctr_AVVISO_ABILITATO_TXT = True Then\n                          MsgBox \"Importazione completata.\" & vbCrLf & _\n                              \"MACROs importate: \" & importedCount_i & vbCrLf & imported_Macros_s & _\n                              \"MACROs esistenti cancellate: \" & deletedCount_i & vbCrLf & deleted_Macros_s, vbInMACROation\n                      End If\n                  \n                      ' Scrivo nel file di log il riepilogo finale\n                      Print #logFile, \"Importazione completata con \" & importedCount_i & \" MACROs importate.\"\n                      Close #logFile\n                  \n                      ' Pulizia delle variabili del db e della collection MACROs\n                      Set db = Nothing\n                      Set Macros_Collection = Nothing\n                      \n                '//---------------------------------------------------------------------------//\n                \n          End If '//If Bool1 = False Then = Progetto esterno\n      \n    '//===========================================================================================================================//\n    '//             ATTIVAZIONE CICLO DI IMPORTAZIONE DAL PROGETTO ESTERNO        *** FINE ****\n    '//===========================================================================================================================//\n    \n    \n'// USCITA E GESTIONE ERRORI\n'//---------------------------------------------------------------------------------------------------------//\n\nExit Sub\n    \nErrorHandler:\n    ' Gestione degli errori con messaggio a video e scrittura nel log\n    MsgBox \"Errore durante l'importazione: \" & Err.Description, vbCritical\n    Print #logFile, \"Errore durante l'importazione: \" & Err.Description\n    If Not sourceDB Is Nothing Then sourceDB.Close\n    Close #logFile\n    Set sourceDB = Nothing\n    Set ws = Nothing\nEnd Sub\n\n\n'//CONTROLLO_ESISTEMA_MACRO(efficientata la procedura con l'interrogazione sulla tabella MSysObjects per il controllo delle MACRO esterne)\n'//FUNZIONE DI CONTROLLO SE ESISTE L'OGGETTO MACRO\nFunction ObjectExists_MACRO(db As DAO.Database, objType As Integer, objName As String) As Boolean\n    Dim rs As DAO.Recordset\n    Dim MACROExists As Boolean\n    \n    \n    MACROExists = False\n    On Error Resume Next\n    '//FILTRO CONTROLLO ESISTENZA MACRO\n    Set rs = db.OpenRecordset(\"SELECT Name FROM MSysObjects WHERE Type=-32766 AND Name='\" & objName & \"'\")\n    If Not rs.EOF Then\n        MACROExists = True\n    End If\n    rs.Close\n    Set rs = Nothing\n    ObjectExists_MACRO = MACROExists\n    On Error GoTo 0\nEnd Function\n'//IMPORTA TUTTI GLI OGGETTI MACRO DEL DB MSYSDBEST *** FINE ***\n'//----------------------------------------------------------------------------------------//\n\n\n\n\n\n\n'//=====================================================================================================================//\n'//                     CMD_IMPORTA OGGETTI MACRO DEL DB ESTERNO *** FINE ***\n'//                     @IMPORTA@OGGETTI@MACRO@MSYS\n'//=====================================================================================================================//\n\n\n",
+			"contents": "\n\n\n\n'//=====================================================================================================================//\n'//                     CMD_IMPORTA OGGETTI TABELLE DEL DB ESTERNO *** INIZIO ***\n'//                     @IMPORTA@OGGETTI@TABELLE@MSYS\n'//=====================================================================================================================//\n\n\n\n'//IMPORTA TUTTI GLI OGGETTI TABELLE DEL DB MSYSDBEST - LE ATTIVITA\n'//----------------------------------------------------------------------------------------//\n'//@01_@IMPORTA@TABELLE@DIM                  -------------------> DIM VARIABILI\n'//@02_@IMPORTA@TABELLE@REST                 -------------------> RESET DELLE VARIABILI\n'//@03_@IMPORTA@TABELLE@LOG                  -------------------> LOG FILE INIZIALE\n'//@04_@IMPORTA@TABELLE@COLL                 -------------------> RECUPERO COLLECTION DA IMPORTARE\n'//@05_@IMPORTA@@TABELLECONTROLLO 1          -------------------> CONTROLLO 1 ESISTONO OGGETTI COLLECTION\n'//@06_@IMPORTA@TABELLE@CONTROLLO 2          -------------------> CONTROLLO 2 ESISTE PATH VALIDA\n'//@07_@IMPORTA@TABELLE@CONTROLLO 3          -------------------> CONTROLLO 3 PATH NULL EXIT\n'//@08_@IMPORTA@TABELLE@CONTROLLO 4          -------------------> CONTROLLO 4 SE DB NULL EXIT\n'//@09_@IMPORTA@TABELLE@AVVISI+MSG           -------------------> AVVISI E IMPOSTAZIONE MESSAGGIO FINALE\n'//@10_@IMPORTA@TABELLE@PROGRSESSBAR_01      -------------------> PROGRESS BAR STEP 01 RECUPERO PARAMETRI\n'//@11_@IMPORTA@TABELLE@CONTROLLO_PROG       -------------------> CONTROLLO SE STIAMO NEL PROGETTO ESTERNO\n'//@12_@IMPORTA@TABELLE@PROG@CICLO           -------------------> NEL PROGETTO ESTERNO CICLO NEGLI OGGETTI\n'//@13_@IMPORTA@TABELLE@PROG@CONTR_01        -------------------> CONTROLLO 1 SE ESTE OGGETTO DA IMPORTARE\n'//@14_@IMPORTA@TABELLE@PROG@IMPORT          -------------------> IMPORTAZIONE DELL'OGGETTO DAL DB ESTERNO\n'//@15_@IMPORTA@TABELLE@PROGRSESSBAR_02      -------------------> PROGRESS BAR STEP 02 CALCOLO ED INVIO PARAMETRI\n'//@15.BIS_@IMPORTA@TABELLE@PROGRESSBAR_CALL -------------------> VIENE CHIAMATA LA PROGRESS BAR CON I PARAMETRI\n'//@16_@IMPORTA@TABELLE@LOG@FILE             -------------------> SE IL FILE NON VIENE TROVATO SCRITTURAZIONE LOG\n'//@17_@IMPORTA@TABELLE@CLOSE                -------------------> CHIUSURA CON RITARDO DELLA PROGRESS BAR\n'//@18_@IMPORTA@TABELLE@NOTHING              -------------------> IMPOSTO A NULL TUTTI GLI OGGETTI\n\n\nPrivate Sub Cmd_Importa_TABELLE_Click()\n    \n    '//@01_@IMPORTA@TABELLE@DIM                  -------------------> DIM VARIABILI\n    ' Dichiarazione delle variabili\n    '//oggetti TABELLE e variabile nome TABELLE\n    Dim TABLE_Collection As Collection                       '//oggetti collezione\n    Dim TABLE_Name_v As Variant\n    Dim deleted_TABLE_s As String\n    Dim imported_TABLE_s As String\n    Dim myTABLE_Name_s As String\n    \n    '//il database + path\n    Dim sourceDB As DAO.Database\n    Dim db As DAO.Database\n    Dim ws As DAO.Workspace\n    Dim sourceDBPath As String\n    \n    '//contatori oggetti: TOTALE OGGETTI PREVISTI; da importare e cancellare\n    Dim TotCollection_TABLE_i As Integer                          '//totale degli oggetti TABELLE della collezione da importare\n    Dim importedCount_i As Integer                              '//oggetti importati\n    Dim deletedCount_i As Integer                               '//oggetti cancellati\n    \n    \n    '//bool e log file\n    Dim Bool1 As Boolean\n    Dim MyValue As Integer\n    Dim logFile As Integer\n    \n    On Error GoTo ErrorHandler\n    \n    '//@02_@IMPORTA@TABELLE@REST                 -------------------> RESET DELLE VARIABILI\n    '//RESET = Inizializza i contatori e le stringhe di riepilogo\n    TotCollection_TABLE_i = 0\n    importedCount_i = 0\n    deletedCount_i = 0\n    deleted_TABLE_s = \"\"\n    imported_TABLE_s = \"\"\n    TotPerc_dbl = 0\n    ProgressPercentTwips_dbl = 0\n    \n    '//@03_@IMPORTA@TABELLE@LOG                  -------------------> LOG FILE INIZIALE\n    '@FILE@LOG@TABELLE: Apre il file di log per scrivere i dettagli dell'importazione apre nella path corrente.\n    logFile = FreeFile()\n    Open CurrentProject.PATH & \"\\LOG_IMPORTA_TABELLE.TXT\" For Output As #logFile\n    Print #logFile, \"Log Importazione TABELLE - \" & Now\n    Print #logFile, \"------------------------------------------------\"\n    Print #logFile,\n    \n    '//@04_@IMPORTA@TABELLE@COLL                 -------------------> RECUPERO COLLECTION DA IMPORTARE\n    'Recupero la collezione di TABELLE da importare\n      Set TABLE_Collection = CollectionTABELLE_PFunct()\n      \n    '//@05_@IMPORTA@@TABELLECONTROLLO 1          -------------------> CONTROLLO 1 ESISTONO OGGETTI COLLECTION\n    '//se non esistono oggetti collection EXIT\n    If TABLE_Collection.Count = 0 Then\n        Print #logFile, \"Nessuna TABELLE da importare.\"\n        Close #logFile\n        '//Prima di uscire restto l'oggetto collection\n        Set TABLE_Collection = Nothing\n        Exit Sub\n    End If\n    \n    '//@06_@IMPORTA@TABELLE@CONTROLLO 2          -------------------> CONTROLLO 2 ESISTE PATH VALIDA\n    '//RECUPERO LA PATH =  Controllo se il percorso del database di origine è valido\n    sourceDBPath = PathFile_s_pFunct\n    \n    '//@07_@IMPORTA@TABELLE@CONTROLLO 3          -------------------> CONTROLLO 3 PATH NULL EXIT\n    If sourceDBPath = \"\" Then\n        MsgBox \"Errore: path e file nulli.\", vbCritical\n        Print #logFile, \"Errore: path e file nulli.\"\n        Close #logFile\n        Exit Sub\n    End If\n    \n    '//@08_@IMPORTA@TABELLE@CONTROLLO 4          -------------------> CONTROLLO 4 SE DB NULL EXIT\n    '//SE NON ESISTE IL FILE DB = Controllo se il file del database di origine esiste\n    If Dir(sourceDBPath) = \"\" Then\n        MsgBox \"Errore: il file del database di origine non esiste.\", vbCritical\n        Print #logFile, \"Errore: il file del database di origine non esiste.\"\n        Close #logFile\n        Exit Sub\n    End If\n    \n    '//@09_@IMPORTA@TABELLE@AVVISI+MSG           -------------------> AVVISI E IMPOSTAZIONE MESSAGGIO FINALE\n    '//.......................................................................................//\n      '//AVVISI MESSAGGIO IMPOSTATO = TRUE - >  Controllo del valore di avviso\n      MyValue = CheckAvviso_i_PFunct(Me.ctr_AVVISO_ABILITATO_TXT)\n      If MyValue = 0 Then Exit Sub\n      \n      '//CONTROLLO NOME PROGETTO =  Controllo del nome del progetto\n      Bool1 = CheckProjectName_b_PFunct()\n      If Bool1 = True Then Exit Sub\n      \n    '//.......................................................................................//\n    \n    \n        '//@10_@IMPORTA@TABELLE@PROGRSESSBAR_01      -------------------> PROGRESS BAR STEP 01 RECUPERO PARAMETRI\n        '//@PROGRESBAR_STEP_01=ATTIVO LA PROGRESS BAR CHIAMANDO ANCHE LE 4 FUNZIONI PER RECUPERARE I PARAMETRI  @progress@bar\n        '//********************************************************************************************************************//\n        '//@PROGRES@BAR@FASE_01_(imposto le variabili e recupero i valori dalle funzioni)\n        \n                \n                '//NOTE: devi creare 4 funzioni per avere i 4 parametri per chiamare la progress bar: _\n                     @01)@IMPOSTO@VARIABILE@NUMERO_COLLECTION          ----> recupero il NroCollection_i _\n                     @02)@FUNZIONE@NUMERO@TWIPS                        ----> restituisce Twips_dbl _\n                     @03)@FUNZIONE@PERCENTUALE_INCREMENTO              ----> restituisce PercIncr_dbl _\n                     @04)@FUNZIONE@TIPO_IMPORT                         ----> RESTITUISCE TipoImport_s _\n                     @05)@ROUTINE_APRI_LA_PROGRES_BAR                  ----> RESTITUISCE NULL\n                     \n             \n                  \n                      '//@01)@IMPOSTO@VARIABILE@NUMERO_COLLECTION          ----> recupero il NroCollection_i _\n                             Imposto il totale oggetti TABELLE da importare se esistono\n                      TotCollection_TABLE_i = TABLE_Collection.Count\n             \n                    \n                    '//@02)@FUNZIONE@NUMERO@TWIPS                        ----> restituisce Twips_dbl\n                       Twips_dbl = Calcola_Twips_pFunct(TotCollection_TABLE_i)\n                    \n                    '//@03)@FUNZIONE@PERCENTUALE_INCREMENTO              ----> restituisce PercIncr_dbl _\n                     '//chiama la funzione percentuale incremento e ne restituisce la _\n                         percentuale come double\n                     PercIncr_dbl = PercentualeIncremento_pFunct(TotCollection_TABLE_i)             '//calcolo il numero di collection TABELLE da controllare\n         \n                     '//@04)@FUNZIONE@TIPO_IMPORT                         ----> RESTITUISCE TipoImport_s _\n                     '//chiama la funzione TIPO IMPORT\n                         TipoImport_s = TipoImport_pFunct(\"\\LOG_IMPORTA_TABELLE.TXT\")\n         \n                     \n                     '//@05)@ROUTINE_APRI_LA_PROGRES_BAR                  ----> RESTITUISCE NULL\n                         '//Apri la TABELLE della progressBar\n                         '//\n                             Call ApriProgressBar\n                             ' Aspetta che il TABELLE sia effettivamente caricato\n                              DoEvents\n                         \n        '//@PROGRESBAR_STEP_01=ATTIVO LA PROGRESS BAR CHIAMANDO ANCHE LE 4 FUNZIONI PER RECUPERARE I PARAMETRI *** FINE ***\n        '//********************************************************************************************************************//\n    \n    \n    '//===========================================================================================================================//\n    '//             ATTIVAZIONE CICLO DI IMPORTAZIONE DAL PROGETTO ESTERNO        *** INIZIO ****\n    '//===========================================================================================================================//\n            \n          '//@11_@IMPORTA@TABELLE@CONTROLLO_PROG       -------------------> CONTROLLO SE STIAMO NEL PROGETTO ESTERNO\n          ' Se siamo su un progetto esterno (Bool1 = False), procedo con l'importazione\n          If Bool1 = False Then\n                ' Apertura del database di origine e connessione al database corrente\n                Set ws = DBEngine.Workspaces(0)\n                Set sourceDB = ws.OpenDatabase(sourceDBPath)\n                Set db = CurrentDb\n                \n                \n                '//reset\n                ProgressPercentTwips_dbl = 0\n                \n                \n                '//@12_@IMPORTA@TABELLE@PROG@CICLO           -------------------> NEL PROGETTO ESTERNO CICLO NEGLI OGGETTI\n                ' Ciclo attraverso la collezione di TABELLE da importare\n                For Each TABLE_Name_v In TABLE_Collection\n                    myTABLE_Name_s = TABLE_Name_v\n                    \n                    '//@13_@IMPORTA@TABELLE@PROG@CONTR_01        -------------------> CONTROLLO 1 SE ESTE OGGETTO DA IMPORTARE\n                    ' Controllo se la TABELLE esiste nel database di origine\n                    If ObjectExists_TABELLE(sourceDB, acTABELLE, myTABLE_Name_s) Then\n                        ' Se la TABELLE esiste nel database corrente, la elimino prima di importarla\n                        If ObjectExists_TABELLE(db, acTABELLE, myTABLE_Name_s) Then\n                            DoCmd.DeleteObject acTABELLE, myTABLE_Name_s\n                            deletedCount_i = deletedCount_i + 1\n                            deleted_TABLE_s = deleted_TABLE_s & myTABLE_Name_s & vbCrLf\n                            Print #logFile, \"TABELLE eliminata: \" & myTABLE_Name_s\n                             \n                              \n                        End If\n                        \n                          '//@14_@IMPORTA@TABELLE@PROG@IMPORT          -------------------> IMPORTAZIONE DELL'OGGETTO DAL DB ESTERNO\n                          ' Importazione della TABELLE dal database di origine\n                          DoCmd.TransferDatabase acImport, \"Microsoft Access\", sourceDBPath, acTABELLE, myTABLE_Name_s, myTABLE_Name_s\n                          importedCount_i = importedCount_i + 1\n                          imported_TABLE_s = imported_TABLE_s & myTABLE_Name_s & vbCrLf\n                          \n                          '//SCRIVO SUL @FILE@LOG\n                          Print #logFile, \"NRO: \" & importedCount_i & \" TABELLE importata: \" & myTABLE_Name_s\n                          \n                              \n                        '//@15_@IMPORTA@TABELLE@PROGRSESSBAR_02      -------------------> PROGRESS BAR STEP 02 CALCOLO ED INVIO PARAMETRI\n                        '//@PROGRESBAR_STEP_02= CALCOLO PARAMETRI ED INVIO DATI ALLA FUNZIONE DI AGGIORNAMENTO   @progress@bar\n                        '//********************************************************************************************************************//\n                        '//NOTE: impostazioni e recupero valori dalla funzioni base per la progress bar.\n                            \n                              '// RECUPERO il messaggio tipo di importazione delle collection e numero di oggetti da importare .\n                                TipoImport_s = \"TABELLE IMPORTATE NRO : \" & importedCount_i & \" su TOTALE OGGETTI: \" & TotCollection_TABLE_i       '// STRINGA MESSAGGIO PER IL TIPO DI IMPORTAZIONE E NRO OGGETTI\n                                \n                                '//LA PERCENTUALE INCREMENTATA = totale di incremento % per ogni oggetto importato\n                                TotPerc_dbl = TotPerc_dbl + PercIncr_dbl\n                                \n                                '//TOTALE % DI INCREMENTO IN TWIPS, con la ProgressPercentTwips_dbl è la variabile che indica la %di incremento per ogni oggetto + i _\n                                   twips necessari per ogni elemento (su 10 totale della barra)\n                                ProgressPercentTwips_dbl = ProgressPercentTwips_dbl + (PercIncr_dbl + Twips_dbl)          '//la % di accrescimento barra\n                                \n                                '//TODO: DA CANCELLARE...\n                                'Dbl1 = Dbl1 + Twips_dbl                                         '//twips di aumento barra\n                                \n                                \n                                          '//@15.BIS_@IMPORTA@TABELLE@PROGRESSBAR_CALL -------------------> VIENE CHIAMATA LA PROGRESS BAR CON I PARAMETRI\n                                          '//CHIAMO LA FUNZIONE @AGGIORNA@PROGRESS@BAR\n                                          '//.................................................................//\n                                          '//note: chiamo la routine di aggiornamento della progress bar che _\n                                              puo essere utilizzata per ulteriori integrazioni di calcolo. _\n                                              Devo inviare ma devo inviare 5 parametri : _\n                                                  TotCollection_TABLE_i       = il TOTALE POTENZIALE degli oggetti da importare _\n                                                  NroCollection_i           = il numero della collezione per il calcolo; _\n                                                  Twips                     = i twip di incremento _\n                                                  ProgressPercentTwips_dbl  =  La percentuale di incremento ( ProgressPercentTwips_dbl = ProgressPercentTwips_dbl + PercIncr_dbl) _\n                                                  TipoImport_s              = il tipo di importazione\n                                                  \n                                              AggiornaProgressBar _\n                                                          TotCollection_TABLE_i, _\n                                                          ProgressPercentTwips_dbl, _\n                                                          Twips_dbl, _\n                                                          TotPerc_dbl, _\n                                                          TipoImport_s\n                                          '//.................................................................//\n        \n                               \n                                T = Timer\n                                While Timer < T + 0.001\n                                    DoEvents  ' Continua a gestire gli eventi durante l'attesa\n                                Wend\n                          \n                                  \n                        '//@PROGRESBAR_STEP_02= CALCOLO PARAMETRI ED INVIO DATI ALLA FUNZIONE DI AGGIORNAMENTO   *** FINE ***\n                        '//********************************************************************************************************************//\n        \n            \n                        \n                    Else\n                        \n                        '//@16_@IMPORTA@TABELLE@LOG@FILE             -------------------> SE IL FILE NON VIENE TROVATO SCRITTURAZIONE LOG\n                        ' Se la TABELLE non esiste nel database di origine, lo scrivo nel log\n                        Print #logFile, \"TABELLE non trovata nel database di origine: \" & myTABLE_Name_s\n                    End If\n                \n                Next TABLE_Name_v\n        \n        \n                                        \n                        '//@17_@IMPORTA@TABELLE@CLOSE                -------------------> CHIUSURA CON RITARDO DELLA PROGRESS BAR\n                        '//CHIUSURA CON RITARDO DELLA BARRA DI PROGRESSIONE @progress@bar\n                        '//---------------------------------------------------------------------------//\n                    \n                                        T = Timer\n                                        \n                                        '// RITARDO CHIUSURA DI 5 SECONDI\n                                        While Timer < T + 5\n                                            DoEvents  ' Continua a gestire gli eventi durante l'attesa\n                                        Wend\n                                        \n                                        ' Chiudi la TABELLE frmProgressBar\n                                        DoCmd.Close acForm, \"frmProgressBar\", acSaveNo\n                                        \n                        '//---------------------------------------------------------------------------//\n                        \n                        \n                        \n                '//@18_@IMPORTA@TABELLE@NOTHING              -------------------> IMPOSTO A NULL TUTTI GLI OGGETTI\n                '//---------------------------------------------------------------------------//\n                ' Chiudo il database di origine\n                        Set frm_obj = Nothing                 ' Rilascia il riferimento al TABELLE PROGRES BARR\n                      \n                      '//chiudo il db\n                      sourceDB.Close\n                      Set sourceDB = Nothing\n                      Set ws = Nothing\n                  \n                      ' Messaggio finale con riepilogo delle operazioni\n                      If Me.ctr_AVVISO_ABILITATO_TXT = True Then\n                          MsgBox \"Importazione completata.\" & vbCrLf & _\n                              \"TABLE importate: \" & importedCount_i & vbCrLf & imported_TABLE_s & _\n                              \"TABLE esistenti cancellate: \" & deletedCount_i & vbCrLf & deleted_TABLE_s, vbInTABELLEation\n                      End If\n                  \n                      ' Scrivo nel file di log il riepilogo finale\n                      Print #logFile, \"Importazione completata con \" & importedCount_i & \" TABLE importate.\"\n                      Close #logFile\n                  \n                      ' Pulizia delle variabili del db e della collection TABLE\n                      Set db = Nothing\n                      Set TABLE_Collection = Nothing\n                      \n                '//---------------------------------------------------------------------------//\n                \n          End If '//If Bool1 = False Then = Progetto esterno\n      \n    '//===========================================================================================================================//\n    '//             ATTIVAZIONE CICLO DI IMPORTAZIONE DAL PROGETTO ESTERNO        *** FINE ****\n    '//===========================================================================================================================//\n    \n    \n'// USCITA E GESTIONE ERRORI\n'//---------------------------------------------------------------------------------------------------------//\n\nExit Sub\n    \nErrorHandler:\n    ' Gestione degli errori con messaggio a video e scrittura nel log\n    MsgBox \"Errore durante l'importazione: \" & Err.Description, vbCritical\n    Print #logFile, \"Errore durante l'importazione: \" & Err.Description\n    If Not sourceDB Is Nothing Then sourceDB.Close\n    Close #logFile\n    Set sourceDB = Nothing\n    Set ws = Nothing\nEnd Sub\n\n\n'//CONTROLLO_ESISTEMA_TABELLE(efficientata la procedura con l'interrogazione sulla tabella MSysObjects per il controllo delle TABELLE esterne)\n'//FUNZIONE DI CONTROLLO SE ESISTE L'OGGETTO TABELLE\nFunction ObjectExists_TABELLE(db As DAO.Database, objType As Integer, objName As String) As Boolean\n    Dim rs As DAO.Recordset\n    Dim TABELLEExists As Boolean\n    \n    \n    TABELLEExists = False\n    On Error Resume Next\n    '//FILTRO CONTROLLO ESISTENZA TABELLE\n    Set rs = db.OpenRecordset(\"SELECT Name FROM MSysObjects WHERE Type=-32766 AND Name='\" & objName & \"'\")\n    If Not rs.EOF Then\n        TABELLEExists = True\n    End If\n    rs.Close\n    Set rs = Nothing\n    ObjectExists_TABELLE = TABELLEExists\n    On Error GoTo 0\nEnd Function\n'//IMPORTA TUTTI GLI OGGETTI TABELLE DEL DB MSYSDBEST *** FINE ***\n'//----------------------------------------------------------------------------------------//\n\n\n\n\n\n\n'//=====================================================================================================================//\n'//                     CMD_IMPORTA OGGETTI TABELLE DEL DB ESTERNO *** FINE ***\n'//                     @IMPORTA@OGGETTI@TABELLE@MSYS\n'//=====================================================================================================================//\n\n",
+			"file": "OBJECT/MODULI/IMPORTA_TABELLE.MD",
+			"file_size": 18,
+			"file_write_time": 133862837964659309,
 			"settings":
 			{
-				"buffer_size": 22348,
-				"line_ending": "Windows"
-			},
-			"undo_stack":
-			[
-				[
-					43,
-					1,
-					"paste",
-					null,
-					"AQAAAAAAAAAAAAAAElcAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					67,
-					1,
-					"insert",
-					{
-						"characters": "_"
-					},
-					"BwAAAM5NAAAAAAAAz00AAAAAAAAAAAAA9CkAAAAAAAD1KQAAAAAAAAAAAAABHwAAAAAAAAIfAAAAAAAAAAAAABITAAAAAAAAExMAAAAAAAAAAAAAYhIAAAAAAABjEgAAAAAAAAAAAACNEQAAAAAAAI4RAAAAAAAAAAAAAFsKAAAAAAAAXAoAAAAAAAAAAAAA",
-					"AQAAAAAAAAAHAAAAWwoAAAAAAABbCgAAAAAAAAAAAAAAAPC/jREAAAAAAACNEQAAAAAAAAAAAAAAAPC/YhIAAAAAAABiEgAAAAAAAAAAAAAAAPC/EhMAAAAAAAASEwAAAAAAAAAAAAAAAPC/AR8AAAAAAAABHwAAAAAAAAAAAAAAAPC/9CkAAAAAAAD0KQAAAAAAAAAAAAAAAPC/zk0AAAAAAADOTQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					82,
-					1,
-					"insert",
-					{
-						"characters": "m"
-					},
-					"CAAAAH9DAAAAAAAAgEMAAAAAAAAAAAAAgEMAAAAAAACAQwAAAAAAAAUAAABNQUNSTykqAAAAAAAAKioAAAAAAAAAAAAAKioAAAAAAAAqKgAAAAAAAAUAAABNQUNST+QpAAAAAAAA5SkAAAAAAAAAAAAA5SkAAAAAAADlKQAAAAAAAAUAAABNQUNST6kKAAAAAAAAqgoAAAAAAAAAAAAAqgoAAAAAAACqCgAAAAAAAAUAAABNQUNSTw",
-					"AQAAAAAAAAAEAAAArgoAAAAAAACpCgAAAAAAAAAAAAAAAPC/6SkAAAAAAADkKQAAAAAAAAAAAAAAAPC/LioAAAAAAAApKgAAAAAAAAAAAAAAAPC/hEMAAAAAAAB/QwAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					83,
-					1,
-					"left_delete",
-					null,
-					"BAAAAHNDAAAAAAAAc0MAAAAAAAABAAAAbSEqAAAAAAAAISoAAAAAAAABAAAAbeApAAAAAAAA4CkAAAAAAAABAAAAbakKAAAAAAAAqQoAAAAAAAABAAAAbQ",
-					"AQAAAAAAAAAEAAAAqgoAAAAAAACqCgAAAAAAAAAAAAAAAPC/4SkAAAAAAADhKQAAAAAAAAAAAAAAAPC/IioAAAAAAAAiKgAAAAAAAAAAAAAAAPC/dEMAAAAAAAB0QwAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					84,
-					1,
-					"insert",
-					{
-						"characters": "Macros_"
-					},
-					"HAAAAHBDAAAAAAAAcUMAAAAAAAAAAAAAHyoAAAAAAAAgKgAAAAAAAAAAAADfKQAAAAAAAOApAAAAAAAAAAAAAKkKAAAAAAAAqgoAAAAAAAAAAAAAdEMAAAAAAAB1QwAAAAAAAAAAAAAiKgAAAAAAACMqAAAAAAAAAAAAAOEpAAAAAAAA4ikAAAAAAAAAAAAAqgoAAAAAAACrCgAAAAAAAAAAAAB4QwAAAAAAAHlDAAAAAAAAAAAAACUqAAAAAAAAJioAAAAAAAAAAAAA4ykAAAAAAADkKQAAAAAAAAAAAACrCgAAAAAAAKwKAAAAAAAAAAAAAHxDAAAAAAAAfUMAAAAAAAAAAAAAKCoAAAAAAAApKgAAAAAAAAAAAADlKQAAAAAAAOYpAAAAAAAAAAAAAKwKAAAAAAAArQoAAAAAAAAAAAAAgEMAAAAAAACBQwAAAAAAAAAAAAArKgAAAAAAACwqAAAAAAAAAAAAAOcpAAAAAAAA6CkAAAAAAAAAAAAArQoAAAAAAACuCgAAAAAAAAAAAACEQwAAAAAAAIVDAAAAAAAAAAAAAC4qAAAAAAAALyoAAAAAAAAAAAAA6SkAAAAAAADqKQAAAAAAAAAAAACuCgAAAAAAAK8KAAAAAAAAAAAAAIhDAAAAAAAAiUMAAAAAAAAAAAAAMSoAAAAAAAAyKgAAAAAAAAAAAADrKQAAAAAAAOwpAAAAAAAAAAAAAK8KAAAAAAAAsAoAAAAAAAAAAAAA",
-					"AQAAAAAAAAAEAAAAqQoAAAAAAACpCgAAAAAAAAAAAAAAAPC/3ykAAAAAAADfKQAAAAAAAAAAAAAAAPC/HyoAAAAAAAAfKgAAAAAAAAAAAAAAAPC/cEMAAAAAAABwQwAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					91,
-					1,
-					"insert",
-					{
-						"characters": "_"
-					},
-					"BQAAABJMAAAAAAAAE0wAAAAAAAAAAAAA1iwAAAAAAADXLAAAAAAAAAAAAADELAAAAAAAAMUsAAAAAAAAAAAAAMUOAAAAAAAAxg4AAAAAAAAAAAAA0QoAAAAAAADSCgAAAAAAAAAAAAA",
-					"AQAAAAAAAAAFAAAA0QoAAAAAAADRCgAAAAAAAAAAAAAAAPC/xQ4AAAAAAADFDgAAAAAAAAAAAAAAAPC/xCwAAAAAAADELAAAAAAAAAAAAAAAAPC/1iwAAAAAAADWLAAAAAAAAAAAAAAAAPC/EkwAAAAAAAASTAAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					96,
-					1,
-					"paste",
-					null,
-					"AgAAAAAAAAAAAAAATFcAAAAAAAAAAAAATFcAAAAAAABMVwAAAAAAAChXAAAKJy8vPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09Ly8KJy8vICAgICAgICAgICAgICAgICAgICAgQ01EX0lNUE9SVEEgT0dHRVRUSSBNQUNSTyBERUwgREIgRVNURVJOTyAqKiogSU5JWklPICoqKgonLy8gICAgICAgICAgICAgICAgICAgICBASU1QT1JUQUBPR0dFVFRJQE1BQ1JPQE1TWVMKJy8vPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09Ly8KCgoKJy8vSU1QT1JUQSBUVVRUSSBHTEkgT0dHRVRUSSBNQUNSTyBERUwgREIgTVNZU0RCRVNUIC0gTEUgQVRUSVZJVEEKJy8vLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS8vCicvL0AwMV9ASU1QT1JUQUBNQUNST0BESU0gICAgICAgICAgICAgICAgICAtLS0tLS0tLS0tLS0tLS0tLS0tPiBESU0gVkFSSUFCSUxJCicvL0AwMl9ASU1QT1JUQUBNQUNST0BSRVNUICAgICAgICAgICAgICAgICAtLS0tLS0tLS0tLS0tLS0tLS0tPiBSRVNFVCBERUxMRSBWQVJJQUJJTEkKJy8vQDAzX0BJTVBPUlRBQE1BQ1JPQExPRyAgICAgICAgICAgICAgICAgIC0tLS0tLS0tLS0tLS0tLS0tLS0+IExPRyBGSUxFIElOSVpJQUxFCicvL0AwNF9ASU1QT1JUQUBNQUNST0BDT0xMICAgICAgICAgICAgICAgICAtLS0tLS0tLS0tLS0tLS0tLS0tPiBSRUNVUEVSTyBDT0xMRUNUSU9OIERBIElNUE9SVEFSRQonLy9AMDVfQElNUE9SVEFAQE1BQ1JPQ09OVFJPTExPIDEgICAgICAgICAgLS0tLS0tLS0tLS0tLS0tLS0tLT4gQ09OVFJPTExPIDEgRVNJU1RPTk8gT0dHRVRUSSBDT0xMRUNUSU9OCicvL0AwNl9ASU1QT1JUQUBNQUNST0BDT05UUk9MTE8gMiAgICAgICAgICAtLS0tLS0tLS0tLS0tLS0tLS0tPiBDT05UUk9MTE8gMiBFU0lTVEUgUEFUSCBWQUxJREEKJy8vQDA3X0BJTVBPUlRBQE1BQ1JPQENPTlRST0xMTyAzICAgICAgICAgIC0tLS0tLS0tLS0tLS0tLS0tLS0+IENPTlRST0xMTyAzIFBBVEggTlVMTCBFWElUCicvL0AwOF9ASU1QT1JUQUBNQUNST0BDT05UUk9MTE8gNCAgICAgICAgICAtLS0tLS0tLS0tLS0tLS0tLS0tPiBDT05UUk9MTE8gNCBTRSBEQiBOVUxMIEVYSVQKJy8vQDA5X0BJTVBPUlRBQE1BQ1JPQEFWVklTSStNU0cgICAgICAgICAgIC0tLS0tLS0tLS0tLS0tLS0tLS0+IEFWVklTSSBFIElNUE9TVEFaSU9ORSBNRVNTQUdHSU8gRklOQUxFCicvL0AxMF9ASU1QT1JUQUBNQUNST0BQUk9HUlNFU1NCQVJfMDEgICAgICAtLS0tLS0tLS0tLS0tLS0tLS0tPiBQUk9HUkVTUyBCQVIgU1RFUCAwMSBSRUNVUEVSTyBQQVJBTUVUUkkKJy8vQDExX0BJTVBPUlRBQE1BQ1JPQENPTlRST0xMT19QUk9HICAgICAgIC0tLS0tLS0tLS0tLS0tLS0tLS0+IENPTlRST0xMTyBTRSBTVElBTU8gTkVMIFBST0dFVFRPIEVTVEVSTk8KJy8vQDEyX0BJTVBPUlRBQE1BQ1JPQFBST0dAQ0lDTE8gICAgICAgICAgIC0tLS0tLS0tLS0tLS0tLS0tLS0+IE5FTCBQUk9HRVRUTyBFU1RFUk5PIENJQ0xPIE5FR0xJIE9HR0VUVEkKJy8vQDEzX0BJTVBPUlRBQE1BQ1JPQFBST0dAQ09OVFJfMDEgICAgICAgIC0tLS0tLS0tLS0tLS0tLS0tLS0+IENPTlRST0xMTyAxIFNFIEVTVEUgT0dHRVRUTyBEQSBJTVBPUlRBUkUKJy8vQDE0X0BJTVBPUlRBQE1BQ1JPQFBST0dASU1QT1JUICAgICAgICAgIC0tLS0tLS0tLS0tLS0tLS0tLS0+IElNUE9SVEFaSU9ORSBERUxMJ09HR0VUVE8gREFMIERCIEVTVEVSTk8KJy8vQDE1X0BJTVBPUlRBQE1BQ1JPQFBST0dSU0VTU0JBUl8wMiAgICAgIC0tLS0tLS0tLS0tLS0tLS0tLS0+IFBST0dSRVNTIEJBUiBTVEVQIDAyIENBTENPTE8gRUQgSU5WSU8gUEFSQU1FVFJJCicvL0AxNS5CSVNfQElNUE9SVEFATUFDUk9AUFJPR1JFU1NCQVJfQ0FMTCAtLS0tLS0tLS0tLS0tLS0tLS0tPiBWSUVORSBDSElBTUFUQSBMQSBQUk9HUkVTUyBCQVIgQ09OIEkgUEFSQU1FVFJJCicvL0AxNl9ASU1QT1JUQUBNQUNST0BMT0dARklMRSAgICAgICAgICAgICAtLS0tLS0tLS0tLS0tLS0tLS0tPiBTRSBJTCBGSUxFIE5PTiBWSUVORSBUUk9WQVRPIFNDUklUVFVSQVpJT05FIExPRwonLy9AMTdfQElNUE9SVEFATUFDUk9AQ0xPU0UgICAgICAgICAgICAgICAgLS0tLS0tLS0tLS0tLS0tLS0tLT4gQ0hJVVNVUkEgQ09OIFJJVEFSRE8gREVMTEEgUFJPR1JFU1MgQkFSCicvL0AxOF9ASU1QT1JUQUBNQUNST0BOT1RISU5HICAgICAgICAgICAgICAtLS0tLS0tLS0tLS0tLS0tLS0tPiBJTVBPU1RPIEEgTlVMTCBUVVRUSSBHTEkgT0dHRVRUSQoKClByaXZhdGUgU3ViIENtZF9JbXBvcnRhX01BQ1JPX0NsaWNrKCkKICAgIAogICAgJy8vQDAxX0BJTVBPUlRBQE1BQ1JPQERJTSAgICAgICAgICAgICAgICAgIC0tLS0tLS0tLS0tLS0tLS0tLS0+IERJTSBWQVJJQUJJTEkKICAgICcgRGljaGlhcmF6aW9uZSBkZWxsZSB2YXJpYWJpbGkKICAgICcvL29nZ2V0dGkgTUFDUk8gZSB2YXJpYWJpbGUgbm9tZSBNQUNSTwogICAgRGltIE1hY3Jvc19Db2xsZWN0aW9uIEFzIENvbGxlY3Rpb24gICAgICAgICAgICAgICAgICAgICAgICcvL29nZ2V0dGkgY29sbGV6aW9uZQogICAgRGltIE1hY3Jvc19OYW1lX3YgQXMgVmFyaWFudAogICAgRGltIGRlbGV0ZWRfTWFjcm9zX3MgQXMgU3RyaW5nCiAgICBEaW0gaW1wb3J0ZWRNYWNyb3NfcyBBcyBTdHJpbmcKICAgIERpbSBteU1BQ1JPTmFtZV9zIEFzIFN0cmluZwogICAgCiAgICAnLy9pbCBkYXRhYmFzZSArIHBhdGgKICAgIERpbSBzb3VyY2VEQiBBcyBEQU8uRGF0YWJhc2UKICAgIERpbSBkYiBBcyBEQU8uRGF0YWJhc2UKICAgIERpbSB3cyBBcyBEQU8uV29ya3NwYWNlCiAgICBEaW0gc291cmNlREJQYXRoIEFzIFN0cmluZwogICAgCiAgICAnLy9jb250YXRvcmkgb2dnZXR0aTogVE9UQUxFIE9HR0VUVEkgUFJFVklTVEk7IGRhIGltcG9ydGFyZSBlIGNhbmNlbGxhcmUKICAgIERpbSBUb3RDb2xsZWN0aW9uTUFDUk9zX2kgQXMgSW50ZWdlciAgICAgICAgICAgICAgICAgICAgICAgICAgJy8vdG90YWxlIGRlZ2xpIG9nZ2V0dGkgTUFDUk8gZGVsbGEgY29sbGV6aW9uZSBkYSBpbXBvcnRhcmUKICAgIERpbSBpbXBvcnRlZENvdW50X2kgQXMgSW50ZWdlciAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICcvL29nZ2V0dGkgaW1wb3J0YXRpCiAgICBEaW0gZGVsZXRlZENvdW50X2kgQXMgSW50ZWdlciAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAnLy9vZ2dldHRpIGNhbmNlbGxhdGkKICAgIAogICAgCiAgICAnLy9ib29sIGUgbG9nIGZpbGUKICAgIERpbSBCb29sMSBBcyBCb29sZWFuCiAgICBEaW0gTXlWYWx1ZSBBcyBJbnRlZ2VyCiAgICBEaW0gbG9nRmlsZSBBcyBJbnRlZ2VyCiAgICAKICAgIE9uIEVycm9yIEdvVG8gRXJyb3JIYW5kbGVyCiAgICAKICAgICcvL0AwMl9ASU1QT1JUQUBNQUNST0BSRVNUICAgICAgICAgICAgICAgICAtLS0tLS0tLS0tLS0tLS0tLS0tPiBSRVNFVCBERUxMRSBWQVJJQUJJTEkKICAgICcvL1JFU0VUID0gSW5pemlhbGl6emEgaSBjb250YXRvcmkgZSBsZSBzdHJpbmdoZSBkaSByaWVwaWxvZ28KICAgIFRvdENvbGxlY3Rpb25NQUNST3NfaSA9IDAKICAgIGltcG9ydGVkQ291bnRfaSA9IDAKICAgIGRlbGV0ZWRDb3VudF9pID0gMAogICAgZGVsZXRlZF9NYWNyb3NfcyA9ICIiCiAgICBpbXBvcnRlZE1hY3Jvc19zID0gIiIKICAgIFRvdFBlcmNfZGJsID0gMAogICAgUHJvZ3Jlc3NQZXJjZW50VHdpcHNfZGJsID0gMAogICAgCiAgICAnLy9AMDNfQElNUE9SVEFATUFDUk9ATE9HICAgICAgICAgICAgICAgICAgLS0tLS0tLS0tLS0tLS0tLS0tLT4gTE9HIEZJTEUgSU5JWklBTEUKICAgICdARklMRUBMT0dATUFDUk86IEFwcmUgaWwgZmlsZSBkaSBsb2cgcGVyIHNjcml2ZXJlIGkgZGV0dGFnbGkgZGVsbCdpbXBvcnRhemlvbmUgYXByZSBuZWxsYSBwYXRoIGNvcnJlbnRlLgogICAgbG9nRmlsZSA9IEZyZWVGaWxlKCkKICAgIE9wZW4gQ3VycmVudFByb2plY3QuUEFUSCAmICJcTE9HX0lNUE9SVEFfTUFDUk8uVFhUIiBGb3IgT3V0cHV0IEFzICNsb2dGaWxlCiAgICBQcmludCAjbG9nRmlsZSwgIkxvZyBJbXBvcnRhemlvbmUgTUFDUk8gLSAiICYgTm93CiAgICBQcmludCAjbG9nRmlsZSwgIi0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSIKICAgIFByaW50ICNsb2dGaWxlLAogICAgCiAgICAnLy9AMDRfQElNUE9SVEFATUFDUk9AQ09MTCAgICAgICAgICAgICAgICAgLS0tLS0tLS0tLS0tLS0tLS0tLT4gUkVDVVBFUk8gQ09MTEVDVElPTiBEQSBJTVBPUlRBUkUKICAgICdSZWN1cGVybyBsYSBjb2xsZXppb25lIGRpIE1BQ1JPIGRhIGltcG9ydGFyZQogICAgICBTZXQgTWFjcm9zX0NvbGxlY3Rpb24gPSBDb2xsZWN0aW9uTWFjcm9fUEZ1bmN0KCkKICAgICAgCiAgICAnLy9AMDVfQElNUE9SVEFAQE1BQ1JPQ09OVFJPTExPIDEgICAgICAgICAgLS0tLS0tLS0tLS0tLS0tLS0tLT4gQ09OVFJPTExPIDEgRVNJU1RPTk8gT0dHRVRUSSBDT0xMRUNUSU9OCiAgICAnLy9zZSBub24gZXNpc3Rvbm8gb2dnZXR0aSBjb2xsZWN0aW9uIEVYSVQKICAgIElmIE1hY3Jvc19Db2xsZWN0aW9uLkNvdW50ID0gMCBUaGVuCiAgICAgICAgUHJpbnQgI2xvZ0ZpbGUsICJOZXNzdW5hIE1BQ1JPIGRhIGltcG9ydGFyZS4iCiAgICAgICAgQ2xvc2UgI2xvZ0ZpbGUKICAgICAgICAnLy9QcmltYSBkaSB1c2NpcmUgcmVzdHRvIGwnb2dnZXR0byBjb2xsZWN0aW9uCiAgICAgICAgU2V0IE1hY3Jvc19Db2xsZWN0aW9uID0gTm90aGluZwogICAgICAgIEV4aXQgU3ViCiAgICBFbmQgSWYKICAgIAogICAgJy8vQDA2X0BJTVBPUlRBQE1BQ1JPQENPTlRST0xMTyAyICAgICAgICAgIC0tLS0tLS0tLS0tLS0tLS0tLS0+IENPTlRST0xMTyAyIEVTSVNURSBQQVRIIFZBTElEQQogICAgJy8vUkVDVVBFUk8gTEEgUEFUSCA9ICBDb250cm9sbG8gc2UgaWwgcGVyY29yc28gZGVsIGRhdGFiYXNlIGRpIG9yaWdpbmUgw6ggdmFsaWRvCiAgICBzb3VyY2VEQlBhdGggPSBQYXRoRmlsZV9zX3BGdW5jdAogICAgCiAgICAnLy9AMDdfQElNUE9SVEFATUFDUk9AQ09OVFJPTExPIDMgICAgICAgICAgLS0tLS0tLS0tLS0tLS0tLS0tLT4gQ09OVFJPTExPIDMgUEFUSCBOVUxMIEVYSVQKICAgIElmIHNvdXJjZURCUGF0aCA9ICIiIFRoZW4KICAgICAgICBNc2dCb3ggIkVycm9yZTogcGF0aCBlIGZpbGUgbnVsbGkuIiwgdmJDcml0aWNhbAogICAgICAgIFByaW50ICNsb2dGaWxlLCAiRXJyb3JlOiBwYXRoIGUgZmlsZSBudWxsaS4iCiAgICAgICAgQ2xvc2UgI2xvZ0ZpbGUKICAgICAgICBFeGl0IFN1YgogICAgRW5kIElmCiAgICAKICAgICcvL0AwOF9ASU1QT1JUQUBNQUNST0BDT05UUk9MTE8gNCAgICAgICAgICAtLS0tLS0tLS0tLS0tLS0tLS0tPiBDT05UUk9MTE8gNCBTRSBEQiBOVUxMIEVYSVQKICAgICcvL1NFIE5PTiBFU0lTVEUgSUwgRklMRSBEQiA9IENvbnRyb2xsbyBzZSBpbCBmaWxlIGRlbCBkYXRhYmFzZSBkaSBvcmlnaW5lIGVzaXN0ZQogICAgSWYgRGlyKHNvdXJjZURCUGF0aCkgPSAiIiBUaGVuCiAgICAgICAgTXNnQm94ICJFcnJvcmU6IGlsIGZpbGUgZGVsIGRhdGFiYXNlIGRpIG9yaWdpbmUgbm9uIGVzaXN0ZS4iLCB2YkNyaXRpY2FsCiAgICAgICAgUHJpbnQgI2xvZ0ZpbGUsICJFcnJvcmU6IGlsIGZpbGUgZGVsIGRhdGFiYXNlIGRpIG9yaWdpbmUgbm9uIGVzaXN0ZS4iCiAgICAgICAgQ2xvc2UgI2xvZ0ZpbGUKICAgICAgICBFeGl0IFN1YgogICAgRW5kIElmCiAgICAKICAgICcvL0AwOV9ASU1QT1JUQUBNQUNST0BBVlZJU0krTVNHICAgICAgICAgICAtLS0tLS0tLS0tLS0tLS0tLS0tPiBBVlZJU0kgRSBJTVBPU1RBWklPTkUgTUVTU0FHR0lPIEZJTkFMRQogICAgJy8vLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLy8KICAgICAgJy8vQVZWSVNJIE1FU1NBR0dJTyBJTVBPU1RBVE8gPSBUUlVFIC0gPiAgQ29udHJvbGxvIGRlbCB2YWxvcmUgZGkgYXZ2aXNvCiAgICAgIE15VmFsdWUgPSBDaGVja0F2dmlzb19pX1BGdW5jdChNZS5jdHJfQVZWSVNPX0FCSUxJVEFUT19UWFQpCiAgICAgIElmIE15VmFsdWUgPSAwIFRoZW4gRXhpdCBTdWIKICAgICAgCiAgICAgICcvL0NPTlRST0xMTyBOT01FIFBST0dFVFRPID0gIENvbnRyb2xsbyBkZWwgbm9tZSBkZWwgcHJvZ2V0dG8KICAgICAgQm9vbDEgPSBDaGVja1Byb2plY3ROYW1lX2JfUEZ1bmN0KCkKICAgICAgSWYgQm9vbDEgPSBUcnVlIFRoZW4gRXhpdCBTdWIKICAgICAgCiAgICAnLy8uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4vLwogICAgCiAgICAKICAgICAgICAnLy9AMTBfQElNUE9SVEFATUFDUk9AUFJPR1JTRVNTQkFSXzAxICAgICAgLS0tLS0tLS0tLS0tLS0tLS0tLT4gUFJPR1JFU1MgQkFSIFNURVAgMDEgUkVDVVBFUk8gUEFSQU1FVFJJCiAgICAgICAgJy8vQFBST0dSRVNCQVJfU1RFUF8wMT1BVFRJVk8gTEEgUFJPR1JFU1MgQkFSIENISUFNQU5ETyBBTkNIRSBMRSA0IEZVTlpJT05JIFBFUiBSRUNVUEVSQVJFIEkgUEFSQU1FVFJJICBAcHJvZ3Jlc3NAYmFyCiAgICAgICAgJy8vKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKiovLwogICAgICAgICcvL0BQUk9HUkVTQEJBUkBGQVNFXzAxXyhpbXBvc3RvIGxlIHZhcmlhYmlsaSBlIHJlY3VwZXJvIGkgdmFsb3JpIGRhbGxlIGZ1bnppb25pKQogICAgICAgIAogICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAnLy9OT1RFOiBkZXZpIGNyZWFyZSA0IGZ1bnppb25pIHBlciBhdmVyZSBpIDQgcGFyYW1ldHJpIHBlciBjaGlhbWFyZSBsYSBwcm9ncmVzcyBiYXI6IF8KICAgICAgICAgICAgICAgICAgICAgQDAxKUBJTVBPU1RPQFZBUklBQklMRUBOVU1FUk9fQ09MTEVDVElPTiAgICAgICAgICAtLS0tPiByZWN1cGVybyBpbCBOcm9Db2xsZWN0aW9uX2kgXwogICAgICAgICAgICAgICAgICAgICBAMDIpQEZVTlpJT05FQE5VTUVST0BUV0lQUyAgICAgICAgICAgICAgICAgICAgICAgIC0tLS0+IHJlc3RpdHVpc2NlIFR3aXBzX2RibCBfCiAgICAgICAgICAgICAgICAgICAgIEAwMylARlVOWklPTkVAUEVSQ0VOVFVBTEVfSU5DUkVNRU5UTyAgICAgICAgICAgICAgLS0tLT4gcmVzdGl0dWlzY2UgUGVyY0luY3JfZGJsIF8KICAgICAgICAgICAgICAgICAgICAgQDA0KUBGVU5aSU9ORUBUSVBPX0lNUE9SVCAgICAgICAgICAgICAgICAgICAgICAgICAtLS0tPiBSRVNUSVRVSVNDRSBUaXBvSW1wb3J0X3MgXwogICAgICAgICAgICAgICAgICAgICBAMDUpQFJPVVRJTkVfQVBSSV9MQV9QUk9HUkVTX0JBUiAgICAgICAgICAgICAgICAgIC0tLS0+IFJFU1RJVFVJU0NFIE5VTEwKICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAnLy9AMDEpQElNUE9TVE9AVkFSSUFCSUxFQE5VTUVST19DT0xMRUNUSU9OICAgICAgICAgIC0tLS0+IHJlY3VwZXJvIGlsIE5yb0NvbGxlY3Rpb25faSBfCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgSW1wb3N0byBpbCB0b3RhbGUgb2dnZXR0aSBNQUNSTyBkYSBpbXBvcnRhcmUgc2UgZXNpc3Rvbm8KICAgICAgICAgICAgICAgICAgICAgIFRvdENvbGxlY3Rpb25NQUNST3NfaSA9IE1hY3Jvc19Db2xsZWN0aW9uLkNvdW50CiAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAnLy9AMDIpQEZVTlpJT05FQE5VTUVST0BUV0lQUyAgICAgICAgICAgICAgICAgICAgICAgIC0tLS0+IHJlc3RpdHVpc2NlIFR3aXBzX2RibAogICAgICAgICAgICAgICAgICAgICAgIFR3aXBzX2RibCA9IENhbGNvbGFfVHdpcHNfcEZ1bmN0KFRvdENvbGxlY3Rpb25NQUNST3NfaSkKICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAnLy9AMDMpQEZVTlpJT05FQFBFUkNFTlRVQUxFX0lOQ1JFTUVOVE8gICAgICAgICAgICAgIC0tLS0+IHJlc3RpdHVpc2NlIFBlcmNJbmNyX2RibCBfCiAgICAgICAgICAgICAgICAgICAgICcvL2NoaWFtYSBsYSBmdW56aW9uZSBwZXJjZW50dWFsZSBpbmNyZW1lbnRvIGUgbmUgcmVzdGl0dWlzY2UgbGEgXwogICAgICAgICAgICAgICAgICAgICAgICAgcGVyY2VudHVhbGUgY29tZSBkb3VibGUKICAgICAgICAgICAgICAgICAgICAgUGVyY0luY3JfZGJsID0gUGVyY2VudHVhbGVJbmNyZW1lbnRvX3BGdW5jdChUb3RDb2xsZWN0aW9uTUFDUk9zX2kpICAgICAgICAgICAgICcvL2NhbGNvbG8gaWwgbnVtZXJvIGRpIGNvbGxlY3Rpb24gTUFDUk8gZGEgY29udHJvbGxhcmUKICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICcvL0AwNClARlVOWklPTkVAVElQT19JTVBPUlQgICAgICAgICAgICAgICAgICAgICAgICAgLS0tLT4gUkVTVElUVUlTQ0UgVGlwb0ltcG9ydF9zIF8KICAgICAgICAgICAgICAgICAgICAgJy8vY2hpYW1hIGxhIGZ1bnppb25lIFRJUE8gSU1QT1JUCiAgICAgICAgICAgICAgICAgICAgICAgICBUaXBvSW1wb3J0X3MgPSBUaXBvSW1wb3J0X3BGdW5jdCgiXExPR19JTVBPUlRBX01BQ1JPLlRYVCIpCiAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgJy8vQDA1KUBST1VUSU5FX0FQUklfTEFfUFJPR1JFU19CQVIgICAgICAgICAgICAgICAgICAtLS0tPiBSRVNUSVRVSVNDRSBOVUxMCiAgICAgICAgICAgICAgICAgICAgICAgICAnLy9BcHJpIGxhIE1BQ1JPIGRlbGxhIHByb2dyZXNzQmFyCiAgICAgICAgICAgICAgICAgICAgICAgICAnLy8KICAgICAgICAgICAgICAgICAgICAgICAgICAgICBDYWxsIEFwcmlQcm9ncmVzc0JhcgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICcgQXNwZXR0YSBjaGUgaWwgTUFDUk8gc2lhIGVmZmV0dGl2YW1lbnRlIGNhcmljYXRvCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIERvRXZlbnRzCiAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAnLy9AUFJPR1JFU0JBUl9TVEVQXzAxPUFUVElWTyBMQSBQUk9HUkVTUyBCQVIgQ0hJQU1BTkRPIEFOQ0hFIExFIDQgRlVOWklPTkkgUEVSIFJFQ1VQRVJBUkUgSSBQQVJBTUVUUkkgKioqIEZJTkUgKioqCiAgICAgICAgJy8vKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKiovLwogICAgCiAgICAKICAgICcvLz09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PS8vCiAgICAnLy8gICAgICAgICAgICAgQVRUSVZBWklPTkUgQ0lDTE8gREkgSU1QT1JUQVpJT05FIERBTCBQUk9HRVRUTyBFU1RFUk5PICAgICAgICAqKiogSU5JWklPICoqKioKICAgICcvLz09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PS8vCiAgICAgICAgICAgIAogICAgICAgICAgJy8vQDExX0BJTVBPUlRBQE1BQ1JPQENPTlRST0xMT19QUk9HICAgICAgIC0tLS0tLS0tLS0tLS0tLS0tLS0+IENPTlRST0xMTyBTRSBTVElBTU8gTkVMIFBST0dFVFRPIEVTVEVSTk8KICAgICAgICAgICcgU2Ugc2lhbW8gc3UgdW4gcHJvZ2V0dG8gZXN0ZXJubyAoQm9vbDEgPSBGYWxzZSksIHByb2NlZG8gY29uIGwnaW1wb3J0YXppb25lCiAgICAgICAgICBJZiBCb29sMSA9IEZhbHNlIFRoZW4KICAgICAgICAgICAgICAgICcgQXBlcnR1cmEgZGVsIGRhdGFiYXNlIGRpIG9yaWdpbmUgZSBjb25uZXNzaW9uZSBhbCBkYXRhYmFzZSBjb3JyZW50ZQogICAgICAgICAgICAgICAgU2V0IHdzID0gREJFbmdpbmUuV29ya3NwYWNlcygwKQogICAgICAgICAgICAgICAgU2V0IHNvdXJjZURCID0gd3MuT3BlbkRhdGFiYXNlKHNvdXJjZURCUGF0aCkKICAgICAgICAgICAgICAgIFNldCBkYiA9IEN1cnJlbnREYgogICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICcvL3Jlc2V0CiAgICAgICAgICAgICAgICBQcm9ncmVzc1BlcmNlbnRUd2lwc19kYmwgPSAwCiAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgJy8vQDEyX0BJTVBPUlRBQE1BQ1JPQFBST0dAQ0lDTE8gICAgICAgICAgIC0tLS0tLS0tLS0tLS0tLS0tLS0+IE5FTCBQUk9HRVRUTyBFU1RFUk5PIENJQ0xPIE5FR0xJIE9HR0VUVEkKICAgICAgICAgICAgICAgICcgQ2ljbG8gYXR0cmF2ZXJzbyBsYSBjb2xsZXppb25lIGRpIE1BQ1JPIGRhIGltcG9ydGFyZQogICAgICAgICAgICAgICAgRm9yIEVhY2ggTWFjcm9zX05hbWVfdiBJbiBNYWNyb3NfQ29sbGVjdGlvbgogICAgICAgICAgICAgICAgICAgIG15TUFDUk9OYW1lX3MgPSBNYWNyb3NfTmFtZV92CiAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgJy8vQDEzX0BJTVBPUlRBQE1BQ1JPQFBST0dAQ09OVFJfMDEgICAgICAgIC0tLS0tLS0tLS0tLS0tLS0tLS0+IENPTlRST0xMTyAxIFNFIEVTVEUgT0dHRVRUTyBEQSBJTVBPUlRBUkUKICAgICAgICAgICAgICAgICAgICAnIENvbnRyb2xsbyBzZSBsYSBNQUNSTyBlc2lzdGUgbmVsIGRhdGFiYXNlIGRpIG9yaWdpbmUKICAgICAgICAgICAgICAgICAgICBJZiBPYmplY3RFeGlzdHNfTUFDUk8oc291cmNlREIsIGFjTWFjcm8sIG15TUFDUk9OYW1lX3MpIFRoZW4KICAgICAgICAgICAgICAgICAgICAgICAgJyBTZSBsYSBNQUNSTyBlc2lzdGUgbmVsIGRhdGFiYXNlIGNvcnJlbnRlLCBsYSBlbGltaW5vIHByaW1hIGRpIGltcG9ydGFybGEKICAgICAgICAgICAgICAgICAgICAgICAgSWYgT2JqZWN0RXhpc3RzX01BQ1JPKGRiLCBhY01hY3JvLCBteU1BQ1JPTmFtZV9zKSBUaGVuCiAgICAgICAgICAgICAgICAgICAgICAgICAgICBEb0NtZC5EZWxldGVPYmplY3QgYWNNYWNybywgbXlNQUNST05hbWVfcwogICAgICAgICAgICAgICAgICAgICAgICAgICAgZGVsZXRlZENvdW50X2kgPSBkZWxldGVkQ291bnRfaSArIDEKICAgICAgICAgICAgICAgICAgICAgICAgICAgIGRlbGV0ZWRfTWFjcm9zX3MgPSBkZWxldGVkX01hY3Jvc19zICYgbXlNQUNST05hbWVfcyAmIHZiQ3JMZgogICAgICAgICAgICAgICAgICAgICAgICAgICAgUHJpbnQgI2xvZ0ZpbGUsICJNQUNSTyBlbGltaW5hdGE6ICIgJiBteU1BQ1JPTmFtZV9zCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICBFbmQgSWYKICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgJy8vQDE0X0BJTVBPUlRBQE1BQ1JPQFBST0dASU1QT1JUICAgICAgICAgIC0tLS0tLS0tLS0tLS0tLS0tLS0+IElNUE9SVEFaSU9ORSBERUxMJ09HR0VUVE8gREFMIERCIEVTVEVSTk8KICAgICAgICAgICAgICAgICAgICAgICAgICAnIEltcG9ydGF6aW9uZSBkZWxsYSBNQUNSTyBkYWwgZGF0YWJhc2UgZGkgb3JpZ2luZQogICAgICAgICAgICAgICAgICAgICAgICAgIERvQ21kLlRyYW5zZmVyRGF0YWJhc2UgYWNJbXBvcnQsICJNaWNyb3NvZnQgQWNjZXNzIiwgc291cmNlREJQYXRoLCBhY01hY3JvLCBteU1BQ1JPTmFtZV9zLCBteU1BQ1JPTmFtZV9zCiAgICAgICAgICAgICAgICAgICAgICAgICAgaW1wb3J0ZWRDb3VudF9pID0gaW1wb3J0ZWRDb3VudF9pICsgMQogICAgICAgICAgICAgICAgICAgICAgICAgIGltcG9ydGVkTWFjcm9zX3MgPSBpbXBvcnRlZE1hY3Jvc19zICYgbXlNQUNST05hbWVfcyAmIHZiQ3JMZgogICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICcvL1NDUklWTyBTVUwgQEZJTEVATE9HCiAgICAgICAgICAgICAgICAgICAgICAgICAgUHJpbnQgI2xvZ0ZpbGUsICJOUk86ICIgJiBpbXBvcnRlZENvdW50X2kgJiAiIE1BQ1JPIGltcG9ydGF0YTogIiAmIG15TUFDUk9OYW1lX3MKICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICcvL0AxNV9ASU1QT1JUQUBNQUNST0BQUk9HUlNFU1NCQVJfMDIgICAgICAtLS0tLS0tLS0tLS0tLS0tLS0tPiBQUk9HUkVTUyBCQVIgU1RFUCAwMiBDQUxDT0xPIEVEIElOVklPIFBBUkFNRVRSSQogICAgICAgICAgICAgICAgICAgICAgICAnLy9AUFJPR1JFU0JBUl9TVEVQXzAyPSBDQUxDT0xPIFBBUkFNRVRSSSBFRCBJTlZJTyBEQVRJIEFMTEEgRlVOWklPTkUgREkgQUdHSU9STkFNRU5UTyAgIEBwcm9ncmVzc0BiYXIKICAgICAgICAgICAgICAgICAgICAgICAgJy8vKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKiovLwogICAgICAgICAgICAgICAgICAgICAgICAnLy9OT1RFOiBpbXBvc3RhemlvbmkgZSByZWN1cGVybyB2YWxvcmkgZGFsbGEgZnVuemlvbmkgYmFzZSBwZXIgbGEgcHJvZ3Jlc3MgYmFyLgogICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICcvLyBSRUNVUEVSTyBpbCBtZXNzYWdnaW8gdGlwbyBkaSBpbXBvcnRhemlvbmUgZGVsbGUgY29sbGVjdGlvbiBlIG51bWVybyBkaSBvZ2dldHRpIGRhIGltcG9ydGFyZSAuCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgVGlwb0ltcG9ydF9zID0gIk1BQ1JPIElNUE9SVEFURSBOUk8gOiAiICYgaW1wb3J0ZWRDb3VudF9pICYgIiBzdSBUT1RBTEUgT0dHRVRUSTogIiAmIFRvdENvbGxlY3Rpb25NQUNST3NfaSAgICAgICAnLy8gU1RSSU5HQSBNRVNTQUdHSU8gUEVSIElMIFRJUE8gREkgSU1QT1JUQVpJT05FIEUgTlJPIE9HR0VUVEkKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAnLy9MQSBQRVJDRU5UVUFMRSBJTkNSRU1FTlRBVEEgPSB0b3RhbGUgZGkgaW5jcmVtZW50byAlIHBlciBvZ25pIG9nZ2V0dG8gaW1wb3J0YXRvCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgVG90UGVyY19kYmwgPSBUb3RQZXJjX2RibCArIFBlcmNJbmNyX2RibAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICcvL1RPVEFMRSAlIERJIElOQ1JFTUVOVE8gSU4gVFdJUFMsIGNvbiBsYSBQcm9ncmVzc1BlcmNlbnRUd2lwc19kYmwgw6ggbGEgdmFyaWFiaWxlIGNoZSBpbmRpY2EgbGEgJWRpIGluY3JlbWVudG8gcGVyIG9nbmkgb2dnZXR0byArIGkgXwogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHR3aXBzIG5lY2Vzc2FyaSBwZXIgb2duaSBlbGVtZW50byAoc3UgMTAgdG90YWxlIGRlbGxhIGJhcnJhKQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFByb2dyZXNzUGVyY2VudFR3aXBzX2RibCA9IFByb2dyZXNzUGVyY2VudFR3aXBzX2RibCArIChQZXJjSW5jcl9kYmwgKyBUd2lwc19kYmwpICAgICAgICAgICcvL2xhICUgZGkgYWNjcmVzY2ltZW50byBiYXJyYQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICcvL1RPRE86IERBIENBTkNFTExBUkUuLi4KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAnRGJsMSA9IERibDEgKyBUd2lwc19kYmwgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICcvL3R3aXBzIGRpIGF1bWVudG8gYmFycmEKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgJy8vQDE1LkJJU19ASU1QT1JUQUBNQUNST0BQUk9HUkVTU0JBUl9DQUxMIC0tLS0tLS0tLS0tLS0tLS0tLS0+IFZJRU5FIENISUFNQVRBIExBIFBST0dSRVNTIEJBUiBDT04gSSBQQVJBTUVUUkkKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgJy8vQ0hJQU1PIExBIEZVTlpJT05FIEBBR0dJT1JOQUBQUk9HUkVTU0BCQVIKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgJy8vLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4vLwogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAnLy9ub3RlOiBjaGlhbW8gbGEgcm91dGluZSBkaSBhZ2dpb3JuYW1lbnRvIGRlbGxhIHByb2dyZXNzIGJhciBjaGUgXwogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgcHVvIGVzc2VyZSB1dGlsaXp6YXRhIHBlciB1bHRlcmlvcmkgaW50ZWdyYXppb25pIGRpIGNhbGNvbG8uIF8KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIERldm8gaW52aWFyZSBtYSBkZXZvIGludmlhcmUgNSBwYXJhbWV0cmkgOiBfCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgVG90Q29sbGVjdGlvbk1BQ1JPc19pICAgICAgID0gaWwgVE9UQUxFIFBPVEVOWklBTEUgZGVnbGkgb2dnZXR0aSBkYSBpbXBvcnRhcmUgXwogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIE5yb0NvbGxlY3Rpb25faSAgICAgICAgICAgPSBpbCBudW1lcm8gZGVsbGEgY29sbGV6aW9uZSBwZXIgaWwgY2FsY29sbzsgXwogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFR3aXBzICAgICAgICAgICAgICAgICAgICAgPSBpIHR3aXAgZGkgaW5jcmVtZW50byBfCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgUHJvZ3Jlc3NQZXJjZW50VHdpcHNfZGJsICA9ICBMYSBwZXJjZW50dWFsZSBkaSBpbmNyZW1lbnRvICggUHJvZ3Jlc3NQZXJjZW50VHdpcHNfZGJsID0gUHJvZ3Jlc3NQZXJjZW50VHdpcHNfZGJsICsgUGVyY0luY3JfZGJsKSBfCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgVGlwb0ltcG9ydF9zICAgICAgICAgICAgICA9IGlsIHRpcG8gZGkgaW1wb3J0YXppb25lCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBBZ2dpb3JuYVByb2dyZXNzQmFyIF8KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFRvdENvbGxlY3Rpb25NQUNST3NfaSwgXwogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgUHJvZ3Jlc3NQZXJjZW50VHdpcHNfZGJsLCBfCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBUd2lwc19kYmwsIF8KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFRvdFBlcmNfZGJsLCBfCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBUaXBvSW1wb3J0X3MKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgJy8vLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4vLwogICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgVCA9IFRpbWVyCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgV2hpbGUgVGltZXIgPCBUICsgMC4wMDEKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgRG9FdmVudHMgICcgQ29udGludWEgYSBnZXN0aXJlIGdsaSBldmVudGkgZHVyYW50ZSBsJ2F0dGVzYQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFdlbmQKICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAnLy9AUFJPR1JFU0JBUl9TVEVQXzAyPSBDQUxDT0xPIFBBUkFNRVRSSSBFRCBJTlZJTyBEQVRJIEFMTEEgRlVOWklPTkUgREkgQUdHSU9STkFNRU5UTyAgICoqKiBGSU5FICoqKgogICAgICAgICAgICAgICAgICAgICAgICAnLy8qKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKi8vCiAgICAgICAgCiAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICBFbHNlCiAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAnLy9AMTZfQElNUE9SVEFATUFDUk9ATE9HQEZJTEUgICAgICAgICAgICAgLS0tLS0tLS0tLS0tLS0tLS0tLT4gU0UgSUwgRklMRSBOT04gVklFTkUgVFJPVkFUTyBTQ1JJVFRVUkFaSU9ORSBMT0cKICAgICAgICAgICAgICAgICAgICAgICAgJyBTZSBsYSBNQUNSTyBub24gZXNpc3RlIG5lbCBkYXRhYmFzZSBkaSBvcmlnaW5lLCBsbyBzY3Jpdm8gbmVsIGxvZwogICAgICAgICAgICAgICAgICAgICAgICBQcmludCAjbG9nRmlsZSwgIk1BQ1JPIG5vbiB0cm92YXRhIG5lbCBkYXRhYmFzZSBkaSBvcmlnaW5lOiAiICYgbXlNQUNST05hbWVfcwogICAgICAgICAgICAgICAgICAgIEVuZCBJZgogICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICBOZXh0IE1hY3Jvc19OYW1lX3YKICAgICAgICAKICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAnLy9AMTdfQElNUE9SVEFATUFDUk9AQ0xPU0UgICAgICAgICAgICAgICAgLS0tLS0tLS0tLS0tLS0tLS0tLT4gQ0hJVVNVUkEgQ09OIFJJVEFSRE8gREVMTEEgUFJPR1JFU1MgQkFSCiAgICAgICAgICAgICAgICAgICAgICAgICcvL0NISVVTVVJBIENPTiBSSVRBUkRPIERFTExBIEJBUlJBIERJIFBST0dSRVNTSU9ORSBAcHJvZ3Jlc3NAYmFyCiAgICAgICAgICAgICAgICAgICAgICAgICcvLy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS8vCiAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBUID0gVGltZXIKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgJy8vIFJJVEFSRE8gQ0hJVVNVUkEgREkgNSBTRUNPTkRJCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBXaGlsZSBUaW1lciA8IFQgKyA1CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgRG9FdmVudHMgICcgQ29udGludWEgYSBnZXN0aXJlIGdsaSBldmVudGkgZHVyYW50ZSBsJ2F0dGVzYQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgV2VuZAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAnIENoaXVkaSBsYSBNQUNSTyBmcm1Qcm9ncmVzc0JhcgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgRG9DbWQuQ2xvc2UgYWNGb3JtLCAiZnJtUHJvZ3Jlc3NCYXIiLCBhY1NhdmVObwogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICcvLy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS8vCiAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAnLy9AMThfQElNUE9SVEFATUFDUk9ATk9USElORyAgICAgICAgICAgICAgLS0tLS0tLS0tLS0tLS0tLS0tLT4gSU1QT1NUTyBBIE5VTEwgVFVUVEkgR0xJIE9HR0VUVEkKICAgICAgICAgICAgICAgICcvLy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS8vCiAgICAgICAgICAgICAgICAnIENoaXVkbyBpbCBkYXRhYmFzZSBkaSBvcmlnaW5lCiAgICAgICAgICAgICAgICAgICAgICAgIFNldCBmcm1fb2JqID0gTm90aGluZyAgICAgICAgICAgICAgICAgJyBSaWxhc2NpYSBpbCByaWZlcmltZW50byBhbCBNQUNSTyBQUk9HUkVTIEJBUlIKICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgJy8vY2hpdWRvIGlsIGRiCiAgICAgICAgICAgICAgICAgICAgICBzb3VyY2VEQi5DbG9zZQogICAgICAgICAgICAgICAgICAgICAgU2V0IHNvdXJjZURCID0gTm90aGluZwogICAgICAgICAgICAgICAgICAgICAgU2V0IHdzID0gTm90aGluZwogICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICcgTWVzc2FnZ2lvIGZpbmFsZSBjb24gcmllcGlsb2dvIGRlbGxlIG9wZXJhemlvbmkKICAgICAgICAgICAgICAgICAgICAgIElmIE1lLmN0cl9BVlZJU09fQUJJTElUQVRPX1RYVCA9IFRydWUgVGhlbgogICAgICAgICAgICAgICAgICAgICAgICAgIE1zZ0JveCAiSW1wb3J0YXppb25lIGNvbXBsZXRhdGEuIiAmIHZiQ3JMZiAmIF8KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIk1BQ1JPcyBpbXBvcnRhdGU6ICIgJiBpbXBvcnRlZENvdW50X2kgJiB2YkNyTGYgJiBpbXBvcnRlZE1hY3Jvc19zICYgXwogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAiTUFDUk9zIGVzaXN0ZW50aSBjYW5jZWxsYXRlOiAiICYgZGVsZXRlZENvdW50X2kgJiB2YkNyTGYgJiBkZWxldGVkX01hY3Jvc19zLCB2YkluTUFDUk9hdGlvbgogICAgICAgICAgICAgICAgICAgICAgRW5kIElmCiAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgJyBTY3Jpdm8gbmVsIGZpbGUgZGkgbG9nIGlsIHJpZXBpbG9nbyBmaW5hbGUKICAgICAgICAgICAgICAgICAgICAgIFByaW50ICNsb2dGaWxlLCAiSW1wb3J0YXppb25lIGNvbXBsZXRhdGEgY29uICIgJiBpbXBvcnRlZENvdW50X2kgJiAiIE1BQ1JPcyBpbXBvcnRhdGUuIgogICAgICAgICAgICAgICAgICAgICAgQ2xvc2UgI2xvZ0ZpbGUKICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAnIFB1bGl6aWEgZGVsbGUgdmFyaWFiaWxpIGRlbCBkYiBlIGRlbGxhIGNvbGxlY3Rpb24gTUFDUk9zCiAgICAgICAgICAgICAgICAgICAgICBTZXQgZGIgPSBOb3RoaW5nCiAgICAgICAgICAgICAgICAgICAgICBTZXQgTWFjcm9zX0NvbGxlY3Rpb24gPSBOb3RoaW5nCiAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICcvLy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS8vCiAgICAgICAgICAgICAgICAKICAgICAgICAgIEVuZCBJZiAnLy9JZiBCb29sMSA9IEZhbHNlIFRoZW4gPSBQcm9nZXR0byBlc3Rlcm5vCiAgICAgIAogICAgJy8vPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09Ly8KICAgICcvLyAgICAgICAgICAgICBBVFRJVkFaSU9ORSBDSUNMTyBESSBJTVBPUlRBWklPTkUgREFMIFBST0dFVFRPIEVTVEVSTk8gICAgICAgICoqKiBGSU5FICoqKioKICAgICcvLz09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PS8vCiAgICAKICAgIAonLy8gVVNDSVRBIEUgR0VTVElPTkUgRVJST1JJCicvLy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS8vCgpFeGl0IFN1YgogICAgCkVycm9ySGFuZGxlcjoKICAgICcgR2VzdGlvbmUgZGVnbGkgZXJyb3JpIGNvbiBtZXNzYWdnaW8gYSB2aWRlbyBlIHNjcml0dHVyYSBuZWwgbG9nCiAgICBNc2dCb3ggIkVycm9yZSBkdXJhbnRlIGwnaW1wb3J0YXppb25lOiAiICYgRXJyLkRlc2NyaXB0aW9uLCB2YkNyaXRpY2FsCiAgICBQcmludCAjbG9nRmlsZSwgIkVycm9yZSBkdXJhbnRlIGwnaW1wb3J0YXppb25lOiAiICYgRXJyLkRlc2NyaXB0aW9uCiAgICBJZiBOb3Qgc291cmNlREIgSXMgTm90aGluZyBUaGVuIHNvdXJjZURCLkNsb3NlCiAgICBDbG9zZSAjbG9nRmlsZQogICAgU2V0IHNvdXJjZURCID0gTm90aGluZwogICAgU2V0IHdzID0gTm90aGluZwpFbmQgU3ViCgoKJy8vQ09OVFJPTExPX0VTSVNURU1BX01BQ1JPKGVmZmljaWVudGF0YSBsYSBwcm9jZWR1cmEgY29uIGwnaW50ZXJyb2dhemlvbmUgc3VsbGEgdGFiZWxsYSBNU3lzT2JqZWN0cyBwZXIgaWwgY29udHJvbGxvIGRlbGxlIE1BQ1JPIGVzdGVybmUpCicvL0ZVTlpJT05FIERJIENPTlRST0xMTyBTRSBFU0lTVEUgTCdPR0dFVFRPIE1BQ1JPCkZ1bmN0aW9uIE9iamVjdEV4aXN0c19NQUNSTyhkYiBBcyBEQU8uRGF0YWJhc2UsIG9ialR5cGUgQXMgSW50ZWdlciwgb2JqTmFtZSBBcyBTdHJpbmcpIEFzIEJvb2xlYW4KICAgIERpbSBycyBBcyBEQU8uUmVjb3Jkc2V0CiAgICBEaW0gTUFDUk9FeGlzdHMgQXMgQm9vbGVhbgogICAgCiAgICAKICAgIE1BQ1JPRXhpc3RzID0gRmFsc2UKICAgIE9uIEVycm9yIFJlc3VtZSBOZXh0CiAgICAnLy9GSUxUUk8gQ09OVFJPTExPIEVTSVNURU5aQSBNQUNSTwogICAgU2V0IHJzID0gZGIuT3BlblJlY29yZHNldCgiU0VMRUNUIE5hbWUgRlJPTSBNU3lzT2JqZWN0cyBXSEVSRSBUeXBlPS0zMjc2NiBBTkQgTmFtZT0nIiAmIG9iak5hbWUgJiAiJyIpCiAgICBJZiBOb3QgcnMuRU9GIFRoZW4KICAgICAgICBNQUNST0V4aXN0cyA9IFRydWUKICAgIEVuZCBJZgogICAgcnMuQ2xvc2UKICAgIFNldCBycyA9IE5vdGhpbmcKICAgIE9iamVjdEV4aXN0c19NQUNSTyA9IE1BQ1JPRXhpc3RzCiAgICBPbiBFcnJvciBHb1RvIDAKRW5kIEZ1bmN0aW9uCicvL0lNUE9SVEEgVFVUVEkgR0xJIE9HR0VUVEkgTUFDUk8gREVMIERCIE1TWVNEQkVTVCAqKiogRklORSAqKioKJy8vLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS8vCgoKCgoKCicvLz09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PS8vCicvLyAgICAgICAgICAgICAgICAgICAgIENNRF9JTVBPUlRBIE9HR0VUVEkgTUFDUk8gREVMIERCIEVTVEVSTk8gKioqIEZJTkUgKioqCicvLyAgICAgICAgICAgICAgICAgICAgIEBJTVBPUlRBQE9HR0VUVElATUFDUk9ATVNZUwonLy89PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT0vLwoK",
-					"AQAAAAAAAAABAAAAAAAAAAAAAAAmVwAAAAAAAAAAAAAAAPC/"
-				]
-			]
-		},
-		{
-			"contents": "SELECT MSysObjects.Type, MSysObjects.ParentId, \"--->\" AS TXTKey, MSysObjects.Type AS kEYType, MSysObjects.ParentId AS KEYParentId, IIf([TYPE]=-32768,\"TABELLE\") AS TABELLE, IIf([TYPE]=-32766,\"QUERY\") AS QUERY, IIf([TYPE]=-32764,\"REPORT\") AS REPORT\nFROM MSysObjects\nGROUP BY MSysObjects.Type, MSysObjects.ParentId\nWITH OWNERACCESS OPTION;\n\n\nQUERY: IIf([TYPE]=-32766;\"QUERY\")",
-			"settings":
-			{
-				"buffer_size": 372,
+				"buffer_size": 22479,
+				"encoding": "UTF-8",
 				"line_ending": "Windows",
-				"name": "SELECT MSysObjects.Type, MSysObjects.ParentId, \"--"
+				"name": "IMPORTA_TABELLE.MD"
 			},
 			"undo_stack":
 			[
 				[
 					1,
 					1,
-					"paste",
-					null,
-					"AQAAAAAAAAAAAAAAUQEAAAAAAAAAAAAA",
+					"insert",
+					{
+						"characters": "IMPORTA_"
+					},
+					"CAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAACAAAAAAAAAAAAAAACAAAAAAAAAAMAAAAAAAAAAAAAAAMAAAAAAAAABAAAAAAAAAAAAAAABAAAAAAAAAAFAAAAAAAAAAAAAAAFAAAAAAAAAAYAAAAAAAAAAAAAAAYAAAAAAAAABwAAAAAAAAAAAAAABwAAAAAAAAAIAAAAAAAAAAAAAAA",
 					"AQAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/"
 				],
 				[
@@ -125,577 +56,141 @@
 					1,
 					"insert",
 					{
-						"characters": "\n\n"
+						"characters": "TABE"
 					},
-					"AgAAAFEBAAAAAAAAUgEAAAAAAAAAAAAAUgEAAAAAAABTAQAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAUQEAAAAAAABRAQAAAAAAAAAAAAAAAPC/"
+					"BAAAAAgAAAAAAAAACQAAAAAAAAAAAAAACQAAAAAAAAAKAAAAAAAAAAAAAAAKAAAAAAAAAAsAAAAAAAAAAAAAAAsAAAAAAAAADAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAACAAAAAAAAAAIAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					3,
+					1,
+					"insert",
+					{
+						"characters": "LLE."
+					},
+					"BAAAAAwAAAAAAAAADQAAAAAAAAAAAAAADQAAAAAAAAAOAAAAAAAAAAAAAAAOAAAAAAAAAA8AAAAAAAAAAAAAAA8AAAAAAAAAEAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAADAAAAAAAAAAMAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					4,
+					1,
+					"insert",
+					{
+						"characters": "MD"
+					},
+					"AgAAABAAAAAAAAAAEQAAAAAAAAAAAAAAEQAAAAAAAAASAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAEAAAAAAAAAAQAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					5,
+					1,
+					"insert",
+					{
+						"characters": "\n\n\n\n"
+					},
+					"BAAAABIAAAAAAAAAEwAAAAAAAAAAAAAAEwAAAAAAAAAUAAAAAAAAAAAAAAAUAAAAAAAAABUAAAAAAAAAAAAAABUAAAAAAAAAFgAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAEgAAAAAAAAASAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					6,
+					1,
+					"paste",
+					null,
+					"AQAAABYAAAAAAAAAYlcAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAFgAAAAAAAAAWAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					25,
+					1,
+					"right_delete",
+					null,
+					"AQAAAAAAAAAAAAAAAAAAAAAAAAAUAAAASU1QT1JUQV9UQUJFTExFLk1ECgo",
+					"AQAAAAAAAAABAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAAAAAAA"
+				],
+				[
+					31,
+					1,
+					"insert",
+					{
+						"characters": "TAB"
+					},
+					"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"
+				],
+				[
+					32,
+					1,
+					"insert",
+					{
+						"characters": "LE"
+					},
+					"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"
+				],
+				[
+					38,
+					1,
+					"insert",
+					{
+						"characters": "TABELLE"
+					},
+					"uAIAAJpWAAAAAAAAm1YAAAAAAAAAAAAAm1YAAAAAAACbVgAAAAAAAAUAAABNQUNST09WAAAAAAAAUFYAAAAAAAAAAAAAUFYAAAAAAABQVgAAAAAAAAUAAABNQUNSTyBVAAAAAAAAIVUAAAAAAAAAAAAAIVUAAAAAAAAhVQAAAAAAAAUAAABNQUNST9ZUAAAAAAAA11QAAAAAAAAAAAAA11QAAAAAAADXVAAAAAAAAAUAAABNQUNST85UAAAAAAAAz1QAAAAAAAAAAAAAz1QAAAAAAADPVAAAAAAAAAUAAABNQUNST31UAAAAAAAAflQAAAAAAAAAAAAAflQAAAAAAAB+VAAAAAAAAAUAAABNQUNST+1TAAAAAAAA7lMAAAAAAAAAAAAA7lMAAAAAAADuUwAAAAAAAAUAAABNQUNST55TAAAAAAAAn1MAAAAAAAAAAAAAn1MAAAAAAACfUwAAAAAAAAUAAABNQUNST3lTAAAAAAAAelMAAAAAAAAAAAAAelMAAAAAAAB6UwAAAAAAAAUAAABNQUNSTwlTAAAAAAAAClMAAAAAAAAAAAAAClMAAAAAAAAKUwAAAAAAAAUAAABNQUNST+1SAAAAAAAA7lIAAAAAAAAAAAAA7lIAAAAAAADuUgAAAAAAAAUAAABNQUNST7FSAAAAAAAAslIAAAAAAAAAAAAAslIAAAAAAACyUgAAAAAAAAUAAABNQUNST0tSAAAAAAAATFIAAAAAAAAAAAAATFIAAAAAAABMUgAAAAAAAAUAAABNQUNSTyNMAAAAAAAAJEwAAAAAAAAAAAAAJEwAAAAAAAAkTAAAAAAAAAUAAABNQUNST6NJAAAAAAAApEkAAAAAAAAAAAAApEkAAAAAAACkSQAAAAAAAAUAAABNQUNST2ZIAAAAAAAAZ0gAAAAAAAAAAAAAZ0gAAAAAAABnSAAAAAAAAAUAAABNQUNST/1GAAAAAAAA/kYAAAAAAAAAAAAA/kYAAAAAAAD+RgAAAAAAAAUAAABNQUNST/tDAAAAAAAA/EMAAAAAAAAAAAAA/EMAAAAAAAD8QwAAAAAAAAUAAABNQUNSTwxDAAAAAAAADUMAAAAAAAAAAAAADUMAAAAAAAANQwAAAAAAAAUAAABNQUNST6dCAAAAAAAAqEIAAAAAAAAAAAAAqEIAAAAAAACoQgAAAAAAAAUAAABNQUNSTydCAAAAAAAAKEIAAAAAAAAAAAAAKEIAAAAAAAAoQgAAAAAAAAUAAABNQUNSTwM4AAAAAAAABDgAAAAAAAAAAAAABDgAAAAAAAAEOAAAAAAAAAUAAABNQUNST24zAAAAAAAAbzMAAAAAAAAAAAAAbzMAAAAAAABvMwAAAAAAAAUAAABNQUNST8YwAAAAAAAAxzAAAAAAAAAAAAAAxzAAAAAAAADHMAAAAAAAAAUAAABNQUNST0AwAAAAAAAAQTAAAAAAAAAAAAAAQTAAAAAAAABBMAAAAAAAAAUAAABNQUNST+0uAAAAAAAA7i4AAAAAAAAAAAAA7i4AAAAAAADuLgAAAAAAAAUAAABNYWNyb3AuAAAAAAAAcS4AAAAAAAAAAAAAcS4AAAAAAABxLgAAAAAAAAUAAABNQUNST+gtAAAAAAAA6S0AAAAAAAAAAAAA6S0AAAAAAADpLQAAAAAAAAUAAABNQUNSTyUtAAAAAAAAJi0AAAAAAAAAAAAAJi0AAAAAAAAmLQAAAAAAAAUAAABNQUNST0osAAAAAAAASywAAAAAAAAAAAAASywAAAAAAABLLAAAAAAAAAUAAABNYWNyb/0rAAAAAAAA/isAAAAAAAAAAAAA/isAAAAAAAD+KwAAAAAAAAUAAABNYWNyb/ErAAAAAAAA8isAAAAAAAAAAAAA8isAAAAAAADyKwAAAAAAAAUAAABNQUNST4YrAAAAAAAAhysAAAAAAAAAAAAAhysAAAAAAACHKwAAAAAAAAUAAABNQUNST0orAAAAAAAASysAAAAAAAAAAAAASysAAAAAAABLKwAAAAAAAAUAAABNYWNybzgrAAAAAAAAOSsAAAAAAAAAAAAAOSsAAAAAAAA5KwAAAAAAAAUAAABNQUNST+8qAAAAAAAA8CoAAAAAAAAAAAAA8CoAAAAAAADwKgAAAAAAAAUAAABNQUNST3AqAAAAAAAAcSoAAAAAAAAAAAAAcSoAAAAAAABxKgAAAAAAAAUAAABNQUNST7gpAAAAAAAAuSkAAAAAAAAAAAAAuSkAAAAAAAC5KQAAAAAAAAUAAABNQUNSTyspAAAAAAAALCkAAAAAAAAAAAAALCkAAAAAAAAsKQAAAAAAAAUAAABNQUNST8omAAAAAAAAyyYAAAAAAAAAAAAAyyYAAAAAAADLJgAAAAAAAAUAAABNQUNST8wjAAAAAAAAzSMAAAAAAAAAAAAAzSMAAAAAAADNIwAAAAAAAAUAAABNQUNSTzcjAAAAAAAAOCMAAAAAAAAAAAAAOCMAAAAAAAA4IwAAAAAAAAUAAABNQUNST4YiAAAAAAAAhyIAAAAAAAAAAAAAhyIAAAAAAACHIgAAAAAAAAUAAABNQUNST30hAAAAAAAAfiEAAAAAAAAAAAAAfiEAAAAAAAB+IQAAAAAAAAUAAABNQUNST7MeAAAAAAAAtB4AAAAAAAAAAAAAtB4AAAAAAAC0HgAAAAAAAAUAAABNQUNST6QZAAAAAAAApRkAAAAAAAAAAAAApRkAAAAAAAClGQAAAAAAAAUAAABNQUNSTxUXAAAAAAAAFhcAAAAAAAAAAAAAFhcAAAAAAAAWFwAAAAAAAAUAAABNQUNST2UVAAAAAAAAZhUAAAAAAAAAAAAAZhUAAAAAAABmFQAAAAAAAAUAAABNQUNST0MUAAAAAAAARBQAAAAAAAAAAAAARBQAAAAAAABEFAAAAAAAAAUAAABNQUNST2ETAAAAAAAAYhMAAAAAAAAAAAAAYhMAAAAAAABiEwAAAAAAAAUAAABNQUNST6ISAAAAAAAAoxIAAAAAAAAAAAAAoxIAAAAAAACjEgAAAAAAAAUAAABNQUNST9QRAAAAAAAA1REAAAAAAAAAAAAA1REAAAAAAADVEQAAAAAAAAUAAABNQUNST6kRAAAAAAAAqhEAAAAAAAAAAAAAqhEAAAAAAACqEQAAAAAAAAUAAABNYWNyb28RAAAAAAAAcBEAAAAAAAAAAAAAcBEAAAAAAABwEQAAAAAAAAUAAABNQUNST/8QAAAAAAAAABEAAAAAAAAAAAAAABEAAAAAAAAAEQAAAAAAAAUAAABNQUNST3sQAAAAAAAAfBAAAAAAAAAAAAAAfBAAAAAAAAB8EAAAAAAAAAUAAABNQUNSTzMQAAAAAAAANBAAAAAAAAAAAAAANBAAAAAAAAA0EAAAAAAAAAUAAABNQUNST44PAAAAAAAAjw8AAAAAAAAAAAAAjw8AAAAAAACPDwAAAAAAAAUAAABNQUNSTz0PAAAAAAAAPg8AAAAAAAAAAAAAPg8AAAAAAAA+DwAAAAAAAAUAAABNQUNST+cNAAAAAAAA6A0AAAAAAAAAAAAA6A0AAAAAAADoDQAAAAAAAAUAAABNQUNST2sMAAAAAAAAbAwAAAAAAAAAAAAAbAwAAAAAAABsDAAAAAAAAAUAAABNQUNST0oKAAAAAAAASwoAAAAAAAAAAAAASwoAAAAAAABLCgAAAAAAAAUAAABNQUNSTzMKAAAAAAAANAoAAAAAAAAAAAAANAoAAAAAAAA0CgAAAAAAAAUAAABNQUNST8IJAAAAAAAAwwkAAAAAAAAAAAAAwwkAAAAAAADDCQAAAAAAAAUAAABNQUNST5sJAAAAAAAAnAkAAAAAAAAAAAAAnAkAAAAAAACcCQAAAAAAAAUAAABNQUNSTzAJAAAAAAAAMQkAAAAAAAAAAAAAMQkAAAAAAAAxCQAAAAAAAAUAAABNQUNST8gIAAAAAAAAyQgAAAAAAAAAAAAAyQgAAAAAAADJCAAAAAAAAAUAAABNQUNST1gIAAAAAAAAWQgAAAAAAAAAAAAAWQgAAAAAAABZCAAAAAAAAAUAAABNQUNST+0HAAAAAAAA7gcAAAAAAAAAAAAA7gcAAAAAAADuBwAAAAAAAAUAAABNQUNST3kHAAAAAAAAegcAAAAAAAAAAAAAegcAAAAAAAB6BwAAAAAAAAUAAABNQUNSTxAHAAAAAAAAEQcAAAAAAAAAAAAAEQcAAAAAAAARBwAAAAAAAAUAAABNQUNST6cGAAAAAAAAqAYAAAAAAAAAAAAAqAYAAAAAAACoBgAAAAAAAAUAAABNQUNSTz4GAAAAAAAAPwYAAAAAAAAAAAAAPwYAAAAAAAA/BgAAAAAAAAUAAABNQUNST9UFAAAAAAAA1gUAAAAAAAAAAAAA1gUAAAAAAADWBQAAAAAAAAUAAABNQUNST20FAAAAAAAAbgUAAAAAAAAAAAAAbgUAAAAAAABuBQAAAAAAAAUAAABNQUNSTwYFAAAAAAAABwUAAAAAAAAAAAAABwUAAAAAAAAHBQAAAAAAAAUAAABNQUNST6oEAAAAAAAAqwQAAAAAAAAAAAAAqwQAAAAAAACrBAAAAAAAAAUAAABNQUNST08EAAAAAAAAUAQAAAAAAAAAAAAAUAQAAAAAAABQBAAAAAAAAAUAAABNQUNST/ADAAAAAAAA8QMAAAAAAAAAAAAA8QMAAAAAAADxAwAAAAAAAAUAAABNQUNST4kDAAAAAAAAigMAAAAAAAAAAAAAigMAAAAAAACKAwAAAAAAAAUAAABNQUNSTycDAAAAAAAAKAMAAAAAAAAAAAAAKAMAAAAAAAAoAwAAAAAAAAUAAABNQUNST9UCAAAAAAAA1gIAAAAAAAAAAAAA1gIAAAAAAADWAgAAAAAAAAUAAABNQUNST38CAAAAAAAAgAIAAAAAAAAAAAAAgAIAAAAAAACAAgAAAAAAAAUAAABNQUNSTzECAAAAAAAAMgIAAAAAAAAAAAAAMgIAAAAAAAAyAgAAAAAAAAUAAABNQUNST54BAAAAAAAAnwEAAAAAAAAAAAAAnwEAAAAAAACfAQAAAAAAAAUAAABNQUNST/gAAAAAAAAA+QAAAAAAAAAAAAAA+QAAAAAAAAD5AAAAAAAAAAUAAABNQUNST6sAAAAAAAAArAAAAAAAAAAAAAAArAAAAAAAAACsAAAAAAAAAAUAAABNQUNST0NVAAAAAAAARFUAAAAAAAAAAAAA/FQAAAAAAAD9VAAAAAAAAAAAAADRUwAAAAAAANJTAAAAAAAAAAAAAItTAAAAAAAAjFMAAAAAAAAAAAAAh1MAAAAAAACIUwAAAAAAAAAAAAA6UwAAAAAAADtTAAAAAAAAAAAAAK5SAAAAAAAAr1IAAAAAAAAAAAAAY1IAAAAAAABkUgAAAAAAAAAAAABCUgAAAAAAAENSAAAAAAAAAAAAANZRAAAAAAAA11EAAAAAAAAAAAAAvlEAAAAAAAC/UQAAAAAAAAAAAACGUQAAAAAAAIdRAAAAAAAAAAAAACRRAAAAAAAAJVEAAAAAAAAAAAAAAEsAAAAAAAABSwAAAAAAAAAAAACESAAAAAAAAIVIAAAAAAAAAAAAAEtHAAAAAAAATEcAAAAAAAAAAAAA5kUAAAAAAADnRQAAAAAAAAAAAADoQgAAAAAAAOlCAAAAAAAAAAAAAP1BAAAAAAAA/kEAAAAAAAAAAAAAnEEAAAAAAACdQQAAAAAAAAAAAAAgQQAAAAAAACFBAAAAAAAAAAAAAAA3AAAAAAAAATcAAAAAAAAAAAAAbzIAAAAAAABwMgAAAAAAAAAAAADLLwAAAAAAAMwvAAAAAAAAAAAAAEkvAAAAAAAASi8AAAAAAAAAAAAA+i0AAAAAAAD7LQAAAAAAAAAAAACBLQAAAAAAAIItAAAAAAAAAAAAAP0sAAAAAAAA/iwAAAAAAAAAAAAAPiwAAAAAAAA/LAAAAAAAAAAAAABnKwAAAAAAAGgrAAAAAAAAAAAAAB4rAAAAAAAAHysAAAAAAAAAAAAAFisAAAAAAAAXKwAAAAAAAAAAAACvKgAAAAAAALAqAAAAAAAAAAAAAHcqAAAAAAAAeCoAAAAAAAAAAAAAaSoAAAAAAABqKgAAAAAAAAAAAAAkKgAAAAAAACUqAAAAAAAAAAAAAKkpAAAAAAAAqikAAAAAAAAAAAAA9SgAAAAAAAD2KAAAAAAAAAAAAABsKAAAAAAAAG0oAAAAAAAAAAAAAA8mAAAAAAAAECYAAAAAAAAAAAAAFSMAAAAAAAAWIwAAAAAAAAAAAACEIgAAAAAAAIUiAAAAAAAAAAAAANchAAAAAAAA2CEAAAAAAAAAAAAA0iAAAAAAAADTIAAAAAAAAAAAAAAMHgAAAAAAAA0eAAAAAAAAAAAAAAEZAAAAAAAAAhkAAAAAAAAAAAAAdhYAAAAAAAB3FgAAAAAAAAAAAADKFAAAAAAAAMsUAAAAAAAAAAAAAKwTAAAAAAAArRMAAAAAAAAAAAAAzhIAAAAAAADPEgAAAAAAAAAAAAATEgAAAAAAABQSAAAAAAAAAAAAAEkRAAAAAAAAShEAAAAAAAAAAAAAIhEAAAAAAAAjEQAAAAAAAAAAAADsEAAAAAAAAO0QAAAAAAAAAAAAAIAQAAAAAAAAgRAAAAAAAAAAAAAAABAAAAAAAAABEAAAAAAAAAAAAAC8DwAAAAAAAL0PAAAAAAAAAAAAABsPAAAAAAAAHA8AAAAAAAAAAAAAzg4AAAAAAADPDgAAAAAAAAAAAAB8DQAAAAAAAH0NAAAAAAAAAAAAAAQMAAAAAAAABQwAAAAAAAAAAAAA5wkAAAAAAADoCQAAAAAAAAAAAADUCQAAAAAAANUJAAAAAAAAAAAAAGcJAAAAAAAAaAkAAAAAAAAAAAAARAkAAAAAAABFCQAAAAAAAAAAAADdCAAAAAAAAN4IAAAAAAAAAAAAAHkIAAAAAAAAeggAAAAAAAAAAAAADQgAAAAAAAAOCAAAAAAAAAAAAACmBwAAAAAAAKcHAAAAAAAAAAAAADYHAAAAAAAANwcAAAAAAAAAAAAA0QYAAAAAAADSBgAAAAAAAAAAAABsBgAAAAAAAG0GAAAAAAAAAAAAAAcGAAAAAAAACAYAAAAAAAAAAAAAogUAAAAAAACjBQAAAAAAAAAAAAA+BQAAAAAAAD8FAAAAAAAAAAAAANsEAAAAAAAA3AQAAAAAAAAAAAAAgwQAAAAAAACEBAAAAAAAAAAAAAAsBAAAAAAAAC0EAAAAAAAAAAAAANEDAAAAAAAA0gMAAAAAAAAAAAAAbgMAAAAAAABvAwAAAAAAAAAAAAAQAwAAAAAAABEDAAAAAAAAAAAAAMICAAAAAAAAwwIAAAAAAAAAAAAAcAIAAAAAAABxAgAAAAAAAAAAAAAmAgAAAAAAACcCAAAAAAAAAAAAAJcBAAAAAAAAmAEAAAAAAAAAAAAA9QAAAAAAAAD2AAAAAAAAAAAAAACsAAAAAAAAAK0AAAAAAAAAAAAAAJpVAAAAAAAAm1UAAAAAAAAAAAAAUlUAAAAAAABTVQAAAAAAAAAAAAAmVAAAAAAAACdUAAAAAAAAAAAAAN9TAAAAAAAA4FMAAAAAAAAAAAAA2lMAAAAAAADbUwAAAAAAAAAAAACMUwAAAAAAAI1TAAAAAAAAAAAAAP9SAAAAAAAAAFMAAAAAAAAAAAAAs1IAAAAAAAC0UgAAAAAAAAAAAACRUgAAAAAAAJJSAAAAAAAAAAAAACRSAAAAAAAAJVIAAAAAAAAAAAAAC1IAAAAAAAAMUgAAAAAAAAAAAADSUQAAAAAAANNRAAAAAAAAAAAAAG9RAAAAAAAAcFEAAAAAAAAAAAAASksAAAAAAABLSwAAAAAAAAAAAADNSAAAAAAAAM5IAAAAAAAAAAAAAJNHAAAAAAAAlEcAAAAAAAAAAAAALUYAAAAAAAAuRgAAAAAAAAAAAAAuQwAAAAAAAC9DAAAAAAAAAAAAAEJCAAAAAAAAQ0IAAAAAAAAAAAAA4EEAAAAAAADhQQAAAAAAAAAAAABjQQAAAAAAAGRBAAAAAAAAAAAAAEI3AAAAAAAAQzcAAAAAAAAAAAAAsDIAAAAAAACxMgAAAAAAAAAAAAALMAAAAAAAAAwwAAAAAAAAAAAAAIgvAAAAAAAAiS8AAAAAAAAAAAAAOC4AAAAAAAA5LgAAAAAAAAAAAAC+LQAAAAAAAL8tAAAAAAAAAAAAADktAAAAAAAAOi0AAAAAAAAAAAAAeSwAAAAAAAB6LAAAAAAAAAAAAAChKwAAAAAAAKIrAAAAAAAAAAAAAFcrAAAAAAAAWCsAAAAAAAAAAAAATisAAAAAAABPKwAAAAAAAAAAAADmKgAAAAAAAOcqAAAAAAAAAAAAAK0qAAAAAAAArioAAAAAAAAAAAAAnioAAAAAAACfKgAAAAAAAAAAAABYKgAAAAAAAFkqAAAAAAAAAAAAANwpAAAAAAAA3SkAAAAAAAAAAAAAJykAAAAAAAAoKQAAAAAAAAAAAACdKAAAAAAAAJ4oAAAAAAAAAAAAAD8mAAAAAAAAQCYAAAAAAAAAAAAARCMAAAAAAABFIwAAAAAAAAAAAACyIgAAAAAAALMiAAAAAAAAAAAAAAQiAAAAAAAABSIAAAAAAAAAAAAA/iAAAAAAAAD/IAAAAAAAAAAAAAA3HgAAAAAAADgeAAAAAAAAAAAAACsZAAAAAAAALBkAAAAAAAAAAAAAnxYAAAAAAACgFgAAAAAAAAAAAADyFAAAAAAAAPMUAAAAAAAAAAAAANMTAAAAAAAA1BMAAAAAAAAAAAAA9BIAAAAAAAD1EgAAAAAAAAAAAAA4EgAAAAAAADkSAAAAAAAAAAAAAG0RAAAAAAAAbhEAAAAAAAAAAAAARREAAAAAAABGEQAAAAAAAAAAAAAOEQAAAAAAAA8RAAAAAAAAAAAAAKEQAAAAAAAAohAAAAAAAAAAAAAAIBAAAAAAAAAhEAAAAAAAAAAAAADbDwAAAAAAANwPAAAAAAAAAAAAADkPAAAAAAAAOg8AAAAAAAAAAAAA6w4AAAAAAADsDgAAAAAAAAAAAACYDQAAAAAAAJkNAAAAAAAAAAAAAB8MAAAAAAAAIAwAAAAAAAAAAAAAAQoAAAAAAAACCgAAAAAAAAAAAADtCQAAAAAAAO4JAAAAAAAAAAAAAH8JAAAAAAAAgAkAAAAAAAAAAAAAWwkAAAAAAABcCQAAAAAAAAAAAADzCAAAAAAAAPQIAAAAAAAAAAAAAI4IAAAAAAAAjwgAAAAAAAAAAAAAIQgAAAAAAAAiCAAAAAAAAAAAAAC5BwAAAAAAALoHAAAAAAAAAAAAAEgHAAAAAAAASQcAAAAAAAAAAAAA4gYAAAAAAADjBgAAAAAAAAAAAAB8BgAAAAAAAH0GAAAAAAAAAAAAABYGAAAAAAAAFwYAAAAAAAAAAAAAsAUAAAAAAACxBQAAAAAAAAAAAABLBQAAAAAAAEwFAAAAAAAAAAAAAOcEAAAAAAAA6AQAAAAAAAAAAAAAjgQAAAAAAACPBAAAAAAAAAAAAAA2BAAAAAAAADcEAAAAAAAAAAAAANoDAAAAAAAA2wMAAAAAAAAAAAAAdgMAAAAAAAB3AwAAAAAAAAAAAAAXAwAAAAAAABgDAAAAAAAAAAAAAMgCAAAAAAAAyQIAAAAAAAAAAAAAdQIAAAAAAAB2AgAAAAAAAAAAAAAqAgAAAAAAACsCAAAAAAAAAAAAAJoBAAAAAAAAmwEAAAAAAAAAAAAA9wAAAAAAAAD4AAAAAAAAAAAAAACtAAAAAAAAAK4AAAAAAAAAAAAAAPFVAAAAAAAA8lUAAAAAAAAAAAAAqFUAAAAAAACpVQAAAAAAAAAAAAB7VAAAAAAAAHxUAAAAAAAAAAAAADNUAAAAAAAANFQAAAAAAAAAAAAALVQAAAAAAAAuVAAAAAAAAAAAAADeUwAAAAAAAN9TAAAAAAAAAAAAAFBTAAAAAAAAUVMAAAAAAAAAAAAAA1MAAAAAAAAEUwAAAAAAAAAAAADgUgAAAAAAAOFSAAAAAAAAAAAAAHJSAAAAAAAAc1IAAAAAAAAAAAAAWFIAAAAAAABZUgAAAAAAAAAAAAAeUgAAAAAAAB9SAAAAAAAAAAAAALpRAAAAAAAAu1EAAAAAAAAAAAAAlEsAAAAAAACVSwAAAAAAAAAAAAAWSQAAAAAAABdJAAAAAAAAAAAAANtHAAAAAAAA3EcAAAAAAAAAAAAAdEYAAAAAAAB1RgAAAAAAAAAAAAB0QwAAAAAAAHVDAAAAAAAAAAAAAIdCAAAAAAAAiEIAAAAAAAAAAAAAJEIAAAAAAAAlQgAAAAAAAAAAAACmQQAAAAAAAKdBAAAAAAAAAAAAAIQ3AAAAAAAAhTcAAAAAAAAAAAAA8TIAAAAAAADyMgAAAAAAAAAAAABLMAAAAAAAAEwwAAAAAAAAAAAAAMcvAAAAAAAAyC8AAAAAAAAAAAAAdi4AAAAAAAB3LgAAAAAAAAAAAAD7LQAAAAAAAPwtAAAAAAAAAAAAAHUtAAAAAAAAdi0AAAAAAAAAAAAAtCwAAAAAAAC1LAAAAAAAAAAAAADbKwAAAAAAANwrAAAAAAAAAAAAAJArAAAAAAAAkSsAAAAAAAAAAAAAhisAAAAAAACHKwAAAAAAAAAAAAAdKwAAAAAAAB4rAAAAAAAAAAAAAOMqAAAAAAAA5CoAAAAAAAAAAAAA0yoAAAAAAADUKgAAAAAAAAAAAACMKgAAAAAAAI0qAAAAAAAAAAAAAA8qAAAAAAAAECoAAAAAAAAAAAAAWSkAAAAAAABaKQAAAAAAAAAAAADOKAAAAAAAAM8oAAAAAAAAAAAAAG8mAAAAAAAAcCYAAAAAAAAAAAAAcyMAAAAAAAB0IwAAAAAAAAAAAADgIgAAAAAAAOEiAAAAAAAAAAAAADEiAAAAAAAAMiIAAAAAAAAAAAAAKiEAAAAAAAArIQAAAAAAAAAAAABiHgAAAAAAAGMeAAAAAAAAAAAAAFUZAAAAAAAAVhkAAAAAAAAAAAAAyBYAAAAAAADJFgAAAAAAAAAAAAAaFQAAAAAAABsVAAAAAAAAAAAAAPoTAAAAAAAA+xMAAAAAAAAAAAAAGhMAAAAAAAAbEwAAAAAAAAAAAABdEgAAAAAAAF4SAAAAAAAAAAAAAJERAAAAAAAAkhEAAAAAAAAAAAAAaBEAAAAAAABpEQAAAAAAAAAAAAAwEQAAAAAAADERAAAAAAAAAAAAAMIQAAAAAAAAwxAAAAAAAAAAAAAAQBAAAAAAAABBEAAAAAAAAAAAAAD6DwAAAAAAAPsPAAAAAAAAAAAAAFcPAAAAAAAAWA8AAAAAAAAAAAAACA8AAAAAAAAJDwAAAAAAAAAAAAC0DQAAAAAAALUNAAAAAAAAAAAAADoMAAAAAAAAOwwAAAAAAAAAAAAAGwoAAAAAAAAcCgAAAAAAAAAAAAAGCgAAAAAAAAcKAAAAAAAAAAAAAJcJAAAAAAAAmAkAAAAAAAAAAAAAcgkAAAAAAABzCQAAAAAAAAAAAAAJCQAAAAAAAAoJAAAAAAAAAAAAAKMIAAAAAAAApAgAAAAAAAAAAAAANQgAAAAAAAA2CAAAAAAAAAAAAADMBwAAAAAAAM0HAAAAAAAAAAAAAFoHAAAAAAAAWwcAAAAAAAAAAAAA8wYAAAAAAAD0BgAAAAAAAAAAAACMBgAAAAAAAI0GAAAAAAAAAAAAACUGAAAAAAAAJgYAAAAAAAAAAAAAvgUAAAAAAAC/BQAAAAAAAAAAAABYBQAAAAAAAFkFAAAAAAAAAAAAAPMEAAAAAAAA9AQAAAAAAAAAAAAAmQQAAAAAAACaBAAAAAAAAAAAAABABAAAAAAAAEEEAAAAAAAAAAAAAOMDAAAAAAAA5AMAAAAAAAAAAAAAfgMAAAAAAAB/AwAAAAAAAAAAAAAeAwAAAAAAAB8DAAAAAAAAAAAAAM4CAAAAAAAAzwIAAAAAAAAAAAAAegIAAAAAAAB7AgAAAAAAAAAAAAAuAgAAAAAAAC8CAAAAAAAAAAAAAJ0BAAAAAAAAngEAAAAAAAAAAAAA+QAAAAAAAAD6AAAAAAAAAAAAAACuAAAAAAAAAK8AAAAAAAAAAAAAAEhWAAAAAAAASVYAAAAAAAAAAAAA/lUAAAAAAAD/VQAAAAAAAAAAAADQVAAAAAAAANFUAAAAAAAAAAAAAIdUAAAAAAAAiFQAAAAAAAAAAAAAgFQAAAAAAACBVAAAAAAAAAAAAAAwVAAAAAAAADFUAAAAAAAAAAAAAKFTAAAAAAAAolMAAAAAAAAAAAAAU1MAAAAAAABUUwAAAAAAAAAAAAAvUwAAAAAAADBTAAAAAAAAAAAAAMBSAAAAAAAAwVIAAAAAAAAAAAAApVIAAAAAAACmUgAAAAAAAAAAAABqUgAAAAAAAGtSAAAAAAAAAAAAAAVSAAAAAAAABlIAAAAAAAAAAAAA3ksAAAAAAADfSwAAAAAAAAAAAABfSQAAAAAAAGBJAAAAAAAAAAAAACNIAAAAAAAAJEgAAAAAAAAAAAAAu0YAAAAAAAC8RgAAAAAAAAAAAAC6QwAAAAAAALtDAAAAAAAAAAAAAMxCAAAAAAAAzUIAAAAAAAAAAAAAaEIAAAAAAABpQgAAAAAAAAAAAADpQQAAAAAAAOpBAAAAAAAAAAAAAMY3AAAAAAAAxzcAAAAAAAAAAAAAMjMAAAAAAAAzMwAAAAAAAAAAAACLMAAAAAAAAIwwAAAAAAAAAAAAAAYwAAAAAAAABzAAAAAAAAAAAAAAtC4AAAAAAAC1LgAAAAAAAAAAAAA4LgAAAAAAADkuAAAAAAAAAAAAALEtAAAAAAAAsi0AAAAAAAAAAAAA7ywAAAAAAADwLAAAAAAAAAAAAAAVLAAAAAAAABYsAAAAAAAAAAAAAMkrAAAAAAAAyisAAAAAAAAAAAAAvisAAAAAAAC/KwAAAAAAAAAAAABUKwAAAAAAAFUrAAAAAAAAAAAAABkrAAAAAAAAGisAAAAAAAAAAAAACCsAAAAAAAAJKwAAAAAAAAAAAADAKgAAAAAAAMEqAAAAAAAAAAAAAEIqAAAAAAAAQyoAAAAAAAAAAAAAiykAAAAAAACMKQAAAAAAAAAAAAD/KAAAAAAAAAApAAAAAAAAAAAAAJ8mAAAAAAAAoCYAAAAAAAAAAAAAoiMAAAAAAACjIwAAAAAAAAAAAAAOIwAAAAAAAA8jAAAAAAAAAAAAAF4iAAAAAAAAXyIAAAAAAAAAAAAAViEAAAAAAABXIQAAAAAAAAAAAACNHgAAAAAAAI4eAAAAAAAAAAAAAH8ZAAAAAAAAgBkAAAAAAAAAAAAA8RYAAAAAAADyFgAAAAAAAAAAAABCFQAAAAAAAEMVAAAAAAAAAAAAACEUAAAAAAAAIhQAAAAAAAAAAAAAQBMAAAAAAABBEwAAAAAAAAAAAACCEgAAAAAAAIMSAAAAAAAAAAAAALURAAAAAAAAthEAAAAAAAAAAAAAixEAAAAAAACMEQAAAAAAAAAAAABSEQAAAAAAAFMRAAAAAAAAAAAAAOMQAAAAAAAA5BAAAAAAAAAAAAAAYBAAAAAAAABhEAAAAAAAAAAAAAAZEAAAAAAAABoQAAAAAAAAAAAAAHUPAAAAAAAAdg8AAAAAAAAAAAAAJQ8AAAAAAAAmDwAAAAAAAAAAAADQDQAAAAAAANENAAAAAAAAAAAAAFUMAAAAAAAAVgwAAAAAAAAAAAAANQoAAAAAAAA2CgAAAAAAAAAAAAAfCgAAAAAAACAKAAAAAAAAAAAAAK8JAAAAAAAAsAkAAAAAAAAAAAAAiQkAAAAAAACKCQAAAAAAAAAAAAAfCQAAAAAAACAJAAAAAAAAAAAAALgIAAAAAAAAuQgAAAAAAAAAAAAASQgAAAAAAABKCAAAAAAAAAAAAADfBwAAAAAAAOAHAAAAAAAAAAAAAGwHAAAAAAAAbQcAAAAAAAAAAAAABAcAAAAAAAAFBwAAAAAAAAAAAACcBgAAAAAAAJ0GAAAAAAAAAAAAADQGAAAAAAAANQYAAAAAAAAAAAAAzAUAAAAAAADNBQAAAAAAAAAAAABlBQAAAAAAAGYFAAAAAAAAAAAAAP8EAAAAAAAAAAUAAAAAAAAAAAAApAQAAAAAAAClBAAAAAAAAAAAAABKBAAAAAAAAEsEAAAAAAAAAAAAAOwDAAAAAAAA7QMAAAAAAAAAAAAAhgMAAAAAAACHAwAAAAAAAAAAAAAlAwAAAAAAACYDAAAAAAAAAAAAANQCAAAAAAAA1QIAAAAAAAAAAAAAfwIAAAAAAACAAgAAAAAAAAAAAAAyAgAAAAAAADMCAAAAAAAAAAAAAKABAAAAAAAAoQEAAAAAAAAAAAAA+wAAAAAAAAD8AAAAAAAAAAAAAACvAAAAAAAAALAAAAAAAAAAAAAAAJ9WAAAAAAAAoFYAAAAAAAAAAAAAVFYAAAAAAABVVgAAAAAAAAAAAAAlVQAAAAAAACZVAAAAAAAAAAAAANtUAAAAAAAA3FQAAAAAAAAAAAAA01QAAAAAAADUVAAAAAAAAAAAAACCVAAAAAAAAINUAAAAAAAAAAAAAPJTAAAAAAAA81MAAAAAAAAAAAAAo1MAAAAAAACkUwAAAAAAAAAAAAB+UwAAAAAAAH9TAAAAAAAAAAAAAA5TAAAAAAAAD1MAAAAAAAAAAAAA8lIAAAAAAADzUgAAAAAAAAAAAAC2UgAAAAAAALdSAAAAAAAAAAAAAFBSAAAAAAAAUVIAAAAAAAAAAAAAKEwAAAAAAAApTAAAAAAAAAAAAACoSQAAAAAAAKlJAAAAAAAAAAAAAGtIAAAAAAAAbEgAAAAAAAAAAAAAAkcAAAAAAAADRwAAAAAAAAAAAAAARAAAAAAAAAFEAAAAAAAAAAAAABFDAAAAAAAAEkMAAAAAAAAAAAAArEIAAAAAAACtQgAAAAAAAAAAAAAsQgAAAAAAAC1CAAAAAAAAAAAAAAg4AAAAAAAACTgAAAAAAAAAAAAAczMAAAAAAAB0MwAAAAAAAAAAAADLMAAAAAAAAMwwAAAAAAAAAAAAAEUwAAAAAAAARjAAAAAAAAAAAAAA8i4AAAAAAADzLgAAAAAAAAAAAAB1LgAAAAAAAHYuAAAAAAAAAAAAAO0tAAAAAAAA7i0AAAAAAAAAAAAAKi0AAAAAAAArLQAAAAAAAAAAAABPLAAAAAAAAFAsAAAAAAAAAAAAAAIsAAAAAAAAAywAAAAAAAAAAAAA9isAAAAAAAD3KwAAAAAAAAAAAACLKwAAAAAAAIwrAAAAAAAAAAAAAE8rAAAAAAAAUCsAAAAAAAAAAAAAPSsAAAAAAAA+KwAAAAAAAAAAAAD0KgAAAAAAAPUqAAAAAAAAAAAAAHUqAAAAAAAAdioAAAAAAAAAAAAAvSkAAAAAAAC+KQAAAAAAAAAAAAAwKQAAAAAAADEpAAAAAAAAAAAAAM8mAAAAAAAA0CYAAAAAAAAAAAAA0SMAAAAAAADSIwAAAAAAAAAAAAA8IwAAAAAAAD0jAAAAAAAAAAAAAIsiAAAAAAAAjCIAAAAAAAAAAAAAgiEAAAAAAACDIQAAAAAAAAAAAAC4HgAAAAAAALkeAAAAAAAAAAAAAKkZAAAAAAAAqhkAAAAAAAAAAAAAGhcAAAAAAAAbFwAAAAAAAAAAAABqFQAAAAAAAGsVAAAAAAAAAAAAAEgUAAAAAAAASRQAAAAAAAAAAAAAZhMAAAAAAABnEwAAAAAAAAAAAACnEgAAAAAAAKgSAAAAAAAAAAAAANkRAAAAAAAA2hEAAAAAAAAAAAAArhEAAAAAAACvEQAAAAAAAAAAAAB0EQAAAAAAAHURAAAAAAAAAAAAAAQRAAAAAAAABREAAAAAAAAAAAAAgBAAAAAAAACBEAAAAAAAAAAAAAA4EAAAAAAAADkQAAAAAAAAAAAAAJMPAAAAAAAAlA8AAAAAAAAAAAAAQg8AAAAAAABDDwAAAAAAAAAAAADsDQAAAAAAAO0NAAAAAAAAAAAAAHAMAAAAAAAAcQwAAAAAAAAAAAAATwoAAAAAAABQCgAAAAAAAAAAAAA4CgAAAAAAADkKAAAAAAAAAAAAAMcJAAAAAAAAyAkAAAAAAAAAAAAAoAkAAAAAAAChCQAAAAAAAAAAAAA1CQAAAAAAADYJAAAAAAAAAAAAAM0IAAAAAAAAzggAAAAAAAAAAAAAXQgAAAAAAABeCAAAAAAAAAAAAADyBwAAAAAAAPMHAAAAAAAAAAAAAH4HAAAAAAAAfwcAAAAAAAAAAAAAFQcAAAAAAAAWBwAAAAAAAAAAAACsBgAAAAAAAK0GAAAAAAAAAAAAAEMGAAAAAAAARAYAAAAAAAAAAAAA2gUAAAAAAADbBQAAAAAAAAAAAAByBQAAAAAAAHMFAAAAAAAAAAAAAAsFAAAAAAAADAUAAAAAAAAAAAAArwQAAAAAAACwBAAAAAAAAAAAAABUBAAAAAAAAFUEAAAAAAAAAAAAAPUDAAAAAAAA9gMAAAAAAAAAAAAAjgMAAAAAAACPAwAAAAAAAAAAAAAsAwAAAAAAAC0DAAAAAAAAAAAAANoCAAAAAAAA2wIAAAAAAAAAAAAAhAIAAAAAAACFAgAAAAAAAAAAAAA2AgAAAAAAADcCAAAAAAAAAAAAAKMBAAAAAAAApAEAAAAAAAAAAAAA/QAAAAAAAAD+AAAAAAAAAAAAAACwAAAAAAAAALEAAAAAAAAAAAAAAPZWAAAAAAAA91YAAAAAAAAAAAAAqlYAAAAAAACrVgAAAAAAAAAAAAB6VQAAAAAAAHtVAAAAAAAAAAAAAC9VAAAAAAAAMFUAAAAAAAAAAAAAJlUAAAAAAAAnVQAAAAAAAAAAAADUVAAAAAAAANVUAAAAAAAAAAAAAENUAAAAAAAARFQAAAAAAAAAAAAA81MAAAAAAAD0UwAAAAAAAAAAAADNUwAAAAAAAM5TAAAAAAAAAAAAAFxTAAAAAAAAXVMAAAAAAAAAAAAAP1MAAAAAAABAUwAAAAAAAAAAAAACUwAAAAAAAANTAAAAAAAAAAAAAJtSAAAAAAAAnFIAAAAAAAAAAAAAckwAAAAAAABzTAAAAAAAAAAAAADxSQAAAAAAAPJJAAAAAAAAAAAAALNIAAAAAAAAtEgAAAAAAAAAAAAASUcAAAAAAABKRwAAAAAAAAAAAABGRAAAAAAAAEdEAAAAAAAAAAAAAFZDAAAAAAAAV0MAAAAAAAAAAAAA8EIAAAAAAADxQgAAAAAAAAAAAABvQgAAAAAAAHBCAAAAAAAAAAAAAEo4AAAAAAAASzgAAAAAAAAAAAAAtDMAAAAAAAC1MwAAAAAAAAAAAAALMQAAAAAAAAwxAAAAAAAAAAAAAIQwAAAAAAAAhTAAAAAAAAAAAAAAMC8AAAAAAAAxLwAAAAAAAAAAAACyLgAAAAAAALMuAAAAAAAAAAAAACkuAAAAAAAAKi4AAAAAAAAAAAAAZS0AAAAAAABmLQAAAAAAAAAAAACJLAAAAAAAAIosAAAAAAAAAAAAADssAAAAAAAAPCwAAAAAAAAAAAAALiwAAAAAAAAvLAAAAAAAAAAAAADCKwAAAAAAAMMrAAAAAAAAAAAAAIUrAAAAAAAAhisAAAAAAAAAAAAAcisAAAAAAABzKwAAAAAAAAAAAAAoKwAAAAAAACkrAAAAAAAAAAAAAKgqAAAAAAAAqSoAAAAAAAAAAAAA7ykAAAAAAADwKQAAAAAAAAAAAABhKQAAAAAAAGIpAAAAAAAAAAAAAP8mAAAAAAAAACcAAAAAAAAAAAAAACQAAAAAAAABJAAAAAAAAAAAAABqIwAAAAAAAGsjAAAAAAAAAAAAALgiAAAAAAAAuSIAAAAAAAAAAAAAriEAAAAAAACvIQAAAAAAAAAAAADjHgAAAAAAAOQeAAAAAAAAAAAAANMZAAAAAAAA1BkAAAAAAAAAAAAAQxcAAAAAAABEFwAAAAAAAAAAAACSFQAAAAAAAJMVAAAAAAAAAAAAAG8UAAAAAAAAcBQAAAAAAAAAAAAAjBMAAAAAAACNEwAAAAAAAAAAAADMEgAAAAAAAM0SAAAAAAAAAAAAAP0RAAAAAAAA/hEAAAAAAAAAAAAA0REAAAAAAADSEQAAAAAAAAAAAACWEQAAAAAAAJcRAAAAAAAAAAAAACURAAAAAAAAJhEAAAAAAAAAAAAAoBAAAAAAAAChEAAAAAAAAAAAAABXEAAAAAAAAFgQAAAAAAAAAAAAALEPAAAAAAAAsg8AAAAAAAAAAAAAXw8AAAAAAABgDwAAAAAAAAAAAAAIDgAAAAAAAAkOAAAAAAAAAAAAAIsMAAAAAAAAjAwAAAAAAAAAAAAAaQoAAAAAAABqCgAAAAAAAAAAAABRCgAAAAAAAFIKAAAAAAAAAAAAAN8JAAAAAAAA4AkAAAAAAAAAAAAAtwkAAAAAAAC4CQAAAAAAAAAAAABLCQAAAAAAAEwJAAAAAAAAAAAAAOIIAAAAAAAA4wgAAAAAAAAAAAAAcQgAAAAAAAByCAAAAAAAAAAAAAAFCAAAAAAAAAYIAAAAAAAAAAAAAJAHAAAAAAAAkQcAAAAAAAAAAAAAJgcAAAAAAAAnBwAAAAAAAAAAAAC8BgAAAAAAAL0GAAAAAAAAAAAAAFIGAAAAAAAAUwYAAAAAAAAAAAAA6AUAAAAAAADpBQAAAAAAAAAAAAB/BQAAAAAAAIAFAAAAAAAAAAAAABcFAAAAAAAAGAUAAAAAAAAAAAAAugQAAAAAAAC7BAAAAAAAAAAAAABeBAAAAAAAAF8EAAAAAAAAAAAAAP4DAAAAAAAA/wMAAAAAAAAAAAAAlgMAAAAAAACXAwAAAAAAAAAAAAAzAwAAAAAAADQDAAAAAAAAAAAAAOACAAAAAAAA4QIAAAAAAAAAAAAAiQIAAAAAAACKAgAAAAAAAAAAAAA6AgAAAAAAADsCAAAAAAAAAAAAAKYBAAAAAAAApwEAAAAAAAAAAAAA/wAAAAAAAAAAAQAAAAAAAAAAAACxAAAAAAAAALIAAAAAAAAAAAAAAA",
+					"AQAAAAAAAABXAAAAqwAAAAAAAACwAAAAAAAAAAAAAAAAAPC/+AAAAAAAAAD9AAAAAAAAAAAAAAAAAPC/ngEAAAAAAACjAQAAAAAAAAAAAAAAAPC/MQIAAAAAAAA2AgAAAAAAAAAAAAAAAPC/fwIAAAAAAACEAgAAAAAAAAAAAAAAAPC/1QIAAAAAAADaAgAAAAAAAAAAAAAAAPC/JwMAAAAAAAAsAwAAAAAAAAAAAAAAAPC/iQMAAAAAAACOAwAAAAAAAAAAAAAAAPC/8AMAAAAAAAD1AwAAAAAAAAAAAAAAAPC/TwQAAAAAAABUBAAAAAAAAAAAAAAAAPC/qgQAAAAAAACvBAAAAAAAAAAAAAAAAPC/BgUAAAAAAAALBQAAAAAAAAAAAAAAAPC/bQUAAAAAAAByBQAAAAAAAAAAAAAAAPC/1QUAAAAAAADaBQAAAAAAAAAAAAAAAPC/PgYAAAAAAABDBgAAAAAAAAAAAAAAAPC/pwYAAAAAAACsBgAAAAAAAAAAAAAAAPC/EAcAAAAAAAAVBwAAAAAAAAAAAAAAAPC/eQcAAAAAAAB+BwAAAAAAAAAAAAAAAPC/7QcAAAAAAADyBwAAAAAAAAAAAAAAAPC/WAgAAAAAAABdCAAAAAAAAAAAAAAAAPC/yAgAAAAAAADNCAAAAAAAAAAAAAAAAPC/MAkAAAAAAAA1CQAAAAAAAAAAAAAAAPC/mwkAAAAAAACgCQAAAAAAAAAAAAAAAPC/wgkAAAAAAADHCQAAAAAAAAAAAAAAAPC/MwoAAAAAAAA4CgAAAAAAAAAAAAAAAPC/SgoAAAAAAABPCgAAAAAAAAAAAAAAAPC/awwAAAAAAABwDAAAAAAAAAAAAAAAAPC/5w0AAAAAAADsDQAAAAAAAAAAAAAAAPC/PQ8AAAAAAABCDwAAAAAAAAAAAAAAAPC/jg8AAAAAAACTDwAAAAAAAAAAAAAAAPC/MxAAAAAAAAA4EAAAAAAAAAAAAAAAAPC/exAAAAAAAACAEAAAAAAAAAAAAAAAAPC//xAAAAAAAAAEEQAAAAAAAAAAAAAAAPC/bxEAAAAAAAB0EQAAAAAAAAAAAAAAAPC/qREAAAAAAACuEQAAAAAAAAAAAAAAAPC/1BEAAAAAAADZEQAAAAAAAAAAAAAAAPC/ohIAAAAAAACnEgAAAAAAAAAAAAAAAPC/YRMAAAAAAABmEwAAAAAAAAAAAAAAAPC/QxQAAAAAAABIFAAAAAAAAAAAAAAAAPC/ZRUAAAAAAABqFQAAAAAAAAAAAAAAAPC/FRcAAAAAAAAaFwAAAAAAAAAAAAAAAPC/pBkAAAAAAACpGQAAAAAAAAAAAAAAAPC/sx4AAAAAAAC4HgAAAAAAAAAAAAAAAPC/fSEAAAAAAACCIQAAAAAAAAAAAAAAAPC/hiIAAAAAAACLIgAAAAAAAAAAAAAAAPC/NyMAAAAAAAA8IwAAAAAAAAAAAAAAAPC/zCMAAAAAAADRIwAAAAAAAAAAAAAAAPC/yiYAAAAAAADPJgAAAAAAAAAAAAAAAPC/KykAAAAAAAAwKQAAAAAAAAAAAAAAAPC/uCkAAAAAAAC9KQAAAAAAAAAAAAAAAPC/cCoAAAAAAAB1KgAAAAAAAAAAAAAAAPC/7yoAAAAAAAD0KgAAAAAAAAAAAAAAAPC/OCsAAAAAAAA9KwAAAAAAAAAAAAAAAPC/SisAAAAAAABPKwAAAAAAAAAAAAAAAPC/hisAAAAAAACLKwAAAAAAAAAAAAAAAPC/8SsAAAAAAAD2KwAAAAAAAAAAAAAAAPC//SsAAAAAAAACLAAAAAAAAAAAAAAAAPC/SiwAAAAAAABPLAAAAAAAAAAAAAAAAPC/JS0AAAAAAAAqLQAAAAAAAAAAAAAAAPC/6C0AAAAAAADtLQAAAAAAAAAAAAAAAPC/cC4AAAAAAAB1LgAAAAAAAAAAAAAAAPC/7S4AAAAAAADyLgAAAAAAAAAAAAAAAPC/QDAAAAAAAABFMAAAAAAAAAAAAAAAAPC/xjAAAAAAAADLMAAAAAAAAAAAAAAAAPC/bjMAAAAAAABzMwAAAAAAAAAAAAAAAPC/AzgAAAAAAAAIOAAAAAAAAAAAAAAAAPC/J0IAAAAAAAAsQgAAAAAAAAAAAAAAAPC/p0IAAAAAAACsQgAAAAAAAAAAAAAAAPC/DEMAAAAAAAARQwAAAAAAAAAAAAAAAPC/+0MAAAAAAAAARAAAAAAAAAAAAAAAAPC//UYAAAAAAAACRwAAAAAAAAAAAAAAAPC/ZkgAAAAAAABrSAAAAAAAAAAAAAAAAPC/o0kAAAAAAACoSQAAAAAAAAAAAAAAAPC/I0wAAAAAAAAoTAAAAAAAAAAAAAAAAPC/S1IAAAAAAABQUgAAAAAAAAAAAAAAAPC/sVIAAAAAAAC2UgAAAAAAAAAAAAAAAPC/7VIAAAAAAADyUgAAAAAAAAAAAAAAAPC/CVMAAAAAAAAOUwAAAAAAAAAAAAAAAPC/eVMAAAAAAAB+UwAAAAAAAAAAAAAAAPC/nlMAAAAAAACjUwAAAAAAAAAAAAAAAPC/7VMAAAAAAADyUwAAAAAAAAAAAAAAAPC/fVQAAAAAAACCVAAAAAAAAAAAAAAAAPC/zlQAAAAAAADTVAAAAAAAAAAAAAAAAPC/1lQAAAAAAADbVAAAAAAAAAAAAAAAAPC/IFUAAAAAAAAlVQAAAAAAAAAAAAAAAPC/T1YAAAAAAABUVgAAAAAAAAAAAAAAAPC/mlYAAAAAAACfVgAAAAAAAAAAAAAAAPC/"
+				]
+			]
+		},
+		{
+			"contents": " \n   '//@DIM@COLLECTION@TABLE COLLEZIONI TABELLE\n   '//...................................\n      \n    '//DIM IMPORTA TABELLE\n    Dim tableName As String\n    Dim tblCiclo As TableDef\n    Dim mytableName_s As String\n    Dim objectTables As Collection              '//todo: doppia collezione di tabelle eliminare objectTables\n    Dim tablesCollection As Collection\n    \n    Dim varItem As Variant\n    '//i contatori delle tabelle\n    Dim tableExistsInCollectionTables_Funct_b As Boolean\n    Dim importedTablesCount_i As Integer\n    Dim deletedTablesCount_i As Integer\n    Dim deletedTables_s As String\n  \n\n\n\n\n\n\n\n\n\n\n  Private Sub Cmd_Importa_TABLE_Click()\n\n    Dim dbCurrent As DAO.Database\n    Dim dbSource As DAO.Database\n    Dim tdf As DAO.TableDef\n    Dim objectTables As Collection\n    Dim varItem As Variant\n    Dim sourceDBPath_s As String\n    Dim strTableName As String\n    Dim tableExistsInCollectionTables_Funct_b As Boolean\n \n\n\n\n\n\n\n\n\n\n\n\n\n    '//=====================================================================================================================//\n    '//                            STEP_03 = IMPORTO LE TABELLE\n    '//=====================================================================================================================//\n    '//@TABELLE@INSERT.16= INIZIO IMPORTAZIONE TABELLE\n\n    ' Apri il database corrente\n    Set dbCurrent = CurrentDb\n\n    ' Apri il database di origine\n    Set dbSource = DBEngine.Workspaces(0).OpenDatabase(sourceDBPath_s)\n\n    ' Itera sugli oggetti TABELLE nel database di origine\n    For Each varItem In objectTables\n        strTableName = varItem\n        \n        Debug.Print \"CONTROLLO TABELLA DA IMPORTARE --> : \"; strTableName\n\n        tableExistsInCollectionTables_Funct_b = False\n\n        ' Verifica se la tabella esiste nel database esterno\n        For Each tdf In dbSource.TableDefs\n            If tdf.Name = strTableName Then\n                tableExistsInCollectionTables_Funct_b = True\n                Exit For\n            End If\n        Next tdf\n\n        If tableExistsInCollectionTables_Funct_b Then\n            ' Se la tabella esiste, prima la elimino se è presente nel database corrente\n            On Error Resume Next\n            dbCurrent.TableDefs.Delete strTableName\n            deletedTablesCount_i = deletedTablesCount_i + 1\n            deletedTables_s = deletedTables_s & strTableName & vbCrLf\n            Print #logFile, \"Tabella eliminata: \" & strTableName\n            On Error GoTo 0\n            \n            ' Importa la tabella dal database esterno\n            DoCmd.TransferDatabase acImport, \"Microsoft Access\", sourceDBPath_s, acTable, strTableName, strTableName\n            \n            importedTablesCount_i = importedTablesCount_i + 1\n            importedTables_s = importedTables_s & strTableName & vbCrLf\n            Print #logFile, \"Tabella importata: \" & strTableName\n        Else\n            ' Se la tabella non esiste nel database esterno\n            Print #logFile, \"Tabella non trovata nel database esterno: \" & strTableName\n        End If\n    Next varItem\n    \n    ' Messaggio finale di riepilogo\n    If Me.ctr_AVVISO_ABILITATO_TXT = True Then\n        MsgBox \"CONTROLLO TABELLE PRECARICATE DA IMPORTARE:\" & vbCrLf & _\n               \"Tabelle importate: \" & importedTablesCount_i & vbCrLf & importedTables_s & vbCrLf & _\n               \"Tabelle esistenti cancellate: \" & deletedTablesCount_i & vbCrLf & deletedTables_s, vbInformation\n    End If\n\n    ' Scrive nel file di log il riepilogo finale\n    Print #logFile, \"Importazione completata con \" & importedTablesCount_i & \" tabelle importate.\"\n    Close #logFile\n\n    ' Pulizia delle variabili\n    Set dbCurrent = Nothing\n    Set objectTables = Nothing\n    Set dbSource = Nothing\n",
+			"settings":
+			{
+				"buffer_size": 3737,
+				"line_ending": "Windows"
+			},
+			"undo_stack":
+			[
+				[
+					1,
+					1,
+					"paste",
+					null,
+					"AQAAAAAAAAAAAAAAWQIAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					2,
+					1,
+					"insert",
+					{
+						"characters": "\n\n\n\n\n\n\n\n\n\n\n"
+					},
+					"IAAAAFkCAAAAAAAAWgIAAAAAAAAAAAAAWgIAAAAAAABcAgAAAAAAAAAAAABcAgAAAAAAAF0CAAAAAAAAAAAAAF0CAAAAAAAAXwIAAAAAAAAAAAAAWgIAAAAAAABaAgAAAAAAAAIAAAAgIF0CAAAAAAAAXgIAAAAAAAAAAAAAXgIAAAAAAABgAgAAAAAAAAAAAABbAgAAAAAAAFsCAAAAAAAAAgAAACAgXgIAAAAAAABfAgAAAAAAAAAAAABfAgAAAAAAAGECAAAAAAAAAAAAAFwCAAAAAAAAXAIAAAAAAAACAAAAICBfAgAAAAAAAGACAAAAAAAAAAAAAGACAAAAAAAAYgIAAAAAAAAAAAAAXQIAAAAAAABdAgAAAAAAAAIAAAAgIGACAAAAAAAAYQIAAAAAAAAAAAAAYQIAAAAAAABjAgAAAAAAAAAAAABeAgAAAAAAAF4CAAAAAAAAAgAAACAgYQIAAAAAAABiAgAAAAAAAAAAAABiAgAAAAAAAGQCAAAAAAAAAAAAAF8CAAAAAAAAXwIAAAAAAAACAAAAICBiAgAAAAAAAGMCAAAAAAAAAAAAAGMCAAAAAAAAZQIAAAAAAAAAAAAAYAIAAAAAAABgAgAAAAAAAAIAAAAgIGMCAAAAAAAAZAIAAAAAAAAAAAAAZAIAAAAAAABmAgAAAAAAAAAAAABhAgAAAAAAAGECAAAAAAAAAgAAACAgZAIAAAAAAABlAgAAAAAAAAAAAABlAgAAAAAAAGcCAAAAAAAAAAAAAGICAAAAAAAAYgIAAAAAAAACAAAAICBlAgAAAAAAAGYCAAAAAAAAAAAAAGYCAAAAAAAAaAIAAAAAAAAAAAAAYwIAAAAAAABjAgAAAAAAAAIAAAAgIA",
+					"AQAAAAAAAAABAAAAWQIAAAAAAABZAgAAAAAAAAAAAAAAAPC/"
 				],
 				[
 					3,
 					1,
 					"paste",
 					null,
-					"AQAAAFMBAAAAAAAAdAEAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAUwEAAAAAAABTAQAAAAAAAAAAAAAAAPC/"
-				]
-			]
-		},
-		{
-			"file": "OBJECT/QUERY/MSysObjects_Qry01_01_GROUP_OGGETTI.MD",
-			"settings":
-			{
-				"buffer_size": 942,
-				"encoding": "UTF-8",
-				"line_ending": "Windows",
-				"name": "SELECT MSysObjects.Type,"
-			},
-			"undo_stack":
-			[
-				[
-					1,
-					1,
-					"paste",
-					null,
-					"AQAAAAAAAAAAAAAAhQEAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/"
+					"AQAAAGYCAAAAAAAApAMAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAZgIAAAAAAABmAgAAAAAAAAAAAAAAAPC/"
 				],
 				[
-					8,
-					1,
-					"insert",
-					{
-						"characters": "\n\n"
-					},
-					"BQAAACEBAAAAAAAAIgEAAAAAAAAAAAAAIgEAAAAAAAAxAQAAAAAAAAAAAAAxAQAAAAAAADIBAAAAAAAAAAAAADIBAAAAAAAAQQEAAAAAAAAAAAAAIgEAAAAAAAAiAQAAAAAAAA8AAAAgICAgICAgICAgICAgICA",
-					"AQAAAAAAAAABAAAAIQEAAAAAAAAhAQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					12,
-					1,
-					"insert",
-					{
-						"characters": "\n"
-					},
-					"AgAAACABAAAAAAAAIQEAAAAAAAAAAAAAIQEAAAAAAAAwAQAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAIAEAAAAAAAAgAQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					14,
-					5,
-					"right_delete",
-					null,
-					"BQAAADEBAAAAAAAAMQEAAAAAAAABAAAACjEBAAAAAAAAMQEAAAAAAAABAAAACjEBAAAAAAAAMQEAAAAAAAABAAAAIDEBAAAAAAAAMQEAAAAAAAABAAAAIDEBAAAAAAAAMQEAAAAAAAABAAAAIA",
-					"AQAAAAAAAAABAAAAMQEAAAAAAAAxAQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					15,
-					8,
-					"right_delete",
-					null,
-					"CAAAADEBAAAAAAAAMQEAAAAAAAABAAAAIDEBAAAAAAAAMQEAAAAAAAABAAAAIDEBAAAAAAAAMQEAAAAAAAABAAAAIDEBAAAAAAAAMQEAAAAAAAABAAAAIDEBAAAAAAAAMQEAAAAAAAABAAAAIDEBAAAAAAAAMQEAAAAAAAABAAAAIDEBAAAAAAAAMQEAAAAAAAABAAAAIDEBAAAAAAAAMQEAAAAAAAABAAAAIA",
-					"AQAAAAAAAAABAAAAMQEAAAAAAAAxAQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					16,
 					4,
-					"right_delete",
-					null,
-					"BAAAADEBAAAAAAAAMQEAAAAAAAABAAAAIDEBAAAAAAAAMQEAAAAAAAABAAAAIDEBAAAAAAAAMQEAAAAAAAABAAAAIDEBAAAAAAAAMQEAAAAAAAABAAAAIA",
-					"AQAAAAAAAAABAAAAMQEAAAAAAAAxAQAAAAAAAAAAAAAAAPC/"
+					1,
+					"insert",
+					{
+						"characters": "\n\n\n\n\n\n\n\n\n\n\n\n\n"
+					},
+					"JgAAAKQDAAAAAAAApQMAAAAAAAAAAAAApQMAAAAAAACmAwAAAAAAAAAAAACmAwAAAAAAAKcDAAAAAAAAAAAAAKcDAAAAAAAAqAMAAAAAAAAAAAAApQMAAAAAAAClAwAAAAAAAAEAAAAgpwMAAAAAAACoAwAAAAAAAAAAAACoAwAAAAAAAKkDAAAAAAAAAAAAAKYDAAAAAAAApgMAAAAAAAABAAAAIKgDAAAAAAAAqQMAAAAAAAAAAAAAqQMAAAAAAACqAwAAAAAAAAAAAACnAwAAAAAAAKcDAAAAAAAAAQAAACCpAwAAAAAAAKoDAAAAAAAAAAAAAKoDAAAAAAAAqwMAAAAAAAAAAAAAqAMAAAAAAACoAwAAAAAAAAEAAAAgqgMAAAAAAACrAwAAAAAAAAAAAACrAwAAAAAAAKwDAAAAAAAAAAAAAKkDAAAAAAAAqQMAAAAAAAABAAAAIKsDAAAAAAAArAMAAAAAAAAAAAAArAMAAAAAAACtAwAAAAAAAAAAAACqAwAAAAAAAKoDAAAAAAAAAQAAACCsAwAAAAAAAK0DAAAAAAAAAAAAAK0DAAAAAAAArgMAAAAAAAAAAAAAqwMAAAAAAACrAwAAAAAAAAEAAAAgrQMAAAAAAACuAwAAAAAAAAAAAACuAwAAAAAAAK8DAAAAAAAAAAAAAKwDAAAAAAAArAMAAAAAAAABAAAAIK4DAAAAAAAArwMAAAAAAAAAAAAArwMAAAAAAACwAwAAAAAAAAAAAACtAwAAAAAAAK0DAAAAAAAAAQAAACCvAwAAAAAAALADAAAAAAAAAAAAALADAAAAAAAAsQMAAAAAAAAAAAAArgMAAAAAAACuAwAAAAAAAAEAAAAgsAMAAAAAAACxAwAAAAAAAAAAAACxAwAAAAAAALIDAAAAAAAAAAAAAK8DAAAAAAAArwMAAAAAAAABAAAAILEDAAAAAAAAsgMAAAAAAAAAAAAAsgMAAAAAAACzAwAAAAAAAAAAAACwAwAAAAAAALADAAAAAAAAAQAAACA",
+					"AQAAAAAAAAABAAAApAMAAAAAAACkAwAAAAAAAAAAAAAAAPC/"
 				],
 				[
-					28,
+					5,
 					1,
 					"paste",
 					null,
-					"AgAAAAAAAAAAAAAA7wEAAAAAAAAAAAAA7wEAAAAAAADvAQAAAAAAAJUBAABTRUxFQ1QgTVN5c09iamVjdHMuVHlwZSwgCiAgICAgICBNU3lzT2JqZWN0cy5QYXJlbnRJZCwgCiAgICAgICAiLS0tPiIgQVMgVFhUS2V5LCAKICAgICAgIE1TeXNPYmplY3RzLlR5cGUgQVMga0VZVHlwZSwgCiAgICAgICBNU3lzT2JqZWN0cy5QYXJlbnRJZCBBUyBLRVlQYXJlbnRJZCwgCiAgICAgICBJSWYoW1RZUEVdPS0zMjc2OCwiVEFCRUxMRSIsCiAgICAgICAgICAgSUlmKFtUWVBFXT0tMzI3NjYsIlFVRVJZIiwKICAgICAgICAgICAgICAgSUlmKFtUWVBFXT0tMzI3NjQsIlJFUE9SVCIsIkFMVFJPIikKICAgICAgICAgICAgICAgKSkgQVMgVElQTwpGUk9NIE1TeXNPYmplY3RzCkdST1VQIEJZIE1TeXNPYmplY3RzLlR5cGUsIE1TeXNPYmplY3RzLlBhcmVudElkCldJVEggT1dORVJBQ0NFU1MgT1BUSU9OOwo",
-					"AQAAAAAAAAABAAAAAAAAAAAAAACVAQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					30,
-					1,
-					"paste",
-					null,
-					"AgAAAAAAAAAAAAAAJwIAAAAAAAAAAAAAJwIAAAAAAAAnAgAAAAAAAO8BAABTRUxFQ1QgTVN5c09iamVjdHMuVHlwZSwgCiAgICAgICBNU3lzT2JqZWN0cy5QYXJlbnRJZCwgCiAgICAgICAiLS0tPiIgQVMgVFhUS2V5LCAKICAgICAgIE1TeXNPYmplY3RzLlR5cGUgQVMga0VZVHlwZSwgCiAgICAgICBNU3lzT2JqZWN0cy5QYXJlbnRJZCBBUyBLRVlQYXJlbnRJZCwgCiAgICAgICBJSWYoW1RZUEVdPS0zMjc2OCwiVEFCRUxMRSIsCiAgICAgICAgICAgSUlmKFtUWVBFXT0tMzI3NjYsIlFVRVJZIiwKICAgICAgICAgICAgICAgSUlmKFtUWVBFXT0tMzI3NjQsIlJFUE9SVCIsCiAgICAgICAgICAgICAgICAgICBJSWYoW1RZUEVdPS0zMjc2MSwiTU9EVUxJIiwKICAgICAgICAgICAgICAgICAgICAgICBJSWYoW1RZUEVdPS0zMjc1NywiQWNjZXNzTGF5b3V0IiwiQUxUUk8iKSkpKSkgQVMgVElQTwpGUk9NIE1TeXNPYmplY3RzCkdST1VQIEJZIE1TeXNPYmplY3RzLlR5cGUsIE1TeXNPYmplY3RzLlBhcmVudElkCldJVEggT1dORVJBQ0NFU1MgT1BUSU9OOwo",
-					"AQAAAAAAAAABAAAAAAAAAAAAAADvAQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					37,
-					1,
-					"paste",
-					null,
-					"AgAAAAAAAAAAAAAAXgIAAAAAAAAAAAAAXgIAAAAAAABeAgAAAAAAACcCAABTRUxFQ1QgTVN5c09iamVjdHMuVHlwZSwgCiAgICAgICBNU3lzT2JqZWN0cy5QYXJlbnRJZCwgCiAgICAgICAiLS0tPiIgQVMgVFhUS2V5LCAKICAgICAgIE1TeXNPYmplY3RzLlR5cGUgQVMga0VZVHlwZSwgCiAgICAgICBNU3lzT2JqZWN0cy5QYXJlbnRJZCBBUyBLRVlQYXJlbnRJZCwgCiAgICAgICBJSWYoW1RZUEVdPS0zMjc2OCwiVEFCRUxMRSIsCiAgICAgICAgICAgSUlmKFtUWVBFXT0tMzI3NjYsIlFVRVJZIiwKICAgICAgICAgICAgICAgSUlmKFtUWVBFXT0tMzI3NjQsIlJFUE9SVCIsCiAgICAgICAgICAgICAgICAgICBJSWYoW1RZUEVdPS0zMjc2MSwiTU9EVUxJIiwKICAgICAgICAgICAgICAgICAgICAgICBJSWYoW1RZUEVdPS0zMjc1NywiQWNjZXNzTGF5b3V0IiwKICAgICAgICAgICAgICAgICAgICAgICAgICAgSUlmKFtUWVBFXT0xLCJNU3lzT2JqZWN0cyIsIkFMVFJPIikpKSkpKSBBUyBUSVBPCkZST00gTVN5c09iamVjdHMKR1JPVVAgQlkgTVN5c09iamVjdHMuVHlwZSwgTVN5c09iamVjdHMuUGFyZW50SWQKV0lUSCBPV05FUkFDQ0VTUyBPUFRJT047Cg",
-					"AQAAAAAAAAABAAAAJwIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
-				],
-				[
-					106,
-					1,
-					"paste",
-					null,
-					"AgAAAAAAAAAAAAAAmQIAAAAAAAAAAAAAmQIAAAAAAACZAgAAAAAAAF4CAABTRUxFQ1QgTVN5c09iamVjdHMuVHlwZSwgCiAgICAgICBNU3lzT2JqZWN0cy5QYXJlbnRJZCwgCiAgICAgICAiLS0tPiIgQVMgVFhUS2V5LCAKICAgICAgIE1TeXNPYmplY3RzLlR5cGUgQVMga0VZVHlwZSwgCiAgICAgICBNU3lzT2JqZWN0cy5QYXJlbnRJZCBBUyBLRVlQYXJlbnRJZCwgCiAgICAgICBJSWYoW1RZUEVdPS0zMjc2OCwiVEFCRUxMRSIsCiAgICAgICAgICAgSUlmKFtUWVBFXT0tMzI3NjYsIlFVRVJZIiwKICAgICAgICAgICAgICAgSUlmKFtUWVBFXT0tMzI3NjQsIlJFUE9SVCIsCiAgICAgICAgICAgICAgICAgICBJSWYoW1RZUEVdPS0zMjc2MSwiTU9EVUxJIiwKICAgICAgICAgICAgICAgICAgICAgICBJSWYoW1RZUEVdPS0zMjc1NywiQWNjZXNzTGF5b3V0IiwKICAgICAgICAgICAgICAgICAgICAgICAgICAgSUlmKFtUWVBFXT0xLCJNU3lzT2JqZWN0cyIsCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBJSWYoW1RZUEVdPTIsIk1TeXNEYiIsIkFMVFJPIikpKSkpKSkgQVMgVElQTwpGUk9NIE1TeXNPYmplY3RzCkdST1VQIEJZIE1TeXNPYmplY3RzLlR5cGUsIE1TeXNPYmplY3RzLlBhcmVudElkCldJVEggT1dORVJBQ0NFU1MgT1BUSU9OOwo",
-					"AQAAAAAAAAABAAAAAAAAAAAAAABeAgAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					110,
-					1,
-					"insert",
-					{
-						"characters": "\n\n\n\nNE"
-					},
-					"BgAAAJkCAAAAAAAAmgIAAAAAAAAAAAAAmgIAAAAAAACbAgAAAAAAAAAAAACbAgAAAAAAAJwCAAAAAAAAAAAAAJwCAAAAAAAAnQIAAAAAAAAAAAAAnQIAAAAAAACeAgAAAAAAAAAAAACeAgAAAAAAAJ8CAAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAmQIAAAAAAACZAgAAAAAAAAAAAAAAAAAA"
-				],
-				[
-					111,
-					1,
-					"insert",
-					{
-						"characters": "W"
-					},
-					"AQAAAJ8CAAAAAAAAoAIAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAnwIAAAAAAACfAgAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					112,
-					1,
-					"insert",
-					{
-						"characters": "\n\n\n"
-					},
-					"AwAAAKACAAAAAAAAoQIAAAAAAAAAAAAAoQIAAAAAAACiAgAAAAAAAAAAAACiAgAAAAAAAKMCAAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAoAIAAAAAAACgAgAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					113,
-					1,
-					"paste",
-					null,
-					"AQAAAKMCAAAAAAAAPAUAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAowIAAAAAAACjAgAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					118,
-					1,
-					"duplicate_line",
-					null,
-					"AQAAAOIEAAAAAAAAMwUAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAvgQAAAAAAAC+BAAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					120,
-					1,
-					"insert",
-					{
-						"characters": "4"
-					},
-					"AQAAABAFAAAAAAAAEQUAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAEAUAAAAAAAAQBQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					121,
-					1,
-					"right_delete",
-					null,
-					"AQAAABEFAAAAAAAAEQUAAAAAAAABAAAAMw",
-					"AQAAAAAAAAABAAAAEQUAAAAAAAARBQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					123,
-					1,
-					"insert",
-					{
-						"characters": "2"
-					},
-					"AQAAABkFAAAAAAAAGgUAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAGQUAAAAAAAAZBQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					127,
-					1,
-					"right_delete",
-					null,
-					"AQAAAMoEAAAAAAAAygQAAAAAAAAXAAAAIkFMVFJPIikpKSkpKSkpIEFTIFRJUE8",
-					"AQAAAAAAAAABAAAAygQAAAAAAADhBAAAAAAAAP///////+9/"
-				],
-				[
-					143,
-					1,
-					"insert",
-					{
-						"characters": "5"
-					},
-					"AQAAAPkEAAAAAAAA+gQAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAA+QQAAAAAAAD5BAAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					144,
-					1,
-					"right_delete",
-					null,
-					"AQAAAPoEAAAAAAAA+gQAAAAAAAABAAAANA",
-					"AQAAAAAAAAABAAAA+gQAAAAAAAD6BAAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					147,
-					1,
-					"insert",
-					{
-						"characters": "CANCELLATI"
-					},
-					"CwAAAPwEAAAAAAAA/QQAAAAAAAAAAAAA/QQAAAAAAAD9BAAAAAAAAAcAAABUYWJsZXMy/QQAAAAAAAD+BAAAAAAAAAAAAAD+BAAAAAAAAP8EAAAAAAAAAAAAAP8EAAAAAAAAAAUAAAAAAAAAAAAAAAUAAAAAAAABBQAAAAAAAAAAAAABBQAAAAAAAAIFAAAAAAAAAAAAAAIFAAAAAAAAAwUAAAAAAAAAAAAAAwUAAAAAAAAEBQAAAAAAAAAAAAAEBQAAAAAAAAUFAAAAAAAAAAAAAAUFAAAAAAAABgUAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAA/AQAAAAAAAADBQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					150,
-					1,
-					"insert",
-					{
-						"characters": "   "
-					},
-					"AwAAAO4EAAAAAAAA7wQAAAAAAAAAAAAA7wQAAAAAAADwBAAAAAAAAAAAAADwBAAAAAAAAPEEAAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAA7gQAAAAAAADuBAAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					157,
-					1,
-					"insert",
-					{
-						"characters": ")"
-					},
-					"AQAAABoFAAAAAAAAGwUAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAGgUAAAAAAAAaBQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					172,
-					1,
-					"insert",
-					{
-						"characters": "\n\n\n\n\n\n\n\n\nN"
-					},
-					"CgAAAH4FAAAAAAAAfwUAAAAAAAAAAAAAfwUAAAAAAACABQAAAAAAAAAAAACABQAAAAAAAIEFAAAAAAAAAAAAAIEFAAAAAAAAggUAAAAAAAAAAAAAggUAAAAAAACDBQAAAAAAAAAAAACDBQAAAAAAAIQFAAAAAAAAAAAAAIQFAAAAAAAAhQUAAAAAAAAAAAAAhQUAAAAAAACGBQAAAAAAAAAAAACGBQAAAAAAAIcFAAAAAAAAAAAAAIcFAAAAAAAAiAUAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAfgUAAAAAAAB+BQAAAAAAAAAAAAAAAAAA"
-				],
-				[
-					173,
-					1,
-					"insert",
-					{
-						"characters": "EW2"
-					},
-					"AwAAAIgFAAAAAAAAiQUAAAAAAAAAAAAAiQUAAAAAAACKBQAAAAAAAAAAAACKBQAAAAAAAIsFAAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAiAUAAAAAAACIBQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					174,
-					1,
-					"insert",
-					{
-						"characters": "\n\n"
-					},
-					"AgAAAIsFAAAAAAAAjAUAAAAAAAAAAAAAjAUAAAAAAACNBQAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAiwUAAAAAAACLBQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					175,
-					1,
-					"paste",
-					null,
-					"AQAAAI0FAAAAAAAAaQgAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAjQUAAAAAAACNBQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					179,
-					1,
-					"duplicate_line",
-					null,
-					"AQAAAA8IAAAAAAAAaAgAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAA/QcAAAAAAAD9BwAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					184,
-					1,
-					"right_delete",
-					null,
-					"AQAAAPYHAAAAAAAA9gcAAAAAAAAYAAAAIkFMVFJPIikpKSkpKSkpKSBBUyBUSVBP",
-					"AQAAAAAAAAABAAAA9gcAAAAAAAAOCAAAAAAAAP///////+9/"
-				],
-				[
-					189,
-					1,
-					"insert",
-					{
-						"characters": "6"
-					},
-					"AQAAACgIAAAAAAAAKQgAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAKAgAAAAAAAAoCAAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					190,
-					1,
-					"right_delete",
-					null,
-					"AQAAACkIAAAAAAAAKQgAAAAAAAABAAAANQ",
-					"AQAAAAAAAAABAAAAKQgAAAAAAAApCAAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					192,
-					1,
-					"insert",
-					{
-						"characters": "2"
-					},
-					"AQAAACsIAAAAAAAALAgAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAKwgAAAAAAAArCAAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					197,
-					2,
-					"indent",
-					null,
-					"BgAAAFEIAAAAAAAAVQgAAAAAAAAAAAAAZggAAAAAAABqCAAAAAAAAAAAAACaCAAAAAAAAJ4IAAAAAAAAAAAAAFEIAAAAAAAAVQgAAAAAAAAAAAAAaggAAAAAAABuCAAAAAAAAAAAAACiCAAAAAAAAKYIAAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAUQgAAAAAAACrCAAAAAAAAAAAAAAAAAAA"
-				],
-				[
-					213,
-					1,
-					"paste",
-					null,
-					"AgAAAI4FAAAAAAAAxAgAAAAAAAAAAAAAxAgAAAAAAADECAAAAAAAADUDAABTRUxFQ1QgTVN5c09iamVjdHMuVHlwZSwgCiAgICAgICBNU3lzT2JqZWN0cy5QYXJlbnRJZCwgCiAgICAgICAiLS0tPiIgQVMgVFhUS2V5LCAKICAgICAgIE1TeXNPYmplY3RzLlR5cGUgQVMga0VZVHlwZSwgCiAgICAgICBNU3lzT2JqZWN0cy5QYXJlbnRJZCBBUyBLRVlQYXJlbnRJZCwgCiAgICAgICBJSWYoW1RZUEVdPS0zMjc2OCwiVEFCRUxMRSIsCiAgICAgICAgICAgSUlmKFtUWVBFXT0tMzI3NjYsIlFVRVJZIiwKICAgICAgICAgICAgICAgSUlmKFtUWVBFXT0tMzI3NjQsIlJFUE9SVCIsCiAgICAgICAgICAgICAgICAgICBJSWYoW1RZUEVdPS0zMjc2MSwiTU9EVUxJIiwKICAgICAgICAgICAgICAgICAgICAgICBJSWYoW1RZUEVdPS0zMjc1NywiQWNjZXNzTGF5b3V0IiwKICAgICAgICAgICAgICAgICAgICAgICAgICAgSUlmKFtUWVBFXT0xLCJNU3lzT2JqZWN0cyIsCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBJSWYoW1RZUEVdPTIsIk1TeXNEYiIsCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgSUlmKFtUWVBFXT0zLCJUYWJsZXMiLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIElJZihbVFlQRV09NSwiQ0FOQ0VMTEFUSSIsCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgSUlmKFtUWVBFXT02LCIyQ0FOQ0VMTEFUSSIsIkFMVFJPIikpKSkpKSkpKSBBUyBUSVBPCiAgICAgICAgRlJPTSBNU3lzT2JqZWN0cwogICAgICAgIEdST1VQIEJZIE1TeXNPYmplY3RzLlR5cGUsIE1TeXNPYmplY3RzLlBhcmVudElkCiAgICAgICAgV0lUSCBPV05FUkFDQ0VTUyBPUFRJT047Cg",
-					"AQAAAAAAAAABAAAAwwgAAAAAAACOBQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					218,
-					1,
-					"insert",
-					{
-						"characters": "TABELL"
-					},
-					"BwAAACsIAAAAAAAALAgAAAAAAAAAAAAALAgAAAAAAAAsCAAAAAAAAAsAAAAyQ0FOQ0VMTEFUSSwIAAAAAAAALQgAAAAAAAAAAAAALQgAAAAAAAAuCAAAAAAAAAAAAAAuCAAAAAAAAC8IAAAAAAAAAAAAAC8IAAAAAAAAMAgAAAAAAAAAAAAAMAgAAAAAAAAxCAAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAANggAAAAAAAArCAAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					219,
-					1,
-					"insert",
-					{
-						"characters": "E"
-					},
-					"AQAAADEIAAAAAAAAMggAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAMQgAAAAAAAAxCAAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					227,
-					1,
-					"insert",
-					{
-						"characters": "FORM"
-					},
-					"BQAAAEwGAAAAAAAATQYAAAAAAAAAAAAATQYAAAAAAABNBgAAAAAAAAcAAABUQUJFTExFTQYAAAAAAABOBgAAAAAAAAAAAABOBgAAAAAAAE8GAAAAAAAAAAAAAE8GAAAAAAAAUAYAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAUwYAAAAAAABMBgAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					238,
-					1,
-					"cut",
-					null,
-					"AQAAAI0FAAAAAAAAjQUAAAAAAAAwAwAAClNFTEVDVCBNU3lzT2JqZWN0cy5UeXBlLCAKICAgICAgIE1TeXNPYmplY3RzLlBhcmVudElkLCAKICAgICAgICItLS0+IiBBUyBUWFRLZXksIAogICAgICAgTVN5c09iamVjdHMuVHlwZSBBUyBrRVlUeXBlLCAKICAgICAgIE1TeXNPYmplY3RzLlBhcmVudElkIEFTIEtFWVBhcmVudElkLCAKICAgICAgIElJZihbVFlQRV09LTMyNzY4LCJGT1JNIiwKICAgICAgICAgICBJSWYoW1RZUEVdPS0zMjc2NiwiUVVFUlkiLAogICAgICAgICAgICAgICBJSWYoW1RZUEVdPS0zMjc2NCwiUkVQT1JUIiwKICAgICAgICAgICAgICAgICAgIElJZihbVFlQRV09LTMyNzYxLCJNT0RVTEkiLAogICAgICAgICAgICAgICAgICAgICAgIElJZihbVFlQRV09LTMyNzU3LCJBY2Nlc3NMYXlvdXQiLAogICAgICAgICAgICAgICAgICAgICAgICAgICBJSWYoW1RZUEVdPTEsIk1TeXNPYmplY3RzIiwKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIElJZihbVFlQRV09MiwiTVN5c0RiIiwKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBJSWYoW1RZUEVdPTMsIlRhYmxlcyIsCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgSUlmKFtUWVBFXT01LCJDQU5DRUxMQVRJIiwKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBJSWYoW1RZUEVdPTYsIlRBQkVMTEUiLCJBTFRSTyIpKSkpKSkpKSkpIEFTIFRJUE8KICAgICAgICBGUk9NIE1TeXNPYmplY3RzCiAgICAgICAgR1JPVVAgQlkgTVN5c09iamVjdHMuVHlwZSwgTVN5c09iamVjdHMuUGFyZW50SWQKICAgICAgICBXSVRIIE9XTkVSQUNDRVNTIE9QVElPTjsK",
-					"AQAAAAAAAAABAAAAjQUAAAAAAAC9CAAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					261,
-					1,
-					"paste",
-					null,
-					"AgAAAAAAAAAAAAAAMAMAAAAAAAAAAAAAMAMAAAAAAAAwAwAAAAAAAI0FAABTRUxFQ1QgTVN5c09iamVjdHMuVHlwZSwgCiAgICAgICBNU3lzT2JqZWN0cy5QYXJlbnRJZCwgCiAgICAgICAiLS0tPiIgQVMgVFhUS2V5LCAKICAgICAgIE1TeXNPYmplY3RzLlR5cGUgQVMga0VZVHlwZSwgCiAgICAgICBNU3lzT2JqZWN0cy5QYXJlbnRJZCBBUyBLRVlQYXJlbnRJZCwgCiAgICAgICBJSWYoW1RZUEVdPS0zMjc2OCwiVEFCRUxMRSIsCiAgICAgICAgICAgSUlmKFtUWVBFXT0tMzI3NjYsIlFVRVJZIiwKICAgICAgICAgICAgICAgSUlmKFtUWVBFXT0tMzI3NjQsIlJFUE9SVCIsCiAgICAgICAgICAgICAgICAgICBJSWYoW1RZUEVdPS0zMjc2MSwiTU9EVUxJIiwKICAgICAgICAgICAgICAgICAgICAgICBJSWYoW1RZUEVdPS0zMjc1NywiQWNjZXNzTGF5b3V0IiwKICAgICAgICAgICAgICAgICAgICAgICAgICAgSUlmKFtUWVBFXT0xLCJNU3lzT2JqZWN0cyIsCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBJSWYoW1RZUEVdPTIsIk1TeXNEYiIsCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgSUlmKFtUWVBFXT0zLCJUYWJsZXMiLCJBTFRSTyIpKSkpKSkpKSBBUyBUSVBPCkZST00gTVN5c09iamVjdHMKR1JPVVAgQlkgTVN5c09iamVjdHMuVHlwZSwgTVN5c09iamVjdHMuUGFyZW50SWQKV0lUSCBPV05FUkFDQ0VTUyBPUFRJT047CgoKCgpORVcKCgpTRUxFQ1QgTVN5c09iamVjdHMuVHlwZSwgCiAgICAgICBNU3lzT2JqZWN0cy5QYXJlbnRJZCwgCiAgICAgICAiLS0tPiIgQVMgVFhUS2V5LCAKICAgICAgIE1TeXNPYmplY3RzLlR5cGUgQVMga0VZVHlwZSwgCiAgICAgICBNU3lzT2JqZWN0cy5QYXJlbnRJZCBBUyBLRVlQYXJlbnRJZCwgCiAgICAgICBJSWYoW1RZUEVdPS0zMjc2OCwiVEFCRUxMRSIsCiAgICAgICAgICAgSUlmKFtUWVBFXT0tMzI3NjYsIlFVRVJZIiwKICAgICAgICAgICAgICAgSUlmKFtUWVBFXT0tMzI3NjQsIlJFUE9SVCIsCiAgICAgICAgICAgICAgICAgICBJSWYoW1RZUEVdPS0zMjc2MSwiTU9EVUxJIiwKICAgICAgICAgICAgICAgICAgICAgICBJSWYoW1RZUEVdPS0zMjc1NywiQWNjZXNzTGF5b3V0IiwKICAgICAgICAgICAgICAgICAgICAgICAgICAgSUlmKFtUWVBFXT0xLCJNU3lzT2JqZWN0cyIsCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBJSWYoW1RZUEVdPTIsIk1TeXNEYiIsCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgSUlmKFtUWVBFXT0zLCJUYWJsZXMiLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIElJZihbVFlQRV09NSwiQ0FOQ0VMTEFUSSIsIkFMVFJPIikpKSkpKSkpKSBBUyBUSVBPCkZST00gTVN5c09iamVjdHMKR1JPVVAgQlkgTVN5c09iamVjdHMuVHlwZSwgTVN5c09iamVjdHMuUGFyZW50SWQKV0lUSCBPV05FUkFDQ0VTUyBPUFRJT047CgoKCgoKCgoKCk5FVzIKCg",
-					"AQAAAAAAAAABAAAAAAAAAAAAAACNBQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					270,
-					1,
-					"insert",
-					{
-						"characters": "\n\n\n\n"
-					},
-					"BAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAACAAAAAAAAAAAAAAACAAAAAAAAAAMAAAAAAAAAAAAAAAMAAAAAAAAABAAAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
-				],
-				[
-					273,
-					1,
-					"insert",
-					{
-						"characters": "SCHEMA"
-					},
-					"BgAAAAMAAAAAAAAABAAAAAAAAAAAAAAABAAAAAAAAAAFAAAAAAAAAAAAAAAFAAAAAAAAAAYAAAAAAAAAAAAAAAYAAAAAAAAABwAAAAAAAAAAAAAABwAAAAAAAAAIAAAAAAAAAAAAAAAIAAAAAAAAAAkAAAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAAwAAAAAAAAADAAAAAAAAAAAAAAAAAAAA"
-				],
-				[
-					277,
-					1,
-					"indent",
-					null,
-					"EgAAAAsAAAAAAAAADwAAAAAAAAAAAAAAKQAAAAAAAAAtAAAAAAAAAAAAAABLAAAAAAAAAE8AAAAAAAAAAAAAAGkAAAAAAAAAbQAAAAAAAAAAAAAAkgAAAAAAAACWAAAAAAAAAAAAAADDAAAAAAAAAMcAAAAAAAAAAAAAAOgAAAAAAAAA7AAAAAAAAAAAAAAAEgEAAAAAAAAWAQAAAAAAAAAAAABBAQAAAAAAAEUBAAAAAAAAAAAAAHQBAAAAAAAAeAEAAAAAAAAAAAAAsQEAAAAAAAC1AQAAAAAAAAAAAADsAQAAAAAAAPABAAAAAAAAAAAAACYCAAAAAAAAKgIAAAAAAAAAAAAAZAIAAAAAAABoAgAAAAAAAAAAAACpAgAAAAAAAK0CAAAAAAAAAAAAAAQDAAAAAAAACAMAAAAAAAAAAAAAIQMAAAAAAAAlAwAAAAAAAAAAAABdAwAAAAAAAGEDAAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAACwAAAAAAAAA6AwAAAAAAAAAAAAAAAAAA"
-				],
-				[
-					283,
-					1,
-					"indent",
-					null,
-					"AwAAAAQDAAAAAAAACAMAAAAAAAAAAAAAJQMAAAAAAAApAwAAAAAAAAAAAABlAwAAAAAAAGkDAAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAEAMAAAAAAACCAwAAAAAAAAAAAAAAgGBA"
-				],
-				[
-					295,
-					1,
-					"insert",
-					{
-						"characters": "t"
-					},
-					"AQAAAFsCAAAAAAAAXAIAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAWwIAAAAAAABbAgAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					296,
-					1,
-					"left_delete",
-					null,
-					"AQAAAFsCAAAAAAAAWwIAAAAAAAABAAAAdA",
-					"AQAAAAAAAAABAAAAXAIAAAAAAABcAgAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					297,
-					1,
-					"insert",
-					{
-						"characters": "Tutti"
-					},
-					"BQAAAFsCAAAAAAAAXAIAAAAAAAAAAAAAXAIAAAAAAABdAgAAAAAAAAAAAABdAgAAAAAAAF4CAAAAAAAAAAAAAF4CAAAAAAAAXwIAAAAAAAAAAAAAXwIAAAAAAABgAgAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAWwIAAAAAAABbAgAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					298,
-					1,
-					"insert",
-					{
-						"characters": " gli"
-					},
-					"BAAAAGACAAAAAAAAYQIAAAAAAAAAAAAAYQIAAAAAAABiAgAAAAAAAAAAAABiAgAAAAAAAGMCAAAAAAAAAAAAAGMCAAAAAAAAZAIAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAYAIAAAAAAABgAgAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					299,
-					1,
-					"insert",
-					{
-						"characters": " oggetti"
-					},
-					"CAAAAGQCAAAAAAAAZQIAAAAAAAAAAAAAZQIAAAAAAABmAgAAAAAAAAAAAABmAgAAAAAAAGcCAAAAAAAAAAAAAGcCAAAAAAAAaAIAAAAAAAAAAAAAaAIAAAAAAABpAgAAAAAAAAAAAABpAgAAAAAAAGoCAAAAAAAAAAAAAGoCAAAAAAAAawIAAAAAAAAAAAAAawIAAAAAAABsAgAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAZAIAAAAAAABkAgAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					300,
-					1,
-					"insert",
-					{
-						"characters": " Access"
-					},
-					"BwAAAGwCAAAAAAAAbQIAAAAAAAAAAAAAbQIAAAAAAABuAgAAAAAAAAAAAABuAgAAAAAAAG8CAAAAAAAAAAAAAG8CAAAAAAAAcAIAAAAAAAAAAAAAcAIAAAAAAABxAgAAAAAAAAAAAABxAgAAAAAAAHICAAAAAAAAAAAAAHICAAAAAAAAcwIAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAbAIAAAAAAABsAgAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					302,
-					1,
-					"right_delete",
-					null,
-					"AQAAAHMCAAAAAAAAcwIAAAAAAAAGAAAAVGFibGVz",
-					"AQAAAAAAAAABAAAAcwIAAAAAAAB5AgAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					311,
-					1,
-					"insert",
-					{
-						"characters": "m"
-					},
-					"AgAAAAoBAAAAAAAACwEAAAAAAAAAAAAACwEAAAAAAAALAQAAAAAAAAUAAABRVUVSWQ",
-					"AQAAAAAAAAABAAAADwEAAAAAAAAKAQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					312,
-					1,
-					"left_delete",
-					null,
-					"AQAAAAoBAAAAAAAACgEAAAAAAAABAAAAbQ",
-					"AQAAAAAAAAABAAAACwEAAAAAAAALAQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					313,
-					1,
-					"insert",
-					{
-						"characters": "MACRO"
-					},
-					"BQAAAAoBAAAAAAAACwEAAAAAAAAAAAAACwEAAAAAAAAMAQAAAAAAAAAAAAAMAQAAAAAAAA0BAAAAAAAAAAAAAA0BAAAAAAAADgEAAAAAAAAAAAAADgEAAAAAAAAPAQAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAACgEAAAAAAAAKAQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					316,
-					1,
-					"insert",
-					{
-						"characters": "QUERY"
-					},
-					"BQAAAK4CAAAAAAAArwIAAAAAAAAAAAAArwIAAAAAAACwAgAAAAAAAAAAAACwAgAAAAAAALECAAAAAAAAAAAAALECAAAAAAAAsgIAAAAAAAAAAAAAsgIAAAAAAACzAgAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAArgIAAAAAAACuAgAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					317,
-					1,
-					"insert",
-					{
-						"characters": " +"
-					},
-					"AgAAALMCAAAAAAAAtAIAAAAAAAAAAAAAtAIAAAAAAAC1AgAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAswIAAAAAAACzAgAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					318,
-					1,
-					"insert",
-					{
-						"characters": " QUERY"
-					},
-					"BgAAALUCAAAAAAAAtgIAAAAAAAAAAAAAtgIAAAAAAAC3AgAAAAAAAAAAAAC3AgAAAAAAALgCAAAAAAAAAAAAALgCAAAAAAAAuQIAAAAAAAAAAAAAuQIAAAAAAAC6AgAAAAAAAAAAAAC6AgAAAAAAALsCAAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAtQIAAAAAAAC1AgAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					319,
-					1,
-					"insert",
-					{
-						"characters": " "
-					},
-					"AQAAALsCAAAAAAAAvAIAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAuwIAAAAAAAC7AgAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					322,
-					1,
-					"insert",
-					{
-						"characters": "E"
-					},
-					"AQAAAMUCAAAAAAAAxgIAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAxQIAAAAAAADFAgAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					323,
-					1,
-					"right_delete",
-					null,
-					"AQAAAMYCAAAAAAAAxgIAAAAAAAABAAAASQ",
-					"AQAAAAAAAAABAAAAxgIAAAAAAADGAgAAAAAAAAAAAAAAAPC/"
+					"AQAAALIDAAAAAAAAmQ4AAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAsgMAAAAAAACyAwAAAAAAAAAAAAAAAPC/"
 				]
 			]
 		}
@@ -766,10 +261,11 @@
 	[
 		"/C/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS",
 		"/C/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/OBJECT",
-		"/C/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/OBJECT/QUERY"
+		"/C/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/OBJECT/MODULI"
 	],
 	"file_history":
 	[
+		"/C/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/OBJECT/QUERY/MSysObjects_Qry01_01_GROUP_OGGETTI.MD",
 		"/C/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/OBJECT/FORM/UTILITA_Msys_Frm21_IMPORTA_OGGETTI.md",
 		"/c/GESTIONI/GESTIONE_LLPP/25_GESTIONE_LLPP/LLPP_ARCHIVI_MDB/IMPEGNI/OBJECT/FORM/LLPP_IMPEGNI_Tb01FrmS01_14_00_GE_GE_ELENCO_IMPEGNI.MD",
 		"/C/GESTIONI/GESTIONE_LLPP/25_GESTIONE_LLPP/LLPP_ARCHIVI_MDB/IMPEGNI/OBJECT/README_IMPEGNI.MD",
@@ -861,6 +357,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"MACRO",
+			"Macros",
 			"deletedMacros_s",
 			"MACROName_v",
 			"                      ",
@@ -891,55 +389,25 @@
 			[
 				{
 					"buffer": 0,
+					"file": "OBJECT/MODULI/IMPORTA_TABELLE.MD",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 22348,
+						"buffer_size": 22479,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								22348,
-								22348
+								0,
+								22479
 							]
 						],
 						"settings":
 						{
-							"auto_name": "",
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"tab_size": 3,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 8392.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"stack_multiselect": false,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 372,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								372,
-								372
-							]
-						],
-						"settings":
-						{
-							"auto_name": "SELECT MSysObjects.Type, MSysObjects.ParentId, \"--",
-							"syntax": "Packages/Text/Plain text.tmLanguage"
+							"auto_name": "IMPORTA_TABELLE.MD",
+							"syntax": "Packages/Markdown/Markdown.sublime-syntax"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -950,32 +418,31 @@
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": "OBJECT/QUERY/MSysObjects_Qry01_01_GROUP_OGGETTI.MD",
+					"buffer": 1,
 					"selected": true,
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 942,
+						"buffer_size": 3737,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								12,
-								942
+								944,
+								944
 							]
 						],
 						"settings":
 						{
-							"auto_name": "SELECT MSysObjects.Type,",
-							"syntax": "Packages/Markdown/Markdown.sublime-syntax",
-							"tab_size": 4,
+							"auto_name": "",
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 3,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 803.2,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -1073,7 +540,7 @@
 	"show_minimap": false,
 	"show_open_files": true,
 	"show_tabs": true,
-	"side_bar_visible": true,
+	"side_bar_visible": false,
 	"side_bar_width": 420.6,
 	"status_bar_visible": true,
 	"template_settings":
