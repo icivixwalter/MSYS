@@ -1,0 +1,131 @@
+PROGETTO TABELLE LINK
+codice
+      COLLEGA_TABELLE_LINK
+
+
+            Case "COLLEGA_TABELLE_LINK"
+   
+
+
+   Case "TABELLE_LINK"
+                    
+                    '//RESET
+                    Me.TXT_OBJECT_ESTERNI = ""
+                        
+                    
+                        '//IMPOSTO IL TITOLO DEL PROGETTO
+                        PROGETTO_s = "PROGETTO TABELLE_LINK"
+                        
+                        
+                        '//codice progetto
+                        CodiceProgetto_s = "TABELLE_LINK"
+                        Me.CODICE_PROGETTO_TXT = CodiceProgetto_s
+                        
+                        
+                        '//Abilito la cmb_02 + la path + imposto la path
+                        Call DisabilitaButton_Sub
+                        sourceDBPath_s = "c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_TABELLE_LINK.mdb"       '//percorso Treeview
+                        
+                        Call Abilito_sourceDBPath_Sub      '//ABILITO LA PATH
+                        Call AbilitaButton_CMB_02_Sub      '//ABILITO LA CMB_02
+                        
+                        Me.sourceDBPath_s_Txt = sourceDBPath_s
+                        Me.sourceDBPath_s_Txt.Requery
+                        
+        
+                         '//2024.08.08_CMB_02_SELEZIONE_OGGETTI_IMPOSTA_PATH_MODIFICA
+                         '//@CMB_02@IMPOSTO@_(I VALORI DELLA COMBINATA 02)
+                         '//-------------------------------------------------------------------------//
+                         '//@CMB_02@imposto_(reimposto agli oggetti TreeView della @casella@combinata)
+                             Me.Cmb_02_txt.Value = ""
+                             Str1 = ""
+                             Str1 = Str1 & "OGGETTI IMPEGNI;"
+                             Str1 = Str1 & "IMPORTA_OGGETTI_IMPEGNI;"
+                             Str1 = Str1 & "IMPORTA_OGGETTI_??;"
+                             Str1 = Str1 & ""
+                         
+                             Me.Cmb_02_txt.RowSourceType = "elenco valori"
+                             Me.Cmb_02_txt.RowSource = Str1
+                             Me.Cmb_02_txt.Value = "OGGETTI IMPEGNI"
+                         '//-------------------------------------------------------------------------//
+                        
+                            
+                             '//RESET
+                            Me.TXT_OBJECT_ESTERNI = ""
+                            Me.Recalc
+                         
+                
+         
+
+Note
+   Progetto di gestione dei collegamento delle tabelle link e gli oggetti necessari per il suo
+   funzionamento sono :
+
+
+
+
+MODULI
+      Note
+         i Mouduli per il progeto link vengono presi dal database principale di gestione degli oggetti.
+   DATABASE    : MSYS_ATTIVA_GEST_OGGETTI.mdb
+   path        : c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\
+
+      BARRA_COMANDI_{@==================MDL=========================@}
+      CLASSE_GESTIONE_OGGETTI_DATABASE
+      UTIL_MDL40_{@=================================================@}
+      UTIL_MDL40_N01_CONTROLLO_OGGETTI_DB_SALVATAGGIO_TUTTI
+      UTIL_MDL40_N08_RICERCA_TUTTI_GLI_OGGETTI_NEL_DB
+      UTIL_MDL40_N09_CONTROLLO_ESISTENZA_OGGETTO_DB
+      UTIL_MDL40_N11_MACRO_ESPORTA_OGGETTI_MSSys
+      UTIL_Nrx1001_{@=============CLASSI_OGGETTI====================@}
+      UTIL_Nrx1003_n01_RECUPERO_PARAMETRI_TABELLA_OGGETTI
+      UTILITA_MSys_TABELLE_LINK_Mdl06_}------------------------------@
+      UTILITA_MSys_TABELLE_LINK_Mdl06_GESTISCI_COLLEGAMENTI_TABELLE
+      CLASSE_GESTIONE_OGGETTI_}--------------------------------------@
+
+
+
+
+
+MACRO
+   objectMACRO.Add "CERCA_Mcr_{@==================================================@}"
+   objectMACRO.Add "CERCA_Mcr_FORM"
+   objectMACRO.Add "CERCA_Mcr_MODULO"
+   objectMACRO.Add "CERCA_Mcr_QUERY"
+   objectMACRO.Add "CERCA_Mcr_TABELLA"
+
+
+FORM
+         Note
+            La form invece per il progetto link viene recuperata dal progetto Tabelle link.
+      DATABASE    : MSys_TABELLE_LINK.mdb
+      path        : c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\
+
+            MSys_TABELLE_LINK_{@==========================================@}
+            MSys_TABELLE_LINK_Frm01_}--------------------------------------@
+            MSys_TABELLE_LINK_Frm01_S01_TUTTE
+
+
+QUERY
+         Note
+            idem per le query.
+
+      DATABASE    : MSys_TABELLE_LINK.mdb
+      path        : c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\
+         
+            MSys_TABELLE_LINK_Qry_}----------------------------------------@
+            MSys_TABELLE_LINK_Qry01_01_SELECT_TUTTE
+
+
+
+
+TABELLE
+      Note
+         idem per le tabelle.
+   MSys_TABELLE_LIN_{@================TABELLE_LINK===============@}
+   MSys_TABELLE_LINK
+
+   DATABASE=
+   C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_TABELLE_LINK.mdb;
+   TABLE=MSys_TABELLE_LINK
+

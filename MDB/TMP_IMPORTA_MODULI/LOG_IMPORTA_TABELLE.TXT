@@ -1,0 +1,28 @@
+Log Importazione TABELLE - 24/03/2025 17:33:03
+------------------------------------------------
+
+NRO: 1 TABELLE importata: LLPP_ATTI_Tb01_{@=============================================@}
+NRO: 2 TABELLE importata: LLPP_ATTI_Tb01_Gestione
+NRO: 3 TABELLE importata: LLPP_ATTI_Tb02_{@====================================@}_ALLEGATI
+NRO: 4 TABELLE importata: LLPP_ATTI_Tb02_Allegati
+NRO: 5 TABELLE importata: LLPP_IMPEGNI_DF02_{@===============================@}_VOCE_ATTI
+NRO: 6 TABELLE importata: LLPP_IMPEGNI_DF02_{@==========================================@}
+NRO: 7 TABELLE importata: LLPP_IMPEGNI_DF02_}--------------------------------------------@
+NRO: 8 TABELLE importata: LLPP_IMPEGNI_DF02_VOCE_ATTI_IMPEGNO
+NRO: 9 TABELLE importata: LLPP_IMPEGNI_DF02_VOCE_ATTI_IMPEGNO_TMP
+NRO: 10 TABELLE importata: LLPP_IMPEGNI_TB01_{@==========================================@}
+NRO: 11 TABELLE importata: LLPP_IMPEGNI_TB01_}--------------------------------------------@
+NRO: 12 TABELLE importata: LLPP_IMPEGNI_Tb01_OGGETT_}-------------------------------------@
+NRO: 13 TABELLE importata: LLPP_IMPEGNI_Tb01_OGGETTI
+TABELLE non trovata nel database di origine: LLPP_IMPEGNI_Tb01_ATTI_DI_IMPEGNO
+NRO: 14 TABELLE importata: LLPP_IMPEGNI_Tb01_ATTI_DI_IMPEGNO_TMP
+NRO: 15 TABELLE importata: LLPP_IMPEGNI_Tb02_{@==========================================@}
+NRO: 16 TABELLE importata: LLPP_IMPEGNI_Tb02_}--------------------------------------------@
+TABELLE non trovata nel database di origine: LLPP_IMPEGNI_Tb02_ELENCO_DI_SPESA
+NRO: 17 TABELLE importata: MSys_DF02_}----------------------------------------------------@
+NRO: 18 TABELLE importata: MSys_DF02_TIPO_OGGETTO
+NRO: 19 TABELLE importata: MSys_DF11_}----------------------------------------------------@
+NRO: 20 TABELLE importata: Msys_DF11_PROGETTI
+NRO: 21 TABELLE importata: MSys_T_}-------------------------------------------------------@
+NRO: 22 TABELLE importata: MSys_TABELLE
+Errore durante l'importazione: Il database è stato messo dall'utente 'Admin' del computer 'FABI-50-54N' in uno stato che non consente di aprirlo o di bloccarlo.
