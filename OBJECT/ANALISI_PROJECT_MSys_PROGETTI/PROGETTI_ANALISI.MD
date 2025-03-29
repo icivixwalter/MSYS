@@ -11,7 +11,15 @@
       piu facile la estrazione dei gruppi di oggetti da creare e/o da modificare o manutenere.
 
 
+   ATTIVO FILTRO PAGINE DA 1-12
+      Note
+         nella form di gestione dei progetti: PROGETTI_Msys_Tb00FrmM01_GE_PROGETTI
+         ho attiviato il filtro della casella di testo TXT_FILTRO, con la quale eseguo
+         2 operazioni:
+            1) DOPPIO CLICK DEL CAMPO COD_PROGETTO_s 
+               della sottoform_01 salvo il codice progetto nella casella di testo 
+               TXT_FILTRO, vedi codice ---> TXT_FILTRO_DOPPIO_CLICK
 
-
-
+            2) ATTIVA O DISATTIVA I FILTRI delle pagine da 1-8
+               vedi codice: codice ---> @ATTIVA+DISATTIVA@FILTRI@PAGINE.DA_1-8
 
