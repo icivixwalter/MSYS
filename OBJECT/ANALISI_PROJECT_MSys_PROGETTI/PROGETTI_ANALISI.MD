@@ -19,6 +19,7 @@
             1) DOPPIO CLICK DEL CAMPO COD_PROGETTO_s 
                della sottoform_01 salvo il codice progetto nella casella di testo 
                TXT_FILTRO, vedi codice ---> TXT_FILTRO_DOPPIO_CLICK
+<<<<<<< HEAD
 
             2) ATTIVA O DISATTIVA I FILTRI delle pagine da 1-8
                vedi codice: codice ---> @ATTIVA+DISATTIVA@FILTRI@PAGINE.DA_1-8
@@ -29,9 +30,11 @@
       Sulla tabella PROGETTI_Msys_TB02_TIPO_OGGETTI viene creata una query per estrarre il GRUPPO del codice QUOTE .
 
       La query PROGETTI_Msys_TB03Qry01_03_GROUP_QUOTE_s 
+=======
+>>>>>>> 5c234f6adf19e6f4ea7f0de76de7bb2dab47f566
 
-
-
+            2) ATTIVA O DISATTIVA I FILTRI delle pagine da 1-8
+               vedi codice: codice ---> @ATTIVA+DISATTIVA@FILTRI@PAGINE.DA_1-8
 
    OGGETTI DELLA GESTIONE DEI PROGETTI
       Note
