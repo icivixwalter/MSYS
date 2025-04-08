@@ -1,0 +1,9 @@
+Tabella 2: Errori di incollamento
+Tabella 3: PROGETTI_MSYS_{@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@}_Tab
+Tabella 4: PROGETTI_Msys_TB01_}-------------------------------------------@
+Tabella 5: PROGETTI_Msys_TB01_PROJECT
+Tabella 6: PROGETTI_Msys_TB01_PROJECT_TMP
+Tabella 7: PROGETTI_Msys_TB02_}-------------------------------------------@
+Tabella 8: PROGETTI_Msys_TB02_TIPO_OGGETTI
+Tabella 9: PROGETTI_Msys_TB03_}-------------------------------------------@
+Tabella 10: PROGETTI_Msys_TB03_ELENCO_ObjProgetti
