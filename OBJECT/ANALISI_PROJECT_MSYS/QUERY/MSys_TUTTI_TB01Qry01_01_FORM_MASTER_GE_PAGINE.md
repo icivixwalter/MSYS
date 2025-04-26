@@ -1,0 +1,13 @@
+MSys_TB0401_GE_TabContr_MASTER.md
+
+
+
+	note
+		nuova query di estrazione delle PAGINE MASTER
+	schema
+		SELECT 
+			MSys_TUTTI_TB01_FORM_MASTER_GE_PAGINE.*, "->" AS TxtChiavi, 
+			MSys_TUTTI_TB01_FORM_MASTER_GE_PAGINE.COD_PROGETTO_s AS KeyCOD_PROGETTO_s
+			FROM MSys_TUTTI_TB01_FORM_MASTER_GE_PAGINE;
+
+

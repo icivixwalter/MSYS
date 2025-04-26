@@ -1,0 +1,16 @@
+MSys_TABELLE_TMP_TMP_Qry01_01_SELECT_TUTTE
+
+	Note
+		query di estrazione oggetti tabelle tmp
+
+	struttura
+
+		SELECT MSys_TABELLE_TMP.*, 
+		MSys_TABELLE_TMP.COD_PROGETTO_s 	AS ORD_COD_PROGETTO_s, 
+		MSys_TABELLE_TMP.NRO_OGGETTO_i 		AS ORD
+		
+		FROM MSys_TABELLE_TMP
+		
+		ORDER BY 
+		MSys_TABELLE_TMP.COD_PROGETTO_s, 
+		MSys_TABELLE_TMP.NRO_OGGETTO_i;

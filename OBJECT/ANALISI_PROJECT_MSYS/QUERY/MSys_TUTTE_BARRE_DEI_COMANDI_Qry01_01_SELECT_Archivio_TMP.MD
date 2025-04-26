@@ -1,0 +1,35 @@
+MSys_TUTTE_BARRE_DEI_COMANDI_Qry01_01_SELECT_Archivio_TMP
+
+   Note
+      Query di estrazione barre dei comandi tmp
+
+   SQL
+
+      SELECT 
+
+      MSys_TUTTE_BARRE_DEI_COMANDI_TMP.CodMenu_s, 
+      MSys_TUTTE_BARRE_DEI_COMANDI_TMP.Menu_s, 
+      MSys_TUTTE_BARRE_DEI_COMANDI_TMP.NoteMenu_s, 
+      MSys_TUTTE_BARRE_DEI_COMANDI_TMP.Visible_b, 
+      MSys_TUTTE_BARRE_DEI_COMANDI_TMP.Enabled_b, 
+      MSys_TUTTE_BARRE_DEI_COMANDI_TMP.Position_s, 
+      MSys_TUTTE_BARRE_DEI_COMANDI_TMP.NameLocal_s, 
+      MSys_TUTTE_BARRE_DEI_COMANDI_TMP.Nro_i, 
+
+      MSys_TUTTE_BARRE_DEI_COMANDI_TMP.[02________________________________________UtilitaGenerali], 
+      MSys_TUTTE_BARRE_DEI_COMANDI_TMP.bCanc, 
+      MSys_TUTTE_BARRE_DEI_COMANDI_TMP.bAgg, 
+      MSys_TUTTE_BARRE_DEI_COMANDI_TMP.bScel, 
+      MSys_TUTTE_BARRE_DEI_COMANDI_TMP.IDKeyArch, 
+      MSys_TUTTE_BARRE_DEI_COMANDI_TMP.IdOrd, 
+      MSys_TUTTE_BARRE_DEI_COMANDI_TMP.Msg01, 
+
+      MSys_TUTTE_BARRE_DEI_COMANDI_TMP.[AG___________________________________Agg+Id], 
+      MSys_TUTTE_BARRE_DEI_COMANDI_TMP.DATAINS_d, 
+      MSys_TUTTE_BARRE_DEI_COMANDI_TMP.DATAAGG_d, 
+      MSys_TUTTE_BARRE_DEI_COMANDI_TMP.TIMEOPER_d, 
+      MSys_TUTTE_BARRE_DEI_COMANDI_TMP.ORA_AGG_d, 
+      MSys_TUTTE_BARRE_DEI_COMANDI_TMP.ID
+
+      FROM 
+      MSys_TUTTE_BARRE_DEI_COMANDI_TMP;
