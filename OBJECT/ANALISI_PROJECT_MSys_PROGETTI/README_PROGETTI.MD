@@ -1,4 +1,13 @@
-# PROGETTI_ANALISI.MD
+
+FILE 
+    PROGETTI_ANALISI.MD
+    
+
+
+# GESTIONE PROGETTO MSYS
+### NOTE
+    Il @progetti@_(@analisi@read@progetti come gestire i progetti access)
+
 ### Note:  analisi sul micro progetto DENOMINATO @PROGETTI
 @ANALISI@PROGETTO_(di gestione dei progetti nel db denominato MSys_PROGETTI_GE.mdb)
 

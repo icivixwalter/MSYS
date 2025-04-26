@@ -1,8 +1,15 @@
-README_MENU.MD
+
+FILE 
+    README_MENU.MD
+    
 
 
+# GESTIONE PROGETTO MENU
+### NOTE
+    
+    Il @progetto@gestione@menu_(@analisi@read@menu delle applicazioni)
 
-MENU COME IMPOSTARE UN ELENCO DI MENU
+## MENU COME IMPOSTARE UN ELENCO DI MENU
     
     Nota
         Come impostare un menu ad elenco a discesa in una casella combinata occorre per 

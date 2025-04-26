@@ -1,3 +1,15 @@
+
+FILE 
+    README_TABELLE_LINK.MD
+    
+
+
+# GESTIONE TABELLE LINK
+### NOTE
+    Il @progetto@Tabelle@link_(@analisi@readme@tabelle collegate)
+
+
+
 PROGETTO TABELLE LINK
 codice
       COLLEGA_TABELLE_LINK

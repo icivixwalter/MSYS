@@ -1,34 +1,22 @@
 
-FAQ
-	==========================================================================================
-										LE FAQ
-	==========================================================================================
-			TABELLE PER L'ESPORTAZIONE DEGLI OGGETTI
-				per esportare gli oggetti di un progetto vengono utilizzate le seguenti tabelle:
+FILE 
+    README_PROGETTO_UTILITA.MD
+    
 
-					Msys_ESPORTA_DB_EST 			= questa tabella contiene la path ed il database
-					Msys_ESPORTA_ELENCO_OGGETTI_DB 	= questa tabella contiene l'elenco degli oggetti come
-													query, form, report ecc. da esportare nella path della
-													precedente tabella.
 
-			TABELLE PER LA COSTRUZIONE DI UN PROGETTO
-				Per la costruzione di un progetto e legare gli oggetti ad un codice vengono utilizzate
-				le seguenti tabelle:
-					MSys_DF02_TIPO_OGGETTO				= questa tabella definisce gli oggetti di un progetto
-														che sono 5, Table, form, Report, Query e Macro
-
-					Msys_DF11_PROGETTI					= la tabella df11, definisce il progetto ed un codice
-														chiave e la path di dove si trova il file di gestione
-														che di solito è GE_PROGETTO
-
-					quindi vengono utilizzate le tabelle DF02 E DF11 PER LA DEFINIZIONE.
+# GESTIONE PROGETTO UTILITA
+### NOTE
+    Il @progetto@UTILITA_(@analisi@readme  per la gestione del progetto utilita)
 
 
 
-MSYS_REDME
 
-	PROGETTO_MSYS_REDME
+
+	PROGETTO_UTILITA
 				Note
+
+					*** SISTEMARE ****
+					
 					il progetto MySys si riferisce al progetto relativo a tutti gli oggetti Access
 					utili per gli altri progetti.
 					Il progetto Msys si trova in questa path e file:
@@ -270,5 +258,32 @@ MSYS_REDME
 
                                 
 
+
+
+
+
+FAQ
+	==========================================================================================
+										LE FAQ
+	==========================================================================================
+			TABELLE PER L'ESPORTAZIONE DEGLI OGGETTI
+				per esportare gli oggetti di un progetto vengono utilizzate le seguenti tabelle:
+
+					Msys_ESPORTA_DB_EST 			= questa tabella contiene la path ed il database
+					Msys_ESPORTA_ELENCO_OGGETTI_DB 	= questa tabella contiene l'elenco degli oggetti come
+													query, form, report ecc. da esportare nella path della
+													precedente tabella.
+
+			TABELLE PER LA COSTRUZIONE DI UN PROGETTO
+				Per la costruzione di un progetto e legare gli oggetti ad un codice vengono utilizzate
+				le seguenti tabelle:
+					MSys_DF02_TIPO_OGGETTO				= questa tabella definisce gli oggetti di un progetto
+														che sono 5, Table, form, Report, Query e Macro
+
+					Msys_DF11_PROGETTI					= la tabella df11, definisce il progetto ed un codice
+														chiave e la path di dove si trova il file di gestione
+														che di solito è GE_PROGETTO
+
+					quindi vengono utilizzate le tabelle DF02 E DF11 PER LA DEFINIZIONE.
 
 
