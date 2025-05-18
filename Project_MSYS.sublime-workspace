@@ -28,85 +28,13 @@
 	"buffers":
 	[
 		{
-			"contents": "This list shows how much time each plugin has taken to respond to each event:\n\non_activated:\n    Default.history_list: 0.016s total, mean: 0.008s, max: 0.016s\n\non_window_command:\n    Default.history_list: 0.000s total\n",
+			"file": "README.md",
 			"settings":
 			{
-				"buffer_size": 218,
-				"line_ending": "Windows",
-				"name": "Plugin Event Profile",
-				"scratch": true
-			},
-			"undo_stack":
-			[
-				[
-					1,
-					1,
-					"",
-					null,
-					"AQAAAAAAAAAAAAAA2gAAAAAAAAAAAAAA",
-					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvw"
-				]
-			]
-		},
-		{
-			"contents": "\nstart https://github.com/icivixwalter/MSYS.git\n\n\n\nicivixwalter@gmail.com\n\n\n\n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\n",
-			"file": "git_OpenGitHub.bat",
-			"file_size": 50,
-			"file_write_time": 133901312345817439,
-			"settings":
-			{
-				"buffer_size": 118,
+				"buffer_size": 8848,
+				"encoding": "UTF-8",
 				"line_ending": "Windows"
-			},
-			"undo_stack":
-			[
-				[
-					4,
-					1,
-					"insert",
-					{
-						"characters": "\n\n\n\n"
-					},
-					"BAAAAC8AAAAAAAAAMAAAAAAAAAAAAAAAMAAAAAAAAAAxAAAAAAAAAAAAAAAxAAAAAAAAADIAAAAAAAAAAAAAADIAAAAAAAAAMwAAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAALwAAAAAAAAAvAAAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					7,
-					1,
-					"paste",
-					{
-						"event":
-						{
-							"modifier_keys":
-							{
-							},
-							"text_point": 52,
-							"x": 726.5,
-							"y": 223.5
-						}
-					},
-					"AQAAADMAAAAAAAAASQAAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAMwAAAAAAAAAzAAAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					8,
-					1,
-					"insert",
-					{
-						"characters": "\n\n\n"
-					},
-					"AwAAAEkAAAAAAAAASgAAAAAAAAAAAAAASgAAAAAAAABLAAAAAAAAAAAAAABLAAAAAAAAAEwAAAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAASQAAAAAAAABJAAAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					9,
-					1,
-					"paste",
-					null,
-					"AQAAAEwAAAAAAAAAdQAAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAATAAAAAAAAABMAAAAAAAAAAAAAAAAAPC/"
-				]
-			]
+			}
 		}
 	],
 	"build_system": "",
@@ -189,6 +117,7 @@
 	],
 	"file_history":
 	[
+		"/C/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/git_OpenGitHub.bat",
 		"/C/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/OBJECT/MODULI/clsFile_MODULO_ATTIVAZIONE_API.bas",
 		"/C/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/OBJECT/ANALISI_PROJECT_MENU/README_MENU.MD",
 		"/C/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/OBJECT/QUERY/PROGETTI_QUERY/PROGETTI_Msys_TB01Qry01_01_PROJECT_TMP.MD",
@@ -366,55 +295,27 @@
 			[
 				{
 					"buffer": 0,
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 218,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								218,
-								218
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"stack_multiselect": false,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "git_OpenGitHub.bat",
+					"file": "README.md",
 					"selected": true,
-					"semi_transient": false,
+					"semi_transient": true,
 					"settings":
 					{
-						"buffer_size": 118,
+						"buffer_size": 8848,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								117,
-								77
+								0,
+								0
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Batch File/Batch File.sublime-syntax"
+							"syntax": "Packages/Markdown/Markdown.sublime-syntax",
+							"tab_size": 3,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
