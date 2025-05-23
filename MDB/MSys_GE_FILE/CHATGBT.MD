@@ -93,7 +93,7 @@ MODIFICA PROCEDURA CON PARAMETRO PIU CONTROLLO ERRORI
       '//-------------------------------------------------------------------------------------------//
 
 
-
+PATH
 ATTIVAZIONE CLASSE API CON PASSAGGIO DI PARAMETRI
 
    Nel classe della for Msys_GEFILE_Frm01_GESTIONI ho questa funzione pubblica denominata
@@ -190,6 +190,7 @@ ATTIVAZIONE CLASSE API CON PASSAGGIO DI PARAMETRI
          '//-------------------------------------------------------------------------------------//
 
 
+PATH
 
 
 
@@ -199,63 +200,88 @@ ATTIVAZIONE CLASSE API CON PASSAGGIO DI PARAMETRI
 
 
 
-
-APRI SOLO LA PATH
-
-
-Modifica la procedura e chiamala ApriPATHConLeApiWindows_Pfunct
-deve aprire solo la PATH pasata come  stringa 
-
-Public Function ApriFileConLeApiWindows_Pfunct(par_Path_s As String) As Boolean
-    On Error GoTo GestioneErrore
+MODIFICA LA PROCEDURA PER APRIRE SOLO LA PATH
 
 
-    ' Dichiaro result in base alla piattaforma VBA
-    #If VBA7 Then
-        Dim result As LongPtr
-    #Else
-        Dim result As Long
-    #End If
+   Modifica la procedura e chiamala ApriPATHConLeApiWindows_Pfunct
+   deve aprire solo la PATH pasata come  stringa 
 
-    '// CONTROLLO PARAMETRO: stampa il percorso del file passato
-    Debug.Print "CONTROLLO PATH + FILE PASSATI COME PARAMETRO"
-    Debug.Print par_Path_s
-
-    ' Verifica se il file esiste
-    If Len(Dir(par_Path_s)) = 0 Then
-        MsgBox "Il file selezionato non esiste o non è valido.", vbExclamation
-        ApriFileConLeApiWindows_Pfunct = False
-        Exit Function
-    End If
-
-    ' Prova ad aggiornare la casella di testo nel form, solo se esiste il controllo e la path >""
-    On Error Resume Next
-    
-    If par_Path_s > "" Then
-         Me.TxtPercorso_TXT.SetFocus
-         Me.TxtPercorso_TXT = par_Path_s
-    End If
-    
-    Me.Recalc
-    On Error GoTo GestioneErrore
-    
+   Public Function ApriPATHFileConLeApiWindows_Pfunct(par_Path_s As String) As Boolean
+       On Error GoTo GestioneErrore
 
 
-    ' Usa ShellExecute per aprire il file con l'applicazione predefinita di Windows
-    result = ShellExecute(0, "open", par_Path_s, vbNullString, vbNullString, vbNormalFocus)
+    '//@APRO@PATU@_(APRO LA PATH CON LE API WINDOWS)
+    '//----------------------------------------------------------------------------------------------//
+         
+        ' Mostra finestra di selezione file
+        percorso = ShowOpenFileDialog(False, "Tutti i file (*.*)", "*.*", "Seleziona un file", par_Path_s)
+        ' controllo percorso
+        Debug.Print "percorso = " & percorso
+  
+        
+    '//----------------------------------------------------------------------------------------------//
 
-    ' ShellExecute restituisce valore > 32 in caso di successo
-    If result <= 32 Then
-        MsgBox "Impossibile aprire il file: " & par_Path_s, vbCritical
-        ApriFileConLeApiWindows_Pfunct = False
-        Exit Function
-    End If
 
-    ' Se tutto ok
-    ApriFileConLeApiWindows_Pfunct = True
-    Exit Function
+ 
 
-GestioneErrore:
-    MsgBox "Errore durante l'apertura del file: " & Err.Description, vbCritical, "Errore #" & Err.Number
-    ApriFileConLeApiWindows_Pfunct = False
-End Function
+   GestioneErrore:
+       MsgBox "Errore durante l'apertura del file: " & Err.Description, vbCritical, "Errore #" & Err.Number
+       ApriPATHFileConLeApiWindows_Pfunct = False
+   End Function
+
+
+
+CLASSE = CREO LA CLASSE PER LA GESTIONE DEI FILE   
+   note
+      la classe 
+
+
+
+   FUNZIONI PUBBLICHE
+      APRI FILE
+               
+
+         '//@APRI@FILE_(DA @PATH E FILE DA SELEZIONARE)
+         '//-------------------------------------------------------------------------------------------//
+         '//Print Cosa; è; stato; aggiunto: _
+         On Error GoTo GestioneErrore per la gestione errori. _
+         Exit Sub per evitare di finire nella gestione se tutto va bene. _
+         Messaggio di errore dettagliato in caso di problemi (es. file non trovabile o accesso negato).
+
+         Private Sub Cmd_ApriFilePDF_Click()
+          On Error GoTo GestioneErrore ' Attiva la gestione degli errori
+
+          ' Variabile per il percorso del file selezionato
+          Dim filePath As String
+
+          ' Crea una nuova istanza di FileDialog (per aprire un file)
+          Dim fileDialog As Object
+          Set fileDialog = Application.fileDialog(msoFileDialogOpen)
+
+          ' Imposta il filtro per i file MDB
+          fileDialog.Filters.Clear
+          'fileDialog.Filters.Add "Microsoft Access Database", "*.MDB"
+
+          ' Imposta la directory di partenza (ad esempio "C:\")
+          fileDialog.InitialFileName = Me.PATH_BASE_TXT
+
+          ' Mostra il dialogo e verifica se l'utente ha selezionato un file
+          If fileDialog.Show = -1 Then
+              ' Recupera il percorso del file selezionato
+              filePath = fileDialog.SelectedItems(1)
+
+              ' Mostra il percorso del file selezionato (ad esempio in una MsgBox)
+              MsgBox "Hai selezionato il file: " & filePath
+
+              ' ?? Apre il file selezionato
+              FollowHyperlink filePath
+          Else
+              MsgBox "Nessun file selezionato."
+          End If
+
+          Exit Sub ' Esce prima della gestione errori
+
+         GestioneErrore:
+          MsgBox "Errore durante l'apertura del file: " & Err.Description, vbCritical, "Errore"
+         End Sub
+         '//-------------------------------------------------------------------------------------------//
