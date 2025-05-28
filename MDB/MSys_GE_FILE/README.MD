@@ -15,3 +15,11 @@ PARAMETRI_VBA
 
       VARIABILE DI AMBIENTE ACCESS UFFICIO
             variabile denominata: "ACCESS_2011" = C:\Program Files\Microsoft Office\root\Office16\MSACCESS.EXE
+
+
+
+MACRO ESPORTA OGGETTI to 
+   creato la macro esporta oggetti in LLPP_ATTI_GESTIONE.mdbc:\GESTIONI\GESTIONE_LLPP\25_GESTIONE_LLPP\LLPP_ARCHIVI_MDB\LLPP_ATTI_GESTIONE.mdb
+
+   denominata:
+      ESPORTA_Mcr_01_GEFILE_to_LLPP_ATTI_GESTIONE_mdb

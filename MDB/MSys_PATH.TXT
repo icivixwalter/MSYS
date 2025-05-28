@@ -1,0 +1,18 @@
+ Il volume nell'unit… C Š Acer
+ Numero di serie del volume: 9AC9-8549
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB
+
+[.]                            [..]
+[MSYS_BASE]                    [MSys_DF01]
+[MSys_DF02]                    [MSys_DF11]
+[MSys_FORMS]                   [MSys_GE_FILE]
+[MSys_MACRO]                   [MSys_MODULI]
+[MSYS_OGGETTI_OLD]             [MSys_PAGINE]
+[MSys_PROGETTI]                [MSys_QUERY]
+[MSys_REPORT]                  [MSys_TABELLE]
+[TMP_IMPORTA_MODULI]           A.TXT
+MSYS_ATTIVA_GEST_OGGETTI.mdb   MSys_PATH.TXT
+TMP_IMPORTA_MODULI.ZIP         
+               4 File     46.795.484 byte
+              17 Directory  176.473.587.712 byte disponibili
