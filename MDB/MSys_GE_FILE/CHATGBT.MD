@@ -1388,3 +1388,101 @@ BUTTON_HELP
       3. 📁 Se la cartella `Logs` non esiste, la crea automaticamente.
       4. 📝 Crea o apre in modalità Append il file `Logs\LogErrori.txt`.
       5. ✍️ Scrive una riga di log nel formato:
+
+
+
+
+
+# FUNZIONI REINSPORTA NEL DB ORIGINARIO
+
+
+devi confrontare il percoso completo  dbMadrePath = "C:\GESTIONI\GESTIONE_LLPP\25_GESTIONE_LLPP\LLPP_ARCHIVI_MDB\MSys_GE_FILE.mdb"
+
+
+sistema questa bozza di funzione di esportazione con quanto sottoindicato:
+Public Function EsportaOggettiStandard_LLPP_ATTI_GESTIONE()
+    On Error GoTo Esporta_Err
+
+    ' === Impostazioni percorso database di destinazione ===
+    Dim dbDestPath As String
+    Dim dbDestFile As String
+    
+    dbDestPath = "C:\GESTIONI\GESTIONE_LLPP\25_GESTIONE_LLPP\LLPP_ARCHIVI_MDB\"
+    dbDestFile = "LLPP_ATTI_GESTIONE.mdb"
+
+    ' === Verifica se ci troviamo già nel database di destinazione ===
+    If LCase(GetFileName(CurrentDb.Name)) = LCase(GetFileName(dbDestFile)) Then
+        MsgBox "Sei già nel database di destinazione (" & dbDestFile & "). Operazione annullata.", vbExclamation
+        Exit Function
+    End If
+
+    ' === Recupera oggetti da esportare ===
+    Dim oggetti As Variant
+    oggetti = GetOggettiDaEsportare()
+
+    Dim i As Long
+    Dim nomeOggetto As String
+    Dim tipoOggetto As AcObjectType
+
+    ' === Ciclo di esportazione ===
+    For i = LBound(oggetti) To UBound(oggetti)
+        nomeOggetto = oggetti(i)(0)
+        tipoOggetto = oggetti(i)(1)
+
+        ' Cancella l'oggetto nel database di destinazione (se esiste)
+        CancellaOggettoNelDBEsterno dbDestPath, nomeOggetto, tipoOggetto
+
+        ' Copia l’oggetto nel database di destinazione
+        DoCmd.CopyObject dbDestPath, nomeOggetto, tipoOggetto, nomeOggetto
+    Next i
+
+    MsgBox "Esportazione oggetti completata.", vbInformation
+
+Esporta_Exit:
+    Exit Function
+
+Esporta_Err:
+    MsgBox "Errore durante l'esportazione: " & Err.Description, vbCritical
+    Resume Esporta_Exit
+End Function
+
+
+riutilizza la funzione di cancellazione del db esterno:
+' 04_Function CancellaOggettoNelDBEsterno(dbPath As String, nomeOggetto As String, tipoOggetto As AcObjectType)
+' Funzione che cancella un oggetto (form, query, modulo) nel database esterno usando Access.Application
+Private Sub CancellaOggettoNelDBEsterno(dbPath As String, nomeOggetto As String, tipoOggetto As AcObjectType)
+    Dim accApp As Object ' Access.Application
+    Dim tipoMSys As Long
+    Dim rst As DAO.Recordset
+
+    On Error GoTo ErrHandler
+
+    Set accApp = CreateObject("Access.Application")
+    accApp.OpenCurrentDatabase dbPath
+
+    Select Case tipoOggetto
+        Case acForm: tipoMSys = -32764
+        Case acQuery: tipoMSys = 5
+        Case acModule: tipoMSys = -32768
+        Case Else
+            MsgBox "Tipo oggetto non supportato per cancellazione", vbExclamation
+            GoTo CleanUp
+    End Select
+
+    Set rst = accApp.CurrentDb.OpenRecordset( _
+        "SELECT Name FROM MSysObjects WHERE Name='" & nomeOggetto & "' AND Type=" & tipoMSys, dbOpenSnapshot)
+
+    If Not rst.EOF Then
+        accApp.DoCmd.DeleteObject tipoOggetto, nomeOggetto
+    End If
+    rst.Close
+
+CleanUp:
+    accApp.Quit
+    Set accApp = Nothing
+    Exit Sub
+
+ErrHandler:
+    MsgBox "Errore durante la cancellazione oggetto: " & Err.Description, vbCritical
+    Resume CleanUp
+End Sub
