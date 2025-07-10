@@ -1,0 +1,26 @@
+Log Importazione TABELLE - 10/07/2025 17:56:04
+------------------------------------------------
+
+NRO: 1 TABELLE importata: PRES3000_DF00_{@==========================================@}_Tab
+NRO: 2 TABELLE importata: PRES3000_DF01_}------------------------------------------------@
+NRO: 3 TABELLE importata: PRES3000_DF01_CalendarioFestivita
+NRO: 4 TABELLE importata: PRES3000_DF05_}------------------------------------------------@
+NRO: 5 TABELLE importata: PRES3000_DF05_ORARI
+NRO: 6 TABELLE importata: PRES3000_DF10_GIORNALIERE
+NRO: 7 TABELLE importata: PRES3000_DF11_}------------------------------------------------@
+NRO: 8 TABELLE importata: PRES3000_DF11_TIMBRATURE
+NRO: 9 TABELLE importata: PRES3000_DF12_}------------------------------------------------@
+NRO: 10 TABELLE importata: PRES3000_DF12_ORARI_TIMBRATURE
+NRO: 11 TABELLE importata: PRES3000_DF19_}------------------------------------------------@
+NRO: 12 TABELLE importata: PRES3000_DF19_GiorniCalendario
+NRO: 13 TABELLE importata: PRES3000_DF20_}------------------------------------------------@
+NRO: 14 TABELLE importata: PRES3000_DF20_Help_Calendario
+TABELLE eliminata: PRES3000_DF01_CalendarioFestivita
+NRO: 15 TABELLE importata: PRES3000_DF01_CalendarioFestivita
+TABELLE eliminata: PRES3000_DF19_GiorniCalendario
+NRO: 16 TABELLE importata: PRES3000_DF19_GiorniCalendario
+TABELLE eliminata: PRES3000_DF20_Help_Calendario
+NRO: 17 TABELLE importata: PRES3000_DF20_Help_Calendario
+NRO: 18 TABELLE importata: PRES3000_Tb01_Calendario
+NRO: 19 TABELLE importata: PRES3000_Tb02_CalendarioPianoFerie
+Importazione completata con 19 Tables importate.

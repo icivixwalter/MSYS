@@ -1,0 +1,123 @@
+C:
+
+
+
+//il disco C: è la base per attivare tutte le bat, se il disco cambia esempio y:... cambiare il valore
+//sopra indicato ed avra effetto su tutte le bat
+
+
+
+@PARAMETRI DA CAMBIARE
+
+
+//il disco C: è la base per attivare tutte le bat, se il disco cambia esempio y:... cambiare il valore
+//sopra indicato ed avra effetto su tutte le bat
+
+//SEZIONI PER IL CAMBIO COLLETTIVO DELLE PAROLE CHIAVI
+
+
+//NOTA per cambia tutti gli elementi basta cambiare le parole chiavi in comune.
+@CHIAVI IN COMUNE ---> GESTIONI | GESTIONE_LLPP| 25_GESTIONE_LLPP | LLPP_ARCHIVI_MDB | AA_MODELLO | MODELLO_ | C: |
+
+
+
+//------>	il DISCO + LA PATH DEL PROGRAMMA
+//
+//@disco_programma	= C:
+//@PATH_PROGRAMMA	= \GESTIONI\GESTIONE_LLPP\25_GESTIONE_LLPP\LLPP_ARCHIVI_MDB\AA_MODELLO\
+
+
+@PATH_01_s=\GESTIONI\GESTIONE_LLPP\25_GESTIONE_LLPP\
+@PATH_02_s=\LLPP_ARCHIVI_MDB\AA_MODELLO\
+@PATH_03_s=\MODELLO_TEX+TXT_ANALISI\
+
+@FILE_s=MODELLO_ANALISI_TEX.tex
+@FILE_s=AA_GE_MODELLI_DbBase.mdb
+@FILE_s=MODELLO_AREA_DI_LAVORO.tws
+
+
+
+
+//------>	LE SOTTO CARTELLE DA CAMBIARE, cambiando la parola chiave vengono aggiorante tutte
+//		le sottocartelle e anche i file?
+//
+//@parola_chiave		= SALARIO_ACCESSORIO_
+//
+//				= 	\..\..\..\..\..\SALARIO_ACCESSORIO_BAT\
+//				= 	\..\..\..\..\..\SALARIO_ACCESSORIO_MDB\
+//				= 	\..\..\..\..\..\SALARIO_ACCESSORIO_QUERY_ROUTINE_MODULI_CLASSI\
+//				=       \..\..\..\..\..\SALARIO_ACCESSORIO_SALVATAGGI\
+//				=  	\..\..\..\..\..\SALARIO_ACCESSORIO_TEXT_ANALISI\
+
+//PARAMETRI DA CAMBIARE SU TUTTI I FILE DELLA CARTELLA
+
+//***************	CARTELLA DOVE SI TROVANO I PARAMETRI **********************						
+//@DISCO_ESTERNO		=	C:
+
+
+//***************	CARTELLA DOVE SI TROVANO I FILE DELLA QUERY    *****************************
+//@PATH_LATEX			= C:\GESTIONI\GESTIONE_LLPP\25_GESTIONE_LLPP\LLPP_ARCHIVI_MDB\AA_MODELLO\MODELLO_TEX+TXT_ANALISI\
+
+				  
+
+
+//***************	CARTELLA DOVE SI TROVANO I FILE PER L'ANALISI 	*****************************
+//@PATH_ANALISI			= C:\GESTIONI\GESTIONE_LLPP\25_GESTIONE_LLPP\LLPP_ARCHIVI_MDB\AA_MODELLO\MODELLO_TEX+TXT_ANALISI\
+
+
+
+//***************	CARTELLA DOVE SI TROVANO I FILE BAT 		*****************************
+//@PATH_BAT 			= C:\GESTIONI\GESTIONE_LLPP\25_GESTIONE_LLPP\LLPP_ARCHIVI_MDB\AA_MODELLO\MODELLO_BAT\
+
+
+
+
+//***************	CARTELLA DOVE SI TROVANO I FILE JAVA.EXE	*****************************
+//@PATH_BAT 			= C:\GESTIONI\GESTIONE_LLPP\25_GESTIONE_LLPP\LLPP_ARCHIVI_MDB\AA_MODELLO\MODELLO_JAVA_EXE\
+
+
+
+//***************	CARTELLA DOVE SI TROVANO I FILE SALVATAGGI	*****************************
+//@PATH_BAT 			= C:\GESTIONI\GESTIONE_LLPP\25_GESTIONE_LLPP\LLPP_ARCHIVI_MDB\AA_MODELLO\MODELLO_SALVATAGGI\
+
+
+
+
+//***************	CARTELLA DOVE SI TROVANO I FILE MDB 		*****************************
+//@PATH_MDB			= C:\GESTIONI\GESTIONE_LLPP\25_GESTIONE_LLPP\LLPP_ARCHIVI_MDB\AA_MODELLO\MODELLO_MDB\
+//@FILE_MDB			=	PRES3000_N25_GESTIONE_SALARIO_ACCESSORIO.mdb
+//@FILE_ESTERNO PER IL DISCO	=	SALARIO_ACCESSORIO_BAT_START_Aprofile_DISCO_Default.TXT
+
+
+
+
+//				IL PROCEDIMENTO IN 10 PUNTI
+//*****************************************************************************************************
+//1) Creo una nuova directory o mi posizioni in quella esistente
+	PROGETTO_PRESENZE
+	
+//2) copio tutti i file e le directory di AA_MODELLO
+//	MODELLO_BAT, EXE ecc..
+
+//3) Rinomino la directory da 	AA_MODELLO in PRESENZE
+
+//3) apro il bat e copio tutti i file MODELLO_ nella directory
+
+//4) recupero la nuova path estesa con il nome del progetto:
+//		c:\GESTIONI\GESTIONE_LLPP\25_GESTIONE_LLPP\LLPP_ARCHIVI_MDB\PROGETTO_PRESENZE\PRESENZE\
+
+//4) rinomino tutti i file da della CARTELLA AA_MODELLO_ ----> PRESENZE_......
+
+//5) apro il file txt disco e tutti gli altri file .bat
+
+//6) vado su txt disco e copio il nuovo percorso:
+//	c:\GESTIONI\GESTIONE_LLPP\25_GESTIONE_LLPP\LLPP_ARCHIVI_MDB\PROGETTO_PRESENZE\PRESENZE\PRESENZE_BAT\
+	
+//7) SOSTITISCO LA VECCHIA PATH CON LA NUOVA:
+//	OLD		-> \GESTIONI\GESTIONE_LLPP\25_GESTIONE_LLPP\LLPP_ARCHIVI_MDB\AA_MODELLO\MODELLO_TEX+TXT_ANALISI\
+//	NEW		-> \GESTIONI\GESTIONE_LLPP\25_GESTIONE_LLPP\LLPP_ARCHIVI_MDB\PROGETTO_PRESENZE\PRESENZE\PRESENZE_BAT\
+	
+//8) VECCHIO DISCO CON IL NUOVO
+//	OLD		-> C:
+//	NEW		-> C:
+	
