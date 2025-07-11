@@ -23,3 +23,15 @@ MACRO ESPORTA OGGETTI to
 
    denominata:
       ESPORTA_Mcr_01_GEFILE_to_LLPP_ATTI_GESTIONE_mdb
+
+RUST DOCUMENTAZIONE HTML
+   Note
+      costruita procedura in Rust che crea una documentazione in html
+      della classe form. Per creare la libreria in html occorre:
+         1) estrarre la classe della form o altra classe i
+         2) fornire la path completa ed il nome della classe alla procedura main come 
+            in questo esempio: c:\tmp\classe.cls.
+            Per assegnare il percorso completo segui questo codice ----> @path@completa+file   
+
+         3) Attivare la procedura rust per la costruzione della documentazione in html.
+            Vai in mani rust ----> 
