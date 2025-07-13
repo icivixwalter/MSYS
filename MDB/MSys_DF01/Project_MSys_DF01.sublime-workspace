@@ -15,6 +15,15 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "README.MD",
+			"settings":
+			{
+				"buffer_size": 2107,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -271,7 +280,7 @@
 	],
 	"find":
 	{
-		"height": 27.2
+		"height": 31.2
 	},
 	"find_in_files":
 	{
@@ -437,12 +446,44 @@
 		{
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "README.MD",
+					"selected": true,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2107,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeX/TeX.sublime-syntax",
+							"tab_size": 3,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"stack_multiselect": false,
+					"type": "text"
+				}
 			]
 		}
 	],
 	"incremental_find":
 	{
-		"height": 27.2
+		"height": 31.2
 	},
 	"input":
 	{
@@ -481,7 +522,10 @@
 	},
 	"output.find_results":
 	{
-		"height": 316.0
+		"height": 316.0,
+		"history":
+		[
+		]
 	},
 	"output.markdown":
 	{
@@ -491,7 +535,7 @@
 	"project": "Project_MSys_DF01.sublime-project",
 	"replace":
 	{
-		"height": 51.2
+		"height": 59.2
 	},
 	"save_all_on_build": false,
 	"select_file":
