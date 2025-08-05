@@ -283,8 +283,29 @@
                      UTILITA_MsysDF14Mcr05_ATTIVA_CancellaTabelle
 
 
-OGGETTI CREATI
-   Ho creato un modulo che esporta tutti gli oggetti in un file.txt
-   per ora ESPORTA TUTTE LE QUERY del db corrente.
-   Il modulo si chiama : ESPORTA_Mdl01_TUTTI_GLI_OGGETTI_IN_FILE_LOG
+OGGETTI CREATI MODIFICATI O MIGLIORATI
+   DB MSys_MODULI.mdb
+      2025.08.05
+         START "APRI CARTELLA" "c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_MODULI\MDB\"
+         Ho creato un modulo che esporta tutti gli oggetti in un file.txt
+         per ora ESPORTA TUTTE LE QUERY del db corrente.
+         Il modulo si chiama :
+            ESPORTA_Mdl00_}------------------------------------------------@
+            ESPORTA_Mdl01_TUTTI_GLI_OGGETTI_IN_FILE_LOG
+
+
+   DB MSys_MODULI.mdb
+      codice ---> 2025.08.05_MSys_MODULI.mdb_(vedi REAME per le modifiche e miglioramenti nel modulo)
+
+         START "APRI CARTELLA" "c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_MODULI\MDB\"
+
+         Sul progetto ho fatto le seguenti modifiche e migliramenti e creazioni di oggetti:
+         Ho creato 4 macro per la cancellazione e la importazione degli oggetti moduli e tabelle:
+            UTILITA_MsysDF14Mcr05_ATTIVA_CancellaModuli
+            UTILITA_MsysDF14Mcr05_ATTIVA_CancellaTabelle
+            UTILITA_MsysDF14Mcr05_ATTIVA_ImportaTabelle
+
+         Ho migliorato il modulo di importazione semplice:
+            UTILITA_MsysDF14Mdl05_}----------------------------------------@
+            UTILITA_MsysDF14Mdl05_IMPORTAZIONE_SEMPLICE_DI_OGGETTI
 
