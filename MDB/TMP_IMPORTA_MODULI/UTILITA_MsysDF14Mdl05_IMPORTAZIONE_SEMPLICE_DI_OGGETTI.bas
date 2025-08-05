@@ -1,5 +1,5 @@
 Attribute VB_Name = "UTILITA_MsysDF14Mdl05_IMPORTAZIONE_SEMPLICE_DI_OGGETTI"
-'//***************************************************************************************************************//
+    '//***************************************************************************************************************//
 '//*'
 '//*'   MODULO      :   UTILITA_MsysDF14Mdl05_IMPORTAZIONE_SEMPLICE_DI_OGGETTI
 '//*'   DEFINIZIONE :   MODULO PER L'IMPORTAZIONE SEMPLICE DEGLI OGGETTI.
@@ -23,7 +23,7 @@ Attribute VB_Name = "UTILITA_MsysDF14Mdl05_IMPORTAZIONE_SEMPLICE_DI_OGGETTI"
 '//*'  attivazione  : si attiva mediante una macro che esegue il codice che importa tutto o puo attivare singolarmente.
 '//*'
 '//*'                   ImportaTuttiGliOggetti          = importo tutto
-'//*'                   ImportaModuli()                 = importo solo i moduli
+'//*'                   ImportaModuli_PFunct()                 = importo solo i moduli
 '//*'                   ImportaTabelel()                = importo solo le TABELLE ecc..
 '//*'
 '//*'
@@ -40,21 +40,21 @@ Attribute VB_Name = "UTILITA_MsysDF14Mdl05_IMPORTAZIONE_SEMPLICE_DI_OGGETTI"
 '//* InizializzaArrayQUERY          | Inizializza gli array DELLE QUERY con i nomi degli oggetti
 '//* InizializzaArrayMACRO          | Inizializza gli array DELLE MACRO con i nomi degli oggetti
 '//* InizializzaArrayMODULI         | Inizializza gli array DEI MODULI con i nomi degli oggetti
-'//* ATTIVA_ImportaMacro            | Attiva la funzione per l’importazione delle macro
+'//* ATTIVA_ImportaMacro_PFunct            | Attiva la funzione per l’importazione delle macro
 '//* ImportaMacro                   | Attiva la funzione per l’importazione delle macro
-'//* ATTIVA_CancellaMacro           | Cancella le macro importate (errore gestito)
-'//* CancellaMacro                  | Cancella le macro importate (errore gestito)
-'//* ATTIVA_ImportaQuery            | Attiva la funzione per l’importazione delle query
-'//* ImportaQuery                   | Attiva la funzione per l’importazione delle query
-'//* ATTIVA_CancellaQuery           | Cancella le query importate (errore gestito)
-'//* CancellaQuery                  | Cancella le query importate (errore gestito)
-'//* ATTIVA_ImportaTabelle          | Attiva la funzione per l’importazione delle tabelle
-'//* ImportaTabelle                 | Attiva la funzione per l’importazione delle tabelle
-'//* ATTIVA_CancellaTabelle         | Attiva la funzione per la cancellazione delle tabelle
-'//* CancellaTabelle                | Cancella le tabelle importate
-'//* ATTIVA_ImportaModuli           | Attiva la funzione per l’importazione dei moduli
-'//* ATTIVA_CancellaModuli          | Attiva la funzione per la cancellazione dei moduli
-'//* ImportaModuli                  | Importa i moduli (descrizione non esplicita nel codice)
+'//* ATTIVA_CancellaMacro_Pfunct           | Cancella le macro importate (errore gestito)
+'//* CancellaMacro_Pfunct                  | Cancella le macro importate (errore gestito)
+'//* ATTIVA_ImportaQuery_PFunct            | Attiva la funzione per l’importazione delle query
+'//* ImportaQuery_PFunct                   | Attiva la funzione per l’importazione delle query
+'//* ATTIVA_CancellaQuery_Funct           | Cancella le query importate (errore gestito)
+'//* CancellaQuery_Funct                  | Cancella le query importate (errore gestito)
+'//* ATTIVA_ImportaTabelle_PFunct          | Attiva la funzione per l’importazione delle tabelle
+'//* ImportaTabelle_Pfunct                 | Attiva la funzione per l’importazione delle tabelle
+'//* ATTIVA_CancellaTabelle_PFunct         | Attiva la funzione per la cancellazione delle tabelle
+'//* CancellaTabelle_PFunct                | Cancella le tabelle importate
+'//* ATTIVA_ImportaModuli_PFunct           | Attiva la funzione per l’importazione dei moduli
+'//* ATTIVA_CancellaModuli_PFunct          | Attiva la funzione per la cancellazione dei moduli
+'//* ImportaModuli_PFunct                  | Importa i moduli (descrizione non esplicita nel codice)
 '//* CancellaModuli                 | Cancella i moduli importati
 '//* ImportaTuttiGliOggetti         | Importa tutti gli oggetti (moduli, query, tabelle, ecc.)
 '//* CancellaTuttiGliOggetti        | Cancella tutti gli oggetti importati
@@ -74,14 +74,16 @@ Dim TableArray(3) As String
 Dim ModuleArray(1) As String
 Dim MacroArray(1) As String
 
+' // >>> MODIFICA: dichiarazione globale Collection per contenere i riferimenti alle tabelle
+Dim TabellaCollection As Collection
+
+
 
 '// DIM COLLECTION TABELLE
 Private Type TabellaInfo
     Nome As String
     PercorsoCompleto As String
 End Type
-
-Private TabellaCollection As Collection
 
 
 
@@ -94,55 +96,15 @@ Private TabellaCollection As Collection
 
 
 
-
-' // Inizializza la path del database
+'// #TASK_01 - InizializzaPath
+'// Inizializza la path del database
 Private Sub InizializzaPath()
     PathDb_s = "c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MDB\MSYS\MDB\MSYS_N01_OGGETTI.mdb"
 End Sub
 
 
-' // Inizializza gli array DELLE TABELLE con i nomi degli oggetti
-
-Private Sub InizializzaCollectionTABELLE()
-    On Error GoTo InizializzaArrayTABELLE_Err
-    
-    Dim PercorsoBase_s As String
-    PercorsoBase_s = "C:\Database\Archivio.mdb" ' <-- modifica qui se serve
-
-    ' Tabella 0
-    tbl.Nome = "MSys_DF13_}----------------------------------------------------@"
-    tbl.PercorsoCompleto = PercorsoBase_s
-    TabellaCollection.Add tbl
-
-    ' Tabella 1
-    tbl.Nome = "Msys_DF13_DLL_PROGETTO"
-    tbl.PercorsoCompleto = PercorsoBase_s
-    TabellaCollection.Add tbl
-
-    ' Tabella 2
-    tbl.Nome = "Msys_DF14_DLL_LIBRERIE"
-    tbl.PercorsoCompleto = PercorsoBase_s
-    TabellaCollection.Add tbl
-
-    ' Tabella 3
-    tbl.Nome = "Msys_DLL_LIBRERIE"
-    tbl.PercorsoCompleto = PercorsoBase_s
-    TabellaCollection.Add tbl
-
-
-    
-    
-    
-
-    Exit Sub
-
-InizializzaArrayTABELLE_Err:
-    MsgBox "Errore in InizializzaCollectionTABELLE: " & Err.Description, vbExclamation
-End Sub
-
-
-
-' // Inizializza gli array DELLE QUERY con i nomi degli oggetti
+'// #TASK_02 - InizializzaArrayQUERY
+'// Inizializza gli array DELLE QUERY con i nomi degli oggetti
 Private Sub InizializzaArrayQUERY()
     On Error GoTo InizializzaArrayQUERY_Err
 
@@ -163,8 +125,8 @@ InizializzaArrayQUERY_Err:
 End Sub
 
 
-
-' // Inizializza gli array DELLE MACRO con i nomi degli oggetti
+'// #TASK_03 - InizializzaArrayMACRO
+'// Inizializza gli array DELLE MACRO con i nomi degli oggetti
 Private Sub InizializzaArrayMACRO()
     On Error GoTo InizializzaArrayMACRO_Err
 
@@ -178,8 +140,8 @@ InizializzaArrayMACRO_Err:
 End Sub
 
 
-
-' // Inizializza gli array DEI MODULI con i nomi degli oggetti
+'// #TASK_04 - InizializzaArrayMODULI
+'// Inizializza gli array DEI MODULI con i nomi degli oggetti
 Private Sub InizializzaArrayMODULI()
     On Error GoTo InizializzaArrayMODULI_Err
   
@@ -208,12 +170,14 @@ End Sub
 '//         OGGETTO MACRO           *** INIZIO ***
 '//==================================================================================================//
 
-'//ATTIVO LA FUNZIONE
-Private Sub ATTIVA_ImportaMacro()
+'// #TASK_05 - ATTIVA_ImportaMacro_PFunct
+'// ATTIVO LA FUNZIONE
+Private Function ATTIVA_ImportaMacro_PFunct()
     Bool1 = ImportaMacro
-End Sub
+End Function
 
-' // Funzione per importare le Macro
+'// #TASK_06 - ImportaMacro
+'// Funzione per importare le Macro
 Public Function ImportaMacro() As Boolean
     On Error GoTo ImportaMacro_Err
 
@@ -241,14 +205,15 @@ ImportaMacro_Err:
 End Function
 
 
+'// #TASK_07 - ATTIVA_CancellaMacro_Pfunct
+Private Function ATTIVA_CancellaMacro_Pfunct()
+    Bool1 = CancellaMacro_Pfunct
+End Function
 
-Private Sub ATTIVA_CancellaMacro()
-    Bool1 = CancellaMacro
-End Sub
-
-' // Funzione per cancellare tutte le Macro
-Public Function CancellaMacro() As Boolean
-    On Error GoTo CancellaMacro_Err
+'// #TASK_08 - CancellaMacro_Pfunct
+'// Funzione per cancellare tutte le Macro
+Public Function CancellaMacro_Pfunct() As Boolean
+    On Error GoTo CancellaMacro_Pfunct_Err
 
     'InizializzaArray           ' BLOCCATO PERCHE CONTENTEVA TUTTI GLI OGGETTI
     
@@ -266,26 +231,28 @@ Public Function CancellaMacro() As Boolean
         End If
     Next i
 
-    CancellaMacro = True
+    CancellaMacro_Pfunct = True
     Exit Function
 
-CancellaMacro_Err:
+CancellaMacro_Pfunct_Err:
     MsgBox "Errore durante la cancellazione delle Macro: " & Err.Description
-    CancellaMacro = False
+    CancellaMacro_Pfunct = False
 End Function
 
 '//==================================================================================================//
 '//         OGGETTO MACRO           *** FINE ***
 '//==================================================================================================//
 
-'//ATTIVO LA FUNZIONE
-Private Sub ATTIVA_ImportaQuery()
-    Bool1 = ImportaQuery
-End Sub
+'// #TASK_09 - ATTIVA_ImportaQuery_PFunct
+'// ATTIVO LA FUNZIONE
+Private Function ATTIVA_ImportaQuery_PFunct()
+    Bool1 = ImportaQuery_PFunct
+End Function
 
-' // Funzione per importare le query
-Public Function ImportaQuery() As Boolean
-    On Error GoTo ImportaQuery_Err
+'// #TASK_10 - ImportaQuery_PFunct
+'// Funzione per importare le query
+Public Function ImportaQuery_PFunct() As Boolean
+    On Error GoTo ImportaQuery_PFunct_Err
 
     ' Inizializza gli array delle query e il percorso del database
     InizializzaArrayQUERY
@@ -302,23 +269,25 @@ Public Function ImportaQuery() As Boolean
         DoCmd.TransferDatabase acImport, "Microsoft Access", PathDb_s, acQuery, queryArray(i), queryArray(i), False
     Next i
 
-    ImportaQuery = True
+    ImportaQuery_PFunct = True
     Exit Function
 
-ImportaQuery_Err:
+ImportaQuery_PFunct_Err:
     MsgBox "Errore durante l'importazione delle query: " & Err.Description
-    ImportaQuery = False
+    ImportaQuery_PFunct = False
 End Function
 
 
 
-Private Sub ATTIVA_CancellaQuery()
-    Bool1 = CancellaQuery
-End Sub
+'// #TASK_11 - ATTIVA_CancellaQuery_Funct
+Private Function ATTIVA_CancellaQuery_Funct()
+    Bool1 = CancellaQuery_Funct
+End Function
 
+'// #TASK_13 - ATTIVA_ImportaTabelle_PFunct
 ' // Funzione per cancellare tutte le query
-Public Function CancellaQuery() As Boolean
-    On Error GoTo CancellaQuery_Err
+Public Function CancellaQuery_Funct() As Boolean
+    On Error GoTo CancellaQuery_Funct_Err
 
     'InizializzaArray           ' BLOCCATO PERCHE CONTENTEVA TUTTI GLI OGGETTI
     
@@ -335,12 +304,12 @@ Public Function CancellaQuery() As Boolean
         End If
     Next i
 
-    CancellaQuery = True
+    CancellaQuery_Funct = True
     Exit Function
 
-CancellaQuery_Err:
+CancellaQuery_Funct_Err:
     MsgBox "Errore durante la cancellazione delle query: " & Err.Description
-    CancellaQuery = False
+    CancellaQuery_Funct = False
 End Function
 
 '//==================================================================================================//
@@ -351,133 +320,296 @@ End Function
 
 
 
+
 '//==================================================================================================//
 '//         OGGETTO TABLE           *** INIZIO ***
 '//==================================================================================================//
 
+'// #TASK_13 - ATTIVA_ImportaTabelle_PFunct
+'// ATTIVA LA FUNZIONE DI COLLEGAMENTO
+Public Function ATTIVA_ImportaTabelle_PFunct()
+    MsgBox "ATTIVO LA FUNZIONE IMPORTA TABELLE", vbExclamation, "MACRO IMPORTA TABELLE"
+    Bool1 = ImportaTabelle_Pfunct
+End Function
+
+'// #TASK_14 - InizializzaCollectionTABELLE
+'// Inizializza la Collection DELLE TABELLE con nome e percorso completo
+'// TODO: costruisco la procedura di collegamento delle tabelle per tutto il db
+'// codice----> MSYS_ATTIVA_GEST_OGGETTI_Link_Tables=(collego tutte le tabelle necessarie per la gestione del db)
+Private Sub InizializzaCollectionTABELLE()
+        
+    On Error GoTo InizializzaArrayTABELLE_Err
+
+    ' >>> MODIFICA: inizializza la collection
+    Set TabellaCollection = New Collection
+
+    Dim PercorsoBase_s As String
+    Dim tbl As Object  ' >>> MODIFICA: uso un Dictionary per salvare Nome e PercorsoCompleto
+
+    '01)_DF01
+    ' -------------------------------------------------------------------------------------
+    PercorsoBase_s = "c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF01\MDB\MSys_DF01.mdb"
+
+        ' Tabella 0
+        Set tbl = CreateObject("Scripting.Dictionary")
+        tbl.Add "Nome", "MSys_DF01_}----------------------------------------------------@"
+        tbl.Add "PercorsoCompleto", PercorsoBase_s
+        TabellaCollection.Add tbl
+    
+        ' Tabella 1
+        Set tbl = CreateObject("Scripting.Dictionary")
+        tbl.Add "Nome", "MSys_DF01_COMANDI"
+        tbl.Add "PercorsoCompleto", PercorsoBase_s
+        TabellaCollection.Add tbl
+
+    '02)_DF02
+    ' -------------------------------------------------------------------------------------
+    PercorsoBase_s = "c:\Casa\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF02\MDB\MSys_DF02.mdb"
+    
+        ' Tabella 2
+        Set tbl = CreateObject("Scripting.Dictionary")
+        tbl.Add "Nome", "MSys_DF02_}----------------------------------------------------@"
+        tbl.Add "PercorsoCompleto", PercorsoBase_s
+        TabellaCollection.Add tbl
+    
+        ' Tabella 3
+        Set tbl = CreateObject("Scripting.Dictionary")
+        tbl.Add "Nome", "MSys_DF02_TIPO_OGGETTO"
+        tbl.Add "PercorsoCompleto", PercorsoBase_s
+        TabellaCollection.Add tbl
+
+    '04)_DF05
+    ' -------------------------------------------------------------------------------------
+        PercorsoBase_s = "c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF05\MDB\MSys_DF05.mdb"
+    
+        ' Tabella 4
+        Set tbl = CreateObject("Scripting.Dictionary")
+        tbl.Add "Nome", "MSys_DF05_}----------------------------------------------------@"
+        tbl.Add "PercorsoCompleto", PercorsoBase_s
+        TabellaCollection.Add tbl
+    
+    
+       ' Tabella 5
+        Set tbl = CreateObject("Scripting.Dictionary")
+        tbl.Add "Nome", "MSys_DF05_ATTRIBUTI_TABELLA"
+        tbl.Add "PercorsoCompleto", PercorsoBase_s
+        TabellaCollection.Add tbl
+    
+    '05)_DF11
+    ' -------------------------------------------------------------------------------------
+        PercorsoBase_s = "c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF11\MDB\MSys_DF11.mdb"
+    
+        ' Tabella 6
+        Set tbl = CreateObject("Scripting.Dictionary")
+        tbl.Add "Nome", "MSys_DF11_{@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@}_Tab"
+        tbl.Add "PercorsoCompleto", PercorsoBase_s
+        TabellaCollection.Add tbl
+    
+    
+       ' Tabella 7
+        Set tbl = CreateObject("Scripting.Dictionary")
+        tbl.Add "Nome", "MSys_DF11_}----------------------------------------------------@"
+        tbl.Add "PercorsoCompleto", PercorsoBase_s
+        TabellaCollection.Add tbl
+    
+    
+    
+    
+       ' Tabella 8
+        Set tbl = CreateObject("Scripting.Dictionary")
+        tbl.Add "Nome", "Msys_DF11_PROGETTI"
+        tbl.Add "PercorsoCompleto", PercorsoBase_s
+        TabellaCollection.Add tbl
+    
+    '06)_DF12
+    ' -------------------------------------------------------------------------------------
+       PercorsoBase_s = "c:\Casa\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF12\MDB\MSys_DF12.mdb"
+
+       ' Tabella 9
+       Set tbl = CreateObject("Scripting.Dictionary")
+       tbl.Add "Nome", "Msys_DF12_}----------------------------------------------------@"
+       tbl.Add "PercorsoCompleto", PercorsoBase_s
+       TabellaCollection.Add tbl
 
 
-'//ATTIVO LA FUNZIONE
-Private Sub ATTIVA_ImportaTabelle()
-    Bool1 = ImportaTabelle
+      ' Tabella 10
+       Set tbl = CreateObject("Scripting.Dictionary")
+       tbl.Add "Nome", "Msys_DF12_GE_ObjProgetti"
+       tbl.Add "PercorsoCompleto", PercorsoBase_s
+       TabellaCollection.Add tbl
+
+    '07)_DF13
+    ' -------------------------------------------------------------------------------------
+       PercorsoBase_s = "c:\Casa\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF13\MDB\MSys_DF13.mdb"
+
+       ' Tabella 11
+       Set tbl = CreateObject("Scripting.Dictionary")
+       tbl.Add "Nome", "Msys_DF13_}----------------------------------------------------@"
+       tbl.Add "PercorsoCompleto", PercorsoBase_s
+       TabellaCollection.Add tbl
+
+
+      ' Tabella 12
+       Set tbl = CreateObject("Scripting.Dictionary")
+       tbl.Add "Nome", "Msys_DF13_DLL_PROGETTO"
+       tbl.Add "PercorsoCompleto", PercorsoBase_s
+       TabellaCollection.Add tbl
+
+
+    '08)_DF14
+    ' -------------------------------------------------------------------------------------
+       PercorsoBase_s = "c:\Casa\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF14\MDB\MSys_DF14.mdb"
+
+       ' Tabella 13
+       Set tbl = CreateObject("Scripting.Dictionary")
+       tbl.Add "Nome", "Msys_DF14_}----------------------------------------------------@"
+       tbl.Add "PercorsoCompleto", PercorsoBase_s
+       TabellaCollection.Add tbl
+
+
+      ' Tabella 14
+       Set tbl = CreateObject("Scripting.Dictionary")
+       tbl.Add "Nome", "Msys_DF14_DLL_LIBRERIE"
+       tbl.Add "PercorsoCompleto", PercorsoBase_s
+       TabellaCollection.Add tbl
+
+    Exit Sub
+
+InizializzaArrayTABELLE_Err:
+    MsgBox "Errore in InizializzaCollectionTABELLE: " & Err.Description, vbExclamation
 End Sub
 
 
-
-
-' // Funzione per importare le tabelle
-Public Function ImportaTabelle() As Boolean
-    On Error GoTo ImportaTabelle_Err
+'// #TASK_15 - ImportaTabelle_Pfunct
+'// Funzione per collegare (linkare) le tabelle
+Public Function ImportaTabelle_Pfunct() As Boolean
+    On Error GoTo ImportaTabelle_Pfunct_Err
 
     Dim ImportedTables() As String
     Dim TableCount As Integer
-    Dim i As Integer
+    Dim i As Long
+    Dim tbl As Object
+
     TableCount = 0
 
     InizializzaCollectionTABELLE
-    InizializzaPath
 
-    ' Redimensiona l'array ImportedTables per contenere il numero massimo di tabelle
-    ReDim ImportedTables(LBound(TableArray) To UBound(TableArray))
+    ReDim ImportedTables(0 To TabellaCollection.Count - 1)
 
-    ' Importa le tabelle
-    For i = LBound(TableArray) To UBound(TableArray)
-        ' Verifica se la tabella esiste
-        If DCount("*", "MSysObjects", "Name='" & TableArray(i) & "' AND Type=1") > 0 Then
-            DoCmd.DeleteObject acTable, TableArray(i)
+    ' Loop di collegamento delle tabelle
+    For i = 1 To TabellaCollection.Count
+        Set tbl = TabellaCollection(i)
+
+        ' Se esiste una tabella locale con lo stesso nome, la elimino prima
+        If DCount("*", "MSysObjects", "Name='" & Replace(tbl("Nome"), "'", "''") & "' AND Type=1") > 0 Then
+            DoCmd.DeleteObject acTable, tbl("Nome")
         End If
-        
-        ' Controllo tabella
-        Debug.Print "tabella da importare: " & TableArray(i)
-        Debug.Print "database : " & PathDb_s
-        
-        ' Copia la tabella dal database di origine al database corrente
-        DoCmd.TransferDatabase acImport, "Microsoft Access", PathDb_s, acTable, TableArray(i), TableArray(i), False
-        
-        ' Aggiungi il nome della tabella importata all'array
-        ImportedTables(TableCount) = TableArray(i)
+
+        ' DEBUG: Visualizzo nome tabella e percorso
+        Debug.Print "Tabella da collegare: " & tbl("Nome")
+        Debug.Print "Database sorgente: " & tbl("PercorsoCompleto")
+
+        ' >>> MODIFICA: collego la tabella invece di importarla ' <<< CAMBIATO da acImport a acLink
+        DoCmd.TransferDatabase _
+            TransferType:=acLink, _
+            DatabaseType:="Microsoft Access", _
+            DatabaseName:=tbl("PercorsoCompleto"), _
+            objectType:=acTable, _
+            Source:=tbl("Nome"), _
+            Destination:=tbl("Nome"), _
+            StructureOnly:=False
+
+        ' Memorizzo nome tabella collegata
+        ImportedTables(TableCount) = tbl("Nome")
         TableCount = TableCount + 1
     Next i
 
-    ' Stampa le statistiche riepilogative
-    Debug.Print "Statistiche riepilogative delle tabelle importate:"
-    Debug.Print "Numero totale di tabelle importate: " & TableCount
+    ' Riepilogo
+    Debug.Print "Statistiche riepilogative delle tabelle collegate:"
+    Debug.Print "Numero totale di tabelle collegate: " & TableCount
     For i = 0 To TableCount - 1
         Debug.Print "Tabella " & (i + 1) & ": " & ImportedTables(i)
     Next i
 
-    ImportaTabelle = True
+    ImportaTabelle_Pfunct = True
     Exit Function
 
-ImportaTabelle_Err:
-    MsgBox "Errore durante l'importazione delle tabelle: " & Err.Description
-    ImportaTabelle = False
-    
+ImportaTabelle_Pfunct_Err:
+    MsgBox "Errore durante il collegamento delle tabelle: " & Err.Description
+    ImportaTabelle_Pfunct = False
 End Function
 
+'// #TASK_16 - ATTIVA_CancellaTabelle_PFunct
+'// ATTIVA LA FUNZIONE DI CANCELLAZIONE
+Public Function ATTIVA_CancellaTabelle_PFunct()
+    MsgBox "ATTIVO LA FUNZIONE CANCELLA TABELLE", vbExclamation, "MACRO CANCELLA TABELLE"
+    Bool1 = CancellaTabelle_PFunct
+End Function
 
-'//ATTIVO LA FUNZIONE
-Private Sub ATTIVA_CancellaTabelle()
-    Bool1 = CancellaTabelle
-End Sub
-' // Funzione per cancellare tutte le tabelle
-Public Function CancellaTabelle() As Boolean
-    On Error GoTo CancellaTabelle_Err
+'// #TASK_17 - CancellaTabelle_PFunct
+'// Funzione per cancellare tutte le tabelle
 
-    ' Inizializza la Collection con nomi tabelle e percorsi
+Public Function CancellaTabelle_PFunct() As Boolean
+    On Error GoTo CancellaTabelle_PFunct_Err
+
     InizializzaCollectionTABELLE
-    
+
     Dim tabelleCancellate As Integer
     Dim tabelleNonTrovate As Integer
     Dim nomiTabelleCancellate As String
     Dim nomiTabelleNonTrovate As String
     Dim i As Long
-    Dim tbl As TabellaInfo
+    Dim tbl As Object
 
     tabelleCancellate = 0
     tabelleNonTrovate = 0
     nomiTabelleCancellate = ""
     nomiTabelleNonTrovate = ""
-    
-    ' Cancellazione delle tabelle
+
     For i = 1 To TabellaCollection.Count
-        tbl = TabellaCollection(i)
-        
+        Set tbl = TabellaCollection(i)
+
         ' Verifica se la tabella esiste (locale o collegata)
-        If DCount("*", "MSysObjects", "Name='" & Replace(tbl.Nome, "'", "''") & "' AND Type IN (1, 4, 6)") > 0 Then
-            DoCmd.DeleteObject acTable, tbl.Nome
-            Debug.Print "Tabella cancellata: " & tbl.Nome
+        If DCount("*", "MSysObjects", "Name='" & Replace(tbl("Nome"), "'", "''") & "' AND Type IN (1, 4, 6)") > 0 Then
+            DoCmd.DeleteObject acTable, tbl("Nome")
+            Debug.Print "Tabella cancellata: " & tbl("Nome")
             tabelleCancellate = tabelleCancellate + 1
-            nomiTabelleCancellate = nomiTabelleCancellate & tbl.Nome & ", "
+            nomiTabelleCancellate = nomiTabelleCancellate & tbl("Nome") & ", "
         Else
-            Debug.Print "Tabella non trovata: " & tbl.Nome
+            Debug.Print "Tabella non trovata: " & tbl("Nome")
             tabelleNonTrovate = tabelleNonTrovate + 1
-            nomiTabelleNonTrovate = nomiTabelleNonTrovate & tbl.Nome & ", "
+            nomiTabelleNonTrovate = nomiTabelleNonTrovate & tbl("Nome") & ", "
         End If
     Next i
-    
-    ' Rimuove l'ultima virgola e spazio
+
+    ' Rimuovo ultima virgola
     If tabelleCancellate > 0 Then
         nomiTabelleCancellate = Left(nomiTabelleCancellate, Len(nomiTabelleCancellate) - 2)
     End If
-    
     If tabelleNonTrovate > 0 Then
         nomiTabelleNonTrovate = Left(nomiTabelleNonTrovate, Len(nomiTabelleNonTrovate) - 2)
     End If
-    
-    ' Stampa della statistica riepilogativa
+
+    ' Output finale
     Debug.Print "Totale tabelle cancellate: " & tabelleCancellate
     Debug.Print "Nomi delle tabelle cancellate: " & nomiTabelleCancellate
     Debug.Print "Totale tabelle non trovate: " & tabelleNonTrovate
     Debug.Print "Nomi delle tabelle non trovate: " & nomiTabelleNonTrovate
 
-    CancellaTabelle = True
+    CancellaTabelle_PFunct = True
     Exit Function
 
-CancellaTabelle_Err:
+CancellaTabelle_PFunct_Err:
     MsgBox "Errore durante la cancellazione delle tabelle: " & Err.Description
-    CancellaTabelle = False
+    CancellaTabelle_PFunct = False
 End Function
+
+
+
+
+
+
+
 '//==================================================================================================//
 '//         OGGETTO TABLE           *** FINE ***
 '//==================================================================================================//
@@ -490,25 +622,25 @@ End Function
 '//==================================================================================================//
 
 
+'// #TASK_18 - ATTIVA_ImportaModuli_PFunct
+'// ATTIVO LA FUNZIONE
+Private Function ATTIVA_ImportaModuli_PFunct()
+    Bool1 = ImportaModuli_PFunct
+End Function
 
-'//ATTIVO LA FUNZIONE
-Private Sub ATTIVA_ImportaModuli()
-    Bool1 = ImportaModuli
-End Sub
-
-
-'//ATTIVO LA FUNZIONE
-Private Sub ATTIVA_CancellaModuli()
+'// #TASK_19 - ATTIVA_CancellaModuli_PFunct
+'// ATTIVO LA FUNZIONE
+Private Function ATTIVA_CancellaModuli_PFunct()
     Bool1 = CancellaModuli
-End Sub
+End Function
 
 
 
 
-
-' // Funzione per importare i moduli
-Public Function ImportaModuli() As Boolean
-    On Error GoTo ImportaModuli_Err
+'// #TASK_20 - ImportaModuli_PFunct
+'// Funzione per importare i moduli
+Public Function ImportaModuli_PFunct() As Boolean
+    On Error GoTo ImportaModuli_PFunct_Err
 
     InizializzaArrayMODULI           ' RECUPERO L'ARRAY DEI MODULI
     InizializzaPath
@@ -553,17 +685,17 @@ Public Function ImportaModuli() As Boolean
     Debug.Print "Totale moduli già esistenti: " & moduliGiaEsistenti
     Debug.Print "Nomi dei moduli già esistenti: " & nomiModuliGiaEsistenti
 
-    ImportaModuli = True
+    ImportaModuli_PFunct = True
     Exit Function
 
-ImportaModuli_Err:
+ImportaModuli_PFunct_Err:
     MsgBox "Errore durante l'importazione dei moduli: " & Err.Description
-    ImportaModuli = False
+    ImportaModuli_PFunct = False
     
 End Function
 
-
-' // Funzione per cancellare tutti i moduli
+'// #TASK_21 - CancellaModuli
+'// Funzione per cancellare tutti i moduli
 Public Function CancellaModuli() As Boolean
     On Error GoTo CancellaModuli_Err
 
@@ -625,14 +757,14 @@ End Function
 '//==================================================================================================//
 
 
-
-' // Funzione generale per importare tutti gli oggetti
+'// #TASK_22 - ImportaTuttiGliOggetti
+'// Funzione generale per importare tutti gli oggetti
 Public Function ImportaTuttiGliOggetti() As Boolean
     On Error GoTo ImportaTuttiGliOggetti_Err
 
-    ImportaQuery
-    ImportaTabelle
-    ImportaModuli
+    ImportaQuery_PFunct
+    ImportaTabelle_Pfunct
+    ImportaModuli_PFunct
     ImportaMacro
 
     ImportaTuttiGliOggetti = True
@@ -643,14 +775,16 @@ ImportaTuttiGliOggetti_Err:
     ImportaTuttiGliOggetti = False
 End Function
 
-' // Funzione generale per cancellare tutti gli oggetti
+
+'// #TASK_23 - CancellaTuttiGliOggetti
+'// Funzione generale per cancellare tutti gli oggetti
 Public Function CancellaTuttiGliOggetti() As Boolean
     On Error GoTo CancellaTuttiGliOggetti_Err
 
-    CancellaQuery
-    CancellaTabelle
+    CancellaQuery_Funct
+    CancellaTabelle_PFunct
     CancellaModuli
-    CancellaMacro
+    CancellaMacro_Pfunct
     MsgBox "Tutti gli oggetti importati o collegati sono stati cancellati."
 
     CancellaTuttiGliOggetti = True
@@ -664,6 +798,10 @@ End Function
 
 '//********************************************************************************//
 '//     ESECUZIONI DI PROVA
+
+
+
+
 
 
 

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Dati>
+    <Record>
+        <Type>-32768</Type>
+        <ParentId>-2147483647</ParentId>
+        <TXTKey>---></TXTKey>
+        <kEYType>-32768</kEYType>
+        <KEYParentId>-2147483647</KEYParentId>
+        <TIPO>FORM</TIPO>
+    </Record>
+    <Record>
+        <Type>-32761</Type>
+        <ParentId>-2147483646</ParentId>
+        <TXTKey>---></TXTKey>
+        <kEYType>-32761</kEYType>
+        <KEYParentId>-2147483646</KEYParentId>
+        <TIPO>MODULI</TIPO>
+    </Record>
+    <Record>
+        <Type>-32757</Type>
+        <ParentId>251658242</ParentId>
+        <TXTKey>---></TXTKey>
+        <kEYType>-32757</kEYType>
+        <KEYParentId>251658242</KEYParentId>
+        <TIPO>AccessLayout</TIPO>
+    </Record>
+    <Record>
+        <Type>1</Type>
+        <ParentId>251658241</ParentId>
+        <TXTKey>---></TXTKey>
+        <kEYType>1</kEYType>
+        <KEYParentId>251658241</KEYParentId>
+        <TIPO>MSysObjects</TIPO>
+    </Record>
+    <Record>
+        <Type>2</Type>
+        <ParentId>251658242</ParentId>
+        <TXTKey>---></TXTKey>
+        <kEYType>2</kEYType>
+        <KEYParentId>251658242</KEYParentId>
+        <TIPO>MSysDb</TIPO>
+    </Record>
+    <Record>
+        <Type>3</Type>
+        <ParentId>251658240</ParentId>
+        <TXTKey>---></TXTKey>
+        <kEYType>3</kEYType>
+        <KEYParentId>251658240</KEYParentId>
+        <TIPO>Tutti gli oggetti Access</TIPO>
+    </Record>
+    <Record>
+        <Type>5</Type>
+        <ParentId>251658241</ParentId>
+        <TXTKey>---></TXTKey>
+        <kEYType>5</kEYType>
+        <KEYParentId>251658241</KEYParentId>
+        <TIPO>QUERY + QUERY CANCELLATE</TIPO>
+    </Record>
+    <Record>
+        <Type>8</Type>
+        <ParentId>251658243</ParentId>
+        <TXTKey>---></TXTKey>
+        <kEYType>8</kEYType>
+        <KEYParentId>251658243</KEYParentId>
+        <TIPO>ALTRO</TIPO>
+    </Record>
+</Dati>
+

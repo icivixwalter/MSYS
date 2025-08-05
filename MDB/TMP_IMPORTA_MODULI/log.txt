@@ -1,0 +1,7 @@
+=== Inizio esportazione XML: 05/08/2025 17:49:06 ===
+SUCCESSO - Esportata query 'MSysObjects_Qry00_}--------------------------------------------@' in XML.
+SUCCESSO - Esportata query 'MSysObjects_Qry01_01_GROUP_OGGETTI' in XML.
+SUCCESSO - Esportata query 'MSysObjects_Qry01_02_OGGETTI_TUTTI' in XML.
+SUCCESSO - Esportata query 'MSysObjects_Qry01_03_CAMPO_DATA' in XML.
+SUCCESSO - Esportata query 'Query2' in XML.
+=== Fine esportazione XML: 05/08/2025 17:49:06 ===

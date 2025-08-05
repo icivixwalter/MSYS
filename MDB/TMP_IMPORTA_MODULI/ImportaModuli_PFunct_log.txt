@@ -1,0 +1,8 @@
+LOG IMPORTAZIONE MODULI - 05/08/2025 16:44:58
+--------------------------------------------------------------------------------
+IMPORTATO: UTILITA_MsysDF13Mdl00_{@======================================@}
+  Percorso: C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF13\MDB\MSys_DF13.mdb
+ERRORE: UTILITA_Msys_Mdl03_DLL_REFERENZIA_LE_LIBRERIE_DLL
+  Percorso: C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF13\MDB\MSys_DF13.mdb
+  Errore importazione: Microsoft Access: impossibile trovare l'oggetto 'UTILITA_Msys_Mdl03_DLL_REFERENZIA_LE_LIBRERIE_DLL'.
+----------------------------------------

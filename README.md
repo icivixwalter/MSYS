@@ -214,4 +214,77 @@
                sistemato ed ora è attivo come button e sia come doppio click sia 
                sul campo testo path che su file. 
 
-               
+   2025_07_25_MSYS_ATTIVA_GEST_OGGETTI = CREO FUNZIONE PER IMPORTAZIONE LINK TABELLE
+      Note
+
+         TODO: costruisco la procedura di collegamento delle tabelle per tutto il db
+            DATABASE DI PROVA
+               il db di prova in cui testo la nuova procedur si trova in questa path:
+
+                  START "apro DB TEST" c:\Casa\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\TMP_IMPORTA_MODULI\MSYS_MODELLO.mdb
+
+                     @total@commader_(apro la path test con il totalcommander)
+                  START "APRI PATH TEST" "C:\Program Files\totalcmd\TOTALCMD64.EXE" /L="c:\Casa\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\TMP_IMPORTA_MODULI\" /R="c:\Casa\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\TMP_IMPORTA_MODULI\"
+
+            per la gestione del database MSYS_ATTIVA_GEST_OGGETTI.mdb e delle sue
+            form e query occorre gestione il collegamento di diverse tabelle.
+            Il modulo che gestisce il link si chiama UTILITA_MsysDF14Mdl05_IMPORTAZIONE_SEMPLICE_DI_OGGETTI.
+            Per ora viene utilizzata la routine di attivazione delle importazione denominata
+            InizializzaCollectionTABELLE con la quale vengono gestite le seguenti importazioni
+            o link codificate con :
+               questo codice----> MSYS_ATTIVA_GEST_OGGETTI_Link_Tables.
+
+            I link di seguito indicato sono rappresentati in gruppi di definizioni e quindi
+            possono riguardare piu tabelle e db es. gruppo df13:
+                  tbl.Add "Nome", "Msys_DF13_}----------------------------------------------------@"
+                  "Msys_DF13_}----------------------------------------------------@"
+
+            per attivare la procedura di collegamento chiamare la sub:
+                  ImportaTabelle()
+
+
+         GRUPPO LINK EFFETTUATI:
+            01)_DF01
+            02)_DF02 *     = correggi la path  ... OK CORRETTA
+            04)_DF04
+            05)_DF11
+            06)_DF12
+            07)_DF13
+            08)_DF14
+
+               RISULTATI DEI COLLEGAMENTI
+
+                  Tabella 1: MSys_DF01_}----------------------------------------------------@
+                  Tabella 2: MSys_DF01_COMANDI
+                  Tabella 3: MSys_DF02_}----------------------------------------------------@
+                  Tabella 4: MSys_DF02_TIPO_OGGETTO
+                  Tabella 5: MSys_DF05_}----------------------------------------------------@
+                  Tabella 6: MSys_DF05_ATTRIBUTI_TABELLA
+                  Tabella 7: MSys_DF11_{@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@}_Tab
+                  Tabella 8: MSys_DF11_}----------------------------------------------------@
+                  Tabella 9: Msys_DF11_PROGETTI
+                  Tabella 10: Msys_DF12_}----------------------------------------------------@
+                  Tabella 11: Msys_DF12_GE_ObjProgetti
+                  Tabella 12: Msys_DF13_}----------------------------------------------------@
+                  Tabella 13: Msys_DF13_DLL_PROGETTO
+                  Tabella 14: Msys_DF14_}----------------------------------------------------@
+                  Tabella 15: Msys_DF14_DLL_LIBRERIE
+
+
+
+
+      todo: CREARE DUE macro una per il collegamento e l'altra per la cancellazione.
+
+            MACRO_01 = ATTIVA_ImportaTabelle()
+                     UTILITA_MsysDF14Mcr05_ATTIVA_ImportaTabelle
+
+
+            MACRO_02 = Private Sub ATTIVA_CancellaTabelle()
+                     UTILITA_MsysDF14Mcr05_ATTIVA_CancellaTabelle
+
+
+OGGETTI CREATI
+   Ho creato un modulo che esporta tutti gli oggetti in un file.txt
+   per ora ESPORTA TUTTE LE QUERY del db corrente.
+   Il modulo si chiama : ESPORTA_Mdl01_TUTTI_GLI_OGGETTI_IN_FILE_LOG
+
