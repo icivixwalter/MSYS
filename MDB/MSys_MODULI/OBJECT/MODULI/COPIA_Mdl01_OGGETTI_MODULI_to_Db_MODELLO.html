@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Modulo: COPIA_Mdl01_OGGETTI_MODULI_to_Db_MODELLO</title>
+  <style>
+    body { font-family: Consolas, monospace; background:#f0f0f0; padding:20px; }
+    h1 { color:#333; }
+    pre { background:#222; color:#eee; padding:15px; border-radius:5px; white-space: pre-wrap; }
+  </style>
+</head>
+<body>
+  <h1>Modulo: COPIA_Mdl01_OGGETTI_MODULI_to_Db_MODELLO</h1>
+  <pre>Option Compare Database
+Option Explicit
+
+Public Function ATTIVA_EsportaOggettiGenericiInDBEsterno()
+    Call EsportaOggettiGenericiInDBEsterno
+End Function
+Public Sub EsportaOggettiGenericiInDBEsterno()
+    On Error GoTo GestioneErrore
+
+    ' === Percorso database di destinazione ===
+    Dim percorsoDestinazione As String
+    percorsoDestinazione = "c:\Casa\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\TMP_IMPORTA_MODULI\MSYS_MODELLO.mdb"
+
+    ' === Collection: Array("TipoOggetto", "NomeOrigine", "NomeDestinazione") ===
+    Dim oggettiToExport As Collection
+    Set oggettiToExport = New Collection
+
+    ' -- Macro --
+    oggettiToExport.Add Array("Macro", "UTILITA_MsysDF14Mcr05_ATTIVA_CancellaModuli", "UTILITA_MsysDF14Mcr05_ATTIVA_CancellaModuli")
+    oggettiToExport.Add Array("Macro", "UTILITA_MsysDF14Mcr05_ATTIVA_CancellaTabelle", "UTILITA_MsysDF14Mcr05_ATTIVA_CancellaTabelle")
+    oggettiToExport.Add Array("Macro", "UTILITA_MsysDF14Mcr05_ATTIVA_ImportaModuli", "UTILITA_MsysDF14Mcr05_ATTIVA_ImportaModuli")
+    oggettiToExport.Add Array("Macro", "UTILITA_MsysDF14Mcr05_ATTIVA_ImportaTabelle", "UTILITA_MsysDF14Mcr05_ATTIVA_ImportaTabelle")
+
+    ' -- Moduli --
+    oggettiToExport.Add Array("Module", "UTILITA_MsysDF14Mdl05_}----------------------------------------@", "UTILITA_MsysDF14Mdl05_}----------------------------------------@")
+    oggettiToExport.Add Array("Module", "UTILITA_MsysDF14Mdl05_IMPORTAZIONE_SEMPLICE_DI_OGGETTI", "UTILITA_MsysDF14Mdl05_IMPORTAZIONE_SEMPLICE_DI_OGGETTI")
+
+    ' === Esecuzione dell’esportazione ===
+    Dim item As Variant
+    Dim tipoOggetto As AcObjectType
+    Dim msg As String
+    Dim countMacro As Long, countModuli As Long, countQuery As Long, countForm As Long, countReport As Long
+
+    For Each item In oggettiToExport
+        Select Case UCase(item(0))
+            Case "MACRO"
+                tipoOggetto = acMacro
+                countMacro = countMacro + 1
+            Case "MODULE"
+                tipoOggetto = acModule
+                countModuli = countModuli + 1
+            Case "QUERY"
+                tipoOggetto = acQuery
+                countQuery = countQuery + 1
+            Case "FORM"
+                tipoOggetto = acForm
+                countForm = countForm + 1
+            Case "REPORT"
+                tipoOggetto = acReport
+                countReport = countReport + 1
+            Case Else
+                MsgBox "Tipo oggetto non supportato: " & item(0), vbExclamation
+                GoTo GestioneErrore
+        End Select
+
+        ' === Uso corretto di CopyObject con parametri posizionali ===
+        ' Syntax: CopyObject(destinationdatabase, newname, objecttype, sourceobjectname)
+        DoCmd.CopyObject percorsoDestinazione, item(2), tipoOggetto, item(1)
+    Next item
+
+    ' === Riepilogo finale ===
+    msg = "Esportazione completata." & vbCrLf & vbCrLf & _
+          "Database di destinazione:" & vbCrLf & percorsoDestinazione & vbCrLf & vbCrLf & _
+          "Oggetti esportati:" & vbCrLf & _
+          "- Macro: " & countMacro & vbCrLf & _
+          "- Moduli: " & countModuli & vbCrLf & _
+          "- Query: " & countQuery & vbCrLf & _
+          "- Form: " & countForm & vbCrLf & _
+          "- Report: " & countReport & vbCrLf & vbCrLf & _
+          "Dettaglio esportazioni:" & vbCrLf
+
+    For Each item In oggettiToExport
+        msg = msg & "• " & item(0) & ": " & item(1) & " ? " & item(2) & vbCrLf
+    Next item
+
+    MsgBox msg, vbInformation, "Esportazione Oggetti Access"
+    Exit Sub
+
+GestioneErrore:
+    MsgBox "Errore " & Err.Number & ": " & Err.Description, vbCritical, "Errore durante l'esportazione"
+End Sub
+
+
+
+
+</pre>
+</body>
+</html>

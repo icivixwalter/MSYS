@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Modulo: UTIL_MDL30_CANCELLA_I_MODULI_DbEsterno</title>
+  <style>
+    body { font-family: Consolas, monospace; background:#f0f0f0; padding:20px; }
+    h1 { color:#333; }
+    pre { background:#222; color:#eee; padding:15px; border-radius:5px; white-space: pre-wrap; }
+  </style>
+</head>
+<body>
+  <h1>Modulo: UTIL_MDL30_CANCELLA_I_MODULI_DbEsterno</h1>
+  <pre>Option Compare Database
+
+
+'// non funziona
+Sub DeleteAllModules()
+    Dim Dbs As DAO.Database
+    Dim MDL As modules ' Può essere DAO.Module o DAO.ClassModule
+    Dim obj As modules
+    Dim Moduli As Module
+    
+
+    
+           Dim tdfNew As TableDef
+       Dim tdfLoop As TableDef
+       Dim prpLoop As Property
+       
+     
+       Set dbsNorthwind = DBEngine.OpenDatabase("c:\CASA\CDM\GE_CDM\MSYS\MSYS_MDB\MSYS_N01_TABELLE_EliminateModuli.mdb")         '//DATABASE ESTERNO METTI LA PATH
+            
+            
+    ' Apre il database
+    
+    
+    
+    
+    Last = dbsNorthwind.Application.CodeProject.AllModules.count - 1
+    Debug.Print "MODULI TOTALI: " & Last
+    
+    
+    ' Ricerca oggetti AccessObject aperti in insieme AllModules.
+    
+    For Each obj In db.Application.CurrentProject.AllModules
+        
+    Next
+    
+    
+    ' Apre una connessione al database
+    'Set db = DBEngine.OpenDatabase("c:\CASA\CDM\GE_CDM\MSYS\MSYS_MDB\MSYS_N01_TABELLE_EliminateModuli.mdb")
+    
+      
+      
+    Set Dbs = DBEngine.OpenDatabase("c:\CASA\CDM\GE_CDM\MSYS\MSYS_MDB\MSYS_N01_TABELLE_EliminateModuli.mdb", True)
+        
+        
+    ' Elimina tutti i moduli o le classi uno per uno utilizzando un ciclo while
+
+
+    'Do While db.Modules.count &gt; 0
+    '    Set mdl = db.Modules(0) ' Prende il primo modulo o classe nella collezione
+    '    Debug.Print "Deleting Module/Class: " & mdl.Name ' Stampa il nome del modulo o classe
+    '    db.Modules.Delete mdl.Name ' Elimina il modulo o classe
+    'Loop
+    
+    ' Chiude la connessione al database
+    Dbs.Close
+    Set Dbs = Nothing
+End Sub
+
+
+
+Sub CancellaModuli()
+
+    Dim db As Object ' Oggetto del database
+    Dim modulo As AccessObject ' Oggetto modulo
+    Dim MDL As Module
+    Dim strNomeModulo As String ' Nome del modulo
+      Dim obj As AccessObject, Dbs As Object
+      Dim WasOpen As Boolean
+Dim Last As Integer
+      
+    ' Imposta il percorso del tuo database Access esterno
+    Dim strPercorsoDatabase As String
+     
+    strPercorsoDatabase = "c:\CASA\CDM\GE_CDM\MSYS\MSYS_MDB\MSYS_N01_TABELLE_EliminateModuli.mdb"
+    
+    ' Crea un oggetto del database
+    Set db = CreateObject("Access.Application")
+    
+    ' Apre il database
+    db.OpenCurrentDatabase strPercorsoDatabase
+    
+    
+    
+    Last = Application.CodeProject.AllModules.count - 1
+    Debug.Print "MODULI TOTALI: " & Last
+    
+    
+    ' Ricerca oggetti AccessObject aperti in insieme AllModules.
+    
+    For Each obj In db.Application.CurrentProject.AllModules
+        
+        
+        Debug.Print "tipo modulo " & obj.Name
+        Debug.Print "IsLoaded " & obj.IsLoaded
+        Debug.Print "Type " & obj.Type
+        If obj.IsLoaded = False Then
+            DoCmd.OpenModule obj.Name
+        End If
+        
+            DoCmd.Close
+        
+        
+            
+                strNomeModulo = obj.Name
+        
+        
+            
+            
+        
+    Next obj
+    
+    
+
+    
+
+    
+    ' Chiude il database
+    'db.CloseCurrentDatabase
+    Set db = Nothing
+    
+    ' Messaggio di completamento
+    MsgBox "Moduli cancellati con successo.", vbInformation
+    
+End Sub
+
+
+
+Sub CiclaOggettiDatabase()
+    
+    Dim db As DAO.Database ' Oggetto del database
+    Dim tdf As DAO.TableDef ' Oggetto tabella
+    Dim qdf As DAO.QueryDef ' Oggetto query
+    Dim md As modules       ' Oggetto modulo
+    
+    '//attenzione il riferimento puo essere CURRENTPROJECT = PROGETTO CORRENTE, CODE_PROJECT = riferimento ad un progetto db (forse esterno)
+    
+    ' Imposta il percorso del tuo database Access esterno
+    Dim strPercorsoDatabase As String
+    strPercorsoDatabase = "C:\Percorso\Database.accdb"
+    
+    ' Apre il database esterno utilizzando DAO
+    Set db = OpenDatabase(strPercorsoDatabase)
+    
+    ' Cicla attraverso tutte le tabelle del database
+    For Each tdf In db.TableDefs
+        ' Esegue le operazioni desiderate con la tabella
+        Debug.Print tdf.Name
+    Next tdf
+    
+    ' Cicla attraverso tutte le query del database
+    For Each qdf In db.QueryDefs
+        ' Esegue le operazioni desiderate con la query
+        Debug.Print qdf.Name
+    Next qdf
+    
+    ' Cicla attraverso tutti i moduli del database
+    For Each MDL In db.Containers
+        ' Esegue le operazioni desiderate con il modulo
+        Debug.Print MDL.Name
+
+        
+        
+    Next MDL
+    
+    ' Chiude il database
+    db.Close
+    
+    ' Dealloca gli oggetti
+    Set MDL = Nothing
+    Set qdf = Nothing
+    Set tdf = Nothing
+    Set db = Nothing
+    
+End Sub
+</pre>
+</body>
+</html>

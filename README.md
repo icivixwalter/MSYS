@@ -1,10 +1,10 @@
 # MSYS_OGGETTI
 
 
-
-	git : icivixwalter/MSYS_OGGETTI
-
-	git add .
+@ UTILIZZO GIORNALIER0
+	dove il github:           git : icivixwalter/MSYS_OGGETTI
+	COMANDO PLURIMO               : 
+               git pull & git status & git add . & git commit -m "agg ufficio" & git push
 
 
 # GIT
@@ -217,7 +217,6 @@
    2025_07_25_MSYS_ATTIVA_GEST_OGGETTI = CREO FUNZIONE PER IMPORTAZIONE LINK TABELLE
       Note
 
-         TODO: costruisco la procedura di collegamento delle tabelle per tutto il db
             DATABASE DI PROVA
                il db di prova in cui testo la nuova procedur si trova in questa path:
 
@@ -273,16 +272,6 @@
 
 
 
-      todo: CREARE DUE macro una per il collegamento e l'altra per la cancellazione.
-
-            MACRO_01 = ATTIVA_ImportaTabelle()
-                     UTILITA_MsysDF14Mcr05_ATTIVA_ImportaTabelle
-
-
-            MACRO_02 = Private Sub ATTIVA_CancellaTabelle()
-                     UTILITA_MsysDF14Mcr05_ATTIVA_CancellaTabelle
-
-
 OGGETTI CREATI MODIFICATI O MIGLIORATI
    DB MSys_MODULI.mdb
       2025.08.05
@@ -308,4 +297,33 @@ OGGETTI CREATI MODIFICATI O MIGLIORATI
          Ho migliorato il modulo di importazione semplice:
             UTILITA_MsysDF14Mdl05_}----------------------------------------@
             UTILITA_MsysDF14Mdl05_IMPORTAZIONE_SEMPLICE_DI_OGGETTI
+
+   DB MSys_MODULI.mdb 06.08.2025
+         CREATO MODULO: ESPORTA_Mdl01_TUTTI_GLI_OGGETTI_IN_FILE_HTML
+
+            Sul db moduli ho fatto questi miglioramenti:
+               c:\Casa\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_TABELLE\MDB\MSys_TABELLE.mdb
+               sul modulo:
+                  ESPORTA_Mdl01_TUTTI_GLI_OGGETTI_IN_FILE_HTML, ho creato
+               tutte le funzione per l'esportazione degli oggetti, TABELLE, QUERY, FORM, MODULI
+               REPORT in fomato HTML VEDI CODICE ----> @esporta@query@HTML
+               Con la macro SALVA_Mcr01_TUTTI_GLI_OGGETTI_IN_HTML, salvo tutti gli oggetti del db
+               in OBJECT in formato html e quindi vale come salvataggi visibili e ricopiabili e
+               quindi ricostruibili come codice. UNICA NOTA DA FINIRE sono i REPORT dove salva
+               i dati in formato report  ma non la classe del report; quindi da rivedere.
+
+          TODO: rimande da controllare se questa esportazione funzona:
+
+               1) COLLEGARE QUESTE TABELLE
+                  MSys_TAB_}-----------------------------------------------------@
+                  MSys_TABELLE
+                  MSys_TABELLE_TMP
+               2) IMPORTARE LE QUERY
+                  MSys_TABELLE_Qry01_01_SELECT_TUTTE
+                  MSys_TABELLE_Qry01_01_SELECT_TUTTE_TMP
+               3) IMPORTARE LA FORM
+                  MSys_TABELLE_Frm01_}-------------------------------------------@
+                  MSys_TABELLE_Frm01_S01_TUTTE
+                  MSys_TABELLE_Frm01_S01_TUTTE_TMP
+
 

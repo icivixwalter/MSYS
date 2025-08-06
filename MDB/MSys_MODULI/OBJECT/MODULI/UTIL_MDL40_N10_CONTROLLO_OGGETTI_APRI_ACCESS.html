@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Modulo: UTIL_MDL40_N10_CONTROLLO_OGGETTI_APRI_ACCESS</title>
+  <style>
+    body { font-family: Consolas, monospace; background:#f0f0f0; padding:20px; }
+    h1 { color:#333; }
+    pre { background:#222; color:#eee; padding:15px; border-radius:5px; white-space: pre-wrap; }
+  </style>
+</head>
+<body>
+  <h1>Modulo: UTIL_MDL40_N10_CONTROLLO_OGGETTI_APRI_ACCESS</h1>
+  <pre>'//&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;//
+'//                                 Variabili di database _
+    @modulo.salvataggio.oggetti _
+
+'//&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;//
+
+'//LE OPZIONI
+Option Compare Database
+
+
+
+'DAO
+Dim DaoDB As DAO.Database          '//occorre il riferimento alla libreria  Microsoft DAO 3.6 Object Libray          Dim DaoDB As DAO.Database          '//occorre il riferimento alla libreria  Microsoft DAO 3.6 Object Libray           '//occorre il riferimento alla libreria  Microsoft DAO 3.6 Object Libray
+Dim DaoWks As DAO.Workspace
+Dim DaoRs As DAO.Recordset
+
+'ADO
+Dim ADODB As Database
+Dim AdodaoRs As Recordset
+
+
+'record di lettura
+Dim DaoRs_Lett As DAO.Recordset
+Dim Lng_id_Lett As Long
+
+'record da cancellare
+Dim DaoRs_Canc As DAO.Recordset
+
+'record oggetti
+Dim DaoRs_Oggetti As DAO.Recordset
+Dim vV1_Oggetti As Variant
+
+'Contatori
+Dim iCount As Integer
+Dim dbl_count As Double
+
+'Le variabili generiche
+Dim sSql As String                                          '//Stringa di estrazione SQL
+
+'Variabili generali
+Dim Str1 As String
+Dim Int1 As Integer
+Dim Lng1 As Long
+Dim Dbl1 As Double
+Dim Bln1 As Boolean
+Dim Vv1 As Variant
+Dim obj1 As Object
+
+
+
+'Variabili dei parametri
+'&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;:&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;
+Dim lngID As Long
+Dim lngID_OLD As Long
+Dim lngNRO_RUOTE As Long
+Dim sxRUOTA As String
+Dim sxRUOTA_OLD As String
+
+
+'Gestione parametri dei comandi
+Dim sxParamCmd_3 As String
+
+
+
+
+'Larghezza e numero di colonna
+'&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;:&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;
+Dim sLarg_Col As String
+Dim iNum_Col As Integer
+
+
+'Variabili DELLA FORM
+'&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;:&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;
+
+Dim sxFrm_CHIAMANTE_GENERALE As String                  '... Form CHIAMANTE generale
+Dim sxFrm_CHIAMANTE_GENERALE_CORRENTE As String         '... Form CHIAMANTE generale OLD
+Dim sxFrm_CHIAMANTE_GENERALE_PRECEDENTE As String       '... Form CHIAMANTE precedente
+'
+
+'Variabili OGGETTI DB
+'&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;:&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;
+Dim sxNOMEOGGETTO As String
+Dim sxTIPOGGETTO As String
+Dim sxPROCEDURA_IN_ESECUZIONE As String
+
+
+
+'Le Variabili DEGLI OGGETTI DB DI SISTEMA
+'&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;:&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;
+
+
+                          
+
+'................................
+' DIM SCELTA DATABASE DA APRIRE
+Dim sx_Scelta_db As String
+Dim sx_Option_SEZ As Integer          'Numero Sezione di Progetto Scelta
+Dim sx_Name_Tab As String             'Nome Tabella da creare
+
+Dim Dbs As Database
+Dim Apridbs As Database
+Dim ApriRs As Recordset
+
+Dim intCiclo As Integer             'Intero per ciclo lettura oggetti
+
+'................................
+' DIM TABELLA DA ESPORTARE
+Dim ExportTable1 As String
+Dim ExportTable2 As String
+
+'................................
+' DIM CREAZIONE NUOVE TABELLE
+Dim TableDefNuovo    As TableDef
+Dim ApriTableDef    As TableDef
+Dim FieldNuovo  As Field
+Dim idxNuovo_Contatore_Univoco  As Index        ' Oggetto Index
+Dim idxNuovo_Testo_Univoco  As Index
+Dim ix_Indice1   As Integer                            ' per il passaggio dei parametri
+Dim prpPROPERTY1   As Property                  ' proprieta Description
+
+Dim sNomeField  As String
+
+'................................
+' DIM OGGETTO QUERY, FORM
+
+Dim sx_Name_Query As String
+
+Dim sx_Name_FORM  As String
+
+
+'................................
+' DIM LE OPZIONI
+Dim Opzione_1 As Integer
+Dim Opzione_2 As Integer
+Dim sTipo_Oggetto As String
+
+Dim ix_Operazione As Integer
+Dim bx_Flag_b As Boolean
+
+'// CONTROLLO OGGETTI, TABELLE, FORMS, QUERY, REPORTS ECC..
+'//************************************************************************************
+Dim obTipoDB As Object
+Dim Ctr_Label As Label
+Dim Ctr_TextBox As TextBox
+Dim ctr As Controls
+
+'// Le forms
+Dim objx_Forms As AllForms
+Dim objx_Form As Form
+Dim ix_Count_Control As Integer
+
+
+'//variabili OGGETTO QUERY
+Dim QUERY_Name_s     As String                          '//il nome della query recuperata dal db
+
+
+'................................
+' DIM OGGETTI E PARAMETRI
+
+
+'//**** FINE ***
+'//&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;//
+'//                                 Variabili di database
+'//&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;//
+
+
+
+
+
+
+
+'//--------------------------------------------------------------------------------//---------------------//
+'//   CERCA_OGGETTI
+'//
+'//--------------------------------------------------------------------------------//---------------------//
+
+Private Sub Chiama_CERCA_OGGETTI()
+
+'// FUNZIONE CERCA OGGETTI
+'//--------------------------------------------------------------------------------//-----//
+'//CODICE--------&gt;CERCA_OGGETTI.01.ChiamaFunzione
+'//Parametri per il tipo oggetto, indicare : _
+    par_sxTIPOGGETTO    = "Tabelle"/"Query"/"Form"/"Report"/"Pagine"/"Moduli" _
+    par_sxNOMEOGGETTO   = Nome dell'oggetto
+            
+        Dim sxTIPOGGETTO As String
+        Dim sxNOMEOGGETTO As String
+        
+        sxTIPOGGETTO = "Tabelle"
+        sxNOMEOGGETTO = "MSys_REPORT"
+
+    '//Esempio di attivazione
+    Vv1 = CERCA_OGGETTI(sxTIPOGGETTO, sxNOMEOGGETTO)
+'//--------------------------------------------------------------------------------//-----//
+
+End Sub
+
+'//FUNZIONE CERCA OGGETTI = Con due parametri Tipo oggetto e Nome oggetto lo ricerca nella db.
+'//CODICE--------&gt;CERCA_OGGETTI.01.Attiva
+'//=======================================================================================================//
+'//MODULO   : UTIL_MDL40_N01_CONTROLLO_OGGETTI_DB _
+            modulo dove si trova la funzione del database .mdb _
+            PATH -&gt; c:\CASA\LINGUAGGI\ACCESS\ACCESS_PROGETTI_MDB\ACCESS_GESTIONE_OGGETTI_DB_MDB\GESTIONE_OGGETTI\GESTIONE_OGGETTI_MDB\GE_OGGETTI_DB_MDB.mdb
+'//NOTE     : la funzione cerca oggetti attiva il comando ricerca oggetto nel database corrente _
+            con il primo parametro TIPO OGGETTO filtra gli oggetti query, tabella ecc... _
+            e con il secondo parametro NOMEOGGETTO attiva la ricerca con il comando SelectObject _
+            ma in caso di fallimento il messaggio di errore avvisa che non ci sono oggetti nel db corrente.
+Private Function CERCA_OGGETTI(par_sxTIPOGGETTO As String, par_sxNOMEOGGETTO As String)
+
+On Error GoTo CERCA_OGGETTI_Err
+
+
+        'RICERCA OGGETTO
+        '-------------------------------------------------------------------------------------
+                Select Case par_sxTIPOGGETTO
+                
+                Case "TABLE"
+                  ' RICERCA LE TABELLE
+                  DoCmd.SelectObject acTable, par_sxNOMEOGGETTO, True
+                  Exit Function
+                  
+                
+                Case "QUERY"
+                    ' RICERCA LE QUERY
+                    DoCmd.SelectObject acQuery, par_sxNOMEOGGETTO, True
+                    Exit Function
+                
+                
+                Case "FORMS"
+                  ' RICERCA LE FORM
+                  DoCmd.SelectObject acForm, par_sxNOMEOGGETTO, True
+                  Exit Function
+            
+            
+                Case "REPORTS"
+                  ' RICERCA REPORT
+                  DoCmd.SelectObject acReport, par_sxNOMEOGGETTO, True
+                  Exit Function
+            
+                
+                Case "Pagine"
+                  ' RICERCA LE PAGINE INTERNET
+                  DoCmd.SelectObject acPage, par_sxNOMEOGGETTO, True
+                  Exit Function
+                
+                
+                Case "MACRO"
+                  ' RICERCA LE MACRO
+                  DoCmd.SelectObject acMacro, par_sxNOMEOGGETTO, True
+                  Exit Function
+                
+                
+                
+                Case "MODULES"
+                  ' RICERCA DEI MODULI
+                  DoCmd.SelectObject acModule, par_sxNOMEOGGETTO, True
+                  Exit Function
+                
+                
+                Case Else
+                    MsgBox "NON CI SONO OGGETTI DA RICERCARE", vbCritical
+                    
+                End Select
+
+        '-------------------------------------------------------------------------------------
+
+
+CERCA_OGGETTI_Exit:
+    Exit Function
+
+CERCA_OGGETTI_Err:
+    MsgBox Error$
+    Resume CERCA_OGGETTI_Exit
+
+End Function
+'//=======================================================================================================//
+
+
+
+'*********************************************************************************
+'FINE
+'                   RICERCA OGGETTI NEL DATABASE
+'*********************************************************************************
+
+
+
+
+'*********************************************************************************
+'INIZIO
+'                   DATABASE INTERNI ED ESTERNI
+'*********************************************************************************
+
+Sub DATABASE_DisplayForm()
+    
+    '//APRI il database esterno  @APRI.DB.ESTERNO, @APRI.DATABASE.ESTERNO
+    ' Includere il codice seguente nella sezione Dichiarazioni del modulo.
+    Dim appAccess As Access.Application
+
+    ' Inizializza una stringa con il percorso del database.
+    Const strConPathToSamples = "c:\CASA\LINGUAGGI\ACCESS\ACCESS_PROGETTI_MDB\ACCESS_GESTIONE_OGGETTI_DB_MDB\MODELLO_FILTRO\MODELLO_FILTRO_MDB\"
+
+    strDB = strConPathToSamples & "GE_OGGETTI_DB_MDB_MODELLO_GE_FILTRO.mdb"
+    ' Crea una nuova istanza di Microsoft Access.
+    Set appAccess = _
+        CreateObject("Access.Application")
+    ' Apre il database nella finestra di Microsoft Access.
+    appAccess.OpenCurrentDatabase strDB
+
+    ' Apre la maschera Ordini.
+    appAccess.DoCmd.OpenForm "MODELLO_Frm01_M01_GE_FILTRO_M15_H15_L35_NoButton", acNormal
+    'non da segni di funzionamento
+    appAccess.Forms(0)!PAG_01.SetFocus
+    
+    'da errore e permette di visualizzare il db
+    appAccess.DoCmd.FindNext
+    
+    
+   
+    appAccess.CloseCurrentDatabase
+    Set appAccess = Nothing
+    
+End Sub
+
+
+
+
+
+
+
+
+
+
+</pre>
+</body>
+</html>

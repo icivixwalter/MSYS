@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Modulo: Form_MSys_MODULI_Frm01_S01_TUTTI</title>
+  <style>
+    body { font-family: Consolas, monospace; background:#f0f0f0; padding:20px; }
+    h1 { color:#333; }
+    pre { background:#222; color:#eee; padding:15px; border-radius:5px; white-space: pre-wrap; }
+  </style>
+</head>
+<body>
+  <h1>Modulo: Form_MSys_MODULI_Frm01_S01_TUTTI</h1>
+  <pre>Option Compare Database
+Option Explicit
+
+'//Oggetti per il funzionamento : _
+    MODULI: _
+        UTIL_MDL41_01_CONTROLLO_OGGETTI_QUERY_DEL_DB _
+
+
+
+'//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
+'//       LE VARIABILI DI MODULO
+
+
+'//LE VARIABILI DATABASE
+'//....................................................................//
+    Dim DaoDB As DAO.Database          '//occorre il riferimento alla libreria  Microsoft DAO 3.6 Object Libray
+    Dim DaoWks As DAO.Workspace
+    Dim DaoRs As DAO.Recordset
+
+    Dim ADODB As Database
+    Dim AdodaoRs As Recordset
+    Dim sSql As String                          '//STRINGA SQL
+    'Dim Path_s As String                        '//la path
+
+
+    '//Contatori
+    Dim iCount As Integer
+    Dim dbl_count As Double
+    
+   
+    'Le variabili generiche
+    Dim Vv1 As Variant
+    Dim Dbl1 As Double
+    Dim Int1 As Integer
+    Dim Long1 As Long
+    Dim Str1 As String
+    Dim Bool1  As Boolean
+    
+    
+    '//Messaggi di errore
+    Dim ProceduraMessaggioErrore_s As String    '//Errore procedura
+    Dim ProceduraAttivaEseguita_s As String     '//Errore Attivita eseguita
+
+
+'....................................................................
+
+'//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
+
+
+Private Sub Form_Open(Cancel As Integer)
+    
+Me.Recalc
+
+End Sub
+
+Private Sub Name1_TXT_DblClick(Cancel As Integer)
+
+'// FUNZIONE CERCA OGGETTI
+'//--------------------------------------------------------------------------------//-----//
+'//CODICE--------&gt;CERCA_OGGETTI.01.ChiamaFunzione
+'//Parametri per il tipo oggetto, indicare : _
+    par_sxTIPOGGETTO    = "Tabelle"/"Query"/"Form"/"Report"/"Pagine"/"Moduli" _
+    par_sxNOMEOGGETTO   = Nome dell'oggetto
+            
+        Dim sxTIPOGGETTO As String
+        Dim sxNOMEOGGETTO As String
+        Dim Str1 As String
+
+        
+        sxTIPOGGETTO = Me.Name1_TXT.Value
+        sxNOMEOGGETTO = Me.Name1_TXT.Value
+        
+        '//CHIAMO LA FUNZIONE CONTROLLO OGETTI MODULI
+        '//CODICE----------&gt; pfRICERCA_NEL_DB_OGGETTI_Table.Funzione.Call,  @CERCA.TABELLA  @CERCA.OGGETTO.TABELLA
+        '//--------------------------------------------------------------------------------//----------//
+        '// i parametri ricevuti sono   : par_Scelta db             = path db che puo essere database corrente o esterno
+        '//                             : par_sx_Name_Table         = Nome della Tabella
+        '//                             : par_sx_Proprieta_Table    = La proprieta della tabella
+        '//                             : par_ix_Operazione         = Tipo di operazione da eseguire (1=inserire tabella; 2=cancellare tabella)???
+        '//                             : par_bx_Flag_b             = Segnala se l'operazione è stata effettuata ??? sviluppare
+        '// nota                        : viene chiamata la funzione del modulo UTIL_MDL40_N05_CONTROLLO_OGGETTI_DB_TABLES.CHIAMA_pfRICERCA_NEL_DB_OGGETTI_Table()
+        '// PARAMETRI RESTITUITI        :Boolean                    = True per tabella Trovata, FALSE per una tabella non trovata.
+            
+            Str1 = sxNOMEOGGETTO
+            Bool1 = pfRICERCA_NEL_DB_OGGETTI_Moduli("", Str1, "Proprieta", 0, 0, False)
+            
+            If Bool1 = False Then
+                MsgBox "L'oggetto Tabella: " & Str1 & " .. NON TROVATA ????", vbExclamation, "FUNZIONE DI RICERCA TABELLE"
+            
+            Else
+                MsgBox "L'oggetto Tabella: " & Str1 & " E' STATA TROVATA!", vbExclamation, "FUNZIONE DI RICERCA TABELLE"
+            End If
+            
+            
+        '//--------------------------------------------------------------------------------//----------//
+
+'//*** FINE ***
+'// FUNZIONE CERCA OGGETTI
+'//--------------------------------------------------------------------------------//-----//
+
+End Sub
+
+Private Sub Scel_b_AfterUpdate()
+    '//NON E'AMMESSA LA SELEZIONE SE il campo TIPO OGGETTO = NULL _
+       ATTENZIONE occorre il tipo oggetto valorizzato altrimenti non puoi AGGIORNARE IL CAMPO SCELTO _
+       @blocco.Scel_b.record.nullo; SE ESISTE ALMENO UN RECORD viene attivata la selezione _
+       vedi codice _
+       @SELEZIONA.TRUE.TUTTO.MSys_MODULI.Scel_b
+    If IsNull(Me.TIPOGGETTO_s) = True Then Me.Undo
+    
+End Sub
+
+Private Sub Scel_b_DblClick(Cancel As Integer)
+    
+    '//SELEZIONA COLLETTIVA MSys_MODULI
+    '//--------------------------------------------------------------------------------//-------//
+    '//note : seleziona tutto a True se gia impostata altrimente imposta tutto a False _
+              a condizione che la tabella è valorizzata per cui non è ammessa la selezione _
+              se il campo TIPO_OGGETTO  è a null; occorrono almeno 1 record presente _
+              vedi QUESTA CHIAVE ----&gt; @blocco.Scel_b.record.nullo. _
+              @SELEZIONA.TRUE.TUTTO.MSys_MODULI.Scel_b,
+            
+    If Me.TIPOGGETTO_s &gt; "" Then
+        If Me.Scel_b = False Then
+        DoCmd.RunSQL "UPDATE " & _
+                     "MSys_MODULI " & _
+                     "SET " & _
+                     "MSys_MODULI.Scel_b = True " & _
+                     "WHERE (((MSys_MODULI.TIPOGGETTO_s)&gt;''))" & _
+                     "WITH OWNERACCESS OPTION;"
+                     
+                     Me.Refresh
+                    '//refresh + recalc = perche altrimenti blocca il record corrente
+                    Me.Recalc
+                    
+        End If
+        
+        If Me.Scel_b = True Then
+        DoCmd.RunSQL "UPDATE " & _
+                     "MSys_MODULI " & _
+                     "SET " & _
+                     "MSys_MODULI.Scel_b = false " & _
+                     "WHERE (((MSys_MODULI.TIPOGGETTO_s)&gt;''))" & _
+                     "WITH OWNERACCESS OPTION;"
+                     '//refresh + recalc = perche altrimenti blocca il record corrente
+                     Me.Refresh
+                     Me.Recalc
+
+        End If
+        
+    End If
+    '//--------------------------------------------------------------------------------//-------//
+    
+
+End Sub
+</pre>
+</body>
+</html>
