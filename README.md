@@ -4,7 +4,7 @@
 @ UTILIZZO GIORNALIER0
 	dove il github:           git : icivixwalter/MSYS_OGGETTI
 	COMANDO PLURIMO               : 
-               git pull & git status & git add . & git commit -m "agg ufficio" & git push
+               git pull & git status & git add . & git commit -m "agg casa" & git push & git pull
 
 
 # GIT
