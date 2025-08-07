@@ -11,7 +11,7 @@
 </head>
 <body>
   <h1>Modulo: UTILITA_MsysDF14Mdl05_IMPORTAZIONE_SEMPLICE_DI_OGGETTI</h1>
-  <pre>    '//***************************************************************************************************************//
+  <pre>'//***************************************************************************************************************//
 '//*'
 '//*'   MODULO      :   UTILITA_MsysDF14Mdl05_IMPORTAZIONE_SEMPLICE_DI_OGGETTI
 '//*'   DEFINIZIONE :   MODULO PER L'IMPORTAZIONE SEMPLICE DEGLI OGGETTI.
@@ -72,8 +72,8 @@
 '//* CancellaMacro_Pfunct                  | Cancella le macro importate (errore gestito)
 '//* ATTIVA_ImportaQuery_PFunct            | Attiva la funzione per l’importazione delle query
 '//* ImportaQuery_PFunct                   | Attiva la funzione per l’importazione delle query
-'//* ATTIVA_CancellaQuery_Funct           | Cancella le query importate (errore gestito)
-'//* CancellaQuery_Funct                  | Cancella le query importate (errore gestito)
+'//* ATTIVA_CancellaQuery_PFunct           | Cancella le query importate (errore gestito)
+'//* CancellaQuery_PFunct                  | Cancella le query importate (errore gestito)
 '//* ATTIVA_ImportaTabelle_PFunct          | Attiva la funzione per l’importazione delle tabelle
 '//* ImportaTabelle_Pfunct                 | Attiva la funzione per l’importazione delle tabelle
 '//* ATTIVA_CancellaTabelle_PFunct         | Attiva la funzione per la cancellazione delle tabelle
@@ -180,11 +180,6 @@ End Sub
 '//         OGGETTO MACRO           *** INIZIO ***
 '//==================================================================================================//
 
-'// #TASK_05 - ATTIVA_ImportaMacro_PFunct
-'// ATTIVO LA FUNZIONE
-Private Function ATTIVA_ImportaMacro_PFunct()
-    Bool1 = ImportaMacro_PFunct
-End Function
 
 '// #TASK_06 - ImportaMacro_PFunct
 '// Funzione per importare le Macro
@@ -194,6 +189,17 @@ Public Function ImportaMacro_PFunct() As Boolean
     ' Inizializza gli array delle Macro e il percorso del database
     InizializzaArrayMACRO
     InizializzaPath
+
+    ' //CONTROLLO BLOCCO DATABASE
+    '//-----------------------------------------------------------------------------//
+    ' Chiama la funzione di controllo blocco database
+    ' Se ritorna False (blocco attivo), esce immediatamente dalla funzione
+            If Not ControllaBloccoDatabase() Then
+                ImportaMacro_PFunct = False
+                Exit Function
+            End If
+            
+    '//-----------------------------------------------------------------------------//
 
     ' Importa le Macro
     For i = LBound(MacroArray) To UBound(MacroArray)
@@ -253,6 +259,14 @@ End Function
 '//         OGGETTO MACRO           *** FINE ***
 '//==================================================================================================//
 
+
+
+
+'//==================================================================================================//
+'//         OGGETTO QUERY           *** INIZIO ***
+'//==================================================================================================//
+
+
 '// #TASK_09 - ATTIVA_ImportaQuery_PFunct
 '// ATTIVO LA FUNZIONE
 Private Function ATTIVA_ImportaQuery_PFunct()
@@ -263,6 +277,18 @@ End Function
 '// Funzione per importare le query
 Public Function ImportaQuery_PFunct() As Boolean
     On Error GoTo ImportaQuery_PFunct_Err
+
+
+   ' //CONTROLLO BLOCCO DATABASE
+    '//-----------------------------------------------------------------------------//
+    ' Chiama la funzione di controllo blocco database
+    ' Se ritorna False (blocco attivo), esce immediatamente dalla funzione
+            If Not ControllaBloccoDatabase() Then
+                ImportaQuery_PFunct = False
+                Exit Function
+            End If
+            
+    '//-----------------------------------------------------------------------------//
 
     ' Inizializza gli array delle query e il percorso del database
     InizializzaArrayQUERY
@@ -288,19 +314,24 @@ ImportaQuery_PFunct_Err:
 End Function
 
 
-
-'// #TASK_11 - ATTIVA_CancellaQuery_Funct
-Private Function ATTIVA_CancellaQuery_Funct()
-    Bool1 = CancellaQuery_Funct
-End Function
-
 '// #TASK_13 - ATTIVA_ImportaTabelle_PFunct
 ' // Funzione per cancellare tutte le query
-Public Function CancellaQuery_Funct() As Boolean
-    On Error GoTo CancellaQuery_Funct_Err
+Public Function CancellaQuery_PFunct() As Boolean
+    On Error GoTo CancellaQuery_PFunct_Err
 
-    'InizializzaArray           ' BLOCCATO PERCHE CONTENTEVA TUTTI GLI OGGETTI
-    
+
+ ' //CONTROLLO BLOCCO DATABASE
+    '//-----------------------------------------------------------------------------//
+    ' Chiama la funzione di controllo blocco database
+    ' Se ritorna False (blocco attivo), esce immediatamente dalla funzione
+            If Not ControllaBloccoDatabase() Then
+                CancellaQuery_PFunct = False
+                Exit Function
+            End If
+            
+    '//-----------------------------------------------------------------------------//
+
+
     InizializzaArrayQUERY
     
     ' Cancellazione delle query
@@ -314,12 +345,12 @@ Public Function CancellaQuery_Funct() As Boolean
         End If
     Next i
 
-    CancellaQuery_Funct = True
+    CancellaQuery_PFunct = True
     Exit Function
 
-CancellaQuery_Funct_Err:
+CancellaQuery_PFunct_Err:
     MsgBox "Errore durante la cancellazione delle query: " & Err.Description
-    CancellaQuery_Funct = False
+    CancellaQuery_PFunct = False
 End Function
 
 '//==================================================================================================//
@@ -335,17 +366,12 @@ End Function
 '//         OGGETTO TABLE           *** INIZIO ***
 '//==================================================================================================//
 
-'// #TASK_13 - ATTIVA_ImportaTabelle_PFunct
-'// ATTIVA LA FUNZIONE DI COLLEGAMENTO
-Public Function ATTIVA_ImportaTabelle_PFunct()
-    MsgBox "ATTIVO LA FUNZIONE IMPORTA TABELLE", vbExclamation, "MACRO IMPORTA TABELLE"
-    Bool1 = ImportaTabelle_Pfunct
-End Function
 
 '// #TASK_14 - InizializzaCollectionTABELLE
 '// Inizializza la Collection DELLE TABELLE con nome e percorso completo
 '// TODO: costruisco la procedura di collegamento delle tabelle per tutto il db
 '// codice----&gt; MSYS_ATTIVA_GEST_OGGETTI_Link_Tables=(collego tutte le tabelle necessarie per la gestione del db)
+
 Private Sub InizializzaCollectionTABELLE()
         
     On Error GoTo InizializzaArrayTABELLE_Err
@@ -500,6 +526,19 @@ Public Function ImportaTabelle_Pfunct() As Boolean
     Dim i As Long
     Dim tbl As Object
 
+
+    ' //CONTROLLO BLOCCO DATABASE
+    '//-----------------------------------------------------------------------------//
+    ' Chiama la funzione di controllo blocco database
+    ' Se ritorna False (blocco attivo), esce immediatamente dalla funzione
+            If Not ControllaBloccoDatabase() Then
+                ImportaTabelle_Pfunct = False
+                Exit Function
+            End If
+            
+    '//-----------------------------------------------------------------------------//
+
+
     TableCount = 0
 
     InizializzaCollectionTABELLE
@@ -547,13 +586,6 @@ Public Function ImportaTabelle_Pfunct() As Boolean
 ImportaTabelle_Pfunct_Err:
     MsgBox "Errore durante il collegamento delle tabelle: " & Err.Description
     ImportaTabelle_Pfunct = False
-End Function
-
-'// #TASK_16 - ATTIVA_CancellaTabelle_PFunct
-'// ATTIVA LA FUNZIONE DI CANCELLAZIONE
-Public Function ATTIVA_CancellaTabelle_PFunct()
-    MsgBox "ATTIVO LA FUNZIONE CANCELLA TABELLE", vbExclamation, "MACRO CANCELLA TABELLE"
-    Bool1 = CancellaTabelle_PFunct
 End Function
 
 '// #TASK_17 - CancellaTabelle_PFunct
@@ -768,14 +800,19 @@ Public Function ImportaModuli_PFunct() As Boolean
     moduliNonImportati = 0
     nomiModuliImportati = ""
     nomiModuliNonImportati = ""
-
+    
+    
+    ' //CONTROLLO BLOCCO DATABASE
+    '//-----------------------------------------------------------------------------//
     ' Chiama la funzione di controllo blocco database
     ' Se ritorna False (blocco attivo), esce immediatamente dalla funzione
-    If Not ControllaBloccoDatabase() Then
-        ImportaModuli_PFunct = False
-        Exit Function
-    End If
-
+            If Not ControllaBloccoDatabase() Then
+                ImportaModuli_PFunct = False
+                Exit Function
+            End If
+            
+    '//-----------------------------------------------------------------------------//
+    
     ' Inizializza la collection che contiene i moduli da importare
     InizializzaCollectionMODULI
 
@@ -903,18 +940,22 @@ Public Function CancellaModuli_PFunct() As Boolean
     nomiModuliNonTrovati = ""
     
     
-    ' &gt;&gt;&gt; Blocco importazione se eseguita sul database di origine
-    Dim percorsoDbCorrente As String
-    percorsoDbCorrente = CurrentDb.Name
-
-    Const percorsoDbOrigine As String = "c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_MODULI\MDB\MSys_MODULI.mdb"
+    '// &gt;&gt;&gt; Blocco importazione se eseguita sul database di origine
+    '//------------------------------------------------------------------------------------------------------------------------------//
+        Dim percorsoDbCorrente As String
+        percorsoDbCorrente = CurrentDb.Name
     
-    If StrComp(percorsoDbCorrente, percorsoDbOrigine, vbTextCompare) = 0 Then
-        MsgBox "ERRORE: Non è consentito importare moduli nel database di origine." & vbCrLf & _
-               "Percorso corrente: " & percorsoDbCorrente, vbCritical, "Importazione bloccata"
-        CancellaModuli_PFunct = False
-        Exit Function
-    End If
+        Const percorsoDbOrigine As String = "c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_MODULI\MDB\MSys_MODULI.mdb"
+        
+        If StrComp(percorsoDbCorrente, percorsoDbOrigine, vbTextCompare) = 0 Then
+            MsgBox "ERRORE: Non è consentito importare moduli nel database di origine." & vbCrLf & _
+                   "Percorso corrente: " & percorsoDbCorrente, vbCritical, "Importazione bloccata"
+            CancellaModuli_PFunct = False
+            Exit Function
+        End If
+    '//------------------------------------------------------------------------------------------------------------------------------//
+
+
 
     ' Ciclo su ogni modulo nella collection per verificarne la presenza e cancellarlo
     For Each modItem In ModuloCollection
@@ -970,6 +1011,147 @@ End Function
 '//==================================================================================================//
 
 
+'//==================================================================================================//
+'//         OGGETTO FORM           *** INIZIO ***
+'//==================================================================================================//
+
+Private Sub InizializzaCollectionFORM()
+    On Error GoTo InizializzaArrayFORM_Err
+
+    ' Inizializza la collection
+    Set FormCollection = New Collection
+
+    Dim PercorsoBase_s As String
+    Dim frm As Object ' Oggetto Dictionary per ogni Form
+    
+
+    '01)_FR01
+    ' -------------------------------------------------------------------------------------
+    PercorsoBase_s = "C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_FR01\MDB\MSys_FR01.mdb"
+
+        Set frm = CreateObject("Scripting.Dictionary")
+        frm.Add "Nome", "Frm_DF01_MAIN"
+        frm.Add "PercorsoCompleto", PercorsoBase_s
+        FormCollection.Add frm
+
+        Set frm = CreateObject("Scripting.Dictionary")
+        frm.Add "Nome", "Frm_DF01_PARAMETRI"
+        frm.Add "PercorsoCompleto", PercorsoBase_s
+        FormCollection.Add frm
+
+    '02)_FR02
+    ' -------------------------------------------------------------------------------------
+    PercorsoBase_s = "C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_FR02\MDB\MSys_FR02.mdb"
+
+        Set frm = CreateObject("Scripting.Dictionary")
+        frm.Add "Nome", "Frm_DF02_SELEZIONE"
+        frm.Add "PercorsoCompleto", PercorsoBase_s
+        FormCollection.Add frm
+
+        Set frm = CreateObject("Scripting.Dictionary")
+        frm.Add "Nome", "Frm_DF02_RISULTATI"
+        frm.Add "PercorsoCompleto", PercorsoBase_s
+        FormCollection.Add frm
+
+    '03)_FR03
+    ' -------------------------------------------------------------------------------------
+    PercorsoBase_s = "C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_FR03\MDB\MSys_FR03.mdb"
+
+        Set frm = CreateObject("Scripting.Dictionary")
+        frm.Add "Nome", "Frm_DF03_LOG"
+        frm.Add "PercorsoCompleto", PercorsoBase_s
+        FormCollection.Add frm
+
+    ' Aggiungi ulteriori blocchi se necessario
+
+    Exit Sub
+
+InizializzaArrayFORM_Err:
+    MsgBox "Errore in InizializzaCollectionFORM: " & Err.Description, vbExclamation
+End Sub
+
+'// #TASK_06 - ImportaForm_PFunct
+'// Funzione per importare le Form
+Public Function ImportaForm_PFunct() As Boolean
+    On Error GoTo ImportaForm_PFunct_Err
+
+
+
+
+    ' //CONTROLLO BLOCCO DATABASE
+    '//-----------------------------------------------------------------------------//
+    ' Chiama la funzione di controllo blocco database
+    ' Se ritorna False (blocco attivo), esce immediatamente dalla funzione
+            If Not ControllaBloccoDatabase() Then
+                ImportaForm_PFunct = False
+                Exit Function
+            End If
+            
+    '//-----------------------------------------------------------------------------//
+
+
+    Dim frm As Object
+    For Each frm In FormCollection
+        If DCount("*", "MSysObjects", "Name='" & frm("Nome") & "' AND Type=-32768") &gt; 0 Then
+            DoCmd.DeleteObject acForm, frm("Nome")
+        End If
+        DoCmd.TransferDatabase acImport, "Microsoft Access", frm("PercorsoCompleto"), acForm, frm("Nome"), frm("Nome"), False
+    Next frm
+
+    ImportaForm_PFunct = True
+    Exit Function
+
+ImportaForm_PFunct_Err:
+    MsgBox "Errore durante l'importazione delle Form: " & Err.Description
+    ImportaForm_PFunct = False
+End Function
+
+'// #TASK_07 - ATTIVA_CancellaForm_PFunct
+Private Function ATTIVA_CancellaForm_PFunct()
+    Bool1 = CancellaForm_PFunct
+End Function
+
+'// #TASK_08 - CancellaForm_PFunct
+'// Funzione per cancellare tutte le Form
+Public Function CancellaForm_PFunct() As Boolean
+    On Error GoTo CancellaForm_PFunct_Err
+    
+    
+    ' //CONTROLLO BLOCCO DATABASE
+    '//-----------------------------------------------------------------------------//
+    ' Chiama la funzione di controllo blocco database
+    ' Se ritorna False (blocco attivo), esce immediatamente dalla funzione
+            If Not ControllaBloccoDatabase() Then
+                CancellaForm_PFunct = False
+                Exit Function
+            End If
+            
+    '//-----------------------------------------------------------------------------//
+
+    
+    InizializzaCollectionFORM
+
+    Dim frm As Object
+    For Each frm In FormCollection
+        If DCount("*", "MSysObjects", "Name='" & frm("Nome") & "' AND Type=-32768") &gt; 0 Then
+            DoCmd.DeleteObject acForm, frm("Nome")
+        End If
+    Next frm
+
+    CancellaForm_PFunct = True
+    Exit Function
+
+CancellaForm_PFunct_Err:
+    MsgBox "Errore durante la cancellazione delle Form: " & Err.Description
+    CancellaForm_PFunct = False
+End Function
+
+'//==================================================================================================//
+'//         OGGETTO FORM           *** FINE ***
+'//==================================================================================================//
+
+
+
 '// #TASK_22 - ImportaTuttiGliOggetti
 '// Funzione generale per importare tutti gli oggetti
 Public Function ImportaTuttiGliOggetti() As Boolean
@@ -994,7 +1176,7 @@ End Function
 Public Function CancellaTuttiGliOggetti() As Boolean
     On Error GoTo CancellaTuttiGliOggetti_Err
 
-    CancellaQuery_Funct
+    CancellaQuery_PFunct
     CancellaTabelle_PFunct
     CancellaModuli_PFunct
     CancellaMacro_Pfunct
@@ -1118,16 +1300,9 @@ End Function
 
 
 
-
-
-
-
-
 '//**************************************************************************************************************//
 '//             ROUTINE E FUNZIONE DI SERVIZIO VALIDE PER TUTTE LE FUNZIONI    *** FINE ***
 '//**************************************************************************************************************//
-
-
 
 </pre>
 </body>

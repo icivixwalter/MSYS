@@ -27,6 +27,188 @@
 	},
 	"buffers":
 	[
+		{
+			"contents": "' Specifica le path delle cartelle\n    folderPaths(0) = \"C:\\Casa\\LINGUAGGI\\ACCESS\\PROGETTI_MDB\\MSYS_OGGETTI\\MSYS\\MDB\\MSys_MODULI\\OBJECT\\REPORT\\\"\n    folderPaths(1) = \"C:\\Casa\\LINGUAGGI\\ACCESS\\PROGETTI_MDB\\MSYS_OGGETTI\\MSYS\\MDB\\MSys_MODULI\\OBJECT\\TABLES\\\"\n    folderPaths(2) = \"c:\\Casa\\LINGUAGGI\\ACCESS\\PROGETTI_MDB\\MSYS_OGGETTI\\MSYS\\MDB\\MSys_MODULI\\OBJECT\\QUERY\\\"\n    folderPaths(3) = \"c:\\Casa\\LINGUAGGI\\ACCESS\\PROGETTI_MDB\\MSYS_OGGETTI\\MSYS\\MDB\\MSys_MODULI\\OBJECT\\MODULI\\\"\n    folderPaths(4) = \"c:\\Casa\\LINGUAGGI\\ACCESS\\PROGETTI_MDB\\MSYS_OGGETTI\\MSYS\\MDB\\MSys_MODULI\\OBJECT\\MACRO\\\"\n    folderPaths(5) = \"c:\\Casa\\LINGUAGGI\\ACCESS\\PROGETTI_MDB\\MSYS_OGGETTI\\MSYS\\MDB\\MSys_MODULI\\OBJECT\\FORM\\\"\n\n\n",
+			"settings":
+			{
+				"buffer_size": 693,
+				"line_ending": "Windows",
+				"name": "' Specifica le path delle cartelle"
+			},
+			"undo_stack":
+			[
+				[
+					1,
+					1,
+					"insert",
+					{
+						"characters": "\n\n"
+					},
+					"AgAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAACAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					2,
+					1,
+					"paste",
+					null,
+					"AQAAAAIAAAAAAAAAVwAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAAgAAAAAAAAACAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					4,
+					1,
+					"paste",
+					null,
+					"AQAAAAAAAAAAAAAA/wAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOI1A"
+				],
+				[
+					9,
+					1,
+					"cut",
+					null,
+					"AQAAAAEBAAAAAAAAAQEAAAAAAABVAAAAYzpcQ2FzYVxMSU5HVUFHR0lcQUNDRVNTXFBST0dFVFRJX01EQlxNU1lTX09HR0VUVElcTVNZU1xNREJcTVN5c19NT0RVTElcT0JKRUNUXFFVRVJZXA",
+					"AQAAAAAAAAABAAAAAQEAAAAAAABWAQAAAAAAAP///////+9/"
+				],
+				[
+					11,
+					1,
+					"duplicate_line",
+					null,
+					"AQAAAP8AAAAAAAAAbQEAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAkQAAAAAAAACRAAAAAAAAAAAAAAAAAAAA"
+				],
+				[
+					16,
+					1,
+					"paste",
+					null,
+					"AQAAABUBAAAAAAAAagEAAAAAAABWAAAAQzpcQ2FzYVxMSU5HVUFHR0lcQUNDRVNTXFBST0dFVFRJX01EQlxNU1lTX09HR0VUVElcTVNZU1xNREJcTVN5c19NT0RVTElcT0JKRUNUXFRBQkxFU1w",
+					"AQAAAAAAAAABAAAAFQEAAAAAAABrAQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					19,
+					1,
+					"insert",
+					{
+						"characters": "2"
+					},
+					"AQAAAA8BAAAAAAAAEAEAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAADwEAAAAAAAAPAQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					20,
+					1,
+					"right_delete",
+					null,
+					"AQAAABABAAAAAAAAEAEAAAAAAAABAAAAMQ",
+					"AQAAAAAAAAABAAAAEAEAAAAAAAAQAQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					21,
+					1,
+					"duplicate_line",
+					null,
+					"AQAAAGwBAAAAAAAA2QEAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAEAEAAAAAAAAQAQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					22,
+					1,
+					"left_delete",
+					null,
+					"AQAAAHwBAAAAAAAAfAEAAAAAAAABAAAAMg",
+					"AQAAAAAAAAABAAAAfQEAAAAAAAB9AQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					23,
+					1,
+					"insert",
+					{
+						"characters": "3"
+					},
+					"AQAAAHwBAAAAAAAAfQEAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAfAEAAAAAAAB8AQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					28,
+					1,
+					"paste",
+					null,
+					"AQAAAIIBAAAAAAAA2AEAAAAAAABVAAAAYzpcQ2FzYVxMSU5HVUFHR0lcQUNDRVNTXFBST0dFVFRJX01EQlxNU1lTX09HR0VUVElcTVNZU1xNREJcTVN5c19NT0RVTElcT0JKRUNUXFFVRVJZXA",
+					"AQAAAAAAAAABAAAAggEAAAAAAADXAQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					29,
+					1,
+					"duplicate_line",
+					null,
+					"AQAAANoBAAAAAAAASAIAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA2AEAAAAAAADYAQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					32,
+					1,
+					"paste",
+					null,
+					"AQAAAPABAAAAAAAARQIAAAAAAABWAAAAYzpcQ2FzYVxMSU5HVUFHR0lcQUNDRVNTXFBST0dFVFRJX01EQlxNU1lTX09HR0VUVElcTVNZU1xNREJcTVN5c19NT0RVTElcT0JKRUNUXE1PRFVMSVw",
+					"AQAAAAAAAAABAAAARgIAAAAAAADwAQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					36,
+					1,
+					"left_delete",
+					null,
+					"AQAAAOoBAAAAAAAA6gEAAAAAAAABAAAAMw",
+					"AQAAAAAAAAABAAAA6wEAAAAAAADrAQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					37,
+					1,
+					"insert",
+					{
+						"characters": "4"
+					},
+					"AQAAAOoBAAAAAAAA6wEAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA6gEAAAAAAADqAQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					38,
+					1,
+					"duplicate_line",
+					null,
+					"AQAAAEcCAAAAAAAAtAIAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA6wEAAAAAAADrAQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					39,
+					1,
+					"left_delete",
+					null,
+					"AQAAAFcCAAAAAAAAVwIAAAAAAAABAAAANA",
+					"AQAAAAAAAAABAAAAWAIAAAAAAABYAgAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					40,
+					1,
+					"insert",
+					{
+						"characters": "5"
+					},
+					"AQAAAFcCAAAAAAAAWAIAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAVwIAAAAAAABXAgAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					45,
+					1,
+					"paste",
+					null,
+					"AQAAAF0CAAAAAAAAsQIAAAAAAABVAAAAYzpcQ2FzYVxMSU5HVUFHR0lcQUNDRVNTXFBST0dFVFRJX01EQlxNU1lTX09HR0VUVElcTVNZU1xNREJcTVN5c19NT0RVTElcT0JKRUNUXE1BQ1JPXA",
+					"AQAAAAAAAAABAAAAXQIAAAAAAACyAgAAAAAAAAAAAAAAAPC/"
+				]
+			]
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -106,7 +288,7 @@
 	[
 		"/c/Casa/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/MDB/MSys_MODULI",
 		"/c/Casa/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/MDB/MSys_MODULI/OBJECT",
-		"/c/Casa/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/MDB/MSys_MODULI/OBJECT/QUERY"
+		"/c/Casa/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/MDB/MSys_MODULI/OBJECT/MODULI"
 	],
 	"file_history":
 	[
@@ -231,7 +413,7 @@
 	],
 	"find":
 	{
-		"height": 29.6
+		"height": 32.0
 	},
 	"find_in_files":
 	{
@@ -317,12 +499,42 @@
 		{
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"selected": true,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 693,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								693
+							]
+						],
+						"settings":
+						{
+							"auto_name": "' Specifica le path delle cartelle",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"stack_multiselect": false,
+					"type": "text"
+				}
 			]
 		}
 	],
 	"incremental_find":
 	{
-		"height": 29.6
+		"height": 32.0
 	},
 	"input":
 	{
@@ -373,7 +585,7 @@
 	"project": "Project_MODULI.sublime-project",
 	"replace":
 	{
-		"height": 56.0
+		"height": 60.8
 	},
 	"save_all_on_build": false,
 	"select_file":
@@ -414,8 +626,8 @@
 	"show_minimap": false,
 	"show_open_files": true,
 	"show_tabs": true,
-	"side_bar_visible": true,
-	"side_bar_width": 512.0,
+	"side_bar_visible": false,
+	"side_bar_width": 528.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

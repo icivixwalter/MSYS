@@ -1567,7 +1567,7 @@ On Error GoTo ROUTINE_CLASSE_ATTIVA_Utile01_Sub_Err
 
 
                     
-                    '//01) CLASSE_GESTIONE_OGGETTI_DATABASE
+                    '//01) CLASSE_Cls01_GESTIONE_OGGETTI_DATABASE
                     '//ISTANZIA LA CLASSE
                     '//06.30
                     '//FUNZIONE CERCA OGGETTI = Con due parametri Tipo oggetto e Nome oggetto lo ricerca nella db.
@@ -1575,19 +1575,19 @@ On Error GoTo ROUTINE_CLASSE_ATTIVA_Utile01_Sub_Err
                     '//.....................................................................................................
                         '//IMPOSTO LA VARIABILE OGGETTO = per l'utilizzo della classe
                             '
-                            Dim MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE As CLASSE_GESTIONE_OGGETTI_DATABASE
+                            Dim MyCls_CLASSE_Cls01_GESTIONE_OGGETTI_DATABASE As CLASSE_Cls01_GESTIONE_OGGETTI_DATABASE
                     
                         '//ISTANZIO LA CLASSE = MyCls_CLASSE_GESTIONE_OGGETTI_FORM assegnando _
                              l 'oggetto di classe alla variabile e creo creo l'oggetto di classe
                             '
-                            Set MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE = New CLASSE_GESTIONE_OGGETTI_DATABASE
+                            Set MyCls_CLASSE_Cls01_GESTIONE_OGGETTI_DATABASE = New CLASSE_Cls01_GESTIONE_OGGETTI_DATABASE
                         
                         '//PARAMETRI= TIPO OGGETTO E NOME OGGETTO.
-                            Str1 = MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE.CERCA_OGGETTI(sxTIPOGGETTO, sxNOMEOGGETTO)
+                            Str1 = MyCls_CLASSE_Cls01_GESTIONE_OGGETTI_DATABASE.CERCA_OGGETTI(sxTIPOGGETTO, sxNOMEOGGETTO)
                             
                         '//RILASCIO LA MEMORIA = rilascio l'oggetto ed attivo il distruttore della classe
                             '
-                            Set MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE = Nothing
+                            Set MyCls_CLASSE_Cls01_GESTIONE_OGGETTI_DATABASE = Nothing
                     
                     '//.....................................................................................................
 
@@ -1670,7 +1670,7 @@ On Error GoTo CONTROLLO_OGGETTI_TABLE_Collega_la_Tabella_Err
             End Select
 
 
-                    '//01) CLASSE_GESTIONE_OGGETTI_DATABASE
+                    '//01) CLASSE_Cls01_GESTIONE_OGGETTI_DATABASE
                     '//ISTANZIA LA CLASSE
                     '//06.30
                     '//FUNZIONE CERCA OGGETTI = Con due parametri Tipo oggetto e Nome oggetto lo ricerca nella db.
@@ -1678,19 +1678,19 @@ On Error GoTo CONTROLLO_OGGETTI_TABLE_Collega_la_Tabella_Err
                     '//.....................................................................................................
                         '//IMPOSTO LA VARIABILE OGGETTO = per l'utilizzo della classe
                             '
-                            Dim MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE As CLASSE_GESTIONE_OGGETTI_DATABASE
+                            Dim MyCls_CLASSE_Cls01_GESTIONE_OGGETTI_DATABASE As CLASSE_Cls01_GESTIONE_OGGETTI_DATABASE
                     
                         '//ISTANZIO LA CLASSE = MyCls_CLASSE_GESTIONE_OGGETTI_FORM assegnando _
                              l 'oggetto di classe alla variabile e creo creo l'oggetto di classe
                             '
-                            Set MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE = New CLASSE_GESTIONE_OGGETTI_DATABASE
+                            Set MyCls_CLASSE_Cls01_GESTIONE_OGGETTI_DATABASE = New CLASSE_Cls01_GESTIONE_OGGETTI_DATABASE
                         
                         '//PARAMETRI= TIPO OGGETTO E NOME OGGETTO.
-                            Str1 = MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE.CERCA_OGGETTI(sxTIPOGGETTO, sxNOMEOGGETTO)
+                            Str1 = MyCls_CLASSE_Cls01_GESTIONE_OGGETTI_DATABASE.CERCA_OGGETTI(sxTIPOGGETTO, sxNOMEOGGETTO)
                             
                         '//RILASCIO LA MEMORIA = rilascio l'oggetto ed attivo il distruttore della classe
                             '
-                            Set MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE = Nothing
+                            Set MyCls_CLASSE_Cls01_GESTIONE_OGGETTI_DATABASE = Nothing
                     
                     '//.....................................................................................................
 

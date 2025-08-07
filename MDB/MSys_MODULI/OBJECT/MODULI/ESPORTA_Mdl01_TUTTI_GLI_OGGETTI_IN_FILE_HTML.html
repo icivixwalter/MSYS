@@ -32,15 +32,19 @@
 ' ====================================================================
 ' INDICE DELLE ATTIVITÀ (Funzioni/Subroutine nel modulo):
 ' ====================================================================
-' 01) Function SalvaTutti_GliOggetti_InHTML()
-' 02) Sub EsportaTutteLeQueryInHTML()
-' 03) Sub EsportaTuttiIModuliInHTML()
-' 04) Sub EsportaTutteLeFormInHTML()
-' 05) Sub EsportaTutteLeMacroInHTML()
-' 06) Sub EsportaStrutturaTutteLeTabelleInHTML()
-' 07) Function TipoCampoHTML()
-' 08) Function TipoCampoDDL()
-' 09) Sub EsportaTABELLAdaCreareConLaQueryCreateHTML()
+' 01)_SalvaTutti_GliOggetti_InHTML
+' 02)_Esporta_QUERY_InHTML
+' 03)_Esporta_MODULI_InHTML
+' 04)_Esporta_FORM_InHTML
+' 05)_Esporta_MACRO_InHTML
+' 06)_Esporta_SOLO_LA_STRUTTURA_DELLA_TABELLA_InHTML
+' 07)_TipoCampoHTML
+' 08)_TipoCampoDDL
+' 09)_Esporta_TABELLE_InHTML
+' 10)_Esporta_REPORT_InHTML
+' 21)_STAMPA_I_REPORT_IN_FORMATO_HTML
+' 31)_CANCELLO_TUTTI_FILE_TXT_HTML
+
 
 '//    MODULO ---&gt; ESPORTA_Mdl01_TUTTI_GLI_OGGETTI_IN_FILE_HTML
 '//****************************************************************************//'
@@ -65,15 +69,17 @@ Option Compare Database
 Option Explicit
 
 
-' ## Attività 1: Function SalvaTutti_GliOggetti_InHTML()
+' ## Attività: 01)_SalvaTutti_GliOggetti_InHTML
 Public Function SalvaTutti_GliOggetti_InHTML()
     
-    Call EsportaTutteLeFormInHTML
-    Call EsportaTutteLeMacroInHTML
-    Call EsportaTuttiIModuliInHTML
-    Call EsportaTutteLeQueryInHTML
-    Call EsportaStrutturaTutteLeTabelleInHTML
-    Call EsportaTABELLAdaCreareConLaQueryCreateHTML
+    Call Esporta_FORM_InHTML
+    Call Esporta_MACRO_InHTML
+    Call Esporta_MODULI_InHTML
+    Call Esporta_QUERY_InHTML
+    Call Esporta_SOLO_LA_STRUTTURA_DELLA_TABELLA_InHTML
+    Call Esporta_TABELLE_InHTML
+    Call Esporta_REPORT_InHTML
+
     
 End Function
 
@@ -84,8 +90,8 @@ End Function
 '//                         @ESPORTA LE QUERY IN FORMATO HTML                      *** INIZIO ***
 '//======================================================================================================//
 
-' ## Attività 2: Sub EsportaTutteLeQueryInHTML()
-Sub EsportaTutteLeQueryInHTML()
+' ## Attività: 02)_Esporta_QUERY_InHTML
+Sub Esporta_QUERY_InHTML()
     Dim db As DAO.Database
     Dim qdf As DAO.QueryDef
     Dim percorso As String
@@ -98,8 +104,12 @@ Sub EsportaTutteLeQueryInHTML()
     
     ' Recupera la cartella corrente del database
     percorso = CurrentProject.Path & "\..\OBJECT\QUERY\"
-    logPercorso = percorso & "LOG_EsportaTutteLeQueryInHTML.txt"
+    logPercorso = percorso & "LOG_Esporta_QUERY_InHTML.txt"
     
+
+    MsgBox "ATTIVATA LA Esportazione DELLE QUERY in HTML!" & vbCrLf & _
+           "Form salvate con successo: ", vbInformation
+        
     ' Crea la cartella se non esiste
     If Dir(percorso, vbDirectory) = "" Then MkDir percorso
     
@@ -184,8 +194,8 @@ End Sub
 '//                         @ESPORTA I MODULI IN FORMATO HTML                      *** INIZIO ***
 '//======================================================================================================//
 
-' ## Attività 3: Sub EsportaTuttiIModuliInHTML()
-Sub EsportaTuttiIModuliInHTML()
+' ## Attività : 03)_Esporta_MODULI_InHTML
+Sub Esporta_MODULI_InHTML()
     Dim vbComp As Object ' VBIDE.VBComponent
     Dim codice As String
     Dim i As Long
@@ -199,8 +209,13 @@ Sub EsportaTuttiIModuliInHTML()
     
     ' Imposta la cartella di esportazione
     percorso = CurrentProject.Path & "\..\OBJECT\MODULI\"
-    logPercorso = percorso & "LOG_EsportaTuttiIModuliInHTML.txt"
+    logPercorso = percorso & "LOG_Esporta_MODULI_InHTML.txt"
     
+    
+
+    MsgBox "ATTIVATA LA Esportazione DEI MODULI in HTML!" & vbCrLf & _
+           "Form salvate con successo: ", vbInformation
+        
     ' Crea la cartella se non esiste
     If Dir(percorso, vbDirectory) = "" Then MkDir percorso
     
@@ -283,8 +298,9 @@ End Sub
 '//======================================================================================================//
 
 
-' ## Attività 4: Sub EsportaTutteLeFormInHTML()
-Sub EsportaTutteLeFormInHTML()
+' ## Attività : 04)_Esporta_FORM_InHTML
+Sub Esporta_FORM_InHTML()
+    
     Dim vbComp As Object ' VBIDE.VBComponent per il modulo di classe della Form
     Dim percorso As String
     Dim logFile As Integer
@@ -296,7 +312,11 @@ Sub EsportaTutteLeFormInHTML()
     
     ' Imposta la cartella di esportazione
     percorso = CurrentProject.Path & "\..\OBJECT\FORM\" ' Cartella Form
-    logPercorso = percorso & "LOG_EsportaTutteLeFormInHTML.txt"
+    logPercorso = percorso & "LOG_Esporta_FORM_InHTML.txt"
+    
+    MsgBox "ATTIVATA LA Esportazione DELLE FORM in HTML!" & vbCrLf & _
+           "Form salvate con successo: ", vbInformation
+    
     
     ' Crea la cartella se non esiste
     If Dir(percorso, vbDirectory) = "" Then MkDir percorso
@@ -373,6 +393,7 @@ Sub EsportaTutteLeFormInHTML()
     
     MsgBox "Esportazione Form in HTML completata!" & vbCrLf & _
            "Form salvate con successo: " & contatoreSalvati, vbInformation
+           
     Exit Sub
 
 GestioneErrore:
@@ -394,8 +415,8 @@ End Sub
 '//======================================================================================================//
 
 
-' ## Attività 5: Sub EsportaTutteLeMacroInHTML()
-Sub EsportaTutteLeMacroInHTML()
+' ## Attività : 05)_Esporta_MACRO_InHTML
+Sub Esporta_MACRO_InHTML()
     Dim obj As AccessObject
     Dim percorso As String
     Dim logFile As Integer
@@ -410,8 +431,12 @@ Sub EsportaTutteLeMacroInHTML()
     
     ' Percorso per salvataggio
     percorso = CurrentProject.Path & "\..\OBJECT\MACRO\"
-    logPercorso = percorso & "LOG_EsportaTutteLeMacroInHTML.txt"
+    logPercorso = percorso & "LOG_Esporta_MACRO_InHTML.txt"
     
+
+    MsgBox "ATTIVATA LA Esportazione DELLE MACRO in HTML!" & vbCrLf & _
+           "Form salvate con successo: ", vbInformation
+        
     ' Crea cartella se non esiste
     If Dir(percorso, vbDirectory) = "" Then MkDir percorso
     
@@ -506,8 +531,12 @@ End Sub
 
 
 
-' ## Attività 6: Sub EsportaStrutturaTutteLeTabelleInHTML()
-Sub EsportaStrutturaTutteLeTabelleInHTML()
+' ## Attività : 06)_Esporta_SOLO_LA_STRUTTURA_DELLA_TABELLA_InHTML
+'//Note: questa routine ESPORTA IN HTML SOLO LA STRUTTURA DELLA TABELLA in verticale _
+        con i tipi dei campi.
+        
+Sub Esporta_SOLO_LA_STRUTTURA_DELLA_TABELLA_InHTML()
+    
     ' Dichiarazione delle variabili
     Dim db As DAO.Database             ' Riferimento al database corrente
     Dim rs As DAO.Recordset           ' Recordset per scorrere le tabelle fisiche
@@ -609,7 +638,7 @@ ContinueLoop:
 End Sub
 
 
-' ## Attività 7: Function TipoCampoHTML()
+' ## Attività : 07)_TipoCampoHTML
 Public Function TipoCampoHTML(fld As DAO.Field) As String
     ' Ritorna una stringa testuale corrispondente al tipo del campo DAO
     Select Case fld.Type
@@ -634,14 +663,14 @@ End Function
 
 
 '//======================================================================================================//
-'//                         @ESPORTA LE TABELLE IN FORMATO HTML                      *** FINE ***
+'//                         @ESPORTA LE TABELLE IN FORMATO HTML                      *** INIZIO ***
 '//======================================================================================================//
 
 '// CREAZIONE DI UNA QUERY CREATE CHE RIGENERA LE TABELLE SALVATE
 '//---------------------------------------------------------------------------------------------//
 
 
-' ## Attività 8: Function TipoCampoDDL()
+' ## Attività: 08)_TipoCampoDDL
 Public Function TipoCampoDDL(fld As DAO.Field) As String
     Select Case fld.Type
         Case dbBoolean
@@ -672,9 +701,12 @@ Public Function TipoCampoDDL(fld As DAO.Field) As String
 End Function
 
 '//ESPORTA TABELLA SOTTOFORM DI CREATE QUERY  @CREATE@TABLE_(genero una query CREATE di @rigenerazione della tabella)
-'//Note: questa funzione crea una query di CREAZIONE TABELLA in formato html.
-' ## Attività 9: Sub EsportaTABELLAdaCreareConLaQueryCreateHTML()
-Sub EsportaTABELLAdaCreareConLaQueryCreateHTML()
+'//Note: questa funzione crea una query di CREAZIONE TABELLA in formato html. _
+        viene esportata LA STRUTTURA DELLA TABELLA in HTML  ed una QUERY CREATE in HTML.
+
+' ## Attività : 09)_Esporta_TABELLE_InHTML
+
+Sub Esporta_TABELLE_InHTML()
     Dim db As DAO.Database
     Dim rs As DAO.Recordset
     Dim tdf As DAO.TableDef
@@ -690,6 +722,10 @@ Sub EsportaTABELLAdaCreareConLaQueryCreateHTML()
     
     percorso = CurrentProject.Path & "\..\OBJECT\TABLES\"
     If Dir(percorso, vbDirectory) = "" Then MkDir percorso
+    
+    MsgBox "ATTIVATA LA Esportazione DELLE TABELLE in HTML!" & vbCrLf & _
+           "Form salvate con successo: ", vbInformation
+    
     
     Set db = CurrentDb()
     Set rs = db.OpenRecordset("SELECT Name FROM MSysObjects WHERE Type=1 AND Flags=0", dbOpenSnapshot)
@@ -740,6 +776,281 @@ End Sub
 
 
 
+
+
+'//======================================================================================================//
+'//                         @ESPORTA LE TABELLE IN FORMATO HTML                      *** FINE ***
+'//======================================================================================================//
+
+
+'//======================================================================================================//
+'//                         @ESPORTA I REPORT IN FOMATO  HTML                      *** INIZIO ***
+'//======================================================================================================//
+
+' ## Attività : 10)_Esporta_REPORT_InHTML
+' Aggiorno il codice per: _
+    Gestire i casi in cui il modulo non esiste (nessun codice). _
+    Gestire i moduli vuoti (esistono ma hanno 0 righe). _
+    Continuare tranquillamente con gli altri report.
+
+
+Sub Esporta_REPORT_InHTML()
+    Dim obj As AccessObject
+    Dim percorso As String
+    Dim reportModule As Object
+    Dim i As Long
+    Dim fileReport As Integer
+    Dim nomeFile As String
+    Dim contatoreSalvati As Long
+
+    Dim logFile As Integer
+    Dim logPercorso As String
+    Dim moduleExists As Boolean
+
+    ' Percorso destinazione
+    percorso = CurrentProject.Path & "\..\OBJECT\REPORT\"
+    If Dir(percorso, vbDirectory) = "" Then MkDir percorso
+
+    ' Inizializza log
+    logPercorso = percorso & "LOG_Esporta_REPORT_InHTML.txt"
+    logFile = FreeFile
+    Open logPercorso For Output As #logFile
+    Print #logFile, "=== LOG esportazione report HTML ==="
+    Print #logFile, "Data/Ora: " & Now()
+    Print #logFile, ""
+
+    contatoreSalvati = 0
+
+    For Each obj In CurrentProject.AllReports
+        On Error GoTo GestioneErrore
+
+        ' Crea file HTML per ogni report
+        nomeFile = percorso & obj.Name & ".html"
+        fileReport = FreeFile
+        Open nomeFile For Output As #fileReport
+
+        ' Scrive intestazione HTML
+        Print #fileReport, "&lt;html&gt;&lt;head&gt;&lt;title&gt;" & obj.Name & "&lt;/title&gt;&lt;/head&gt;&lt;body&gt;"
+        Print #fileReport, "&lt;h1&gt;Report: " & obj.Name & "&lt;/h1&gt;"
+        Print #fileReport, "&lt;pre&gt;"
+
+        ' Tentativo di accedere al modulo del report
+        moduleExists = False
+        On Error Resume Next
+        Set reportModule = Application.Modules(obj.Name)
+        If Err.Number = 0 Then moduleExists = True
+        Err.Clear
+        On Error GoTo GestioneErrore
+
+        If moduleExists Then
+            If reportModule.CountOfLines &gt; 0 Then
+                For i = 1 To reportModule.CountOfLines
+                    Print #fileReport, reportModule.Lines(i, 1)
+                Next i
+            Else
+                Print #fileReport, "[MODULO PRESENTE MA VUOTO]"
+            End If
+        Else
+            Print #fileReport, "[NESSUN MODULO associato al report]"
+        End If
+
+        ' Chiude HTML
+        Print #fileReport, "&lt;/pre&gt;"
+        Print #fileReport, "&lt;/body&gt;&lt;/html&gt;"
+        Close #fileReport
+
+        Print #logFile, "OK - Creato: " & obj.Name & ".html"
+        contatoreSalvati = contatoreSalvati + 1
+
+        On Error GoTo 0
+    Next obj
+
+    Print #logFile, ""
+    Print #logFile, "Totale report elaborati: " & contatoreSalvati
+    Print #logFile, "=== FINE LOG: " & Now() & " ==="
+    Close #logFile
+
+    MsgBox "Creati file HTML per " & contatoreSalvati & " report nella cartella 'OBJECT\REPORT'" & vbCrLf & _
+           "Controlla il file di log per i dettagli.", vbInformation
+    Exit Sub
+
+GestioneErrore:
+    Print #logFile, "ERRORE - '" & obj.Name & "': " & Err.Description
+    If fileReport &gt; 0 Then Close #fileReport
+    Err.Clear
+    Resume Next
+End Sub
+
+
+'//======================================================================================================//
+'//                         @ESPORTA I REPORT IN FOMATO  HTML                      *** FINE ***
+'//======================================================================================================//
+
+
+
+
+
+
+
+'//======================================================================================================//
+'//                         @STAMPA I REPORT IN FOMATO  HTML                      *** INIZIO ***
+'//======================================================================================================//
+' ## Attività : 21)_STAMPA_I_REPORT_IN_FORMATO_HTML
+'// ATTENZIONE: questa routine stampa il contenuto del REPORT IN FORMATO HTML
+
+Public Sub STAMPA_TuttiReportInHTML()
+    Dim obj As AccessObject
+    Dim percorso As String
+    Dim logFile As Integer
+    Dim htmlPercorso As String
+    Dim contatoreSalvati As Long
+    
+    ' Percorso di destinazione HTML
+    percorso = CurrentProject.Path & "\..\OBJECT\REPORT\"
+    If Dir(percorso, vbDirectory) = "" Then MkDir percorso
+    
+    
+    
+    MsgBox "ATTIVATA LA Esportazione DEI REPORT in HTML!" & vbCrLf & _
+           "Form salvate con successo: " & contatoreSalvati, vbInformation
+        
+    
+    ' Percorso e apertura file di log
+    Dim logPercorso As String
+    logPercorso = percorso & "LOG_STAMPA_TuttiReportInHTML.txt"
+    logFile = FreeFile
+    Open logPercorso For Append As #logFile
+    Print #logFile, "=== Inizio esportazione Report in HTML: " & Now() & " ==="
+    
+    contatoreSalvati = 0
+    
+    For Each obj In CurrentProject.AllReports
+        On Error GoTo GestioneErrore
+        
+        ' Nome file HTML da creare
+        htmlPercorso = percorso & obj.Name & ".html"
+        
+        ' Esporta il report in HTML
+        DoCmd.OutputTo ObjectType:=acOutputReport, _
+                       ObjectName:=obj.Name, _
+                       OutputFormat:=acFormatHTML, _
+                       OutputFile:=htmlPercorso, _
+                       AutoStart:=False
+        
+        Print #logFile, "SUCCESSO - Esportato report '" & obj.Name & "' in HTML"
+        contatoreSalvati = contatoreSalvati + 1
+        
+        On Error GoTo 0
+    Next obj
+    
+    ' Fine log
+    Print #logFile, "=== Statistica: report salvati con successo = " & contatoreSalvati & " ==="
+    Print #logFile, "=== Fine esportazione Report in HTML: " & Now() & " ==="
+    Close #logFile
+    
+    MsgBox "Esportazione Report in HTML completata!" & vbCrLf & _
+           "Report esportati: " & contatoreSalvati, vbInformation
+    Exit Sub
+
+GestioneErrore:
+    Print #logFile, "ERRORE - Durante esportazione report '" & obj.Name & "': " & Err.Description
+    Err.Clear
+    Resume Next
+End Sub
+
+
+
+
+
+'//======================================================================================================//
+'//                         @STAMPA I REPORT IN FOMATO  HTML                      *** FINE ***
+'//======================================================================================================//
+
+
+
+
+
+
+
+
+
+
+
+'//======================================================================================================//
+'//                         @CANCELLO TUTTI I FILE .TXT E HTML                      *** FINE ***
+'//======================================================================================================//
+
+
+' ## Attività : 31)_CANCELLO_TUTTI_FILE_TXT_HTML
+'   Uso di un array (folderPaths) per gestire più cartelle facilmente. _
+    Uso di un array (estensioni) per le estensioni da cancellare. _
+    Ciclo For Each per evitare ripetizioni di codice. _
+    Gestione degli errori mantenuta per ogni file.
+
+
+Sub CANCELLA_TUTTI_FILE_HTML_TXT()
+    Dim folderPaths(6) As String
+    Dim fileName As String
+    Dim i As Integer
+    Dim estensioni As Variant
+    Dim est As Variant
+
+    ' Specifica le path delle cartelle
+    folderPaths(0) = "C:\Casa\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_MODULI\OBJECT\REPORT\"
+    folderPaths(1) = "C:\Casa\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_MODULI\OBJECT\TABLES\"
+    folderPaths(2) = "c:\Casa\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_MODULI\OBJECT\QUERY\"
+    folderPaths(3) = "c:\Casa\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_MODULI\OBJECT\MODULI\"
+    folderPaths(4) = "c:\Casa\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_MODULI\OBJECT\MACRO\"
+    folderPaths(5) = "c:\Casa\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_MODULI\OBJECT\FORM\"
+
+
+
+    ' Estensioni dei file da cancellare
+    estensioni = Array("*.txt", "*.html")
+
+    On Error GoTo Err_CANCELLA_TUTTI_FILE_HTML_TXT
+
+    ' Scorri ogni cartella
+    For i = LBound(folderPaths) To UBound(folderPaths)
+        If Dir(folderPaths(i), vbDirectory) = "" Then
+            MsgBox "La cartella non esiste: " & folderPaths(i), vbExclamation
+            GoTo Exit_CANCELLA_TUTTI_FILE_HTML_TXT
+        End If
+
+        ' Scorri ogni estensione
+        For Each est In estensioni
+            fileName = Dir(folderPaths(i) & est)
+            Do While fileName &lt;&gt; ""
+                Kill folderPaths(i) & fileName
+                If Err.Number &lt;&gt; 0 Then
+                    MsgBox "Errore durante l'eliminazione del file: " & folderPaths(i) & fileName & vbCrLf & _
+                           "Descrizione: " & Err.Description, vbExclamation
+                    Err.Clear
+                End If
+                fileName = Dir
+            Loop
+        Next est
+    Next i
+
+    MsgBox "Eliminazione completata.", vbInformation
+
+'// USCITA ORDINATA
+Exit_CANCELLA_TUTTI_FILE_HTML_TXT:
+    Exit Sub
+
+'// GESTIONE ERRORI
+Err_CANCELLA_TUTTI_FILE_HTML_TXT:
+    MsgBox "ERRORE ROUTINE SUB     " & Err.Number & " - " & Err.Description, vbCritical, "CANCELLA_TUTTI_FILE_HTML_TXT"
+    Resume Exit_CANCELLA_TUTTI_FILE_HTML_TXT
+
+End Sub
+
+
+
+
+'//======================================================================================================//
+'//                         @CANCELLO TUTTI I FILE .TXT E HTML                      *** FINE ***
+'//======================================================================================================//
 
 </pre>
 </body>

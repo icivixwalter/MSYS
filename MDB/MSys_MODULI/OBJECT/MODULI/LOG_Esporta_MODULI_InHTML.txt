@@ -1,4 +1,4 @@
-=== Inizio esportazione moduli in HTML: 06/08/2025 16:49:28 ===
+=== Inizio esportazione moduli in HTML: 07/08/2025 19:05:32 ===
 SUCCESSO - Salvato modulo 'Form_MSys_MODULI_Frm01_S01_TUTTI' in HTML
 SUCCESSO - Salvato modulo 'UTIL_Nrx1001_{@=============CLASSI_OGGETTI====================@}' in HTML
 SUCCESSO - Salvato modulo 'CLASSE_{@=====================================================@}' in HTML
@@ -16,9 +16,10 @@ SUCCESSO - Salvato modulo 'ESPORTA_Mdl01_TUTTI_GLI_OGGETTI_IN_FILE_HTML' in HTML
 SUCCESSO - Salvato modulo 'UTILITA_MsysDF14Mdl05_}----------------------------------------@' in HTML
 SUCCESSO - Salvato modulo 'UTIL_MDL40_N08_RICERCA_TUTTI_GLI_OGGETTI_NEL_DB' in HTML
 SUCCESSO - Salvato modulo 'UTIL_Nrx1003_n01_RECUPERO_PARAMETRI_TABELLA_OGGETTI' in HTML
-SUCCESSO - Salvato modulo 'CLASSE_GESTIONE_OGGETTI_DATABASE' in HTML
+SUCCESSO - Salvato modulo 'CLASSE_Cls01_GESTIONE_OGGETTI_DATABASE' in HTML
 SUCCESSO - Salvato modulo 'UTILITA_MsysDF14Mdl05_IMPORTAZIONE_SEMPLICE_DI_OGGETTI' in HTML
 SUCCESSO - Salvato modulo 'COPIA_Mdl01_OGGETTI_MODULI_to_Db_MODELLO' in HTML
-SUCCESSO - Salvato modulo 'Modulo1' in HTML
-=== Statistica: moduli salvati con successo = 21 ===
-=== Fine esportazione moduli in HTML: 06/08/2025 16:49:28 ===
+SUCCESSO - Salvato modulo 'CLASSE_Cls00_}-------------------------------------------------@' in HTML
+SUCCESSO - Salvato modulo 'Form_UTILITA_MsysDF14Frm05_ATTIVA_FUNZIONI' in HTML
+=== Statistica: moduli salvati con successo = 22 ===
+=== Fine esportazione moduli in HTML: 07/08/2025 19:05:32 ===

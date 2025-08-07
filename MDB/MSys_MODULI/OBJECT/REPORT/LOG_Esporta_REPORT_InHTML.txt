@@ -1,0 +1,8 @@
+=== LOG esportazione report HTML ===
+Data/Ora: 07/08/2025 19:05:41
+
+OK - Creato: MSys_Rpt01_01_MODULI_TUTTI.html
+OK - Creato: MSys_Rpt00_MODULI_}--------------------------------------------@.html
+
+Totale report elaborati: 2
+=== FINE LOG: 07/08/2025 19:05:41 ===

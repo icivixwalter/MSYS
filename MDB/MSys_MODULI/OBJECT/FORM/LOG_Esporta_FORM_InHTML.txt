@@ -1,0 +1,5 @@
+=== Inizio esportazione Form in HTML: 07/08/2025 19:05:31 ===
+SUCCESSO - Salvata Form 'Form_MSys_MODULI_Frm01_S01_TUTTI' in HTML
+SUCCESSO - Salvata Form 'Form_UTILITA_MsysDF14Frm05_ATTIVA_FUNZIONI' in HTML
+=== Statistica: Form salvate con successo = 2 ===
+=== Fine esportazione Form in HTML: 07/08/2025 19:05:31 ===
