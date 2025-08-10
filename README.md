@@ -311,6 +311,8 @@ OGGETTI CREATI MODIFICATI O MIGLIORATI
                in OBJECT in formato html e quindi vale come salvataggi visibili e ricopiabili e
                quindi ricostruibili come codice. UNICA NOTA DA FINIRE sono i REPORT dove salva
                i dati in formato report  ma non la classe del report; quindi da rivedere.
+               ATTENZIONE L'ESPORTAZIONE DELLA FORM MASTER deve essere duplicata, esportata e cancellata
+               perche quella originale essendo aperto non puo essere esportata.
 
           TODO: rimande da controllare se questa esportazione funzona:
 

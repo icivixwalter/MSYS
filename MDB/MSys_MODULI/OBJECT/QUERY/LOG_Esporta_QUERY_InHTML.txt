@@ -1,4 +1,4 @@
-=== Inizio esportazione SQL in HTML: 07/08/2025 19:05:33 ===
+=== Inizio esportazione SQL in HTML: 10/08/2025 21:37:23 ===
 SUCCESSO - Salvata query 'MSys_MODULI_Qry01_00_}-----------------------------------@SELECT' in HTML
 SUCCESSO - Salvata query 'MSys_MODULI_Qry01_01_SELECT_TUTTI' in HTML
 SUCCESSO - Salvata query 'MSys_MODULI_Qry01_70_}-----------------------------------@INSERT' in HTML
@@ -17,4 +17,4 @@ SUCCESSO - Salvata query 'UTILITA_Msys_Qry21_07_Oggetti_TABELLE' in HTML
 SUCCESSO - Salvata query 'UTILITA_Msys_Qry21_07_Oggetti_TABELLE_Link' in HTML
 SUCCESSO - Salvata query 'UTILITA_Msys_Qry21_08_Oggetti_Query' in HTML
 === Statistica: query salvate con successo = 17 ===
-=== Fine esportazione SQL in HTML: 07/08/2025 19:05:33 ===
+=== Fine esportazione SQL in HTML: 10/08/2025 21:37:23 ===

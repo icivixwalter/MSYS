@@ -27,6 +27,162 @@
 	},
 	"buffers":
 	[
+		{
+			"contents": "# Form_UTILITA_MsysDF14Frm05_ATTIVA_FUNZIONI_(HELP).MD\n   si trova in questa path: C:\\CASA\\LINGUAGGI\\ACCESS\\PROGETTI_MDB\\MSYS_OGGETTI\\MSYS\\MDB\\MSys_MODULI\\OBJECT\\UTILITA\n\n\n\n\n   C:\\CASA\\LINGUAGGI\\ACCESS\\PROGETTI_MDB\\MSYS_OGGETTI\\MSYS\\MDB\\MSys_MODULI\\OBJECT\\UTILITAForm_UTILITA_MsysDF14Frm05_ATTIVA_FUNZIONI_(HELP).MD\n\n",
+			"file": "MDB/MSys_MODULI/OBJECT/UTILITA/Form_UTILITA_MsysDF14Frm05_ATTIVA_FUNZIONI_(HELP).MD",
+			"file_size": 56,
+			"file_write_time": 133993287569467991,
+			"settings":
+			{
+				"buffer_size": 317,
+				"line_ending": "Windows"
+			},
+			"undo_stack":
+			[
+				[
+					1,
+					1,
+					"insert",
+					{
+						"characters": "#"
+					},
+					"AQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					2,
+					1,
+					"insert",
+					{
+						"characters": " "
+					},
+					"AQAAAAEAAAAAAAAAAgAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAAQAAAAAAAAABAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					4,
+					1,
+					"run_macro_file",
+					{
+						"file": "Packages/MarkdownEditing/macros/Add Line and Delete Trailing Hashes.sublime-macro"
+					},
+					"AgAAAAAAAAAAAAAAAAAAAAAAAAA2AAAAIyBGb3JtX1VUSUxJVEFfTXN5c0RGMTRGcm0wNV9BVFRJVkFfRlVOWklPTklfKEhFTFApLk1EAAAAAAAAAAA3AAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAANgAAAAAAAAA2AAAAAAAAAP///////+9/"
+				],
+				[
+					5,
+					1,
+					"reindent",
+					null,
+					"AQAAADcAAAAAAAAAOgAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAANwAAAAAAAAA3AAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					6,
+					1,
+					"insert",
+					{
+						"characters": "si"
+					},
+					"AgAAADoAAAAAAAAAOwAAAAAAAAAAAAAAOwAAAAAAAAA8AAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAOgAAAAAAAAA6AAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					7,
+					1,
+					"insert",
+					{
+						"characters": " trova"
+					},
+					"BgAAADwAAAAAAAAAPQAAAAAAAAAAAAAAPQAAAAAAAAA+AAAAAAAAAAAAAAA+AAAAAAAAAD8AAAAAAAAAAAAAAD8AAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAABBAAAAAAAAAAAAAABBAAAAAAAAAEIAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAPAAAAAAAAAA8AAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					8,
+					1,
+					"insert",
+					{
+						"characters": " in"
+					},
+					"AwAAAEIAAAAAAAAAQwAAAAAAAAAAAAAAQwAAAAAAAABEAAAAAAAAAAAAAABEAAAAAAAAAEUAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAQgAAAAAAAABCAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					9,
+					1,
+					"insert",
+					{
+						"characters": " questa"
+					},
+					"BwAAAEUAAAAAAAAARgAAAAAAAAAAAAAARgAAAAAAAABHAAAAAAAAAAAAAABHAAAAAAAAAEgAAAAAAAAAAAAAAEgAAAAAAAAASQAAAAAAAAAAAAAASQAAAAAAAABKAAAAAAAAAAAAAABKAAAAAAAAAEsAAAAAAAAAAAAAAEsAAAAAAAAATAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAARQAAAAAAAABFAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					10,
+					1,
+					"insert",
+					{
+						"characters": " path:"
+					},
+					"BgAAAEwAAAAAAAAATQAAAAAAAAAAAAAATQAAAAAAAABOAAAAAAAAAAAAAABOAAAAAAAAAE8AAAAAAAAAAAAAAE8AAAAAAAAAUAAAAAAAAAAAAAAAUAAAAAAAAABRAAAAAAAAAAAAAABRAAAAAAAAAFIAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAATAAAAAAAAABMAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					11,
+					1,
+					"insert",
+					{
+						"characters": " "
+					},
+					"AQAAAFIAAAAAAAAAUwAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAUgAAAAAAAABSAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					12,
+					1,
+					"paste",
+					null,
+					"AQAAAFMAAAAAAAAAqQAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAUwAAAAAAAABTAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					20,
+					1,
+					"insert",
+					{
+						"characters": "\n\n\n"
+					},
+					"BQAAAKkAAAAAAAAArQAAAAAAAAAAAAAArQAAAAAAAACxAAAAAAAAAAAAAACqAAAAAAAAAKoAAAAAAAAAAwAAACAgIK4AAAAAAAAAsgAAAAAAAAAAAAAAqwAAAAAAAACrAAAAAAAAAAMAAAAgICA",
+					"AQAAAAAAAAABAAAAqQAAAAAAAACpAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					21,
+					1,
+					"paste",
+					null,
+					"AQAAAK8AAAAAAAAABQEAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAArwAAAAAAAACvAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					27,
+					1,
+					"paste",
+					null,
+					"AQAAAAUBAAAAAAAAOQEAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAABQEAAAAAAAAFAQAAAAAAAP///////+9/"
+				],
+				[
+					29,
+					1,
+					"insert",
+					{
+						"characters": "\n\n"
+					},
+					"AgAAAKsAAAAAAAAArAAAAAAAAAAAAAAArAAAAAAAAACtAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAqwAAAAAAAACrAAAAAAAAAAAAAAAAYJNA"
+				]
+			]
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -104,11 +260,18 @@
 	},
 	"expanded_folders":
 	[
-		"/C/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS"
+		"/C/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS",
+		"/C/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/MDB",
+		"/C/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/MDB/MSys_MODULI",
+		"/C/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/MDB/MSys_MODULI/OBJECT",
+		"/C/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/MDB/MSys_MODULI/OBJECT/FORM",
+		"/C/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/MDB/MSys_MODULI/OBJECT/UTILITA"
 	],
 	"file_history":
 	[
+		"/C/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/MDB/MSys_MODULI/OBJECT/UTILITA/Form_UTILITA_MsysDF14Frm05_ATTIVA_FUNZIONI_(HELP).MD",
 		"/C/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/README.md",
+		"/C/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/MDB/MSys_MODULI/OBJECT/FORM/Form_UTILITA_MsysDF14Frm05_ATTIVA_FUNZIONI.html",
 		"/C/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/MDB/MSys_MODULI/ESPORTA_Mdl01_TUTTI_GLI_OGGETTI_IN_FILE_HTML.bas",
 		"/C/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/MDB/MSys_MODULI/OBJECT/MODULI/COPIA_Mdl01_OGGETTI_MODULI_to_Db_MODELLO.html",
 		"/C/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/OBJECT/MODULI/UTILITA_MsysDF14Mdl05_IMPORTAZIONE_SEMPLICE_DI_OGGETTI.md",
@@ -230,7 +393,7 @@
 	],
 	"find":
 	{
-		"height": 29.6
+		"height": 32.0
 	},
 	"find_in_files":
 	{
@@ -316,12 +479,42 @@
 		{
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "MDB/MSys_MODULI/OBJECT/UTILITA/Form_UTILITA_MsysDF14Frm05_ATTIVA_FUNZIONI_(HELP).MD",
+					"selected": true,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 317,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								174,
+								316
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Markdown/Markdown.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"stack_multiselect": false,
+					"type": "text"
+				}
 			]
 		}
 	],
 	"incremental_find":
 	{
-		"height": 29.6
+		"height": 32.0
 	},
 	"input":
 	{
@@ -372,7 +565,7 @@
 	"project": "Project_MSYS.sublime-project",
 	"replace":
 	{
-		"height": 56.0
+		"height": 60.8
 	},
 	"save_all_on_build": false,
 	"select_file":

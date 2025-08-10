@@ -31,6 +31,7 @@ GestioneErrore:
 End Sub
 
 
+
 '// ESPORTA E CANCELLA I FILE IN HTML E TXT IN OGNI DIRECTORY
 '//--------------------------------------------------------------------------------//
 Private Sub Cmd_CANCELLA_TUTTI_FILE_HTML_TXT_Click()
@@ -41,6 +42,23 @@ End Sub
 Private Sub Cmd_ESPORTA_OGGETTI_HTML_Click()
     Call SalvaTutti_GliOggetti_InHTML
 End Sub
+
+
+
+
+'// NEL DB ESTERNO VENGONO ESPORTATI O CANCELLATI GLI OGGETTI UTILITA
+'//--------------------------------------------------------------------------------//
+
+'//COPIA OGGETTI NEL DB ESTERNO
+Private Sub Cmd_ESPORTA_OGGETTI_ToDb_Click()
+    ATTIVA_EsportaOggettiGenericiInDBEsterno
+End Sub
+
+'//CANCELLO GLI OGGETTI ESPORTATI NEL DB ESTERNO
+Private Sub Cmd_CANCELLA_OGGETTI_ToDb_Click()
+    ATTIVA_CANCELLAOggettiGenericiInDBEsterno
+End Sub
+
 
 '//--------------------------------------------------------------------------------//
 
@@ -160,6 +178,20 @@ GestioneErrore:
 End Sub
 
 
+Private Sub Comando31_Click()
+On Error GoTo Err_Comando31_Click
+
+
+    Call Shell("NOTEPAD.EXE", 1)
+
+Exit_Comando31_Click:
+    Exit Sub
+
+Err_Comando31_Click:
+    MsgBox Err.Description
+    Resume Exit_Comando31_Click
+    
+End Sub
 </pre>
 </body>
 </html>

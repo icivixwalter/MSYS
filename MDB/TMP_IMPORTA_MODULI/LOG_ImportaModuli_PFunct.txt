@@ -1,0 +1,6 @@
+---- Controllo blocco database - 10/08/2025 10:53:10 ----
+Nessun blocco riscontrato. Procedo con l'importazione.
+---- Controllo blocco database - 10/08/2025 10:53:29 ----
+Nessun blocco riscontrato. Procedo con l'importazione.
+---- Controllo blocco database - 10/08/2025 10:53:40 ----
+Nessun blocco riscontrato. Procedo con l'importazione.

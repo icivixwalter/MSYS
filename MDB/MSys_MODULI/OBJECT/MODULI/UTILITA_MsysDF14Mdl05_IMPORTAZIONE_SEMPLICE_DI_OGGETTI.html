@@ -817,7 +817,7 @@ Public Function ImportaModuli_PFunct() As Boolean
     InizializzaCollectionMODULI
 
     ' Definisce il percorso completo del file log nella cartella del progetto corrente
-    logFile = CurrentProject.Path & "\ImportaModuli_PFunct_log.txt"
+    logFile = CurrentProject.path & "\ImportaModuli_PFunct_log.txt"
     fnum = FreeFile
 
     ' Apre il file log in modalità scrittura (sovrascrive se esiste)
@@ -1230,7 +1230,7 @@ Public Function ControllaBloccoDatabase() As Boolean
     Set listaBlocchi = New Collection
     
     ' Imposta il percorso del file di log (nella cartella del progetto corrente)
-    logFile = CurrentProject.Path & "\LOG_ImportaModuli_PFunct.txt"
+    logFile = CurrentProject.path & "\LOG_ImportaModuli_PFunct.txt"
     
     ' Ottiene un numero libero per aprire il file di log
     fnum = FreeFile

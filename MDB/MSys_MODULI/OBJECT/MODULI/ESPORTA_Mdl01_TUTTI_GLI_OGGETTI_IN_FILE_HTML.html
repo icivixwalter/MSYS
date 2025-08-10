@@ -86,6 +86,31 @@ End Function
 
 
 
+
+Private Sub CreaCartellePercorso(ByVal pathCompleto As String)
+    Dim pathParziale As String
+    Dim parti() As String
+    Dim i As Long
+    
+    ' Rimuove eventuale backslash finale
+    If Right(pathCompleto, 1) = "\" Then
+        pathCompleto = Left(pathCompleto, Len(pathCompleto) - 1)
+    End If
+    
+    ' Divide il percorso in parti
+    parti = Split(pathCompleto, "\")
+    
+    ' Ricostruisce e crea passo-passo
+    pathParziale = parti(0) & "\"
+    For i = 1 To UBound(parti)
+        pathParziale = pathParziale & parti(i) & "\"
+        If Dir(pathParziale, vbDirectory) = "" Then
+            MkDir pathParziale
+        End If
+    Next i
+End Sub
+
+
 '//======================================================================================================//
 '//                         @ESPORTA LE QUERY IN FORMATO HTML                      *** INIZIO ***
 '//======================================================================================================//
@@ -103,15 +128,15 @@ Sub Esporta_QUERY_InHTML()
     Dim contatoreSalvati As Long ' Contatore query salvate
     
     ' Recupera la cartella corrente del database
-    percorso = CurrentProject.Path & "\..\OBJECT\QUERY\"
+    percorso = CurrentProject.path & "\OBJECT\QUERY\"
     logPercorso = percorso & "LOG_Esporta_QUERY_InHTML.txt"
     
 
     MsgBox "ATTIVATA LA Esportazione DELLE QUERY in HTML!" & vbCrLf & _
            "Form salvate con successo: ", vbInformation
         
-    ' Crea la cartella se non esiste
-    If Dir(percorso, vbDirectory) = "" Then MkDir percorso
+    ' Crea cartella principale e sottocartelle necessarie
+        Call CreaCartellePercorso(percorso)
     
     ' Apre il file di log in modalit append per tracciare l'esportazione
     logFile = FreeFile
@@ -208,16 +233,16 @@ Sub Esporta_MODULI_InHTML()
     Dim contatoreSalvati As Long ' Contatore moduli salvati
     
     ' Imposta la cartella di esportazione
-    percorso = CurrentProject.Path & "\..\OBJECT\MODULI\"
+    percorso = CurrentProject.path & "\OBJECT\MODULI\"
     logPercorso = percorso & "LOG_Esporta_MODULI_InHTML.txt"
     
-    
+    ' Crea cartella principale e sottocartelle necessarie
+    Call CreaCartellePercorso(percorso)
 
     MsgBox "ATTIVATA LA Esportazione DEI MODULI in HTML!" & vbCrLf & _
            "Form salvate con successo: ", vbInformation
         
-    ' Crea la cartella se non esiste
-    If Dir(percorso, vbDirectory) = "" Then MkDir percorso
+   
     
     ' Apre file di log
     logFile = FreeFile
@@ -299,6 +324,7 @@ End Sub
 
 
 ' ## Attività : 04)_Esporta_FORM_InHTML
+
 Sub Esporta_FORM_InHTML()
     
     Dim vbComp As Object ' VBIDE.VBComponent per il modulo di classe della Form
@@ -311,7 +337,7 @@ Sub Esporta_FORM_InHTML()
     Dim contatoreSalvati As Long ' Contatore form salvate
     
     ' Imposta la cartella di esportazione
-    percorso = CurrentProject.Path & "\..\OBJECT\FORM\" ' Cartella Form
+    percorso = CurrentProject.path & "\OBJECT\FORM\" ' Cartella Form
     logPercorso = percorso & "LOG_Esporta_FORM_InHTML.txt"
     
     MsgBox "ATTIVATA LA Esportazione DELLE FORM in HTML!" & vbCrLf & _
@@ -319,7 +345,12 @@ Sub Esporta_FORM_InHTML()
     
     
     ' Crea la cartella se non esiste
-    If Dir(percorso, vbDirectory) = "" Then MkDir percorso
+    Debug.Print "path: " & percorso
+        'If Dir(percorso, vbDirectory) = "" Then MkDir percorso
+        
+        ' Crea cartella principale e sottocartelle necessarie
+        Call CreaCartellePercorso(percorso)
+        
     
     ' Apre il file di log in modalit append
     logFile = FreeFile
@@ -430,15 +461,16 @@ Sub Esporta_MACRO_InHTML()
     Dim linea As String  ' &lt;-- dichiarazione variabile
     
     ' Percorso per salvataggio
-    percorso = CurrentProject.Path & "\..\OBJECT\MACRO\"
+    percorso = CurrentProject.path & "\OBJECT\MACRO\"
     logPercorso = percorso & "LOG_Esporta_MACRO_InHTML.txt"
     
 
     MsgBox "ATTIVATA LA Esportazione DELLE MACRO in HTML!" & vbCrLf & _
            "Form salvate con successo: ", vbInformation
         
-    ' Crea cartella se non esiste
-    If Dir(percorso, vbDirectory) = "" Then MkDir percorso
+  
+    ' Crea cartella principale e sottocartelle necessarie
+        Call CreaCartellePercorso(percorso)
     
     ' Apri file log
     logFile = FreeFile
@@ -551,15 +583,10 @@ Sub Esporta_SOLO_LA_STRUTTURA_DELLA_TABELLA_InHTML()
     Dim sql As String                 ' Query SQL per ottenere tabelle fisiche
     
     ' Imposta il percorso in cui verranno salvati i file HTML
-    percorso = CurrentProject.Path & "\..\OBJECT\TABLES\"
+    percorso = CurrentProject.path & "\OBJECT\TABLES\"
     
-    ' Verifica se la cartella esiste, altrimenti la crea
-    If Dir(percorso, vbDirectory) = "" Then
-        MkDir percorso
-        Debug.Print "Cartella creata: " & percorso
-    Else
-        Debug.Print "Cartella gi esistente: " & percorso
-    End If
+    ' Crea cartella principale e sottocartelle necessarie
+        Call CreaCartellePercorso(percorso)
 
     Set db = CurrentDb()              ' Apre riferimento al database corrente
     countSalvati = 0                  ' Inizializza contatore esportazioni
@@ -720,7 +747,7 @@ Sub Esporta_TABELLE_InHTML()
     Dim prima As Boolean
     Dim count As Long
     
-    percorso = CurrentProject.Path & "\..\OBJECT\TABLES\"
+    percorso = CurrentProject.path & "\OBJECT\TABLES\"
     If Dir(percorso, vbDirectory) = "" Then MkDir percorso
     
     MsgBox "ATTIVATA LA Esportazione DELLE TABELLE in HTML!" & vbCrLf & _
@@ -808,8 +835,10 @@ Sub Esporta_REPORT_InHTML()
     Dim moduleExists As Boolean
 
     ' Percorso destinazione
-    percorso = CurrentProject.Path & "\..\OBJECT\REPORT\"
-    If Dir(percorso, vbDirectory) = "" Then MkDir percorso
+    percorso = CurrentProject.path & "\OBJECT\REPORT\"
+    ' Crea cartella principale e sottocartelle necessarie
+    Call CreaCartellePercorso(percorso)
+
 
     ' Inizializza log
     logPercorso = percorso & "LOG_Esporta_REPORT_InHTML.txt"
@@ -906,7 +935,7 @@ Public Sub STAMPA_TuttiReportInHTML()
     Dim contatoreSalvati As Long
     
     ' Percorso di destinazione HTML
-    percorso = CurrentProject.Path & "\..\OBJECT\REPORT\"
+    percorso = CurrentProject.path & "\OBJECT\REPORT\"
     If Dir(percorso, vbDirectory) = "" Then MkDir percorso
     
     
@@ -981,29 +1010,31 @@ End Sub
 '//======================================================================================================//
 
 
-' ## Attività : 31)_CANCELLO_TUTTI_FILE_TXT_HTML
-'   Uso di un array (folderPaths) per gestire più cartelle facilmente. _
-    Uso di un array (estensioni) per le estensioni da cancellare. _
-    Ciclo For Each per evitare ripetizioni di codice. _
-    Gestione degli errori mantenuta per ogni file.
-
-
+' ## Attività : 31)_CANCELLO_TUTTI_FILE_TXT_HTML _
+    Ecco una versione modificata della tua CANCELLA_TUTTI_FILE_HTML_TXT che: _
+    Parte sempre dalla cartella del progetto (CurrentProject.Path). _
+    Controlla l’esistenza delle sottocartelle prima di cancellare. _
+    Continua la scansione anche se una cartella non esiste (invece di uscire subito).
+    
 Sub CANCELLA_TUTTI_FILE_HTML_TXT()
-    Dim folderPaths(6) As String
+    Dim folderPaths(5) As String
+    Dim basePath As String
+    Dim fullPath As String
     Dim fileName As String
     Dim i As Integer
     Dim estensioni As Variant
     Dim est As Variant
 
-    ' Specifica le path delle cartelle
-    folderPaths(0) = "C:\Casa\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_MODULI\OBJECT\REPORT\"
-    folderPaths(1) = "C:\Casa\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_MODULI\OBJECT\TABLES\"
-    folderPaths(2) = "c:\Casa\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_MODULI\OBJECT\QUERY\"
-    folderPaths(3) = "c:\Casa\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_MODULI\OBJECT\MODULI\"
-    folderPaths(4) = "c:\Casa\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_MODULI\OBJECT\MACRO\"
-    folderPaths(5) = "c:\Casa\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_MODULI\OBJECT\FORM\"
+    ' Cartella base = cartella del progetto corrente
+    basePath = CurrentProject.path & "\"
 
-
+    ' Specifica le sottocartelle (relative alla cartella base)
+    folderPaths(0) = "OBJECT\REPORT\"
+    folderPaths(1) = "OBJECT\TABLES\"
+    folderPaths(2) = "OBJECT\QUERY\"
+    folderPaths(3) = "OBJECT\MODULI\"
+    folderPaths(4) = "OBJECT\MACRO\"
+    folderPaths(5) = "OBJECT\FORM\"
 
     ' Estensioni dei file da cancellare
     estensioni = Array("*.txt", "*.html")
@@ -1012,37 +1043,38 @@ Sub CANCELLA_TUTTI_FILE_HTML_TXT()
 
     ' Scorri ogni cartella
     For i = LBound(folderPaths) To UBound(folderPaths)
-        If Dir(folderPaths(i), vbDirectory) = "" Then
-            MsgBox "La cartella non esiste: " & folderPaths(i), vbExclamation
-            GoTo Exit_CANCELLA_TUTTI_FILE_HTML_TXT
+        fullPath = basePath & folderPaths(i)
+        
+        ' Controllo esistenza cartella
+        If Dir(fullPath, vbDirectory) = "" Then
+            Debug.Print "Cartella inesistente: " & fullPath
+            ' Salta questa cartella e passa alla successiva
+            GoTo ProssimaCartella
         End If
 
-        ' Scorri ogni estensione
+        ' Cancella file per ogni estensione
         For Each est In estensioni
-            fileName = Dir(folderPaths(i) & est)
+            fileName = Dir(fullPath & est)
             Do While fileName &lt;&gt; ""
-                Kill folderPaths(i) & fileName
+                Kill fullPath & fileName
                 If Err.Number &lt;&gt; 0 Then
-                    MsgBox "Errore durante l'eliminazione del file: " & folderPaths(i) & fileName & vbCrLf & _
+                    MsgBox "Errore durante l'eliminazione del file: " & fullPath & fileName & vbCrLf & _
                            "Descrizione: " & Err.Description, vbExclamation
                     Err.Clear
                 End If
                 fileName = Dir
             Loop
         Next est
+
+ProssimaCartella:
     Next i
 
     MsgBox "Eliminazione completata.", vbInformation
-
-'// USCITA ORDINATA
-Exit_CANCELLA_TUTTI_FILE_HTML_TXT:
     Exit Sub
 
-'// GESTIONE ERRORI
+' Gestione errori
 Err_CANCELLA_TUTTI_FILE_HTML_TXT:
-    MsgBox "ERRORE ROUTINE SUB     " & Err.Number & " - " & Err.Description, vbCritical, "CANCELLA_TUTTI_FILE_HTML_TXT"
-    Resume Exit_CANCELLA_TUTTI_FILE_HTML_TXT
-
+    MsgBox "ERRORE ROUTINE SUB " & Err.Number & " - " & Err.Description, vbCritical, "CANCELLA_TUTTI_FILE_HTML_TXT"
 End Sub
 
 
@@ -1051,6 +1083,10 @@ End Sub
 '//======================================================================================================//
 '//                         @CANCELLO TUTTI I FILE .TXT E HTML                      *** FINE ***
 '//======================================================================================================//
+
+
+
+
 
 </pre>
 </body>
