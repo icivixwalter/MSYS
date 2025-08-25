@@ -1,0 +1,1 @@
+2025-08-25 17:13:38 | Classe: Msys_GEFILE_CLS01_GESTIONI | Funzione: ApriFileShellApiWindows | Errore #: 1001 | Descrizione: Percorso non trovato: C:\Users\NomeUtente\Documenti\Test\ | Riga: 0
