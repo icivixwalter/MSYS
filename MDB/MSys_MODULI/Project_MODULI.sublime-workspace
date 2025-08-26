@@ -40,6 +40,14 @@
 		"selected_items":
 		[
 			[
+				"TERMINA",
+				"Terminus: Open Default Shell in Tab (View)"
+			],
+			[
+				"PREVIE",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
 				"",
 				"Preferences: Settings"
 			],
@@ -106,12 +114,17 @@
 	[
 		"/c/Casa/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/MDB/MSys_MODULI",
 		"/c/Casa/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/MDB/MSys_MODULI/OBJECT",
-		"/c/Casa/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/MDB/MSys_MODULI/OBJECT/MODULI"
+		"/c/Casa/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/MDB/MSys_MODULI/OBJECT/FORM",
+		"/c/Casa/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/MDB/MSys_MODULI/OBJECT/PDF",
+		"/C/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS"
 	],
 	"file_history":
 	[
-		"/C/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/MDB/MSys_MODULI/Project_MODULI.sublime-project",
+		"/C/CASA/LINGUAGGI/SUBLIMETEXT/README_COMANDI_VARI.md",
+		"/C/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/MDB/MSys_MODULI/OBJECT/FORM/Cmd_ESPORTA_OGGETTI_ToDb_HELP.md",
 		"/C/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/README.md",
+		"/c/Casa/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/MDB/MSys_MODULI/OBJECT/FORM/Cmd_ESPORTA_OGGETTI_ToDb_HELP.md",
+		"/C/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/MDB/MSys_MODULI/Project_MODULI.sublime-project",
 		"/C/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/OBJECT/MODULI/UTILITA_MsysDF14Mdl05_IMPORTAZIONE_SEMPLICE_DI_OGGETTI.md",
 		"/C/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/ROUTINE_DA_SALVARE_IN_DB_FINALE.MD",
 		"/C/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/OBJECT/MODULI/ESPORTA_Mdl01_TUTTI_GLI_OGGETTI_IN_FILE_LOG.MD",
@@ -231,11 +244,11 @@
 	],
 	"find":
 	{
-		"height": 28.0
+		"height": 34.4
 	},
 	"find_in_files":
 	{
-		"height": 111.2,
+		"height": 124.0,
 		"where_history":
 		[
 			""
@@ -246,6 +259,9 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"@ESPORTA",
+			"@esterno",
+			"@db",
 			"\\\\",
 			"UTILITA_MsysDF14Mcr05_ATTIVA_ImportaModuli",
 			"UTILITA_MsysDF14Mcr05_ATTIVA_CancellaTabelle",
@@ -322,7 +338,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 28.0
+		"height": 34.4
 	},
 	"input":
 	{
@@ -373,7 +389,7 @@
 	"project": "Project_MODULI.sublime-project",
 	"replace":
 	{
-		"height": 52.8
+		"height": 65.6
 	},
 	"save_all_on_build": false,
 	"select_file":

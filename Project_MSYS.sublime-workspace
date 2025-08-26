@@ -237,7 +237,7 @@
 	],
 	"find":
 	{
-		"height": 28.0
+		"height": 34.4
 	},
 	"find_in_files":
 	{
@@ -328,7 +328,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 28.0
+		"height": 34.4
 	},
 	"input":
 	{
@@ -379,7 +379,7 @@
 	"project": "Project_MSYS.sublime-project",
 	"replace":
 	{
-		"height": 52.8
+		"height": 65.6
 	},
 	"save_all_on_build": false,
 	"select_file":
