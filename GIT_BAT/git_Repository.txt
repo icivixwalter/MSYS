@@ -1,0 +1,7 @@
+
+//REPOSITORY ROOT
+https://github.com/icivixwalter/CASA
+
+
+//MSYS
+https://github.com/icivixwalter/MSYS.git
