@@ -1,0 +1,1627 @@
+ Il volume nell'unit… C non ha etichetta.
+ Numero di serie del volume: 6833-0A5A
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS
+
+[.]
+[..]
+[AA_SALVATAGGI]
+[GIT_BAT]
+[MDB]
+[OBJECT]
+[XLS]
+.gitignore
+a.txt
+AA________________________________________________________________________AA.txt
+ATTIVA_SALVATAGGI_COLLETTIVI_MSYS_OGGETTI+MENU+IMPEGNI.BAT
+CANCELLA_{MDB+OBJECT+PROJECT}.BAT
+git_OPEN_OVERLEAF.BAT
+git_OpenGitHub.bat
+git_PULL.BAT
+git_STATUS.BAT
+git_STATUS+PULL+ADD+COMMIT+PUSH.BAT
+MSYS_N02________________________________________________________________MSYS.txt
+Project_MSYS.sublime-project
+Project_MSYS.sublime-workspace
+README.md
+ZIP_7ZIP_________________________________________________________________ZZ.txt
+ZIP_7ZIP_INCREMENTALE_{CRIPTA+DECODIFICA_INTERNO}_CASA_C.BAT
+ZIP_7ZIP_INCREMENTALE_{CRIPTA+DECODIFICA_INTERNO}_SAN_GIORGIO_C.BAT
+ZIP_7ZIP_INCREMENTALE_{CRIPTA+DECODIFICA_INTERNO}_UFFICIO_C.BAT
+Zip_N70_CRIPTA.bat
+Zip_N70_DECODIFICA.bat
+Zip_N70_ElencoFile.txt
+Zip_N70_ElencoFileESCLUSI.txt
+ZZ________________________________________________________________________ZZ.txt
+              23 File        136.451 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\.git
+
+[hooks]          [info]           [logs]           [objects]
+[refs]           COMMIT_EDITMSG   config           description
+FETCH_HEAD       HEAD             index            ORIG_HEAD
+packed-refs      
+               8 File         64.235 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\.git\hooks
+
+[.]                         [..]
+applypatch-msg.sample       commit-msg.sample
+fsmonitor-watchman.sample   post-update.sample
+pre-applypatch.sample       pre-commit.sample
+pre-merge-commit.sample     prepare-commit-msg.sample
+pre-push.sample             pre-rebase.sample
+pre-receive.sample          push-to-checkout.sample
+sendemail-validate.sample   update.sample
+              14 File         25.827 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\.git\info
+
+[.]       [..]      exclude   
+               1 File            240 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\.git\logs
+
+[.]    [..]   [refs] HEAD   
+               1 File            402 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\.git\logs\refs
+
+[.]       [..]      [heads]   [remotes] 
+               0 File              0 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\.git\logs\refs\heads
+
+[.]       [..]      calcolo   
+               1 File            402 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\.git\logs\refs\remotes
+
+[.]      [..]     [origin] 
+               0 File              0 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\.git\logs\refs\remotes\origin
+
+[.]       [..]      calcolo   HEAD      
+               2 File            390 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\.git\objects
+
+[.]    [..]   [04]   [0f]   [14]   [1b]   [1e]   [1f]   [2d]   [2f]   [30]
+[31]   [32]   [34]   [36]   [3e]   [41]   [42]   [4e]   [4f]   [53]   [54]
+[63]   [66]   [68]   [74]   [77]   [78]   [7b]   [7c]   [85]   [87]   [89]
+[90]   [91]   [9b]   [a2]   [a9]   [ac]   [b4]   [b6]   [b8]   [be]   [c0]
+[c7]   [cb]   [cc]   [cd]   [d1]   [d5]   [d6]   [d7]   [d8]   [e6]   [e7]
+[f9]   [fb]   [info] [pack] 
+               0 File              0 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\.git\objects\04
+
+[.]
+[..]
+1ca05da93bfb0ee4d4ce37bc6a185d92a54e55
+9ee82de750bfbe7597fbce156617c70bd51732
+               2 File            548 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\.git\objects\0f
+
+[.]
+[..]
+01471c801a91317967eddb55b8dd1e58374baa
+               1 File        212.714 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\.git\objects\14
+
+[.]
+[..]
+1805efd4062d00f9825d3b455c60e6d181fb46
+               1 File             68 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\.git\objects\1b
+
+[.]
+[..]
+469ab62daadc5b10b59140fc58486a5c670733
+               1 File        434.821 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\.git\objects\1e
+
+[.]
+[..]
+1e0cd9b2ec0a171586ee1e154b6330a29226c1
+               1 File          1.055 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\.git\objects\1f
+
+[.]
+[..]
+39d3e4920d7befb00e1d49e0679dfee1f95aed
+               1 File            338 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\.git\objects\2d
+
+[.]
+[..]
+310c6fc306be1ff628b850a3ffd2f0994c5c6e
+               1 File          2.073 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\.git\objects\2f
+
+[.]
+[..]
+28d2a1203f91a12e8350e994f64fc78cfc9750
+               1 File             33 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\.git\objects\30
+
+[.]
+[..]
+acbb2c9c559b90fc3d152ac15ae8332af206ac
+               1 File          1.551 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\.git\objects\31
+
+[.]
+[..]
+19c2c8209e01aae7ae8bdfdbfe50d8691e9223
+               1 File        188.761 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\.git\objects\32
+
+[.]
+[..]
+f8d26535588f70c634a0557eaa85e2fd1605cd
+               1 File            558 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\.git\objects\34
+
+[.]
+[..]
+695aab4d1019bb82730d0d5eaaf125d7801001
+               1 File             85 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\.git\objects\36
+
+[.]
+[..]
+412608a70736d9887ca20f0118446cfdbe8ff6
+               1 File            236 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\.git\objects\3e
+
+[.]
+[..]
+426490371b8c8e53bb6acd97bd200be2871564
+               1 File      5.375.990 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\.git\objects\41
+
+[.]
+[..]
+ca2b7fb69aac96dc0249b468c246311b21b97f
+               1 File          4.468 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\.git\objects\42
+
+[.]
+[..]
+5a91d069fdc4c00ecbf7681ef8cfefd93e60fe
+               1 File          4.250 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\.git\objects\4e
+
+[.]
+[..]
+ff3b204ded77f58ccd5898d6f7d4d08b2b0090
+               1 File          1.041 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\.git\objects\4f
+
+[.]
+[..]
+edb619da62b82febbb11ae158a291bcbea850f
+               1 File            199 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\.git\objects\53
+
+[.]
+[..]
+4904c8766f86dcace0382662feb8479f50d94f
+               1 File             47 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\.git\objects\54
+
+[.]
+[..]
+a0da90976aad851ab167134f20ffb68060ecd6
+               1 File            109 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\.git\objects\63
+
+[.]
+[..]
+00aa5c21b4ed48fbb154c59c8874f1794147b6
+f6bb6326abaa04f32d94a833d8c6bbaba32dfa
+               2 File          3.357 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\.git\objects\66
+
+[.]
+[..]
+3f0293796148dfced3ce17df33d77cd30150ae
+               1 File            980 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\.git\objects\68
+
+[.]
+[..]
+8f7f763201fdbfea8f3fea372606d53fac0dc2
+               1 File          3.826 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\.git\objects\74
+
+[.]
+[..]
+f214419128865c10824aebec87f8cbb4f9755f
+               1 File        346.783 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\.git\objects\77
+
+[.]
+[..]
+bc921e60fd1969d8c6419d17552dd31a0a17e4
+               1 File          3.097 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\.git\objects\78
+
+[.]
+[..]
+50117b1ab8323f524d6752d599291d9e7ab45d
+               1 File          3.673 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\.git\objects\7b
+
+[.]
+[..]
+0a88a844b7db041627a32c7627ef14d0996a26
+               1 File            387 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\.git\objects\7c
+
+[.]
+[..]
+1e1aafbcf4d855c65763a59bd4c4fca38e01c0
+               1 File      1.516.172 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\.git\objects\85
+
+[.]
+[..]
+d0f0fe456d0b8ec9fc59f29ee166f4093ac2e2
+               1 File            302 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\.git\objects\87
+
+[.]
+[..]
+ba6543c91c0aedcba695897774d06809aac312
+               1 File            773 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\.git\objects\89
+
+[.]
+[..]
+d3e706b9896ce710babd3078ff60d2ba63d659
+               1 File             80 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\.git\objects\90
+
+[.]
+[..]
+64cae6b4157329417c10432624fecb3cf77f23
+c4291106fca7b6b384ead7b968537740446078
+               2 File        245.146 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\.git\objects\91
+
+[.]
+[..]
+4fa09fede2d65e931ca27a2fecb415c40410e6
+               1 File            152 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\.git\objects\9b
+
+[.]
+[..]
+cf4e59bfeb7eed96d16f334433ca69673f1f0d
+               1 File          3.494 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\.git\objects\a2
+
+[.]
+[..]
+f7c387ca1734257af1f32b51bd073746bf9444
+               1 File          2.878 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\.git\objects\a9
+
+[.]
+[..]
+06074cae86f311122db1d8eecbeaaaba7f589d
+               1 File          3.394 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\.git\objects\ac
+
+[.]
+[..]
+5045900e63aed4edff6080baf9c43282ca88f1
+               1 File             46 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\.git\objects\b4
+
+[.]
+[..]
+a0a16d1929955733007cf7556824f5f74d8ad5
+               1 File             32 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\.git\objects\b6
+
+[.]
+[..]
+0c51cc49a7b540f5e1b99b0facd923bf0c0736
+               1 File             69 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\.git\objects\b8
+
+[.]
+[..]
+6f8a62f8f7b7ee7c030148b17ebced084a0c7f
+               1 File             88 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\.git\objects\be
+
+[.]
+[..]
+581cbbce8963314d61f177029ff0ed1e5a74b0
+               1 File            199 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\.git\objects\c0
+
+[.]
+[..]
+bbe5c66a1a589dbe0ca4e82c5d6ae727385f4b
+               1 File          2.576 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\.git\objects\c7
+
+[.]
+[..]
+5108d2a98aa1c5ea2c30430169ff9474423558
+               1 File          2.952 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\.git\objects\cb
+
+[.]
+[..]
+09b290d5aef23b9ecf2145496da90dd86441e8
+d34875887deb775185fa212f3e542787e1e0a6
+               2 File          3.601 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\.git\objects\cc
+
+[.]
+[..]
+a126a3f0c7e98906f43e3a916805c296baf6d8
+               1 File            141 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\.git\objects\cd
+
+[.]
+[..]
+7a002beb951411a5d193151f32d56e1ab6d6ad
+               1 File          3.641 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\.git\objects\d1
+
+[.]
+[..]
+8c7e200aa838869f6497b66cb01194337e8ae8
+               1 File             31 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\.git\objects\d5
+
+[.]
+[..]
+10819d8877347a4595c075e46d79ee403cadf5
+               1 File            389 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\.git\objects\d6
+
+[.]
+[..]
+eb56c4c11c342801c99c9f6cfb8cc3709e24c5
+               1 File            157 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\.git\objects\d7
+
+[.]
+[..]
+7e8aaa48556f2790bb19d11895a321952c37e1
+               1 File          2.783 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\.git\objects\d8
+
+[.]
+[..]
+9ce63300f47ec9d7b6d2dbe6e269702c1e9fce
+               1 File          3.096 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\.git\objects\e6
+
+[.]
+[..]
+baf44088880a34117d8475ef46bd7ff2ce8adf
+               1 File          2.087 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\.git\objects\e7
+
+[.]
+[..]
+755b809adecfc3d8d97d465025fa3b5ab2c3be
+               1 File            191 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\.git\objects\f9
+
+[.]
+[..]
+58d1fd3c7dc2abb0db5e94f1baffe2204e05ea
+               1 File            146 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\.git\objects\fb
+
+[.]
+[..]
+c55542a84eb0438889d70a56dadc587c9f8208
+               1 File          1.842 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\.git\objects\info
+
+[.]  [..] 
+               0 File              0 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\.git\objects\pack
+
+[.]
+[..]
+pack-7396087a997624905d961950589e99a34697ca34.idx
+pack-7396087a997624905d961950589e99a34697ca34.pack
+pack-7396087a997624905d961950589e99a34697ca34.rev
+               3 File    447.005.789 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\.git\refs
+
+[.]       [..]      [heads]   [remotes] [tags]    
+               0 File              0 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\.git\refs\heads
+
+[.]       [..]      calcolo   
+               1 File             41 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\.git\refs\remotes
+
+[.]      [..]     [origin] 
+               0 File              0 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\.git\refs\remotes\origin
+
+[.]       [..]      calcolo   HEAD      
+               2 File             74 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\.git\refs\tags
+
+[.]  [..] 
+               0 File              0 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\AA_SALVATAGGI
+
+[.]
+[..]
+2025_08_29_ZIP_SALVATAGGI_MSYS_UFFICIO.GE614
+2025_08_29_ZIP_SALVATAGGI_MSYS_UFFICIO_LISTA.TXT
+               2 File    112.803.049 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\GIT_BAT
+
+[.]                                   [..]
+git_COMMIT.BAT                        git_OpenGitHub.bat
+git_PUSH.BAT                          git_Repository.txt
+git_STATUS.BAT                        git_STATUS+PULL+ADD+COMMIT+PUSH.BAT
+               6 File          1.033 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB
+
+[.]                         [..]
+[MSYS_ATTIVA_GEST_OGGETTI]  [MSYS_BASE]
+[MSys_DF01]                 [MSys_DF02]
+[MSys_DF05]                 [MSys_DF11]
+[MSys_DF12]                 [MSys_DF13]
+[MSys_DF14]                 [MSys_FORMS]
+[MSys_GE_FILE]              [MSys_MACRO]
+[MSYS_MENU]                 [MSys_MODULI]
+[MSys_MODULIOBJECT]         [MSYS_OBJECT_DB_EST]
+[MSYS_OGGETTI_OLD]          [MSys_PAGINE]
+[MSys_PROGETTI]             [MSys_QUERY]
+[MSys_REPORT]               [MSys_TABELLE]
+[TMP_IMPORTA_MODULI]        [TMP_IMPORTA_MODULIOBJECT]
+[TMP_OGGETTI_DA_CANCELLARE] 
+               0 File              0 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSYS_ATTIVA_GEST_OGGETTI
+
+[.]      [..]     [MDB]    [OBJECT] 
+               0 File              0 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSYS_ATTIVA_GEST_OGGETTI\MDB
+
+[.]                            [..]
+LOG_IMPORTA_TABELLE.TXT        MSYS_ATTIVA_GEST_OGGETTI.mdb
+MSys_PATH.TXT                  
+               3 File     24.036.157 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSYS_ATTIVA_GEST_OGGETTI\OBJECT
+
+[.]    [..]   [HTML] 
+               0 File              0 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSYS_ATTIVA_GEST_OGGETTI\OBJECT\HTML
+
+[.]
+[..]
+documentazione_Form_UTILITA_Msys_Frm21_IMPORTA_OGGETTI.html
+               1 File        327.202 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSYS_BASE
+
+[.]   [..]  [MDB] 
+               0 File              0 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSYS_BASE\MDB
+
+[.]                [..]               MSYS_BASE.mdb      MSYS_MODELLO.mdb
+               2 File        929.792 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF01
+
+[.]                                   [..]
+[MDB]                                 Project_MSys_DF01.sublime-project
+Project_MSys_DF01.sublime-workspace   README.MD
+               3 File         22.344 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF01\MDB
+
+[.]                [..]               MSys_DF01.mdb      MSys_DF01_GE.mdb
+               2 File        897.024 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF02
+
+[.]   [..]  [MDB] 
+               0 File              0 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF02\MDB
+
+[.]             [..]            MSys_DF02.mdb   
+               1 File        823.296 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF05
+
+[.]   [..]  [MDB] 
+               0 File              0 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF05\MDB
+
+[.]             [..]            MSys_DF05.mdb   
+               1 File        520.192 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF11
+
+[.]   [..]  [MDB] 
+               0 File              0 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF11\MDB
+
+[.]                [..]               MSys_DF11.mdb      MSys_DF11_GE.mdb
+               2 File        745.472 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF12
+
+[.]   [..]  [MDB] 
+               0 File              0 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF12\MDB
+
+[.]             [..]            MSys_DF12.mdb   
+               1 File        409.600 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF13
+
+[.]   [..]  [MDB] 
+               0 File              0 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF13\MDB
+
+[.]             [..]            MSys_DF13.mdb   
+               1 File        372.736 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF14
+
+[.]   [..]  [MDB] 
+               0 File              0 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF14\MDB
+
+[.]             [..]            MSys_DF14.mdb   
+               1 File        356.352 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_FORMS
+
+[.]   [..]  [MDB] 
+               0 File              0 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_FORMS\MDB
+
+[.]              [..]             MSys_FORMS.mdb   
+               1 File      1.265.664 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_GE_FILE
+
+[.]
+[..]
+[MDB]
+[OBJECT]
+CHATGBT.MD
+Project_Msys_GE_FILE.sublime-project
+Project_Msys_GE_FILE.sublime-workspace
+README.MD
+tmpdsfcc3
+tmpfdy2al
+               6 File         97.126 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_GE_FILE\MDB
+
+[.]
+[..]
+[Logs]
+MSys_GE_FILE.mdb
+Msys_GEFILE_MDL01_EsportaOggetti_TO_LLPP_ATTI_GESTIONE_mdb.txt
+               2 File      1.083.296 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_GE_FILE\MDB\Logs
+
+[.]             [..]            LogErrori.txt   
+               1 File              0 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_GE_FILE\OBJECT
+
+[.]     [..]    [FORMS] 
+               0 File              0 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_GE_FILE\OBJECT\FORMS
+
+[.]
+[..]
+Form_Msys_GEFILE_Frm01_GESTIONI.cls
+Form_UTILITA_Msys_Frm21_IMPORTA_OGGETTI.cls
+               2 File        655.798 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_MACRO
+
+[.]   [..]  [MDB] 
+               0 File              0 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_MACRO\MDB
+
+[.]              [..]             MSys_MACRO.mdb   
+               1 File      1.003.520 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSYS_MENU
+
+[.]
+[..]
+[MDB]
+[OBJECT]
+AA__________________________________________________________________________AA.txt
+MENU_ANALISI.MD
+Project_MSYS_MENU.sublime-project
+Project_MSYS_MENU.sublime-workspace
+ZZ__________________________________________________________________________ZZ.txt
+               5 File         29.556 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSYS_MENU\MDB
+
+[.]
+[..]
+AA__________________________________________________________________________AA.txt
+CANC_TutteTabelleCollegate_PFunct_LOG.txt
+COLLEGA_Mcr_GEST_MENU_TB01_VOCI_LOG.txt
+MENU_GESTIONE.mdb
+MENU_TB01_VOCI.mdb
+MENU_TB02_FUNZIONI.mdb
+MENU_TB03_OGGETTI.mdb
+ZZ__________________________________________________________________________ZZ.txt
+               8 File      6.622.550 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSYS_MENU\OBJECT
+
+[.]
+[..]
+[XLS]
+MSys_DF01_COMANDI_Qry01_01_SELECT_TUTTI.xls
+               1 File         19.968 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSYS_MENU\OBJECT\XLS
+
+[.]  [..] 
+               0 File              0 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_MODULI
+
+[.]                                [..]
+[Logs]                             [OBJECT]
+MSys_MODULI.mdb                    Project_MODULI.sublime-project
+Project_MODULI.sublime-workspace   
+               3 File      1.953.076 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_MODULI\Logs
+
+[.]             [..]            LogErrori.txt   
+               1 File            194 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_MODULI\OBJECT
+
+[.]       [..]      [FORM]    [PDF]     [UTILITA] 
+               0 File              0 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_MODULI\OBJECT\FORM
+
+[.]                                [..]
+Cmd_ESPORTA_OGGETTI_ToDb_HELP.md   
+               1 File            941 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_MODULI\OBJECT\PDF
+
+[.]
+[..]
+HELP_COPIA_OGGETTI_IN_DB.pdf
+HELP_UTILITA_MsysDF14Frm05_ATTIVA_FUNZIONI.pdf
+               2 File      1.417.579 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_MODULI\OBJECT\UTILITA
+
+[.]
+[..]
+Form_UTILITA_MsysDF14Frm05_ATTIVA_FUNZIONI_(HELP).MD
+               1 File             56 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_MODULIOBJECT
+
+[.]    [..]   [FORM] 
+               0 File              0 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_MODULIOBJECT\FORM
+
+[.]
+[..]
+Form_MSys_MODULI_Frm01_S01_TUTTI.html
+Form_UTILITA_MsysDF14Frm05_ATTIVA_FUNZIONI.html
+Form_UTILITA_MsysDF14Frm05_ATTIVA_FUNZIONI_duplicato.html
+LOG_Esporta_FORM_InHTML.txt
+               4 File         16.764 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSYS_OBJECT_DB_EST
+
+[.]
+[..]
+[MDB]
+[OBJECT]
+AA__________________________________________________________________________AA.txt
+AA__________DA_SISTEMARE.txt
+MSYSDbEst_GE_OBJECT_ANALISI.MD
+Project_MSYSDbEst_GE_OBJECT_ANALISI.sublime-project
+Project_MSYSDbEst_GE_OBJECT_ANALISI.sublime-workspace
+ZZ__________________________________________________________________________ZZ.txt
+               6 File         28.164 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSYS_OBJECT_DB_EST\MDB
+
+[.]                       [..]                      MSYSDbEst_GE_OBJECT.mdb
+               1 File      6.946.816 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSYS_OBJECT_DB_EST\OBJECT
+
+[.]    [..]   [FORM] 
+               0 File              0 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSYS_OBJECT_DB_EST\OBJECT\FORM
+
+[.]
+[..]
+Modello_DELETE_OGGETTI_FORMS.MD
+Modello_DELETE_OGGETTI_MACRO.MD
+Modello_DELETE_OGGETTI_MACRO+DELETE_MACRO_HELP.MD
+Modello_DELETE_OGGETTI_MODULI+DELETE_MODULI_HELP.md
+Modello_DELETE_OGGETTI_QUERY.MD
+Modello_DELETE_OGGETTI_QUERY+DELETE_QUERY_HELP.MD
+Modello_DELETE_OGGETTI_REPORT.md
+Modello_DELETE_OGGETTI_REPORT+DELETE_REPORT_HELP.md
+Modello_DELETE_OGGETTI_TABLE.MD
+Modello_DELETE_OGGETTI_TABLE+DELETE_TABLE_HELP.MD
+MODELLO_DELETE_REPORT_OLD.MD
+Modello_DELETE_TUTTO_.MD
+Modello_IMPORTA_OGGETTI_MACRO.md
+Modello_IMPORTA_OGGETTI_MODULI.md
+Modello_IMPORTA_OGGETTI_QUERY.md
+Modello_IMPORTA_OGGETTI_REPORTS.MD
+              16 File        128.199 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSYS_OGGETTI_OLD
+
+[.]                        [..]
+MSYS_N01_OGGETTI_old.zip   
+               1 File      6.043.058 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_PAGINE
+
+[.]   [..]  [MDB] 
+               0 File              0 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_PAGINE\MDB
+
+[.]               [..]              MSys_PAGINE.mdb   
+               1 File        581.632 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_PROGETTI
+
+[.]   [..]  [MDB] 
+               0 File              0 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_PROGETTI\MDB
+
+[.]                     [..]                    MSys_PROGETTI.mdb
+MSys_PROGETTI_GE.mdb    MSys_PROGETTI_old.mdb   
+               3 File      7.553.024 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_QUERY
+
+[.]   [..]  [MDB] 
+               0 File              0 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_QUERY\MDB
+
+[.]                 [..]                MSys_QUERY.mdb      MSys_QUERY_GE.mdb
+               2 File      1.437.696 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_REPORT
+
+[.]   [..]  [MDB] 
+               0 File              0 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_REPORT\MDB
+
+[.]               [..]              MSys_REPORT.mdb   
+               1 File        610.304 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_TABELLE
+
+[.]   [..]  [MDB] 
+               0 File              0 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_TABELLE\MDB
+
+[.]                                [..]
+MSys_TABELLE.mdb                   MSys_TABELLE_ATTENZIONE.TXT
+MSys_TABELLE_LINK.mdb              MSys_TABELLE_LINK.xlsx
+MSys_TABELLE_LINK_ATTENZIONE.TXT   
+               5 File      3.700.475 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\TMP_IMPORTA_MODULI
+
+[.]
+[..]
+[TMP]
+ETF_GUIDA.pdf
+ImportaModuli_PFunct_log.txt
+LLPP_ATTI_GESTIONE.mdb
+LLPP_ATTI_GESTIONE_nw.mdb
+LOG_ImportaModuli_PFunct.txt
+MODIFICA_IMPORTA_MODULI.mdb
+MODIFICA_IMPORTA_MODULI_nw_(testare).mdb
+MSYS_importa_PRES3000.mdb
+MSYS_MODELLO.mdb
+               9 File    122.670.189 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\TMP_IMPORTA_MODULI\TMP
+
+[.]
+[..]
+[PRES3000_N00_GESTIONE]
+2025_07_10_PRES3000_N00_GESTIONE_(modificatoControllare).ZIP
+               1 File     11.246.556 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\TMP_IMPORTA_MODULI\TMP\PRES3000_N00_GESTIONE
+
+[.]
+[..]
+[GESTIONE_ANALISI]
+[GESTIONE_BAT]
+[GESTIONE_MDB]
+[OBJECT]
+Project_PRES3000_N00_GESTIONE.sublime-project
+Project_PRES3000_N00_GESTIONE.sublime-workspace
+README.MD
+               3 File        183.292 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\TMP_IMPORTA_MODULI\TMP\PRES3000_N00_GESTIONE\GESTIONE_ANALISI
+
+[.]                        [..]
+PRES3000_N00_GESTIONE.md   
+               1 File          2.940 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\TMP_IMPORTA_MODULI\TMP\PRES3000_N00_GESTIONE\GESTIONE_BAT
+
+[.]
+[..]
+AA__________________________________________________________________________AA.txt
+MODELLO_BAT_AREA_DI_LAVORO.tws
+MODELLO_BAT_START_Aprofile_DISCO_Default.TXT
+MODELLO_BAT_START_Aprofile_LATEX_(caricaDiscoEsterno).bat
+MODELLO_BAT_START_Aprofile_MDB_(caricaDiscoEsterno).bat
+MODELLO_BAT_START_Aprofile_QUERY_MODULI_CLASSI_(caricaDiscoEsterno).bat
+MODELLO_BAT_START_Aprofile_SALVATAGGI_(caricaDiscoEsterno).bat
+MODELLO_BAT_START_Aprofile_TEXT_ANALISI_(caricaDiscoEsterno).bat
+MODELLO_BAT_START_Aprofile_TUTTO_1+2+3+4.bat
+PRES3000_APRI_CARTELLA_Pres3000.bat
+ZZ__________________________________________________________________________ZZ.txt
+              11 File         42.326 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\TMP_IMPORTA_MODULI\TMP\PRES3000_N00_GESTIONE\GESTIONE_MDB
+
+[.]
+[..]
+LOG_IMPORTA_TABELLE.TXT
+PRES3000_N00_GESTIONE.mdb
+PRES3000_N00_GESTIONE_provo_importazione_Tabelle.ldb
+PRES3000_N00_GESTIONE_provo_importazione_Tabelle.mdb
+PRES3000_N00_GESTIONE_RicostruisciMacro.mdb
+               5 File     46.700.195 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\TMP_IMPORTA_MODULI\TMP\PRES3000_N00_GESTIONE\OBJECT
+
+[.]       [..]      [CLASSI]  [FORMS]   [MODULI]  [QUERY]   [ROUTINE] [TABLE]
+               0 File              0 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\TMP_IMPORTA_MODULI\TMP\PRES3000_N00_GESTIONE\OBJECT\CLASSI
+
+[.]
+[..]
+PRES3000_Mdl01_ESPORTA_OGGETTI_GESTIONE.bas
+               1 File         10.199 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\TMP_IMPORTA_MODULI\TMP\PRES3000_N00_GESTIONE\OBJECT\FORMS
+
+[.]
+[..]
+Form_PRES3000_FrmTb01_S01_Calendario.cls
+PRES3000_Frm01_S01_01_Calendario.md
+PRES3000_FrmTb02_S01_CalendarioPianoFerie.md
+               3 File         41.394 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\TMP_IMPORTA_MODULI\TMP\PRES3000_N00_GESTIONE\OBJECT\MODULI
+
+[.]
+[..]
+COLLEGA_Mdl01_PRES3000_DF00_TUTTE_LE_DEFINIZIONI.MD
+PRES3000_Frm01_S01_01_Calendario.Md
+PRES3000_MdlDF00_ESPORTA_DEFINIZIONI_To_GESTIONE.bas
+               3 File         51.913 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\TMP_IMPORTA_MODULI\TMP\PRES3000_N00_GESTIONE\OBJECT\QUERY
+
+[.]
+[..]
+PRES3000_QryDF01_01_CalendarioFestivita.md
+PRES3000_QryDF01_02_GROUP_CalendarioFestivita.md
+PRES3000_QryDF05_01_ORARI.md
+PRES3000_QryDF20_01_Help_Calendario.md
+PRES3000_QryTb01_01_Calendario.md
+PRES3000_QryTb02_01_CalendarioPianoFerie.md
+PRES3000_QryTb02_01_CalendarioPianoFerie_INSERT_QU
+               7 File          6.079 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\TMP_IMPORTA_MODULI\TMP\PRES3000_N00_GESTIONE\OBJECT\ROUTINE
+
+[.]                                   [..]
+Private_Sub_Help_Txt_AfterUpdate.md   Private_Sub_Help_Txt_DblClick.MD
+               2 File          8.903 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\TMP_IMPORTA_MODULI\TMP\PRES3000_N00_GESTIONE\OBJECT\TABLE
+
+[.]                                     [..]
+PRES3000_Tb01_Calendario.md             PRES3000_Tb01_CalendarioPianoFerie.md
+               2 File            762 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\TMP_IMPORTA_MODULIOBJECT
+
+[.]    [..]   [FORM] 
+               0 File              0 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\TMP_IMPORTA_MODULIOBJECT\FORM
+
+[.]
+[..]
+Form_GEFILE_Frm01_GESTIONI.html
+Form_MSys_TABELLE_Frm01_S01_TUTTE_TMP.html
+Form_UTILITA_MsysDF14Frm05_ATTIVA_FUNZIONI_duplicato.html
+LOG_Esporta_FORM_InHTML.txt
+               4 File         25.021 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\TMP_OGGETTI_DA_CANCELLARE
+
+[.]                                   [..]
+MENU_TB03_OGGETTI_DA_CANCELLARE.mdb   
+               1 File      1.609.728 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\OBJECT
+
+[.]                                   [..]
+[ANALISI_PROJECT_API_WINDOWS]         [ANALISI_PROJECT_ATTIVA_GEST_OGGETTI]
+[ANALISI_PROJECT_GESTIONE_FILE]       [ANALISI_PROJECT_MENU]
+[ANALISI_PROJECT_MSYS]                [ANALISI_PROJECT_MSys_PROGETTI]
+[ANALISI_PROJECT_MSys_TABELLE_LINK]   [ANALISI_PROJECT_NON_DEFINITI]
+[ANALISI_PROJECT_SOTTOFORM_MASTER]    [ANALISI_PROJECT_TB04]
+[ANALISI_PROJECT_TB05]                [ANALISI_PROJECT_UTILITA]
+[EXE]                                 [HELP]
+[LATEX]                               [MODULI]
+[PDF]                                 [POWERSHELL]
+[RUST]                                [STAR_UML]
+[TUTORIAL]                            
+               0 File              0 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\OBJECT\ANALISI_PROJECT_API_WINDOWS
+
+[.]      [..]     [MODULI] 
+               0 File              0 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\OBJECT\ANALISI_PROJECT_API_WINDOWS\MODULI
+
+[.]                          [..]
+API_WINDOWS_Main.bas         API_WINDOWS_Test_Excel.bas
+               2 File          2.267 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\OBJECT\ANALISI_PROJECT_ATTIVA_GEST_OGGETTI
+
+[.]                          [..]
+[CLASSI]                     README_GESTIONE_OGGETTI.MD
+               1 File            177 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\OBJECT\ANALISI_PROJECT_ATTIVA_GEST_OGGETTI\CLASSI
+
+[.]
+[..]
+Form_AA_MSys_FORM_M01_GESTIONE_OGGETTI_MASTER.cls
+               1 File        111.135 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\OBJECT\ANALISI_PROJECT_GESTIONE_FILE
+
+[.]                       [..]                      [CLASSI]
+README_GESTIONE_FILE.MD   
+               1 File            157 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\OBJECT\ANALISI_PROJECT_GESTIONE_FILE\CLASSI
+
+[.]
+[..]
+Cls_CLASSE_GESTIONE_FILE.cls
+Form_MSys_TUTTI_TB01Frm01_01_FORM_MASTER_GE_PAGINE.cls
+               2 File        270.401 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\OBJECT\ANALISI_PROJECT_MENU
+
+[.]              [..]             README_MENU.MD   
+               1 File         10.013 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\OBJECT\ANALISI_PROJECT_MSYS
+
+[.]              [..]             [CLASSI]         [QUERY]
+[TABELLE]        README_MSYS.MD   
+               1 File            153 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\OBJECT\ANALISI_PROJECT_MSYS\CLASSI
+
+[.]
+[..]
+Form_Msys_DF11_PROGETTI_Frm00_M01_GESTIONE.cls
+Form_Msys_DF11_PROGETTI_Frm01_M01_ELEMENTI.cls
+Form_MSys_TB0501Frm01_01_GE_TabContr_SEMPLICE.cls
+Form_MSys_TUTTI_PROG_FrmM01_01_PROGETTI.cls
+Form_MsysDbEstTb01Frm01_Mts01_GE_OBJECT.cls
+Form_MsysDbEstTb01Frm01_Stf01_OBJECT.cls
+Form_MsysDbEstTb01Frm01_Stf01_OBJECT_TMP.cls
+Form_MsysDbEstTb05Frm01_Stf01_DB_ESTERNO.cls
+Form_PROGETTI_Msys_Tb00FrmM01_GE_PROGETTI.cls
+Form_SottoFormMaster_Frm00_CARICAMENTO_AUTOMATICO_{SenzaTitolo}.cls
+Form_UTILITA_Frm12_SERVIZI_TUTTI.cls
+Form_UTILITA_Msys_Frm21_IMPORTA_OGGETTI.cls
+Form_UTILITA_MsysDbEst_Frm20_}--------------------------------------@.cls
+Form_UTILITA_MsysDbEst_Frm20_IMPORTA_PROGETTO.cls
+GEFILE_Frm01_GESTIONI.MD
+IMPORTA_OGGETTI_TREEVIEW.MD
+Msys_DF11_PROGETTI_Frm00_M01_GESTIONE.MD
+Msys_Frm01_S01_ESPORTA_OGGETTI_TUTTI.md
+MSYS_N01_OGGETTI.mdb
+MSYS_TUTTE_LE_FORM.MD
+MsysDbEstTb01Mdl01_Num01_CONTROLLO_DB_ESTERNO.bas
+PROGETTI_Msys_TB01Frm01_01_PROJECT.md
+UTILITA_Msys_Frm21_IMPORTA_OGGETTI.md
+              23 File     23.720.253 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\OBJECT\ANALISI_PROJECT_MSYS\QUERY
+
+[.]
+[..]
+MSys_DF01_COMANDI_Qry01_01_SELECT_TUTTI.md
+MSys_DF01_COMANDI_Qry01_02_GROUP_TUTTI.md
+Msys_DF02_Qry01_01_TIPO_OGGETTI.MD
+MSys_DF10_DATABASE_Qry01_01_SELECT_TUTTI_Current.md
+Msys_DF11_PROGETTI_Qry01_01_ELEMENTI.md
+Msys_DF11_Qry01_01_PROGETTI.md
+Msys_DF13Qry01_00_}-----------------------------------------@DLL.MD
+Msys_DF14Qry01_01_DLL_LIBRERIE.MD
+Msys_DLL_Qry01_01_DF13_DLL_LIBRERIE.MD
+Msys_DLLQry01_01_LIBRERIE_ATTIVE.MD
+MSys_ELENCO_ObjProgetti_Qry15_01_GROUP_TIPO_OGGETT.MD
+MSys_FORMS_Qry01_01_SELECT_TUTTE.MD
+MSys_MACRO_Qry01_01_SELECT_TUTTI.MD
+MSys_MCLASSI_Qry01_71_INSERT_toMsys_DF12.MD
+MSys_MODULI_Qry01_01_SELECT_TUTTI.MD
+MSys_MODULI_Qry01_71_INSERT_toMsys_DF12.md
+Msys_Qry01_01_ESPORTA_DB_EST.MD
+Msys_Qry01_01_ESPORTA_OGGETTI_Form.md
+Msys_Qry01_01_ESPORTA_OGGETTI_Macro.md
+Msys_Qry01_01_ESPORTA_OGGETTI_Moduli.md
+Msys_Qry01_01_ESPORTA_OGGETTI_Query.md
+Msys_Qry01_01_ESPORTA_OGGETTI_Report.md
+Msys_Qry01_01_ESPORTA_OGGETTI_Table.md
+Msys_Qry01_01_ESPORTA_OGGETTI_TMP.MD
+Msys_Qry01_01_ESPORTA_OGGETTI_TUTTI.md
+MSys_QUERY_Qry01_01_SELECT_TUTTE.md
+MSys_QUERY_Qry01_01_SELECT_TUTTE_CurrentProject.md
+MSys_QUERY_Qry01_01_SELECT_TUTTE_TMP.MD
+MSys_REPORT_Qry01_01_SELECT_TUTTE.MD
+MSys_TABELLE_Qry01_01_SELECT_CurrentProject.md
+MSys_TABELLE_Qry01_01_SELECT_TUTTE.MD
+MSys_TABELLE_Qry01_01_SELECT_TUTTE_TMP.md
+MSys_TABELLE_TMP_Qry00_}-------------------------------------@.md
+MSys_TABELLE_TMP_Qry01_01_SELECT_TUTTE.md
+MSys_TUTTE_BARRE_DEI_COMANDI_Qry01_01_SELECT_Archivio.md
+MSys_TUTTE_BARRE_DEI_COMANDI_Qry01_01_SELECT_Archivio_TMP.MD
+MSys_TUTTI_PROG_INSERT_Qry01_01_PROGETTI_in_TMP.md
+MSys_TUTTI_PROG_SELECT_Qry01_01_PROGETTI.md
+MSys_TUTTI_PROG_VIS_PAGINE_SELECT_Qry01_01_Carica.MD
+MSys_TUTTI_TB01Qry01_01_FORM_MASTER_GE_PAGINE.md
+MSys_TUTTI_TB01Qry01_02_FORM_MASTER_VISUAL_PAGINE.MD
+MSysObjects_Qry01_01_GROUP_OGGETTI.MD
+MySys_AGGIORNAMENTI.md
+              43 File         37.408 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\OBJECT\ANALISI_PROJECT_MSYS\TABELLE
+
+[.]
+[..]
+2025_03_12_IMPORTA_OGGETTI_TABLE.TXT
+Msys_DF11_PROGETTI.md
+Msys_ESPORTA_DB_EST.MD
+Msys_ESPORTA_ELENCO_OGGETTI_DB.MD
+MSys_TABELLE_LINK.md
+MSys_TUTTE_BARRE_DEI_COMANDI.MD
+MSys_TUTTE_BARRE_DEI_COMANDI_TMP.MD
+SottoFormMaster_Tb01_GE_Msys.md
+SottoFormMaster_Tb02_Vis_Pagine_Msys.md
+SYS_N01_TABELLE.sublime-project
+SYS_N01_TABELLE.sublime-workspace
+SYS_N01_TABELLE_Analisi_progetto.MD
+              12 File         48.004 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\OBJECT\ANALISI_PROJECT_MSys_PROGETTI
+
+[.]                  [..]                 [CLASSI]
+[FORM]               [QUERY]              README_PROGETTI.MD
+               1 File          2.741 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\OBJECT\ANALISI_PROJECT_MSys_PROGETTI\CLASSI
+
+[.]
+[..]
+Form_PROGETTI_Msys_TB01Frm01_01_PROJECT.cls
+               1 File          7.513 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\OBJECT\ANALISI_PROJECT_MSys_PROGETTI\FORM
+
+[.]
+[..]
+AA_MSys_FORM_M01_GESTIONE_OGGETTI_MASTER.MD
+PROGETTI_Msys_TB01Frm01_01_PROJECT.MD
+               2 File         21.753 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\OBJECT\ANALISI_PROJECT_MSys_PROGETTI\QUERY
+
+[.]
+[..]
+PROGETTI_Msys_TB01Qry01_01_PROJECT.MD
+PROGETTI_Msys_TB01Qry01_01_PROJECT_TMP.MD
+PROGETTI_Msys_TB01Qry01_01_PROJECT_TMP_Delete.md
+PROGETTI_Msys_TB02Qry01_01_TIPO_OGGETTI.MD
+PROGETTI_Msys_TB03Qry01_01_ELENCO_ObjProgetti.MD
+utile.md
+               6 File          3.340 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\OBJECT\ANALISI_PROJECT_MSys_TABELLE_LINK
+
+[.]                      [..]                     README_TABELLE_LINK.MD
+               1 File          5.233 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\OBJECT\ANALISI_PROJECT_NON_DEFINITI
+
+[.]                               [..]
+[MODULI]                          README_PROGETTI_NON_DEFINITI.MD
+               1 File            245 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\OBJECT\ANALISI_PROJECT_NON_DEFINITI\MODULI
+
+[.]
+[..]
+CLS_CLASSE_GESTIONE_}------------------------------------------@.bas
+Cls_CLASSE_GESTIONE_FILE.cls
+clsFile.cls
+clsFile_MODULO_ATTIVAZIONE_API.bas
+ESEMPIO_IMPORTA_MODULI.MD
+GESTIONE_Mdl10_FILE_APRI_PDF.MD
+IMPORTA_TABELLE.MD
+MSys_QUERY_Mdl01_RICOSTRUISCI_OGGETTI_SEMPLIFICATO.bas
+STAMPA_OGGETTI_DB_CORRENTE.MD
+UTILITA_Msys_Mdl03_DLL_REFERENZIA_LE_LIBRERIE.MD
+              10 File        337.137 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\OBJECT\ANALISI_PROJECT_SOTTOFORM_MASTER
+
+[.]                          [..]
+[QUERY]                      README_SOTTOFORM_MASTER.MD
+               1 File            192 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\OBJECT\ANALISI_PROJECT_SOTTOFORM_MASTER\QUERY
+
+[.]
+[..]
+SottoFormMaster_Qry00_}---------------------------@MSys.md
+SottoFormMaster_Qry01_01_GE_Msys.Md
+SottoFormMaster_Qry02_01_Vis_Pagine_Msys.Md
+SottoFormMaster_Tb01Qry00_}--------------------------------@Msys.md
+SottoFormMaster_Tb01Qry01_01_GE_Msys.Md
+SottoFormMaster_Tb01Qry01_01_GE_Msys_TMP_Delete.md
+SottoFormMaster_Tb02Qry00_}--------------------------------@Msys.MD
+SottoFormMaster_Tb02Qry01_01_Vis_Pagine_Msys.Md
+SottoFormMaster_Tb02Qry01_01_Vis_Pagine_Msys_TMP_Delete.md
+               9 File          6.080 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\OBJECT\ANALISI_PROJECT_TB04
+
+[.]                       [..]                      [FORM]
+[QUERY]                   README_PROGETTO_TB04.MD   
+               1 File            165 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\OBJECT\ANALISI_PROJECT_TB04\FORM
+
+[.]
+[..]
+MSys_TB0401Frm01_01_GE_TabContr_MASTER.MD
+MSys_TB0402Frm01_01_VISUAL_PAG_MASTER.md
+               2 File            645 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\OBJECT\ANALISI_PROJECT_TB04\QUERY
+
+[.]
+[..]
+MSys_TB0401Qry01_01_GE_TabContr_MASTER.MD
+MSys_TB0402Qry01_01_VISUAL_PAG_MASTER.md
+MSys_TB0402Qry01_02_VISUAL_PAG_MASTER_Insert_TMP.md
+               3 File          4.028 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\OBJECT\ANALISI_PROJECT_TB05
+
+[.]                       [..]                      [QUERY]
+README_PROGETTO_TB05.MD   
+               1 File            165 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\OBJECT\ANALISI_PROJECT_TB05\QUERY
+
+[.]
+[..]
+MSys_TB0501Qry01_01_GE_TabContr_SEMPLICE.MD
+MSys_TB0501Qry01_01_GE_TabContr_SEMPLICE_Insert_toTMP.MD
+MSys_TB0501Qry01_01_GE_TabContr_SEMPLICE_TMP_Delete.MD
+MSys_TB0502Qry01_01_VISUAL_PAG_SEMPLICE.MD
+MSys_TB0502Qry01_02_VISUAL_PAG_SEMPLICE_Delete_TMP.MD
+MSys_TB0502Qry01_02_VISUAL_PAG_SEMPLICE_Insert_TMP.MD
+               6 File          6.666 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\OBJECT\ANALISI_PROJECT_UTILITA
+
+[.]              [..]             [UTILITA_QUERY]  MSYS_README.MD
+               1 File         10.297 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\OBJECT\ANALISI_PROJECT_UTILITA\UTILITA_QUERY
+
+[.]
+[..]
+UTILITA_Msys_Qry21_01_GRUPPO_OGGETTI_CORRENTI.md
+UTILITA_Msys_Qry21_02_Oggetti_Tutti.md
+UTILITA_Msys_Qry21_03_Oggetti_Form.md
+UTILITA_Msys_Qry21_04_Oggetti_Macro.md
+UTILITA_Msys_Qry21_05_Oggetti_Report.md
+UTILITA_Msys_Qry21_06_Oggetti_Moduli.md
+UTILITA_Msys_Qry21_07_Oggetti_TABELLE.md
+UTILITA_Msys_Qry21_08_Oggetti_QUERY.md
+               8 File          4.259 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\OBJECT\EXE
+
+[.]                   [..]                  libre_office_wr.exe
+               1 File        277.504 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\OBJECT\HELP
+
+[.]
+[..]
+[HELP_FORM]
+[HELP_HTML]
+[HELP_PDF]
+[HELP_TABLE]
+APRI_HELP_ANALISI_MSYS_{Word365}.bat
+APRI_HELP_SottoFormMaster_{LibreOfficeWriter}.bat
+HELP_ANALISI_ESPORTA_MSYS.odt
+HELP_ANALISI_MSYS.docx
+HELP_ANALISI_MSYS.odt
+HELP_SottoFormMaster.doc
+HELP_SottoFormMaster.odt
+               7 File      1.359.115 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\OBJECT\HELP\HELP_FORM
+
+[.]
+[..]
+~$LP_ANALISI_MSYS.docx
+HELP_ANALISI_ESPORTA_MSYS.odt
+HELP_ANALISI_MSYS.doc
+HELP_ANALISI_MSYS.docx
+HELP_ANALISI_MSYS.odt
+HELP_Msys_DF02_Frm01_01_TIPO_OGGETTI.pdf
+HELP_Msys_DF11_PROGETTI_Frm00_M01_GESTIONE.pdf
+HELP_Msys_DF11_PROGETTI_Frm00_M01_GESTIONE_{Apri}.bat
+HELP_Msys_DF11_PROGETTI_Frm02_S01_TIPO_OGGETTI.pdf
+HELP_MSys_TUTTI_TB01_FORM_MASTER_GE_PAGINE.pdf
+HELP_MSys_TUTTI_TB01Frm01_02_FORM_MASTER_VISUAL_PAGINE.pdf
+HELP_SottoFormMaster.odt
+MSys_DF02_TIPO_OGGETTO.pdf
+Msys_DF11_PROGETTI.pdf
+MSys_TUTTI_PROG.pdf
+PROGETTI_Msys_TB01_PROJECT.pdf
+              16 File     13.920.184 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\OBJECT\HELP\HELP_HTML
+
+[.]
+[..]
+documentazione_Form_UTILITA_Msys_Frm21_IMPORTA_OGGETTI.html
+               1 File        327.202 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\OBJECT\HELP\HELP_PDF
+
+[.]                      [..]                     HELP_powershell-it.pdf
+               1 File      2.017.682 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\OBJECT\HELP\HELP_TABLE
+
+[.]
+[..]
+Cmd_PG_01_IMPORTA_TABLE_CancellaDati_HELP.pdf
+HELP_Cmd_Delete_FORM.pdf
+HELP_Cmd_Delete_MACRO.pdf
+HELP_Cmd_Delete_MODULI.pdf
+HELP_Cmd_Importa_FORM.pdf
+HELP_Cmd_Importa_MODULI.pdf
+Help_DELETE_QUERY.pdf
+Help_DELETE_REPORT.pdf
+Help_DELETE_TABLE.pdf
+Help_IMPORTA_QUERY.pdf
+Help_IMPORTA_REPORT.pdf
+Help_Importa_TABLE.pdf
+HELP_Msys_DF11_PROGETTI_Frm00_M01_GESTIONE.pdf
+              13 File      4.361.695 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\OBJECT\LATEX
+
+[.]                    [..]                   MY_TUTORIAL_LATEX.MD
+               1 File          2.663 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\OBJECT\MODULI
+
+[.]
+[..]
+ESPORTA_Mdl01_TUTTI_GLI_OGGETTI_IN_FILE_LOG.MD
+UTILITA_MsysDF14Mdl05_IMPORTAZIONE_SEMPLICE_DI_OGGETTI.md
+               2 File         45.282 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\OBJECT\PDF
+
+[.]                          [..]
+FILTRO_SQL.pdf               PROGETTO_Campo_Scelt_b.pdf
+               2 File        346.350 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\OBJECT\POWERSHELL
+
+[.]
+[..]
+CHIUDI_DIKE_ProcessiPadre+Figli.ps1
+CHIUDI_EDGE_ProcessiPadre+Figli.ps1
+CHIUDI_EDGE_ProcessiPadre+Figli_DOS.BAT
+POWERSHELL.MD
+               4 File          8.423 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\OBJECT\RUST
+
+[.]                              [..]
+[cmd_open_doc]                   Project_Rust.sublime-project
+Project_Rust.sublime-workspace   
+               2 File         14.609 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\OBJECT\RUST\cmd_open_doc
+
+[.]          [..]         [src]        .gitignore   Cargo.lock   Cargo.toml
+               3 File            419 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\OBJECT\RUST\cmd_open_doc\src
+
+[.]       [..]      main.rs   
+               1 File          3.612 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\OBJECT\STAR_UML
+
+[.]                [..]               [IMMAGINI]         [PDF]
+[PROJECT_STAR_UML] 
+               0 File              0 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\OBJECT\STAR_UML\IMMAGINI
+
+[.]                         [..]
+10_SOTTOFORM_PROGETTI.bmp   10_SOTTOFORM_PROGETTI.png
+Immagine.png                
+               3 File      3.397.087 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\OBJECT\STAR_UML\PDF
+
+[.]
+[..]
+Activiti_Diagram_(DIAGRAMMA_DI_ATTIVITA).pdf
+Class_Diagram_(DIAGRAMMA_DI_CLASSE).pdf
+Flowchart_Diagram_(DIAGRAMMA_DI_FLUSSO).pdf
+Information_Flow_Diagram_(DIAGRAMMA_DI_FLUSSO_DELLE_INFORMAZIONI).pdf
+MENU_INSERISCI_PROGETTI.pdf
+MetaClass_.pdf
+MODELLO_4_PG.pdf
+Profile Diagram_.pdf
+Sequence Diagram_(DIAGRAMMA_DI_SEQUENZE).pdf
+Statechart_Diagram_(DIAGRAMMA_DI_STATO).pdf
+              10 File      3.739.678 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\OBJECT\STAR_UML\PROJECT_STAR_UML
+
+[.]
+[..]
+[Diagramma_PROGETTI_Msys_TB01_PROJECT.io_files]
+[HTML]
+Diagramma senza titolo.drawio.xml
+Diagramma_PROGETTI_Msys_TB01_PROJECT.io.html
+Msys_DF11_PROGETTI_Frm00_M01_GESTIONE.mdj
+               3 File      1.431.685 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\OBJECT\STAR_UML\PROJECT_STAR_UML\Diagramma_PROGETTI_Msys_TB01_PROJECT.io_files
+
+[.]                             [..]
+api.js.download                 app.min.js.download
+asciimath.js.download           cb=gapi.loaded_0
+common.css                      core.js.download
+Dropbox-sdk.min.js.download     dropins.js.download
+extensions.min.js.download      grapheditor.css
+high-contrast.css               OneDrive.js.download
+PostConfig.js.download          PreConfig.js.download
+pusher.min.js.download          safe.js.download
+shapes-14-6-5.min.js.download   startup.js.download
+stencils.min.js.download        svg.js.download
+tex(1).js.download              tex.js.download
+              22 File     24.466.344 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\OBJECT\STAR_UML\PROJECT_STAR_UML\HTML
+
+[.]
+[..]
+[assets]
+[contents]
+[diagrams]
+Msys_DF11_PROGETTI_Frm00_M01_GESTIONE.html
+               1 File            795 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\OBJECT\STAR_UML\PROJECT_STAR_UML\HTML\assets
+
+[.]         [..]        [css]       [icon-font] [img]       [js]
+               0 File              0 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\OBJECT\STAR_UML\PROJECT_STAR_UML\HTML\assets\css
+
+[.]                 [..]                bootstrap.css       jquery.bonsai.css
+main.css            
+               3 File            578 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\OBJECT\STAR_UML\PROJECT_STAR_UML\HTML\assets\icon-font
+
+[.]          [..]         icons.css    icons.eot    icons.html   icons.ttf
+icons.woff   
+               5 File              0 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\OBJECT\STAR_UML\PROJECT_STAR_UML\HTML\assets\img
+
+[.]                              [..]
+glyphicons-halflings.png         glyphicons-halflings-white.png
+               2 File              0 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\OBJECT\STAR_UML\PROJECT_STAR_UML\HTML\assets\js
+
+[.]                   [..]                  bootstrap.js
+jquery.bonsai.js      jquery-2.1.0.min.js   less-1.7.0.min.js
+               4 File              0 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\OBJECT\STAR_UML\PROJECT_STAR_UML\HTML\contents
+
+[.]                                     [..]
+02456ffa0a081ecf99a114d652e0c2e2.html   1b2576ee7efda713ba8664190165efbc.html
+4f86cda92cd1d66b45f69c10424dff39.html   6f4da6a2432c2ce686d9b681633fa014.html
+ab0befd299ad8a56c347fc8deb09079b.html   cf9c8b720f3815adeccaf3ef6e48c6c4.html
+diagrams.html                           e05122f136791f28f4eb59b8338c7be4.html
+element_index.html                      fcde2b8c083dd39da5abb5342836321e.html
+navigation.html                         
+              11 File         41.044 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\OBJECT\STAR_UML\PROJECT_STAR_UML\HTML\diagrams
+
+[.]                                    [..]
+6f4da6a2432c2ce686d9b681633fa014.svg   
+               1 File              0 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\OBJECT\TUTORIAL
+
+[.]
+[..]
+APRI_GIORNALE_OPERAZIONI_PROGETTO_MSYS.bat
+APRI_GIORNALE_OPERAZIONI_PROGETTO_MSYS_{Word2000}.bat
+APRI_MSYS.bat
+GIORNALE_OPERAZIONI_PROGETTO_MSYS.doc
+               4 File        319.590 byte
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\XLS
+
+[.]                                  [..]
+COLL_MSysTb06_IMPORTA_PROGETTO.XLS   
+               1 File         26.624 byte
+
+     Totale file elencati:
+             534 File    902.379.151 byte
+             605 Directory  436.439.384.064 byte disponibili

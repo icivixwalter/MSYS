@@ -1,3 +1,38 @@
+# SCHEMA CARTELLE
+    Note
+         schema delle cartelle e dei file sul percorso del progetto:
+               c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\
+    MSYS/
+      │
+      ├─GIT_BAT/
+      ├─MDB/
+      ├─OBJECT/
+      ├─XLS/
+      ├─.gitignore
+      ├─A.TXT
+      ├─AA________________________________________________________________________AA.txt
+      ├─ATTIVA_SALVATAGGI_COLLETTIVI_MSYS_OGGETTI+MENU+IMPEGNI.BAT
+      ├─CANCELLA_{MDB+OBJECT+PROJECT}.BAT
+      ├─git_OPEN_OVERLEAF.BAT
+      ├─git_OpenGitHub.bat
+      ├─git_PULL.BAT
+      ├─git_STATUS.BAT
+      ├─git_STATUS+PULL+ADD+COMMIT+PUSH.BAT
+      ├─MSYS_N02________________________________________________________________MSYS.txt
+      ├─Project_MSYS.sublime-project
+      ├─Project_MSYS.sublime-workspace
+      ├─README.md
+      ├─ZIP_7ZIP_________________________________________________________________ZZ.txt
+      ├─ZIP_7ZIP_INCREMENTALE_{CRIPTA+DECODIFICA_INTERNO}_CASA_C.BAT
+      ├─ZIP_7ZIP_INCREMENTALE_{CRIPTA+DECODIFICA_INTERNO}_SAN_GIORGIO_C.BAT
+      ├─ZIP_7ZIP_INCREMENTALE_{CRIPTA+DECODIFICA_INTERNO}_UFFICIO_C.BAT
+      ├─Zip_N70_CRIPTA.bat
+      ├─Zip_N70_DECODIFICA.bat
+      ├─Zip_N70_ElencoFile.txt
+      ├─Zip_N70_ElencoFileESCLUSI.txt
+      └─ZZ________________________________________________________________________ZZ.txt
+   
+
 # MSYS_OGGETTI _(ANALISI PRINCIPALE)
 
 
