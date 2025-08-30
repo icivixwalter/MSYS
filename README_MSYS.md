@@ -9,7 +9,7 @@
       ├─OBJECT/
       ├─XLS/
       ├─.gitignore
-      ├─A.TXT
+      |
       ├─AA________________________________________________________________________AA.txt
       ├─ATTIVA_SALVATAGGI_COLLETTIVI_MSYS_OGGETTI+MENU+IMPEGNI.BAT
       ├─CANCELLA_{MDB+OBJECT+PROJECT}.BAT
@@ -31,7 +31,39 @@
       ├─Zip_N70_ElencoFile.txt
       ├─Zip_N70_ElencoFileESCLUSI.txt
       └─ZZ________________________________________________________________________ZZ.txt
-   
+# RICOSTRUIRE LA REPOSITORY LOCALE ALLINEATA ALLA REMOTA
+   Note
+      devi svuotare completamente la cartella MSYS anche con i dati della
+      repository locale .git ed applicare i seguenti comandi in seguenza.
+      Nota bene è valita solo per la repository REMOTA MSYS.git
+
+   RICOSTRUIRE LA REPOSITORY LOCALE DI GIT 
+         per la repository REMOTA:  https://github.com/icivixwalter/MSYS.git
+         
+         Tutti i passaggi per ricostruire la repository locale allineata con quella remota :
+         
+        01) git init → creata la repository locale vuota.
+        02) git remote add origin ... → collegato il repository remoto.
+        03) git remote -v → confermato che il remote è registrato correttamente.
+        04) git fetch origin → scaricati tutti i branch e commit remoti senza modificare il tuo branch locale.
+        05) git checkout -b calcolo origin/calcolo → creato il branch locale calcolo e impostato il tracking con il remoto.
+        06) git pull → niente da aggiornare perché ora il tuo branch locale è già allineato con origin/calcolo.
+      
+      Ora la tua repository locale è perfettamente sincronizzata con il remoto e pronta per lavorare.
+         
+         TUTTI I COMANDI DA ESEGUIRE:
+         
+         
+            cd c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS
+            git init
+            git remote add origin https://github.com/icivixwalter/MSYS.git
+            git remote -v
+            git fetch origin
+            git checkout -b calcolo origin/calcolo
+            git pull
+
+
+
 
 # MSYS_OGGETTI _(ANALISI PRINCIPALE)
 
