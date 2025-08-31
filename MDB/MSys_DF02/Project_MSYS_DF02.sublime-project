@@ -1,0 +1,17 @@
+//visualizzo due DIRECTORY PRINCIPALI
+{
+    "folders":
+    [
+        {
+            "path": "c:\\CASA\\LINGUAGGI\\ACCESS\\PROGETTI_MDB\\MSYS_OGGETTI\\MSYS\\MDB\\MSys_DF02\\."
+        },
+        {
+            "path": "c:/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/MDB/MSYS_ATTIVA_GEST_OGGETTI/."
+        }
+    ],
+    "settings":
+    {
+        "show_folder_icons": true,
+        "save_on_focus_lost": true
+    }
+}

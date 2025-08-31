@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Modulo: COPIA_Mdl01_OGGETTI_MODULI_to_Db_ESTERNO</title>
+  <style>
+    body { font-family: Consolas, monospace; background:#f0f0f0; padding:20px; }
+    h1 { color:#333; }
+    pre { background:#222; color:#eee; padding:15px; border-radius:5px; white-space: pre-wrap; }
+  </style>
+</head>
+<body>
+  <h1>Modulo: COPIA_Mdl01_OGGETTI_MODULI_to_Db_ESTERNO</h1>
+  <pre> '//***************************************************************************************************************//
+'//*'
+'//*'   MODULO      :   COPIA_Mdl01_OGGETTI_MODULI_to_Db_ESTERNO
+'//*'   DEFINIZIONE :   MODULO PER L'ESPORTAZIONE DEGLI OGGETTI DEPUTATI ALLA IMPORTAZIONE DEI DATI, QUERY, FORM ECC.
+'//*'   Note        :   Viene esportato i seguenti oggetti per il funzinamento del modulo per l'importazine semplice
+'//*'                   Gli oggetti esportati sono :
+'//*'                       ' -- Le Macro --
+'//*'                         "UTILITA_MsysDF14Mcr05_ATTIVA_CancellaModuli"
+'//*'                         "UTILITA_MsysDF14Mcr05_ATTIVA_CancellaTabelle"
+'//*'                         "UTILITA_MsysDF14Mcr05_ATTIVA_ImportaModuli"
+'//*'                         "UTILITA_MsysDF14Mcr05_ATTIVA_ImportaTabelle"
+'//*'                       ' -- I moduli --
+'//*'                         "UTILITA_MsysDF14Mdl05_}----------------------------------------@"
+'//*'                         "UTILITA_MsysDF14Mdl05_IMPORTAZIONE_SEMPLICE_DI_OGGETTI"
+
+'//*'
+'//*'
+'//*'   codice      : @esporta@oggetti@in@db@esterno_(Modulo per l'esportazione degli oggetti nel database esterno?
+'//*'
+'//*'
+'//*'
+'//*' FAQ: DOVE SI TROVA : il modulo ORIGINALE si trova in questa path e db
+'//*'                      è possibile cambiare la path e db esterno:
+'//*'                      START "APRI PATH" "c:\Casa\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_MODULI\MDB\"
+'//*'                      START "APRI DB MODULI" "c:\Casa\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_MODULI\MDB\MSys_MODULI.mdb"
+'//*'
+'//*'                      @COME@ESPORTARE@OGGETTI_(gli oggetti devono essere esportati in un altro db esterno)
+'//*'                                              (utilizza la procedtura di IMPORTAZIONE SEMPLICE, questo modulo)
+'//*'                                              (serve  per esportare gli oggetti necessari per il suo funzionamento)
+'//*'
+'//*'
+'//*'
+'//*'
+'//*'
+'//*'
+'//*'
+'//*'
+'//*'
+'//*'
+'//*'
+'//***************************************************************************************************************//
+
+
+Option Compare Database
+Option Explicit
+
+Public Function ATTIVA_EsportaOggettiGenericiInDBEsterno()
+    MsgBox "ATTIVATO LA FUNZIONE COPIA OGGETTI NEL PROGETTO.MDB", vbInformation, "ATTIVO COPIA OGGETTI NEL FILE ESTERNO"
+        
+    Call EsportaOggettiGenericiInDBEsterno
+End Function
+
+'//ESPORTA OGGETTI NEL DATABASE ESTERNO
+'//------------------------------------------------------------------------------------------//
+'//Note: per ora questa procedura esporta solo con dati fissi nel futuro puo essere implementata
+'//      per l'esportazione dei dati presalvati in una tabella.
+' === Funzione per ottenere la lista degli oggetti da trattare ===
+
+' ====================================================================================
+' FUNZIONE: GetOggettiPerTrattamento
+' Ritorna una Collection, ogni elemento è un Array( TipoOggetto, NomeOrigine, NomeDestinazione )
+' ====================================================================================
+Private Function GetOggettiPerTrattamento() As Collection
+    On Error GoTo ErrHandler
+
+    Dim col As New Collection
+    Dim TipoOggetto_s As String
+    Dim NomeIniziale_s As String
+    Dim NomeFinale_s As String
+    
+    
+    '//ATTENZIONE NON CI DEVONO ESSERE ARRAY NULLI ALTRIMENTI DA ERRORE
+    '//------------------------------------------------------------------------------------------//
+            
+            ' === MACRO ===
+            TipoOggetto_s = "Macro"
+            
+            NomeIniziale_s = "SALVA_Mcr01_}--------------------------------------------------@"
+            NomeFinale_s = "SALVA_Mcr01_}--------------------------------------------------@"
+            col.Add Array(TipoOggetto_s, NomeIniziale_s, NomeFinale_s)
+        
+            NomeIniziale_s = "SALVA_Mcr01_TUTTI_GLI_OGGETTI_IN_HTML"
+            NomeFinale_s = "SALVA_Mcr01_TUTTI_GLI_OGGETTI_IN_HTML"
+            col.Add Array(TipoOggetto_s, NomeIniziale_s, NomeFinale_s)
+        
+            
+        
+            ' === MODULI ===
+            TipoOggetto_s = "Module"
+        
+            NomeIniziale_s = "UTILITA_MsysDF14Mdl05_}----------------------------------------@"
+            NomeFinale_s = "UTILITA_MsysDF14Mdl05_}----------------------------------------@"
+            col.Add Array(TipoOggetto_s, NomeIniziale_s, NomeFinale_s)
+        
+            NomeIniziale_s = "UTILITA_MsysDF14Mdl05_IMPORTAZIONE_SEMPLICE_DI_OGGETTI"
+            NomeFinale_s = "UTILITA_MsysDF14Mdl05_IMPORTAZIONE_SEMPLICE_DI_OGGETTI"
+            col.Add Array(TipoOggetto_s, NomeIniziale_s, NomeFinale_s)
+        
+            TipoOggetto_s = "Module"
+            NomeIniziale_s = "ESPORTA_Mdl00_}------------------------------------------------@"
+            NomeFinale_s = "ESPORTA_Mdl00_}------------------------------------------------@"
+            col.Add Array(TipoOggetto_s, NomeIniziale_s, NomeFinale_s)
+        
+            NomeIniziale_s = "ESPORTA_Mdl01_TUTTI_GLI_OGGETTI_IN_FILE_HTML"
+            NomeFinale_s = "ESPORTA_Mdl01_TUTTI_GLI_OGGETTI_IN_FILE_HTML"
+            col.Add Array(TipoOggetto_s, NomeIniziale_s, NomeFinale_s)
+        
+            ' === FORM PRINCIPALE ===
+            TipoOggetto_s = "Form"
+            NomeIniziale_s = "UTILITA_MsysDF14Frm00_}----------------------------------------@"
+            NomeFinale_s = "UTILITA_MsysDF14Frm00_}----------------------------------------@"
+            col.Add Array(TipoOggetto_s, NomeIniziale_s, NomeFinale_s)
+        
+            NomeIniziale_s = "UTILITA_MsysDF14Frm05_ATTIVA_FUNZIONI"
+            NomeFinale_s = "UTILITA_MsysDF14Frm05_ATTIVA_FUNZIONI"
+            col.Add Array(TipoOggetto_s, NomeIniziale_s, NomeFinale_s)
+        
+            ' Restituisco la collection
+            Set GetOggettiPerTrattamento = col
+            
+    '//------------------------------------------------------------------------------------------//
+            
+ Exit Function
+
+
+
+ErrHandler:
+    MsgBox "Errore in GetOggettiPerTrattamento:" & vbCrLf & _
+           "Numero: " & Err.Number & vbCrLf & _
+           "Descrizione: " & Err.Description, vbCritical
+End Function
+
+
+' ====================================================================================
+' SUB: EsportaOggettiGenericiInDBEsterno
+' Esporta gli oggetti definiti in GetOggettiPerTrattamento verso un database esterno
+' ====================================================================================
+Public Sub EsportaOggettiGenericiInDBEsterno()
+    On Error GoTo GestioneErrore
+
+    Dim percorsoDestinazione As String
+    percorsoDestinazione = "c:\Casa\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\TMP_IMPORTA_MODULI\MSYS_MODELLO.mdb"
+
+    ' Chiudo form se aperta
+    DoCmd.Close acForm, "UTILITA_MsysDF14Frm05_ATTIVA_FUNZIONI"
+
+    ' Ottengo lista oggetti
+    Dim oggettiToExport As Collection
+    Set oggettiToExport = GetOggettiPerTrattamento()
+
+    If oggettiToExport.count = 0 Then
+        MsgBox "Nessun oggetto da esportare.", vbInformation, "Esportazione"
+        Exit Sub
+    End If
+
+    Dim item As Variant
+    Dim tipoOggetto As AcObjectType
+    Dim msg As String
+    Dim countMacro As Long, countModuli As Long, countQuery As Long, countForm As Long, countReport As Long
+    Dim NomeOrigine As String, NomeDestinazione As String, NomeDuplicato As String
+
+    ' DEBUG: mostra lista prima di procedere
+    Debug.Print "=== LISTA OGGETTI DA ESPORTARE ==="
+    For Each item In oggettiToExport
+        If IsArray(item) Then
+            Debug.Print "Tipo:", item(0), "Orig:", item(1), "Dest:", item(2)
+        Else
+            Debug.Print "Elemento NON array:", TypeName(item)
+        End If
+    Next
+
+    ' Ciclo di esportazione
+    For Each item In oggettiToExport
+
+        ' Sicurezza: l'elemento deve essere un array di almeno 3 elementi
+        If Not IsArray(item) Then GoTo ProssimoItem
+        If UBound(item) &lt; 2 Then GoTo ProssimoItem
+
+        ' Controllo campi obbligatori
+        If Trim(Nz(item(0), "")) = "" Then GoTo ProssimoItem
+        If Trim(Nz(item(1), "")) = "" Then GoTo ProssimoItem
+        If Trim(Nz(item(2), "")) = "" Then GoTo ProssimoItem
+
+        ' Tipo oggetto
+        Select Case UCase(item(0))
+            Case "MACRO":  tipoOggetto = acMacro:  countMacro = countMacro + 1
+            Case "MODULE": tipoOggetto = acModule: countModuli = countModuli + 1
+            Case "QUERY":  tipoOggetto = acQuery:  countQuery = countQuery + 1
+            Case "FORM":   tipoOggetto = acForm:   countForm = countForm + 1
+            Case "REPORT": tipoOggetto = acReport: countReport = countReport + 1
+            Case Else
+                MsgBox "Tipo oggetto non supportato: " & item(0), vbExclamation
+                GoTo ProssimoItem
+        End Select
+
+        'controllo
+           Debug.Print "oggetto esportato" & item(1)
+           
+           
+           
+        ' Caso speciale: duplico la form principale
+        If item(1) = "UTILITA_MsysDF14Frm05_ATTIVA_FUNZIONI" Then
+            NomeOrigine = item(1)
+            NomeDuplicato = item(1) & "_duplicato"
+            DoCmd.CopyObject , NomeDuplicato, acForm, NomeOrigine
+            DoCmd.CopyObject percorsoDestinazione, NomeDuplicato, tipoOggetto, NomeDuplicato
+        Else
+            ' Copia normale
+            DoCmd.CopyObject percorsoDestinazione, item(2), tipoOggetto, item(1)
+        End If
+
+ProssimoItem:
+    Next item
+
+    ' Riepilogo
+    msg = "Esportazione completata." & vbCrLf & vbCrLf & _
+          "Database di destinazione:" & vbCrLf & percorsoDestinazione & vbCrLf & vbCrLf & _
+          "Oggetti esportati:" & vbCrLf & _
+          "- Macro: " & countMacro & vbCrLf & _
+          "- Moduli: " & countModuli & vbCrLf & _
+          "- Query: " & countQuery & vbCrLf & _
+          "- Form: " & countForm & vbCrLf & _
+          "- Report: " & countReport & vbCrLf
+
+    MsgBox msg, vbInformation, "Esportazione Oggetti Access"
+    Exit Sub
+
+GestioneErrore:
+    MsgBox "Errore " & Err.Number & ": " & Err.Description, vbCritical, "Errore durante l'esportazione"
+End Sub
+
+
+' ====================================================================================
+' Funzione wrapper per cancellazione
+' ====================================================================================
+Public Function ATTIVA_CANCELLAOggettiGenericiInDBEsterno()
+    MsgBox "ATTIVATA FUNZIONE CANCELLA OGGETTI NEL PROGETTO.MDB", vbInformation
+    Call CancellaOggettiGenericiInDBEsterno
+End Function
+
+
+' ====================================================================================
+' SUB: CancellaOggettiGenericiInDBEsterno
+' Cancella dal DB esterno gli oggetti elencati in GetOggettiPerTrattamento
+' ====================================================================================
+Public Sub CancellaOggettiGenericiInDBEsterno()
+    On Error GoTo GestioneErrore
+
+    Dim percorsoDestinazione As String
+    percorsoDestinazione = "c:\Casa\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\TMP_IMPORTA_MODULI\MSYS_MODELLO.mdb"
+
+    DoCmd.Close acForm, "UTILITA_MsysDF14Frm05_ATTIVA_FUNZIONI"
+
+    Dim oggettiToDelete As Collection
+    Set oggettiToDelete = GetOggettiPerTrattamento()
+
+    If oggettiToDelete.count = 0 Then
+        MsgBox "Nessun oggetto da cancellare.", vbInformation, "Cancellazione"
+        Exit Sub
+    End If
+
+    Dim accApp As Object
+    Set accApp = CreateObject("Access.Application")
+    accApp.OpenCurrentDatabase percorsoDestinazione
+
+    Dim item As Variant
+    Dim tipoOggetto As AcObjectType
+    Dim msg As String
+    Dim countMacro As Long, countModuli As Long, countQuery As Long, countForm As Long, countReport As Long
+
+    ' DEBUG lista oggetti da cancellare
+    Debug.Print "=== LISTA OGGETTI DA CANCELLARE ==="
+    For Each item In oggettiToDelete
+        If IsArray(item) Then
+            Debug.Print "Tipo:", item(0), "Dest:", item(2)
+        End If
+    Next
+
+    ' Cancellazione
+    For Each item In oggettiToDelete
+        If Not IsArray(item) Then GoTo ProssimoItem
+        If UBound(item) &lt; 2 Then GoTo ProssimoItem
+
+        If Trim(Nz(item(0), "")) = "" Then GoTo ProssimoItem
+        If Trim(Nz(item(2), "")) = "" Then GoTo ProssimoItem
+
+        Select Case UCase(item(0))
+            Case "MACRO":  tipoOggetto = acMacro:  countMacro = countMacro + 1
+            Case "MODULE": tipoOggetto = acModule: countModuli = countModuli + 1
+            Case "QUERY":  tipoOggetto = acQuery:  countQuery = countQuery + 1
+            Case "FORM":   tipoOggetto = acForm:   countForm = countForm + 1
+            Case "REPORT": tipoOggetto = acReport: countReport = countReport + 1
+            Case Else
+                GoTo ProssimoItem
+        End Select
+
+        accApp.DoCmd.DeleteObject tipoOggetto, item(2)
+
+ProssimoItem:
+    Next item
+
+    accApp.CloseCurrentDatabase
+    accApp.Quit
+    Set accApp = Nothing
+
+    msg = "Cancellazione completata." & vbCrLf & vbCrLf & _
+          "Database di destinazione:" & vbCrLf & percorsoDestinazione & vbCrLf & vbCrLf & _
+          "Oggetti cancellati:" & vbCrLf & _
+          "- Macro: " & countMacro & vbCrLf & _
+          "- Moduli: " & countModuli & vbCrLf & _
+          "- Query: " & countQuery & vbCrLf & _
+          "- Form: " & countForm & vbCrLf & _
+          "- Report: " & countReport
+
+    MsgBox msg, vbInformation, "Cancellazione Oggetti Access"
+    Exit Sub
+
+GestioneErrore:
+    MsgBox "Errore " & Err.Number & ": " & Err.Description, vbCritical, "Errore durante la cancellazione"
+End Sub
+
+'//------------------------------------------------------------------------------------------//
+
+</pre>
+</body>
+</html>

@@ -1,0 +1,2284 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Modulo: UTIL_MDL40_N08_RICERCA_TUTTI_GLI_OGGETTI_NEL_DB</title>
+  <style>
+    body { font-family: Consolas, monospace; background:#f0f0f0; padding:20px; }
+    h1 { color:#333; }
+    pre { background:#222; color:#eee; padding:15px; border-radius:5px; white-space: pre-wrap; }
+  </style>
+</head>
+<body>
+  <h1>Modulo: UTIL_MDL40_N08_RICERCA_TUTTI_GLI_OGGETTI_NEL_DB</h1>
+  <pre>'//@MODULO.UTIL_MDL40_N05_CONTROLLO_OGGETTI_DB_TABLES _
+    @controllo.oggetti.table
+
+'//CODICI ANSI: _
+        .................................................................................... _
+            TODO: inserire altri codici _
+            & Chr$(13) & = INTERLINEA singola per avere una doppia interlinea ripere il comando. _
+            & Chr$(34) & = CARATTERE ANSI della virgoletta singola (') o apostrofo _
+            DONE: inseriti questi codici _
+        .................................................................................... _
+
+
+'//&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;//
+'//                                 Variabili di database
+'//&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;//
+
+'//LE OPZIONI
+Option Compare Database
+
+
+
+'DAO
+Dim DaoDB As DAO.Database
+Dim DaoWks As DAO.Workspace
+Dim DaoRs As DAO.Recordset
+
+'ADO
+Dim ADODB As Database
+Dim AdodaoRs As Recordset
+
+
+'record di lettura
+Dim DaoRs_Lett As DAO.Recordset
+Dim Lng_id_Lett As Long
+
+'record da cancellare
+Dim DaoRs_Canc As DAO.Recordset
+
+'record oggetti
+Dim DaoRs_Oggetti As DAO.Recordset
+Dim vV1_Oggetti As Variant
+
+'Contatori
+Dim iCount As Integer
+Dim dbl_count As Double
+
+'Le variabili generiche
+Dim sSql As String                                          '//Stringa di estrazione SQL
+
+'Variabili generali
+Dim Str1 As String
+Dim Int1 As Integer
+Dim Lng1 As Long
+Dim Dbl1 As Double
+Dim Bln1 As Boolean
+Dim Vv1 As Variant
+Dim obj1 As Object
+Dim Bool1 As Boolean
+
+
+
+'Variabili dei parametri
+'&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;:&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;
+Dim lngID As Long
+Dim lngID_OLD As Long
+Dim lngNRO_RUOTE As Long
+Dim sxRUOTA As String
+Dim sxRUOTA_OLD As String
+
+
+'Gestione parametri dei comandi
+Dim sxParamCmd_3 As String
+
+
+
+
+'Larghezza e numero di colonna
+'&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;:&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;
+Dim sLarg_Col As String
+Dim iNum_Col As Integer
+
+
+'Variabili DELLA FORM
+'&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;:&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;
+
+Dim sxFrm_CHIAMANTE_GENERALE As String                  '... Form CHIAMANTE generale
+Dim sxFrm_CHIAMANTE_GENERALE_CORRENTE As String         '... Form CHIAMANTE generale OLD
+Dim sxFrm_CHIAMANTE_GENERALE_PRECEDENTE As String       '... Form CHIAMANTE precedente
+'
+
+'Variabili OGGETTI DB
+'&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;:&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;
+Dim sxNOMEOGGETTO As String
+Dim sxTIPOGGETTO As String
+Dim sxPROCEDURA_IN_ESECUZIONE As String
+
+
+
+'Le Variabili DEGLI OGGETTI DB DI SISTEMA
+'&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;:&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;
+
+
+                          
+
+'................................
+' DIM SCELTA DATABASE DA APRIRE
+Dim sx_Scelta_db As String
+Dim sx_Option_SEZ As Integer          'Numero Sezione di Progetto Scelta
+Dim sx_Name_Tab As String             'Nome Tabella da creare
+
+Dim Dbs As Database
+Dim Apridbs As Database
+Dim ApriRs As Recordset
+
+Dim intCiclo As Integer             'Intero per ciclo lettura oggetti
+
+'................................
+' DIM TABELLA DA ESPORTARE
+Dim ExportTable1 As String
+Dim ExportTable2 As String
+
+'................................
+' DIM CREAZIONE NUOVE TABELLE
+Dim TableDefNuovo    As TableDef
+Dim ApriTableDef    As TableDef
+Dim FieldNuovo  As Field
+Dim idxNuovo_Contatore_Univoco  As Index        ' Oggetto Index
+Dim idxNuovo_Testo_Univoco  As Index
+Dim ix_Indice1   As Integer                            ' per il passaggio dei parametri
+Dim prpPROPERTY1   As Property                  ' proprieta Description
+
+Dim sNomeField  As String
+
+'................................
+' DIM OGGETTO QUERY, FORM
+
+Dim sx_Name_Query As String
+
+Dim sx_Name_FORM  As String
+
+
+'................................
+' DIM LE OPZIONI
+Dim Opzione_1 As Integer
+Dim Opzione_2 As Integer
+Dim sTipo_Oggetto As String
+
+Dim ix_Operazione As Integer
+Dim bx_Flag_b As Boolean
+
+'// CONTROLLO OGGETTI, TABELLE, FORMS, QUERY, REPORTS ECC..
+'//************************************************************************************
+Dim obTipoDB As Object
+Dim Ctr_Label As Label
+Dim Ctr_TextBox As TextBox
+Dim ctr As Controls
+
+'// Le forms
+Dim objx_Forms As AllForms
+Dim objx_Form As Form
+Dim ix_Count_Control As Integer
+
+
+'................................
+' DIM OGGETTI E PARAMETRI
+
+
+'//**** FINE ***
+'//&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;//
+'//                                 Variabili di database
+'//&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;//
+
+
+
+
+
+Private Sub CHIAMA_pfRICERCA_NEL_DB_OGGETTI_Table()
+
+
+'//CHIAMO LA FUNZIONE CONTROLLO OGETTI TABLE
+'//CODICE----------&gt; pfRICERCA_NEL_DB_OGGETTI_Table.Funzione.Call
+'//--------------------------------------------------------------------------------//----------//
+'// i parametri ricevuti sono   : par_Scelta_db_s             = path db che puo essere database corrente o esterno
+'//                             : par_sx_Name_Table         = Nome della Tabella
+'//                             : par_sx_Proprieta_Table    = La proprieta della tabella
+'//                             : par_ix_Operazione         = Tipo di operazione da eseguire (1=inserire tabella; 2=cancellare tabella)???
+'//                             : par_bx_Flag_b             = Segnala se l'operazione è stata effettuata ??? sviluppare
+'//
+'// PARAMETRI RESTITUITI        :Boolean                    = True per tabella Trovata, FALSE per una tabella non trovata.
+    
+'//LE VARIABILE PER IL CONTROLLO OGGETTI
+Dim sx_Scelta_db As String
+Dim sx_Name_Table As String
+Dim sx_Proprieta_Table As String
+Dim ix_Operazione As Integer
+Dim ix_Indice1 As Integer
+Dim bx_Flag_b As Boolean
+    
+    
+'//IMPOSTO LE VARIABILI
+sx_Scelta_db = "c:\Casa\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MDB\PROVA_CANCELLAZIONE_DB_ESTERNO\MENU_TB03_OGGETTI_DA_CANCELLARE.mdb"
+sx_Name_Table = "GEST_MENU_TB03_OBJECT"       '//RICERCO QUESTA TABELLA
+sx_Proprieta_Table = "Proprieta"
+ix_Operazione = 0
+ix_Indice1 = 0
+bx_Flag_b = False
+
+    
+    '//MESSAGGIO FINALE DELLA RICERCA POSITIVA O NEGATIVA
+    Bool1 = pfRICERCA_NEL_DB_OGGETTI_Table(sx_Scelta_db, sx_Name_Table, sx_Proprieta_Table, ix_Operazione, ix_Indice1, bx_Flag_b)
+    
+    If Bool1 = False Then
+        MsgBox "L'oggetto Tabella: " & Str1 & " .. NON TROVATA ????", vbExclamation, "FUNZIONE DI RICERCA TABELLE"
+    
+    Else
+        MsgBox "L'oggetto Tabella: " & Str1 & " E' STATA TROVATA!", vbExclamation, "FUNZIONE DI RICERCA TABELLE"
+    End If
+    
+    
+'//--------------------------------------------------------------------------------//----------//
+
+
+End Sub
+
+
+'//##########################################################################################################################################//
+'//
+'//                     PROCEDURE DI CONTROLLO OGGETTI TABLE NEL DATABASE CORRENTE O ESTERNO
+'//
+'//##########################################################################################################################################//
+'//
+'//NOTE                     : Procedura a funzione che controlla l'esistenza dell'oggetto tabella nel database esterno o interno.
+'//MODULO DI CREAZIONE  --&gt; UTIL_MDL40_N05_CONTROLLO_OGGETTI_DB_TABLES
+'//DATABASE             --&gt; GE_OGGETTI_DB_MDB.mdb
+'//DOVE SI TROVA        --&gt; c:\CASA\LINGUAGGI\ACCESS\ACCESS_PROGETTI_MDB\ACCESS_GESTIONE_OGGETTI_DB_MDB\GESTIONE_OGGETTI\GESTIONE_OGGETTI_MDB\
+'//
+'//LE FUNZIONI E ROUTINE :
+'//                         01)_FUNZIONE_CONTROLLO_OGGETTI_TABELLA = permette il controllo dell'esistenza della tabella oggetto all'interno del db corrente _
+                                                                    oppure in un database esterno. _
+                                                                    CODICE----------&gt; pfRICERCA_NEL_DB_OGGETTI_Table.Funzione
+                                                            
+ 
+'//                         02)...
+'//
+'//
+'//##########################################################################################################################################//
+
+'//CONTROLLO_ESISTENZA_OGGETTI_TABELLA
+'//****************************************************************************************************************************
+'//01)_FUNZIONE_CONTROLLO_OGGETTI_TABELLA = permette il controllo dell'esistenza della tabella oggetto all'interno del db corrente _
+                                                        oppure in un database esterno.
+'//CODICE----------&gt; pfRICERCA_NEL_DB_OGGETTI_Table.Funzione
+'//PARAMETRI: _
+        01) sx_Scelta_db    = parametro di SCELTA DATABASE DATABASE da aprire e rappresenta il database esterno o interno; _
+                       è esterno a condizione che ci sia una path estesa ed il mome di un db.mdb altrimenti in caso di parametro null _
+                       viene inteso come parametro interno. Es.: _
+                                sx_Scelta_db = null il database è quello corrente; _
+                                sx_Scelta_db = C:\MyDb.mdb il database è esterno.
+'//         02) par_sx_Name_Table =?
+'//         03) par_sx_Proprieta_Table =?
+'//         04) par_ix_Operazione =?
+'//         05) par_ix_Indice1 =?
+'//         06) par_bx_Flag_b =?
+                       
+            
+Public Function pfRICERCA_NEL_DB_OGGETTI_Table( _
+                                        par_sx_Scelta_db As String, _
+                                        par_sx_Name_Table As String, _
+                                        par_sx_Proprieta_Table As String, _
+                                        par_ix_Operazione As Integer, _
+                                        par_ix_Indice1 As Integer, _
+                                        par_bx_Flag_b As Boolean) As Boolean
+
+
+    
+    On Error GoTo Err_pfRICERCA_NEL_DB_OGGETTI_Table
+       
+            
+                
+                '//CHIAMA IL CONTROLL TABELLE
+                '//--------------------------------------------------------------------------------//----------//
+                '//CODICE----&gt; pfRICERCA_NEL_DB_OGGETTI_Table.CALL
+                
+                        '//LE VARIABILE PER IL CONTROLLO OGGETTI
+                        'Dim sx_Scelta_db As String
+                        'Dim sx_Name_Table As String
+                        'Dim sx_Proprieta_Table As String
+                        'Dim ix_Operazione As Integer
+                        'Dim ix_Indice1 As Integer
+                        'Dim bx_Flag_b As Boolean
+                        
+                        '//IMPOSTO LE VARIABILI
+                        'sx_Scelta_db = ""
+                        'sx_Name_Table = "GEST_MENU_TB01_VOCI"       '//RICERCO QUESTA TABELLA
+                        'sx_Proprieta_Table = "Proprieta"
+                        'ix_Operazione = 0
+                        'ix_Indice1 = 0
+                        'bx_Flag_b = False
+    
+    
+                
+                          '//ATTIVO LA FUNZIONE CON I PARAMETRI
+                          'Bool1 = pfRICERCA_NEL_DB_OGGETTI_Table(sx_Scelta_db, _
+                                                             sx_Name_Table, _
+                                                             sx_Proprieta_Table, _
+                                                             ix_Operazione, _
+                                                             ix_Indice1, _
+                                                             bx_Flag_b)
+            
+                '//CHIAMA IL CONTROLL TABELLE *** FINE ***
+                '//--------------------------------------------------------------------------------//----------//
+                        
+                        
+                
+                '//ITERAZIONE NEGLI OGGETTI TABLES
+                '//==============================================================================================================//
+                '//1.1    SET VARIABILI, OPEN DB, CONTROLLO OGGETTO NEL DB
+                 
+                        
+                        'SET VARIABILI:
+                        sx_Name_Tab = par_sx_Name_Table
+                        
+                        ix_Operazione = par_ix_Operazione
+                            'ix_Indice1= par_Index
+                        bx_Flag_b = par_bx_Flag_b
+                        sx_Name_Query = ""
+                        
+                        'OPEN DB: Apre il database scelto per la creazione o cancellazione a condizione _
+                        che esista una path ed il db altrimenti il databse da controllare è quello corrente.
+                        If par_sx_Scelta_db &gt; "" Then
+                            Set Dbs = OpenDatabase(par_sx_Scelta_db)
+                        Else
+                            Set Dbs = CurrentDb
+                        End If
+            
+                        
+                        
+                        '//CONTROLLO OGGETTO NEL DB: Controllo l'esistenza della tabella Nell'insieme Tabledefs
+                        '//CONTROLLO PARAMETRI
+                        '//-----------------------------------------------------------------------------//
+                                
+                            Debug.Print "........................................................"
+                            Debug.Print "controllo parametri passati alla routine SALVATAGGIO_OGGETTI_DB_PFunct"
+                            Debug.Print
+                            
+                                  Debug.Print "par_sx_Scelta_db ----&gt; " & par_sx_Scelta_db
+                                  Debug.Print "par_sx_Name_Table ---&gt; " & par_sx_Name_Table
+                                  Debug.Print "par_sx_Name_Query ---&gt; " & par_sx_Proprieta_Table
+                                  Debug.Print "par_sx_Name_FORM  ---&gt; " & par_ix_Operazione
+                                  Debug.Print "par_sx_Name_Report --&gt; " & par_sx_Name_Report
+                                  Debug.Print "par_sx_Name_MACRO ---&gt; " & par_ix_Indice1
+                                  Debug.Print "par_sx_Name_Modulo --&gt; " & par_bx_Flag_b
+                                  Debug.Print
+                                        
+                            Debug.Print "........................................................"
+                                        
+                        '//-----------------------------------------------------------------------------//
+                        
+                        
+                        '//DBS CICLO
+                        '//-----------------------------------------------------------------------------//
+                        
+                            With Dbs
+                                
+                                Debug.Print .TableDefs.count & _
+                                    " TableDefs in database  " & sx_Scelta_db
+                                For intCiclo = 0 To .TableDefs.count - 1
+                                    
+                                    '//BLOCCO ITERAZIONE _
+                                    Ricerca di una tabella di sistema o di una tabella _
+                                    inesistente con attivazione del blocco. Il nome della tabella _
+                                    deve essere attivato manualmente.
+                                    
+                                        If .TableDefs(intCiclo).Name = par_sx_Name_Table Then
+                                            MsgBox "BLOCCO ITERERAZIONE sulla tabella " & .TableDefs(intCiclo).Name, vbExclamation, "BLOCCO ITERAZIONE"
+                                            Stop
+                                            End If
+                                    
+                                    Debug.Print
+                                    Debug.Print "  " & .TableDefs(intCiclo).Name
+                                    
+                                    
+                                    '//TABELLA TROVATA
+                                    If .TableDefs(intCiclo).Name = par_sx_Name_Table Then
+                                        
+                                         'COMANDO RICERCA TABELLA
+                                        'DoCmd.SelectObject acTable, par_sx_Name_Table, True
+                          
+                                        Bln1 = True    ' bx_Flag_b True = trovato tabelle si può cancellare
+                                        pfRICERCA_NEL_DB_OGGETTI_Table = Bln1 'riassegno alla funzione il valore del bx_Flag_b
+                                        GoTo Exit_pfRICERCA_NEL_DB_OGGETTI_Table  'esci
+                                    Else
+                                        '//TABELLA NON TROVATA
+                                        Bln1 = False   ' bx_Flag_b False = non trovato TABELLA
+                                        pfRICERCA_NEL_DB_OGGETTI_Table = Bln1 'riassegno alla funzione il valore del bx_Flag_b
+                                    End If
+                                    
+                                Next intCiclo
+            
+                            End With
+                        '//-----------------------------------------------------------------------------//
+                           
+            '//ITERAZIONE NEGLI OGGETTI TABLES  *** FINE ****
+            '//==============================================================================================================//
+                
+            
+
+'//ERRORI ED USCITA FINE FUNCTIONE E GESTIONE ERRORI
+'//--------------------------------------------------------------------------------//------------------------------------------//
+Exit_pfRICERCA_NEL_DB_OGGETTI_Table:
+            Dbs.Close
+            Set Dbs = Nothing
+            
+            Exit Function
+            
+Err_pfRICERCA_NEL_DB_OGGETTI_Table:
+            MsgBox "ERRORE FUNCTION PUBLIC    " & Err.Number & " - " & Err.Description, vbCritical, "pfRICERCA_NEL_DB_OGGETTI_Table"
+            Resume Exit_pfRICERCA_NEL_DB_OGGETTI_Table
+            
+            
+End Function
+            
+'//*** FINE ***
+'//CONTROLLO_ESISTENZA_OGGETTI_TABELLA
+'//****************************************************************************************************************************
+
+
+
+
+'//CONTROLLO_ESISTENZA_OGGETTI_QUERY
+'//****************************************************************************************************************************
+'//01)_FUNZIONE_CONTROLLO_OGGETTI_QUERY = permette il controllo dell'esistenza della QUERY oggetto all'interno del db corrente _
+                                                        oppure in un database esterno.
+'//CODICE----------&gt; pfRICERCA_NEL_DB_OGGETTI_Query.Funzione
+'MODULO: UTIL_MDL40_N08_RICERCA_TUTTI_GLI_OGGETTI_NEL_DB _
+        @ricerca@oggetti_(usare il modulo per la ricerca di tutti gli oggetti)
+
+'//PARAMETRI: _
+        01) sx_Scelta_db    = parametro di SCELTA DATABASE DATABASE da aprire e rappresenta il database esterno o interno; _
+                       è esterno a condizione che ci sia una path estesa ed il mome di un db.mdb altrimenti in caso di parametro null _
+                       viene inteso come parametro interno. Es.: _
+                                sx_Scelta_db = null il database è quello corrente; _
+                                sx_Scelta_db = C:\MyDb.mdb il database è esterno.
+'//         02) par_sx_Name_Query =?
+'//         03) par_sx_Proprieta_Query =?
+'//         04) par_ix_Operazione =?
+'//         05) par_ix_Indice1 =?
+'//         06) par_bx_Flag_b =?
+                       
+            
+Public Function pfRICERCA_NEL_DB_OGGETTI_Query( _
+                                        par_sx_Scelta_db As String, _
+                                        par_sx_Name_Query As String, _
+                                        par_sx_Proprieta_Query As String, _
+                                        par_ix_Operazione As Integer, _
+                                        par_ix_Indice1 As Integer, _
+                                        par_bx_Flag_b As Boolean) As Boolean
+
+
+    
+    On Error GoTo Err_pfRICERCA_NEL_DB_OGGETTI_Query
+       
+            
+                
+                '//CHIAMA IL CONTROLLO QUERY
+                '//--------------------------------------------------------------------------------//----------//
+                '//CODICE----&gt; pfRICERCA_NEL_DB_OGGETTI_Query.CALL
+                
+                        '//LE VARIABILE PER IL CONTROLLO OGGETTI
+                        'Dim sx_Scelta_db As String
+                        'Dim sx_Name_Query As String
+                        'Dim sx_Proprieta_Query As String
+                        'Dim ix_Operazione As Integer
+                        'Dim ix_Indice1 As Integer
+                        'Dim bx_Flag_b As Boolean
+                        
+                        '//IMPOSTO LE VARIABILI
+                        'sx_Scelta_db = ""
+                        'sx_Name_Query = "GEST_MENU_TB01_VOCI"       '//RICERCO QUESTA QUERY
+                        'sx_Proprieta_Query = "Proprieta"
+                        'ix_Operazione = 0
+                        'ix_Indice1 = 0
+                        'bx_Flag_b = False
+    
+    
+                
+                          '//ATTIVO LA FUNZIONE CON I PARAMETRI
+                          'Bool1 = pfRICERCA_NEL_DB_OGGETTI_Query(sx_Scelta_db, _
+                                                             sx_Name_Query, _
+                                                             sx_Proprieta_Query, _
+                                                             ix_Operazione, _
+                                                             ix_Indice1, _
+                                                             bx_Flag_b)
+            
+                '//CHIAMA IL CONTROLLO QUERY *** FINE ***
+                '//--------------------------------------------------------------------------------//----------//
+                        
+                        
+                
+                '//ITERAZIONE NEGLI OGGETTI TABLES
+                '//==============================================================================================================//
+                '//1.1    SET VARIABILI, OPEN DB, CONTROLLO OGGETTO NEL DB
+                 
+                        
+                        'SET VARIABILI:
+                        sx_Name_Tab = par_sx_Name_Query
+                        
+                        ix_Operazione = par_ix_Operazione
+                            'ix_Indice1= par_Index
+                        bx_Flag_b = par_bx_Flag_b
+                        sx_Name_Query = ""
+                        
+                        'OPEN DB: Apre il database scelto per la creazione o cancellazione a condizione _
+                        che esista una path ed il db altrimenti il databse da controllare è quello corrente.
+                        If par_sx_Scelta_db &gt; "" Then
+                            Set Dbs = OpenDatabase(par_sx_Scelta_db)
+                        Else
+                            Set Dbs = CurrentDb
+                        End If
+            
+                        
+                        
+                        '//CONTROLLO OGGETTO NEL DB: Controllo l'esistenza della QUERY Nell'insieme Tabledefs
+                        '//CONTROLLO PARAMETRI
+                        '//-----------------------------------------------------------------------------//
+                                
+                            Debug.Print "........................................................"
+                            Debug.Print "controllo parametri passati alla routine SALVATAGGIO_OGGETTI_DB_PFunct"
+                            Debug.Print
+                            
+                                  Debug.Print "par_sx_Scelta_db ----&gt; " & par_sx_Scelta_db
+                                  Debug.Print "par_sx_Name_Query ---&gt; " & par_sx_Name_Query
+                                  Debug.Print "par_sx_Name_Query ---&gt; " & par_sx_Proprieta_Query
+                                  Debug.Print "par_sx_Name_FORM  ---&gt; " & par_ix_Operazione
+                                  Debug.Print "par_sx_Name_Report --&gt; " & par_sx_Name_Report
+                                  Debug.Print "par_sx_Name_MACRO ---&gt; " & par_ix_Indice1
+                                  Debug.Print "par_sx_Name_Modulo --&gt; " & par_bx_Flag_b
+                                  Debug.Print
+                                        
+                            Debug.Print "........................................................"
+                                        
+                        '//-----------------------------------------------------------------------------//
+                        
+                        
+                        '//DBS CICLO
+                        '//-----------------------------------------------------------------------------//
+                        
+                            With Dbs
+                                
+                                
+                                Debug.Print .QueryDefs.count & _
+                                    " TableDefs in database  " & sx_Scelta_db
+                                For intCiclo = 0 To .QueryDefs.count - 1
+                                    
+                                    '//BLOCCO ITERAZIONE _
+                                    Ricerca di una QUERY di sistema o di una QUERY _
+                                    inesistente con attivazione del blocco. Il nome della QUERY _
+                                    deve essere attivato manualmente.
+                                    
+                                        If .QueryDefs(intCiclo).Name = "MSysIMEXColumns" Then
+                                            MsgBox "BLOCCO ITERERAZIONE sulla QUERY " & .QueryDefs(intCiclo).Name, vbExclamation, "BLOCCO ITERAZIONE"
+                                            Stop
+                                            End If
+                                    
+                                    Debug.Print
+                                    Debug.Print "  " & .QueryDefs(intCiclo).Name
+                                    
+                                    
+                                    '//QUERY TROVATA
+                                    If .QueryDefs(intCiclo).Name = par_sx_Name_Query Then
+                                        
+                                         'COMANDO RICERCA QUERY
+                                        DoCmd.SelectObject acQuery, par_sx_Name_Query, True
+                                        
+                                        
+                                        
+                                        Bln1 = True    ' bx_Flag_b True = trovato tabelle si può cancellare
+                                        pfRICERCA_NEL_DB_OGGETTI_Query = Bln1 'riassegno alla funzione il valore del bx_Flag_b
+                                        GoTo Exit_pfRICERCA_NEL_DB_OGGETTI_Query  'esci
+                                    Else
+                                        '//QUERY NON TROVATA
+                                        Bln1 = False   ' bx_Flag_b False = non trovato QUERY
+                                        pfRICERCA_NEL_DB_OGGETTI_Query = Bln1 'riassegno alla funzione il valore del bx_Flag_b
+                                    End If
+                                    
+                                Next intCiclo
+            
+                            End With
+                        '//-----------------------------------------------------------------------------//
+                           
+            '//ITERAZIONE NEGLI OGGETTI TABLES  *** FINE ****
+            '//==============================================================================================================//
+                
+            
+
+'//ERRORI ED USCITA FINE FUNCTIONE E GESTIONE ERRORI
+'//--------------------------------------------------------------------------------//------------------------------------------//
+Exit_pfRICERCA_NEL_DB_OGGETTI_Query:
+            Dbs.Close
+            Set Dbs = Nothing
+            
+            Exit Function
+            
+Err_pfRICERCA_NEL_DB_OGGETTI_Query:
+            MsgBox "ERRORE FUNCTION PUBLIC    " & Err.Number & " - " & Err.Description, vbCritical, "pfRICERCA_NEL_DB_OGGETTI_Query"
+            Resume Exit_pfRICERCA_NEL_DB_OGGETTI_Query
+            
+            
+End Function
+            
+'//*** FINE ***
+'//CONTROLLO_ESISTENZA_OGGETTI_QUERY
+'//****************************************************************************************************************************
+    
+
+'//CONTROLLO_ESISTENZA_OGGETTI_REPORT @esistenza.report
+'//****************************************************************************************************************************
+'//01)_FUNZIONE_CONTROLLO_OGGETTI_REPORT = permette il controllo dell'esistenza della REPORT oggetto all'interno del db corrente _
+                                                        oppure in un database esterno.
+'//CODICE----------&gt; pfRICERCA_NEL_DB_OGGETTI_Report.Funzione
+'//PARAMETRI: _
+        01) sx_Scelta_db    = parametro di SCELTA DATABASE DATABASE da aprire e rappresenta il database esterno o interno; _
+                       è esterno a condizione che ci sia una path estesa ed il mome di un db.mdb altrimenti in caso di parametro null _
+                       viene inteso come parametro interno. Es.: _
+                                sx_Scelta_db = null il database è quello corrente; _
+                                sx_Scelta_db = C:\MyDb.mdb il database è esterno.
+'//         02) par_sx_Name_REPORT =?
+'//         03) par_sx_Proprieta_REPORT =?
+'//         04) par_ix_Operazione =?
+'//         05) par_ix_Indice1 =?
+'//         06) par_bx_Flag_b =?
+                       
+            
+Public Function pfRICERCA_NEL_DB_OGGETTI_Report( _
+                                        par_sx_Scelta_db As String, _
+                                        par_sx_Name_Report As String, _
+                                        par_sx_Proprieta_REPORT As String, _
+                                        par_ix_Operazione As Integer, _
+                                        par_ix_Indice1 As Integer, _
+                                        par_bx_Flag_b As Boolean) As Boolean
+
+
+    
+    On Error GoTo Err_pfRICERCA_NEL_DB_OGGETTI_Report
+       
+            
+                
+                '//CHIAMA IL CONTROLLO REPORT
+                '//--------------------------------------------------------------------------------//----------//
+                '//CODICE----&gt; pfRICERCA_NEL_DB_OGGETTI_Report.CALL
+                
+                        '//LE VARIABILE PER IL CONTROLLO OGGETTI
+                        'Dim sx_Scelta_db As String
+                        'Dim sx_Name_REPORT As String
+                        'Dim sx_Proprieta_REPORT As String
+                        'Dim ix_Operazione As Integer
+                        'Dim ix_Indice1 As Integer
+                        'Dim bx_Flag_b As Boolean
+                        
+                        '//IMPOSTO LE VARIABILI
+                        'sx_Scelta_db = ""
+                        'sx_Name_REPORT = "GEST_MENU_TB01_VOCI"       '//RICERCO QUESTA REPORT
+                        'sx_Proprieta_REPORT = "Proprieta"
+                        'ix_Operazione = 0
+                        'ix_Indice1 = 0
+                        'bx_Flag_b = False
+    
+    
+                
+                          '//ATTIVO LA FUNZIONE CON I PARAMETRI
+                          'Bool1 = pfRICERCA_NEL_DB_OGGETTI_Report(sx_Scelta_db, _
+                                                             sx_Name_REPORT, _
+                                                             sx_Proprieta_REPORT, _
+                                                             ix_Operazione, _
+                                                             ix_Indice1, _
+                                                             bx_Flag_b)
+            
+                '//CHIAMA IL CONTROLLO REPORT *** FINE ***
+                '//--------------------------------------------------------------------------------//----------//
+                        
+                        
+                
+                '//ITERAZIONE NEGLI OGGETTI TABLES
+                '//==============================================================================================================//
+                '//1.1    SET VARIABILI, OPEN DB, CONTROLLO OGGETTO NEL DB
+                 
+                        
+                        'SET VARIABILI:
+                        sx_Name_Tab = par_sx_Name_Report
+                        
+                        ix_Operazione = par_ix_Operazione
+                            'ix_Indice1= par_Index
+                        bx_Flag_b = par_bx_Flag_b
+                        sx_Name_Report = ""
+                        
+                        'OPEN DB: Apre il database scelto per la creazione o cancellazione a condizione _
+                        che esista una path ed il db altrimenti il databse da controllare è quello corrente.
+                        If par_sx_Scelta_db &gt; "" Then
+                            Set Dbs = OpenDatabase(par_sx_Scelta_db)
+                        Else
+                            Set Dbs = CurrentDb
+                        End If
+            
+                        
+                        
+                        '//CONTROLLO OGGETTO NEL DB: Controllo l'esistenza della REPORT Nell'insieme Tabledefs
+                        '//CONTROLLO PARAMETRI
+                        '//-----------------------------------------------------------------------------//
+                                
+                            Debug.Print "........................................................"
+                            Debug.Print "controllo parametri passati alla routine SALVATAGGIO_OGGETTI_DB_PFunct"
+                            Debug.Print
+                            
+                                  Debug.Print "par_sx_Scelta_db ----&gt; " & par_sx_Scelta_db
+                                  Debug.Print "par_sx_Name_REPORT ---&gt; " & par_sx_Name_Report
+                                  Debug.Print "par_sx_Name_REPORT ---&gt; " & par_sx_Proprieta_REPORT
+                                  Debug.Print "par_sx_Name_FORM  ---&gt; " & par_ix_Operazione
+                                  Debug.Print "par_sx_Name_Report --&gt; " & par_sx_Name_Report
+                                  Debug.Print "par_sx_Name_MACRO ---&gt; " & par_ix_Indice1
+                                  Debug.Print "par_sx_Name_Modulo --&gt; " & par_bx_Flag_b
+                                  Debug.Print
+                                        
+                            Debug.Print "........................................................"
+                                        
+                        '//-----------------------------------------------------------------------------//
+                        
+                        
+                        '//DBS CICLO
+                        '//-----------------------------------------------------------------------------//
+                            '//ITERAZIONE NELL'INSIEMO MODULI   @moduli.itera.oggetti
+                                     Set obj_Oggetto = Application.CurrentProject
+                                                iCount = 0
+                            With Dbs
+                            '*****************************************
+                            
+                                For Each obj In obj_Oggetto.AllReports
+                                
+                                    ' Debug.Print obj_Oggetto.Count _
+                                   '& " FormsDefs in database  " & sx_Scelta_db
+                               
+                                    
+                                    'controlli
+                                    '................................................................
+                                        
+                                    '//BLOCCO ITERAZIONE _
+                                    Ricerca di una REPORT di sistema o di una REPORT _
+                                    inesistente con attivazione del blocco. Il nome della REPORT _
+                                    deve essere attivato manualmente.
+                                    
+                                        If obj.Name = "MSysIMEXColumns" Then
+                                            MsgBox "BLOCCO ITERERAZIONE sulla REPORT " & obj.Name, vbExclamation, "BLOCCO ITERAZIONE"
+                                            Stop
+                                        End If
+                                    
+                                        Debug.Print
+                                        Debug.Print "  " & obj.Name
+                                        
+                                        
+                                        '................................................................
+                                        
+                                          '//REPORT TROVATA
+                                          If obj.Name = par_sx_Name_Report Then
+                                              
+                                               'COMANDO RICERCA QUERY
+                                              DoCmd.SelectObject acReport, par_sx_Name_Report, True
+                                              
+                                              
+                                              
+                                              Bln1 = True    ' bx_Flag_b True = trovato tabelle si può cancellare
+                                              pfRICERCA_NEL_DB_OGGETTI_Report = Bln1 'riassegno alla funzione il valore del bx_Flag_b
+                                              GoTo Exit_pfRICERCA_NEL_DB_OGGETTI_Report 'esci
+                                          Else
+                                              '//QUERY NON TROVATA
+                                              Bln1 = False   ' bx_Flag_b False = non trovato QUERY
+                                              pfRICERCA_NEL_DB_OGGETTI_Report = Bln1 'riassegno alla funzione il valore del bx_Flag_b
+                                          End If
+                                        
+                                        
+                                       
+                                        '................................................................
+                                  
+                                        
+                                        intCiclo = intCiclo + 1
+                                    
+                                Next obj
+                                
+                            End With
+                            
+                            
+                            '//CHIUSURA OGGETTO, @chiusura.oggetto
+                            Set obj_Oggetto = Nothing
+                    
+                            
+                            
+                            
+                            '*******************************************
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                        '//-----------------------------------------------------------------------------//
+                           
+            '//ITERAZIONE NEGLI OGGETTI TABLES  *** FINE ****
+            '//==============================================================================================================//
+                
+            
+
+'//ERRORI ED USCITA FINE FUNCTIONE E GESTIONE ERRORI
+'//--------------------------------------------------------------------------------//------------------------------------------//
+Exit_pfRICERCA_NEL_DB_OGGETTI_Report:
+            Dbs.Close
+            Set Dbs = Nothing
+            
+            Exit Function
+            
+Err_pfRICERCA_NEL_DB_OGGETTI_Report:
+            MsgBox "ERRORE FUNCTION PUBLIC    " & Err.Number & " - " & Err.Description, vbCritical, "pfRICERCA_NEL_DB_OGGETTI_Report"
+            Resume Exit_pfRICERCA_NEL_DB_OGGETTI_Report
+            
+            
+End Function
+            
+'//*** FINE ***
+'//CONTROLLO_ESISTENZA_OGGETTI_REPORT
+'//****************************************************************************************************************************
+    
+'//CONTROLLO_ESISTENZA_OGGETTI_FORM @esistenza.FORM
+'//****************************************************************************************************************************
+'//01)_FUNZIONE_CONTROLLO_OGGETTI_FORM = permette il controllo dell'esistenza della FORM oggetto all'interno del db corrente _
+                                                        oppure in un database esterno.
+'//CODICE----------&gt; pfRICERCA_NEL_DB_OGGETTI_Form.Funzione
+'//PARAMETRI: _
+        01) sx_Scelta_db    = parametro di SCELTA DATABASE DATABASE da aprire e rappresenta il database esterno o interno; _
+                       è esterno a condizione che ci sia una path estesa ed il mome di un db.mdb altrimenti in caso di parametro null _
+                       viene inteso come parametro interno. Es.: _
+                                sx_Scelta_db = null il database è quello corrente; _
+                                sx_Scelta_db = C:\MyDb.mdb il database è esterno.
+'//         02) par_sx_Name_FORM =?
+'//         03) par_sx_Proprieta_FORM =?
+'//         04) par_ix_Operazione =?
+'//         05) par_ix_Indice1 =?
+'//         06) par_bx_Flag_b =?
+                       
+            
+Public Function pfRICERCA_NEL_DB_OGGETTI_Form( _
+                                        par_sx_Scelta_db As String, _
+                                        par_sx_Name_FORM As String, _
+                                        par_sx_Proprieta_FORM As String, _
+                                        par_ix_Operazione As Integer, _
+                                        par_ix_Indice1 As Integer, _
+                                        par_bx_Flag_b As Boolean) As Boolean
+
+
+    
+    On Error GoTo Err_pfRICERCA_NEL_DB_OGGETTI_Form
+       
+            
+                
+                '//CHIAMA IL CONTROLLO FORM
+                '//--------------------------------------------------------------------------------//----------//
+                '//CODICE----&gt; pfRICERCA_NEL_DB_OGGETTI_Form.CALL
+                
+                        '//LE VARIABILE PER IL CONTROLLO OGGETTI
+                        'Dim sx_Scelta_db As String
+                        'Dim sx_Name_FORM As String
+                        'Dim sx_Proprieta_FORM As String
+                        'Dim ix_Operazione As Integer
+                        'Dim ix_Indice1 As Integer
+                        'Dim bx_Flag_b As Boolean
+                        
+                        '//IMPOSTO LE VARIABILI
+                        'sx_Scelta_db = ""
+                        'sx_Name_FORM = "GEST_MENU_TB01_VOCI"       '//RICERCO QUESTA FORM
+                        'sx_Proprieta_FORM = "Proprieta"
+                        'ix_Operazione = 0
+                        'ix_Indice1 = 0
+                        'bx_Flag_b = False
+    
+    
+                
+                          '//ATTIVO LA FUNZIONE CON I PARAMETRI
+                          'Bool1 = pfRICERCA_NEL_DB_OGGETTI_Form(sx_Scelta_db, _
+                                                             sx_Name_FORM, _
+                                                             sx_Proprieta_FORM, _
+                                                             ix_Operazione, _
+                                                             ix_Indice1, _
+                                                             bx_Flag_b)
+            
+                '//CHIAMA IL CONTROLLO FORM *** FINE ***
+                '//--------------------------------------------------------------------------------//----------//
+                        
+                        
+                
+                '//ITERAZIONE NEGLI OGGETTI FORMS
+                '//==============================================================================================================//
+                '//1.1    SET VARIABILI, OPEN DB, CONTROLLO OGGETTO NEL DB
+                 
+                        
+                        'SET VARIABILI:
+                        sx_Name_Tab = par_sx_Name_FORM
+                        
+                        ix_Operazione = par_ix_Operazione
+                            'ix_Indice1= par_Index
+                        bx_Flag_b = par_bx_Flag_b
+                        sx_Name_FORM = ""
+                        
+                        'OPEN DB: Apre il database scelto per la creazione o cancellazione a condizione _
+                        che esista una path ed il db altrimenti il databse da controllare è quello corrente.
+                        If par_sx_Scelta_db &gt; "" Then
+                            Set Dbs = OpenDatabase(par_sx_Scelta_db)
+                        Else
+                            Set Dbs = CurrentDb
+                        End If
+            
+                        
+                        
+                        '//CONTROLLO OGGETTO NEL DB: Controllo l'esistenza della FORM Nell'insieme Tabledefs
+                        '//CONTROLLO PARAMETRI
+                        '//-----------------------------------------------------------------------------//
+                                
+                            Debug.Print "........................................................"
+                            Debug.Print "controllo parametri passati alla routine SALVATAGGIO_OGGETTI_DB_PFunct"
+                            Debug.Print
+                            
+                                  Debug.Print "par_sx_Scelta_db ----&gt; " & par_sx_Scelta_db
+                                  Debug.Print "par_sx_Name_FORM ---&gt; " & par_sx_Name_FORM
+                                  Debug.Print "par_sx_Name_FORM ---&gt; " & par_sx_Proprieta_FORM
+                                  Debug.Print "par_sx_Name_FORM  ---&gt; " & par_ix_Operazione
+                                  Debug.Print "par_sx_Name_FORM --&gt; " & par_sx_Name_FORM
+                                  Debug.Print "par_sx_Name_MACRO ---&gt; " & par_ix_Indice1
+                                  Debug.Print "par_sx_Name_Modulo --&gt; " & par_bx_Flag_b
+                                  Debug.Print
+                                        
+                            Debug.Print "........................................................"
+                                        
+                        '//-----------------------------------------------------------------------------//
+                        
+                        
+                        '//DBS CICLO
+                        '//-----------------------------------------------------------------------------//
+                            '//ITERAZIONE NELL'INSIEMO MODULI   @moduli.itera.oggetti
+                                     Set obj_Oggetto = Application.CurrentProject
+                                                iCount = 0
+                            With Dbs
+                            '*****************************************
+                            
+                                For Each obj In obj_Oggetto.AllForms
+                                
+                                    ' Debug.Print obj_Oggetto.Count _
+                                   '& " FormsDefs in database  " & sx_Scelta_db
+                               
+                                    
+                                    'controlli
+                                    '................................................................
+                                        
+                                    '//BLOCCO ITERAZIONE _
+                                    Ricerca di una FORM di sistema o di una FORM _
+                                    inesistente con attivazione del blocco. Il nome della FORM _
+                                    deve essere attivato manualmente.
+                                    
+                                        If obj.Name = "MSysIMEXColumns" Then
+                                            MsgBox "BLOCCO ITERERAZIONE sulla FORM " & obj.Name, vbExclamation, "BLOCCO ITERAZIONE"
+                                            Stop
+                                        End If
+                                    
+                                        Debug.Print
+                                        Debug.Print "  " & obj.Name
+                                        
+                                        
+                                        '................................................................
+                                        
+                                          '//FORM TROVATA
+                                          If obj.Name = par_sx_Name_FORM Then
+                                              
+                                               'COMANDO RICERCA FORM
+                                              'DoCmd.SelectObject acForm, par_sx_Name_FORM, True
+                                              
+                                              
+                                              
+                                              Bln1 = True    ' bx_Flag_b True = trovato tabelle si può cancellare
+                                              pfRICERCA_NEL_DB_OGGETTI_Form = Bln1 'riassegno alla funzione il valore del bx_Flag_b
+                                              GoTo Exit_pfRICERCA_NEL_DB_OGGETTI_Form 'esci
+                                          Else
+                                              '//QUERY NON TROVATA
+                                              Bln1 = False   ' bx_Flag_b False = non trovato form
+                                              pfRICERCA_NEL_DB_OGGETTI_Form = Bln1 'riassegno alla funzione il valore del bx_Flag_b
+                                          End If
+                                        
+                                        
+                                       
+                                        '................................................................
+                                  
+                                        
+                                        intCiclo = intCiclo + 1
+                                    
+                                Next obj
+                                
+                            End With
+                            
+                            
+                            '//CHIUSURA OGGETTO, @chiusura.oggetto
+                            Set obj_Oggetto = Nothing
+                    
+                            
+                            
+                            
+                            '*******************************************
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                        '//-----------------------------------------------------------------------------//
+                           
+            '//ITERAZIONE NEGLI OGGETTI FORMS  *** FINE ****
+            '//==============================================================================================================//
+                
+            
+
+'//ERRORI ED USCITA FINE FUNCTIONE E GESTIONE ERRORI
+'//--------------------------------------------------------------------------------//------------------------------------------//
+Exit_pfRICERCA_NEL_DB_OGGETTI_Form:
+            Dbs.Close
+            Set Dbs = Nothing
+            
+            Exit Function
+            
+Err_pfRICERCA_NEL_DB_OGGETTI_Form:
+            MsgBox "ERRORE FUNCTION PUBLIC    " & Err.Number & " - " & Err.Description, vbCritical, "pfRICERCA_NEL_DB_OGGETTI_Form"
+            Resume Exit_pfRICERCA_NEL_DB_OGGETTI_Form
+            
+            
+End Function
+            
+'//*** FINE ***
+'//CONTROLLO_ESISTENZA_OGGETTI_FORM
+'//****************************************************************************************************************************
+    
+
+
+
+
+'//CONTROLLO_ESISTENZA_OGGETTI_MODULI @esistenza.MODULI
+'//****************************************************************************************************************************
+'//01)_FUNZIONE_CONTROLLO_OGGETTI_MODULI = permette il controllo dell'esistenza della MODULI oggetto all'interno del db corrente _
+                                                        oppure in un database esterno.
+'//CODICE----------&gt; pfRICERCA_NEL_DB_OGGETTI_Moduli.Funzione
+'//PARAMETRI: _
+        01) sx_Scelta_db    = parametro di SCELTA DATABASE DATABASE da aprire e rappresenta il database esterno o interno; _
+                       è esterno a condizione che ci sia una path estesa ed il mome di un db.mdb altrimenti in caso di parametro null _
+                       viene inteso come parametro interno. Es.: _
+                                sx_Scelta_db = null il database è quello corrente; _
+                                sx_Scelta_db = C:\MyDb.mdb il database è esterno.
+'//         02) par_sx_Name_MODULI =?
+'//         03) par_sx_Proprieta_MODULI =?
+'//         04) par_ix_Operazione =?
+'//         05) par_ix_Indice1 =?
+'//         06) par_bx_Flag_b =?
+                       
+            
+Public Function pfRICERCA_NEL_DB_OGGETTI_Moduli( _
+                                        par_sx_Scelta_db As String, _
+                                        par_sx_Name_MODULI As String, _
+                                        par_sx_Proprieta_MODULI As String, _
+                                        par_ix_Operazione As Integer, _
+                                        par_ix_Indice1 As Integer, _
+                                        par_bx_Flag_b As Boolean) As Boolean
+
+
+    
+    On Error GoTo Err_pfRICERCA_NEL_DB_OGGETTI_Moduli
+       
+            
+                
+                '//CHIAMA IL CONTROLLO MODULI
+                '//--------------------------------------------------------------------------------//----------//
+                '//CODICE----&gt; pfRICERCA_NEL_DB_OGGETTI_Moduli.CALL
+                
+                        '//LE VARIABILE PER IL CONTROLLO OGGETTI
+                        'Dim sx_Scelta_db As String
+                        'Dim sx_Name_MODULI As String
+                        'Dim sx_Proprieta_MODULI As String
+                        'Dim ix_Operazione As Integer
+                        'Dim ix_Indice1 As Integer
+                        'Dim bx_Flag_b As Boolean
+                        
+                        '//IMPOSTO LE VARIABILI
+                        'sx_Scelta_db = ""
+                        'sx_Name_MODULI = "GEST_MENU_TB01_VOCI"       '//RICERCO QUESTA MODULI
+                        'sx_Proprieta_MODULI = "Proprieta"
+                        'ix_Operazione = 0
+                        'ix_Indice1 = 0
+                        'bx_Flag_b = False
+    
+    
+                
+                          '//ATTIVO LA FUNZIONE CON I PARAMETRI
+                          'Bool1 = pfRICERCA_NEL_DB_OGGETTI_Moduli(sx_Scelta_db, _
+                                                             sx_Name_MODULI, _
+                                                             sx_Proprieta_MODULI, _
+                                                             ix_Operazione, _
+                                                             ix_Indice1, _
+                                                             bx_Flag_b)
+            
+                '//CHIAMA IL CONTROLLO MODULI *** FINE ***
+                '//--------------------------------------------------------------------------------//----------//
+                        
+                        
+                
+                '//ITERAZIONE NEGLI OGGETTI MODULI
+                '//==============================================================================================================//
+                '//1.1    SET VARIABILI, OPEN DB, CONTROLLO OGGETTO NEL DB
+                 
+                        
+                        'SET VARIABILI:
+                        sx_Name_Tab = par_sx_Name_MODULI
+                        
+                        ix_Operazione = par_ix_Operazione
+                            'ix_Indice1= par_Index
+                        bx_Flag_b = par_bx_Flag_b
+                        sx_Name_MODULI = ""
+                        
+                        'OPEN DB: Apre il database scelto per la creazione o cancellazione a condizione _
+                        che esista una path ed il db altrimenti il databse da controllare è quello corrente.
+                        If par_sx_Scelta_db &gt; "" Then
+                            Set Dbs = OpenDatabase(par_sx_Scelta_db)
+                        Else
+                            Set Dbs = CurrentDb
+                        End If
+            
+                        
+                        
+                        '//CONTROLLO OGGETTO NEL DB: Controllo l'esistenza della MODULI Nell'insieme Tabledefs
+                        '//CONTROLLO PARAMETRI
+                        '//-----------------------------------------------------------------------------//
+                                
+                            Debug.Print "........................................................"
+                            Debug.Print "controllo parametri passati alla routine SALVATAGGIO_OGGETTI_DB_PFunct"
+                            Debug.Print
+                            
+                                  Debug.Print "par_sx_Scelta_db ----&gt; " & par_sx_Scelta_db
+                                  Debug.Print "par_sx_Name_MODULI ---&gt; " & par_sx_Name_MODULI
+                                  Debug.Print "par_sx_Name_MODULI ---&gt; " & par_sx_Proprieta_MODULI
+                                  Debug.Print "par_sx_Name_FORM  ---&gt; " & par_ix_Operazione
+                                  Debug.Print "par_sx_Name_MODULI --&gt; " & par_sx_Name_MODULI
+                                  Debug.Print "par_sx_Name_MACRO ---&gt; " & par_ix_Indice1
+                                  Debug.Print "par_sx_Name_Modulo --&gt; " & par_bx_Flag_b
+                                  Debug.Print
+                                        
+                            Debug.Print "........................................................"
+                                        
+                        '//-----------------------------------------------------------------------------//
+                        
+                        
+                        '//DBS CICLO
+                        '//-----------------------------------------------------------------------------//
+                            '//ITERAZIONE NELL'INSIEMO MODULI   @moduli.itera.oggetti
+                                     Set obj_Oggetto = Application.CurrentProject
+                                                iCount = 0
+                            With Dbs
+                            '*****************************************
+                            
+                                For Each obj In obj_Oggetto.AllModules
+                                
+                                    ' Debug.Print obj_Oggetto.Count _
+                                   '& " FormsDefs in database  " & sx_Scelta_db
+                               
+                                    
+                                    'controlli
+                                    '................................................................
+                                        
+                                    '//BLOCCO ITERAZIONE _
+                                    Ricerca di una MODULI di sistema o di una MODULI _
+                                    inesistente con attivazione del blocco. Il nome della MODULI _
+                                    deve essere attivato manualmente.
+                                    
+                                        If obj.Name = "MSysIMEXColumns" Then
+                                            MsgBox "BLOCCO ITERERAZIONE sulla MODULI " & obj.Name, vbExclamation, "BLOCCO ITERAZIONE"
+                                            Stop
+                                        End If
+                                    
+                                        Debug.Print
+                                        Debug.Print "  " & obj.Name
+                                        
+                                        
+                                        '................................................................
+                                        
+                                          '//MODULI TROVATA
+                                          If obj.Name = par_sx_Name_MODULI Then
+                                              
+                                               'COMANDO RICERCA MODULO
+                                              DoCmd.SelectObject acModule, par_sx_Name_MODULI, True
+                                              
+                                              
+                                              
+                                              Bln1 = True    ' bx_Flag_b True = trovato tabelle si può cancellare
+                                              pfRICERCA_NEL_DB_OGGETTI_Moduli = Bln1 'riassegno alla funzione il valore del bx_Flag_b
+                                              GoTo Exit_pfRICERCA_NEL_DB_OGGETTI_Moduli 'esci
+                                          Else
+                                              '//MODULO NON TROVATO
+                                              Bln1 = False   ' bx_Flag_b False = non trovato QUERY
+                                              pfRICERCA_NEL_DB_OGGETTI_Moduli = Bln1 'riassegno alla funzione il valore del bx_Flag_b
+                                          End If
+                                        
+                                        
+                                       
+                                        '................................................................
+                                  
+                                        
+                                        intCiclo = intCiclo + 1
+                                    
+                                Next obj
+                                
+                            End With
+                            
+                            
+                            '//CHIUSURA OGGETTO, @chiusura.oggetto
+                            Set obj_Oggetto = Nothing
+                    
+                            
+                            
+                            
+                            '*******************************************
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                        '//-----------------------------------------------------------------------------//
+                           
+            '//ITERAZIONE NEGLI OGGETTI MODULI  *** FINE ****
+            '//==============================================================================================================//
+                
+            
+
+'//ERRORI ED USCITA FINE FUNCTIONE E GESTIONE ERRORI
+'//--------------------------------------------------------------------------------//------------------------------------------//
+Exit_pfRICERCA_NEL_DB_OGGETTI_Moduli:
+            Dbs.Close
+            Set Dbs = Nothing
+            
+            Exit Function
+            
+Err_pfRICERCA_NEL_DB_OGGETTI_Moduli:
+            MsgBox "ERRORE FUNCTION PUBLIC    " & Err.Number & " - " & Err.Description, vbCritical, "pfRICERCA_NEL_DB_OGGETTI_Moduli"
+            Resume Exit_pfRICERCA_NEL_DB_OGGETTI_Moduli
+            
+            
+End Function
+            
+'//*** FINE ***
+'//CONTROLLO_ESISTENZA_OGGETTI_MODULI
+'//****************************************************************************************************************************
+
+
+
+
+'//CONTROLLO_ESISTENZA_OGGETTI_MACRO @esistenza.MACRO
+'//****************************************************************************************************************************
+'//01)_FUNZIONE_CONTROLLO_OGGETTI_MACRO = permette il controllo dell'esistenza della MACRO oggetto all'interno del db corrente _
+                                                        oppure in un database esterno.
+'//CODICE----------&gt; pfRICERCA_NEL_DB_OGGETTI_MACRO.Funzione
+'//PARAMETRI: _
+        01) sx_Scelta_db    = parametro di SCELTA DATABASE DATABASE da aprire e rappresenta il database esterno o interno; _
+                       è esterno a condizione che ci sia una path estesa ed il mome di un db.mdb altrimenti in caso di parametro null _
+                       viene inteso come parametro interno. Es.: _
+                                sx_Scelta_db = null il database è quello corrente; _
+                                sx_Scelta_db = C:\MyDb.mdb il database è esterno.
+'//         02) par_sx_Name_MACRO =?
+'//         03) par_sx_Proprieta_MACRO =?
+'//         04) par_ix_Operazione =?
+'//         05) par_ix_Indice1 =?
+'//         06) par_bx_Flag_b =?
+                       
+            
+Public Function pfRICERCA_NEL_DB_OGGETTI_MACRO( _
+                                        par_sx_Scelta_db As String, _
+                                        par_sx_Name_MACRO As String, _
+                                        par_sx_Proprieta_MACRO As String, _
+                                        par_ix_Operazione As Integer, _
+                                        par_ix_Indice1 As Integer, _
+                                        par_bx_Flag_b As Boolean) As Boolean
+
+
+    
+    On Error GoTo Err_pfRICERCA_NEL_DB_OGGETTI_MACRO
+       
+            
+                
+                '//CHIAMA IL CONTROLLO MACRO
+                '//--------------------------------------------------------------------------------//----------//
+                '//CODICE----&gt; pfRICERCA_NEL_DB_OGGETTI_MACRO.CALL
+                
+                        '//LE VARIABILE PER IL CONTROLLO OGGETTI
+                        'Dim sx_Scelta_db As String
+                        'Dim sx_Name_MACRO As String
+                        'Dim sx_Proprieta_MACRO As String
+                        'Dim ix_Operazione As Integer
+                        'Dim ix_Indice1 As Integer
+                        'Dim bx_Flag_b As Boolean
+                        
+                        '//IMPOSTO LE VARIABILI
+                        'sx_Scelta_db = ""
+                        'sx_Name_MACRO = "GEST_MENU_TB01_VOCI"       '//RICERCO QUESTA MACRO
+                        'sx_Proprieta_MACRO = "Proprieta"
+                        'ix_Operazione = 0
+                        'ix_Indice1 = 0
+                        'bx_Flag_b = False
+    
+    
+                
+                          '//ATTIVO LA FUNZIONE CON I PARAMETRI
+                          'Bool1 = pfRICERCA_NEL_DB_OGGETTI_MACRO(sx_Scelta_db, _
+                                                             sx_Name_MACRO, _
+                                                             sx_Proprieta_MACRO, _
+                                                             ix_Operazione, _
+                                                             ix_Indice1, _
+                                                             bx_Flag_b)
+            
+                '//CHIAMA IL CONTROLLO MACRO *** FINE ***
+                '//--------------------------------------------------------------------------------//----------//
+                        
+                        
+                
+                '//ITERAZIONE NEGLI OGGETTI MACRO
+                '//==============================================================================================================//
+                '//1.1    SET VARIABILI, OPEN DB, CONTROLLO OGGETTO NEL DB
+                 
+                        
+                        'SET VARIABILI:
+                        sx_Name_Tab = par_sx_Name_MACRO
+                        
+                        ix_Operazione = par_ix_Operazione
+                            'ix_Indice1= par_Index
+                        bx_Flag_b = par_bx_Flag_b
+                        sx_Name_Macro = ""
+                        
+                        'OPEN DB: Apre il database scelto per la creazione o cancellazione a condizione _
+                        che esista una path ed il db altrimenti il databse da controllare è quello corrente.
+                        If par_sx_Scelta_db &gt; "" Then
+                            Set Dbs = OpenDatabase(par_sx_Scelta_db)
+                        Else
+                            Set Dbs = CurrentDb
+                        End If
+            
+                        
+                        
+                        '//CONTROLLO OGGETTO NEL DB: Controllo l'esistenza della MACRO Nell'insieme Tabledefs
+                        '//CONTROLLO PARAMETRI
+                        '//-----------------------------------------------------------------------------//
+                            
+                            '// reset
+                                pfRICERCA_NEL_DB_OGGETTI_MACRO = False
+                                          
+                            Debug.Print "........................................................"
+                            Debug.Print "controllo parametri passati alla routine SALVATAGGIO_OGGETTI_DB_PFunct"
+                            Debug.Print
+                            
+                                  Debug.Print "par_sx_Scelta_db ----&gt; " & par_sx_Scelta_db
+                                  Debug.Print "par_sx_Name_MACRO ---&gt; " & par_sx_Name_MACRO
+                                  Debug.Print "par_sx_Name_MACRO ---&gt; " & par_sx_Proprieta_MACRO
+                                  Debug.Print "par_sx_Name_FORM  ---&gt; " & par_ix_Operazione
+                                  Debug.Print "par_sx_Name_MACRO --&gt; " & par_sx_Name_MACRO
+                                  Debug.Print "par_sx_Name_MACRO ---&gt; " & par_ix_Indice1
+                                  Debug.Print "par_sx_Name_Modulo --&gt; " & par_bx_Flag_b
+                                  Debug.Print
+                                        
+                            Debug.Print "........................................................"
+                                        
+                        '//-----------------------------------------------------------------------------//
+                        
+                        
+                        '//DBS CICLO
+                        '//-----------------------------------------------------------------------------//
+                            '//ITERAZIONE NELL'INSIEMO MACRO   @MACRO.itera.oggetti
+                                     Set obj_Oggetto = Application.CurrentProject
+                                                iCount = 0
+                            With Dbs
+                            '*****************************************
+                                
+                                
+                                For Each obj In obj_Oggetto.AllMacros
+                                
+                                    ' Debug.Print obj_Oggetto.Count _
+                                   '& " FormsDefs in database  " & sx_Scelta_db
+                               
+                                    
+                                    'controlli
+                                    '................................................................
+                                        
+                                    '//BLOCCO ITERAZIONE _
+                                    Ricerca di una MACRO di sistema o di una MACRO _
+                                    inesistente con attivazione del blocco. Il nome della MACRO _
+                                    deve essere attivato manualmente.
+                                    
+                                        If obj.Name = "MSysIMEXColumns" Then
+                                            MsgBox "BLOCCO ITERERAZIONE sulla MACRO " & obj.Name, vbExclamation, "BLOCCO ITERAZIONE"
+                                            Stop
+                                        End If
+                                    
+                                        Debug.Print
+                                        Debug.Print "  " & obj.Name
+                                        
+                                        
+                                        '................................................................
+                                        
+                                          '//MACRO TROVATA
+                                          If obj.Name = par_sx_Name_MACRO Then
+                                              
+                                               'COMANDO RICERCA MODULO
+                                              DoCmd.SelectObject acMacro, par_sx_Name_MACRO, True
+                                              
+                                              
+                                              
+                                              Bln1 = True    ' bx_Flag_b True = trovato tabelle si può cancellare
+                                                pfRICERCA_NEL_DB_OGGETTI_MACRO = Bln1 'riassegno alla funzione il valore del bx_Flag_b
+                                              GoTo Exit_pfRICERCA_NEL_DB_OGGETTI_MACRO 'esci
+                                          
+                                          End If
+                                        
+                                        
+                                       
+                                        '................................................................
+                                  
+                                        
+                                        intCiclo = intCiclo + 1
+                                    
+                                Next obj
+                                
+                            End With
+                            
+                            
+                            '//CHIUSURA OGGETTO, @chiusura.oggetto
+                            Set obj_Oggetto = Nothing
+                    
+                            
+                            
+                            
+                            '*******************************************
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                        '//-----------------------------------------------------------------------------//
+                           
+            '//ITERAZIONE NEGLI OGGETTI MACRO  *** FINE ****
+            '//==============================================================================================================//
+                
+            
+
+'//ERRORI ED USCITA FINE FUNCTIONE E GESTIONE ERRORI
+'//--------------------------------------------------------------------------------//------------------------------------------//
+Exit_pfRICERCA_NEL_DB_OGGETTI_MACRO:
+            Dbs.Close
+            Set Dbs = Nothing
+            
+            Exit Function
+            
+Err_pfRICERCA_NEL_DB_OGGETTI_MACRO:
+            MsgBox "ERRORE FUNCTION PUBLIC    " & Err.Number & " - " & Err.Description, vbCritical, "pfRICERCA_NEL_DB_OGGETTI_MACRO"
+            Resume Exit_pfRICERCA_NEL_DB_OGGETTI_MACRO
+            
+            
+End Function
+            
+'//*** FINE ***
+'//CONTROLLO_ESISTENZA_OGGETTI_MACRO
+'//****************************************************************************************************************************
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+
+
+    
+
+'//##########################################################################################################################################//
+'//
+'//                     PROCEDURE DI CONTROLLO OGGETTI TABLE NEL DATABASE CORRENTE O ESTERNO *** fine ***
+'//
+'//##########################################################################################################################################//
+    
+
+
+
+
+
+
+'*********************************************************************************
+'                   FUNZIONE DA UTILIZZARE
+'*********************************************************************************
+
+'ROUTINE DI PROVA DELLA FUNZIONE
+Private Sub ROUTINE_CLASSE_ATTIVA_Utile01_Sub()
+
+On Error GoTo ROUTINE_CLASSE_ATTIVA_Utile01_Sub_Err
+ 
+            
+        'CODICE DI SCELTA
+        '----------------------------------------------------
+        'Stringa che contiene il nome dell'oggetto da
+        'ricercare
+            
+            'reset
+            sxNOMEOGGETTO = ""
+            sxTIPOGGETTO = ""
+                       
+            
+            'codice da inviare alla funzione
+            Int1 = 1
+            
+
+            Select Case Int1
+                        
+            Case Is = 1
+                
+                'NOME OGGETTO DA RICERCARE
+                Str1 = "QUAT_Vs20_n01__Tb20_ARCHIVIO_BASI_1e2"
+                                    
+                        sxNOMEOGGETTO = Str1
+                        sxTIPOGGETTO = "Query"
+                                    
+            Case Is = 2
+                'invio una
+                'stringa sql alternativa
+                sSql = ""
+                sSql = "ACCODA_VI01_N01_ACCODA_CODICI_di_tutti_AMBI"
+                
+                Str1 = sSql
+                        
+                        sxNOMEOGGETTO = Str1
+                        sxTIPOGGETTO = "Query"
+                
+            End Select
+
+
+                    
+                    '//01) CLASSE_Cls01_GESTIONE_OGGETTI_DATABASE
+                    '//ISTANZIA LA CLASSE
+                    '//06.30
+                    '//FUNZIONE CERCA OGGETTI = Con due parametri Tipo oggetto e Nome oggetto lo ricerca nella db.
+                    '//CODICE--------&gt;CERCA_OGGETTI.01.Attiva
+                    '//.....................................................................................................
+                        '//IMPOSTO LA VARIABILE OGGETTO = per l'utilizzo della classe
+                            '
+                            Dim MyCls_CLASSE_Cls01_GESTIONE_OGGETTI_DATABASE As CLASSE_Cls01_GESTIONE_OGGETTI_DATABASE
+                    
+                        '//ISTANZIO LA CLASSE = MyCls_CLASSE_GESTIONE_OGGETTI_FORM assegnando _
+                             l 'oggetto di classe alla variabile e creo creo l'oggetto di classe
+                            '
+                            Set MyCls_CLASSE_Cls01_GESTIONE_OGGETTI_DATABASE = New CLASSE_Cls01_GESTIONE_OGGETTI_DATABASE
+                        
+                        '//PARAMETRI= TIPO OGGETTO E NOME OGGETTO.
+                            Str1 = MyCls_CLASSE_Cls01_GESTIONE_OGGETTI_DATABASE.CERCA_OGGETTI(sxTIPOGGETTO, sxNOMEOGGETTO)
+                            
+                        '//RILASCIO LA MEMORIA = rilascio l'oggetto ed attivo il distruttore della classe
+                            '
+                            Set MyCls_CLASSE_Cls01_GESTIONE_OGGETTI_DATABASE = Nothing
+                    
+                    '//.....................................................................................................
+
+
+                    
+'EXIT E GESTIONE ERRORI
+'-----------------------------------------------------------------------------------------------
+
+ROUTINE_CLASSE_ATTIVA_Utile01_Sub_Exit:
+    Exit Sub
+
+ROUTINE_CLASSE_ATTIVA_Utile01_Sub_Err:
+    MsgBox Error$
+    Resume ROUTINE_CLASSE_ATTIVA_Utile01_Sub_Exit
+
+
+End Sub
+
+'// *** FINE ***
+'//****************************************************************************************************************************
+'//                     PROCEDURE DI CONTROLLO OGGETTI TABLE NEL DATABASE CORRENTE O ESTERNO
+'//
+'//****************************************************************************************************************************
+
+
+
+
+
+
+
+
+'*********************************************************************************
+'                   FUNZIONE DA UTILIZZARE
+'*********************************************************************************
+            
+'//ROUTINE DI CONTROLLO DEGLI OGGETTI TABLE, I CAMPI = controlla i campi della tabella corrente
+'//****************************************************************************************************************************
+ 
+'//TODO: implementare esempio di collegamento della tabella ????
+Private Sub CONTROLLO_OGGETTI_TABLE_Collega_la_Tabella()
+
+On Error GoTo CONTROLLO_OGGETTI_TABLE_Collega_la_Tabella_Err
+ 
+            
+        'CODICE DI SCELTA
+        '----------------------------------------------------
+        'Stringa che contiene il nome dell'oggetto da
+        'ricercare
+            
+            'reset
+            sxNOMEOGGETTO = ""
+            sxTIPOGGETTO = ""
+                       
+            
+            'codice da inviare alla funzione
+            Int1 = 1
+            
+
+            Select Case Int1
+                        
+            Case Is = 1
+                
+                'NOME OGGETTO DA RICERCARE
+                Str1 = "MSys_DF02_TIPO_OGGETTO"
+                                    
+                        sxNOMEOGGETTO = Str1
+                        sxTIPOGGETTO = "Query"
+                                    
+            Case Is = 2
+                'invio una
+                'stringa sql alternativa
+                sSql = ""
+                sSql = "ACCODA_VI01_N01_ACCODA_CODICI_di_tutti_AMBI"
+                
+                Str1 = sSql
+                        
+                        sxNOMEOGGETTO = Str1
+                        sxTIPOGGETTO = "Query"
+                
+            End Select
+
+
+                    '//01) CLASSE_Cls01_GESTIONE_OGGETTI_DATABASE
+                    '//ISTANZIA LA CLASSE
+                    '//06.30
+                    '//FUNZIONE CERCA OGGETTI = Con due parametri Tipo oggetto e Nome oggetto lo ricerca nella db.
+                    '//CODICE--------&gt;CERCA_OGGETTI.01.Attiva
+                    '//.....................................................................................................
+                        '//IMPOSTO LA VARIABILE OGGETTO = per l'utilizzo della classe
+                            '
+                            Dim MyCls_CLASSE_Cls01_GESTIONE_OGGETTI_DATABASE As CLASSE_Cls01_GESTIONE_OGGETTI_DATABASE
+                    
+                        '//ISTANZIO LA CLASSE = MyCls_CLASSE_GESTIONE_OGGETTI_FORM assegnando _
+                             l 'oggetto di classe alla variabile e creo creo l'oggetto di classe
+                            '
+                            Set MyCls_CLASSE_Cls01_GESTIONE_OGGETTI_DATABASE = New CLASSE_Cls01_GESTIONE_OGGETTI_DATABASE
+                        
+                        '//PARAMETRI= TIPO OGGETTO E NOME OGGETTO.
+                            Str1 = MyCls_CLASSE_Cls01_GESTIONE_OGGETTI_DATABASE.CERCA_OGGETTI(sxTIPOGGETTO, sxNOMEOGGETTO)
+                            
+                        '//RILASCIO LA MEMORIA = rilascio l'oggetto ed attivo il distruttore della classe
+                            '
+                            Set MyCls_CLASSE_Cls01_GESTIONE_OGGETTI_DATABASE = Nothing
+                    
+                    '//.....................................................................................................
+
+'EXIT E GESTIONE ERRORI
+'-----------------------------------------------------------------------------------------------
+
+CONTROLLO_OGGETTI_TABLE_Collega_la_Tabella_Exit:
+    Exit Sub
+
+CONTROLLO_OGGETTI_TABLE_Collega_la_Tabella_Err:
+    MsgBox Error$
+    Resume CONTROLLO_OGGETTI_TABLE_Collega_la_Tabella_Exit
+
+
+End Sub
+
+            
+'//*** FINE ***
+'//CONTROLLO_ESISTENZA_OGGETTI_TABELLA
+'//****************************************************************************************************************************
+ 
+
+'//FUNZIONE DI CONTROLLO DELLO OGGETTO TABELLA - CAMPI = controllo il tipo di campo della tabella.
+'//CODICE----------&gt; pfRICERCA_NEL_DB_OGGETTI_Table_ControllaCampi.Funzione
+'//****************************************************************************************************************************
+'//PARAMETRI: _
+        01) sx_Scelta_db    = parametro di SCELTA DATABASE DATABASE da aprire e rappresenta il database esterno o interno; _
+                       è esterno a condizione che ci sia una path estesa ed il mome di un db.mdb altrimenti in caso di parametro null _
+                       viene inteso come parametro interno. Es.: _
+                                sx_Scelta_db = null il database è quello corrente; _
+                                sx_Scelta_db = C:\MyDb.mdb il database è esterno.
+'//         02) par_sx_Name_Table =?
+'//         03) par_sx_Proprieta_Table =?
+'//         04) par_ix_Operazione =?
+'//         05) par_ix_Indice1 =?
+'//         06) par_bx_Flag_b =?
+
+                       
+Private Sub ATTIVA_CONTROLLO()
+Dim sx_Scelta_db As String
+Dim sx_Name_Table As String
+Dim sx_Proprieta_Table As String
+Dim ix_Operazione As Integer
+Dim ix_Indice1 As Integer
+Dim bx_Flag_b As Boolean
+
+
+sx_Scelta_db = ""
+sx_Name_Table = ""
+sx_Proprieta_Table = "MSys_DF02_TIPO_OGGETTO"
+ix_Operazione = 0
+ix_Indice1 = 0
+bx_Flag_b = False
+
+Bool1 = pfRICERCA_NEL_DB_OGGETTI_Table_ControllaCampi(sx_Scelta_db, sx_Name_Table, sx_Proprieta_Table, ix_Operazione, ix_Indice1, bx_Flag_b)
+
+
+End Sub
+            
+Public Function pfRICERCA_NEL_DB_OGGETTI_Table_ControllaCampi( _
+                                        par_sx_Scelta_db As String, _
+                                        par_sx_Name_Table As String, _
+                                        par_sx_Proprieta_Table As String, _
+                                        par_ix_Operazione As Integer, _
+                                        par_ix_Indice1 As Integer, _
+                                        par_bx_Flag_b As Boolean) As Boolean
+
+
+    
+    On Error GoTo Err_pfRICERCA_NEL_DB_OGGETTI_Table
+       
+            
+                        
+                        
+                        
+                        '//DBS CICLO
+                        '//-----------------------------------------------------------------------------//
+                        
+                            With Dbs
+                                
+                                Debug.Print .TableDefs.count & _
+                                    " TableDefs in database  " & sx_Scelta_db
+                                For intCiclo = 0 To .TableDefs.count - 1
+                                    
+                                    '//BLOCCO ITERAZIONE _
+                                    Ricerca di una tabella di sistema o di una tabella _
+                                    inesistente con attivazione del blocco. Il nome della tabella _
+                                    deve essere attivato manualmente.
+                                    
+                                        If .TableDefs(intCiclo).Name = "MSysIMEXColumns" Then
+                                            MsgBox "BLOCCO ITERERAZIONE sulla tabella " & .TableDefs(intCiclo).Name, vbExclamation, "BLOCCO ITERAZIONE"
+                                            Stop
+                                            End If
+                                    
+                                    Debug.Print
+                                    Debug.Print "  " & .TableDefs(intCiclo).Name
+                                    
+                                    
+                                    '//TABELLA TROVATA
+                                    If .TableDefs(intCiclo).Name = par_sx_Name_Table Then
+                                        
+                                         'COMANDO RICERCA TABELLA
+                                        DoCmd.SelectObject acTable, par_sx_Name_Table, True
+                          
+                                        Bln1 = True    ' bx_Flag_b True = trovato tabelle si può cancellare
+                                        pfRICERCA_NEL_DB_OGGETTI_Table_ControllaCampi = Bln1 'riassegno alla funzione il valore del bx_Flag_b
+                                        GoTo Exit_pfRICERCA_NEL_DB_OGGETTI_Table  'esci
+                                    Else
+                                        '//TABELLA NON TROVATA
+                                        Bln1 = False   ' bx_Flag_b False = non trovato TABELLA
+                                        pfRICERCA_NEL_DB_OGGETTI_Table_ControllaCampi = Bln1 'riassegno alla funzione il valore del bx_Flag_b
+                                    End If
+                                    
+                                Next intCiclo
+            
+                            End With
+                        '//-----------------------------------------------------------------------------//
+                           
+            
+            
+            '------------------------------------------------------------------------------
+            '                       FINE FUNCTIONE E GESTIONE ERRORI
+
+'//ERRORI ED USCITA
+'//--------------------------------------------------------------------------------//------------------------------------------//
+Exit_pfRICERCA_NEL_DB_OGGETTI_Table:
+            'Dbs.Close
+            'Set Dbs = Nothing
+            
+            Exit Function
+            
+Err_pfRICERCA_NEL_DB_OGGETTI_Table:
+            MsgBox "ERRORE FUNCTION PUBLIC    " & Err.Number & " - " & Err.Description, vbCritical, "pfRICERCA_NEL_DB_OGGETTI_Table"
+            Resume Exit_pfRICERCA_NEL_DB_OGGETTI_Table
+            
+            
+End Function
+           
+'//*** fine ***
+'//FUNZIONE DI CONTROLLO DELLO OGGETTO TABELLA - CAMPI = controllo il tipo di campo della tabella.
+'//****************************************************************************************************************************
+
+ 
+
+
+
+
+
+'// *** FINE ***
+'//****************************************************************************************************************************
+'//                     PROCEDURE DI CONTROLLO OGGETTI TABLE NEL DATABASE CORRENTE O ESTERNO
+'//
+'//****************************************************************************************************************************
+
+
+
+
+'//****************************************************************************************************************************//
+'//MODULO                       -&gt;  UTIL_MDL40_N05_CONTROLLO_OGGETTI_DB_TABLES
+'//SEZIONE.05                   UTILIZZO DEGLI OGGETTI DAO - CODICE----------&gt;UtilizzoDegliOggettiDao.Titolo
+'//
+'//****************************************************************************************************************************//
+'//
+'//                     DAO oggetti table - CREAZIONE DI UNA TABELLA
+'//        ' Esempio IN UN DATABASE ESTERNO CHIAMATO Northwind.mdb _
+            viene creato un nuovo oggetto TableDef che viene aggiunto all'insieme TableDefs _
+             Viene quindi enumerato l'insieme TableDefs e l'insieme Properties del nuovo TableDef. Poi viene cancellato _
+            ma al momento è bloccato . ESEMPI IN -&gt; https://docs.microsoft.com/en-us/office/client-developer/access/desktop-database-reference/tabledefs-collection-dao
+        
+        '//SEZIONE.05.CODICE----------&gt;UtilizzoDegliOggettiDao
+        '//NORTWIND CREA UNA TABELLA = in un database esterno con gli oggetti DAO viene creata una tabella con 1 CAMPO.
+        '//CODICE----------&gt; DbNortWind_CREA_TABLE.attiva
+
+        '//SEZIONE.05.CODICE----------&gt;UtilizzoDegliOggettiDao
+        '//NORTWIND CREA UNA TABELLA = in un database esterno con gli oggetti DAO viene creata una tabella con 3 CAMPI.
+        '//CODICE----------&gt; DbNortWind_CREA_TABLE_3CAMPI.attiva
+        
+        '//SEZIONE.05.CODICE----------&gt;UtilizzoDegliOggettiDao
+        '//FUNZIONE DI CONTROLLO DEI CAMPI (FIELDS) DELLA TABELLA = controlla tutti gli elementi della tabella e ne restituisce il tipo.
+        '//MODULO_DOVE_SI_TROVA:CODICE----------&gt;CONTROLLO_OGGETTI_TABLE_Tipo_Field_pFunct.attiva
+        '//CODICE----------&gt;CONTROLLO_OGGETTI_TABLE_Tipo_Field_pFunct.attiva
+
+        
+
+'//****************************************************************************************************************************
+
+
+
+
+'//SEZIONE.05.CODICE----------&gt;UtilizzoDegliOggettiDao
+'//NORTWIND CREA UNA TABELLA = in un database esterno con gli oggetti DAO viene creata una tabella con 1 CAMPO.
+'//****************************************************************************************************************************
+'//CODICE----------&gt; DbNortWind_CREA_TABLE.attiva
+
+  Sub DbNortWind_CREA_TABLE_1CAMPO()
+     
+       Dim dbsNorthwind As Database
+       Dim tdfNew As TableDef
+       Dim tdfLoop As TableDef
+       Dim prpLoop As Property
+       
+     
+       Set dbsNorthwind = OpenDatabase("c:\CASA\LINGUAGGI\ACCESS\ACCESS_PROGETTI_MDB\ACCESS_GESTIONE_OGGETTI_DB_MDB\GESTIONE_OGGETTI\GESTIONE_OGGETTI_MDB\Northwind.mdb")         '//DATABASE ESTERNO METTI LA PATH
+     
+       ' Create new TableDef object, append Field objects
+       ' to its Fields collection, and append TableDef
+       ' object to the TableDefs collection of the
+       ' Database object.
+       Set tdfNew = dbsNorthwind.CreateTableDef("NewTableDef")
+       tdfNew.Fields.Append tdfNew.CreateField("Date", dbDate)
+       dbsNorthwind.TableDefs.Append tdfNew
+     
+       With dbsNorthwind
+          Debug.Print .TableDefs.count & _
+             " TableDefs in " & .Name
+     
+          ' Enumerate TableDefs collection.
+          For Each tdfLoop In .TableDefs
+             Debug.Print "  " & tdfLoop.Name
+          Next tdfLoop
+          
+  
+          With tdfNew
+             DoEvents
+             Debug.Print "Properties of " & .Name
+             
+            iCount = 0
+                
+             ' Enumerate Properties collection of new
+             ' TableDef object, only printing properties
+             ' with non-empty values. ENUMERA LE PROPRIETA DELLA TABELLA
+             For Each prpLoop In .Properties
+                iCount = iCount + 1
+                Debug.Print "Nro  " & iCount & " " & prpLoop.Name & " - " & _
+                   IIf(prpLoop = "", "[empty]", prpLoop)
+             Next prpLoop
+     
+          End With
+     
+          ' Delete new TableDef since this is a
+          ' demonstration.
+          '---&gt; bloccato .TableDefs.Delete tdfNew.Name
+          .Close
+       End With
+     
+    End Sub
+
+
+'//SEZIONE.05.CODICE----------&gt;UtilizzoDegliOggettiDao
+'//NORTWIND CREA UNA TABELLA = in un database esterno con gli oggetti DAO viene creata una tabella con 3 CAMPI.
+'//CODICE----------&gt; DbNortWind_CREA_TABLE_3CAMPI.attiva
+'//****************************************************************************************************************************
+Sub DbNortWind_CREA_TABLE_3CAMPI()
+ 
+   Dim dbsNorthwind As Database
+   Dim tdfNew As TableDef
+   Dim prpLoop As Property
+ 
+    
+   Set dbsNorthwind = OpenDatabase("c:\CASA\LINGUAGGI\ACCESS\ACCESS_PROGETTI_MDB\ACCESS_GESTIONE_OGGETTI_DB_MDB\GESTIONE_OGGETTI\GESTIONE_OGGETTI_MDB\Northwind.mdb")         '//DATABASE ESTERNO METTI LA PATH
+ 
+   ' Create a new TableDef object.
+   Set tdfNew = dbsNorthwind.CreateTableDef("Contacts")
+ 
+   With tdfNew
+      ' ATTENZIONE = SE NON CREI APPEND TABELLA rimane provvisoria im memoria e non vien salvata nel db.
+      ' Create fields and append them to the new TableDef
+      ' object. This must be done before appending the
+      ' TableDef object to the TableDefs collection of the
+      ' Northwind database. CREO 4 CAMPI
+      .Fields.Append .CreateField("FirstName", dbText)
+      .Fields.Append .CreateField("LastName", dbText)
+      .Fields.Append .CreateField("Phone", dbText)
+      .Fields.Append .CreateField("Notes", dbMemo)
+     dbsNorthwind.TableDefs.Append tdfNew           '//LA TABELLE VIENE SALVATA NEL DB negli oggetti DAO ma _
+                                                        se disabiliti .Append rimane solo in memoria e non viene salvata.
+ 
+      Debug.Print "Properties of new TableDef object " & _
+         "before appending to collection:"
+                     iCount = 0
+      ' Enumerate Properties collection of new TableDef
+      ' object. ciclo di tutte le tabelle compresa quella nuova.
+      For Each prpLoop In .Properties
+         On Error Resume Next
+            iCount = iCount + 1
+         If prpLoop &lt;&gt; "" Then Debug.Print "  " & _
+                  "Nro  " & iCount & " " & prpLoop.Name & " = " & prpLoop
+         On Error GoTo 0
+      Next prpLoop
+
+ 
+ 
+   End With
+ 
+   ' Delete new TableDef object since this is a
+   ' demonstration.  CANCELLA LA TABELLA CONTATTI DISABILITA
+   ' dbsNorthwind.TableDefs.Delete ("Contacts")
+ 
+   dbsNorthwind.Close
+
+End Sub
+
+
+
+'//03
+'//CICLO NELLE TABELLA DEL DB = Faccio il ciclo sulle tabelle del database corrente. _
+                                TODO:Apro un recordset su una tabella corrente, ma COME FARE IL CICLO SU CAMPI DEL RECORD corrente.??
+'//CODICE----------&gt; DbNortWind_CREA_TABLE_3CAMPI.attiva
+'//****************************************************************************************************************************
+'//NOTE: Nell 'esempio seguente viene illustrato come creare un campo calcolato. _
+        Il metodo CreateField crea un campo denominato FullName. La proprietà Expression viene quindi _
+        impostata sull 'espressione che calcola il valore del campo.
+Sub DbNortWind_CREA_TABLE_3CAMPI_1CALCOLATO()
+
+
+Dim rs As New ADODB.Recordset
+Dim fld As ADODB.Field
+Dim Dbs As DAO.Database
+        
+           
+        
+                        '02.ITERAZIONE NEL GRUPPO OGGETTI TABLEDEFS ..LE TABELLE DEL DB
+                        '______________________________________________________________________________
+                        '02.01 - OGGETTI QUERY
+                        
+                            
+                            'pulisco la tabella degli OGGETTI TABELLA
+                            sSql = ""
+                            sSql = sSql & "DELETE MSsys_TABELLE_Qry01_01_TUTTE.*"
+                            sSql = sSql & "FROM MSsys_TABELLE_Qry01_01_TUTTE "
+                            sSql = sSql & "WITH OWNERACCESS OPTION;"
+
+                            'CurrentDb.Execute (sSql)
+                            
+                            '03.01 - APRO LA TABELLA
+                            'apro la tabella per il salvataggio delle query + effettuo il _
+                            controllo sulla stringa sql
+                            Debug.Print "---------------------------------------------------------------"
+                            Debug.Print "CONTROLLO STRINGA SQL                                          "
+                            Debug.Print
+                            
+                            '//creo gli oggetti Dabatase, quello corrente + il recorset
+                            Set Dbs = CurrentDb
+                            Set ApriRs = Dbs.OpenRecordset("GEST_PARAM_OGGETTI")
+                            
+                        
+                            With Dbs
+                                
+                                '//reset
+                                iCount = 0
+                                
+                                '//stampa di controllo
+                                Debug.Print .TableDefs.count & _
+                                    " TableDefs in database  " & sx_Scelta_db
+                                
+                                '//TODO: ciclo sulle tabelle del db corrente
+                                For intCiclo = 0 To .TableDefs.count - 1
+                                        Debug.Print "  " & .TableDefs(intCiclo).Name
+                                   
+                                        '03.02 - SALVATAGGIO NOME OGGETTO TABELLA NELLA TABELLA DEL DB
+                                        '................................................................
+                                            'ApriRs.AddNew
+                                            'ApriRs.Fields("Name1_s") = .TableDefs(intCiclo).Name
+                                            
+                                            '//NRO di oggetto
+                                            iCount = iCount + 1         '//aggiorno il contatore oggetti delle tabelle
+                                            'ApriRs.Fields("NRO_OGGETTO_i") = icount
+                                            '//Tipo di oggetto caricato = FORM
+                                            'ApriRs.Fields("TIPOGGETTO_s") = "TABLE"
+                                            
+                                            '//SALVATAGGIO DEGLI ATTRIBUTI DELLA TABELLA - proprieta Attributes
+                                            'ApriRs.Fields("Attribute_lng") = .TableDefs(intCiclo).Attributes
+                                            
+                                                '//CONTROLLO OGGETTO TABELLA
+                                                '//-----------------------------------------------------------
+                                                    
+                                                    '//controllo degli attributi
+                                                    Debug.Print "LA TABELLA "
+                                                    Debug.Print .TableDefs(intCiclo).Name
+                                                    
+                                                    Debug.Print "controllo attributi della tabella"
+                                                    Debug.Print .TableDefs(intCiclo).Attributes
+                                                    
+                                                '//-----------------------------------------------------------
+                                            'ApriRs.Update
+                                        '................................................................
+                                    
+                                
+
+                                    
+                                Next intCiclo
+        
+                            End With
+                             
+
+
+End Sub
+
+
+'//****************************************************************************************************************************
+
+
+
+
+
+
+
+'//SEZIONE.05.CODICE----------&gt;UtilizzoDegliOggettiDao
+'//FUNZIONE DI CONTROLLO DEI CAMPI (FIELDS) DELLA TABELLA = controlla tutti gli elementi della tabella e ne restituisce il tipo.
+'//CODICE----------&gt; ATTIVA_CONTROLLO_OGGETTI_TABLE_Tipo_Field_pFunct.attiva
+'//****************************************************************************************************************************
+'//NOTE:    Per attivare la funzione occorre inviare il nome della tabella da controllare e il nome del campo e restituisce _
+            una stringa completa che dichiara il nome del campo ed eventualmente la grandezza.
+
+'//ATTIVO: Attivo la ricerca del campo
+'//-----------------------------------------------------------------------------//
+Private Sub ATTIVA_CONTROLLO_OGGETTI_TABLE_Tipo_Field_pFunct()
+Dim NameTable_s As String
+Dim NameField_s As String
+
+    NameTable_s = "MSys_DF02_TIPO_OGGETTO"          '// nome della tabella da ricerca
+    NameField_s = "Scel_b2"                          '// il campo da controllare. es. Scel_b, TIPOGGETTO_s
+    '//Restituisco una stringa se trovato oppure null
+    Vv1 = CONTROLLO_OGGETTI_TABLE_Tipo_Field_pFunct(NameTable_s, NameField_s)
+        
+        '//CONTROLLO MSGBOX POSITIVO O NEGATIVO
+        '//..........................................................................//
+            If Vv1 &gt; "" Then
+               MsgBox NameTable_s & " QUESTA TABELLA CONTIENE questo tipo di campo : " & Vv1, _
+                                    vbExclamation, "MSG CONTROLLO TIPO DI CAMPO"
+            Else
+               MsgBox "ATTENZIONE! QUESTA TABELLA NON ESISTE -&gt; " & Chr$(13) & Chr$(13) & NameTable_s & _
+                        Chr$(13) & Chr$(13) & _
+                       "OPPURE NON ESISTE IL TIPO DI CAMPO RICERCATO -&gt;" & _
+                        Chr$(13) & Chr$(13) & _
+                        NameField_s, vbCritical, "ERRORE RICERCA TIPO DI CAMPO"
+            End If
+
+        '//..........................................................................//
+
+End Sub
+'//FUNZIONE CONTROLLA CAMPI TABELLA = attivo il controllo sulla tabella e sul campo
+'//MODULO_DOVE_SI_TROVA:CODICE----------&gt;CONTROLLO_OGGETTI_TABLE_Tipo_Field_pFunct.attiva
+'//==============================================================================================================================//
+Private Function CONTROLLO_OGGETTI_TABLE_Tipo_Field_pFunct(par_NameTable_s, NameField_s As String) As String
+'//MODULO:                  La funzione si trova nel modulo UTIL_MDL40_N05_CONTROLLO_OGGETTI_DB_TABLES del database GE_OGGETTI_DB_MDO.mdb in _
+                            questa path -&gt; c:\CASA\LINGUAGGI\ACCESS\ACCESS_PROGETTI_MDB\ACCESS_GESTIONE_OGGETTI_DB_MDB\GESTIONE_OGGETTI\GESTIONE_OGGETTI_MDB\
+'//CHIAVI DI RICERCA        : Trova campi tabella e tipo di campo, ITERA NELLA TABELLA, Campo Tabella, Field type _
+                              itera campi tabella, trova campo, trova field, itera oggetti field table, _
+                              trova type field, ciclo field table, ciclo campi tabella access, _
+                              esempio itera campi tabella, esempio ciclo campi tabella.
+
+
+On Error GoTo CONTROLLO_OGGETTI_TABLE_Tipo_Field_pFunct_Err
+
+
+
+
+
+Dim msg As String ' For error handling.
+Dim ws As Workspace, db As Database
+Dim tblDef As TableDef, fldDef As Field
+Dim i As Integer, Handle As Integer
+Dim fldName As String, fldDataInfo As String
+Dim Size_s As String
+Dim TotField_i As Integer
+    
+         ' -----------------------------------------------
+            Set db = CurrentDb()
+            Str1 = par_NameTable_s
+         ' -----------------------------------------------
+       
+    
+'//imposto l'oggetto tabella con il nome della tabella passata come parametro
+Set tblDef = db.TableDefs(Str1)
+         With tblDef
+                '//reset variabili
+                    TotField_i = .Fields.count - 1              '//calcolo il totale dei field della tabella
+            For i = 0 To .Fields.count - 1
+               Set fldDef = .Fields(i)
+               
+                '//qualifico l'oggetto
+                With fldDef
+                        fldName = .Name
+                    
+                        '//CONTROLLO FIELD
+                        Debug.Print i & ") NOME CAMPO -&gt; " & fldName
+                
+                        '//effettuo il controllo tra il campo della tabella e quello della ricerca _
+                          se trovato il campo di ricerca trovo il tipo e restituisco il timpo di _
+                          campo con l'enventuale grandezza
+                        If fldName = NameField_s Then
+                        
+                                  Select Case .Type
+                                     Case dbBoolean
+                                        fldDataInfo = "Bit/Boolean"
+                                     Case dbByte
+                                        fldDataInfo = "Byte"
+                                     Case dbInteger
+                                        fldDataInfo = "Short"
+                                     Case dbLong
+                                        fldDataInfo = "Integer"
+                                     Case dbCurrency
+                                        fldDataInfo = "Currency"
+                                     Case dbSingle
+                                        fldDataInfo = "Single"
+                                     Case dbDouble
+                                        fldDataInfo = "Double"
+                                     Case dbDate
+                                        fldDataInfo = "Date"
+                                     Case dbText
+                                        'fldDataInfo = "Char Width " & Format(.size, "&gt;")
+                                        'fldDataInfo = "Char Width " & Format$(.size, "&gt;&gt;")
+                                        'fldDataInfo = "Char Width " & Str(.size)
+                                        'fldDataInfo = "Char Width " & Space$(Len(CStr(.size) & " ")) & CStr(.size)
+                                              If .Attributes And dbVariableField Then
+                                                  fldDataInfo = "Variable Width"
+                                              Else
+                                                  fldDataInfo = "Char Width " & .DefinedSize
+                                              End If
+                                    
+
+
+
+                                        
+                                                            
+                                     Case dbLongBinary
+                                        fldDataInfo = "OLE"
+                                     Case dbMemo
+                                        fldDataInfo = "LongChar"
+                                     Case dbGUID
+                                        fldDataInfo = "Char Width 16"
+                                  End Select
+                                
+
+                                    '//se trova il campo di ricerca lo restituisco al _
+                                    chiamante e esco dal ciclo impostando il contatore dei campi _
+                                    FIELD al massimo con l'operazione i = TotField_i in modo da uscire _
+                                    in anticipo dal ciclo.
+                                            CONTROLLO_OGGETTI_TABLE_Tipo_Field_pFunct = fldDataInfo
+                                                i = TotField_i
+
+                        Else
+                                '//se non trova il campo di ricerca restituisco null
+                                CONTROLLO_OGGETTI_TABLE_Tipo_Field_pFunct = ""
+
+                        End If
+                                    '//controllo tipo di campo iterato
+                                    Debug.Print "         tipo campo ---&gt; " & fldDataInfo
+                                    Debug.Print
+                 
+               End With
+            Next i
+         End With
+      
+                    '//reset variabili ed oggetti
+                    i = vbNull
+                    Set tblDef = Nothing
+
+
+'EXIT E GESTIONE ERRORI
+'-----------------------------------------------------------------------------------------------
+
+CONTROLLO_OGGETTI_TABLE_Tipo_Field_pFunct_Exit:
+    Exit Function
+
+CONTROLLO_OGGETTI_TABLE_Tipo_Field_pFunct_Err:
+    MsgBox "ERRORE FUNCTION PUBLIC    " & Err.Number & " - " & Err.Description, vbCritical, "pfRICERCA_NEL_DB_OGGETTI_Table"
+       
+    Resume CONTROLLO_OGGETTI_TABLE_Tipo_Field_pFunct_Exit
+
+
+End Function
+'//*** fine **
+'//FUNZIONE CONTROLLA CAMPI TABELLA = attivo il controllo sulla tabella e sul campo
+'//==============================================================================================================================//
+
+
+
+
+'// *** FINE ***
+'//****************************************************************************************************************************//
+'//
+'//SEZIONE.05                     UTILIZZO DEGLI OGGETTI DAO - CODICE----------&gt;UtilizzoDegliOggettiDao.Titolo
+'//
+'//****************************************************************************************************************************//
+
+
+</pre>
+</body>
+</html>

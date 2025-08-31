@@ -1,5 +1,5 @@
 MENU_ANALISI.MD
-
+	
 	Note
 		@analisi@menu_(analisi sui menu)
 
@@ -19,8 +19,11 @@ MENU_ANALISI.MD
 					anche @menu@msys o @menu@mysys)
 
 				"C:\Program Files\totalcmd\TOTALCMD64.EXE" left: c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MDB\MENU\, right: c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MDB\ 
-
-
+	PATH MENU E SUA RICOSTRUZIONE
+		I menu risiedono in questa path completa: 
+			c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSYS_MENU\
+		per ricostruire completamente i menu occorre attivare questo comando:
+			
 
 	VOCI MENU
 		Note
@@ -244,12 +247,6 @@ MENU_ANALISI.MD
 							WHERE (((GEST_MENU_TB02_FUNZIONI_TMP.CodFunzioni_s) Is Null))
 							WITH OWNERACCESS OPTION;
 
-
-
-
-					
-			
-				
 	FUNZIONAMENTO_DEI_MENU	
 		Note
 			per i menu occorre applicare questo approccio:

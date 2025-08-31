@@ -1,6 +1,6 @@
 # PROGETTO MSYS_DF01
    Note 
-      il progetto gestisce i comandi
+      il progetto gestisce i comandi della tabella DF01
 
 
 
@@ -9,8 +9,10 @@
 <details>
 <summary><strong>MACRO</strong></summary>
 
-- Creato la macro  
-- ddd
+- Creato la macro  per la cancellazione e il collegamento 
+- delle tabelle. <br>
+- MSys_DF01_}----------------------------------------------------@ <br>
+- MSys_DF01_COMANDI <br>
 
 </details>
 
@@ -20,18 +22,19 @@
 <details>
 <summary><strong>MACRO</strong></summary>
 
-- Creata la macro `ImportaDati`
-- Sistemata la logica di aggiornamento tabelle
-- Ottimizzata la macro `SincronizzaDB`
+- Creata la macro `ImportaDati <br>`
+- Sistemata la logica di aggiornamento tabelle di seguito indicate <br>
+- Ottimizzata la macro `SincronizzaDB` <br>
 
 </details>
 
 <details>
 <summary><strong>QUERY</strong></summary>
-
-- Aggiunta la query `Q_TotaliMese`
-- Corretta la query `Q_VerificaCodiciNulli`
-- Riordinati i criteri per `Q_Export`
+<br> Sono state aggiunte anche le query di gestione delle tabelle
+di sistema. <br>
+- Aggiunta la query `?`
+- Corretta la query `?`
+- Riordinati i criteri per `?`
 
 </details>
 
@@ -44,16 +47,12 @@
 
 </details>
 
-
-
-# tabella AGGIORNAMENTI
-
 <details>
 <summary><strong>⚙️ Dettagli aggiornamenti macro</strong></summary>
 
 
 ### 📋 Tabella aggiornamenti
-         per visualizzare la tabella scrivi ctrl+p e MarkdownPreview
+per visualizzare la tabella scrivi ctrl+p e MarkdownPreview <br>
 
 | Modulo        | Descrizione                         | Data       | Stato     |
 |---------------|-------------------------------------|------------|-----------|
@@ -62,8 +61,8 @@
 | Logger        | Aggiunta log errori                 | 2025-05-05 | Completato|
 | VerificaCodici| Fix controllo codici nulli          | 2025-05-06 | Da testare|
 
-</details>
 
+</details>
 
 # Report
 
@@ -77,23 +76,23 @@
 
 
 
+HO QUESTO ESEMPIO: <br>
 
-HO QUESTO ESEMPIO:
+| Lettera | Nome     |
+|---------|----------|
+| A       | Alberto  |
+| A       | Alessia  |
+| A       | Anita    |
+| A       | Andrea   |
 
-A
-   | Lettera | Nome     |
-   |---------|----------|
-   | A       | Alberto  |
-   | A       | Alessia  |
-   | A       | Anita    |
-   | A       | Andrea   |
 
-B
-   | B       | Barbara  |
-   | B       | Beatrice |
-   | B       | Bruno    |
-   | B       | Benedetta|
 
+| Lettera | Nome     |
+|---------|----------|
+| B       | Barbara  |
+| B       | Beatrice |
+| B       | Bruno    |
+| B       | Benedetta|
 
 
 

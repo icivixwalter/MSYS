@@ -1,0 +1,29 @@
+=== Inizio esportazione moduli in HTML: 30/08/2025 19:23:28 ===
+SUCCESSO - Salvato modulo 'Form_MSys_MODULI_Frm01_S01_TUTTI' in HTML
+SUCCESSO - Salvato modulo 'UTIL_Nrx1001_{@=============CLASSI_OGGETTI====================@}' in HTML
+SUCCESSO - Salvato modulo 'CLASSE_{@=====================================================@}' in HTML
+SUCCESSO - Salvato modulo 'UTILITA_MSys_TABELLE_LINK_Mdl06_}------------------------------@' in HTML
+SUCCESSO - Salvato modulo 'UTILITA_MSys_TABELLE_LINK_Mdl06_GESTISCI_COLLEGAMENTI_TABELLE' in HTML
+SUCCESSO - Salvato modulo 'UTILITA_Msys_Mdl21_CreaFileTxtCsv' in HTML
+SUCCESSO - Salvato modulo 'UTIL_{=====================================================}_Mdl' in HTML
+SUCCESSO - Salvato modulo 'UTIL_MDL30_CANCELLA_I_MODULI_DbEsterno' in HTML
+SUCCESSO - Salvato modulo 'UTIL_MDL40_N09_CONTROLLO_ESISTENZA_OGGETTO_DB' in HTML
+SUCCESSO - Salvato modulo 'UTIL_MDL40_N10_CONTROLLO_OGGETTI_APRI_ACCESS' in HTML
+SUCCESSO - Salvato modulo 'UTIL_MDL40_N11_MACRO_ESPORTA_OGGETTI_MSSys' in HTML
+SUCCESSO - Salvato modulo 'UTILITA_Msys_Mdl21_}-------------------------------------------@' in HTML
+SUCCESSO - Salvato modulo 'ESPORTA_Mdl00_}------------------------------------------------@' in HTML
+SUCCESSO - Salvato modulo 'ESPORTA_Mdl01_TUTTI_GLI_OGGETTI_IN_FILE_HTML' in HTML
+SUCCESSO - Salvato modulo 'UTILITA_MsysDF14Mdl05_}----------------------------------------@' in HTML
+SUCCESSO - Salvato modulo 'UTIL_MDL40_N08_RICERCA_TUTTI_GLI_OGGETTI_NEL_DB' in HTML
+SUCCESSO - Salvato modulo 'UTIL_Nrx1003_n01_RECUPERO_PARAMETRI_TABELLA_OGGETTI' in HTML
+SUCCESSO - Salvato modulo 'CLASSE_Cls01_GESTIONE_OGGETTI_DATABASE' in HTML
+SUCCESSO - Salvato modulo 'UTILITA_MsysDF14Mdl05_IMPORTAZIONE_SEMPLICE_DI_OGGETTI' in HTML
+SUCCESSO - Salvato modulo 'COPIA_Mdl01_OGGETTI_MODULI_to_Db_ESTERNO' in HTML
+SUCCESSO - Salvato modulo 'CLASSE_Cls00_}-------------------------------------------------@' in HTML
+SUCCESSO - Salvato modulo 'Form_UTILITA_MsysDF14Frm05_ATTIVA_FUNZIONI' in HTML
+SUCCESSO - Salvato modulo 'COPIA_Mdl00}---------------------------------------------------@' in HTML
+SUCCESSO - Salvato modulo 'Msys_GEFILE_CLS00_{@==========================================@}' in HTML
+SUCCESSO - Salvato modulo 'Msys_GEFILE_CLS01_GESTIONI' in HTML
+SUCCESSO - Salvato modulo 'Form_UTILITA_MsysDF14Frm05_ATTIVA_FUNZIONI_duplicato' in HTML
+=== Statistica: moduli salvati con successo = 26 ===
+=== Fine esportazione moduli in HTML: 30/08/2025 19:23:28 ===

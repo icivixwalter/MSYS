@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Modulo: Form_UTILITA_MsysDF14Frm05_ATTIVA_FUNZIONI_duplicato</title>
+  <style>
+    body { font-family: Consolas, monospace; background:#f0f0f0; padding:20px; }
+    h1 { color:#333; }
+    pre { background:#222; color:#eee; padding:15px; border-radius:5px; white-space: pre-wrap; }
+  </style>
+</head>
+<body>
+  <h1>Modulo: Form_UTILITA_MsysDF14Frm05_ATTIVA_FUNZIONI_duplicato</h1>
+  <pre>
+
+Option Compare Database
+Option Explicit
+
+Dim Bool1 As Boolean
+
+
+
+'//ATTIVA CANCELLA MODULI
+Private Sub Cmd_Cancella_MODULI_Click()
+    On Error GoTo GestioneErrore ' Attiva la gestione degli errori
+
+    CancellaModuli_PFunct
+Exit Sub
+GestioneErrore:
+    MsgBox "Errore durante la selezione DELLA FUNZIONE: " & Err.Description, vbCritical, "Errore"
+End Sub
+
+
+
+'// ESPORTA E CANCELLA I FILE IN HTML E TXT IN OGNI DIRECTORY
+'//--------------------------------------------------------------------------------//
+Private Sub Cmd_CANCELLA_TUTTI_FILE_HTML_TXT_Click()
+    Call CANCELLA_TUTTI_FILE_HTML_TXT
+End Sub
+
+'//ESPORTO TUTTI GLI OGGETTI IN HTML
+Private Sub Cmd_ESPORTA_OGGETTI_HTML_Click()
+    Call SalvaTutti_GliOggetti_InHTML
+End Sub
+
+
+
+
+'// NEL DB ESTERNO VENGONO ESPORTATI O CANCELLATI GLI OGGETTI UTILITA
+'//--------------------------------------------------------------------------------//
+
+'//COPIA OGGETTI NEL DB ESTERNO
+Private Sub Cmd_ESPORTA_OGGETTI_ToDb_Click()
+    ATTIVA_EsportaOggettiGenericiInDBEsterno
+End Sub
+
+'//CANCELLO GLI OGGETTI ESPORTATI NEL DB ESTERNO
+Private Sub Cmd_CANCELLA_OGGETTI_ToDb_Click()
+    ATTIVA_CANCELLAOggettiGenericiInDBEsterno
+End Sub
+
+
+Private Sub Cmd_ESPORTA_OGGETTI_ToDb_HELP_Click()
+On Error GoTo Err_Cmd_ESPORTA_OGGETTI_ToDb_HELP_Click
+
+    '//APRI: HELP_UTILITA_MsysDF14Frm05_ATTIVA_FUNZIONI.pdf
+        '// APRO PATH UTILIZZANDO LA FUNZIONE DELLA CLASSE Msys_GEFILE_CLS01_GESTIONI  *** INIZIO ***
+    '//==============================================================================================//
+    '//Note: devi passare questi parametri ed attivare la classe:
+    
+        Dim clsGestione As Msys_GEFILE_CLS01_GESTIONI
+        Dim percorsoCartella As String
+        Dim risultato As String
+        
+        ' Creo l'istanza della classe
+        Set clsGestione = New Msys_GEFILE_CLS01_GESTIONI
+        
+        ' Imposto il percorso della cartella da aprire
+        percorsoCartella = "c:\Casa\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_MODULI\OBJECT\PDF\"
+        
+        ' Chiamo la funzione della classe   CODICE ----&gt; @FUNZIONE@APRI@PATH@CLASSE
+        risultato = clsGestione.ApriFileShellApiWindows(parPath:=percorsoCartella, _
+                                                        parFileName:="HELP_COPIA_OGGETTI_IN_DB.pdf", _
+                                                        parIDGestione:=0, _
+                                                        soloPath:=False)
+        
+        ' Mostro il risultato
+        MsgBox "Risultato funzione: " & risultato
+        
+        ' Pulizia
+        Set clsGestione = Nothing
+        
+        
+    
+    '// APRO PATH UTILIZZANDO LA FUNZIONE DELLA CLASSE Msys_GEFILE_CLS01_GESTIONI  *** FINE ***
+    '//==============================================================================================//
+
+    
+
+Exit_Cmd_ESPORTA_OGGETTI_ToDb_HELP_Click:
+    Exit Sub
+
+Err_Cmd_ESPORTA_OGGETTI_ToDb_HELP_Click:
+    MsgBox Err.Description
+    Resume Exit_Cmd_ESPORTA_OGGETTI_ToDb_HELP_Click
+    
+End Sub
+
+
+'//--------------------------------------------------------------------------------//
+
+
+'//ATTIVA IMPORTA I MODULI
+Private Sub Cmd_Importa_MODULI_Click()
+    On Error GoTo GestioneErrore ' Attiva la gestione degli errori
+
+    ImportaModuli_PFunct
+Exit Sub
+GestioneErrore:
+    MsgBox "Errore durante la selezione DELLA FUNZIONE: " & Err.Description, vbCritical, "Errore"
+End Sub
+
+
+
+
+'//ATTIVA CANCELLA MACRO
+Private Sub Cmd_Cancella_MACRO_Click()
+    On Error GoTo GestioneErrore ' Attiva la gestione degli errori
+
+    
+       Bool1 = CancellaMacro_Pfunct
+    If Bool1 = False Then
+        MsgBox "CANCELLAZIONE NON AVVENUTA"
+    Else
+        MsgBox "CANCELLAZIONE eseguita."
+    End If
+
+    
+Exit Sub
+GestioneErrore:
+    MsgBox "Errore durante la selezione DELLA FUNZIONE: " & Err.Description, vbCritical, "Errore"
+End Sub
+
+'//ATTIVA IMPORTA I MACRO
+Private Sub Cmd_Importa_MACRO_Click()
+    On Error GoTo GestioneErrore ' Attiva la gestione degli errori
+
+    
+       Bool1 = ImportaMacro_PFunct
+    If Bool1 = False Then
+        MsgBox "IMPORTAZIONE NON AVVENUTA"
+    Else
+        MsgBox "IMPORTAZIONE eseguita."
+    End If
+
+
+Exit Sub
+GestioneErrore:
+    MsgBox "Errore durante la selezione DELLA FUNZIONE: " & Err.Description, vbCritical, "Errore"
+End Sub
+
+
+
+
+'//ATTIVA CANCELLA QUERY
+Private Sub Cmd_Cancella_QUERY_Click()
+    On Error GoTo GestioneErrore ' Attiva la gestione degli errori
+    
+    Bool1 = CancellaQuery_PFunct
+    If Bool1 = False Then
+        MsgBox "CANCELLAZIONE NON AVVENUTA"
+    Else
+        MsgBox "CANCELLAZIONE eseguita."
+    End If
+    
+Exit Sub
+GestioneErrore:
+    MsgBox "Errore durante la selezione DELLA FUNZIONE: " & Err.Description, vbCritical, "Errore"
+End Sub
+
+'//ATTIVA IMPORTA I QUERY
+Private Sub Cmd_Importa_QUERY_Click()
+    On Error GoTo GestioneErrore ' Attiva la gestione degli errori
+
+    
+    
+    Bool1 = ImportaQuery_PFunct
+    If Bool1 = False Then
+        MsgBox "IMPORTAZIONE NON AVVENUTA"
+    Else
+        MsgBox "IMPORTAZIONE eseguita."
+    End If
+
+    
+    
+    
+Exit Sub
+GestioneErrore:
+    MsgBox "Errore durante la selezione DELLA FUNZIONE: " & Err.Description, vbCritical, "Errore"
+End Sub
+
+
+
+
+
+'//ATTIVA CANCELLA FORM
+Private Sub Cmd_Cancella_FORM_Click()
+    On Error GoTo GestioneErrore ' Attiva la gestione degli errori
+
+    CancellaForm_PFunct
+
+Exit Sub
+GestioneErrore:
+    MsgBox "Errore durante la selezione DELLA FUNZIONE: " & Err.Description, vbCritical, "Errore"
+End Sub
+
+'//ATTIVA IMPORTA I FORM
+Private Sub Cmd_Importa_FORM_Click()
+    On Error GoTo GestioneErrore ' Attiva la gestione degli errori
+
+    ImportaForm_PFunct
+Exit Sub
+GestioneErrore:
+    MsgBox "Errore durante la selezione DELLA FUNZIONE: " & Err.Description, vbCritical, "Errore"
+End Sub
+
+</pre>
+</body>
+</html>

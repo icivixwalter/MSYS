@@ -1,8 +1,8 @@
-Log esecuzione funzione: CancellaTutteTabelleCollegate_PFunct
-Data/Ora: 29/08/2025 14:12:06
+Log esecuzione funzione: CancellaTutteTabelleCollegate_PFunct_DF01
+Data/Ora: 30/08/2025 20:04:06
 --------------------------------------------
-29/08/2025 14:12:06 - OK: MSys_DF01_}----------------------------------------------------@
-29/08/2025 14:12:06 - OK: MSys_DF01_COMANDI
+30/08/2025 20:04:06 - OK: MSys_DF01_}----------------------------------------------------@
+30/08/2025 20:04:06 - OK: MSys_DF01_COMANDI
 --------------------------------------------
 TOTALE TABELLE ELIMINATE: 2
 TOTALE TABELLE NON TROVATE/SKIPPED: 0

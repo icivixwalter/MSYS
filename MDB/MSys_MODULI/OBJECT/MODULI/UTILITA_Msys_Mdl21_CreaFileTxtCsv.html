@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Modulo: UTILITA_Msys_Mdl21_CreaFileTxtCsv</title>
+  <style>
+    body { font-family: Consolas, monospace; background:#f0f0f0; padding:20px; }
+    h1 { color:#333; }
+    pre { background:#222; color:#eee; padding:15px; border-radius:5px; white-space: pre-wrap; }
+  </style>
+</head>
+<body>
+  <h1>Modulo: UTILITA_Msys_Mdl21_CreaFileTxtCsv</h1>
+  <pre>Option Compare Database
+Option Explicit
+
+
+'ESPORTA XML
+'//@non funziona crea il file .txt con l'xml ma poi non è leggibile
+Sub EsportaTutteLeQueryInXML_Access2000()
+    Dim db As DAO.Database
+    Dim rs As DAO.Recordset
+    Dim qdf As DAO.QueryDef
+    Dim percorso As String
+    Dim logFile As Integer
+    Dim xmlFile As Integer
+    Dim campo As DAO.Field
+    Dim xmlString As String
+    Dim valoreCampo As String
+    Dim logPercorso As String
+    Dim xmlPercorso As String
+    
+    ' Recupera la cartella corrente del database
+    percorso = CurrentProject.Path & "\"  ' Percorso della cartella corrente del DB
+    logPercorso = percorso & "log.txt"  ' Percorso del file log
+
+    ' Apre il file di log (modalità append)
+    logFile = FreeFile
+    Open logPercorso For Append As logFile
+    Print #logFile, "=== Inizio esportazione XML: " & Now() & " ==="
+
+    ' Apri il database corrente
+    Set db = CurrentDb
+
+    ' Scansiona tutte le query nel database
+    For Each qdf In db.QueryDefs
+        ' Evita le query di sistema e temporanee (iniziano con "~")
+        If Left(qdf.Name, 1) &lt;&gt; "~" Then
+            ' Prova a esportare la query
+            On Error Resume Next  ' Ignora errori per catturarli nel log
+            Set rs = qdf.OpenRecordset()
+            If Err.Number &lt;&gt; 0 Then
+                Print #logFile, "ERRORE - Impossibile aprire la query '" & qdf.Name & "': " & Err.Description
+                Err.Clear
+                GoTo SaltaQuery
+            End If
+            On Error GoTo 0  ' Ripristina la gestione errori normale
+
+            ' Controlla se ci sono dati
+            If Not rs.EOF Then
+                ' Inizia a scrivere l'XML come testo
+                xmlString = "&lt;?xml version=""1.0"" encoding=""UTF-8""?&gt;" & vbCrLf
+                xmlString = xmlString & "&lt;Dati&gt;" & vbCrLf
+
+                ' Scorri i record della query
+                Do While Not rs.EOF
+                    xmlString = xmlString & "    &lt;Record&gt;" & vbCrLf
+                    ' Scorri i campi del record
+                    For Each campo In rs.Fields
+                        ' Controlla se il campo è Null e convertilo in stringa vuota
+                        If IsNull(campo.Value) Then
+                            valoreCampo = ""
+                        Else
+                            valoreCampo = campo.Value
+                        End If
+                        ' Scrive il campo nell'XML come testo
+                        xmlString = xmlString & "        &lt;" & campo.Name & "&gt;" & valoreCampo & "&lt;/" & campo.Name & "&gt;" & vbCrLf
+                    Next campo
+                    xmlString = xmlString & "    &lt;/Record&gt;" & vbCrLf
+                    rs.MoveNext
+                Loop
+
+                ' Chiudi il tag principale
+                xmlString = xmlString & "&lt;/Dati&gt;" & vbCrLf
+
+                ' Crea il file XML e scrivi il contenuto
+                xmlPercorso = percorso & qdf.Name & ".xml"
+                xmlFile = FreeFile
+                Open xmlPercorso For Output As xmlFile
+                Print #xmlFile, xmlString
+                Close xmlFile  ' Chiudi il file XML
+
+                Print #logFile, "SUCCESSO - Esportata query '" & qdf.Name & "' in XML."
+            Else
+                Print #logFile, "AVVISO - La query '" & qdf.Name & "' non ha dati, nessun file creato."
+            End If
+
+SaltaQuery:
+            ' Chiudi il recordset
+            If Not rs Is Nothing Then rs.Close
+            Set rs = Nothing
+        End If
+    Next qdf
+
+    ' Scrive nel log il termine del processo
+    Print #logFile, "=== Fine esportazione XML: " & Now() & " ==="
+    Close logFile  ' Chiudi il file di log
+
+    ' Pulizia delle variabili
+    Set qdf = Nothing
+    Set db = Nothing
+
+    MsgBox "Esportazione XML completata! Controlla la cartella: " & percorso, vbInformation
+End Sub
+
+
+
+'//======================================================================================================//'
+'//                         @LIBRERIA@ACCESS@TUTORIAL@BREVE                        *** INIZIO ***
+'//======================================================================================================//
+'//NOTE: tutorial breve dei comandi di access'
+'//'
+'//@01_ACCESS_TUTORIAL=@TABELLE@DI@SISTEMA
+      '//@01_ACCESS_TUTORIAL01.TABELLA_ MSysObjects = COME LEGGERE IL CAMPO DATA NELLA TABELLA MSYOBJECT
+      '//@01_ACCESS_TUTORIAL02.TABELLA_ MSysObjects = CAMPPO FLAGS E VALORE DEL CAMPO flags = 2097152
+
+
+
+'//@01_ACCESS_TUTORIAL=@TABELLE@DI@SISTEMA
+'//Le tabelle di sistema in Access hanno nomi che iniziano con il prefisso MSys. Alcune delle più importanti sono: _
+   MSysAccessObjects ? Memorizza informazioni sugli oggetti recenti e le loro proprietà. _
+   MSysObjects ? Contiene informazioni su tutti gli oggetti del database (tabelle, query, maschere, report, ecc.). _
+   MSysRelationships ? Registra le relazioni tra le tabelle. _
+   MSysIndexes ? Contiene informazioni sugli indici delle tabelle. _
+   MSysQueries ? Contiene dettagli sulle query salvate nel database. _
+
+    '//@01_ACCESS_TUTORIAL01.TABELLA_ MSysObjects = COME LEGGERE IL CAMPO DATA NELLA TABELLA MSYOBJECT _
+      per decifrare il campo data nella tabella msysobject occorre utilizzare la query di decriptazione: _
+         MSysObjects_Qry01_03_CAMPO_DATA
+
+               'SELECT Name, Type,
+               '       CDate([DateCreate]) AS DataCreazione,
+               '       CDate([DateUpdate]) AS DataModifica
+               'FROM MSysObjects;
+
+    '//@01_ACCESS_TUTORIAL02.TABELLA_ MSysObjects = CAMPPO FLAGS E VALORE DEL CAMPO flags = 2097152 _
+            DOMANDA: perche nella tabella access MSysObjects  il campo flags HA IL VALORE IMPOSTATO A 2097152 _
+            per indicare le tabelle collegate? _
+            RISPOSTA: Valore 2097152 nel campo Flags _
+            Il valore 2097152 nel campo Flags è un flag che indica che una tabella è collegata (linked table), _
+            ovvero una tabella che esiste in un altro database (Access, SQL Server, Excel, ecc.) ma è accessibile da quello attuale. _
+            Quindi la tabella collegata puo essere filtrata con questi parametri: _
+            TABELLA COLLEGATA   campo Database  &gt;"" (non Nullo) _
+            TABELLA COLLEGATA   campo Flags     = 2097152 _
+            TABELLA COLLEGATA   campo Type      = 6 _
+            Come interpretare il valore Flags = Il campo Flags è un valore bitmask, il che significa che può _
+            contenere combinazioni di diversi flag. _
+            Il valore 2097152 (in esadecimale 0x00200000) corrisponde al bit che identifica le tabelle collegate.
+            
+            '//FILTRO DI ESTRAZIONE: _
+                il filtro è basato su 3 campi: Database  &gt;"", Flags     = 2097152 Type      = 6 _
+                Set rs = db.OpenRecordset("SELECT Name FROM MSysObjects WHERE Type=6 AND Name='" & objName & "'")
+    
+            
+            
+            
+            
+'//======================================================================================================//'
+'//                         @LIBRERIA@ACCESS@TUTORIAL@BREVE                        *** FINE ***
+'//======================================================================================================//
+
+
+
+</pre>
+</body>
+</html>

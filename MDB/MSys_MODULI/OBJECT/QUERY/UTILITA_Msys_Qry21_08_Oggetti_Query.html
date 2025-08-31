@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Query: UTILITA_Msys_Qry21_08_Oggetti_Query</title>
+  <style>
+    body { font-family: Consolas, monospace; background:#f0f0f0; padding:20px; }
+    h1 { color:#333; }
+    pre { background:#222; color:#eee; padding:15px; border-radius:5px; white-space: pre-wrap; }
+  </style>
+</head>
+<body>
+  <h1>Query: UTILITA_Msys_Qry21_08_Oggetti_Query</h1>
+  <pre>SELECT MSysObjects.Type AS kEYType, MSysObjects.ParentId AS KEYParentId, "--->" AS TXTCampi, MSysObjects.Type, MSysObjects.Connect, MSysObjects.Database, MSysObjects.Name
+FROM MSysObjects
+WHERE (((MSysObjects.Type)=5) AND ((MSysObjects.LvExtra)>""))
+WITH OWNERACCESS OPTION;
+</pre>
+</body>
+</html>
