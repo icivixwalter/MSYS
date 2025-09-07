@@ -1,9 +1,9 @@
 Log esecuzione funzione: CancellaTutte_QUERY_MSYS_DF
-Data/Ora: 07/09/2025 10:54:13
+Data/Ora: 07/09/2025 15:56:52
 --------------------------------------------
-07/09/2025 10:54:13 - OK: Eliminata MSys_{@-----------------------OGGETTI_DB----------------------@}
-07/09/2025 10:54:13 - OK: Eliminata MSys_DF01_COMANDI_Qry01_01_SELECT_TUTTI
-07/09/2025 10:54:13 - OK: Eliminata Msys_DF01_COMANDI_Qry01_02_GROUP_TIPO
+07/09/2025 15:56:52 - OK: Eliminata MSys_{@-----------------------OGGETTI_DB----------------------@}
+07/09/2025 15:56:52 - OK: Eliminata MSys_DF01_COMANDI_Qry01_01_SELECT_TUTTI
+07/09/2025 15:56:52 - OK: Eliminata Msys_DF01_COMANDI_Qry01_02_GROUP_TIPO
 --------------------------------------------
 Totale eliminate: 3
 Totale errori/skipped: 0

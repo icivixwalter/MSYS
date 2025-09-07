@@ -1,0 +1,9 @@
+Log esecuzione funzione: Importa_REPORT_MSYS_DF_PFunct
+Data/Ora: 07/09/2025 22:27:43
+--------------------------------------------
+07/09/2025 22:27:43 - OK: Msys_DF01_Rpt01_}----------------------------------------------@
+07/09/2025 22:27:43 - OK: Msys_DF01_Rpt01_M01_GE_COMANDI
+07/09/2025 22:27:43 - OK: Msys_DF01_Rpt01_S01_COMANDI
+--------------------------------------------
+Totale collegati: 3
+Totale errori/skipped: 0

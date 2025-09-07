@@ -1,0 +1,9 @@
+Log esecuzione funzione: CancellaTutti_REPORT_MSYS_DF
+Data/Ora: 07/09/2025 22:27:46
+--------------------------------------------
+07/09/2025 22:27:46 - OK: Eliminato Msys_DF01_Rpt01_}----------------------------------------------@
+07/09/2025 22:27:46 - OK: Eliminato Msys_DF01_Rpt01_M01_GE_COMANDI
+07/09/2025 22:27:46 - OK: Eliminato Msys_DF01_Rpt01_S01_COMANDI
+--------------------------------------------
+Totale eliminati: 3
+Totale errori/skipped: 0

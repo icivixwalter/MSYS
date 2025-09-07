@@ -1,0 +1,9 @@
+Log esecuzione funzione: CancellaTutte_FORM_MSYS_DF
+Data/Ora: 07/09/2025 22:27:39
+--------------------------------------------
+07/09/2025 22:27:39 - OK: Eliminata Msys_DF01_Frm01_}----------------------------------------------@
+07/09/2025 22:27:39 - OK: Eliminata Msys_DF01_Frm01_M01_GE_COMANDI
+07/09/2025 22:27:39 - OK: Eliminata Msys_DF01_Frm01_S01_COMANDI
+--------------------------------------------
+Totale eliminate: 3
+Totale errori/skipped: 0
