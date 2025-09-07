@@ -1,0 +1,10 @@
+Log esecuzione funzione: Msys_DF01_Mdl01_COLLEGA_COMANDI
+Data/Ora: 01/09/2025 10:42:52
+--------------------------------------------
+01/09/2025 10:42:52 - OK: MSys_DF01_}----------------------------------------------------@ -> c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF01\MDB\MSys_DF01.mdb
+01/09/2025 10:42:52 - OK: MSys_DF01_COMANDI -> c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF01\MDB\MSys_DF01.mdb
+01/09/2025 10:42:52 - OK: MSys_DF11_}----------------------------------------------------@ -> c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF11\MDB\MSys_DF11.mdb
+01/09/2025 10:42:53 - OK: Msys_DF11_PROGETTI -> c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF11\MDB\MSys_DF11.mdb
+--------------------------------------------
+TOTALE TABELLE COLLEGATE: 4
+TOTALE TABELLE NON COLLEGATE/ERRATE: 0
