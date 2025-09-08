@@ -1,9 +1,9 @@
-Log esecuzione funzione: ImportaModuli_FORM_MSYS_DF_PFunct
-Data/Ora: 07/09/2025 22:27:19
+Log esecuzione funzione: Importa_MODULI_MSYS_DF_PFunct
+Data/Ora: 08/09/2025 14:07:52
 --------------------------------------------
-07/09/2025 22:27:20 - OK: CLASSE_ATTI_Tb01_Gestione
-07/09/2025 22:27:20 - OK: Msys_DF01_Mdl00_}----------------------------------------------@
-07/09/2025 22:27:20 - OK: Msys_DF01_Mdl01_COLLEGA_COMANDI
+08/09/2025 14:07:53 - OK: CLASSE_ATTI_Tb01_Gestione
+08/09/2025 14:07:53 - OK: Msys_DF01_Mdl00_}----------------------------------------------@
+08/09/2025 14:07:54 - OK: Msys_DF01_Mdl01_COLLEGA_COMANDI
 --------------------------------------------
 Totale collegati: 3
 Totale errori/skipped: 0

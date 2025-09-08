@@ -1,9 +1,9 @@
 Log esecuzione funzione: CancellaTutteTabelleCollegate_LINK_TABELLE_MSYS_DF_PFunct
-Data/Ora: 07/09/2025 09:15:32
+Data/Ora: 08/09/2025 14:08:03
 --------------------------------------------
-07/09/2025 09:15:32 - OK: Eliminata MSys_{@===================================================@}_Tab
-07/09/2025 09:15:32 - OK: Eliminata MSys_DF01_}----------------------------------------------------@
-07/09/2025 09:15:32 - OK: Eliminata MSys_DF01_COMANDI
+08/09/2025 14:08:03 - OK: Eliminata MSys_{@===================================================@}_Tab
+08/09/2025 14:08:03 - OK: Eliminata MSys_DF01_}----------------------------------------------------@
+08/09/2025 14:08:03 - OK: Eliminata MSys_DF01_COMANDI
 --------------------------------------------
 TOTALE TABELLE ELIMINATE: 3
 TOTALE ERRORI/SKIPPED: 0

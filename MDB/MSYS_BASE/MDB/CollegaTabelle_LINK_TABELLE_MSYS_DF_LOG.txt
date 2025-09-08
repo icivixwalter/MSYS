@@ -1,9 +1,9 @@
 Log esecuzione funzione: CollegaTabelle_LINK_TABELLE_MSYS_DF
-Data/Ora: 07/09/2025 10:43:14
+Data/Ora: 08/09/2025 14:07:50
 --------------------------------------------
-07/09/2025 10:43:14 - OK: MSys_{@===================================================@}_Tab -> c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF01\MDB\MSys_DF01.mdb
-07/09/2025 10:43:14 - OK: MSys_DF01_}----------------------------------------------------@ -> c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF01\MDB\MSys_DF01.mdb
-07/09/2025 10:43:14 - OK: MSys_DF01_COMANDI -> c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF01\MDB\MSys_DF01.mdb
+08/09/2025 14:07:51 - OK: MSys_{@===================================================@}_Tab -> c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF01\MDB\MSys_DF01.mdb
+08/09/2025 14:07:51 - OK: MSys_DF01_}----------------------------------------------------@ -> c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF01\MDB\MSys_DF01.mdb
+08/09/2025 14:07:51 - OK: MSys_DF01_COMANDI -> c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF01\MDB\MSys_DF01.mdb
 --------------------------------------------
 TOTALE TABELLE COLLEGATE: 3
 TOTALE ERRORI/SKIPPED: 0

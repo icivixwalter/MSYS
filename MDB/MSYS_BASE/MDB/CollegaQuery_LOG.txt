@@ -1,9 +1,9 @@
-Log esecuzione funzione: ImportaQuery_QUERY_MSYS_DF_PFunct
-Data/Ora: 07/09/2025 15:56:38
+Log esecuzione funzione: Importa_QUERY_MSYS_DF_PFunct
+Data/Ora: 08/09/2025 14:07:54
 --------------------------------------------
-07/09/2025 15:56:39 - OK: MSys_{@-----------------------OGGETTI_DB----------------------@}
-07/09/2025 15:56:39 - OK: MSys_DF01_COMANDI_Qry01_01_SELECT_TUTTI
-07/09/2025 15:56:39 - OK: Msys_DF01_COMANDI_Qry01_02_GROUP_TIPO
+08/09/2025 14:07:55 - OK: MSys_{@-----------------------OGGETTI_DB----------------------@}
+08/09/2025 14:07:55 - OK: MSys_DF01_COMANDI_Qry01_01_SELECT_TUTTI
+08/09/2025 14:07:55 - OK: Msys_DF01_COMANDI_Qry01_02_GROUP_TIPO
 --------------------------------------------
 Totale collegate: 3
 Totale errori/skipped: 0
