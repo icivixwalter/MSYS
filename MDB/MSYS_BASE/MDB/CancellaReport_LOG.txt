@@ -1,8 +1,7 @@
-Log esecuzione funzione: CancellaTutti_REPORT_MSYS_DF
-Data/Ora: 08/09/2025 14:08:05
+Log esecuzione funzione: CancellaTutto_REPORT
+Data/Ora: 09/09/2025 09:42:59
 --------------------------------------------
-08/09/2025 14:08:05 - OK: Eliminato Msys_DF01_Rpt00_}----------------------------------------------@
-08/09/2025 14:08:05 - OK: Eliminato Msys_DF01_Rpt01_DA_DEFINIRE
+09/09/2025 09:42:59 - NON TROVATO: LLPP_ATTI_Tb01Reports01_Gestione
 --------------------------------------------
-Totale eliminati: 2
-Totale errori/skipped: 0
+Totale eliminati: 0
+Totale errori/skipped: 1

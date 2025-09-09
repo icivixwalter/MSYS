@@ -1,9 +1,9 @@
-Log esecuzione funzione: CancellaTutte_FORM_MSYS_DF
-Data/Ora: 08/09/2025 14:08:02
+Log esecuzione funzione: CancellaTutto_FORM
+Data/Ora: 09/09/2025 09:42:58
 --------------------------------------------
-08/09/2025 14:08:02 - OK: Eliminata Msys_DF01_Frm01_}----------------------------------------------@
-08/09/2025 14:08:02 - OK: Eliminata Msys_DF01_Frm01_M01_GE_COMANDI
-08/09/2025 14:08:02 - OK: Eliminata Msys_DF01_Frm01_S01_COMANDI
+09/09/2025 09:42:58 - NON TROVATA: LLPP_ATTI_FrmS02_01_{==============================}_ALLEG
+09/09/2025 09:42:58 - NON TROVATA: LLPP_ATTI_FrmS02_01_Gestione_ALLEGATI
+09/09/2025 09:42:58 - NON TROVATA: MODELLO_FrS01_{=================================}_MODELLO
 --------------------------------------------
-Totale eliminate: 3
-Totale errori/skipped: 0
+Totale eliminate: 0
+Totale errori/skipped: 3

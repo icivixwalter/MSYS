@@ -1,9 +1,9 @@
-Log esecuzione funzione: Importa_FORM_MSYS_DF_PFunct
-Data/Ora: 08/09/2025 14:07:57
+Log esecuzione funzione: Importa_FORM_PFunct
+Data/Ora: 09/09/2025 09:37:59
 --------------------------------------------
-08/09/2025 14:07:57 - OK: Msys_DF01_Frm01_}----------------------------------------------@
-08/09/2025 14:07:58 - OK: Msys_DF01_Frm01_M01_GE_COMANDI
-08/09/2025 14:07:58 - OK: Msys_DF01_Frm01_S01_COMANDI
+09/09/2025 09:38:00 - OK: LLPP_ATTI_FrmS02_01_{==============================}_ALLEG
+09/09/2025 09:38:01 - OK: LLPP_ATTI_FrmS02_01_Gestione_ALLEGATI
+09/09/2025 09:38:01 - OK: MODELLO_FrS01_{=================================}_MODELLO
 --------------------------------------------
 Totale collegate: 3
 Totale errori/skipped: 0

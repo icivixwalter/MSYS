@@ -1,0 +1,13 @@
+Log esecuzione funzione: CancellaTutte_QUERY_LLPP_ATTI_Tb02_Allegati
+Data/Ora: 09/09/2025 08:36:52
+--------------------------------------------
+09/09/2025 08:36:52 - OK: Eliminata LLPP_ATTI_Qry02_01_}--------------------------------------SELECT
+09/09/2025 08:36:52 - OK: Eliminata LLPP_ATTI_Qry02_01_Allegati
+09/09/2025 08:36:52 - OK: Eliminata LLPP_ATTI_Qry02_25_}--------------------------------------UNION
+09/09/2025 08:36:52 - OK: Eliminata LLPP_ATTI_Qry02_26_UNION_FileAtto_Atti_Allegati
+09/09/2025 08:36:52 - OK: Eliminata LLPP_ATTI_Qry02_26_UNION_FileAtto_Atti_Allegati_RICERCA
+09/09/2025 08:36:52 - OK: Eliminata LLPP_ATTI_Qry02_30_}-------------------------------------CONTR
+09/09/2025 08:36:52 - OK: Eliminata LLPP_ATTI_Qry02_30_CONTROLLO_Allegati
+--------------------------------------------
+Totale eliminate: 7
+Totale errori/skipped: 0

@@ -1,9 +1,9 @@
-Log esecuzione funzione: Importa_MODULI_MSYS_DF_PFunct
-Data/Ora: 08/09/2025 14:07:52
+Log esecuzione funzione: Importa_MODULI_LLPP_ATTI_Tb02_Allegati_PFunct
+Data/Ora: 09/09/2025 08:59:12
 --------------------------------------------
-08/09/2025 14:07:53 - OK: CLASSE_ATTI_Tb01_Gestione
-08/09/2025 14:07:53 - OK: Msys_DF01_Mdl00_}----------------------------------------------@
-08/09/2025 14:07:54 - OK: Msys_DF01_Mdl01_COLLEGA_COMANDI
+09/09/2025 08:59:13 - OK: GEST_FrmM00_GESTIONE_Mdl01_ControlloFormAperta
+09/09/2025 08:59:14 - OK: GEST_FrmM00_GESTIONE_Mdl05_DF05_FALDONI
+09/09/2025 08:59:14 - OK: GEST_FrmM00_GESTIONE_Mdl05_DF06_FASCICOLI
 --------------------------------------------
 Totale collegati: 3
 Totale errori/skipped: 0
