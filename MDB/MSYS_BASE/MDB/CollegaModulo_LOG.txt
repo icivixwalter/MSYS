@@ -1,9 +1,0 @@
-Log esecuzione funzione: Importa_MODULI_LLPP_ATTI_Tb02_Allegati_PFunct
-Data/Ora: 09/09/2025 08:59:12
---------------------------------------------
-09/09/2025 08:59:13 - OK: GEST_FrmM00_GESTIONE_Mdl01_ControlloFormAperta
-09/09/2025 08:59:14 - OK: GEST_FrmM00_GESTIONE_Mdl05_DF05_FALDONI
-09/09/2025 08:59:14 - OK: GEST_FrmM00_GESTIONE_Mdl05_DF06_FASCICOLI
---------------------------------------------
-Totale collegati: 3
-Totale errori/skipped: 0

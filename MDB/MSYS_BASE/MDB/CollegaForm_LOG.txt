@@ -1,9 +1,0 @@
-Log esecuzione funzione: Importa_FORM_PFunct
-Data/Ora: 09/09/2025 09:37:59
---------------------------------------------
-09/09/2025 09:38:00 - OK: LLPP_ATTI_FrmS02_01_{==============================}_ALLEG
-09/09/2025 09:38:01 - OK: LLPP_ATTI_FrmS02_01_Gestione_ALLEGATI
-09/09/2025 09:38:01 - OK: MODELLO_FrS01_{=================================}_MODELLO
---------------------------------------------
-Totale collegate: 3
-Totale errori/skipped: 0

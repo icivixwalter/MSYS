@@ -1,9 +1,0 @@
-Log esecuzione funzione: CancellaTutti_MODULI_LLPP_ATTI_Tb02_Allegati
-Data/Ora: 09/09/2025 08:45:10
---------------------------------------------
-09/09/2025 08:45:10 - OK: Eliminato GEST_FrmM00_GESTIONE_Mdl01_ControlloFormAperta
-09/09/2025 08:45:11 - OK: Eliminato GEST_FrmM00_GESTIONE_Mdl05_DF05_FALDONI
-09/09/2025 08:45:11 - OK: Eliminato GEST_FrmM00_GESTIONE_Mdl05_DF06_FASCICOLI
---------------------------------------------
-Totale eliminati: 3
-Totale errori/skipped: 0

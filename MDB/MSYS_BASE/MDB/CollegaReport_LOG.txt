@@ -1,7 +1,0 @@
-Log esecuzione funzione: Importa_REPORT_LLPP_ATTI_Tb02_Allegati_PFunct
-Data/Ora: 09/09/2025 09:07:39
---------------------------------------------
-09/09/2025 09:07:39 - OK: LLPP_ATTI_Tb01Reports01_Gestione
---------------------------------------------
-Totale collegati: 1
-Totale errori/skipped: 0
