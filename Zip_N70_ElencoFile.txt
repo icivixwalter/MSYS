@@ -16,7 +16,7 @@ git_STATUS+PULL+ADD+COMMIT+PUSH.BAT
 MSYS_N02________________________________________________________________MSYS.txt
 Project_MSYS.sublime-project
 Project_MSYS.sublime-workspace
-README.md
+README_MSYS.md
 ZIP_7ZIP_________________________________________________________________ZZ.txt
 ZIP_7ZIP_INCREMENTALE_{CRIPTA+DECODIFICA_INTERNO}_CASA_C.BAT
 ZIP_7ZIP_INCREMENTALE_{CRIPTA+DECODIFICA_INTERNO}_SAN_GIORGIO_C.BAT

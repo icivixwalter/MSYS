@@ -27,6 +27,18 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "/c/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/MDB/MSYS_BASE/README_MSYS_BASE.md",
+			"settings":
+			{
+				"buffer_size": 56991,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			},
+			"undo_stack":
+			[
+			]
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -117,6 +129,7 @@
 	"file_history":
 	[
 		"/c/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/MDB/MSYS_BASE/README_MSYS_BASE.md",
+		"/C/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/MDB/MSys_TB03_ELENCO_OGGETTI/README_MSys_TB03.md",
 		"/c/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/MDB/MSYS_BASE/Project_RICOSTRUISCI_PATH_MSys_TABELLE.bat",
 		"/c/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/MDB/MSYS_BASE/ZZ________________________________________________________________________ZZ.txt",
 		"/c/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/MDB/MSys_TABELLE/Project_RICOSTRUISCI_PATH_MSys_TABELLE.bat",
@@ -242,12 +255,11 @@
 		"/Y/LAVORI_PUBBLICI_FINO_AL_30_09_2019/Valter/OPERE_PUBBLICHE/85_EX_DISCARICA_LE_LAME/40_EXDISCARICA_APQ8/FASCICOLO_02/02.00_ELENCO_EX_DISCARICA_COPIA_RENDICONTAZIONE_A3_FASCICOLO_02.txt",
 		"/Y/LAVORI_PUBBLICI_FINO_AL_30_09_2019/Valter/OPERE_PUBBLICHE/85_EX_DISCARICA_LE_LAME/40_EXDISCARICA_APQ8/FASCICOLO_01/01.00_ELENCO_EX_DISCARICA_COPIA_RENDICONTAZIONE_A3_FASCICOLO_01.txt",
 		"/C/GESTIONI/GESTIONE_LLPP/25_GESTIONE_LLPP/PRES3000_GESTIONE/ARCHIVI_PRES3000/PRES3000_Tb02_ElencoGiornaliere/ANALISI_SUBLIME_TXT/WORKSPACE_Giornaliere.sublime-workspace",
-		"/C/TMP/TMP_oggi/DA_SCANSIONARE_EX_DICARICA_REGIONE/FASCICOLO_03/03.00_ELENCO_EX_DISCARICA_COPIA_RENDICONTAZIONE_A3_FASCICOLO_03.txt",
-		"/C/TMP/TMP_oggi/DA_SCANSIONARE_EX_DICARICA_REGIONE/FASCICOLO_03/03.00_ELENCO_EX_DISCARICA_APRI_TUTTO.bat"
+		"/C/TMP/TMP_oggi/DA_SCANSIONARE_EX_DICARICA_REGIONE/FASCICOLO_03/03.00_ELENCO_EX_DISCARICA_COPIA_RENDICONTAZIONE_A3_FASCICOLO_03.txt"
 	],
 	"find":
 	{
-		"height": 31.0
+		"height": 34.4
 	},
 	"find_in_files":
 	{
@@ -261,9 +273,6 @@
 		"case_sensitive": false,
 		"find_history":
 		[
-			"Cmd_IMPORTA_TUTTI",
-			"QueryPath",
-			"TabellaPath",
 			"MODULI",
 			"FORM",
 			"QUERY",
@@ -292,12 +301,45 @@
 		{
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "/c/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/MDB/MSYS_BASE/README_MSYS_BASE.md",
+					"selected": true,
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 56991,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								51,
+								51
+							]
+						],
+						"settings":
+						{
+							"mde.match_heading_hashes": false,
+							"syntax": "Packages/Markdown/Markdown.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"stack_multiselect": false,
+					"type": "text"
+				}
 			]
 		}
 	],
 	"incremental_find":
 	{
-		"height": 31.0
+		"height": 34.4
 	},
 	"input":
 	{
@@ -337,7 +379,7 @@
 	"project": "Project_MSYS_BASE.sublime-project",
 	"replace":
 	{
-		"height": 58.0
+		"height": 65.6
 	},
 	"save_all_on_build": false,
 	"select_file":

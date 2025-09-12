@@ -1,8 +1,38 @@
-# SCHEMA CARTELLE
-    Note
-         schema delle cartelle e dei file sul percorso del progetto:
-               c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\
-    MSYS/
+# SCHEMA CARTELLE E ASPETTI GENERALI DI UN MULTIPROGETTO ACCESS
+   Note
+      schema delle cartelle e dei file sul percorso del progetto:
+            c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\
+      Un PROGETTO ACCESS è composto da varie parti divisi fisicamente in cartelle.
+      La cartella principale e le cartelle secondarie che dividono il progetto in questo modo:
+            PROGETTO MASTER
+               Contiene il database MULTIPROGETTO denominati
+                  MULTIPROGETTO_MASTER.MDB
+            MINI PROGETTI
+               GESTIONE_PROGETTO_MINI.mdb
+               ProgettiDefinizioni.mdb
+               ProgettiArchivio.mdb
+      Esempio di questa divisione puo essere questa:
+         MSYS_ATTIVA_GEST_OGGETTI.mdb
+            |__GE_MSys_DF01.mdb
+                  |__MSys_DF01.mdb
+   Vantaggi
+      con questa divisione si possono costruire i proggetti in modo separato e modulare
+      e con prove di gestione sia nel mini progetto che nel progetto master, essendo
+      facilmente manutenibili.
+   Accortezze
+      Nel mini progetto BASE.MDB viene costruito un GESTORE DI OGGETTI che ha come unica
+      funzione quella di IMPORTARE GLI OGGETTI direttamente dai mini progetti escluso dal
+      proprio progetto sorgente.
+      Quindi si hanno 2 tabelle di gestione per questa attivita:
+         1) TABELLA OGGETTI     = che contiene path+database e gli oggetti che devono essere importati
+         2) TABELLA SORGENTI    = contiene i database archivio e database definizioni che non possono 
+         3)                         attivare l'importazione degli oggetti per evitare le cancellazioni
+                                    inavvertite.
+
+
+
+   ALBERO CARTELLE E FILE
+      MSYS/
       │
       ├─GIT_BAT/
       ├─MDB/

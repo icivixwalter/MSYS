@@ -15,6 +15,15 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "/c/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/README_MSYS.md",
+			"settings":
+			{
+				"buffer_size": 11240,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -77,6 +86,7 @@
 	],
 	"file_history":
 	[
+		"/c/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/Zip_N70_ElencoFile.txt",
 		"/c/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/README_MSYS.md",
 		"/c/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/BAT_RICREA_PATH_MSYS.BAT",
 		"/c/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/git_RICOSTRUISCI_REPOSITORY_LOCALE.BAT",
@@ -210,6 +220,39 @@
 		{
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "/c/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/README_MSYS.md",
+					"selected": true,
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 11240,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"mde.match_heading_hashes": false,
+							"syntax": "Packages/Markdown/Markdown.sublime-syntax",
+							"tab_size": 3,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"stack_multiselect": false,
+					"type": "text"
+				}
 			]
 		}
 	],
