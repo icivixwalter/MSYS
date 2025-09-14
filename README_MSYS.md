@@ -61,6 +61,9 @@
       ├─Zip_N70_ElencoFile.txt
       ├─Zip_N70_ElencoFileESCLUSI.txt
       └─ZZ________________________________________________________________________ZZ.txt
+
+   ALBERO PROGETTO MSYS
+      
 # RICOSTRUIRE LA REPOSITORY LOCALE ALLINEATA ALLA REMOTA
    Note
       devi svuotare completamente la cartella MSYS anche con i dati della

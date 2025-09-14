@@ -1,0 +1,4 @@
+2025-09-14 12:24:13 | Classe: Msys_GEFILE_CLS01_GESTIONI | Funzione: MostraProprietaFile | Evento: Proprietà file mostrate: c:\Casa\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF02\MDB\MSys_DF02.mdb
+2025-09-14 12:24:13 | Classe: Msys_GEFILE_CLS01_GESTIONI | Funzione: Cmd_PATH_E_FILE_PREIMPOSTATO_Click | Evento: File preimpostato selezionato: c:\Casa\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF02\MDB\MSys_DF02.mdb
+2025-09-14 18:55:20 | Classe: Msys_GEFILE_CLS01_GESTIONI | Funzione: MostraProprietaFile | Evento: Proprietà file mostrate: c:\Casa\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF02\MDB\MSys_DF02.mdb
+2025-09-14 18:55:21 | Classe: Msys_GEFILE_CLS01_GESTIONI | Funzione: Cmd_PATH_E_FILE_PREIMPOSTATO_Click | Evento: File preimpostato selezionato: c:\Casa\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF02\MDB\MSys_DF02.mdb

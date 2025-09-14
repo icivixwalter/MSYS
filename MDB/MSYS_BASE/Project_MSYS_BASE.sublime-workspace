@@ -28,15 +28,615 @@
 	"buffers":
 	[
 		{
+			"contents": "# MSYS_BASE\n   progetto base per i mini progetti\n\n\n## MODIFICHE\n    NOTE\n        devo creare una nuova form che includa i comandi di importazione\n        di tutti gli oggetti e la gestione dei progetti.\n\n        form\n            UTILITA_Msys_Frm22_GESTIONE_Oggetti_MSYS_new\n\n            la form chiama la classe gestioni ma è sbagliata\n                CLASSE_ATTI_Tb01_Gestione\n\n\n\n\n\nCHATGPT\n\n   SEGNALIBRI\n      TI POSSO DARE LA CLASSE della form gestione oggetti per un \n      controllo generale di implementazione tra le funzione ed \n      un AGGIORNAMENTO DEI SEGNALIBRI in TESTATA \n      e sulle singole funzioni LASCIANDO I COMMENTI ORIGINALI?\n\n\n   ADATTA TUTTE LE FUNZIONI CHE UTILIZZO PER IMPORTARE LE TABELLE LINK AD IMPORTAZIONI DELLE  QUERY \n      tutte le funzioni servo per uno scopo, importare le tabelle come link e\n      cancellarle. Si possono adattare per un SECONDO SCOPO cioè IMPORTARE \n      LE QUERY E CANCELLARE LE QUERY?? \n\n      questo è il codice di tutte le funzioni:\n\n      \n         ' ============================================================\n         ' @01 FUNZIONE GetTabellaPaths_LINK_TABELLE_MSYS_DF\n         ' SCOPO:\n         '   Restituisce una collection di Array(NomeTabella, PercorsoFile).\n         '   - Controlla se i file esistono\n         '   - Esclude righe vuote\n         ' ============================================================\n         Public Function GetTabellaPaths_LINK_TABELLE_MSYS_DF() As Collection\n             On Error GoTo GestErrore\n             \n             Dim TabellaPath As New Collection\n             Dim PercorsoFile As String\n             \n             ' === RESET campo di appoggio (se esiste in un form) ===\n             sourceDBPath_s_Txt = \"\"\n             Me.sourceDBPath_s_Txt.Requery\n             \n             ' === Percorso unico ===\n             PercorsoFile = \"c:\\CASA\\LINGUAGGI\\ACCESS\\PROGETTI_MDB\\MSYS_OGGETTI\\MSYS\\MDB\\MSys_DF01\\MDB\\MSys_DF01.mdb\"\n             \n             ' === Verifica esistenza file ===\n             If Not FileEsiste(PercorsoFile) Then\n                 MsgBox \"File mancante: \" & vbCrLf & PercorsoFile, vbExclamation\n                 Set GetTabellaPaths_LINK_TABELLE_MSYS_DF = TabellaPath\n                 Exit Function\n             End If\n             \n             ' === Aggiunta nomi tabella direttamente alla Collection ===\n             TabellaPath.Add Array(\"MSys_{@===================================================@}_Tab\", PercorsoFile)\n             TabellaPath.Add Array(\"MSys_DF01_}----------------------------------------------------@\", PercorsoFile)\n             TabellaPath.Add Array(\"MSys_DF01_COMANDI\", PercorsoFile)\n             \n             ' === Aggiorna campo Txt Form PATH DB  ===\n             sourceDBPath_s_Txt = PercorsoFile\n             \n             ' === Restituzione collection ===\n             Set GetTabellaPaths_LINK_TABELLE_MSYS_DF = TabellaPath\n             Exit Function\n         \n         GestErrore:\n             MsgBox \"Errore in GetTabellaPaths_LINK_TABELLE_MSYS_DF: \" & Err.Description, vbExclamation, \"Errore\"\n             Set GetTabellaPaths_LINK_TABELLE_MSYS_DF = Nothing\n         End Function\n         \n         \n         \n         ' ============================================================\n         ' @02 FUNZIONE CollegaTabelle_LINK_TABELLE_MSYS_DF_PFunct\n         ' SCOPO:\n         '   Collega tutte le tabelle definite in GetTabellaPaths.\n         '   - Controlla NomeTabella e PercorsoFile\n         '   - Scrive un log dettagliato\n         ' ============================================================\n         Public Function CollegaTabelle_LINK_TABELLE_MSYS_DF_PFunct()\n             On Error GoTo CollegaTabelle_LINK_TABELLE_MSYS_DF_PFunct_Err\n         \n             Dim TabellaPath As Collection\n             Set TabellaPath = GetTabellaPaths_LINK_TABELLE_MSYS_DF()\n             \n             Dim NomeTabella As String\n             Dim PercorsoFile As String\n             Dim i As Long\n             Dim logFile As Integer\n             Dim LogFileName As String\n             Dim ConteggioOk As Long\n             Dim ConteggioErr As Long\n         \n             If TabellaPath.Count = 0 Then\n                 MsgBox \"La collection delle tabelle è vuota. Nessuna operazione effettuata.\", vbInformation\n                 Exit Function\n             End If\n         \n             ' Creazione file log\n             LogFileName = CurrentProject.Path & \"\\CollegaTabelle_LINK_TABELLE_MSYS_DF_LOG.txt\"\n             logFile = FreeFile\n             Open LogFileName For Output As #logFile\n         \n             Print #logFile, \"Log esecuzione funzione: CollegaTabelle_LINK_TABELLE_MSYS_DF\"\n             Print #logFile, \"Data/Ora: \" & Now()\n             Print #logFile, \"--------------------------------------------\"\n         \n             ConteggioOk = 0\n             ConteggioErr = 0\n         \n             ' Ciclo su tutte le tabelle\n             For i = 1 To TabellaPath.Count\n                 Dim Item As Variant\n                 Item = TabellaPath(i)\n                 NomeTabella = Item(0)\n                 PercorsoFile = Item(1)\n         \n                 ' Controllo valori vuoti\n                 If Len(NomeTabella) = 0 Or Len(PercorsoFile) = 0 Then\n                     Print #logFile, Now & \" - SKIPPED: Nome tabella o percorso vuoto\"\n                     ConteggioErr = ConteggioErr + 1\n                     GoTo ProssimaTabella\n                 End If\n         \n                 ' Controllo percorso file\n                 If Not FileEsiste(PercorsoFile) Then\n                     Print #logFile, Now & \" - ERRORE: Percorso file NON valido per \" & NomeTabella & \" -> \" & PercorsoFile\n                     ConteggioErr = ConteggioErr + 1\n                     GoTo ProssimaTabella\n                 End If\n         \n                 ' Elimina tabella se già esiste, poi crea collegamento\n                 On Error Resume Next\n                 EliminaTabellaSeEsiste_LINK_TABELLE_MSYS_DF NomeTabella\n                 DoCmd.TransferDatabase acLink, \"Microsoft Access\", PercorsoFile, acTable, NomeTabella, NomeTabella, False\n         \n                 If Err.Number = 0 Then\n                     Print #logFile, Now & \" - OK: \" & NomeTabella & \" -> \" & PercorsoFile\n                     ConteggioOk = ConteggioOk + 1\n                 Else\n                     Print #logFile, Now & \" - ERRORE: \" & NomeTabella & \" -> \" & Err.Description\n                     ConteggioErr = ConteggioErr + 1\n                     Err.Clear\n                 End If\n         ProssimaTabella:\n                 On Error GoTo 0\n             Next i\n         \n             ' Riepilogo log\n             Print #logFile, \"--------------------------------------------\"\n             Print #logFile, \"TOTALE TABELLE COLLEGATE: \" & ConteggioOk\n             Print #logFile, \"TOTALE ERRORI/SKIPPED: \" & ConteggioErr\n             Close #logFile\n         \n             MsgBox \"Operazione completata!\" & vbCrLf & _\n                    \"Tabelle collegate: \" & ConteggioOk & vbCrLf & _\n                    \"Errori/Skipped: \" & ConteggioErr & vbCrLf & _\n                    \"Log salvato in: \" & LogFileName, vbInformation\n         \n         CollegaTabelle_LINK_TABELLE_MSYS_DF_PFunct_Exit:\n             Exit Function\n         \n         CollegaTabelle_LINK_TABELLE_MSYS_DF_PFunct_Err:\n             MsgBox \"Errore: \" & Err.Description, vbExclamation, \"Errore di collegamento tabelle\"\n             Resume CollegaTabelle_LINK_TABELLE_MSYS_DF_PFunct_Exit\n         End Function\n         \n         \n         \n         ' ============================================================\n         ' @03 FUNZIONE CancellaTabelleCollegate_LINK_TABELLE_MSYS_DF\n         ' SCOPO:\n         '   Cancella tutte le tabelle collegate definite in GetTabellaPaths.\n         '   - Versione rapida, senza log\n         ' ============================================================\n         Public Sub CancellaTabelleCollegate_LINK_TABELLE_MSYS_DF()\n             Dim TabellaPath As Collection\n             Set TabellaPath = GetTabellaPaths_LINK_TABELLE_MSYS_DF()\n         \n             If TabellaPath.Count = 0 Then\n                 MsgBox \"La collection delle tabelle è vuota. Nessuna tabella da cancellare.\", vbInformation\n                 Exit Sub\n             End If\n         \n             Dim i As Long\n             For i = 1 To TabellaPath.Count\n                 Dim Item As Variant\n                 Item = TabellaPath(i)\n                 \n                 If Len(Item(0)) = 0 Then GoTo ProssimaTabella\n                 EliminaTabellaSeEsiste_LINK_TABELLE_MSYS_DF Item(0)\n         ProssimaTabella:\n             Next i\n         \n             MsgBox \"Cancellazione dei collegamenti completata!\", vbInformation\n         End Sub\n         \n         \n         \n         ' ============================================================\n         ' @04 FUNZIONE EliminaTabellaSeEsiste_LINK_TABELLE_MSYS_DF\n         ' SCOPO:\n         '   Elimina una tabella dal database corrente se esiste\n         ' ============================================================\n         Public Sub EliminaTabellaSeEsiste_LINK_TABELLE_MSYS_DF(NomeTabella As Variant)\n             On Error Resume Next\n             Dim tdf As DAO.TableDef\n             For Each tdf In CurrentDb.TableDefs\n                 If tdf.Name = NomeTabella Then\n                     CurrentDb.TableDefs.Delete NomeTabella\n                     Exit For\n                 End If\n             Next tdf\n             On Error GoTo 0\n         End Sub\n         \n         \n         \n         ' ============================================================\n         ' @05 FUNZIONE FileEsiste\n         ' SCOPO:\n         '   Funzione di utilità che controlla se un file esiste.\n         '   Restituisce TRUE se esiste, FALSE altrimenti.\n         ' ============================================================\n         Public Function FileEsiste(PercorsoFile As String) As Boolean\n             On Error Resume Next\n             FileEsiste = (Dir(PercorsoFile, vbNormal) <> \"\")\n             On Error GoTo 0\n         End Function\n         \n         \n         \n         ' ============================================================\n         ' @06 FUNZIONE CancellaTutteTabelleCollegate_LINK_TABELLE_MSYS_DF_PFunct\n         ' SCOPO:\n         '   Cancella tutte le tabelle collegate definite in GetTabellaPaths.\n         '   - Scrive log dettagliato su file\n         '   - Controlla validità NomeTabella\n         '   - Verifica l’esistenza della tabella nel DB corrente e la elimina\n         '\n         ' MODIFICHE EVIDENZIATE:\n         '   - Dichiarate le variabili NomeTabella e PercorsoFile come String\n         '   - Uso di CStr() e Trim$() per convertire in stringa Item(0) e Item(1)\n         '   - Passata la variabile NomeTabella a EliminaTabellaSeEsiste... al posto di Item(0)\n         '   - Rimosso controllo percorso file (non necessario per DB corrente)\n         '   - Controllo NomeTabella aggiornato: Len(NomeTabella) > 0, altrimenti SKIPPED\n         '   - Aggiunti commenti espliciti in ogni punto dove c’è stata una modifica\n         ' ============================================================\n         Public Function CancellaTutteTabelleCollegate_LINK_TABELLE_MSYS_DF_PFunct()\n             On Error GoTo CancellaTutteTabelleCollegate_LINK_TABELLE_MSYS_DF_PFunct_Err\n         \n             Dim TabellaPath As Collection\n             Set TabellaPath = GetTabellaPaths_LINK_TABELLE_MSYS_DF()\n         \n             ' === Controllo collection vuota ===\n             If TabellaPath.Count = 0 Then\n                 MsgBox \"La collection delle tabelle è vuota. Nessuna tabella da cancellare.\", vbInformation\n                 Exit Function\n             End If\n         \n             Dim i As Long\n             Dim Item As Variant        ' deve rimanere Variant perché contiene un array\n             Dim NomeTabella As String  ' variabile tipizzata per Item(0) (MODIFICA)\n             Dim PercorsoFile As String ' variabile tipizzata per Item(1) (MODIFICA)\n             Dim ConteggioOk As Long\n             Dim ConteggioErr As Long\n             Dim tdf As DAO.TableDef\n             Dim TabellaEsiste As Boolean\n             Dim logFile As Integer\n             Dim LogFileName As String\n         \n             ' === Inizializza log ===\n             LogFileName = CurrentProject.Path & \"\\CANC_TutteTabelleCollegate_PFunct_LOG.txt\"\n             logFile = FreeFile\n             Open LogFileName For Output As #logFile\n         \n             Print #logFile, \"Log esecuzione funzione: CancellaTutteTabelleCollegate_LINK_TABELLE_MSYS_DF_PFunct\"\n             Print #logFile, \"Data/Ora: \" & Now()\n             Print #logFile, \"--------------------------------------------\"\n         \n             ConteggioOk = 0\n             ConteggioErr = 0\n         \n             ' === Ciclo sugli elementi della collection ===\n             For i = 1 To TabellaPath.Count\n                 Item = TabellaPath(i) ' ogni elemento è un array con NomeTabella e PercorsoFile\n         \n                 ' --- Estrazione sicura in variabili tipizzate (MODIFICA) ---\n                 NomeTabella = Trim$(CStr(Item(0) & \"\"))\n                 PercorsoFile = Trim$(CStr(Item(1) & \"\"))\n                 \n                 \n                 ' --- Controllo nome tabella vuoto (MODIFICA: rimosso percorso file) ---\n                 If Len(NomeTabella) = 0 Then\n                     Print #logFile, Now & \" - SKIPPED: Nome tabella vuota\"\n                     ConteggioErr = ConteggioErr + 1\n                     GoTo ProssimaTabella\n                 End If\n         \n                 ' --- Verifica se la tabella esiste nel DB corrente ---\n                 TabellaEsiste = False\n                 For Each tdf In CurrentDb.TableDefs\n                     If tdf.Name = NomeTabella Then\n                         TabellaEsiste = True\n                         Exit For\n                     End If\n                 Next tdf\n                     \n                 ' === Aggiorna campo Txt Form PATH DB  ===\n                 sourceDBPath_s_Txt = PercorsoFile\n                     \n                 \n                 If TabellaEsiste Then\n                     On Error Resume Next\n                     ' --- Eliminazione tabella con NomeTabella tipizzato (MODIFICA) ---\n                     EliminaTabellaSeEsiste_LINK_TABELLE_MSYS_DF NomeTabella\n                     If Err.Number = 0 Then\n                         Print #logFile, Now & \" - OK: Eliminata \" & NomeTabella\n                         ConteggioOk = ConteggioOk + 1\n                     Else\n                         Print #logFile, Now & \" - ERRORE: \" & NomeTabella & \" -> \" & Err.Description\n                         ConteggioErr = ConteggioErr + 1\n                         Err.Clear\n                     End If\n                     On Error GoTo 0\n                 Else\n                     Print #logFile, Now & \" - NON TROVATA: \" & NomeTabella\n                     ConteggioErr = ConteggioErr + 1\n                 End If\n         \n         ProssimaTabella:\n             Next i\n         \n             ' === Riepilogo log ===\n             Print #logFile, \"--------------------------------------------\"\n             Print #logFile, \"TOTALE TABELLE ELIMINATE: \" & ConteggioOk\n             Print #logFile, \"TOTALE ERRORI/SKIPPED: \" & ConteggioErr\n             Close #logFile\n         \n             ' === Messaggio finale === + aggiorna riquadro oggetti\n             Call RefreshDatabaseView\n         \n             MsgBox \"Cancellazione completata!\" & vbCrLf & _\n                    \"Tabelle eliminate: \" & ConteggioOk & vbCrLf & _\n                    \"Errori/Skipped: \" & ConteggioErr & vbCrLf & _\n                    \"Log salvato in: \" & LogFileName, vbInformation\n         \n         CancellaTutteTabelleCollegate_LINK_TABELLE_MSYS_DF_PFunct_Exit:\n             Exit Function\n         \n         CancellaTutteTabelleCollegate_LINK_TABELLE_MSYS_DF_PFunct_Err:\n             MsgBox \"Errore: \" & Err.Description, vbExclamation, \"Errore cancellazione tabelle\"\n             Resume CancellaTutteTabelleCollegate_LINK_TABELLE_MSYS_DF_PFunct_Exit\n         End Function\n         \n         \n         '//*********************************************************************************************************************************//\n         '//                                          IMPORTA O CANCELLA TABELLE LINK                          *** FINE ***\n         '//*********************************************************************************************************************************//\n\n   ADATTA TUTE LE FUNZIONE PER IMPORTARE LE QUERY AD IMPORTARE LE FORM\n    Tutte queste funzioni sono dedicate alla importazione delle query da un database esterno fino al\n    database corrente. Vorrei riadattare tutto il codice alla importazione delle FORM dal db esterno \n    e alla eventuale cancellazione sempre nel db corrente cosi come sviluppato nel codice. Si puo fare?\n    questo è tutto il codice funzionante delle query da riadattare per le form lascia i commenti originali\n    a limite cambia il nome QUUERY  in FORM: \n\n\n            '//*********************************************************************************************************************************//\n            '//                                         @IMPORTA@QUERY  O @CANCELLA@ QUERY                       *** INIZIO ***                 //\n            '//*********************************************************************************************************************************//\n            \n            \n            ' ============================================================\n            ' FUNZIONE GetQueryPaths_QUERY_MSYS_DF\n            ' SCOPO:\n            '   Restituisce una collection di Array(NomeQuery, PercorsoFile)\n            '   che definisce le query da collegare dal DB sorgente.\n            ' ============================================================\n            Public Function GetQueryPaths_QUERY_MSYS_DF() As Collection\n                On Error GoTo GestErrore\n                \n                Dim QueryPath As New Collection\n                Dim PercorsoFile As String\n                \n                ' === Percorso del file sorgente contenente le query ===\n                PercorsoFile = \"c:\\CASA\\LINGUAGGI\\ACCESS\\PROGETTI_MDB\\MSYS_OGGETTI\\MSYS\\MDB\\MSys_DF01\\MDB\\MSys_DF01.mdb\"\n                \n                If Not FileEsiste(PercorsoFile) Then\n                    MsgBox \"File mancante: \" & vbCrLf & PercorsoFile, vbExclamation\n                    Set GetQueryPaths_QUERY_MSYS_DF = QueryPath\n                    Exit Function\n                End If\n                \n                ' === Elenco query da collegare ===\n                QueryPath.Add Array(\"MSys_{@-----------------------OGGETTI_DB----------------------@}\", PercorsoFile)\n                QueryPath.Add Array(\"MSys_DF01_COMANDI_Qry01_01_SELECT_TUTTI\", PercorsoFile)\n                QueryPath.Add Array(\"Msys_DF01_COMANDI_Qry01_02_GROUP_TIPO\", PercorsoFile)\n                \n                Set GetQueryPaths_QUERY_MSYS_DF = QueryPath\n                \n                Exit Function\n            \n            GestErrore:\n                MsgBox \"Errore in GetQueryPaths_QUERY_MSYS_DF: \" & Err.Description, vbExclamation, \"Errore\"\n                Set GetQueryPaths_QUERY_MSYS_DF = Nothing\n            End Function\n            \n            \n            ' ============================================================\n            ' FUNZIONE ImportaQuery_QUERY_MSYS_DF_PFunct\n            ' SCOPO:\n            '   Collega tutte le query definite in GetQueryPaths_QUERY_MSYS_DF\n            '   - Scrive log dettagliato\n            ' ============================================================\n            Public Function ImportaQuery_QUERY_MSYS_DF_PFunct()\n                On Error GoTo ErrHandler\n            \n                Dim QueryPath As Collection\n                Set QueryPath = GetQueryPaths_QUERY_MSYS_DF()\n                \n                Dim NomeQuery As String\n                Dim PercorsoFile As String\n                Dim i As Long\n                Dim logFile As Integer\n                Dim LogFileName As String\n                Dim ConteggioOk As Long\n                Dim ConteggioErr As Long\n            \n                If QueryPath.Count = 0 Then\n                    MsgBox \"Nessuna query da collegare.\", vbInformation\n                    Exit Function\n                End If\n                \n                ' File log\n                LogFileName = CurrentProject.Path & \"\\CollegaQuery_LOG.txt\"\n                logFile = FreeFile\n                Open LogFileName For Output As #logFile\n                Print #logFile, \"Log esecuzione funzione: ImportaQuery_QUERY_MSYS_DF_PFunct\"\n                Print #logFile, \"Data/Ora: \" & Now()\n                Print #logFile, \"--------------------------------------------\"\n            \n                ' Ciclo\n                For i = 1 To QueryPath.Count\n                    Dim Item As Variant\n                    Item = QueryPath(i)\n                    NomeQuery = Item(0)\n                    PercorsoFile = Item(1)\n                    \n                    If Len(NomeQuery) = 0 Then\n                        Print #logFile, Now & \" - SKIPPED: Nome query vuoto\"\n                        ConteggioErr = ConteggioErr + 1\n                        GoTo Prossimo\n                    End If\n                    \n                    If Not FileEsiste(PercorsoFile) Then\n                        Print #logFile, Now & \" - ERRORE: File non trovato -> \" & PercorsoFile\n                        ConteggioErr = ConteggioErr + 1\n                        GoTo Prossimo\n                    End If\n                    \n                    ' Elimina se già esiste\n                    EliminaQuerySeEsiste_QUERY_MSYS_DF NomeQuery\n                    \n                    ' Collega\n                    On Error Resume Next\n                    \n                    '//@cmd@importa@QUERY\n                    DoCmd.TransferDatabase _\n                        TransferType:=acImport, _\n                        DatabaseType:=\"Microsoft Access\", _\n                        DatabaseName:=PercorsoFile, _\n                        ObjectType:=acQuery, _\n                        Source:=NomeQuery, _\n                        Destination:=NomeQuery, _\n                        StructureOnly:=False\n            \n                    If Err.Number = 0 Then\n                        Print #logFile, Now & \" - OK: \" & NomeQuery\n                        ConteggioOk = ConteggioOk + 1\n                    Else\n                        Print #logFile, Now & \" - ERRORE: \" & NomeQuery & \" -> \" & Err.Description\n                        ConteggioErr = ConteggioErr + 1\n                        Err.Clear\n                    End If\n                    On Error GoTo 0\n            Prossimo:\n                Next i\n                \n                ' Riepilogo\n                Print #logFile, \"--------------------------------------------\"\n                Print #logFile, \"Totale collegate: \" & ConteggioOk\n                Print #logFile, \"Totale errori/skipped: \" & ConteggioErr\n                Close #logFile\n                \n                 ' === aggiorna riquadro oggetti ===\n                Call RefreshDatabaseView\n            \n                MsgBox \"Operazione IMPORTA QUERY completata!\" & vbCrLf & _\n                       \"Collegate: \" & ConteggioOk & vbCrLf & _\n                       \"Errori/Skipped: \" & ConteggioErr & vbCrLf & _\n                       \"Log: \" & LogFileName, vbInformation\n                Exit Function\n            \n            ErrHandler:\n                MsgBox \"Errore in ImportaQuery_QUERY_MSYS_DF_PFunct: \" & Err.Description, vbExclamation\n            End Function\n            \n            \n            ' ============================================================\n            ' SUB CancellaQueryCollegate_QUERY_MSYS_DF\n            ' SCOPO:\n            '   Cancella tutte le query collegate definite in GetQueryPaths_QUERY_MSYS_DF\n            ' ============================================================\n            Public Sub CancellaQueryCollegate_QUERY_MSYS_DF()\n                Dim QueryPath As Collection\n                Set QueryPath = GetQueryPaths_QUERY_MSYS_DF()\n                \n                If QueryPath.Count = 0 Then Exit Sub\n                \n                Dim i As Long\n                Dim Item As Variant\n                Dim NomeQuery As String\n                \n                For i = 1 To QueryPath.Count\n                    ' Recupero l'array da Collection\n                    Item = QueryPath(i)\n                    \n                    ' Copio l’elemento in una variabile String per evitare errore \"by reference\"\n                    NomeQuery = CStr(Item(0))\n                    \n                    If Len(NomeQuery) > 0 Then\n                        EliminaQuerySeEsiste_QUERY_MSYS_DF NomeQuery\n                    End If\n                Next i\n                \n                MsgBox \"Cancellazione QUERY completata!\", vbInformation\n                \n                '//TODO : manca la gestione errori routine\n                \n            End Sub\n            \n            \n            ' ============================================================\n            ' FUNZIONE CancellaTutte_QUERY_MSYS_DF\n            ' SCOPO:\n            '   Cancella tutte le query collegate definite in GetQueryPaths_QUERY_MSYS_DF\n            '   - Scrive log dettagliato\n            ' ============================================================\n            Public Function CancellaTutte_QUERY_MSYS_DF()\n                On Error GoTo ErrHandler\n                \n                Dim QueryPath As Collection\n                Set QueryPath = GetQueryPaths_QUERY_MSYS_DF()\n                \n                If QueryPath.Count = 0 Then\n                    MsgBox \"Nessuna query da cancellare.\", vbInformation\n                    Exit Function\n                End If\n                \n                Dim i As Long, Item As Variant\n                Dim NomeQuery As String\n                Dim ConteggioOk As Long, ConteggioErr As Long\n                Dim logFile As Integer, LogFileName As String\n                \n                LogFileName = CurrentProject.Path & \"\\CancellaQuery_LOG.txt\"\n                logFile = FreeFile\n                Open LogFileName For Output As #logFile\n                \n                Print #logFile, \"Log esecuzione funzione: CancellaTutte_QUERY_MSYS_DF\"\n                Print #logFile, \"Data/Ora: \" & Now()\n                Print #logFile, \"--------------------------------------------\"\n                \n                For i = 1 To QueryPath.Count\n                    Item = QueryPath(i)\n                    NomeQuery = Trim$(CStr(Item(0)))\n                    \n                    If Len(NomeQuery) = 0 Then\n                        Print #logFile, Now & \" - SKIPPED: Nome vuoto\"\n                        ConteggioErr = ConteggioErr + 1\n                        GoTo Prossimo\n                    End If\n                    \n                    If QueryEsiste_QUERY_MSYS_DF(NomeQuery) Then\n                        EliminaQuerySeEsiste_QUERY_MSYS_DF NomeQuery\n                        If Not QueryEsiste_QUERY_MSYS_DF(NomeQuery) Then\n                            Print #logFile, Now & \" - OK: Eliminata \" & NomeQuery\n                            ConteggioOk = ConteggioOk + 1\n                        Else\n                            Print #logFile, Now & \" - ERRORE: Non eliminata \" & NomeQuery\n                            ConteggioErr = ConteggioErr + 1\n                        End If\n                    Else\n                        Print #logFile, Now & \" - NON TROVATA: \" & NomeQuery\n                        ConteggioErr = ConteggioErr + 1\n                    End If\n            Prossimo:\n                Next i\n                \n                Print #logFile, \"--------------------------------------------\"\n                Print #logFile, \"Totale eliminate: \" & ConteggioOk\n                Print #logFile, \"Totale errori/skipped: \" & ConteggioErr\n                Close #logFile\n                \n                Call RefreshDatabaseView\n                MsgBox \"Cancellazione completata!\" & vbCrLf & _\n                       \"Eliminate: \" & ConteggioOk & vbCrLf & _\n                       \"Errori/Skipped: \" & ConteggioErr & vbCrLf & _\n                       \"Log: \" & LogFileName, vbInformation\n                Exit Function\n                \n            ErrHandler:\n                MsgBox \"Errore in CancellaTutte_QUERY_MSYS_DF: \" & Err.Description, vbExclamation\n            End Function\n            \n            \n            ' ============================================================\n            ' SUB EliminaQuerySeEsiste_QUERY_MSYS_DF\n            ' SCOPO:\n            '   Elimina una query dal database corrente se esiste\n            ' ============================================================\n            Public Sub EliminaQuerySeEsiste_QUERY_MSYS_DF(NomeQuery As String)\n                On Error Resume Next\n                CurrentDb.QueryDefs.Delete NomeQuery\n                On Error GoTo 0\n            End Sub\n            \n            \n            ' ============================================================\n            ' FUNZIONE QueryEsiste_QUERY_MSYS_DF\n            ' SCOPO:\n            '   Verifica se una query esiste nel DB corrente\n            ' ============================================================\n            Public Function QueryEsiste_QUERY_MSYS_DF(NomeQuery As String) As Boolean\n                Dim qdf As DAO.QueryDef\n                QueryEsiste_QUERY_MSYS_DF = False\n                For Each qdf In CurrentDb.QueryDefs\n                    If qdf.Name = NomeQuery Then\n                        QueryEsiste_QUERY_MSYS_DF = True\n                        Exit For\n                    End If\n                Next qdf\n            End Function\n            \n            \n            \n            '//*********************************************************************************************************************************//\n            '//                                         @IMPORTA@QUERY  O @CANCELLA@ QUERY                       *** FINE ***                   //\n            '//*********************************************************************************************************************************//\n            \n\n\n\n   ADATTA TUTTE LE FUNZION PER IMPORTARE LE FORR ALLA IMPORTAZIONE DEI MODULI\n            Tutte queste funzioni sono dedicate alla importazione delle FORM da un database esterno fino al\n    database corrente. Vorrei riadattare tutto il codice alla importazione dei MODULI dal db esterno \n    e alla eventuale cancellazione sempre nel db corrente cosi come sviluppato nel codice. Si puo fare?\n    questo è tutto il codice funzionante delle for da riadattare per I MODULI  lascia i commenti originali\n    a limite cambia il nome delle form  in MODULI: \n\n\n            '//*********************************************************************************************************************************//\n            '//                                         @IMPORTA@FORM  O @CANCELLA@FORM                         *** INIZIO ***                 //\n            '//*********************************************************************************************************************************//\n            \n            \n            ' ============================================================\n            ' FUNZIONE GetFormPaths_FORM_MSYS_DF\n            ' SCOPO:\n            '   Restituisce una collection di Array(NomeForm, PercorsoFile)\n            '   che definisce le form da collegare dal DB sorgente.\n            ' ============================================================\n            Public Function GetFormPaths_FORM_MSYS_DF() As Collection\n                On Error GoTo GestErrore\n                \n                Dim FormPath As New Collection\n                Dim PercorsoFile As String\n                \n                ' === Percorso del file sorgente contenente le form ===\n                PercorsoFile = \"c:\\CASA\\LINGUAGGI\\ACCESS\\PROGETTI_MDB\\MSYS_OGGETTI\\MSYS\\MDB\\MSys_DF01\\MDB\\MSys_DF01.mdb\"\n                \n                If Not FileEsiste(PercorsoFile) Then\n                    MsgBox \"File mancante: \" & vbCrLf & PercorsoFile, vbExclamation\n                    Set GetFormPaths_FORM_MSYS_DF = FormPath\n                    Exit Function\n                End If\n                \n                ' === Elenco form da collegare ===\n                FormPath.Add Array(\"Msys_DF01_Frm01_}----------------------------------------------@\", PercorsoFile)\n                FormPath.Add Array(\"Msys_DF01_Frm01_M01_GE_COMANDI\", PercorsoFile)\n                FormPath.Add Array(\"Msys_DF01_Frm01_S01_COMANDI\", PercorsoFile)\n                \n                Set GetFormPaths_FORM_MSYS_DF = FormPath\n                \n                Exit Function\n            \n            GestErrore:\n                MsgBox \"Errore in GetFormPaths_FORM_MSYS_DF: \" & Err.Description, vbExclamation, \"Errore\"\n                Set GetFormPaths_FORM_MSYS_DF = Nothing\n            End Function\n            \n            \n            ' ============================================================\n            ' FUNZIONE ImportaForm_FORM_MSYS_DF_PFunct\n            ' SCOPO:\n            '   Collega tutte le form definite in GetFormPaths_FORM_MSYS_DF\n            '   - Scrive log dettagliato\n            ' ============================================================\n            Public Function ImportaForm_FORM_MSYS_DF_PFunct()\n                On Error GoTo ErrHandler\n            \n                Dim FormPath As Collection\n                Set FormPath = GetFormPaths_FORM_MSYS_DF()\n                \n                Dim NomeForm As String\n                Dim PercorsoFile As String\n                Dim i As Long\n                Dim logFile As Integer\n                Dim LogFileName As String\n                Dim ConteggioOk As Long\n                Dim ConteggioErr As Long\n            \n                If FormPath.Count = 0 Then\n                    MsgBox \"Nessuna form da collegare.\", vbInformation\n                    Exit Function\n                End If\n                \n                ' File log\n                LogFileName = CurrentProject.Path & \"\\CollegaForm_LOG.txt\"\n                logFile = FreeFile\n                Open LogFileName For Output As #logFile\n                Print #logFile, \"Log esecuzione funzione: ImportaForm_FORM_MSYS_DF_PFunct\"\n                Print #logFile, \"Data/Ora: \" & Now()\n                Print #logFile, \"--------------------------------------------\"\n            \n                ' Ciclo\n                For i = 1 To FormPath.Count\n                    Dim Item As Variant\n                    Item = FormPath(i)\n                    NomeForm = Item(0)\n                    PercorsoFile = Item(1)\n                    \n                    If Len(NomeForm) = 0 Then\n                        Print #logFile, Now & \" - SKIPPED: Nome form vuoto\"\n                        ConteggioErr = ConteggioErr + 1\n                        GoTo Prossimo\n                    End If\n                    \n                    If Not FileEsiste(PercorsoFile) Then\n                        Print #logFile, Now & \" - ERRORE: File non trovato -> \" & PercorsoFile\n                        ConteggioErr = ConteggioErr + 1\n                        GoTo Prossimo\n                    End If\n                    \n                    ' Elimina se già esiste\n                    EliminaFormSeEsiste_FORM_MSYS_DF NomeForm\n                    \n                    ' Collega\n                    On Error Resume Next\n                    \n                    '//@cmd@importa@FORM\n                    DoCmd.TransferDatabase _\n                        TransferType:=acImport, _\n                        DatabaseType:=\"Microsoft Access\", _\n                        DatabaseName:=PercorsoFile, _\n                        ObjectType:=acForm, _\n                        Source:=NomeForm, _\n                        Destination:=NomeForm, _\n                        StructureOnly:=False\n            \n                    If Err.Number = 0 Then\n                        Print #logFile, Now & \" - OK: \" & NomeForm\n                        ConteggioOk = ConteggioOk + 1\n                    Else\n                        Print #logFile, Now & \" - ERRORE: \" & NomeForm & \" -> \" & Err.Description\n                        ConteggioErr = ConteggioErr + 1\n                        Err.Clear\n                    End If\n                    On Error GoTo 0\n            Prossimo:\n                Next i\n                \n                ' Riepilogo\n                Print #logFile, \"--------------------------------------------\"\n                Print #logFile, \"Totale collegate: \" & ConteggioOk\n                Print #logFile, \"Totale errori/skipped: \" & ConteggioErr\n                Close #logFile\n                \n                 ' === aggiorna riquadro oggetti ===\n                Call RefreshDatabaseView\n            \n                MsgBox \"Operazione IMPORTA FORM completata!\" & vbCrLf & _\n                       \"Collegate: \" & ConteggioOk & vbCrLf & _\n                       \"Errori/Skipped: \" & ConteggioErr & vbCrLf & _\n                       \"Log: \" & LogFileName, vbInformation\n                Exit Function\n            \n            ErrHandler:\n                MsgBox \"Errore in ImportaForm_FORM_MSYS_DF_PFunct: \" & Err.Description, vbExclamation\n            End Function\n            \n            \n            ' ============================================================\n            ' SUB CancellaFormCollegate_FORM_MSYS_DF\n            ' SCOPO:\n            '   Cancella tutte le form collegate definite in GetFormPaths_FORM_MSYS_DF\n            ' ============================================================\n            Public Sub CancellaFormCollegate_FORM_MSYS_DF()\n                Dim FormPath As Collection\n                Set FormPath = GetFormPaths_FORM_MSYS_DF()\n                \n                If FormPath.Count = 0 Then Exit Sub\n                \n                Dim i As Long\n                Dim Item As Variant\n                Dim NomeForm As String\n                \n                For i = 1 To FormPath.Count\n                    Item = FormPath(i)\n                    NomeForm = CStr(Item(0))\n                    \n                    If Len(NomeForm) > 0 Then\n                        EliminaFormSeEsiste_FORM_MSYS_DF NomeForm\n                    End If\n                Next i\n                \n                MsgBox \"Cancellazione FORM completata!\", vbInformation\n                \n                '//TODO : manca la gestione errori routine\n            End Sub\n            \n            \n            ' ============================================================\n            ' FUNZIONE CancellaTutte_FORM_MSYS_DF\n            ' SCOPO:\n            '   Cancella tutte le form collegate definite in GetFormPaths_FORM_MSYS_DF\n            '   - Scrive log dettagliato\n            ' ============================================================\n            Public Function CancellaTutte_FORM_MSYS_DF()\n                On Error GoTo ErrHandler\n                \n                Dim FormPath As Collection\n                Set FormPath = GetFormPaths_FORM_MSYS_DF()\n                \n                If FormPath.Count = 0 Then\n                    MsgBox \"Nessuna form da cancellare.\", vbInformation\n                    Exit Function\n                End If\n                \n                Dim i As Long, Item As Variant\n                Dim NomeForm As String\n                Dim ConteggioOk As Long, ConteggioErr As Long\n                Dim logFile As Integer, LogFileName As String\n                \n                LogFileName = CurrentProject.Path & \"\\CancellaForm_LOG.txt\"\n                logFile = FreeFile\n                Open LogFileName For Output As #logFile\n                \n                Print #logFile, \"Log esecuzione funzione: CancellaTutte_FORM_MSYS_DF\"\n                Print #logFile, \"Data/Ora: \" & Now()\n                Print #logFile, \"--------------------------------------------\"\n                \n                For i = 1 To FormPath.Count\n                    Item = FormPath(i)\n                    NomeForm = Trim$(CStr(Item(0)))\n                    \n                    If Len(NomeForm) = 0 Then\n                        Print #logFile, Now & \" - SKIPPED: Nome vuoto\"\n                        ConteggioErr = ConteggioErr + 1\n                        GoTo Prossimo\n                    End If\n                    \n                    If FormEsiste_FORM_MSYS_DF(NomeForm) Then\n                        EliminaFormSeEsiste_FORM_MSYS_DF NomeForm\n                        If Not FormEsiste_FORM_MSYS_DF(NomeForm) Then\n                            Print #logFile, Now & \" - OK: Eliminata \" & NomeForm\n                            ConteggioOk = ConteggioOk + 1\n                        Else\n                            Print #logFile, Now & \" - ERRORE: Non eliminata \" & NomeForm\n                            ConteggioErr = ConteggioErr + 1\n                        End If\n                    Else\n                        Print #logFile, Now & \" - NON TROVATA: \" & NomeForm\n                        ConteggioErr = ConteggioErr + 1\n                    End If\n            Prossimo:\n                Next i\n                \n                Print #logFile, \"--------------------------------------------\"\n                Print #logFile, \"Totale eliminate: \" & ConteggioOk\n                Print #logFile, \"Totale errori/skipped: \" & ConteggioErr\n                Close #logFile\n                \n                Call RefreshDatabaseView\n                MsgBox \"Cancellazione FORM completata!\" & vbCrLf & _\n                       \"Eliminate: \" & ConteggioOk & vbCrLf & _\n                       \"Errori/Skipped: \" & ConteggioErr & vbCrLf & _\n                       \"Log: \" & LogFileName, vbInformation\n                Exit Function\n                \n            ErrHandler:\n                MsgBox \"Errore in CancellaTutte_FORM_MSYS_DF: \" & Err.Description, vbExclamation\n            End Function\n            \n            \n            ' ============================================================\n            ' SUB EliminaFormSeEsiste_FORM_MSYS_DF\n            ' SCOPO:\n            '   Elimina una form dal database corrente se esiste\n            ' ============================================================\n            Public Sub EliminaFormSeEsiste_FORM_MSYS_DF(NomeForm As String)\n                On Error Resume Next\n                DoCmd.DeleteObject acForm, NomeForm\n                On Error GoTo 0\n            End Sub\n            \n            \n            ' ============================================================\n            ' FUNZIONE FormEsiste_FORM_MSYS_DF\n            ' SCOPO:\n            '   Verifica se una form esiste nel DB corrente\n            ' ============================================================\n            Public Function FormEsiste_FORM_MSYS_DF(NomeForm As String) As Boolean\n                Dim obj As AccessObject\n                FormEsiste_FORM_MSYS_DF = False\n                For Each obj In CurrentProject.AllForms\n                    If obj.Name = NomeForm Then\n                        FormEsiste_FORM_MSYS_DF = True\n                        Exit For\n                    End If\n                Next obj\n            End Function\n            \n            \n            '//*********************************************************************************************************************************//\n            '//                                         @IMPORTA@FORM  O @CANCELLA@ FORM                         *** FINE ***                   //\n            '//*********************************************************************************************************************************//\n            \n\n\n\n   ADATTA TUTTE LE FUNZIONI PER IMPORTARE LE FORM ALLA IMPORTAZIONE DEI REPORT\n\n        Tutte queste funzioni sono dedicate alla importazione delle FORM da un database esterno fino al\n    database corrente. Vorrei riadattare tutto il codice alla importazione deI REPORT dal db esterno \n    e alla eventuale cancellazione sempre nel db corrente cosi come sviluppato nel codice. Si puo fare?\n    questo è tutto il codice funzionante delle form da riadattare per I REPORT  lascia i commenti originali\n    a limite cambia il nome delle form  in MODULI: \n\n\n\n\n        '//*********************************************************************************************************************************//\n        '//                                         @IMPORTA@FORM  O @CANCELLA@FORM                         *** INIZIO ***                 //\n        '//*********************************************************************************************************************************//\n\n            \n            ' ============================================================\n            ' FUNZIONE GetFormPaths_FORM_MSYS_DF\n            ' SCOPO:\n            '   Restituisce una collection di Array(NomeForm, PercorsoFile)\n            '   che definisce le form da collegare dal DB sorgente.\n            ' ============================================================\n            Public Function GetFormPaths_FORM_MSYS_DF() As Collection\n                On Error GoTo GestErrore\n                \n                Dim FormPath As New Collection\n                Dim PercorsoFile As String\n                \n                ' === Percorso del file sorgente contenente le form ===\n                PercorsoFile = \"c:\\CASA\\LINGUAGGI\\ACCESS\\PROGETTI_MDB\\MSYS_OGGETTI\\MSYS\\MDB\\MSys_DF01\\MDB\\MSys_DF01.mdb\"\n                \n                If Not FileEsiste(PercorsoFile) Then\n                    MsgBox \"File mancante: \" & vbCrLf & PercorsoFile, vbExclamation\n                    Set GetFormPaths_FORM_MSYS_DF = FormPath\n                    Exit Function\n                End If\n                \n                ' === Elenco form da collegare ===\n                FormPath.Add Array(\"Msys_DF01_Frm01_}----------------------------------------------@\", PercorsoFile)\n                FormPath.Add Array(\"Msys_DF01_Frm01_M01_GE_COMANDI\", PercorsoFile)\n                FormPath.Add Array(\"Msys_DF01_Frm01_S01_COMANDI\", PercorsoFile)\n                \n                Set GetFormPaths_FORM_MSYS_DF = FormPath\n                \n                Exit Function\n            \n            GestErrore:\n                MsgBox \"Errore in GetFormPaths_FORM_MSYS_DF: \" & Err.Description, vbExclamation, \"Errore\"\n                Set GetFormPaths_FORM_MSYS_DF = Nothing\n            End Function\n            \n            \n            ' ============================================================\n            ' FUNZIONE ImportaForm_FORM_MSYS_DF_PFunct\n            ' SCOPO:\n            '   Collega tutte le form definite in GetFormPaths_FORM_MSYS_DF\n            '   - Scrive log dettagliato\n            ' ============================================================\n            Public Function ImportaForm_FORM_MSYS_DF_PFunct()\n                On Error GoTo ErrHandler\n            \n                Dim FormPath As Collection\n                Set FormPath = GetFormPaths_FORM_MSYS_DF()\n                \n                Dim NomeForm As String\n                Dim PercorsoFile As String\n                Dim i As Long\n                Dim LogFile As Integer\n                Dim LogFileName As String\n                Dim ConteggioOk As Long\n                Dim ConteggioErr As Long\n            \n                If FormPath.count = 0 Then\n                    MsgBox \"Nessuna form da collegare.\", vbInformation\n                    Exit Function\n                End If\n                \n                ' File log\n                LogFileName = CurrentProject.Path & \"\\CollegaForm_LOG.txt\"\n                LogFile = FreeFile\n                Open LogFileName For Output As #LogFile\n                Print #LogFile, \"Log esecuzione funzione: ImportaForm_FORM_MSYS_DF_PFunct\"\n                Print #LogFile, \"Data/Ora: \" & Now()\n                Print #LogFile, \"--------------------------------------------\"\n            \n                ' Ciclo\n                For i = 1 To FormPath.count\n                    Dim Item As Variant\n                    Item = FormPath(i)\n                    NomeForm = Item(0)\n                    PercorsoFile = Item(1)\n                    \n                    If Len(NomeForm) = 0 Then\n                        Print #LogFile, Now & \" - SKIPPED: Nome form vuoto\"\n                        ConteggioErr = ConteggioErr + 1\n                        GoTo Prossimo\n                    End If\n                    \n                    If Not FileEsiste(PercorsoFile) Then\n                        Print #LogFile, Now & \" - ERRORE: File non trovato -> \" & PercorsoFile\n                        ConteggioErr = ConteggioErr + 1\n                        GoTo Prossimo\n                    End If\n                    \n                    ' Elimina se già esiste\n                    EliminaFormSeEsiste_FORM_MSYS_DF NomeForm\n                    \n                    ' Collega\n                    On Error Resume Next\n                    \n                    '//@cmd@importa@FORM\n                    DoCmd.TransferDatabase _\n                        TransferType:=acImport, _\n                        DatabaseType:=\"Microsoft Access\", _\n                        DatabaseName:=PercorsoFile, _\n                        ObjectType:=acForm, _\n                        Source:=NomeForm, _\n                        Destination:=NomeForm, _\n                        StructureOnly:=False\n            \n                    If Err.number = 0 Then\n                        Print #LogFile, Now & \" - OK: \" & NomeForm\n                        ConteggioOk = ConteggioOk + 1\n                    Else\n                        Print #LogFile, Now & \" - ERRORE: \" & NomeForm & \" -> \" & Err.Description\n                        ConteggioErr = ConteggioErr + 1\n                        Err.Clear\n                    End If\n                    On Error GoTo 0\n            Prossimo:\n                Next i\n                \n                ' Riepilogo\n                Print #LogFile, \"--------------------------------------------\"\n                Print #LogFile, \"Totale collegate: \" & ConteggioOk\n                Print #LogFile, \"Totale errori/skipped: \" & ConteggioErr\n                Close #LogFile\n                \n                 ' === aggiorna riquadro oggetti ===\n                Call RefreshDatabaseView\n            \n                MsgBox \"Operazione IMPORTA FORM completata!\" & vbCrLf & _\n                       \"Collegate: \" & ConteggioOk & vbCrLf & _\n                       \"Errori/Skipped: \" & ConteggioErr & vbCrLf & _\n                       \"Log: \" & LogFileName, vbInformation\n                Exit Function\n            \n            ErrHandler:\n                MsgBox \"Errore in ImportaForm_FORM_MSYS_DF_PFunct: \" & Err.Description, vbExclamation\n            End Function\n            \n            \n            ' ============================================================\n            ' SUB CancellaFormCollegate_FORM_MSYS_DF\n            ' SCOPO:\n            '   Cancella tutte le form collegate definite in GetFormPaths_FORM_MSYS_DF\n            ' ============================================================\n            Public Sub CancellaFormCollegate_FORM_MSYS_DF()\n                Dim FormPath As Collection\n                Set FormPath = GetFormPaths_FORM_MSYS_DF()\n                \n                If FormPath.count = 0 Then Exit Sub\n                \n                Dim i As Long\n                Dim Item As Variant\n                Dim NomeForm As String\n                \n                For i = 1 To FormPath.count\n                    Item = FormPath(i)\n                    NomeForm = CStr(Item(0))\n                    \n                    If Len(NomeForm) > 0 Then\n                        EliminaFormSeEsiste_FORM_MSYS_DF NomeForm\n                    End If\n                Next i\n                \n                MsgBox \"Cancellazione FORM completata!\", vbInformation\n                \n                '//TODO : manca la gestione errori routine\n            End Sub\n            \n            \n            ' ============================================================\n            ' FUNZIONE CancellaTutte_FORM_MSYS_DF\n            ' SCOPO:\n            '   Cancella tutte le form collegate definite in GetFormPaths_FORM_MSYS_DF\n            '   - Scrive log dettagliato\n            ' ============================================================\n            Public Function CancellaTutte_FORM_MSYS_DF()\n                On Error GoTo ErrHandler\n                \n                Dim FormPath As Collection\n                Set FormPath = GetFormPaths_FORM_MSYS_DF()\n                \n                If FormPath.count = 0 Then\n                    MsgBox \"Nessuna form da cancellare.\", vbInformation\n                    Exit Function\n                End If\n                \n                Dim i As Long, Item As Variant\n                Dim NomeForm As String\n                Dim ConteggioOk As Long, ConteggioErr As Long\n                Dim LogFile As Integer, LogFileName As String\n                \n                LogFileName = CurrentProject.Path & \"\\CancellaForm_LOG.txt\"\n                LogFile = FreeFile\n                Open LogFileName For Output As #LogFile\n                \n                Print #LogFile, \"Log esecuzione funzione: CancellaTutte_FORM_MSYS_DF\"\n                Print #LogFile, \"Data/Ora: \" & Now()\n                Print #LogFile, \"--------------------------------------------\"\n                \n                For i = 1 To FormPath.count\n                    Item = FormPath(i)\n                    NomeForm = Trim$(CStr(Item(0)))\n                    \n                    If Len(NomeForm) = 0 Then\n                        Print #LogFile, Now & \" - SKIPPED: Nome vuoto\"\n                        ConteggioErr = ConteggioErr + 1\n                        GoTo Prossimo\n                    End If\n                    \n                    If FormEsiste_FORM_MSYS_DF(NomeForm) Then\n                        EliminaFormSeEsiste_FORM_MSYS_DF NomeForm\n                        If Not FormEsiste_FORM_MSYS_DF(NomeForm) Then\n                            Print #LogFile, Now & \" - OK: Eliminata \" & NomeForm\n                            ConteggioOk = ConteggioOk + 1\n                        Else\n                            Print #LogFile, Now & \" - ERRORE: Non eliminata \" & NomeForm\n                            ConteggioErr = ConteggioErr + 1\n                        End If\n                    Else\n                        Print #LogFile, Now & \" - NON TROVATA: \" & NomeForm\n                        ConteggioErr = ConteggioErr + 1\n                    End If\n            Prossimo:\n                Next i\n                \n                Print #LogFile, \"--------------------------------------------\"\n                Print #LogFile, \"Totale eliminate: \" & ConteggioOk\n                Print #LogFile, \"Totale errori/skipped: \" & ConteggioErr\n                Close #LogFile\n                \n                Call RefreshDatabaseView\n                MsgBox \"Cancellazione FORM completata!\" & vbCrLf & _\n                       \"Eliminate: \" & ConteggioOk & vbCrLf & _\n                       \"Errori/Skipped: \" & ConteggioErr & vbCrLf & _\n                       \"Log: \" & LogFileName, vbInformation\n                Exit Function\n                \n            ErrHandler:\n                MsgBox \"Errore in CancellaTutte_FORM_MSYS_DF: \" & Err.Description, vbExclamation\n            End Function\n            \n            \n            ' ============================================================\n            ' SUB EliminaFormSeEsiste_FORM_MSYS_DF\n            ' SCOPO:\n            '   Elimina una form dal database corrente se esiste\n            ' ============================================================\n            Public Sub EliminaFormSeEsiste_FORM_MSYS_DF(NomeForm As String)\n                On Error Resume Next\n                DoCmd.DeleteObject acForm, NomeForm\n                On Error GoTo 0\n            End Sub\n            \n            \n            ' ============================================================\n            ' FUNZIONE FormEsiste_FORM_MSYS_DF\n            ' SCOPO:\n            '   Verifica se una form esiste nel DB corrente\n            ' ============================================================\n            Public Function FormEsiste_FORM_MSYS_DF(NomeForm As String) As Boolean\n                Dim obj As AccessObject\n                FormEsiste_FORM_MSYS_DF = False\n                For Each obj In CurrentProject.AllForms\n                    If obj.Name = NomeForm Then\n                        FormEsiste_FORM_MSYS_DF = True\n                        Exit For\n                    End If\n                Next obj\n            End Function\n            \n            \n            '//*********************************************************************************************************************************//\n            '//                                         @IMPORTA@FORM  O @CANCELLA@ FORM                         *** FINE ***                   //\n            '//*********************************************************************************************************************************//\n            \n",
 			"file": "/c/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/MDB/MSYS_BASE/README_MSYS_BASE.md",
+			"file_size": 58244,
+			"file_write_time": 134021629034286207,
 			"settings":
 			{
-				"buffer_size": 56991,
-				"encoding": "UTF-8",
+				"buffer_size": 57317,
 				"line_ending": "Windows"
 			},
 			"undo_stack":
 			[
+				[
+					1,
+					1,
+					"insert",
+					{
+						"characters": "mo"
+					},
+					"AgAAADMAAAAAAAAANAAAAAAAAAAAAAAANAAAAAAAAAA1AAAAAAAAAAAAAAA",
+					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAADMAAAAAAAAAMwAAAAAAAAAAAAAAAADwvw"
+				],
+				[
+					2,
+					2,
+					"left_delete",
+					null,
+					"AgAAADQAAAAAAAAANAAAAAAAAAABAAAAbzMAAAAAAAAAMwAAAAAAAAABAAAAbQ",
+					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAADUAAAAAAAAANQAAAAAAAAAAAAAAAADwvw"
+				],
+				[
+					3,
+					1,
+					"insert",
+					{
+						"characters": "##"
+					},
+					"AgAAADMAAAAAAAAANAAAAAAAAAAAAAAANAAAAAAAAAA1AAAAAAAAAAAAAAA",
+					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAADMAAAAAAAAAMwAAAAAAAAAAAAAAAADwvw"
+				],
+				[
+					4,
+					1,
+					"insert",
+					{
+						"characters": " MODIFICHE"
+					},
+					"CgAAADUAAAAAAAAANgAAAAAAAAAAAAAANgAAAAAAAAA3AAAAAAAAAAAAAAA3AAAAAAAAADgAAAAAAAAAAAAAADgAAAAAAAAAOQAAAAAAAAAAAAAAOQAAAAAAAAA6AAAAAAAAAAAAAAA6AAAAAAAAADsAAAAAAAAAAAAAADsAAAAAAAAAPAAAAAAAAAAAAAAAPAAAAAAAAAA9AAAAAAAAAAAAAAA9AAAAAAAAAD4AAAAAAAAAAAAAAD4AAAAAAAAAPwAAAAAAAAAAAAAA",
+					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAADUAAAAAAAAANQAAAAAAAAAAAAAAAADwvw"
+				],
+				[
+					5,
+					1,
+					"run_macro_file",
+					{
+						"file": "Packages/MarkdownEditing/macros/Add Line and Delete Trailing Hashes.sublime-macro"
+					},
+					"AgAAADMAAAAAAAAAMwAAAAAAAAAMAAAAIyMgTU9ESUZJQ0hFMwAAAAAAAABAAAAAAAAAAAAAAAA",
+					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAD8AAAAAAAAAPwAAAAAAAAAAAAAAAADwvw"
+				],
+				[
+					6,
+					1,
+					"reindent",
+					null,
+					"AQAAAEAAAAAAAAAARAAAAAAAAAAAAAAA",
+					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAEAAAAAAAAAAQAAAAAAAAAAAAAAAAADwvw"
+				],
+				[
+					1,
+					1,
+					"insert",
+					{
+						"characters": "n"
+					},
+					"AQAAAEQAAAAAAAAARQAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABEAAAAAAAAAEQAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					2,
+					1,
+					"left_delete",
+					null,
+					"AQAAAEQAAAAAAAAARAAAAAAAAAABAAAAbg",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABFAAAAAAAAAEUAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					3,
+					1,
+					"insert",
+					{
+						"characters": "NOTE"
+					},
+					"BAAAAEQAAAAAAAAARQAAAAAAAAAAAAAARQAAAAAAAABGAAAAAAAAAAAAAABGAAAAAAAAAEcAAAAAAAAAAAAAAEcAAAAAAAAASAAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABEAAAAAAAAAEQAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					4,
+					1,
+					"insert",
+					{
+						"characters": "\n\tdev"
+					},
+					"BQAAAEgAAAAAAAAATQAAAAAAAAAAAAAATQAAAAAAAABRAAAAAAAAAAAAAABRAAAAAAAAAFIAAAAAAAAAAAAAAFIAAAAAAAAAUwAAAAAAAAAAAAAAUwAAAAAAAABUAAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABIAAAAAAAAAEgAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					5,
+					1,
+					"insert",
+					{
+						"characters": "o"
+					},
+					"AQAAAFQAAAAAAAAAVQAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABUAAAAAAAAAFQAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					6,
+					1,
+					"insert",
+					{
+						"characters": " creare"
+					},
+					"BwAAAFUAAAAAAAAAVgAAAAAAAAAAAAAAVgAAAAAAAABXAAAAAAAAAAAAAABXAAAAAAAAAFgAAAAAAAAAAAAAAFgAAAAAAAAAWQAAAAAAAAAAAAAAWQAAAAAAAABaAAAAAAAAAAAAAABaAAAAAAAAAFsAAAAAAAAAAAAAAFsAAAAAAAAAXAAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABVAAAAAAAAAFUAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					7,
+					1,
+					"insert",
+					{
+						"characters": " una"
+					},
+					"BAAAAFwAAAAAAAAAXQAAAAAAAAAAAAAAXQAAAAAAAABeAAAAAAAAAAAAAABeAAAAAAAAAF8AAAAAAAAAAAAAAF8AAAAAAAAAYAAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABcAAAAAAAAAFwAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					8,
+					1,
+					"insert",
+					{
+						"characters": " nuova"
+					},
+					"BgAAAGAAAAAAAAAAYQAAAAAAAAAAAAAAYQAAAAAAAABiAAAAAAAAAAAAAABiAAAAAAAAAGMAAAAAAAAAAAAAAGMAAAAAAAAAZAAAAAAAAAAAAAAAZAAAAAAAAABlAAAAAAAAAAAAAABlAAAAAAAAAGYAAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABgAAAAAAAAAGAAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					9,
+					1,
+					"insert",
+					{
+						"characters": " "
+					},
+					"AQAAAGYAAAAAAAAAZwAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABmAAAAAAAAAGYAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					10,
+					1,
+					"insert",
+					{
+						"characters": "form"
+					},
+					"BAAAAGcAAAAAAAAAaAAAAAAAAAAAAAAAaAAAAAAAAABpAAAAAAAAAAAAAABpAAAAAAAAAGoAAAAAAAAAAAAAAGoAAAAAAAAAawAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABnAAAAAAAAAGcAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					11,
+					1,
+					"insert",
+					{
+						"characters": " che"
+					},
+					"BAAAAGsAAAAAAAAAbAAAAAAAAAAAAAAAbAAAAAAAAABtAAAAAAAAAAAAAABtAAAAAAAAAG4AAAAAAAAAAAAAAG4AAAAAAAAAbwAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABrAAAAAAAAAGsAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					12,
+					1,
+					"insert",
+					{
+						"characters": " includ"
+					},
+					"BwAAAG8AAAAAAAAAcAAAAAAAAAAAAAAAcAAAAAAAAABxAAAAAAAAAAAAAABxAAAAAAAAAHIAAAAAAAAAAAAAAHIAAAAAAAAAcwAAAAAAAAAAAAAAcwAAAAAAAAB0AAAAAAAAAAAAAAB0AAAAAAAAAHUAAAAAAAAAAAAAAHUAAAAAAAAAdgAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABvAAAAAAAAAG8AAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					13,
+					1,
+					"insert",
+					{
+						"characters": "s"
+					},
+					"AQAAAHYAAAAAAAAAdwAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAB2AAAAAAAAAHYAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					14,
+					1,
+					"left_delete",
+					null,
+					"AQAAAHYAAAAAAAAAdgAAAAAAAAABAAAAcw",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAB3AAAAAAAAAHcAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					15,
+					1,
+					"insert",
+					{
+						"characters": "a"
+					},
+					"AQAAAHYAAAAAAAAAdwAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAB2AAAAAAAAAHYAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					16,
+					1,
+					"insert",
+					{
+						"characters": " "
+					},
+					"AQAAAHcAAAAAAAAAeAAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAB3AAAAAAAAAHcAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					17,
+					1,
+					"insert",
+					{
+						"characters": "le"
+					},
+					"AgAAAHgAAAAAAAAAeQAAAAAAAAAAAAAAeQAAAAAAAAB6AAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAB4AAAAAAAAAHgAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					18,
+					2,
+					"left_delete",
+					null,
+					"AgAAAHkAAAAAAAAAeQAAAAAAAAABAAAAZXgAAAAAAAAAeAAAAAAAAAABAAAAbA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAB6AAAAAAAAAHoAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					19,
+					1,
+					"insert",
+					{
+						"characters": "i"
+					},
+					"AQAAAHgAAAAAAAAAeQAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAB4AAAAAAAAAHgAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					20,
+					1,
+					"insert",
+					{
+						"characters": " comandi"
+					},
+					"CAAAAHkAAAAAAAAAegAAAAAAAAAAAAAAegAAAAAAAAB7AAAAAAAAAAAAAAB7AAAAAAAAAHwAAAAAAAAAAAAAAHwAAAAAAAAAfQAAAAAAAAAAAAAAfQAAAAAAAAB+AAAAAAAAAAAAAAB+AAAAAAAAAH8AAAAAAAAAAAAAAH8AAAAAAAAAgAAAAAAAAAAAAAAAgAAAAAAAAACBAAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAB5AAAAAAAAAHkAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					21,
+					1,
+					"insert",
+					{
+						"characters": " di"
+					},
+					"AwAAAIEAAAAAAAAAggAAAAAAAAAAAAAAggAAAAAAAACDAAAAAAAAAAAAAACDAAAAAAAAAIQAAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAACBAAAAAAAAAIEAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					22,
+					1,
+					"insert",
+					{
+						"characters": " importazion"
+					},
+					"DAAAAIQAAAAAAAAAhQAAAAAAAAAAAAAAhQAAAAAAAACGAAAAAAAAAAAAAACGAAAAAAAAAIcAAAAAAAAAAAAAAIcAAAAAAAAAiAAAAAAAAAAAAAAAiAAAAAAAAACJAAAAAAAAAAAAAACJAAAAAAAAAIoAAAAAAAAAAAAAAIoAAAAAAAAAiwAAAAAAAAAAAAAAiwAAAAAAAACMAAAAAAAAAAAAAACMAAAAAAAAAI0AAAAAAAAAAAAAAI0AAAAAAAAAjgAAAAAAAAAAAAAAjgAAAAAAAACPAAAAAAAAAAAAAACPAAAAAAAAAJAAAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAACEAAAAAAAAAIQAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					23,
+					1,
+					"insert",
+					{
+						"characters": "e"
+					},
+					"AQAAAJAAAAAAAAAAkQAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAACQAAAAAAAAAJAAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					24,
+					1,
+					"insert",
+					{
+						"characters": "\ndi"
+					},
+					"AwAAAJEAAAAAAAAAmgAAAAAAAAAAAAAAmgAAAAAAAACbAAAAAAAAAAAAAACbAAAAAAAAAJwAAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAACRAAAAAAAAAJEAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					25,
+					1,
+					"insert",
+					{
+						"characters": " tutti"
+					},
+					"BgAAAJwAAAAAAAAAnQAAAAAAAAAAAAAAnQAAAAAAAACeAAAAAAAAAAAAAACeAAAAAAAAAJ8AAAAAAAAAAAAAAJ8AAAAAAAAAoAAAAAAAAAAAAAAAoAAAAAAAAAChAAAAAAAAAAAAAAChAAAAAAAAAKIAAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAACcAAAAAAAAAJwAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					26,
+					1,
+					"insert",
+					{
+						"characters": " gli"
+					},
+					"BAAAAKIAAAAAAAAAowAAAAAAAAAAAAAAowAAAAAAAACkAAAAAAAAAAAAAACkAAAAAAAAAKUAAAAAAAAAAAAAAKUAAAAAAAAApgAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAACiAAAAAAAAAKIAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					27,
+					1,
+					"insert",
+					{
+						"characters": " oggetti"
+					},
+					"CAAAAKYAAAAAAAAApwAAAAAAAAAAAAAApwAAAAAAAACoAAAAAAAAAAAAAACoAAAAAAAAAKkAAAAAAAAAAAAAAKkAAAAAAAAAqgAAAAAAAAAAAAAAqgAAAAAAAACrAAAAAAAAAAAAAACrAAAAAAAAAKwAAAAAAAAAAAAAAKwAAAAAAAAArQAAAAAAAAAAAAAArQAAAAAAAACuAAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAACmAAAAAAAAAKYAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					28,
+					1,
+					"insert",
+					{
+						"characters": " e"
+					},
+					"AgAAAK4AAAAAAAAArwAAAAAAAAAAAAAArwAAAAAAAACwAAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAACuAAAAAAAAAK4AAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					29,
+					1,
+					"insert",
+					{
+						"characters": " la"
+					},
+					"AwAAALAAAAAAAAAAsQAAAAAAAAAAAAAAsQAAAAAAAACyAAAAAAAAAAAAAACyAAAAAAAAALMAAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAACwAAAAAAAAALAAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					30,
+					1,
+					"insert",
+					{
+						"characters": " gestione"
+					},
+					"CQAAALMAAAAAAAAAtAAAAAAAAAAAAAAAtAAAAAAAAAC1AAAAAAAAAAAAAAC1AAAAAAAAALYAAAAAAAAAAAAAALYAAAAAAAAAtwAAAAAAAAAAAAAAtwAAAAAAAAC4AAAAAAAAAAAAAAC4AAAAAAAAALkAAAAAAAAAAAAAALkAAAAAAAAAugAAAAAAAAAAAAAAugAAAAAAAAC7AAAAAAAAAAAAAAC7AAAAAAAAALwAAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAACzAAAAAAAAALMAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					31,
+					1,
+					"insert",
+					{
+						"characters": " dei"
+					},
+					"BAAAALwAAAAAAAAAvQAAAAAAAAAAAAAAvQAAAAAAAAC+AAAAAAAAAAAAAAC+AAAAAAAAAL8AAAAAAAAAAAAAAL8AAAAAAAAAwAAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAC8AAAAAAAAALwAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					32,
+					1,
+					"insert",
+					{
+						"characters": " progetti."
+					},
+					"CgAAAMAAAAAAAAAAwQAAAAAAAAAAAAAAwQAAAAAAAADCAAAAAAAAAAAAAADCAAAAAAAAAMMAAAAAAAAAAAAAAMMAAAAAAAAAxAAAAAAAAAAAAAAAxAAAAAAAAADFAAAAAAAAAAAAAADFAAAAAAAAAMYAAAAAAAAAAAAAAMYAAAAAAAAAxwAAAAAAAAAAAAAAxwAAAAAAAADIAAAAAAAAAAAAAADIAAAAAAAAAMkAAAAAAAAAAAAAAMkAAAAAAAAAygAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAADAAAAAAAAAAMAAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					33,
+					1,
+					"insert",
+					{
+						"characters": "\n\nform"
+					},
+					"BwAAAMoAAAAAAAAA0wAAAAAAAAAAAAAA0wAAAAAAAADcAAAAAAAAAAAAAADLAAAAAAAAAMsAAAAAAAAACAAAACAgICAgICAg1AAAAAAAAADVAAAAAAAAAAAAAADVAAAAAAAAANYAAAAAAAAAAAAAANYAAAAAAAAA1wAAAAAAAAAAAAAA1wAAAAAAAADYAAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAADKAAAAAAAAAMoAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					34,
+					1,
+					"insert",
+					{
+						"characters": "\n\t"
+					},
+					"AgAAANgAAAAAAAAA4QAAAAAAAAAAAAAA4QAAAAAAAADlAAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAADYAAAAAAAAANgAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					35,
+					1,
+					"paste",
+					null,
+					"AQAAAOUAAAAAAAAAEQEAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAADlAAAAAAAAAOUAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					38,
+					1,
+					"insert",
+					{
+						"characters": "\n\n"
+					},
+					"AwAAABEBAAAAAAAAHgEAAAAAAAAAAAAAHgEAAAAAAAArAQAAAAAAAAAAAAASAQAAAAAAABIBAAAAAAAADAAAACAgICAgICAgICAgIA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAARAQAAAAAAABEBAAAAAAAA////////738"
+				],
+				[
+					39,
+					1,
+					"insert",
+					{
+						"characters": "la"
+					},
+					"AgAAAB8BAAAAAAAAIAEAAAAAAAAAAAAAIAEAAAAAAAAhAQAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAfAQAAAAAAAB8BAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					40,
+					1,
+					"insert",
+					{
+						"characters": " form"
+					},
+					"BQAAACEBAAAAAAAAIgEAAAAAAAAAAAAAIgEAAAAAAAAjAQAAAAAAAAAAAAAjAQAAAAAAACQBAAAAAAAAAAAAACQBAAAAAAAAJQEAAAAAAAAAAAAAJQEAAAAAAAAmAQAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAhAQAAAAAAACEBAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					41,
+					1,
+					"insert",
+					{
+						"characters": " chiama"
+					},
+					"BwAAACYBAAAAAAAAJwEAAAAAAAAAAAAAJwEAAAAAAAAoAQAAAAAAAAAAAAAoAQAAAAAAACkBAAAAAAAAAAAAACkBAAAAAAAAKgEAAAAAAAAAAAAAKgEAAAAAAAArAQAAAAAAAAAAAAArAQAAAAAAACwBAAAAAAAAAAAAACwBAAAAAAAALQEAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAmAQAAAAAAACYBAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					42,
+					1,
+					"insert",
+					{
+						"characters": " la"
+					},
+					"AwAAAC0BAAAAAAAALgEAAAAAAAAAAAAALgEAAAAAAAAvAQAAAAAAAAAAAAAvAQAAAAAAADABAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAtAQAAAAAAAC0BAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					43,
+					1,
+					"insert",
+					{
+						"characters": " classe"
+					},
+					"BwAAADABAAAAAAAAMQEAAAAAAAAAAAAAMQEAAAAAAAAyAQAAAAAAAAAAAAAyAQAAAAAAADMBAAAAAAAAAAAAADMBAAAAAAAANAEAAAAAAAAAAAAANAEAAAAAAAA1AQAAAAAAAAAAAAA1AQAAAAAAADYBAAAAAAAAAAAAADYBAAAAAAAANwEAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAwAQAAAAAAADABAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					44,
+					1,
+					"insert",
+					{
+						"characters": " gestioi"
+					},
+					"CAAAADcBAAAAAAAAOAEAAAAAAAAAAAAAOAEAAAAAAAA5AQAAAAAAAAAAAAA5AQAAAAAAADoBAAAAAAAAAAAAADoBAAAAAAAAOwEAAAAAAAAAAAAAOwEAAAAAAAA8AQAAAAAAAAAAAAA8AQAAAAAAAD0BAAAAAAAAAAAAAD0BAAAAAAAAPgEAAAAAAAAAAAAAPgEAAAAAAAA/AQAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAA3AQAAAAAAADcBAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					45,
+					1,
+					"left_delete",
+					null,
+					"AQAAAD4BAAAAAAAAPgEAAAAAAAABAAAAaQ",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAA/AQAAAAAAAD8BAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					46,
+					1,
+					"insert",
+					{
+						"characters": "nmi"
+					},
+					"AwAAAD4BAAAAAAAAPwEAAAAAAAAAAAAAPwEAAAAAAABAAQAAAAAAAAAAAABAAQAAAAAAAEEBAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAA+AQAAAAAAAD4BAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					47,
+					4,
+					"left_delete",
+					null,
+					"BAAAAEABAAAAAAAAQAEAAAAAAAABAAAAaT8BAAAAAAAAPwEAAAAAAAABAAAAbT4BAAAAAAAAPgEAAAAAAAABAAAAbj0BAAAAAAAAPQEAAAAAAAABAAAAbw",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABBAQAAAAAAAEEBAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					48,
+					1,
+					"insert",
+					{
+						"characters": "oni"
+					},
+					"AwAAAD0BAAAAAAAAPgEAAAAAAAAAAAAAPgEAAAAAAAA/AQAAAAAAAAAAAAA/AQAAAAAAAEABAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAA9AQAAAAAAAD0BAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					49,
+					1,
+					"insert",
+					{
+						"characters": " ma"
+					},
+					"AwAAAEABAAAAAAAAQQEAAAAAAAAAAAAAQQEAAAAAAABCAQAAAAAAAAAAAABCAQAAAAAAAEMBAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABAAQAAAAAAAEABAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					50,
+					1,
+					"insert",
+					{
+						"characters": " è"
+					},
+					"AgAAAEMBAAAAAAAARAEAAAAAAAAAAAAARAEAAAAAAABFAQAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABDAQAAAAAAAEMBAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					51,
+					1,
+					"insert",
+					{
+						"characters": " sbaglilata"
+					},
+					"CwAAAEUBAAAAAAAARgEAAAAAAAAAAAAARgEAAAAAAABHAQAAAAAAAAAAAABHAQAAAAAAAEgBAAAAAAAAAAAAAEgBAAAAAAAASQEAAAAAAAAAAAAASQEAAAAAAABKAQAAAAAAAAAAAABKAQAAAAAAAEsBAAAAAAAAAAAAAEsBAAAAAAAATAEAAAAAAAAAAAAATAEAAAAAAABNAQAAAAAAAAAAAABNAQAAAAAAAE4BAAAAAAAAAAAAAE4BAAAAAAAATwEAAAAAAAAAAAAATwEAAAAAAABQAQAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABFAQAAAAAAAEUBAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					52,
+					1,
+					"insert",
+					{
+						"characters": "\n\t"
+					},
+					"AgAAAFABAAAAAAAAXQEAAAAAAAAAAAAAXQEAAAAAAABhAQAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABQAQAAAAAAAFABAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					53,
+					1,
+					"paste",
+					null,
+					"AQAAAGEBAAAAAAAAegEAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABhAQAAAAAAAGEBAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					57,
+					1,
+					"insert",
+					{
+						"characters": "a"
+					},
+					"AQAAAEwBAAAAAAAATQEAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABMAQAAAAAAAEwBAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					58,
+					2,
+					"right_delete",
+					null,
+					"AgAAAE0BAAAAAAAATQEAAAAAAAABAAAAbE0BAAAAAAAATQEAAAAAAAABAAAAYQ",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABNAQAAAAAAAE0BAAAAAAAAAAAAAAAA8L8"
+				]
+			]
+		},
+		{
+			"contents": "pfRICERCA_NEL_DB_OGGETTI_Form",
+			"settings":
+			{
+				"buffer_size": 29,
+				"line_ending": "Windows",
+				"name": "pfRICERCA_NEL_DB_OGGETTI_Form"
+			},
+			"undo_stack":
+			[
+				[
+					1,
+					1,
+					"paste",
+					null,
+					"AQAAAAAAAAAAAAAAIgAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					3,
+					1,
+					"paste",
+					null,
+					"AQAAAAAAAAAAAAAAHQAAAAAAAAAiAAAAcGZDT05UUk9MTE9fRVNJU1RFTlpBX09HR0VUVElfRm9ybQ",
+					"AQAAAAAAAAABAAAAAAAAAAAAAAAiAAAAAAAAAAAAAAAAAPC/"
+				]
 			]
 		}
 	],
@@ -304,27 +904,56 @@
 				{
 					"buffer": 0,
 					"file": "/c/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/MDB/MSYS_BASE/README_MSYS_BASE.md",
-					"selected": true,
-					"semi_transient": true,
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 56991,
+						"buffer_size": 57317,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								51,
-								51
+								333,
+								333
 							]
 						],
 						"settings":
 						{
 							"mde.match_heading_hashes": false,
-							"syntax": "Packages/Markdown/Markdown.sublime-syntax",
+							"syntax": "Packages/LaTeX/TeX.sublime-syntax",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 75.2,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"stack_multiselect": false,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"selected": true,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 29,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								29,
+								29
+							]
+						],
+						"settings":
+						{
+							"auto_name": "pfRICERCA_NEL_DB_OGGETTI_Form",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -420,7 +1049,7 @@
 	"show_minimap": false,
 	"show_open_files": true,
 	"show_tabs": true,
-	"side_bar_visible": true,
+	"side_bar_visible": false,
 	"side_bar_width": 528.0,
 	"status_bar_visible": true,
 	"template_settings":
