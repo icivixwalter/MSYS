@@ -10,6 +10,10 @@
                   si trova in questa path:
 
                      start "apri PROGETTI" CALL "c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_TB01_PROGETTI\MDB\GE_Msys_TB01_PROGETTI.mdb"
+      B) i PROGETTI 
+         ossia tutti gli oggetti per gestire il singolo MINI PROGETTO in GE_Msys_TB01_PROGETTI.mdb
+
+
 
 
 
