@@ -32,35 +32,72 @@
 
 
    ALBERO CARTELLE E FILE
-      MSYS/
-      │
-      ├─GIT_BAT/
-      ├─MDB/
-      ├─OBJECT/
-      ├─XLS/
-      ├─.gitignore
-      |
-      ├─AA________________________________________________________________________AA.txt
-      ├─ATTIVA_SALVATAGGI_COLLETTIVI_MSYS_OGGETTI+MENU+IMPEGNI.BAT
-      ├─CANCELLA_{MDB+OBJECT+PROJECT}.BAT
-      ├─git_OPEN_OVERLEAF.BAT
-      ├─git_OpenGitHub.bat
-      ├─git_PULL.BAT
-      ├─git_STATUS.BAT
-      ├─git_STATUS+PULL+ADD+COMMIT+PUSH.BAT
-      ├─MSYS_N02________________________________________________________________MSYS.txt
-      ├─Project_MSYS.sublime-project
-      ├─Project_MSYS.sublime-workspace
-      ├─README.md
-      ├─ZIP_7ZIP_________________________________________________________________ZZ.txt
-      ├─ZIP_7ZIP_INCREMENTALE_{CRIPTA+DECODIFICA_INTERNO}_CASA_C.BAT
-      ├─ZIP_7ZIP_INCREMENTALE_{CRIPTA+DECODIFICA_INTERNO}_SAN_GIORGIO_C.BAT
-      ├─ZIP_7ZIP_INCREMENTALE_{CRIPTA+DECODIFICA_INTERNO}_UFFICIO_C.BAT
-      ├─Zip_N70_CRIPTA.bat
-      ├─Zip_N70_DECODIFICA.bat
-      ├─Zip_N70_ElencoFile.txt
-      ├─Zip_N70_ElencoFileESCLUSI.txt
-      └─ZZ________________________________________________________________________ZZ.txt
+         MSYS/
+            │
+            ├─GIT_BAT/
+            ├─MDB/
+            |  |
+            |  |
+            |  |--------MSYS_ATTIVA_GEST_OGGETTI/        .... il progetto MASTER
+            |                 |___MSYS_BASE/             .... tutti i mini progetti
+            |                 |___MSys_DF01/
+            |                 |___MSys_DF02/
+            |                 |___MSys_DF05/
+            |                 |___MSys_DF10/
+            |                 |___MSys_DF11/
+            |                 |___MSys_DF12/
+            |                 |___MSys_DF13/
+            |                 |___MSys_DF14/
+            |                 |___MSys_ELENCO/
+            |                 |___MSys_ESPORTA/
+            |                 |___MSys_FORMS/
+            |                 |___MSys_FORMS_MASTER/
+            |                 |___MSys_GE_FILE/
+            |                 |___MSys_MACRO/
+            |                 |___MSYS_MENU/
+            |                 |___MSys_MODULI/
+            |                 |___MSYS_OBJECT_DB_EST/
+            |                 |___MSYS_OGGETTI_OLD/
+            |                 |___MSys_PAGINE/
+            |                 |___MSys_QUERY/
+            |                 |___MSys_REPORT/
+            |                 |___MSys_TABELLE/
+            |                 |___MSys_TB01_PROGETTI/
+            |                 |___MSys_TB02_TIPO_OGGETTI/
+            |                 |___MSys_TB03_ELENCO_OGGETTI/
+            |                 |___MSys_TUTTI_MODELLI/
+            |                 |___TAB_CONTROL/
+            |                 |___TAB_CONTROL_MASTER_(401_402_501_502)/
+            |                 |___TMP_IMPORTA_MODULI/
+            |                 |___TMP_IMPORTA_MODULIOBJECT/
+            |                 |___TMP_OGGETTI_DA_CANCELLARE/
+            |                 |___TREVIEW/
+            |                 |___UTIL/
+            |
+            ├─OBJECT/
+            ├─XLS/
+            ├─.gitignore
+            ├─AA________________________________________________________________________AA.txt
+            ├─ATTIVA_SALVATAGGI_COLLETTIVI_MSYS_OGGETTI+MENU+IMPEGNI.BAT
+            ├─CANCELLA_{MDB+OBJECT+PROJECT}.BAT
+            ├─git_OPEN_OVERLEAF.BAT
+            ├─git_OpenGitHub.bat
+            ├─git_PULL.BAT
+            ├─git_STATUS.BAT
+            ├─git_STATUS+PULL+ADD+COMMIT+PUSH.BAT
+            ├─MSYS_N02________________________________________________________________MSYS.txt
+            ├─Project_MSYS.sublime-project
+            ├─Project_MSYS.sublime-workspace
+            ├─README.md
+            ├─ZIP_7ZIP_________________________________________________________________ZZ.txt
+            ├─ZIP_7ZIP_INCREMENTALE_{CRIPTA+DECODIFICA_INTERNO}_CASA_C.BAT
+            ├─ZIP_7ZIP_INCREMENTALE_{CRIPTA+DECODIFICA_INTERNO}_SAN_GIORGIO_C.BAT
+            ├─ZIP_7ZIP_INCREMENTALE_{CRIPTA+DECODIFICA_INTERNO}_UFFICIO_C.BAT
+            ├─Zip_N70_CRIPTA.bat
+            ├─Zip_N70_DECODIFICA.bat
+            ├─Zip_N70_ElencoFile.txt
+            ├─Zip_N70_ElencoFileESCLUSI.txt
+            └─ZZ________________________________________________________________________ZZ.txt
 
    ALBERO PROGETTO MSYS
       
