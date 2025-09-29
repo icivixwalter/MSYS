@@ -81,7 +81,6 @@
                         Msys_ESPORTA_DB_EST              = questa tabella rappresenta la destinazione
                         Msys_ESPORTA_ELENCO_OGGETTI_DB   = questa tabella rappresenta gli oggetti da importare
                                                            o esportare e quindi ogni singolo oggetto ha il db di origine
-
                  - todo : occorre in questo caso effettuare il controllo prima della IMPORTAZIONE o della esportazione:
                           01)  IMPORTAZIONE DB CORRENTE
                                  In questo primo caso in cui il progetto ESPORTA VIENE UTILIZZATO PER L'IMPORTAZIONE per cui
@@ -100,9 +99,9 @@
 
                            04) IMPORTA TRA DB DIVERSI
                               il db di partenza è diverso dai db degli oggetti di origine.
-
-
-                  todo: rinominare le tabelle e il mini progetto in MSYS_ESPORTA_IMPORTA_OGG
+            b) seconda ipotesi è quella di sostituire ESPORTA da TB01.
+                        svantaggi: si perdo l'atonimicita del progetto
+            c) rinominare tutto il progetto con le tabelle e il mini progetto in MSYS_ESPORTA_IMPORTA_OGG
                         per evitare di creare tabelle di esportazioni e di importazioni separate con duplicazione dei dati
                         occorre modificare il NOME DI TUTTI GLI OGGETTI DEL DATABASE in ESPORTA IMPORTA OGGETTI DATABASE
                         Il PROGETTO SI DEVE RINOMINARE IN 
@@ -110,13 +109,17 @@
                         TABELLE
                               Msys_ESPORTA_IMPORTA_OGG               = in questa tabella il database di DESTINAZIONE
                               Msys_ESPORTA_IMPORTA_ELENCO_OGG        = ELENCO DEGLI OGGETTI SORGENTE ed i SINGOLI DB DI ORIGINE
+                        QUERY
+                              RICOSTRUITE TUTTE LE QUERY             = ridenominate come importa esporta.
+   CONCLUSIONE
+      Note
+         si è creato un nuovo mini progetto DENOMINATO MSys_ESPORTA_IMPORTA
+         perchè viene adattato sia per l'importazione e sia per l'esportazione.
+         
 
 
 
-
-            b) seconda ipotesi è quella di sostituire ESPORTA da TB01.
-               svantaggi: si perdo l'atonimicita del progetto
-
+            
 
 
 
