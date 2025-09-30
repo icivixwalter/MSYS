@@ -1,0 +1,20 @@
+ALBERO CARTELLE E DEI FILE:
+
+C:/
+└─ CASA/
+   └─ LINGUAGGI/
+      └─ ACCESS/
+         └─ PROGETTI_MDB/
+            └─ MSYS_OGGETTI/
+               └─ MSYS/
+                  └─ MDB/
+                     └─ MSys_TABELLE/
+                        ├─ Project_MSys_TABELLE.sublime-project
+                        ├─ Project_MSys_TABELLE.sublime-workspace
+                        ├─ README_MSys_TABELLE.md
+                        │
+                        └─ MDB/
+                           ├─ GE_MSys_TABELLE.mdb
+                           ├─ MSys_TABELLE.mdb
+                           ├─ MSys_TABELLE_LINK.mdb
+                           └─ MSys_TABELLE_LINK.xlsx
