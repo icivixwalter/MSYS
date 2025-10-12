@@ -2,6 +2,7 @@
 
 ### GE_MSys_ESPORTA_IMPORTA.mdb
       NOTE
+         CODICE----> @PROGETTO@ESPORTA@IMPORTA@OGGETTI
          il progetto si trova in questa path ed è costruito per le esportazioni e le importazioni:
             start "ESPORTA IMPORTA" "c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_ESPORTA_IMPORTA\"
 

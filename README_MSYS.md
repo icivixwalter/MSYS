@@ -1,3 +1,7 @@
+# @PROGETTI@IN@LAVORAZIONE
+   2025.10.12 = IL PROGETTO IN LAVORAZIONE è quello esporta ed importa oggetti, vedi codice
+                @ESPORTA@IMPORTA@OGGETTI
+
 # SCHEMA CARTELLE E ASPETTI GENERALI DI UN MULTIPROGETTO ACCESS
    Note
       schema delle cartelle e dei file sul percorso del progetto:

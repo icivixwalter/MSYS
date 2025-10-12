@@ -19,56 +19,37 @@
 			"file": "/c/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/README_MSYS.md",
 			"settings":
 			{
-				"buffer_size": 14825,
+				"buffer_size": 14986,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			},
 			"undo_stack":
 			[
-				[
-					3,
-					1,
-					"right_delete",
-					null,
-					"AQAAAOkHAAAAAAAA6QcAAAAAAAABAAAALw",
-					"AQAAAAAAAAABAAAA6QcAAAAAAADpBwAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					5,
-					1,
-					"insert",
-					{
-						"characters": "|"
-					},
-					"AQAAANwHAAAAAAAA3QcAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAA3AcAAAAAAADcBwAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					7,
-					1,
-					"left_delete",
-					null,
-					"AQAAANwHAAAAAAAA3AcAAAAAAAABAAAAfA",
-					"AQAAAAAAAAABAAAA3QcAAAAAAADdBwAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					9,
-					1,
-					"insert",
-					{
-						"characters": "/"
-					},
-					"AQAAAOkHAAAAAAAA6gcAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAA6QcAAAAAAADpBwAAAAAAAP///////+9/"
-				],
-				[
-					12,
-					1,
-					"trim_trailing_white_space",
-					null,
-					"AQAAADAOAAAAAAAAMA4AAAAAAAAIAAAAICAgICAgICA",
-					"AQAAAAAAAAABAAAA6gcAAAAAAADqBwAAAAAAAAAAAAAAAPC/"
-				]
+			]
+		},
+		{
+			"contents": "Searching 563 files for \"@ESPORTA@IMPORTA@OGGETTI\"\n\nc:\\CASA\\LINGUAGGI\\ACCESS\\PROGETTI_MDB\\MSYS_OGGETTI\\MSYS\\README_MSYS.md:\n    1  # @PROGETTI@IN@LAVORAZIONE\n    2     2025.10.12 = IL PROGETTO IN LAVORAZIONE è quello esporta ed importa oggetti, vedi codice\n    3:                 @ESPORTA@IMPORTA@OGGETTI\n    4  \n    5  # SCHEMA CARTELLE E ASPETTI GENERALI DI UN MULTIPROGETTO ACCESS\n\nc:\\CASA\\LINGUAGGI\\ACCESS\\PROGETTI_MDB\\MSYS_OGGETTI\\MSYS\\MDB\\MSys_ESPORTA_IMPORTA\\README_MINI_PROGETTO_MSys_ESPORTA_IMPORTA.md:\n    3  ### GE_MSys_ESPORTA_IMPORTA.mdb\n    4        NOTE\n    5:          CODICE----> @PROGETTO@ESPORTA@IMPORTA@OGGETTI\n    6           il progetto si trova in questa path ed è costruito per le esportazioni e le importazioni:\n    7              start \"ESPORTA IMPORTA\" \"c:\\CASA\\LINGUAGGI\\ACCESS\\PROGETTI_MDB\\MSYS_OGGETTI\\MSYS\\MDB\\MSys_ESPORTA_IMPORTA\\\"\n\n2 matches across 2 files\n",
+			"settings":
+			{
+				"buffer_size": 890,
+				"line_ending": "Windows",
+				"name": "Find Results",
+				"scratch": true
+			},
+			"undo_stack":
+			[
+			]
+		},
+		{
+			"file": "/c/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/MDB/MSys_ESPORTA_IMPORTA/README_MINI_PROGETTO_MSys_ESPORTA_IMPORTA.md",
+			"settings":
+			{
+				"buffer_size": 1191,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			},
+			"undo_stack":
+			[
 			]
 		}
 	],
@@ -134,6 +115,7 @@
 	"file_history":
 	[
 		"/c/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/README_MSYS.md",
+		"/c/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/MDB/MSys_ESPORTA_IMPORTA/README_MINI_PROGETTO_MSys_ESPORTA_IMPORTA.md",
 		"/C/CASA/LINGUAGGI/SUBLIMETEXT/README_COMANDI_VARI.md",
 		"/C/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/MDB/MSYS_BASE/README_MSYS_BASE.md",
 		"/c/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/Zip_N70_ElencoFile.txt",
@@ -239,6 +221,7 @@
 		"height": 135.2,
 		"where_history":
 		[
+			""
 		]
 	},
 	"find_state":
@@ -246,6 +229,13 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"@ESPORTA@IMPORTA@OGGETTI",
+			"@LAVORAZIONE",
+			"@PROGETTI",
+			"PROGETTI",
+			"@PROGETTO",
+			"@PROGETTI",
+			"@ESPORTA@IMPORTA@OGGETTI",
 			"dir",
 			"Msys_DF11_PROGETTI",
 			"MSys_TB0401_GE_TabContr_MASTER",
@@ -293,30 +283,114 @@
 				{
 					"buffer": 0,
 					"file": "/c/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/README_MSYS.md",
-					"selected": true,
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 14825,
+						"buffer_size": 14986,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2026,
-								2026
+								135,
+								159
 							]
 						],
 						"settings":
 						{
 							"mde.match_heading_hashes": false,
-							"syntax": "Packages/LaTeX/TeX.sublime-syntax",
+							"syntax": "Packages/Markdown/Markdown.sublime-syntax",
 							"tab_size": 3,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 552.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"stack_multiselect": false,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 890,
+						"regions":
+						{
+							"match":
+							{
+								"flags": 112,
+								"regions":
+								[
+									[
+										280,
+										304
+									],
+									[
+										606,
+										630
+									]
+								],
+								"scope": ""
+							}
+						},
+						"selection":
+						[
+							[
+								607,
+								607
+							]
+						],
+						"settings":
+						{
+							"detect_indentation": false,
+							"line_numbers": false,
+							"output_tag": 1,
+							"result_base_dir": "",
+							"result_file_regex": "^([^ \t].*):$",
+							"result_line_regex": "^ +([0-9]+):",
+							"scroll_past_end": true,
+							"syntax": "Packages/Default/Find Results.hidden-tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"stack_multiselect": false,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/c/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/MDB/MSys_ESPORTA_IMPORTA/README_MINI_PROGETTO_MSys_ESPORTA_IMPORTA.md",
+					"selected": true,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1191,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								91,
+								91
+							]
+						],
+						"settings":
+						{
+							"mde.match_heading_hashes": false,
+							"syntax": "Packages/Markdown/Markdown.sublime-syntax",
+							"tab_size": 3,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 138.4,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -357,6 +431,13 @@
 		]
 	},
 	"menu_visible": true,
+	"output.Terminus":
+	{
+		"height": 160.800003052,
+		"history":
+		[
+		]
+	},
 	"output.find_results":
 	{
 		"height": 0.0,
