@@ -21,22 +21,7 @@
                dalla posizione neutra puoi attivare le importazioni dal db scelto oppure esportare da
                un db ad altro purche diversi.
 
-      
-
-      MODIFICHE
-         ripristinato i campi COD_PROGETTO_s e PROGETTO_s nelle tabelle
-            Msys_ESPORTA_IMPORTA_DB_DEST
-            Msys_ESPORTA_IMPORTA_ELENCO_OGGETTI_DB
-      
       IMPLEMENTAZIONI DELLE ATTIVITA
-         1) IMPLEMENTAZIONE TABELLE 
-            occorre implementare le tabelle dei progetti con quella imposta esporta oggetti in modo
-            da avere lo stesso tipo di campi.
-                  PROGETTI_Msys_TB03_ELENCO_ObjProgetti
-                           |
-                           |
-                  Msys_ESPORTA_IMPORTA_ELENCO_OGGETTI_DB
-
-
+         1) 
 CHATGPT 
     TODO: da fare...
