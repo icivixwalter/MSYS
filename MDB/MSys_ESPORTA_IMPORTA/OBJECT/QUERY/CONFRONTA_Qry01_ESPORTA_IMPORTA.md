@@ -1,0 +1,22 @@
+CONFRONTA_Qry01_ESPORTA_IMPORTA.md
+   NOTE
+      Con la query confronta ESPORTA IMPORTA estraggo i campi da confrontare con 
+      l'altra query confronta denominata CONFRONTA_Qry01_TB03_ELENCO_ObjProgetti in modo 
+      da avere gli stessi campi allineati per i salvataggi da ELENCO_ObjProgetti in 
+      e la tabella ESPORTA_IMPORTA.
+
+   SCHEMA
+      SELECT 
+      "ESPORTA" AS TXT01, 
+      Msys_ESPORTA_IMPORTA_ELENCO_OGGETTI_DB.COD_PROGETTO_s, 
+      Msys_ESPORTA_IMPORTA_ELENCO_OGGETTI_DB.PROGETTO_s, 
+      Msys_ESPORTA_IMPORTA_ELENCO_OGGETTI_DB.NRO_OGGETTO_i, 
+      Msys_ESPORTA_IMPORTA_ELENCO_OGGETTI_DB.TIPOGGETTO_s, 
+      Msys_ESPORTA_IMPORTA_ELENCO_OGGETTI_DB.NOMEOGGETTO_s, 
+      Msys_ESPORTA_IMPORTA_ELENCO_OGGETTI_DB.NOTA_OGGETTO_s, 
+      Msys_ESPORTA_IMPORTA_ELENCO_OGGETTI_DB.NOTEex_s, 
+      Msys_ESPORTA_IMPORTA_ELENCO_OGGETTI_DB.EXPORT_b
+      FROM 
+      Msys_ESPORTA_IMPORTA_ELENCO_OGGETTI_DB
+      WITH OWNERACCESS OPTION;
+

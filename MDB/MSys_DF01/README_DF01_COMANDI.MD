@@ -1,6 +1,6 @@
 # PROGETTO MSYS_DF01
    Note 
-      il progetto gestisce i comandi della tabella DF01
+      il progetto gestisce i comandi della tabella DF01 PER LA GESTIONE DEI COMANDI
 
 
 

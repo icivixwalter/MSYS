@@ -16,32 +16,92 @@
 	"buffers":
 	[
 		{
-			"file": "/c/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/README_MSYS.md",
+			"file": "/c/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/MDB/MSys_DF01/README_DF01_COMANDI.MD",
 			"settings":
 			{
-				"buffer_size": 14986,
+				"buffer_size": 2371,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
-			}
-		},
-		{
-			"contents": "Searching 563 files for \"@ESPORTA@IMPORTA@OGGETTI\"\n\nc:\\CASA\\LINGUAGGI\\ACCESS\\PROGETTI_MDB\\MSYS_OGGETTI\\MSYS\\README_MSYS.md:\n    1  # @PROGETTI@IN@LAVORAZIONE\n    2     2025.10.12 = IL PROGETTO IN LAVORAZIONE è quello esporta ed importa oggetti, vedi codice\n    3:                 @ESPORTA@IMPORTA@OGGETTI\n    4  \n    5  # SCHEMA CARTELLE E ASPETTI GENERALI DI UN MULTIPROGETTO ACCESS\n\nc:\\CASA\\LINGUAGGI\\ACCESS\\PROGETTI_MDB\\MSYS_OGGETTI\\MSYS\\MDB\\MSys_ESPORTA_IMPORTA\\README_MINI_PROGETTO_MSys_ESPORTA_IMPORTA.md:\n    3  ### GE_MSys_ESPORTA_IMPORTA.mdb\n    4        NOTE\n    5:          CODICE----> @PROGETTO@ESPORTA@IMPORTA@OGGETTI\n    6           il progetto si trova in questa path ed è costruito per le esportazioni e le importazioni:\n    7              start \"ESPORTA IMPORTA\" \"c:\\CASA\\LINGUAGGI\\ACCESS\\PROGETTI_MDB\\MSYS_OGGETTI\\MSYS\\MDB\\MSys_ESPORTA_IMPORTA\\\"\n\n2 matches across 2 files\n",
-			"settings":
-			{
-				"buffer_size": 890,
-				"line_ending": "Windows",
-				"name": "Find Results",
-				"scratch": true
-			}
-		},
-		{
-			"file": "/c/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/MDB/MSys_ESPORTA_IMPORTA/README_MINI_PROGETTO_MSys_ESPORTA_IMPORTA.md",
-			"settings":
-			{
-				"buffer_size": 1730,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
+			},
+			"undo_stack":
+			[
+				[
+					3,
+					1,
+					"insert",
+					{
+						"characters": " PERL"
+					},
+					"BQAAAFUAAAAAAAAAVgAAAAAAAAAAAAAAVgAAAAAAAABXAAAAAAAAAAAAAABXAAAAAAAAAFgAAAAAAAAAAAAAAFgAAAAAAAAAWQAAAAAAAAAAAAAAWQAAAAAAAABaAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAVQAAAAAAAABVAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					4,
+					1,
+					"left_delete",
+					null,
+					"AQAAAFkAAAAAAAAAWQAAAAAAAAABAAAATA",
+					"AQAAAAAAAAABAAAAWgAAAAAAAABaAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					5,
+					1,
+					"insert",
+					{
+						"characters": " LA"
+					},
+					"AwAAAFkAAAAAAAAAWgAAAAAAAAAAAAAAWgAAAAAAAABbAAAAAAAAAAAAAABbAAAAAAAAAFwAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAWQAAAAAAAABZAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					6,
+					1,
+					"insert",
+					{
+						"characters": " GESTIONE"
+					},
+					"CQAAAFwAAAAAAAAAXQAAAAAAAAAAAAAAXQAAAAAAAABeAAAAAAAAAAAAAABeAAAAAAAAAF8AAAAAAAAAAAAAAF8AAAAAAAAAYAAAAAAAAAAAAAAAYAAAAAAAAABhAAAAAAAAAAAAAABhAAAAAAAAAGIAAAAAAAAAAAAAAGIAAAAAAAAAYwAAAAAAAAAAAAAAYwAAAAAAAABkAAAAAAAAAAAAAABkAAAAAAAAAGUAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAXAAAAAAAAABcAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					7,
+					1,
+					"insert",
+					{
+						"characters": " DEI"
+					},
+					"BAAAAGUAAAAAAAAAZgAAAAAAAAAAAAAAZgAAAAAAAABnAAAAAAAAAAAAAABnAAAAAAAAAGgAAAAAAAAAAAAAAGgAAAAAAAAAaQAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAZQAAAAAAAABlAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					8,
+					1,
+					"insert",
+					{
+						"characters": " O"
+					},
+					"AgAAAGkAAAAAAAAAagAAAAAAAAAAAAAAagAAAAAAAABrAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAaQAAAAAAAABpAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					9,
+					1,
+					"left_delete",
+					null,
+					"AQAAAGoAAAAAAAAAagAAAAAAAAABAAAATw",
+					"AQAAAAAAAAABAAAAawAAAAAAAABrAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					10,
+					1,
+					"insert",
+					{
+						"characters": "COMANDI"
+					},
+					"BwAAAGoAAAAAAAAAawAAAAAAAAAAAAAAawAAAAAAAABsAAAAAAAAAAAAAABsAAAAAAAAAG0AAAAAAAAAAAAAAG0AAAAAAAAAbgAAAAAAAAAAAAAAbgAAAAAAAABvAAAAAAAAAAAAAABvAAAAAAAAAHAAAAAAAAAAAAAAAHAAAAAAAAAAcQAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAagAAAAAAAABqAAAAAAAAAAAAAAAAAPC/"
+				]
+			]
 		}
 	],
 	"build_system": "",
@@ -100,15 +160,22 @@
 	},
 	"expanded_folders":
 	[
-		"/c/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS",
-		"/c/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/GIT_BAT"
+		"/c/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/MDB/MSys_DF01",
+		"/c/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/MDB/MSYS_ATTIVA_GEST_OGGETTI"
 	],
 	"file_history":
 	[
-		"/c/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/README_MSYS.md",
 		"/c/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/MDB/MSys_ESPORTA_IMPORTA/README_MINI_PROGETTO_MSys_ESPORTA_IMPORTA.md",
-		"/C/CASA/LINGUAGGI/SUBLIMETEXT/README_COMANDI_VARI.md",
+		"/C/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/MDB/MSys_ESPORTA_IMPORTA/OBJECT/QUERY/CONFRONTA_Qry01_TB03_ELENCO_ObjProgetti.MD",
+		"/C/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/MDB/MSys_ESPORTA_IMPORTA/OBJECT/QUERY/CONFRONTA_Qry01_ESPORTA_IMPORTA.md",
+		"/c/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/MDB/MSys_ESPORTA_IMPORTA/Project_RICOSTRUISCI_PATH_MSys_ESPORTA_IMPORTA.bat",
+		"/c/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/MDB/MSys_TB01_PROGETTI/README_MINI_PROGETTO_MSys_TB01_PROGETTI.md",
+		"/c/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/MDB/MSys_TB01_PROGETTI/README_GE_Msys_TB01_PROGETTI.md",
+		"/C/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/MDB/MSys_TB01_PROGETTI/MDB/README_Msys_DF11_Frm01_M01_GE_CODICE_PROGETTI_TUTT",
+		"/c/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/MDB/MSys_TB01_PROGETTI/Project_GE_Msys_TB01_PROGETTI.sublime-project",
+		"/c/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/MDB/MSys_TB01_PROGETTI/Project_RICOSTRUISCI_PATH_MSys_TABELLE.bat",
 		"/C/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/MDB/MSYS_BASE/README_MSYS_BASE.md",
+		"/c/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/README_MSYS.md",
 		"/c/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/Zip_N70_ElencoFile.txt",
 		"/c/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/BAT_RICREA_PATH_MSYS.BAT",
 		"/c/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/git_RICOSTRUISCI_REPOSITORY_LOCALE.BAT",
@@ -212,7 +279,6 @@
 		"height": 135.2,
 		"where_history":
 		[
-			""
 		]
 	},
 	"find_state":
@@ -220,36 +286,6 @@
 		"case_sensitive": false,
 		"find_history":
 		[
-			"@ESPORTA@IMPORTA@OGGETTI",
-			"@LAVORAZIONE",
-			"@PROGETTI",
-			"PROGETTI",
-			"@PROGETTO",
-			"@PROGETTI",
-			"@ESPORTA@IMPORTA@OGGETTI",
-			"dir",
-			"Msys_DF11_PROGETTI",
-			"MSys_TB0401_GE_TabContr_MASTER",
-			"MSys_TB0402_VISUAL_PAG_MASTER",
-			"MSys_TB0402_VISUAL_PAG_MASTER_TMP",
-			"Controlla_SE_OGGETTO_FORM_ESISTE_pFunct.attiva",
-			"FUNZIONE_DI_CONTROLLO_DELLA_ESISTENZA_DELL'OGGETTO_FORM",
-			"MSys_TB0401_GE_TabContr_MASTER_TMP",
-			"MSys_TB0401_GE_TabContr_MASTER",
-			"MSys_TB0401_GE_TabContr_MASTER_TMP",
-			"MSys_TB0401_GE_TabContr_MASTER",
-			"TAB402",
-			"MSys_TB0402",
-			"MSys_TB0402_VISUAL_PAG_MASTER_TMP",
-			"MSys_TB0402_VISUAL_PAG_MASTER",
-			"MSys_TB0402_VISUAL_PAG_MASTER_TMP",
-			"GEST_MENU_Tb01_VOCI",
-			"1,",
-			"AS Espr",
-			"GE_MSys_REPORT.mdb",
-			"MSys_TB01_MASTER.mdb",
-			"schema",
-			"\\"
 		],
 		"highlight": false,
 		"in_selection": false,
@@ -273,104 +309,20 @@
 			[
 				{
 					"buffer": 0,
-					"file": "/c/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/README_MSYS.md",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 14986,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								135,
-								159
-							]
-						],
-						"settings":
-						{
-							"mde.match_heading_hashes": false,
-							"syntax": "Packages/Markdown/Markdown.sublime-syntax",
-							"tab_size": 3,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"stack_multiselect": false,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 890,
-						"regions":
-						{
-							"match":
-							{
-								"flags": 112,
-								"regions":
-								[
-									[
-										280,
-										304
-									],
-									[
-										606,
-										630
-									]
-								],
-								"scope": ""
-							}
-						},
-						"selection":
-						[
-							[
-								607,
-								607
-							]
-						],
-						"settings":
-						{
-							"detect_indentation": false,
-							"line_numbers": false,
-							"output_tag": 1,
-							"result_base_dir": "",
-							"result_file_regex": "^([^ \t].*):$",
-							"result_line_regex": "^ +([0-9]+):",
-							"scroll_past_end": true,
-							"syntax": "Packages/Default/Find Results.hidden-tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"stack_multiselect": false,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "/c/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/MDB/MSys_ESPORTA_IMPORTA/README_MINI_PROGETTO_MSys_ESPORTA_IMPORTA.md",
+					"file": "/c/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/MDB/MSys_DF01/README_DF01_COMANDI.MD",
 					"selected": true,
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1730,
+						"buffer_size": 2371,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								113,
+								113
 							]
 						],
 						"settings":
@@ -381,7 +333,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 138.4,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -422,13 +374,6 @@
 		]
 	},
 	"menu_visible": true,
-	"output.Terminus":
-	{
-		"height": 160.800003052,
-		"history":
-		[
-		]
-	},
 	"output.find_results":
 	{
 		"height": 0.0,
@@ -437,7 +382,7 @@
 		]
 	},
 	"pinned_build_system": "",
-	"project": "Project_MSYS.sublime-project",
+	"project": "Project_MSys_DF01_COMANDI.sublime-project",
 	"replace":
 	{
 		"height": 60.8
