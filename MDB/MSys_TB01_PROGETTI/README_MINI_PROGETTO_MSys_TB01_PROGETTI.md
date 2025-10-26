@@ -17,6 +17,7 @@
          B) i PROGETTI 
             ossia tutti gli oggetti per gestire il singolo MINI PROGETTO in 
                start "apri gestione oggetti dei MINI PROGETTI" "c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_TB01_PROGETTI\MDB\GE_Msys_TB01_PROGETTI.mdb"
+
    CORREZIONE FORM --> PROGETTI_Msys_TB02Frm01_01_TIPO_OGGETTI
                NEL DB : GE_Msys_TB01_PROGETTI.mdb
                            |
@@ -148,3 +149,55 @@ CHATGPT
             Msys_ESPORTA_IMPORTA_ELENCO_OGGETTI_DB          = TABELLA PROGETTI ED OGGETTI DI ORIGINE trattati
 
          QUERY ****  CONTINUARE ****
+
+### CREO IL NUOVO CODICE DEL MINI PROGETTO DEFINITO COME : MSys_TB01_PROGETTI
+   Note
+      definisco il codice per la gestione dei progetti chiamato MSys_TB01_PROGETTI.
+      Associo gli oggetti a tale codice che sono :
+      FORM
+
+         FORM MASTER----PROGETTI_Msys_TB01Frm00_GE_PROGETTI --TXT_FILTRO
+            |
+            |----TAB_CONTROLL = TabCtl_01
+                  |
+                  |---SOTTO_FORM = PROGETTI_Msys_TB01Frm01_01_PROJECT
+                        |
+                        |---SOTTO_FORM = PROGETTI_Msys_TB02Frm01_01_TIPO_OGGETTI
+
+
+   PROBLEMA_CHATGPB
+
+
+         PROBLEMA CON LE SOTTOFORM NIDIFICATE IN ACCESS
+            Ho una form master con un casella combinata che contiene il valore filtro
+            che deve essere salvato nella casella di testo dell'ultima sottoform. Il problema
+            è che non riesco a sistemare questo comando in vba
+                  If Me.Parent!Parent!Parent!Parent!TXT_FILTRO.Value > "" Then
+            perche mi da errore non riuscendo a risalire tutta la catena degli oggetti.
+            Lo schema è questo:
+
+                     FORM MASTER----PROGETTI_Msys_TB01Frm00_GE_PROGETTI --TXT_FILTRO
+                        |
+                        |----TAB_CONTROLL = TabCtl_01
+                              |
+                              |---SOTTO_FORM = PROGETTI_Msys_TB01Frm01_01_PROJECT
+                                    |
+                                    |---SOTTO_FORM = PROGETTI_Msys_TB02Frm01_01_TIPO_OGGETTI
+
+            Come posso risolvere il problema NELLE FORM NIDIFICATE? Cioè recuperare il valore della casella di testo
+            della form master?
+            Oppure esiste un ciclo oggetti da attivare dall'ultima sottoform quella interessata
+            che possa risalire fino alla form master e recuperare il valore nel campo filtro
+            TXT_FILTRO?
+
+            In pratica l'ultima sottoform deve arrivare alla form master e recuperare il valore
+            questo è lo schema.
+
+                        FORM MASTER----PROGETTI_Msys_TB01Frm00_GE_PROGETTI --TXT_FILTRO
+                        |                                                             ^
+                        |----TAB_CONTROLL = TabCtl_01                                 |
+                              |                                                       |
+                              |---SOTTO_FORM = PROGETTI_Msys_TB01Frm01_01_PROJECT     |
+                                    |                                                 |
+                                    |---SOTTO_FORM = PROGETTI_Msys_TB02Frm01_01_TIPO_OGGETTI
+

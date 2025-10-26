@@ -15,65 +15,6 @@
 	},
 	"buffers":
 	[
-		{
-			"contents": "'//  - IN CASO DI @MODIFICHE DELLA PRESENTE @CLASSE DEVONO ESSERE SALVATE IN QUESTI PROGGETTI: _\n'//\n'//        db originale\n'//        c:\\Casa\\LINGUAGGI\\ACCESS\\PROGETTI_MDB\\MSYS_OGGETTI\\MSYS\\MDB\\MSys_GE_FILE\\MDB\\MSys_GE_FILE.mdb\n'//        ------------------------------------------------------------------\n'//\n'//        ESPORTA PROGETTI\n'//        ------------------------------------------------------------------\n'//        c:\\CASA\\LINGUAGGI\\ACCESS\\PROGETTI_MDB\\MSYS_OGGETTI\\MSYS\\MDB\\MSys_ESPORTA_IMPORTA\\MDB\\GE_MSys_ESPORTA+progetti.mdb\n'//\n'//        GESTIONE PROGETTI:\n'//        ------------------------------------------------------------------\n'//        c:\\CASA\\LINGUAGGI\\ACCESS\\PROGETTI_MDB\\MSYS_OGGETTI\\MSYS\\MDB\\MSys_TB01_PROGETTI\\MDB\\GE_Msys_TB01_PROGETTI.mdb\n'//        c:\\CASA\\LINGUAGGI\\ACCESS\\PROGETTI_MDB\\MSYS_OGGETTI\\MSYS\\MDB\\MSys_TB01_PROGETTI\\MDB\\Msys_TB01_PROGETTI.mdb\n'//\n",
-			"settings":
-			{
-				"buffer_size": 896,
-				"line_ending": "Windows",
-				"name": "'//  - IN CASO DI @MODIFICHE DELLA PRESENTE @CLASS"
-			},
-			"undo_stack":
-			[
-				[
-					1,
-					1,
-					"paste",
-					null,
-					"AQAAAAAAAAAAAAAAgAMAAAAAAAAAAAAA",
-					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvw"
-				]
-			]
-		},
-		{
-			"contents": "\n        '//CODICE-->Controlla_SE_OGGETTO_FORM_E_APERTA_pFunct.01\n        '//FUNZIONE_DI_CONTROLLO_DELLA_FORM_GESTIONE_APERTA.01\n        '//=======================================================================================================//\n        '//SI TROVA NEL MODULO -> GEST_FrmM00_GESTIONE_Mdl01_ControlloFormAperta\n        \n        Public Function Controlla_SE_OGGETTO_FORM_E_APERTA_pFunct(par_NameForm_s As String) As Boolean\n            \n            \n        On Error GoTo Controlla_SE_OGGETTO_FORM_E_APERTA_pFunct_Err\n        \n\n                \n                '//FUNZIONE DELLA CLASSE PER IL CONTROLLO SE LA FORM E' APERTA\n                '//############################################################################################################################//\n              \n                        '//ISTANZIO LA CLASSE PER IL CONTROLLO DELLA FORM APERTA\n                        '//.....................................................................................................\n                            \n                        \n                            '//IMPOSTO LA VARIABILE OGGETTO = per l'utilizzo della classe e le altre variabili\n                                '//--> Dim MyCls_CLASSE_ATTI_Tb01_Gestione As CLASSE_ATTI_Tb01_Gestione\n                                '//--> Dim FormAperta_b As Boolean\n                                                            \n                            '// RESET DELLE VARIABILI\n                                '//--> FormAperta_b = false\n                        \n                            '//ISTANZIO LA CLASSE = MyCls_CLASSE_GESTIONE_OGGETTI_FORM assegnando _\n                               l 'oggetto di classe alla variabile e creo creo l'oggetto di classe\n                                '//--> Set MyCls_CLASSE_ATTI_Tb01_Gestione = New CLASSE_ATTI_Tb01_Gestione\n                            \n                            '//PATH O FILE = Inserire o una path oppure una path+file con percoso esteso.\n                                'Str1 = \"**** DEVI INSERIRE IL NOME DELLA FORM DA CONTROLLARE ***\"\n                                \n                                '// LA FUNZIONE RESTITUISCE TRUE SE E' APERTA ALTRIMENTI FALSE\n                                '//--> FormAperta_b = MyCls_CLASSE_ATTI_Tb01_Gestione.Controlla_SE_OGGETTO_FORM_E_APERTA_pFunct (Str1)\n                                \n                                \n                                \n                            '//RILASCIO LA MEMORIA = rilascio l'oggetto ed attivo il distruttore della classe\n                                '//--> Set MyCls_CLASSE_ATTI_Tb01_Gestione = Nothing\n                                \n                        \n                        '//.....................................................................................................\n                \n                \n                '//*** FINE ***\n                '//FUNZIONE DELLA CLASSE PER IL CONTROLLO SE LA FORM E' APERTA\n                '//############################################################################################################################//\n\n\n            \n            \n        '//FUNZIONE_DI_CONTROLLO_DELLA_FORM_GESTIONE_APERTA.01_Esegui\n        '//__________________________________________________________________________________________//\n        \n            Dim formName_s As String\n            Dim ctl As Control\n                \n            '//reset\n            FormGestione_b = False\n        \n            \n            'application.Form[GEST_FrmM00_GESTIONE].\n            Dim obj As AccessObject, Dbs As Object\n            Set Dbs = Application.CurrentProject\n            ' Search for open AccessObject objects in AllForms collection.\n            For Each obj In Dbs.AllForms\n                                \n                If obj.IsLoaded = True Then\n                    ' Print name of obj.\n                    Debug.Print obj.Name\n                    formName_s = obj.Name\n                     \n                    '//CONTROLLO SUL NOME\n                    If formName_s = par_NameForm_s Then\n                        \n                       '//FormGestione_b = true per indicare che la form è aperta e restituisco il nome della form _\n                       alla routine chiamante\n                       FormGestione_b = True\n                       Controlla_SE_OGGETTO_FORM_E_APERTA_pFunct = True\n                       \n                    End If\n                    \n                End If\n            Next obj\n            \n                Set obj = Nothing\n                Set Dbs = Nothing\n                Set ctl = Nothing\n                formName_s = vbNull\n            \n        '//FUNZIONE_DI_CONTROLLO_DELLA_FORM_GESTIONE_APERTA.01_Esegui *** fine ***\n        '//__________________________________________________________________________________________//\n                \n                \n                \n                \n        '// USCITA E CONTROLLO ERRORI\n        '//__________________________________________________________________________________________//\n                \n            \nControlla_SE_OGGETTO_FORM_E_APERTA_pFunct_Exit:\n            Exit Function\n        \nControlla_SE_OGGETTO_FORM_E_APERTA_pFunct_Err:\n            MsgBox Error$\n            Resume Controlla_SE_OGGETTO_FORM_E_APERTA_pFunct_Exit\n            \n        \n        End Function\n        '//*** FINE ***\n        '//FUNZIONE_DI_CONTROLLO_DELLA_FORM_GESTIONE_APERTA\n        '//=======================================================================================================//\n        \n        \n",
-			"settings":
-			{
-				"buffer_size": 5581,
-				"line_ending": "Windows"
-			},
-			"undo_stack":
-			[
-				[
-					1,
-					1,
-					"paste",
-					null,
-					"AQAAAAAAAAAAAAAAzRUAAAAAAAAAAAAA",
-					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvw"
-				]
-			]
-		},
-		{
-			"contents": "'//AGGIORNAMENTO_DEL_15_08_2020\n'//APRO PATH GENERICA = Apre la cartella generica passata come parametro stringa. _\n            Routine utilzizabile su tutte le cartelle del progetto, occorre sempre dare la path esplicita _\n            e completa di percorso per la sua apertura. Se viene passata la path+file  allora puo essere _\n            utilizzata anche per aprime un file generico.\nPublic Sub APRO_PATH_O_FILE_GENERICI_pSub(par_MyPath_s As String)\n\n'//RECUPERO PARAMETRO DA TABELLA OGGETTI\n'//File da ricercare e la path\nDim MyFile_s As String\nDim MyPath_s As String\n\n\nOn Error GoTo Err_APRO_PATH_O_FILE_GENERICI_pSub\n\n\n    '//APRO PATH O FILE GENERICI\n    '//.....................................................................................................\n    '//Passo un parametro stringa che può rappresentare una path da aprire esempio : _\n       \"C:\\GESTIONI\\GESTIONE_LLPP\\25_GESTIONE_LLPP\\LLPP_ARCHVI_MDB\\LLPP_GESTIONE\\LPP_ANALISI\\GESTIONE_ELENCO\". _\n       Se voglio aprire un file  occore passare la PATH+FILE con estensione es. _\n       \"C:\\GESTIONI\\GESTIONE_LLPP\\25_GESTIONE_LLPP\\LLPP_ARCHVI_MDB\\LLPP_GESTIONE\\LPP_ANALISI\\GESTIONE_ELENCO\\file.xls\"\n               \n        '//File da ricercare e la path\n        'Dim MyFile_s As String\n        'Dim MyPath_s As String\n        \n        'MyFile_s = \"LLPP_ATTI_ALLEGATI_ARCHIVIO.RAR\"\n        'MyPath_s = \"c:\\GESTIONI\\GESTIONE_LLPP\\25_GESTIONE_LLPP\\LLPP_ARCHVI_MDB\\LLPP_GESTIONE\\LPP_ANALISI\\LPP_ALLEGATI\\\"\n       \n    \n         '//IMPOSTO LA VARIABILE OGGETTO = per l'utilizzo della classe\n            'Dim MyCls_CLASSE_ATTI_Tb01_Gestione As CLASSE_ATTI_Tb01_Gestione\n    \n        '//ISTANZIO LA CLASSE = MyCls_CLASSE_GESTIONE_OGGETTI_FORM assegnando _\n           l 'oggetto di classe alla variabile e creo creo l'oggetto di classe\n            'Set MyCls_CLASSE_ATTI_Tb01_Gestione = New CLASSE_ATTI_Tb01_Gestione\n        \n        '//PATH O FILE = Inserire o una path oppure una path+file con percoso esteso.\n            'Str1 = \"C:\\GESTIONI\\GESTIONE_LLPP\\25_GESTIONE_LLPP\\LLPP_ARCHVI_MDB\\LLPP_GESTIONE\\LPP_ANALISI\\GESTIONE_SERVIZI\\MDB\"\n            'MyCls_CLASSE_ATTI_Tb01_Gestione.APRO_PATH_O_FILE_GENERICI_pSub (MyPath_s & MyFile_s)\n            \n            \n        '//RILASCIO LA MEMORIA = rilascio l'oggetto ed attivo il distruttore della classe\n            'Set MyCls_CLASSE_ATTI_Tb01_Gestione = Nothing\n    \n    '//.....................................................................................................\n                     \n            \n     \n    \n    '//APRO SORGENTE FORM FILTRO 66 CAMPI\n    '//.....................................................................................................\n    '//Note           : Tramite una Select vengono individuati i valori da restiuire.\n       \n        MyFile_s = \"\"\n        '//ATTENZIONE occorre inserire uno spazio finale altrimenti non riconosce il percorso. Se invece è _\n           un programma oppure un eseguibile non occorre lo spazio.\n            'ESEMPIO DI APERTURA DI UNA PATH GENERICA.\n            'modello path MyPath_s = \"C:\\GESTIONI\\GESTIONE_LLPP\\25_GESTIONE_LLPP\\LLPP_ARCHVI_MDB\\LLPP_GESTIONE\\LPP_ANALISI\\GESTIONE_ELENCO\"\n            \n        MyFile_s = par_MyPath_s                     'recupero la path passata con il parametro\n      \n       \n        '//Imposto i parametri\n        ProceduraAttivaEseguita_s = \"\"\n        ProceduraMessaggioErrore_s = \"Errore nella procedura - apri FILE GESTIONE \"\"\" & MyPath_s & MyFile_s\n   \n      \n         \n        \n        '//CREO LA SHELL come oggetto, attivo il comando \"%comspec% /c start \" e gli assegno la path per estesa con il nome del file\n        '// perchè Shell lancia un EXE e non il PDF, quindi è necessario costruire la stringa in modo da far lanciare\n        '// prima la sessione dos e poi il pdf..\n        '// La stringa di comando (\"%comspec% /c start \") deve essere unica : comando shell + path + file\n        Set WshPDF = CreateObject(\"wscript.shell\")\n        \n        '// Unisco il comando pdf start + path definitiva\n        Stringa1 = \"%comspec% /c start \" & MyPath_s & MyFile_s                               '//Comando di apertura\n        '//Attivo il comando\n        WshPDF.Run Stringa1\n        \n       \n    '//*** fine ***\n    '//APRO SORGENTE FORM FILTRO 66 CAMPI\n    '//.....................................................................................................\n \n                    \n\n\n\n\n\n\n\n        \n'USCITA  E GESTIONE ERRORI\n'..............................................................................................................\n\nExit_APRO_PATH_O_FILE_GENERICI_pSub:\n    Exit Sub\n\nErr_APRO_PATH_O_FILE_GENERICI_pSub:\n    MsgBox Err.Description\n    Resume Exit_APRO_PATH_O_FILE_GENERICI_pSub\n\nEnd Sub\n\n'//*** fine ***\n'//APRO LA PATH DEGLI ATTI DI GESTIONE -\n'//###########################################################################################################################//\n\n",
-			"settings":
-			{
-				"buffer_size": 4928,
-				"line_ending": "Windows",
-				"name": "'//AGGIORNAMENTO_DEL_15_08_2020"
-			},
-			"undo_stack":
-			[
-				[
-					1,
-					1,
-					"paste",
-					null,
-					"AQAAAAAAAAAAAAAAQBMAAAAAAAAAAAAA",
-					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvw"
-				]
-			]
-		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -132,7 +73,8 @@
 	"expanded_folders":
 	[
 		"/c/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/MDB/MSys_ESPORTA_IMPORTA",
-		"/c/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/MDB/MSys_ESPORTA_IMPORTA/OBJECT"
+		"/c/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/MDB/MSys_ESPORTA_IMPORTA/OBJECT",
+		"/c/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/MDB/MSys_ESPORTA_IMPORTA/OBJECT/QUERY"
 	],
 	"file_history":
 	[
@@ -279,98 +221,6 @@
 		{
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 896,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								896,
-								896
-							]
-						],
-						"settings":
-						{
-							"auto_name": "'//  - IN CASO DI @MODIFICHE DELLA PRESENTE @CLASS",
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"stack_multiselect": false,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 5581,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								5581,
-								5581
-							]
-						],
-						"settings":
-						{
-							"auto_name": "",
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 2124.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"stack_multiselect": false,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"selected": true,
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4928,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								4928
-							]
-						],
-						"settings":
-						{
-							"auto_name": "'//AGGIORNAMENTO_DEL_15_08_2020",
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"stack_multiselect": false,
-					"type": "text"
-				}
 			]
 		}
 	],
