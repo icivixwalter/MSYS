@@ -4,6 +4,11 @@
       WINDOWS
 
 
+AGGIORNAMENTI
+   2025_10_28_MODULO_LIBRERIE = creato un modulo per l'inserimento automatico delle librerie.
+
+
+
 PARAMETRI_VBA
    Note
       per gestire al meglio vba e Access 2011 ho creato una variabile di sistema che identifica
