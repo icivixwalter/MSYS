@@ -1,24 +1,25 @@
-'//- CLASSE_ATTI_TB01_GESTIONE_(classe atti @tb01@gestione che si trova in questo progetto: _
-        START "APRI PROGETTO CLASSE" "c:\Casa\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_GE_FILE\MDB\MSys_GE_FILE.mdb"
+'//- CLASSE_ATTI_TB01_GESTIONE_(classe atti @tb01@gestione che si trova in questo progetto) - NOTE+ATTIVITA+AGGIORNAMENTI _
+    '//PATH_PROGETTO: _
+            START "APRI PROGETTO CLASSE" "c:\Casa\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_GE_FILE\MDB\MSys_GE_FILE.mdb"
 
-    '//MODELLO ISTANZIAMENTO CLASSE ATTI DI GESTIONE
-    '//.....................................................................................................
-        '//IMPOSTO LA VARIABILE OGGETTO = per l'utilizzo della classe
-            'Dim MyCls_CLASSE_ATTI_Tb01_Gestione As CLASSE_ATTI_Tb01_Gestione
+    '//MODELLO ISTANZIAMENTO CLASSE GENERALE
+        ''//.....................................................................................................//
+            '//IMPOSTO LA VARIABILE OGGETTO = per l'utilizzo della classe
+                'Dim MyCls_CLASSE_ATTI_Tb01_Gestione As CLASSE_ATTI_Tb01_Gestione
+
+            '//ISTANZIO LA CLASSE = MyCls_CLASSE_GESTIONE_OGGETTI_FORM assegnando _
+               l 'oggetto di classe alla variabile e creo creo l'oggetto di classe
+                'Set MyCls_CLASSE_ATTI_Tb01_Gestione = New CLASSE_ATTI_Tb01_Gestione
+
+            '//PATH O FILE = Inserire o una path oppure una path+file con percoso esteso.
+                'Str1 = "C:\GESTIONI\GESTIONE_LLPP\25_GESTIONE_LLPP\LLPP_ARCHVI_MDB\LLPP_GESTIONE\LPP_ANALISI\GESTIONE_SERVIZI\MDB"
+                'MyCls_CLASSE_ATTI_Tb01_Gestione.APRO_PATH_O_FILE_GENERICI_pSub (Str1)
+
+            '//RILASCIO LA MEMORIA = rilascio l'oggetto ed attivo il distruttore della classe
+                'Set MyCls_CLASSE_ATTI_Tb01_Gestione = Nothing
+         ''//.....................................................................................................//
     
-        '//ISTANZIO LA CLASSE = MyCls_CLASSE_GESTIONE_OGGETTI_FORM assegnando _
-           l 'oggetto di classe alla variabile e creo creo l'oggetto di classe
-            'Set MyCls_CLASSE_ATTI_Tb01_Gestione = New CLASSE_ATTI_Tb01_Gestione
-        
-        '//PATH O FILE = Inserire o una path oppure una path+file con percoso esteso.
-            'Str1 = "C:\GESTIONI\GESTIONE_LLPP\25_GESTIONE_LLPP\LLPP_ARCHVI_MDB\LLPP_GESTIONE\LPP_ANALISI\GESTIONE_SERVIZI\MDB"
-            'MyCls_CLASSE_ATTI_Tb01_Gestione.APRO_PATH_O_FILE_GENERICI_pSub (Str1)
-            
-        '//RILASCIO LA MEMORIA = rilascio l'oggetto ed attivo il distruttore della classe
-            'Set MyCls_CLASSE_ATTI_Tb01_Gestione = Nothing
-    
-    
-      '//LE @LIBRERIE NECESSARIE PER IL FUNZIONAMENTO DELLA CLASSE'
+    '//LE @LIBRERIE NECESSARIE PER IL FUNZIONAMENTO DELLA CLASSE'
 
          '//'   |NAME_s                           |LIBRERIA_DLL_s  PATH_s
          '//'   |---------------------------------|-----------------------------------------------------------------------
@@ -29,17 +30,16 @@
          '//'   |DAO dao360.dll                   |C:\Program Files (x86)\Common Files\Microsoft Shared\DAO\dao360.dll
          '//'   |---------------------------------|-----------------------------------------------------------------------
     
-    
-    
-    
-    '//.....................................................................................................
-    
+     ''//.....................................................................................................//
+
+    '//GLI AGGIORNAMENTI EFFETTUATI'
+      '//.....................................................................................................//
+      '// 01_2025_10_29_AGGIORNAMENTO= RIALLINEATO TUTTE LE FUNZIONI E LE ROUTINE'
+      '//.....................................................................................................//
 
 
-
-
-
-Option Compare Database
+'//LE OPTION DELLA CLASSE'
+  Option Compare Database
 
 
 
@@ -156,25 +156,25 @@ Option Compare Database
     '------------------------------------------
     ' API: GETOPENFILENAME - Mostra finestra selezione file
     '------------------------------------------
-' ============================================================
-' Classe: Apertura file con API di Windows (compatibile 32/64 bit)
-' ============================================================
+    ' ============================================================
+    ' Classe: Apertura file con API di Windows (compatibile 32/64 bit)
+    ' ============================================================
 
 
-    '------------------------------------------
-    ' API: SHELLEXECUTE - Apre file con app predefinita
-    '------------------------------------------
-    ' Usa l’associazione file di Windows per aprire un file o eseguire un'operazione (es. "open", "print")
-    ' Parametri:
-    ' - hwnd: handle finestra (normalmente 0)
-    ' - lpOperation: "open", "edit", "print"
-    ' - lpFile: percorso completo del file
-    ' - lpParameters: parametri della riga di comando (normalmente vbNullString)
-    ' - lpDirectory: directory di lavoro (normalmente vbNullString)
-    ' - nShowCmd: modalità di visualizzazione finestra (es. vbNormalFocus = 1)
+        '------------------------------------------
+        ' API: SHELLEXECUTE - Apre file con app predefinita
+        '------------------------------------------
+        ' Usa l’associazione file di Windows per aprire un file o eseguire un'operazione (es. "open", "print")
+        ' Parametri:
+        ' - hwnd: handle finestra (normalmente 0)
+        ' - lpOperation: "open", "edit", "print"
+        ' - lpFile: percorso completo del file
+        ' - lpParameters: parametri della riga di comando (normalmente vbNullString)
+        ' - lpDirectory: directory di lavoro (normalmente vbNullString)
+        ' - nShowCmd: modalità di visualizzazione finestra (es. vbNormalFocus = 1)
 
-
-#If VBA7 Then
+'//IF VB7 O OFFICE 32/64'
+ #If VBA7 Then
     ' --- Office 2010 o successivo (VBA7 a 32/64 bit) ---
 
     ' API finestra di dialogo "Apri file"
@@ -190,7 +190,7 @@ Option Compare Database
         ByVal lpDirectory As String, _
         ByVal nShowCmd As Long) As LongPtr
 
-#Else
+ #Else
     ' --- Office 2007 o precedente (VBA6, solo 32 bit) ---
 
     Private Declare Function GetOpenFileNameA Lib "comdlg32.dll" ( _
@@ -203,10 +203,10 @@ Option Compare Database
         ByVal lpParameters As String, _
         ByVal lpDirectory As String, _
         ByVal nShowCmd As Long) As Long
-#End If
+ #End If
 
+'//LE COSTANTI per la finestra di dialogo file
     '------------------------------------------
-    ' COSTANTI per la finestra di dialogo file
     '------------------------------------------
     Private Const OFN_FILEMUSTEXIST = &H1000       ' Il file selezionato deve esistere
     Private Const OFN_PATHMUSTEXIST = &H800        ' La cartella specificata deve esistere
@@ -216,7 +216,7 @@ Option Compare Database
     '------------------------------------------
     ' STRUTTURA richiesta dall'API GetOpenFileNameA
     '------------------------------------------
-    #If VBA7 Then
+  #If VBA7 Then
         Private Type OPENFILENAME
             lStructSize As Long                     ' Dimensione della struttura (in byte)
             hwndOwner As LongPtr                    ' Handle della finestra chiamante (0 = nessuna)
@@ -239,30 +239,30 @@ Option Compare Database
             lpfnHook As LongPtr                     ' Puntatore a funzione hook (non usato)
             lpTemplateName As String                ' Nome template finestra (non usato)
         End Type
-    #Else
-        Private Type OPENFILENAME
-            lStructSize As Long
-            hwndOwner As Long
-            hInstance As Long
-            lpstrFilter As String
-            lpstrCustomFilter As String
-            nMaxCustFilter As Long
-            nFilterIndex As Long
-            lpstrFile As String
-            nMaxFile As Long
-            lpstrFileTitle As String
-            nMaxFileTitle As Long
-            lpstrInitialDir As String
-            lpstrTitle As String
-            flags As Long
-            nFileOffset As Integer
-            nFileExtension As Integer
-            lpstrDefExt As String
-            lCustData As Long
-            lpfnHook As Long
-            lpTemplateName As String
-        End Type
-    #End If
+        #Else
+            Private Type OPENFILENAME
+                lStructSize As Long
+                hwndOwner As Long
+                hInstance As Long
+                lpstrFilter As String
+                lpstrCustomFilter As String
+                nMaxCustFilter As Long
+                nFilterIndex As Long
+                lpstrFile As String
+                nMaxFile As Long
+                lpstrFileTitle As String
+                nMaxFileTitle As Long
+                lpstrInitialDir As String
+                lpstrTitle As String
+                flags As Long
+                nFileOffset As Integer
+                nFileExtension As Integer
+                lpstrDefExt As String
+                lCustData As Long
+                lpfnHook As Long
+                lpTemplateName As String
+            End Type
+        #End If
 
 
     '//Note importanti: _
@@ -282,86 +282,56 @@ Option Compare Database
     '//
     '//************************************************************************************************************//
 
+'//EVENTI CLASSE - INITIALIZE + TERMINATE
+   '______________________________________________________________________________
+
+
+    'INIZIALIZZO LA CLASSE
+
+    Private Sub Class_Initialize()
+
+        On Error GoTo Err_Class_Initialize
+
+                '//SE MANCA LA LIBRERIA CARICARE c:\CASA\LINGUAGGI\ACCESS\DLL_LIBRERIE\MSCOMCTL.OCX
+                'Reset Variabili Oggetti Form
+                m_sxTIPOGGETTO = ""
+                m_sxPROPRIETA = ""
+                m_sxMETODO = ""
+                m_sxEVENTO = ""
+
+    'USCITA ED ERRORI
+    '..............................................................
+    Exit_Class_Initialize:
+        Exit Sub
+
+    Err_Class_Initialize:
+        MsgBox Err.Description
+        Resume Exit_Class_Initialize
+
+
+    End Sub
 
 
 
+    'TERMINO LA CLASSE
+    Private Sub Class_Terminate()
+
+        On Error GoTo Err_Class_Terminate
+
+        Dim TITOLO_Get As String
 
 
+    'USCITA ED ERRORI
+    '..............................................................
+    Exit_Class_Terminate:
+        Exit Sub
+
+    Err_Class_Terminate:
+        MsgBox Err.Description
+        Resume Exit_Class_Terminate
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-'EVENTI CLASSE
-'______________________________________________________________________________
-
-
-'INIZIALIZZO LA CLASSE
-
-Private Sub Class_Initialize()
-
-    On Error GoTo Err_Class_Initialize
-
-            '//SE MANCA LA LIBRERIA CARICARE c:\CASA\LINGUAGGI\ACCESS\DLL_LIBRERIE\MSCOMCTL.OCX
-            'Reset Variabili Oggetti Form
-            m_sxTIPOGGETTO = ""
-            m_sxPROPRIETA = ""
-            m_sxMETODO = ""
-            m_sxEVENTO = ""
-
-'USCITA ED ERRORI
-'..............................................................
-Exit_Class_Initialize:
-    Exit Sub
-
-Err_Class_Initialize:
-    MsgBox Err.Description
-    Resume Exit_Class_Initialize
-
-
-End Sub
-
-
-
-'TERMINO LA CLASSE
-Private Sub Class_Terminate()
-
-    On Error GoTo Err_Class_Terminate
-
-    Dim TITOLO_Get As String
-
-
-'USCITA ED ERRORI
-'..............................................................
-Exit_Class_Terminate:
-    Exit Sub
-
-Err_Class_Terminate:
-    MsgBox Err.Description
-    Resume Exit_Class_Terminate
-
-
-End Sub
-
-
-
-
-
-
-'//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-'// @GESTIONE@FILE@DIRECTORY E @PATH
-
-
+    End Sub
 
 '//08_CLASSE_APRI_FILE_CON_SHELL_API = LA FUNZIONE APRI I FILE E LA PATH CON LA SHELL DELLE API WINDOWS *** INIZIO ***
     '//==================================================================================================================//
@@ -394,7 +364,7 @@ End Sub
     '   Stringa di stato ("FILE TROVATO", "PATH TROVATA MA FILE NON SPECIFICATO", ecc.)
     '==================================================================================
 
-Public Function ApriFileShellApiWindows(parPath As String, parFileName As String, _
+  Public Function ApriFileShellApiWindows(parPath As String, parFileName As String, _
                                         parIDGestione As Long, _
                                         soloPath As Boolean) As String
     On Error GoTo ErrHandler
@@ -470,13 +440,13 @@ Public Function ApriFileShellApiWindows(parPath As String, parFileName As String
 
     Exit Function
 
-' Gestione errori generici
-ErrHandler:
-    Debug.Print ">>> ERRORE: " & Err.Number & " - " & Err.Description
-    Call ScriviLogErrore(nomeFunzione, Err.Number, Err.Description, Erl)
-    MsgBox "Errore durante l'apertura file o cartella: " & Err.Description, vbCritical
-    ApriFileShellApiWindows = "ERRORE"
-End Function
+    ' Gestione errori generici
+    ErrHandler:
+        Debug.Print ">>> ERRORE: " & Err.Number & " - " & Err.Description
+        Call ScriviLogErrore(nomeFunzione, Err.Number, Err.Description, Erl)
+        MsgBox "Errore durante l'apertura file o cartella: " & Err.Description, vbCritical
+        ApriFileShellApiWindows = "ERRORE"
+    End Function
 
 
     '==================================================================================
@@ -493,3912 +463,2416 @@ End Function
     ' --- DICHIARAZIONE API COMPATIBILE 32/64 bit ---
 
 
-' --- PROCEDURA PRINCIPALE ---
-Private Sub EseguiShell(ByVal percorsoCompleto As String)
-    On Error GoTo ErrHandler
+    ' EseguiShell --- PROCEDURA PRINCIPALE ---
+        Private Sub EseguiShell(ByVal percorsoCompleto As String)
+        On Error GoTo ErrHandler
 
-    ' --- Variabili ---
-#If VBA7 Then
-    Dim risultato As LongPtr
-#Else
-    Dim risultato As Long
-#End If
-    Dim pathSolo As String
-    Dim esisteFile As Boolean
-    Dim esistePath As Boolean
-    Dim percorsoShell As String
-    Dim nomeFunzione As String: nomeFunzione = "EseguiShell"
+        ' --- Variabili ---
+        #If VBA7 Then
+            Dim risultato As LongPtr
+        #Else
+            Dim risultato As Long
+        #End If
+            Dim pathSolo As String
+            Dim esisteFile As Boolean
+            Dim esistePath As Boolean
+            Dim percorsoShell As String
+            Dim nomeFunzione As String: nomeFunzione = "EseguiShell"
 
-    ' --- Pulizia input ---
-    percorsoCompleto = Trim(percorsoCompleto)
-    If Len(percorsoCompleto) = 0 Then
-        MsgBox "Percorso o file non specificato.", vbCritical
-        Exit Sub
-    End If
+            ' --- Pulizia input ---
+            percorsoCompleto = Trim(percorsoCompleto)
+            If Len(percorsoCompleto) = 0 Then
+                MsgBox "Percorso o file non specificato.", vbCritical
+                Exit Sub
+            End If
 
-    ' --- Aggiunge prefisso \\?\ se percorso > 255 caratteri e non lo ha già ---
-    If Len(percorsoCompleto) > 255 Then
-        If Left(percorsoCompleto, 4) <> "\\?\" Then
-            percorsoShell = "\\?\" & percorsoCompleto
-        Else
-            percorsoShell = percorsoCompleto
-        End If
-    Else
-        percorsoShell = percorsoCompleto
-    End If
+            ' --- Aggiunge prefisso \\?\ se percorso > 255 caratteri e non lo ha già ---
+            If Len(percorsoCompleto) > 255 Then
+                If Left(percorsoCompleto, 4) <> "\\?\" Then
+                    percorsoShell = "\\?\" & percorsoCompleto
+                Else
+                    percorsoShell = percorsoCompleto
+                End If
+            Else
+                percorsoShell = percorsoCompleto
+            End If
 
-    ' --- Controllo se il file esiste ---
-    esisteFile = (Dir(percorsoCompleto, vbNormal) <> "")
+            ' --- Controllo se il file esiste ---
+            esisteFile = (Dir(percorsoCompleto, vbNormal) <> "")
 
-    If Not esisteFile Then
-        ' Se non esiste file, controllo la cartella (path padre)
-        pathSolo = percorsoCompleto
-        If Right(pathSolo, 1) = "\" Then pathSolo = Left(pathSolo, Len(pathSolo) - 1)
-        If InStrRev(pathSolo, "\") > 0 Then
-            pathSolo = Left(pathSolo, InStrRev(pathSolo, "\") - 1)
-        End If
-        esistePath = (Dir(pathSolo, vbDirectory) <> "")
+            If Not esisteFile Then
+                ' Se non esiste file, controllo la cartella (path padre)
+                pathSolo = percorsoCompleto
+                If Right(pathSolo, 1) = "\" Then pathSolo = Left(pathSolo, Len(pathSolo) - 1)
+                If InStrRev(pathSolo, "\") > 0 Then
+                    pathSolo = Left(pathSolo, InStrRev(pathSolo, "\") - 1)
+                End If
+                esistePath = (Dir(pathSolo, vbDirectory) <> "")
 
-        If esistePath Then
-            risultato = ShellExecute(0, "open", "\\?\" & pathSolo, vbNullString, vbNullString, 1)
-        Else
-            MsgBox "Né file né cartella esistono nel percorso specificato:" & vbCrLf & percorsoCompleto, vbCritical
+                If esistePath Then
+                    risultato = ShellExecute(0, "open", "\\?\" & pathSolo, vbNullString, vbNullString, 1)
+                Else
+                    MsgBox "Né file né cartella esistono nel percorso specificato:" & vbCrLf & percorsoCompleto, vbCritical
+                    Exit Sub
+                End If
+            Else
+                ' --- Apro il file ---
+                risultato = ShellExecute(0, "open", percorsoShell, vbNullString, vbNullString, 1)
+            End If
+
+            ' --- Controllo codice di errore restituito da ShellExecute ---
+            If risultato <= 32 Then
+                MsgBox "Errore nell'apertura con ShellExecute (codice " & risultato & ").", vbCritical
+                Call ScriviLogErrore(nomeFunzione, 3001, "Errore ShellExecute codice: " & risultato & " su: " & percorsoShell, Erl)
+            Else
+                ' (facoltativo) Log di successo
+                ' Call ScriviLogErrore(nomeFunzione, 0, "Apertura completata correttamente: " & percorsoShell, 0)
+            End If
+
             Exit Sub
-        End If
-    Else
-        ' --- Apro il file ---
-        risultato = ShellExecute(0, "open", percorsoShell, vbNullString, vbNullString, 1)
-    End If
 
-    ' --- Controllo codice di errore restituito da ShellExecute ---
-    If risultato <= 32 Then
-        MsgBox "Errore nell'apertura con ShellExecute (codice " & risultato & ").", vbCritical
-        Call ScriviLogErrore(nomeFunzione, 3001, "Errore ShellExecute codice: " & risultato & " su: " & percorsoShell, Erl)
-    Else
-        ' (facoltativo) Log di successo
-        ' Call ScriviLogErrore(nomeFunzione, 0, "Apertura completata correttamente: " & percorsoShell, 0)
-    End If
-
-    Exit Sub
-
-ErrHandler:
-    MsgBox "Errore durante l'esecuzione di ShellExecute: " & Err.Description, vbCritical
-    Call ScriviLogErrore(nomeFunzione, Err.Number, Err.Description, Erl)
-End Sub
+            ErrHandler:
+                MsgBox "Errore durante l'esecuzione di ShellExecute: " & Err.Description, vbCritical
+                Call ScriviLogErrore(nomeFunzione, Err.Number, Err.Description, Erl)
+            End Sub
 
 
 
-    '//08_CLASSE_APRI_FILE_CON_SHELL_API = LA FUNZIONE APRI I FILE E LA PATH CON LA SHELL DELLE API WINDOWS *** FINE ***
-    '//==================================================================================================================//
+            '//08_CLASSE_APRI_FILE_CON_SHELL_API = LA FUNZIONE APRI I FILE E LA PATH CON LA SHELL DELLE API WINDOWS *** FINE ***
+            '//==================================================================================================================//
 
 
 
 
-'//APRO FILE ATTI DI GESTIONE -
-'//###########################################################################################################################//
-'//NOTE: apro il file .mdb _
-    non ci sono parametri _
-    AGGIORNAMENTO DEL = 13.07.2020
-'//CODICE----------->APRI_MDB_Tb1_ATTI_DI_GESTIONE_AnalisiProvvisoria_pSub
+    '//APRI_MDB_Tb1_ATTI_DI_GESTIONE_AnalisiProvvisoria_pSub - APRO FILE ATTI DI GESTIONE -
+    '//###########################################################################################################################//
+    '//NOTE: apro il file .mdb _
+        non ci sono parametri _
+        AGGIORNAMENTO DEL = 13.07.2020
+    '//CODICE----------->APRI_MDB_Tb1_ATTI_DI_GESTIONE_AnalisiProvvisoria_pSub
 
-'//AGGIORNAMENTO_DEL_13_07_2020
-'//APRI_ATTI_DI_GESTIONE
-Public Sub APRI_MDB_Tb1_ATTI_DI_GESTIONE_AnalisiProvvisoria_pSub()
+    '//AGGIORNAMENTO_DEL_13_07_2020
+    '//APRI_ATTI_DI_GESTIONE
+    Public Sub APRI_MDB_Tb1_ATTI_DI_GESTIONE_AnalisiProvvisoria_pSub()
 
-'//RECUPERO PARAMETRO DA TABELLA OGGETTI
-'//File da ricercare e la path
-Dim MyFile_s As String
-Dim MyPath_s As String
+    '//RECUPERO PARAMETRO DA TABELLA OGGETTI
+    '//File da ricercare e la path
+    Dim MyFile_s As String
+    Dim MyPath_s As String
 
 
-On Error GoTo Err_APRI_MDB_Tb1_ATTI_DI_GESTIONE_AnalisiProvvisoria_pSub
+    On Error GoTo Err_APRI_MDB_Tb1_ATTI_DI_GESTIONE_AnalisiProvvisoria_pSub
 
 
 
 
 
-    '//APRO SORGENTE FORM FILTRO 66 CAMPI
-    '//.....................................................................................................
-    '//Note           : Tramite una Select vengono individuati i valori da restiuire.
+        '//APRO SORGENTE FORM FILTRO 66 CAMPI
+        '//.....................................................................................................
+        '//Note           : Tramite una Select vengono individuati i valori da restiuire.
 
-        MyFile_s = "LLPP_ATTI_GESTIONE_Analisi_provisoria.txt"
-        '//ATTENZIONE occorre inserire uno spazio finale altrimenti non riconosce il percorso. Se invece è _
-           un programma oppure un eseguibile non occorre lo spazio.
-        MyPath_s = "C:\GESTIONI\GESTIONE_LLPP\25_GESTIONE_LLPP\LLPP_ARCHVI_MDB\LLPP_GESTIONE\LPP_ANALISI\ATTI_TB01_GESTIONE\"
-
-
-        '//Imposto i parametri
-        ProceduraAttivaEseguita_s = "APRI_MDB_Tb1_ATTI_DI_GESTIONE_AnalisiProvvisoria_pSub"
-        ProceduraMessaggioErrore_s = "Errore nella procedura - apri FILE GESTIONE """ & MyPath_s & MyFile_s
+            MyFile_s = "LLPP_ATTI_GESTIONE_Analisi_provisoria.txt"
+            '//ATTENZIONE occorre inserire uno spazio finale altrimenti non riconosce il percorso. Se invece è _
+               un programma oppure un eseguibile non occorre lo spazio.
+            MyPath_s = "C:\GESTIONI\GESTIONE_LLPP\25_GESTIONE_LLPP\LLPP_ARCHVI_MDB\LLPP_GESTIONE\LPP_ANALISI\ATTI_TB01_GESTIONE\"
 
 
+            '//Imposto i parametri
+            ProceduraAttivaEseguita_s = "APRI_MDB_Tb1_ATTI_DI_GESTIONE_AnalisiProvvisoria_pSub"
+            ProceduraMessaggioErrore_s = "Errore nella procedura - apri FILE GESTIONE """ & MyPath_s & MyFile_s
 
 
-        '//CREO LA SHELL come oggetto, attivo il comando "%comspec% /c start " e gli assegno la path per estesa con il nome del file
-        '// perchè Shell lancia un EXE e non il PDF, quindi è necessario costruire la stringa in modo da far lanciare
-        '// prima la sessione dos e poi il pdf..
-        '// La stringa di comando ("%comspec% /c start ") deve essere unica : comando shell + path + file
-        Set WshPDF = CreateObject("wscript.shell")
 
-        '// Unisco il comando pdf start + path definitiva
-        Stringa1 = "%comspec% /c start " & MyPath_s & MyFile_s                               '//Comando di apertura
-        '//Attivo il comando
-        WshPDF.Run Stringa1
 
+            '//CREO LA SHELL come oggetto, attivo il comando "%comspec% /c start " e gli assegno la path per estesa con il nome del file
+            '// perchè Shell lancia un EXE e non il PDF, quindi è necessario costruire la stringa in modo da far lanciare
+            '// prima la sessione dos e poi il pdf..
+            '// La stringa di comando ("%comspec% /c start ") deve essere unica : comando shell + path + file
+            Set WshPDF = CreateObject("wscript.shell")
+
+            '// Unisco il comando pdf start + path definitiva
+            Stringa1 = "%comspec% /c start " & MyPath_s & MyFile_s                               '//Comando di apertura
+            '//Attivo il comando
+            WshPDF.Run Stringa1
+
+
+        '//*** fine ***
+        '//APRO SORGENTE FORM FILTRO 66 CAMPI
+        '//.....................................................................................................
+
+
+
+
+
+
+
+
+
+
+    'USCITA  E GESTIONE ERRORI
+    '..............................................................................................................
+
+    Exit_APRI_MDB_Tb1_ATTI_DI_GESTIONE_AnalisiProvvisoria_pSub:
+        Exit Sub
+
+    Err_APRI_MDB_Tb1_ATTI_DI_GESTIONE_AnalisiProvvisoria_pSub:
+        MsgBox Err.Description
+        Resume Exit_APRI_MDB_Tb1_ATTI_DI_GESTIONE_AnalisiProvvisoria_pSub
+
+    End Sub
 
     '//*** fine ***
-    '//APRO SORGENTE FORM FILTRO 66 CAMPI
-    '//.....................................................................................................
-
-
-
-
-
-
-
-
-
-
-'USCITA  E GESTIONE ERRORI
-'..............................................................................................................
-
-Exit_APRI_MDB_Tb1_ATTI_DI_GESTIONE_AnalisiProvvisoria_pSub:
-    Exit Sub
-
-Err_APRI_MDB_Tb1_ATTI_DI_GESTIONE_AnalisiProvvisoria_pSub:
-    MsgBox Err.Description
-    Resume Exit_APRI_MDB_Tb1_ATTI_DI_GESTIONE_AnalisiProvvisoria_pSub
-
-End Sub
-
-'//*** fine ***
-'//APRO FILE ATTI DI GESTIONE -
-'//###########################################################################################################################//
-
-
-
-
-
-
-
-
-
-
-'//AGGIORNAMENTO_DEL_15_07_2020
-'//APRO LA PATH DEGLI ATTI DI GESTIONE -
-'//###########################################################################################################################//
-'//NOTE: apro il file .mdb _
-    non ci sono parametri _
-    AGGIORNAMENTO DEL = 13.07.2020
-'//CODICE----------->APRO_PATH_Tb01_ATTI_DI_GESTIONE_pSub
-
-'//AGGIORNAMENTO_DEL_13_07_2020
-'//APRI_ATTI_DI_GESTIONE
-Public Sub APRO_PATH_Tb01_ATTI_DI_GESTIONE_pSub()
-
-'//RECUPERO PARAMETRO DA TABELLA OGGETTI
-'//File da ricercare e la path
-Dim MyFile_s As String
-Dim MyPath_s As String
-
-
-On Error GoTo Err_APRO_PATH_Tb01_ATTI_DI_GESTIONE_pSub
-
-
-
-
-
-    '//APRO SORGENTE FORM FILTRO 66 CAMPI
-    '//.....................................................................................................
-    '//Note           : Tramite una Select vengono individuati i valori da restiuire.
-
-        MyFile_s = ""
-        '//ATTENZIONE occorre inserire uno spazio finale altrimenti non riconosce il percorso. Se invece è _
-           un programma oppure un eseguibile non occorre lo spazio.
-        MyPath_s = "C:\GESTIONI\GESTIONE_LLPP\25_GESTIONE_LLPP\LLPP_ARCHVI_MDB\LLPP_GESTIONE\LPP_ANALISI\GESTIONE_ELENCO\"
-
-
-        '//Imposto i parametri
-        ProceduraAttivaEseguita_s = ""
-        ProceduraMessaggioErrore_s = "Errore nella procedura - apri FILE GESTIONE """ & MyPath_s & MyFile_s
-
-
-
-
-        '//CREO LA SHELL come oggetto, attivo il comando "%comspec% /c start " e gli assegno la path per estesa con il nome del file
-        '// perchè Shell lancia un EXE e non il PDF, quindi è necessario costruire la stringa in modo da far lanciare
-        '// prima la sessione dos e poi il pdf..
-        '// La stringa di comando ("%comspec% /c start ") deve essere unica : comando shell + path + file
-        Set WshPDF = CreateObject("wscript.shell")
-
-        '// Unisco il comando pdf start + path definitiva
-        Stringa1 = "%comspec% /c start " & MyPath_s & MyFile_s                               '//Comando di apertura
-        '//Attivo il comando
-        WshPDF.Run Stringa1
-
-
-    '//*** fine ***
-    '//APRO SORGENTE FORM FILTRO 66 CAMPI
-    '//.....................................................................................................
-
-
-
-
-
-
-
-
-
-
-'USCITA  E GESTIONE ERRORI
-'..............................................................................................................
-
-Exit_APRO_PATH_Tb01_ATTI_DI_GESTIONE_pSub:
-    Exit Sub
-
-Err_APRO_PATH_Tb01_ATTI_DI_GESTIONE_pSub:
-    MsgBox Err.Description
-    Resume Exit_APRO_PATH_Tb01_ATTI_DI_GESTIONE_pSub
-
-End Sub
-
-'//*** fine ***
-'//APRO LA PATH DEGLI ATTI DI GESTIONE -
-'//###########################################################################################################################//
-
-
-'//AGGIORNAMENTO_DEL_15_08_2020
-'//APRO PATH GENERICA = Apre la cartella generica passata come parametro stringa. _
-            Routine utilzizabile su tutte le cartelle del progetto, occorre sempre dare la path esplicita _
-            e completa di percorso per la sua apertura. Se viene passata la path+file  allora puo essere _
-            utilizzata anche per aprime un file generico.
-Public Sub APRO_PATH_O_FILE_GENERICI_pSub(par_MyPath_s As String)
-
-'//RECUPERO PARAMETRO DA TABELLA OGGETTI
-'//File da ricercare e la path
-Dim MyFile_s As String
-Dim MyPath_s As String
-
-
-On Error GoTo Err_APRO_PATH_O_FILE_GENERICI_pSub
-
-
-    '//APRO PATH O FILE GENERICI
-    '//.....................................................................................................
-    '//Passo un parametro stringa che può rappresentare una path da aprire esempio : _
-       "C:\GESTIONI\GESTIONE_LLPP\25_GESTIONE_LLPP\LLPP_ARCHVI_MDB\LLPP_GESTIONE\LPP_ANALISI\GESTIONE_ELENCO". _
-       Se voglio aprire un file  occore passare la PATH+FILE con estensione es. _
-       "C:\GESTIONI\GESTIONE_LLPP\25_GESTIONE_LLPP\LLPP_ARCHVI_MDB\LLPP_GESTIONE\LPP_ANALISI\GESTIONE_ELENCO\file.xls"
-
+    '//APRO FILE ATTI DI GESTIONE -
+    '//###########################################################################################################################//
+
+'//APRO_PATH_Tb01_ATTI_DI_GESTIONE_pSub = APRO LA PATH DEGLI ATTI DI GESTIONE - AGGIORNAMENTO_DEL_15_07_2020
+ '//###########################################################################################################################//
+    '//NOTE: apro il file .mdb _
+        non ci sono parametri _
+        AGGIORNAMENTO DEL = 13.07.2020
+    '//CODICE----------->APRO_PATH_Tb01_ATTI_DI_GESTIONE_pSub
+
+    '//AGGIORNAMENTO_DEL_13_07_2020
+    '//APRI_ATTI_DI_GESTIONE
+    Public Sub APRO_PATH_Tb01_ATTI_DI_GESTIONE_pSub()
+
+        '//RECUPERO PARAMETRO DA TABELLA OGGETTI
         '//File da ricercare e la path
-        'Dim MyFile_s As String
-        'Dim MyPath_s As String
-
-        'MyFile_s = "LLPP_ATTI_ALLEGATI_ARCHIVIO.RAR"
-        'MyPath_s = "c:\GESTIONI\GESTIONE_LLPP\25_GESTIONE_LLPP\LLPP_ARCHVI_MDB\LLPP_GESTIONE\LPP_ANALISI\LPP_ALLEGATI\"
+        Dim MyFile_s As String
+        Dim MyPath_s As String
 
 
-         '//IMPOSTO LA VARIABILE OGGETTO = per l'utilizzo della classe
-            'Dim MyCls_CLASSE_ATTI_Tb01_Gestione As CLASSE_ATTI_Tb01_Gestione
-
-        '//ISTANZIO LA CLASSE = MyCls_CLASSE_GESTIONE_OGGETTI_FORM assegnando _
-           l 'oggetto di classe alla variabile e creo creo l'oggetto di classe
-            'Set MyCls_CLASSE_ATTI_Tb01_Gestione = New CLASSE_ATTI_Tb01_Gestione
-
-        '//PATH O FILE = Inserire o una path oppure una path+file con percoso esteso.
-            'Str1 = "C:\GESTIONI\GESTIONE_LLPP\25_GESTIONE_LLPP\LLPP_ARCHVI_MDB\LLPP_GESTIONE\LPP_ANALISI\GESTIONE_SERVIZI\MDB"
-            'MyCls_CLASSE_ATTI_Tb01_Gestione.APRO_PATH_O_FILE_GENERICI_pSub (MyPath_s & MyFile_s)
-
-
-        '//RILASCIO LA MEMORIA = rilascio l'oggetto ed attivo il distruttore della classe
-            'Set MyCls_CLASSE_ATTI_Tb01_Gestione = Nothing
-
-    '//.....................................................................................................
-
-
-
-
-    '//APRO SORGENTE FORM FILTRO 66 CAMPI
-    '//.....................................................................................................
-    '//Note           : Tramite una Select vengono individuati i valori da restiuire.
-
-        MyFile_s = ""
-        '//ATTENZIONE occorre inserire uno spazio finale altrimenti non riconosce il percorso. Se invece è _
-           un programma oppure un eseguibile non occorre lo spazio.
-            'ESEMPIO DI APERTURA DI UNA PATH GENERICA.
-            'modello path MyPath_s = "C:\GESTIONI\GESTIONE_LLPP\25_GESTIONE_LLPP\LLPP_ARCHVI_MDB\LLPP_GESTIONE\LPP_ANALISI\GESTIONE_ELENCO"
-
-        MyFile_s = par_MyPath_s                     'recupero la path passata con il parametro
-
-
-        '//Imposto i parametri
-        ProceduraAttivaEseguita_s = ""
-        ProceduraMessaggioErrore_s = "Errore nella procedura - apri FILE GESTIONE """ & MyPath_s & MyFile_s
-
-
-
-
-        '//CREO LA SHELL come oggetto, attivo il comando "%comspec% /c start " e gli assegno la path per estesa con il nome del file
-        '// perchè Shell lancia un EXE e non il PDF, quindi è necessario costruire la stringa in modo da far lanciare
-        '// prima la sessione dos e poi il pdf..
-        '// La stringa di comando ("%comspec% /c start ") deve essere unica : comando shell + path + file
-        Set WshPDF = CreateObject("wscript.shell")
-
-        '// Unisco il comando pdf start + path definitiva
-        Stringa1 = "%comspec% /c start " & MyPath_s & MyFile_s                               '//Comando di apertura
-        '//Attivo il comando
-        WshPDF.Run Stringa1
-
-
-    '//*** fine ***
-    '//APRO SORGENTE FORM FILTRO 66 CAMPI
-    '//.....................................................................................................
+        On Error GoTo Err_APRO_PATH_Tb01_ATTI_DI_GESTIONE_pSub
 
 
 
 
 
+            '//APRO SORGENTE FORM FILTRO 66 CAMPI
+            '//.....................................................................................................
+            '//Note           : Tramite una Select vengono individuati i valori da restiuire.
+
+                MyFile_s = ""
+                '//ATTENZIONE occorre inserire uno spazio finale altrimenti non riconosce il percorso. Se invece è _
+                   un programma oppure un eseguibile non occorre lo spazio.
+                MyPath_s = "C:\GESTIONI\GESTIONE_LLPP\25_GESTIONE_LLPP\LLPP_ARCHVI_MDB\LLPP_GESTIONE\LPP_ANALISI\GESTIONE_ELENCO\"
+
+
+                '//Imposto i parametri
+                ProceduraAttivaEseguita_s = ""
+                ProceduraMessaggioErrore_s = "Errore nella procedura - apri FILE GESTIONE """ & MyPath_s & MyFile_s
 
 
 
 
+                '//CREO LA SHELL come oggetto, attivo il comando "%comspec% /c start " e gli assegno la path per estesa con il nome del file
+                '// perchè Shell lancia un EXE e non il PDF, quindi è necessario costruire la stringa in modo da far lanciare
+                '// prima la sessione dos e poi il pdf..
+                '// La stringa di comando ("%comspec% /c start ") deve essere unica : comando shell + path + file
+                Set WshPDF = CreateObject("wscript.shell")
 
-'USCITA  E GESTIONE ERRORI
-'..............................................................................................................
+                '// Unisco il comando pdf start + path definitiva
+                Stringa1 = "%comspec% /c start " & MyPath_s & MyFile_s                               '//Comando di apertura
+                '//Attivo il comando
+                WshPDF.Run Stringa1
 
-Exit_APRO_PATH_O_FILE_GENERICI_pSub:
-    Exit Sub
 
-Err_APRO_PATH_O_FILE_GENERICI_pSub:
-    MsgBox Err.Description
-    Resume Exit_APRO_PATH_O_FILE_GENERICI_pSub
-
-End Sub
-
-'//*** fine ***
-'//APRO LA PATH DEGLI ATTI DI GESTIONE -
-'//###########################################################################################################################//
-
+            '//*** fine ***
+            '//APRO SORGENTE FORM FILTRO 66 CAMPI
+            '//.....................................................................................................
 
 
 
 
+        'USCITA  E GESTIONE ERRORI
+        '..............................................................................................................
+
+        Exit_APRO_PATH_Tb01_ATTI_DI_GESTIONE_pSub:
+            Exit Sub
+
+        Err_APRO_PATH_Tb01_ATTI_DI_GESTIONE_pSub:
+            MsgBox Err.Description
+            Resume Exit_APRO_PATH_Tb01_ATTI_DI_GESTIONE_pSub
+
+        End Sub
+
+        '//*** fine ***
+        '//APRO LA PATH DEGLI ATTI DI GESTIONE -
+        '//###########################################################################################################################//
+
+
+        '//AGGIORNAMENTO_DEL_15_08_2020
+        '//APRO PATH GENERICA = Apre la cartella generica passata come parametro stringa. _
+                    Routine utilzizabile su tutte le cartelle del progetto, occorre sempre dare la path esplicita _
+                    e completa di percorso per la sua apertura. Se viene passata la path+file  allora puo essere _
+                    utilizzata anche per aprime un file generico.
+        Public Sub APRO_PATH_O_FILE_GENERICI_pSub(par_MyPath_s As String)
+
+        '//RECUPERO PARAMETRO DA TABELLA OGGETTI
+        '//File da ricercare e la path
+        Dim MyFile_s As String
+        Dim MyPath_s As String
+
+
+        On Error GoTo Err_APRO_PATH_O_FILE_GENERICI_pSub
+
+
+            '//APRO PATH O FILE GENERICI
+            '//.....................................................................................................
+            '//Passo un parametro stringa che può rappresentare una path da aprire esempio : _
+               "C:\GESTIONI\GESTIONE_LLPP\25_GESTIONE_LLPP\LLPP_ARCHVI_MDB\LLPP_GESTIONE\LPP_ANALISI\GESTIONE_ELENCO". _
+               Se voglio aprire un file  occore passare la PATH+FILE con estensione es. _
+               "C:\GESTIONI\GESTIONE_LLPP\25_GESTIONE_LLPP\LLPP_ARCHVI_MDB\LLPP_GESTIONE\LPP_ANALISI\GESTIONE_ELENCO\file.xls"
+
+                '//File da ricercare e la path
+                'Dim MyFile_s As String
+                'Dim MyPath_s As String
+
+                'MyFile_s = "LLPP_ATTI_ALLEGATI_ARCHIVIO.RAR"
+                'MyPath_s = "c:\GESTIONI\GESTIONE_LLPP\25_GESTIONE_LLPP\LLPP_ARCHVI_MDB\LLPP_GESTIONE\LPP_ANALISI\LPP_ALLEGATI\"
+
+
+                 '//IMPOSTO LA VARIABILE OGGETTO = per l'utilizzo della classe
+                    'Dim MyCls_CLASSE_ATTI_Tb01_Gestione As CLASSE_ATTI_Tb01_Gestione
+
+                '//ISTANZIO LA CLASSE = MyCls_CLASSE_GESTIONE_OGGETTI_FORM assegnando _
+                   l 'oggetto di classe alla variabile e creo creo l'oggetto di classe
+                    'Set MyCls_CLASSE_ATTI_Tb01_Gestione = New CLASSE_ATTI_Tb01_Gestione
+
+                '//PATH O FILE = Inserire o una path oppure una path+file con percoso esteso.
+                    'Str1 = "C:\GESTIONI\GESTIONE_LLPP\25_GESTIONE_LLPP\LLPP_ARCHVI_MDB\LLPP_GESTIONE\LPP_ANALISI\GESTIONE_SERVIZI\MDB"
+                    'MyCls_CLASSE_ATTI_Tb01_Gestione.APRO_PATH_O_FILE_GENERICI_pSub (MyPath_s & MyFile_s)
+
+
+                '//RILASCIO LA MEMORIA = rilascio l'oggetto ed attivo il distruttore della classe
+                    'Set MyCls_CLASSE_ATTI_Tb01_Gestione = Nothing
+
+            '//.....................................................................................................
+
+
+
+
+            '//APRO SORGENTE FORM FILTRO 66 CAMPI
+            '//.....................................................................................................
+            '//Note           : Tramite una Select vengono individuati i valori da restiuire.
+
+                MyFile_s = ""
+                '//ATTENZIONE occorre inserire uno spazio finale altrimenti non riconosce il percorso. Se invece è _
+                   un programma oppure un eseguibile non occorre lo spazio.
+                    'ESEMPIO DI APERTURA DI UNA PATH GENERICA.
+                    'modello path MyPath_s = "C:\GESTIONI\GESTIONE_LLPP\25_GESTIONE_LLPP\LLPP_ARCHVI_MDB\LLPP_GESTIONE\LPP_ANALISI\GESTIONE_ELENCO"
+
+                MyFile_s = par_MyPath_s                     'recupero la path passata con il parametro
+
+
+                '//Imposto i parametri
+                ProceduraAttivaEseguita_s = ""
+                ProceduraMessaggioErrore_s = "Errore nella procedura - apri FILE GESTIONE """ & MyPath_s & MyFile_s
+
+
+
+
+                '//CREO LA SHELL come oggetto, attivo il comando "%comspec% /c start " e gli assegno la path per estesa con il nome del file
+                '// perchè Shell lancia un EXE e non il PDF, quindi è necessario costruire la stringa in modo da far lanciare
+                '// prima la sessione dos e poi il pdf..
+                '// La stringa di comando ("%comspec% /c start ") deve essere unica : comando shell + path + file
+                Set WshPDF = CreateObject("wscript.shell")
+
+                '// Unisco il comando pdf start + path definitiva
+                Stringa1 = "%comspec% /c start " & MyPath_s & MyFile_s                               '//Comando di apertura
+                '//Attivo il comando
+                WshPDF.Run Stringa1
+
+
+            '//*** fine ***
+            '//APRO SORGENTE FORM FILTRO 66 CAMPI
+            '//.....................................................................................................
+
+        'USCITA  E GESTIONE ERRORI
+        '..............................................................................................................
+
+        Exit_APRO_PATH_O_FILE_GENERICI_pSub:
+            Exit Sub
+
+        Err_APRO_PATH_O_FILE_GENERICI_pSub:
+            MsgBox Err.Description
+            Resume Exit_APRO_PATH_O_FILE_GENERICI_pSub
+
+        End Sub
+
+        '//*** fine ***
+        '//APRO LA PATH DEGLI ATTI DI GESTIONE -
+        '//###########################################################################################################################//
 
 '//ITERO ALL.FORMS - OGGETTI FORM DEL DB CORRENTE PER LA RICERCA DELL'OGGETTO FORM PASSATO COME PARAMETRO - _
   EVENTUALMENTE DA UTILIZZARE PER PULIRE LA FORM
-'//###########################################################################################################################//
-'//NOTE: eseguo il ciclo nell'insieme forms e nell'insieme dei controlli della form filtrata con il nome e condizionata _
-dalla if di filtro. Ciclo all'interno delle proprieta delle form e resetto LE CASELLE DI TESTO E LE LABEL.
-'//CODICE----------->LoopFormProp_ITERA_OGGETTI_FORM_ATTI_Tb01_Gestione_PSub
+    '//###########################################################################################################################//
+    '//NOTE: eseguo il ciclo nell'insieme forms e nell'insieme dei controlli della form filtrata con il nome e condizionata _
+        dalla if di filtro. Ciclo all'interno delle proprieta delle form e resetto LE CASELLE DI TESTO E LE LABEL.
+    '//CODICE----------->LoopFormProp_ITERA_OGGETTI_FORM_ATTI_Tb01_Gestione_PSub
 
 
+     Public Sub LoopFormProp_ITERA_OGGETTI_FORM_ATTI_Tb01_Gestione_PSub(par_NameForm_s As String)
+        On Error GoTo Err_Handler
+        Dim frmLoop As Object
+        Dim ctrl As Control
+        Dim propLoop As Property
+        Dim strFormName As String
 
+        '//La variabile BOOLEAN per indicare se esiste
+        Dim Bool1 As Boolean
+        Dim NameForm_s As String
+        Dim Msg_s  As String
 
-Public Sub LoopFormProp_ITERA_OGGETTI_FORM_ATTI_Tb01_Gestione_PSub(par_NameForm_s As String)
-    On Error GoTo Err_Handler
-    Dim frmLoop As Object
-    Dim ctrl As Control
-    Dim propLoop As Property
-    Dim strFormName As String
 
-    '//La variabile BOOLEAN per indicare se esiste
-    Dim Bool1 As Boolean
-    Dim NameForm_s As String
-    Dim Msg_s  As String
+        '//CHIAMO LA ROUTINE DI ITERAZIONE DEI CAMPI TEXT E LABEL DELLA FORM
+        '//--------------------------------------------------------------------------------//-//
+        '//CODICE----------->LoopFormProp_ITERA_OGGETTI_FORM_ATTI_Tb01_Gestione_PSub.puliscoTutto
 
+            '//ATTIVO LA ROUTINE Call LoopFormProp_ITERA_OGGETTI_FORM_ATTI_Tb01_Gestione_PSub
 
-    '//CHIAMO LA ROUTINE DI ITERAZIONE DEI CAMPI TEXT E LABEL DELLA FORM
-    '//--------------------------------------------------------------------------------//-//
-    '//CODICE----------->LoopFormProp_ITERA_OGGETTI_FORM_ATTI_Tb01_Gestione_PSub.puliscoTutto
+        '//--------------------------------------------------------------------------------//-//
 
-        '//ATTIVO LA ROUTINE Call LoopFormProp_ITERA_OGGETTI_FORM_ATTI_Tb01_Gestione_PSub
+        For Each frmLoop In CurrentProject.AllForms
 
-    '//--------------------------------------------------------------------------------//-//
+            '//imposto la variabile bool
+            Bool1 = False
+            '//la form da ricercare nel db
+            'NameForm_s = "MOD30_Frm01_S01_ELENCO_SCH01_65txt_campi_1key"
 
-    For Each frmLoop In CurrentProject.AllForms
+            NameForm_s = par_NameForm_s
 
-        '//imposto la variabile bool
-        Bool1 = False
-        '//la form da ricercare nel db
-        'NameForm_s = "MOD30_Frm01_S01_ELENCO_SCH01_65txt_campi_1key"
+            '//TROVA QUELLA CORRENTE
+            'If frmLoop.NAME = "MOD30_Frm01_S01_ELENCO_SCH01_65txt_campi_1key" Then
+            If frmLoop.Name = par_NameForm_s Then
 
-        NameForm_s = par_NameForm_s
+            '//LA FORM CORRENTE
+            '//=====================================================================================================//
 
-        '//TROVA QUELLA CORRENTE
-        'If frmLoop.NAME = "MOD30_Frm01_S01_ELENCO_SCH01_65txt_campi_1key" Then
-        If frmLoop.Name = par_NameForm_s Then
+                    '//form trovata imposto il nome e  la variabile
+                    strFormName = frmLoop.Name
+                    '//imposto la variabile bool a true per individuare che è stata trovata
+                    Bool1 = True
 
-        '//LA FORM CORRENTE
-        '//=====================================================================================================//
 
-                '//form trovata imposto il nome e  la variabile
-                strFormName = frmLoop.Name
-                '//imposto la variabile bool a true per individuare che è stata trovata
-                Bool1 = True
+                    '//APRO LA FORM IN MODALITA DESIGN
+                    DoCmd.OpenForm strFormName, acDesign, , , , acHidden
 
+                    '//Qualifico l'oggetto form pe le proprieta
+                    With Forms(strFormName)
 
-                '//APRO LA FORM IN MODALITA DESIGN
-                DoCmd.OpenForm strFormName, acDesign, , , , acHidden
+                        For Each ctrl In .Controls
 
-                '//Qualifico l'oggetto form pe le proprieta
-                With Forms(strFormName)
+                            DoEvents
 
-                    For Each ctrl In .Controls
+                            For Each propLoop In ctrl.Properties
 
-                        DoEvents
+                                 If ctrl.Name = "TXT_01" Then
+                                    'Stop
+                                 End If
 
-                        For Each propLoop In ctrl.Properties
 
-                             If ctrl.Name = "TXT_01" Then
-                                'Stop
-                             End If
+                            '//PULISCO I CAMPI TEXT E LABEL DELLA FORM CORRENTE - CICOLO FOR EACH -
+                            '//==================================================================================================//
+                            '//NOTE : pulisco le caselle di testo impostando la proprieta recordsource a null mentre le label _
+                                    corrispondenti vengono impostate al nome oggetto label corrente.
+                            '//CODICE----------->LoopFormProp_ITERA_OGGETTI_FORM_ATTI_Tb01_Gestione_PSub.puliscoTutto
 
 
-                        '//PULISCO I CAMPI TEXT E LABEL DELLA FORM CORRENTE - CICOLO FOR EACH -
-                        '//==================================================================================================//
-                        '//NOTE : pulisco le caselle di testo impostando la proprieta recordsource a null mentre le label _
-                                corrispondenti vengono impostate al nome oggetto label corrente.
-                        '//CODICE----------->LoopFormProp_ITERA_OGGETTI_FORM_ATTI_Tb01_Gestione_PSub.puliscoTutto
 
-
-
-                            '//PULISCO LA PROPRIETA RECORD SOURCE DELLE CASELLE DI TESTO
-                            '//--------------------------------------------------------------------------------//------------//
-                            '//NELLA CASELLE TEXT riconosciute con il valore ControlSource _
-                            viene azzerata la proprieta control source con valore ""
-                                If propLoop.Name = "ControlSource" Then
-                                    Debug.Print propLoop.Value
-                                    'propLoop.value = ""
-                                End If
-
-                            '//--------------------------------------------------------------------------------//------------//
-
-
-
-                            '//PULISCO LA PROPRIETA CAPTION DELLE LABEL
-                            '//--------------------------------------------------------------------------------//------------//
-                            '//se è una label riconosciuta con il nome della proprieta _
-                            Caption, viene sostituita il valore del contenuto della _
-                            etichetta con il nome della label
-                                 If propLoop.Name = "Caption" Then
-                                            Debug.Print propLoop.Value
-                                            '//inserisco il nome label?
-                                            'propLoop.value = ctrl.NAME
-
-
-                                End If
-
-                            '//--------------------------------------------------------------------------------//------------//
-
-                        '//*** FINE ***
-                        '//PULISCO I CAMPI TEXT E LABEL DELLA FORM CORRENTE - CICOLO FOR EACH -
-                        '//==================================================================================================//
-
-                            '//CONTROLLO oggetto
-                            Debug.Print "Form [" & .Name & "] - Control[" & ctrl.Name & "](" & propLoop.Name & "):" & propLoop.Value
-
-                        Next '//For Each propLoop In ctrl.Properties
-
-
-                    Next    '//For Each ctrl In .Controls
-
-                            '//SALVATAGGIO FORM APERTA IN DESIGN
-                            'Richiama la funzione che chiude la maschera aperta
-                            DoCmd.SetWarnings False
-                            DoCmd.Close acForm, strFormName, acSaveYes
-                            DoCmd.SetWarnings True
-                            DoCmd.Close acForm, strFormName
-
-                End With '//With Forms(strFormName)
-
-
-        '//=====================================================================================================//
-
-
-
-        End If
-    Next
-
-                '//messaggio di avviso se Bool1=false e cioè non esiste la form
-
-                If Bool1 = False Then
-                    '//imposto il testo del messaggio
-                    Msg_s = "ATTENZIONE LA FORM " & NameForm_s & " NON E' STATA TROVATA IN QUESTO DATABASE!"
-                    MsgBox Msg_s, vbExclamation
-                End If
-
-
-
-
-    Exit Sub
-Err_Handler:
-    Select Case Err.Number
-        Case 2186
-            '//SE LA PROPRIETA NON ESISTE ATTIVO L'ERRORE E RIENTRO NEL CICLO FOR EACH
-            'Property not available in design view  SE NON CI SONO LE  PROPRIETA RIPROVA.
-            Resume Next
-        Case Else
-            MsgBox "Err: " & Err.Number & " - " & Err.Description
-    End Select
-End Sub
-
-'//*** fine ***
-'//ITERO ALL.FORMS - OGGETTI FORM DEL DB CORRENTE PER LA RICERCA DELL'OGGETTO FORM PASSATO COME PARAMETRO - _
-  EVENTUALMENTE DA UTILIZZARE PER PULIRE LA FORM
-'//###########################################################################################################################//
-
-
-
-
-
-
-'//ITERO ALL.MODULES - OGGETTI MODULES DEL DB CORRENTE PER LA RICERCA DELL'OGGETTO PASSATO COME PARAMETRO
-'//###########################################################################################################################//
-'//NOTE: eseguo il ciclo nell'insieme MODULES e nell'insieme DELLE CLASSI ALLA RICERCA DI QUELLA PASSATA COME PARAMETRO _
-   mediante la if di filtro. Ciclo all'interno delle proprieta delle CLASSI E MODULI. - CONTROLLO ESISTENZA MODULI
-'//CODICE----------->LoopFormProp_ITERA_OGGETTI_MODULI_E_CLASSI_PSub
-
-'//TODO: DA FINIRE!!!
-Public Function LoopModuli_ITERA_OGGETTI_MODULI_E_CLASSI_PFunction(par_NameModulo_s As String) As String
-    On Error GoTo Err_Handler
-    Dim ModuliClassiLoop As Object
-    Dim ObjModule As Modules
-    Dim propLoop As Property
-    Dim strModuloName As String
-
-    '//La variabile BOOLEAN per indicare se esiste
-    Dim Bool1 As Boolean
-    Dim NameForm_s As String
-    Dim Msg_s  As String
-
-
-
-
-     '//CHIAMO LA ROUTINE DI ITERAZIONE DEI MODULI E DELLE CLASSI NEL DB CORRENTE _
-       per controlloare se esiste il modulo di classe da attivare
-    '//--------------------------------------------------------------------------------//-//
-    '//CODICE----------->LoopFormProp_ITERA_OGGETTI_MODULI_E_CLASSI_PSub.puliscoTutto.IteraTutto
-
-       '
-       'Dim NWClasse_MODULI_E_CLASSI As CLASSE_ATTI_Tb01_Gestione
-
-
-       '//ATTIVO LA ROUTINE
-        '
-        'Set NWClasse_MODULI_E_CLASSI = New CLASSE_ATTI_Tb01_Gestione
-
-            '//imposto il nome della forma da ricercare
-            '
-         '   Str1 = "MyCls_CLASSE_ATTI_Tb01_Gestione"
-            '//ITERO NEGLI OGGETTI DEL DB ALLA RICERCA DEL MODULO O DELLA CLASSE
-            '
-          '  vV1 = NWClasse_MODULI_E_CLASSI.LoopModuli_ITERA_OGGETTI_MODULI_E_CLASSI_PFunction(Str1)
-
-    '//--------------------------------------------------------------------------------//-//
-
-
-
-    For Each ModuliClassiLoop In CurrentProject.AllModules
-
-        '//imposto la variabile bool
-        Bool1 = False
-
-        '//IL MODULO O CLASSE DA ricercare nel db
-        strModuloName = par_NameModulo_s
-
-
-
-        With ModuliClassiLoop
-        '//CONTROLLO oggetto CORRENTE
-        Debug.Print "MODULO O CLASSE ITERATO:  [" & ModuliClassiLoop.Name & "]"
-
-        End With
-
-        '//TROVA E CONTROLLA CON QUELLO CORRENTE
-        If ModuliClassiLoop.Name = par_NameModulo_s Then
-
-        '//IL MODULO O CLASSE CORRENTE IN QUESTO DB
-        '//=====================================================================================================//
-
-                '//form trovata imposto il nome e  la variabile
-                strModuloName = ModuliClassiLoop.Name
-                '//imposto la variabile bool a true per individuare che è stata trovata
-                Bool1 = True
-
-
-                '//APRO LA FORM IN MODALITA DESIGN
-                'DoCmd.OpenForm strModuloName, acDesign, , , , acHidden
-
-                '//Qualifico l'oggetto form pe le proprieta
-                With Modules(strModuloName)
-
-                    For Each ObjModule In .Parent
-
-
-                        DoEvents
-
-                        For Each propLoop In ObjModule.Properties
-
-                             If ObjModule.Name = "TXT_01" Then
-                                'Stop  TROVATO DA SVILUPPARE!!!!
-                             End If
-
-
-                        '//PULISCO I CAMPI TEXT E LABEL DELLA FORM CORRENTE - CICOLO FOR EACH -
-                        '//==================================================================================================//
-                        '//NOTE : pulisco le caselle di testo impostando la proprieta recordsource a null mentre le label _
-                                corrispondenti vengono impostate al nome oggetto label corrente.
-                        '//CODICE----------->LoopModuli_ITERA_OGGETTI_MODULI_E_CLASSI_PFunction.puliscoTutto
-
-
-
-                            '//PULISCO LA PROPRIETA RECORD SOURCE DELLE CASELLE DI TESTO
-                            '//--------------------------------------------------------------------------------//------------//
-                            '//NELLA CASELLE TEXT riconosciute con il valore ControlSource _
-                            viene azzerata la proprieta control source con valore ""
-                                If propLoop.Name = "ControlSource" Then
-                                    Debug.Print propLoop.Value
-                                    'propLoop.value = ""
-                                End If
-
-                            '//--------------------------------------------------------------------------------//------------//
-
-
-
-                            '//PULISCO LA PROPRIETA CAPTION DELLE LABEL - MODIFICARE PER I MODULI E CLASSI
-                            '//--------------------------------------------------------------------------------//------------//
-                            '//se è una label riconosciuta con il nome della proprieta _
-                            Caption, viene sostituita il valore del contenuto della _
-                            etichetta con il nome della label
-                                 If propLoop.Name = "Caption" Then
-                                            Debug.Print propLoop.Value
-                                            '//inserisco il nome label?
-                                            'propLoop.value = ObjModule.NAME
-
-
-                                End If
-
-                            '//--------------------------------------------------------------------------------//------------//
-
-                        '//*** FINE ***
-                        '//PULISCO I CAMPI TEXT E LABEL DELLA FORM CORRENTE - CICOLO FOR EACH -
-                        '//==================================================================================================//
-
-                            '//CONTROLLO oggetto
-                            Debug.Print "MODULO O CLASSE [" & .Name & "] - Control[" & ObjModule.Name & "](" & propLoop.Name & "):" & propLoop.Value
-
-                        Next '//For Each propLoop In ObjModule.Properties
-
-
-                    Next    '//For Each ObjModule In .Controls
-
-                            '//SALVATAGGIO FORM APERTA IN DESIGN ?? PUO ESSERE UTILIZZATO PER IL MODULO O _
-                            PER LA CLASSE !! CONTROLLARE???
-                            'Richiama la funzione che chiude la maschera aperta
-                            'DoCmd.SetWarnings False
-                            'DoCmd.Close acForm, strModuloName, acSaveYes
-                            'DoCmd.SetWarnings True
-                            'DoCmd.Close acForm, strModuloName
-
-                End With '//With MODULES(strModuloName)
-
-        '*** FINE ***
-        '//IL MODULO O CLASSE CORRENTE IN QUESTO DB
-        '//=====================================================================================================//
-
-
-
-        End If
-    Next
-
-                '//messaggio di avviso se Bool1=false e cioè non esiste la form
-
-                If Bool1 = False Then
-                    '//imposto il testo del messaggio
-                    Msg_s = "ATTENZIONE IL MODULO O LA CLASSE RICERCATA  " & strModuloName & " NON E' STATA TROVATA IN QUESTO DATABASE!"
-                    LoopModuli_ITERA_OGGETTI_MODULI_E_CLASSI_PFunction = "OGGETTO NON TROVATO"
-                    MsgBox Msg_s, vbExclamation
-                End If
-
-
-
-
-    Exit Function
-Err_Handler:
-    Select Case Err.Number
-        Case 2186
-            '//SE LA PROPRIETA NON ESISTE ATTIVO L'ERRORE E RIENTRO NEL CICLO FOR EACH
-            'Property not available in design view  SE NON CI SONO LE  PROPRIETA RIPROVA.
-            Resume Next
-        Case Else
-            MsgBox "Err: " & Err.Number & " - " & Err.Description
-    End Select
-End Function
-
-'//*** fine ***
-'//ITERO ALL.MODULES - OGGETTI MODULES DEL DB CORRENTE PER LA RICERCA DELL'OGGETTO PASSATO COME PARAMETRO - _
-  EVENTUALMENTE DA UTILIZZARE PER PULIRE I MODULI
-'//###########################################################################################################################//
-
-
-
-
-'//ITERO IN TUTTI GLI OGGETTI - DEL DB CORRENTE PER LA RICERCA DELL'OGGETTO PASSATO COME PARAMETRO
-'//###########################################################################################################################//
-'//NOTE: eseguo il ciclo nell'insieme individuato dal paramtro oggetto ALLA RICERCA dell'OGGETTO _
-   mediante la if di filtro.  - CONTROLLO ESISTENZA OGGETTO
-'//CODICE----------->LoopFormProp_ITERA_OGGETTI_DB_CORRENTE
-
-'****************************************************************************************************************************
-'           PROCEDURA DI ITERAZIONE DEGLI OGGETTI DI DATABASE
-' i parametri ricevuti sono : par_Scelta db = path db
-'
-'
-'****************************************************************************************************************************
-
-Private Sub ITERA_OGGETTO_DB()
-
-
-
-
-'// FUNZIONE ITERAZIONE OGGETTI, Tabelle, Query, Form, Report, Macro _
-    e Moduli
-'//====================================================================//
-'//MODELLO : di ricerca oggetti, prova la funzione si devono comunque _
-            impostare i parametri.
-
-            '//Imposto le variabilie e le resetto
-            Dim sx_Scelta_db As String
-            Dim sx_Name_Tab As String
-            Dim sx_Name_Query As String
-            Dim sx_Name_FORM As String
-            Dim sx_Name_Report As String
-            Dim sx_Name_Macro As String
-            Dim sx_Name_Modulo As String
-            Dim sx_Tipo_Oggetto As String
-            Dim ix_Operazione As Integer
-            Dim ix_Indice1 As Integer
-            Dim bx_Flag_b As Boolean
-
-
-            sx_Scelta_db = ""
-            sx_Name_Tab = ""
-            sx_Name_Query = ""
-            sx_Name_FORM = ""
-            sx_Name_Report = ""
-            sx_Name_Macro = ""
-            sx_Name_Modulo = ""
-            sx_Tipo_Oggetto = ""
-            ix_Operazione = 0
-            ix_Indice1 = 0
-            bx_Flag_b = False
-
-
-            '//chiamo la procedura di iterazione oggetti
-            str1 = SALVATAGGIO_OGGETTI_DB_PFunct(sx_Scelta_db, _
-                                      sx_Name_Tab, _
-                                      sx_Name_Query, _
-                                      sx_Name_FORM, _
-                                      sx_Name_Report, _
-                                      sx_Name_Macro, _
-                                      sx_Name_Modulo, _
-                                      sx_Tipo_Oggetto, _
-                                      ix_Operazione, _
-                                      ix_Indice1, _
-                                      bx_Flag_b)
-
-'//====================================================================//
-
-
-
-
-End Sub
-
-
-
-'//###########################################################################################################//
-'//####
-'//####                             PROCEDURE DI SALVATAGGIO
-'//####
-'//###########################################################################################################//
-
-'//***********************************************************************************************
-'//                 Funzione SALVATAGGIO OGGETTI DATABASE MDB
-'//
-'//***********************************************************************************************
-'//CODICE ---> 2020.02.11_SALVATAGGIO_OGGETTI_DB_PFunct_DB
-'PARAMETRI IN IMPUT:
-'par_sx_Scelta_db   =database interno od esterno (se la variabile path è valorizzata es. = c:\Gestioni\FILE.mdb _
-                     allora viene attivata la II opzione del database esterno);
-'par_sx_Name_Tab    =nome tabella da ricercare;
-'par_sx_Name_Query  =nome query da ricercare
-'par_sTipo_Oggetto  =il tipo oggetto del db sono identificati con la seguente stringa: _
-                Cmd_Elenco_Query    = Tutte le query _
-                Cmd_Elenco_Tabelle  = Tutte le tabelle _
-                Cmd_Elenco_Forms    = Tutte le Form _
-                ATTENZIONE mancano ancora i parametri Select per LE FORM, I REPORT, LE MACRO _
-                LE PAGINE WEB che sono da integrare.
-'tipo di operazione =?  da definire ;
-'par_ix_Indice1 =?  da definire ;
-'par_bx_Flag_b = True = individuato cosa ??
-'
-'//OUTPUT : RESTITUISCE una stringa ANCORA DA DEFINRE E IMPLEMENTARE ???
-'//MODULO ---> UTIL_MDL40_N01_CONTROLLO_OGGETTI_DB
-'//DB MDB ---> UTIL_MDL40_N01_CONTROLLO_OGGETTI_DB
-
-'//MODELLO FUNZIONE ITER OGGETTI
-'Public Function SALVATAGGIO_OGGETTI_DB_PFunct(par_sx_Scelta_db As String, _
-                                   par_sx_Name_Tab As String, _
-                                   par_sx_Name_Query As String, _
-                                   par_sx_Name_Form As String, _
-                                   par_sTipo_Oggetto As String, _
-                                   par_ix_Operazione As Integer, _
-                                   par_ix_Indice1 As Integer, _
-                                   par_bx_Flag_b As Boolean) As String
-'//***********************************************************************************************
-'//ATTIVITA ESEGUITE: _
-'02.ITERAZIONE NEL GRUPPO OGGETTI TABLEDEFS ..LE TABELLE DEL DB _
-'02.01 - OGGETTI QUERY = CONTROLLO OGGETTO NEL DB: Faccio il Controllo l'esistenza delle TABELLE
-'pulendo prima tutta la tabella  oggetti da quelli precedenti.
-'03.01 - APRO LA TABELLA DI DATABASE CHE CONTIENE GLI OGGETTI TABELLA
-'        Iterando in tutti gli oggetti dell'insieme Tables
-'03.02 - SALVATAGGIO NOME OGGETTO TABELLA NELLA TABELLA DEL DB = Itero nel db tra gli oggetti
-'       table negli archivi del database e salvo il nome dell'oggetto tabella nel record corrente
-'       facendo un ciclo for nell'insieme TableDefs
-'03.03 .... definire
-'
-'//                                     SALVATAGGIO OGGETTI DATABASE
-'//{@=============================================================================================================@}
-'//CODICE --------------------> SALVATAGGIO_OGGETTI_DB_PFunct.Funzione
-'//
-Public Function SALVATAGGIO_OGGETTI_DB_PFunct( _
-                                   par_sx_Scelta_db As String, _
-                                   par_sx_Name_Tab As String, _
-                                   par_sx_Name_Query As String, _
-                                   par_sx_Name_FORM As String, _
-                                   par_sx_Name_Report As String, _
-                                   par_sx_Name_MACRO As String, _
-                                   par_sx_Name_Modulo As String, _
-                                   par_sTipo_Oggetto As String, _
-                                   par_ix_Operazione As Integer, _
-                                   par_ix_Indice1 As Integer, _
-                                   par_bx_Flag_b As Boolean) As String
-
-
-        On Error GoTo Err_SALVATAGGIO_OGGETTI_DB_PFunct
-
-        '// FUNZIONE ITERAZIONE OGGETTI, Tabelle, Query, Form, Report, Macro _
-            e Moduli
-        '//====================================================================//
-        'Str1 = SALVATAGGIO_OGGETTI_DB_PFunct(sScelta_db, _
-                                    sName_Tab, _
-                                    sName_Query, _
-                                    sName_Form, _
-                                    sName_Report, _
-                                    sName_Macro, _
-                                    sName_Modulo, _
-                                    sTipo_Oggetto, _
-                                    iOperazione, _
-                                    iIndice1, _
-                                    Flag_b)
-        '//====================================================================//
-
-
-        '------------------------------------------------------------------------------------------
-            '1.1    SET VARIABILI, OPEN DB, CONTROLLO OGGETTO NEL DB
-
-                    'OPEN DB: Apre il database scelto per la creazione o cancellazione
-                    '         con il parametro Option = false per indicare che l'apertura è condivisa /
-                    '                          Option = True apertura esclusiva
-
-                If par_sx_Scelta_db = "" Then
-                        'apro il db corrente se non viene indicato un database esterno
-                        Set dbs = CurrentDb
-                    Else
-                        'apro un database esterno con la path >0 passata con i parametri
-                        Set dbs = OpenDatabase(par_sx_Scelta_db, False)
-                End If
-
-            Select Case par_sTipo_Oggetto
-
-                '//- CONTROLLO TABELLE -
-                '//CHIAVE =====> modulo:controllo-tabelle
-                Case Is = "Cmd_Elenco_Tabelle"
-
-                        '02.ITERAZIONE NEL GRUPPO OGGETTI TABLEDEFS ..LE TABELLE DEL DB
-                        '______________________________________________________________________________
-                        '02.01 - OGGETTI QUERY
-
-
-                            'pulisco la tabella degli OGGETTI TABELLA
-                            sSql = ""
-                            sSql = sSql & "DELETE MSsys_TABELLE_Qry01_01_TUTTE.*"
-                            sSql = sSql & "FROM MSsys_TABELLE_Qry01_01_TUTTE "
-                            sSql = sSql & "WITH OWNERACCESS OPTION;"
-
-                            CurrentDb.Execute (sSql)
-
-                            '03.01 - APRO LA TABELLA
-                            'apro la tabella per il salvataggio delle query + effettuo il _
-                            controllo sulla stringa sql
-                            Debug.Print "---------------------------------------------------------------"
-                            Debug.Print "CONTROLLO STRINGA SQL                                          "
-                            Debug.Print
-                            Set ApriRs = dbs.OpenRecordset("MSsys_TABELLE_Qry01_01_TUTTE")
-
-
-                            With dbs
-
-                                '//reset
-                                icount = 0
-
-                                '//stampa di controllo
-                                Debug.Print .TableDefs.Count & _
-                                    " TableDefs in database  " & sx_Scelta_db
-
-
-                                For intCiclo = 0 To .TableDefs.Count - 1
-                                        Debug.Print "  " & .TableDefs(intCiclo).Name
-
-                                        '03.02 - SALVATAGGIO NOME OGGETTO TABELLA NELLA TABELLA DEL DB
-                                        '................................................................
-                                            ApriRs.AddNew
-                                            ApriRs.Fields("Name1_s") = .TableDefs(intCiclo).Name
-
-                                            '//NRO di oggetto
-                                            icount = icount + 1         '//aggiorno il contatore oggetti delle tabelle
-                                            ApriRs.Fields("NRO_OGGETTO_i") = icount
-                                            '//Tipo di oggetto caricato = FORM
-                                            ApriRs.Fields("TIPOGGETTO_s") = "TABLE"
-
-                                            '//SALVATAGGIO DEGLI ATTRIBUTI DELLA TABELLA - proprieta Attributes
-                                            ApriRs.Fields("Attribute_lng") = .TableDefs(intCiclo).Attributes
-
-                                                '//CONTROLLO OGGETTO TABELLA
-                                                '//-----------------------------------------------------------
-
-                                                    '//controllo degli attributi
-                                                    Debug.Print "LA TABELLA "
-                                                    Debug.Print .TableDefs(intCiclo).Name
-
-                                                    Debug.Print "controllo attributi della tabella"
-                                                    Debug.Print .TableDefs(intCiclo).Attributes
-
-                                                '//-----------------------------------------------------------
-                                            ApriRs.Update
-                                        '................................................................
-
-
-
-                                    '03.03 .... definire
-                                    If .TableDefs(intCiclo).Name = par_sx_Name_Tab Then
-                                        Bln1 = True    ' bx_Flag_b True = trovato tabelle si può cancellare
-                                        SALVATAGGIO_OGGETTI_DB_PFunct = Bln1 'riassegno alla funzione il valore del bx_Flag_b
-                                        GoTo Exit_SALVATAGGIO_OGGETTI_DB_PFunct  'esci
-                                    Else
-                                        Bln1 = False   ' bx_Flag_b False = non trovato TABELLA
-                                        SALVATAGGIO_OGGETTI_DB_PFunct = Bln1 'riassegno alla funzione il valore del bx_Flag_b
+                                '//PULISCO LA PROPRIETA RECORD SOURCE DELLE CASELLE DI TESTO
+                                '//--------------------------------------------------------------------------------//------------//
+                                '//NELLA CASELLE TEXT riconosciute con il valore ControlSource _
+                                viene azzerata la proprieta control source con valore ""
+                                    If propLoop.Name = "ControlSource" Then
+                                        Debug.Print propLoop.Value
+                                        'propLoop.value = ""
                                     End If
 
-                                Next intCiclo
+                                '//--------------------------------------------------------------------------------//------------//
 
-                            End With
 
-               ' - CONTROLLO QUERY -
-                Case Is = "Cmd_Elenco_Query"
-                    '//CHIAVE =====> modulo:controllo-Query
 
-                        '//ITERAZIONE QUERYDEFS <<LE QUERY>>
-                        '//====================================================================================================//
-                        'OGGETTI QUERY
-                        'CONTROLLO OGGETTO NEL DB: Controllo l'esistenza della QUERY
+                                '//PULISCO LA PROPRIETA CAPTION DELLE LABEL
+                                '//--------------------------------------------------------------------------------//------------//
+                                '//se è una label riconosciuta con il nome della proprieta _
+                                Caption, viene sostituita il valore del contenuto della _
+                                etichetta con il nome della label
+                                     If propLoop.Name = "Caption" Then
+                                                Debug.Print propLoop.Value
+                                                '//inserisco il nome label?
+                                                'propLoop.value = ctrl.NAME
 
 
-                        'pulisco la tabella delle query prima del salvataggio dei nuovi nomi
-                        CurrentDb.Execute ("DELETE MSsys_QUERY_Qry01_01_TUTTE.* FROM MSsys_QUERY_Qry01_01_TUTTE;")
+                                    End If
 
-                        'apro la tabella per il salvataggio delle query
-                        Set ApriRs = dbs.OpenRecordset("MSsys_QUERY_Qry01_01_TUTTE") '// perche non funziona??? da errore
+                                '//--------------------------------------------------------------------------------//------------//
 
-                        'itero nel db
-                                With dbs
+                            '//*** FINE ***
+                            '//PULISCO I CAMPI TEXT E LABEL DELLA FORM CORRENTE - CICOLO FOR EACH -
+                            '//==================================================================================================//
 
-                                    '//RESET VARIABILI CICLO
-                                    icount = 0      '//contatore numero oggetti query
+                                '//CONTROLLO oggetto
+                                Debug.Print "Form [" & .Name & "] - Control[" & ctrl.Name & "](" & propLoop.Name & "):" & propLoop.Value
 
+                            Next '//For Each propLoop In ctrl.Properties
 
-                                    Debug.Print .QueryDefs.Count & _
-                                        " QueryDefs in database  " & sx_Scelta_db
 
+                        Next    '//For Each ctrl In .Controls
 
-                                '//CICLO OGGETTI QUERY
-                                '//------------------------------------------------------------------------------//
-                                For intCiclo = 0 To .QueryDefs.Count - 1
+                                '//SALVATAGGIO FORM APERTA IN DESIGN
+                                'Richiama la funzione che chiude la maschera aperta
+                                DoCmd.SetWarnings False
+                                DoCmd.Close acForm, strFormName, acSaveYes
+                                DoCmd.SetWarnings True
+                                DoCmd.Close acForm, strFormName
 
-                                        'controlli
-                                        '................................................................
+                    End With '//With Forms(strFormName)
 
 
-                                                Debug.Print "-----------------------------------------------------------"
-                                                Debug.Print
-                                                            '//stampo il nome della query + il contentuto sql
-                                                            Debug.Print " stampo il NOME DELLA QUERY"
-                                                            Debug.Print "  " & .QueryDefs(intCiclo).Name
+            '//=====================================================================================================//
 
-                                                            '//AGGIORNAMENTO_DEL_28_02_2020
-                                                            'Stampo il contenuto sql della query
-                                                            Debug.Print
-                                                            Debug.Print "  " & .QueryDefs(intCiclo).SQL
 
-                                                            '//AGGIORNAMENTO_DEL_28_02_2020
-                                                            '//stampo il tipo di query scelta direttamente
-                                                            Debug.Print "IL TIPO DELLA Query"
-                                                            Debug.Print "  " & .QueryDefs(intCiclo).Type
 
-                                                Debug.Print "-----------------------------------------------------------"
-                                                Debug.Print
+            End If
+        Next
 
+                    '//messaggio di avviso se Bool1=false e cioè non esiste la form
 
-                                        '................................................................
+                    If Bool1 = False Then
+                        '//imposto il testo del messaggio
+                        Msg_s = "ATTENZIONE LA FORM " & NameForm_s & " NON E' STATA TROVATA IN QUESTO DATABASE!"
+                        MsgBox Msg_s, vbExclamation
+                    End If
 
-                                            'SALVATAGGIO NOME QUERY
-                                            '................................................................
-                                                '//AGGIORNAMENTO_DEL_28_02_2020
-                                                '//Aggiorno il numero oggetto query salvati nel campo della tabella _
-                                                dei salvataggi del nro query.
-                                                icount = icount + 1         '//aggiorno il contatore oggetti delle query
 
 
-                                                ApriRs.AddNew
-                                                '//aggiugno alla tabella il nome della query + il contenuto sql
-                                                ApriRs.Fields("Name1_s") = .QueryDefs(intCiclo).Name
-                                                ApriRs.Fields("IdOrd_lng") = icount
 
-                                                '//Tipo di oggetto caricato = QUERY
-                                                ApriRs.Fields("TIPOGGETTO_s") = "QUERY"
+        Exit Sub
+            Err_Handler:
+            Select Case Err.Number
+                Case 2186
+                    '//SE LA PROPRIETA NON ESISTE ATTIVO L'ERRORE E RIENTRO NEL CICLO FOR EACH
+                    'Property not available in design view  SE NON CI SONO LE  PROPRIETA RIPROVA.
+                    Resume Next
+                Case Else
+                    MsgBox "Err: " & Err.Number & " - " & Err.Description
+            End Select
+        End Sub
 
-                                                '//AGGIORNAMENTO_DEL_28_02_2020
-                                                '//SQL + TIPO DI QUERY
-                                                ApriRs.Fields("Expression_m") = .QueryDefs(intCiclo).SQL
+        '//*** fine ***
+        '//ITERO ALL.FORMS - OGGETTI FORM DEL DB CORRENTE PER LA RICERCA DELL'OGGETTO FORM PASSATO COME PARAMETRO - _
+          EVENTUALMENTE DA UTILIZZARE PER PULIRE LA FORM
+        '//###########################################################################################################################//
 
+'//ITERO ALL.MODULES - OGGETTI MODULES DEL DB CORRENTE PER LA RICERCA DELL'OGGETTO PASSATO COME PARAMETRO
+ '//###########################################################################################################################//
+    '//NOTE: eseguo il ciclo nell'insieme MODULES e nell'insieme DELLE CLASSI ALLA RICERCA DI QUELLA PASSATA COME PARAMETRO _
+       mediante la if di filtro. Ciclo all'interno delle proprieta delle CLASSI E MODULI. - CONTROLLO ESISTENZA MODULI
+    '//CODICE----------->LoopFormProp_ITERA_OGGETTI_MODULI_E_CLASSI_PSub
 
-                                                ApriRs.Update
+    '//TODO: DA FINIRE!!!
+    Public Function LoopModuli_ITERA_OGGETTI_MODULI_E_CLASSI_PFunction(par_NameModulo_s As String) As String
+        On Error GoTo Err_Handler
+        Dim ModuliClassiLoop As Object
+        Dim ObjModule As Modules
+        Dim propLoop As Property
+        Dim strModuloName As String
 
+        '//La variabile BOOLEAN per indicare se esiste
+        Dim Bool1 As Boolean
+        Dim NameForm_s As String
+        Dim Msg_s  As String
 
 
 
-                                                '03.02 - SALVATAGGIO NOME OGGETTO TABELLA NELLA TABELLA DEL DB
-                                        '................................................................
 
-
-
-                                            '................................................................
-
-                                        'controllo nome query passata con parametro
-                                        If .QueryDefs(intCiclo).Name = par_sx_Name_Query Then
-
-                                            Bln1 = True    ' bx_Flag_b True = trovato QUERY
-
-                                            'stampo il contenuto della query scelta direttamente _
-                                            solo se esiste la query ricercata.
-                                            Debug.Print "  " & .QueryDefs(par_sx_Name_Query).SQL
-
-
-                                            'recupero il contenuto della query
-                                            SALVATAGGIO_OGGETTI_DB_PFunct = .QueryDefs(intCiclo).SQL
-
-
-                                            GoTo Exit_SALVATAGGIO_OGGETTI_DB_PFunct  'esci
-                                        Else
-                                            Bln1 = False   ' bx_Flag_b False = non trovato QUERY
-                                            SALVATAGGIO_OGGETTI_DB_PFunct = Bln1 'riassegno alla funzione il valore del bx_Flag_b
-                                        End If
-
-                                    Next intCiclo
-
-                                '//CICLO OGGETTI QUERY  --> Next intCiclo *** fine ***
-                                '//------------------------------------------------------------------------------//
-
-                                End With
-                        '//ITERAZIONE QUERYDEFS <<LE QUERY>>   *** FINE ***
-                        '//====================================================================================================//
-
-
-
-               'CICLO NEGLI OGGETTI FORMS
-               Case Is = "Cmd_Elenco_Forms"
-               '//CHIAVE =====> modulo:controllo-forms
-
-
-
-
-                        '//ITERAZIONE FORMS DEFS <<LE FORMS>>
-                        '//==============================================================================================================//
-                        '//OGGETTI FORMS
-                        '//CONTROLLO OGGETTO NEL DB: Controllo l'esistenza della FORMS
-
-
-                            'Dim obj As AccessObject, obj_Oggetto As Object
-                            Set obj_Oggetto = Application.CurrentProject
-
-                             '//RESET DELLE VARIABILI
-                            intCiclo = 0
-                            icount = 0
-
-                            'NOME form prorvvisoria ca controllare, poi cancellare
-                            par_sx_Name_FORM = "form ??? da definire"
-
-
-                            'apro la tabella per il salvataggio delle query
-                            Set ApriRs = dbs.OpenRecordset("MSsys_FORM_Qry01_01_TUTTE")
-
-
-                            '//RESET DELLE VARIABILI
-                            intCiclo = 0
-                            icount = 0
-
-                            'pulisco la tabella delle FORMS prima del salvataggio dei nuovi nomi
-                            CurrentDb.Execute ("DELETE MSsys_FORM_Qry01_01_TUTTE.* FROM MSsys_FORM_Qry01_01_TUTTE;")
-
-
-
-                        '//ITERAZIONE FORMS DEFS <<LE FORMS>>
-                        '______________________________________________________________________________
-                        '//OGGETTI FORMS
-                        '//CONTROLLO OGGETTO NEL DB: Controllo l'esistenza della FORMS
-
-
-
-                        'itero nel db
-                        With dbs
-
-
-
-                        '//ITERAZIONE Forms DEFS <<LE FORMS>> - CONTROLLO FORM -
-                        '//______________________________________________________________________________
-                        '//OGGETTI FORMS
-                        '//CONTROLLO OGGETTO NEL DB: Controllo l'esistenza della Forms
-
-                                For Each obj In obj_Oggetto.AllForms
-
-
-                                        'SALVATAGGIO NOME Forms
-                                        '................................................................
-                                        '//AGGIORNAMENTO_DEL_28_02_2020
-                                        '//Aggiorno il numero oggetto Forms  salvati nel campo della tabella _
-                                        dei salvataggi del nro Forms.
-
-                                          ApriRs.AddNew
-
-                                            'CONTROLLO DEI NOMI DELE FORMS
-                                            '................................................................
-
-                                                    '//Search for open AccessObject objects in AllForms collection. _
-                                                    con la proprieta IsLoad = esegui il controllo delle Forms Aperti _
-                                                    mentre senza questa condizione, vengono iterati tutti gli oggetti _
-                                                    Report del Db. Per le Forms APERTI O CARICATI  viene impostata la _
-                                                    proprieta IsLoaded = True mentre per quelli chiusi è impostata a _
-                                                    FALSE. _
-                                                    È possibile utilizzare la proprietà IsLoaded per determinare se _
-                                                    un oggetto AccessObject è attualmente caricato. Valore Boolean in sola lettura.
-
-
-                                                                Debug.Print "  " & obj.Name
-                                                                Debug.Print "  " & obj.Type
-
-                                                                 '//Tipo di oggetto caricato = QUERY
-                                                                 ApriRs.Fields("TIPOGGETTO_s") = "FORMS"
-
-
-
-                                                    '//obj.Type = 2 LA FORMS
-                                                    If obj.Type = 2 Then
-
-                                                            If obj.IsLoaded = True Then
-
-                                                                   '//aggiugno alla tabella il nome della FORM solo se oggetto di tipo 2
-                                                                    ApriRs.Fields("Name1_s") = obj.Name
-
-                                                                    Debug.Print "FORM APERTA = " & obj.Name
-                                                                    Debug.Print "  " & obj.Name
-                                                                    Debug.Print "Nro : " & icount
-                                                                    ApriRs.Fields("PROPRIETA_s") = "True"
-                                                                    ApriRs.Fields("VALOREPROPRIETA_m") = "FORM APERTA"
-
-                                                                     icount = icount + 1         '//aggiorno il contatore oggetti delle Forms
-                                                                     Debug.Print "Nro : " & icount
-
-                                                                     '//NRO di oggetto
-                                                                     ApriRs.Fields("IdOrd_lng") = icount
-
-
-
-                                                            Else
-
-                                                                    '//aggiugno alla tabella il nome della FORM solo se oggetto di tipo 2
-                                                                    ApriRs.Fields("Name1_s") = obj.Name
-
-
-                                                                    Debug.Print "FORM NON APERTO ---> " & obj.Name
-                                                                    ApriRs.Fields("PROPRIETA_s") = "FALSE"
-                                                                    ApriRs.Fields("VALOREPROPRIETA_m") = "FORM CHIUSA"
-
-                                                                     icount = icount + 1         '//aggiorno il contatore oggetti delle Forms
-                                                                     Debug.Print "Nro : " & icount
-
-                                                                     '//NRO di oggetto
-                                                                     ApriRs.Fields("IdOrd_lng") = icount
-
-                                                            End If
-                                                    End If
-
-
-                                            '................................................................
-
-                                          ApriRs.Update
-                                        '................................................................
-
-                                Next obj
-
-                            End With
-
-            '//ITERAZIONE FORMS DEFS <<LE FORMS>>    *** FINE ***
-            '//==============================================================================================================//
-
-                            '**************************************************************
-
-
-
-              'CICLO NEGLI OGGETTI REPORTS
-               Case Is = "Cmd_Elenco_Reports"
-                '//CHIAVE =====> modulo:controllo-Report
-                '//Aggiornamento 22 MARZO 2020
-
-                        '//ITERAZIONE FORMS DEFS <<LE FORMS>>
-                        '//______________________________________________________________________________
-                        '//OGGETTI FORMS
-                        '//CONTROLLO OGGETTO NEL DB: Controllo l'esistenza della FORMS
-
-
-
-                            'Dim obj As AccessObject, obj_Oggetto As Object
-                            Set obj_Oggetto = Application.CurrentProject
-
-                            '//RESET DELLE VARIABILI
-                            intCiclo = 0
-                            icount = 0
-
-                            'pulisco la tabella delle FORMS prima del salvataggio dei nuovi nomi
-                            CurrentDb.Execute ("DELETE MSsys_REPORT_Qry01_01_TUTTI.* FROM MSsys_REPORT_Qry01_01_TUTTI;")
-
-                            'apro la tabella per il salvataggio dei REPORT
-                            Set ApriRs = dbs.OpenRecordset("MSsys_REPORT_Qry01_01_TUTTI")
-
-
-                        '//ITERAZIONE FORMS DEFS <<LE FORMS>>
-                        '______________________________________________________________________________
-                        '//OGGETTI FORMS
-                        '//CONTROLLO OGGETTO NEL DB: Controllo l'esistenza della FORMS
-
-
-
-                        'itero nel db
-                        With dbs
-
-
-
-                        '//ITERAZIONE REPORTS DEFS <<I REPORT>> - CONTROLLO REPORT -
-                        '//______________________________________________________________________________
-                        '//OGGETTI REPORTS
-                        '//CONTROLLO OGGETTO NEL DB: Controllo l'esistenza della REPORTS
-
-                                For Each obj In obj_Oggetto.AllReports
-
-
-                                        'SALVATAGGIO NOME REPORTS
-                                        '................................................................
-                                        '//AGGIORNAMENTO_DEL_28_02_2020
-                                        '//Aggiorno il numero oggetto REPORTS  salvati nel campo della tabella _
-                                        dei salvataggi del nro REPORTS.
-
-
-
-                                          ApriRs.AddNew
-                                            '//aggiugno alla tabella il nome della query + il contenuto sql
-                                            ApriRs.Fields("Name1_s") = obj.Name
-
-
-
-
-                                            'CONTROLLO DEI NOMI DEI REPORT
-                                            '................................................................
-
-                                                    '//Search for open AccessObject objects in AllReports collection. _
-                                                    con la proprieta IsLoad = esegui il controllo dei Reports Aperti _
-                                                    mentre senza questa condizione, vengono iterati tutti gli oggetti _
-                                                    Report del Db. Per i reports APERTI O CARICATI  viene impostata la _
-                                                    proprieta IsLoaded = True mentre per quelli chiusi è impostata a _
-                                                    FALSE. _
-                                                    È possibile utilizzare la proprietà IsLoaded per determinare se _
-                                                    un oggetto AccessObject è attualmente caricato. Valore Boolean in sola lettura.
-
-
-                                                                Debug.Print "  " & obj.Name
-                                                                Debug.Print "  " & obj.Type
-
-                                                                '//Tipo di oggetto caricato = REPORTS
-                                                                ApriRs.Fields("TIPOGGETTO_s") = "REPORTS"
-
-                                                    '//obj.Type = 3 LA FORMS
-                                                    If obj.Type = 3 Then
-
-                                                            If obj.IsLoaded = True Then
-
-
-                                                                    Debug.Print "REPORT APERTO = " & obj.Name
-                                                                    Debug.Print "  " & obj.Name
-                                                                    Debug.Print "Nro : " & icount
-                                                                    ApriRs.Fields("PROPRIETA_s") = "True"
-                                                                    ApriRs.Fields("VALOREPROPRIETA_m") = "FORM APERTA"
-
-                                                                     icount = icount + 1         '//aggiorno il contatore oggetti delle REPORTS
-                                                                     Debug.Print "Nro : " & icount
-
-                                                                     '//NRO di oggetto
-                                                                     ApriRs.Fields("IdOrd_lng") = icount
-
-
-
-                                                            Else
-                                                                    Debug.Print "REPORT NON APERTO ---> " & obj.Name
-                                                                    ApriRs.Fields("PROPRIETA_s") = "FALSE"
-                                                                    ApriRs.Fields("VALOREPROPRIETA_m") = "FORM CHIUSA"
-
-                                                                     icount = icount + 1         '//aggiorno il contatore oggetti delle REPORTS
-                                                                     Debug.Print "Nro : " & icount
-
-                                                                     '//NRO di oggetto
-                                                                     ApriRs.Fields("IdOrd_lng") = icount
-
-                                                            End If
-                                                    End If
-
-                                            '................................................................
-
-
-
-
-
-                                          ApriRs.Update
-                                        '................................................................
-
-
-
-
-                                Next obj
-
-                            End With
-
-
-
-                        '//ITERAZIONE REPORTS DEFS <<I REPORT>>
-                        '//______________________________________________________________________________
-
-
-               'CICLO NEGLI OGGETTI MACRO - CONTROLLO MACRO -
-               Case Is = "Cmd_Elenco_MACRO"
-                '//CHIAVE =====> modulo:controllo-Macro
-                '//Aggiornamento 22 MARZO 2020
-
-                        '//ITERAZIONE MACRO DEFS <<LE MACRO>>
-                        '//______________________________________________________________________________
-                        '//OGGETTI MACRO
-                        '//CONTROLLO OGGETTO NEL DB: Controllo l'esistenza della MACRO
-
-
-
-                            'Dim obj As AccessObject, obj_Oggetto As Object
-                            Set obj_Oggetto = Application.CurrentProject
-
-                            '//RESET DELLE VARIABILI
-                            intCiclo = 0
-                            icount = 0
-
-                            'pulisco la tabella delLE MACRO prima del salvataggio dei nuovi nomi
-                            CurrentDb.Execute ("DELETE MSsys_MACRO_Qry01_01_TUTTE.* FROM MSsys_MACRO_Qry01_01_TUTTE;")
-
-                            'apro la tabella per il salvataggio dei Macro
-                            Set ApriRs = dbs.OpenRecordset("MSsys_MACRO_Qry01_01_TUTTE")
-
-
-                        '//ITERAZIONE MACRO DEFS <<LE MACRO>>
-                        '______________________________________________________________________________
-                        '//OGGETTI MACRO
-                        '//CONTROLLO OGGETTO NEL DB: Controllo l'esistenza della MACRO
-
-
-
-                        'itero nel db
-                        With dbs
-
-
-
-                        '//ITERAZIONE MACRO DEFS <<I Macro>>
-                        '//______________________________________________________________________________
-                        '//OGGETTI MACRO
-                        '//CONTROLLO OGGETTO NEL DB: Controllo l'esistenza della MACRO
-
-                                For Each obj In obj_Oggetto.AllMacros
-
-
-                                        'SALVATAGGIO NOME MACRO
-                                        '................................................................
-                                        '//AGGIORNAMENTO_DEL_28_02_2020
-                                        '//Aggiorno il numero oggetto MACRO  salvati nel campo della tabella _
-                                        dei salvataggi del nro MACRO.
-
-
-
-                                          ApriRs.AddNew
-                                            '//aggiugno alla tabella il nome della query + il contenuto sql
-                                            ApriRs.Fields("Name1_s") = obj.Name
-
-
-
-
-
-                                            'CONTROLLO DEI NOMI DEI Macro
-                                            '................................................................
-
-                                                    '//Search for open AccessObject objects in AllMACRO collection. _
-                                                    con la proprieta IsLoad = esegui il controllo dei MACRO Aperti _
-                                                    mentre senza questa condizione, vengono iterati tutti gli oggetti _
-                                                    Macro del Db. Per i MACRO APERTI O CARICATI  viene impostata la _
-                                                    proprieta IsLoaded = True mentre per quelli chiusi è impostata a _
-                                                    FALSE. _
-                                                    È possibile utilizzare la proprietà IsLoaded per determinare se _
-                                                    un oggetto AccessObject è attualmente caricato. Valore Boolean in sola lettura.
-
-
-                                                                Debug.Print "  " & obj.Name
-                                                                Debug.Print "  " & obj.Type
-
-                                                                '//Tipo di oggetto caricato = MACRO
-                                                                ApriRs.Fields("TIPOGGETTO_s") = "MACRO"
-
-
-                                                    '//obj.Type = 4 LA MACRO
-                                                    If obj.Type = 4 Then
-
-
-
-
-                                                                    Debug.Print "Macro APERTO = " & obj.Name
-                                                                    Debug.Print "  " & obj.Name
-                                                                    Debug.Print "Nro : " & icount
-                                                                    'ApriRs.Fields("PROPRIETA_s") = "True"
-                                                                    'ApriRs.Fields("VALOREPROPRIETA_m") = "FORM APERTA"
-
-                                                                     icount = icount + 1         '//aggiorno il contatore oggetti delle MACRO
-                                                                     Debug.Print "Nro : " & icount
-
-                                                                     '//NRO di oggetto
-                                                                     ApriRs.Fields("IdOrd_lng") = icount
-
-
-
-
-                                                    End If
-
-                                            '................................................................
-
-
-
-
-
-                                          ApriRs.Update
-                                        '................................................................
-
-
-
-
-                                Next obj
-
-                            End With
-
-
-
-                        '//ITERAZIONE MACRO DEFS <<I Macro>>
-                        '//______________________________________________________________________________
-
-
-
-                    Case Else
-                            MsgBox "Scelta comando non effettuata", vbExclamation
-                             GoTo Exit_SALVATAGGIO_OGGETTI_DB_PFunct
-                End Select
-                            'chiudo i rs aperti + Rilascio la memoria
-                            ApriRs.Close
-                            Set ApriRs = Nothing
-
-
-
-'------------------------------------------------------------------------------
-'                       FINE FUNCTIONE E GESTIONE ERRORI
-
-Exit_SALVATAGGIO_OGGETTI_DB_PFunct:
-    dbs.Close
-    Set dbs = Nothing
-    Exit Function
-
-
-Err_SALVATAGGIO_OGGETTI_DB_PFunct:
-    MsgBox "ERRORE FUNCTION PUBLIC    " & Err.Number & " - " & Err.Description, vbCritical, "SALVATAGGIO_OGGETTI_DB_PFunct"
-    Resume Exit_SALVATAGGIO_OGGETTI_DB_PFunct
-
-End Function
-
-'//*** FINE ***
-'//                                     SALVATAGGIO OGGETTI DATABASE
-'//{@=============================================================================================================@}
-
-
-
-
-'//*** fine ***
-'//ITERO IN TUTTI GLI OGGETTI - DEL DB CORRENTE PER LA RICERCA DELL'OGGETTO PASSATO COME PARAMETRO
-'//###########################################################################################################################//
-
-
-
-
-'****************************************************************************************************************************
-'           PROCEDURA DI ITERAZIONE DEGLI OGGETTI DI DATABASE PER IL CONTROLLO ESISTENZA OGGETTI
-' i parametri ricevuti sono : par_Scelta db = path db
-'
-'
-'****************************************************************************************************************************
-
-
-
-'//CODICE----------->SALVO_ATTIVITA_CMB_02_IN_TMP_Function.Salvataggio_ATTIVITA
-'//SALVATAGGIO PARAMETRI NELLA TABELLA TMP
-'//###########################################################################################################################//
-'//NOTE: Nella tabella <<GEST_Tb01_N01_PARAM_OGGETTI_TMP>> _
-viene effettuato il salvataggio dei parametri. I parametri in entrata sono i seguenti :
-'par_sxCODOGGETTO       = CODICE OGGETTO OBBLIGATORIO
-'par_sxTIPOGGETTO       =
-'par_sxATTIVITAEVENTO   =
-'par_sxCODATTIVITA      = CODICE ATTIVITA OBBLIGATORIO
-Public Sub SALVO_ATTIVITA_CMB_02_IN_TMP_Sub(par_sxCODOGGETTO As String, _
-                                         par_sxTIPOGGETTO As String, _
-                                         par_sxATTIVITAEVENTO As String, _
-                                         par_sxCODATTIVITA As String)
-
-
-
-
-
-    '//CHIAMO LA ROUTINE SALVO_ATTIVITA_CMB_02_IN_TMP_Sub DELLA CLASSE OGGETTI FORM
-    '//CODICE----------->SALVO_ATTIVITA_CMB_02_IN_TMP_Sub.Salvataggio_ATTIVITA.Attivazione
-    '//--------------------------------------------------------------------------------//-//
-    '//CLASSE_OSPITE        : CLASSE_GESTIONE_OGGETTI_FORM
-    '//PARAMETRI            : sono 4 di seguito indicati
-            'par_sxCODOGGETTO       = CODICE OGGETTO OBBLIGATORIO
-            'par_sxTIPOGGETTO       =
-            'par_sxATTIVITAEVENTO   =
-            'par_sxCODATTIVITA      = CODICE ATTIVITA OBBLIGATORIO
-    '//NOTA  :Salvo i parametri del codice oggetto e del codice attiva nella tabella tmp solo nel caso in cui _
-            sia IL CODICE OGGETTO che il CODICE ATTIVITA sono VALORIZZATI altrimenti la classe ricevente emette _
-            un msg di avviso.
-
-
-
-                'ISTANZIO LA CLASSE CLASSE_GESTIONE_OGGETTI_FORM
-                'Assegno e creo l'oggetto di classe
-                'Dim MyCls_CLASSE_GESTIONE_OGGETTI_FORM As Classe_GESTIONE_OGGETTI_FORM
-                'Set MyCls_CLASSE_GESTIONE_OGGETTI_FORM = New Classe_GESTIONE_OGGETTI_FORM
-
-
-                'PARAMETRI DI ESTRAZIONE
-                'Attivo il metodo della classe rappresentata dalla routine passando
-                'i 4 parametri necessari
-                'sxCODOGGETTO = s
-                'sxTIPOGGETTO = s
-                'sxATTIVITAEVENTO = s
-                'sxCODATTIVITA = s
-                'MyCls_CLASSE_GESTIONE_OGGETTI_FORM.SALVO_ATTIVITA_CMB_02_IN_TMP_Sub sxCODOGGETTO, sxTIPOGGETTO, sxATTIVITAEVENTO, sxCODATTIVITA
-
-                'Set MyCls_CLASSE_GESTIONE_OGGETTI_FORM = Nothing
+         '//CHIAMO LA ROUTINE DI ITERAZIONE DEI MODULI E DELLE CLASSI NEL DB CORRENTE _
+           per controlloare se esiste il modulo di classe da attivare
+        '//--------------------------------------------------------------------------------//-//
+        '//CODICE----------->LoopFormProp_ITERA_OGGETTI_MODULI_E_CLASSI_PSub.puliscoTutto.IteraTutto
+
+           '
+           'Dim NWClasse_MODULI_E_CLASSI As CLASSE_ATTI_Tb01_Gestione
+
+
+           '//ATTIVO LA ROUTINE
+            '
+            'Set NWClasse_MODULI_E_CLASSI = New CLASSE_ATTI_Tb01_Gestione
+
+                '//imposto il nome della forma da ricercare
+                '
+             '   Str1 = "MyCls_CLASSE_ATTI_Tb01_Gestione"
+                '//ITERO NEGLI OGGETTI DEL DB ALLA RICERCA DEL MODULO O DELLA CLASSE
+                '
+              '  vV1 = NWClasse_MODULI_E_CLASSI.LoopModuli_ITERA_OGGETTI_MODULI_E_CLASSI_PFunction(Str1)
 
         '//--------------------------------------------------------------------------------//-//
 
 
 
+        For Each ModuliClassiLoop In CurrentProject.AllModules
 
+            '//imposto la variabile bool
+            Bool1 = False
 
-On Error GoTo Err_SALVO_ATTIVITA_CMB_02_IN_TMP_Sub
-
-
-
-                '//CONTROLLO PARAMETRI RICEVENTI
-                '//--------------------------------------------------------------------------------//-//
-                '//NOTA : se almeno i due parametri più importanti, ossia CODICE ATTIVITA E CODICE
-                '//     OGGETTO non sono valorizzati, viene emesso un messaggio di avviso e di uscita.
-                    If sxCODOGGETTO > "" And sxCODATTIVITA > "" Then
-                        MsgBox "ATTENZIONE I PARAMETRI CODICE OGGETTO E CODICE ATTIVITA NON SONO VALORIZZATI", vbExclamation, "CLASSE - CONTROLLO PARAMETRI"
-                    End If
-                '//--------------------------------------------------------------------------------//-//
+            '//IL MODULO O CLASSE DA ricercare nel db
+            strModuloName = par_NameModulo_s
 
 
 
+            With ModuliClassiLoop
+            '//CONTROLLO oggetto CORRENTE
+            Debug.Print "MODULO O CLASSE ITERATO:  [" & ModuliClassiLoop.Name & "]"
 
-                    'SALVATAGGIO ATTIVITA NELLA TABELLA GEST_Tb01_N01_PARAM_OGGETTI_TMP
-                    '___________________________________________________________________
-                        'Stringa ssql
-                        'di salvataggio nella tabella tmp della attivita da svolgere
-                        sSql = ""
-                        sSql = sSql & "UPDATE GEST_Tb01_N01_PARAM_OGGETTI_TMP "
-                        sSql = sSql & "SET GEST_Tb01_N01_PARAM_OGGETTI_TMP.CODATTIVITA = '" & sxCODATTIVITA & "', "
-                                                'sSql = sSql & "SET GEST_Tb01_N01_PARAM_OGGETTI_TMP.CODATTIVITA = '" & sxCODATTIVITA & "'; "
-                        sSql = sSql & "GEST_Tb01_N01_PARAM_OGGETTI_TMP.CODOGGETTO = '" & par_sxCODOGGETTO & "'; "
+            End With
 
+            '//TROVA E CONTROLLA CON QUELLO CORRENTE
+            If ModuliClassiLoop.Name = par_NameModulo_s Then
 
-                        'controlo
-                        Debug.Print sSql
+            '//IL MODULO O CLASSE CORRENTE IN QUESTO DB
+            '//=====================================================================================================//
 
-                        'comando eseguito
-                        CurrentDb.Execute (sSql)
-                    '___________________________________________________________________
+                    '//form trovata imposto il nome e  la variabile
+                    strModuloName = ModuliClassiLoop.Name
+                    '//imposto la variabile bool a true per individuare che è stata trovata
+                    Bool1 = True
 
 
+                    '//APRO LA FORM IN MODALITA DESIGN
+                    'DoCmd.OpenForm strModuloName, acDesign, , , , acHidden
 
-'USCITA  E GESTIONE ERRORI
-'..............................................................................................................
+                    '//Qualifico l'oggetto form pe le proprieta
+                    With Modules(strModuloName)
 
-Exit_SALVO_ATTIVITA_CMB_02_IN_TMP_Sub:
-    Exit Sub
-
-Err_SALVO_ATTIVITA_CMB_02_IN_TMP_Sub:
-    MsgBox Err.Description
-    Resume Exit_SALVO_ATTIVITA_CMB_02_IN_TMP_Sub
-
-End Sub
-
-'//*** FINE ***
-'//SALVATAGGIO PARAMETRI NELLA TABELLA TMP
-'//###########################################################################################################################//
+                        For Each ObjModule In .Parent
 
 
+                            DoEvents
+
+                            For Each propLoop In ObjModule.Properties
+
+                                 If ObjModule.Name = "TXT_01" Then
+                                    'Stop  TROVATO DA SVILUPPARE!!!!
+                                 End If
 
 
-'//###########################################################################################################//
-'//####
-'//####                             PROCEDURE DI SALVATAGGIO *** FINE ***
-'//####
-'//###########################################################################################################//
+                            '//PULISCO I CAMPI TEXT E LABEL DELLA FORM CORRENTE - CICOLO FOR EACH -
+                            '//==================================================================================================//
+                            '//NOTE : pulisco le caselle di testo impostando la proprieta recordsource a null mentre le label _
+                                    corrispondenti vengono impostate al nome oggetto label corrente.
+                            '//CODICE----------->LoopModuli_ITERA_OGGETTI_MODULI_E_CLASSI_PFunction.puliscoTutto
 
 
 
-
-
-
-
-
-
-'//###########################################################################################################//
-'//####
-'//####                             PROCEDURE DI RICERCA
-'//####
-'//###########################################################################################################//
-
-'//***********************************************************************************************
-'//                 Funzione RICERCA OGGETTI DATABASE MDB
-'//
-'//***********************************************************************************************
-'//CODICE ---> 2020.02.11_RICERCA_OGGETTI_DB_PFunct_DB
-'PARAMETRI IN IMPUT:
-'par_sx_Scelta_db   =database interno od esterno (se la variabile path è valorizzata es. = c:\Gestioni\FILE.mdb _
-                     allora viene attivata la II opzione del database esterno);
-'par_sx_Name_Tab    =nome tabella da ricercare;
-'par_sx_Name_Query  =nome query da ricercare
-'par_sTipo_Oggetto  =il tipo oggetto del db sono identificati con la seguente stringa: _
-                Cmd_Elenco_Query    = Tutte le query _
-                Cmd_Elenco_Tabelle  = Tutte le tabelle _
-                Cmd_Elenco_Forms    = Tutte le Form _
-                ATTENZIONE mancano ancora i parametri Select per LE FORM, I REPORT, LE MACRO _
-                LE PAGINE WEB che sono da integrare.
-'tipo di operazione =?  da definire ;
-'par_ix_Indice1 =?  da definire ;
-'par_bx_Flag_b = True = individuato cosa ??
-'
-'//OUTPUT : RESTITUISCE UN MESSAGGIO "OGGETTO TROVATO NEL DB" O "NON TROVATO NEL DB"
-'//MODULO ---> UTIL_MDL40_N01_CONTROLLO_OGGETTI_DB
-'//DB MDB ---> UTIL_MDL40_N01_CONTROLLO_OGGETTI_DB
-
-'//***********************************************************************************************
-'//ATTIVITA ESEGUITE: _
-'02.ITERAZIONE NEL GRUPPO OGGETTI TABLEDEFS ..LE TABELLE DEL DB _
-'02.01 - OGGETTI QUERY = CONTROLLO OGGETTO NEL DB: Faccio il Controllo l'esistenza delle TABELLE
-'pulendo prima tutta la tabella  oggetti da quelli precedenti.
-'03.01 - APRO LA TABELLA DI DATABASE CHE CONTIENE GLI OGGETTI TABELLA
-'        Iterando in tutti gli oggetti dell'insieme Tables
-'03.02 - SALVATAGGIO NOME OGGETTO TABELLA NELLA TABELLA DEL DB = Itero nel db tra gli oggetti
-'       table negli archivi del database e salvo il nome dell'oggetto tabella nel record corrente
-'       facendo un ciclo for nell'insieme TableDefs
-'03.03 .... definire
-'
-'//                                     SALVATAGGIO OGGETTI DATABASE
-'//{@=============================================================================================================@}
-'//CODICE --------------------> RICERCA_OGGETTI_DB_PFunct.Funzione
-'//
-Public Function RICERCA_OGGETTI_DB_PFunct( _
-                                   par_sx_Scelta_db As String, _
-                                   par_sx_Name_Tab As String, _
-                                   par_sx_Name_Query As String, _
-                                   par_sx_Name_FORM As String, _
-                                   par_sx_Name_Report As String, _
-                                   par_sx_Name_MACRO As String, _
-                                   par_sx_Name_Modulo As String, _
-                                   par_sTipo_Oggetto As String, _
-                                   par_ix_Operazione As Integer, _
-                                   par_ix_Indice1 As Integer, _
-                                   par_bx_Flag_b As Boolean) As String
-
-
-        On Error GoTo Err_RICERCA_OGGETTI_DB_PFunct
-
-
-        '------------------------------------------------------------------------------------------
-            '1.1    SET VARIABILI, OPEN DB, CONTROLLO OGGETTO NEL DB
-
-                    'OPEN DB: Apre il database scelto per la creazione o cancellazione
-                    '         con il parametro Option = false per indicare che l'apertura è condivisa /
-                    '                          Option = True apertura esclusiva
-
-                If par_sx_Scelta_db = "" Then
-                        'apro il db corrente se non viene indicato un database esterno
-                        Set dbs = CurrentDb
-                    Else
-                        'apro un database esterno con la path >0 passata con i parametri
-                        Set dbs = OpenDatabase(par_sx_Scelta_db, False)
-                End If
-
-            Select Case par_sTipo_Oggetto
-
-                '//- CONTROLLO TABELLE -
-                '//CHIAVE =====> modulo:controllo-tabelle
-                Case Is = "Cmd_Elenco_Tabelle"
-
-                        '02.ITERAZIONE NEL GRUPPO OGGETTI TABLEDEFS ..LE TABELLE DEL DB
-                        '______________________________________________________________________________
-                        '02.01 - OGGETTI QUERY
-
-
-                            'pulisco la tabella degli OGGETTI TABELLA
-                            sSql = ""
-                            sSql = sSql & "DELETE MSsys_TABELLE_Qry01_01_TUTTE.*"
-                            sSql = sSql & "FROM MSsys_TABELLE_Qry01_01_TUTTE "
-                            sSql = sSql & "WITH OWNERACCESS OPTION;"
-
-                            CurrentDb.Execute (sSql)
-
-                            '03.01 - APRO LA TABELLA
-                            'apro la tabella per il salvataggio delle query + effettuo il _
-                            controllo sulla stringa sql
-                            Debug.Print "---------------------------------------------------------------"
-                            Debug.Print "CONTROLLO STRINGA SQL                                          "
-                            Debug.Print
-                            Set ApriRs = dbs.OpenRecordset("MSsys_TABELLE_Qry01_01_TUTTE")
-
-
-                            With dbs
-
-                                '//reset
-                                icount = 0
-
-                                '//stampa di controllo
-                                Debug.Print .TableDefs.Count & _
-                                    " TableDefs in database  " & sx_Scelta_db
-
-
-                                For intCiclo = 0 To .TableDefs.Count - 1
-                                        Debug.Print "  " & .TableDefs(intCiclo).Name
-
-                                        '03.02 - SALVATAGGIO NOME OGGETTO TABELLA NELLA TABELLA DEL DB
-                                        '................................................................
-                                            ApriRs.AddNew
-                                            ApriRs.Fields("Name1_s") = .TableDefs(intCiclo).Name
-
-                                            '//NRO di oggetto
-                                            icount = icount + 1         '//aggiorno il contatore oggetti delle tabelle
-                                            ApriRs.Fields("NRO_OGGETTO_i") = icount
-                                            '//Tipo di oggetto caricato = FORM
-                                            ApriRs.Fields("TIPOGGETTO_s") = "TABLE"
-
-                                            '//SALVATAGGIO DEGLI ATTRIBUTI DELLA TABELLA - proprieta Attributes
-                                            ApriRs.Fields("Attribute_lng") = .TableDefs(intCiclo).Attributes
-
-                                                '//CONTROLLO OGGETTO TABELLA
-                                                '//-----------------------------------------------------------
-
-                                                    '//controllo degli attributi
-                                                    Debug.Print "LA TABELLA "
-                                                    Debug.Print .TableDefs(intCiclo).Name
-
-                                                    Debug.Print "controllo attributi della tabella"
-                                                    Debug.Print .TableDefs(intCiclo).Attributes
-
-                                                '//-----------------------------------------------------------
-                                            ApriRs.Update
-                                        '................................................................
-
-
-
-                                    '03.03 .... definire
-                                    If .TableDefs(intCiclo).Name = par_sx_Name_Tab Then
-                                        Bln1 = True    ' bx_Flag_b True = trovato tabelle si può cancellare
-                                        RICERCA_OGGETTI_DB_PFunct = "QUERY_TROVATA_NEL_DB" 'riassegno alla funzione il valore del bx_Flag_b
-                                        GoTo Exit_RICERCA_OGGETTI_DB_PFunct  'esci
-                                    Else
-                                        Bln1 = False   ' bx_Flag_b False = non trovato TABELLA
-                                        RICERCA_OGGETTI_DB_PFunct = "QUERY_NON_TROVATA_NEL_DB" 'riassegno alla funzione il valore del bx_Flag_b
+                                '//PULISCO LA PROPRIETA RECORD SOURCE DELLE CASELLE DI TESTO
+                                '//--------------------------------------------------------------------------------//------------//
+                                '//NELLA CASELLE TEXT riconosciute con il valore ControlSource _
+                                viene azzerata la proprieta control source con valore ""
+                                    If propLoop.Name = "ControlSource" Then
+                                        Debug.Print propLoop.Value
+                                        'propLoop.value = ""
                                     End If
 
-                                Next intCiclo
+                                '//--------------------------------------------------------------------------------//------------//
 
-                            End With
 
-               ' - CONTROLLO QUERY -
-                Case Is = "Cmd_Elenco_Query"
-                    '//CHIAVE =====> modulo:controllo-Query
 
-                        '//ITERAZIONE QUERYDEFS <<LE QUERY>>
-                        '//====================================================================================================//
-                        'OGGETTI QUERY
-                        'CONTROLLO OGGETTO NEL DB: Controllo l'esistenza della QUERY
+                                '//PULISCO LA PROPRIETA CAPTION DELLE LABEL - MODIFICARE PER I MODULI E CLASSI
+                                '//--------------------------------------------------------------------------------//------------//
+                                '//se è una label riconosciuta con il nome della proprieta _
+                                Caption, viene sostituita il valore del contenuto della _
+                                etichetta con il nome della label
+                                     If propLoop.Name = "Caption" Then
+                                                Debug.Print propLoop.Value
+                                                '//inserisco il nome label?
+                                                'propLoop.value = ObjModule.NAME
 
 
-                        'pulisco la tabella delle query prima del salvataggio dei nuovi nomi
-                        CurrentDb.Execute ("DELETE MSsys_QUERY_Qry01_01_TUTTE.* FROM MSsys_QUERY_Qry01_01_TUTTE;")
+                                    End If
 
-                        'apro la tabella per il salvataggio delle query
-                        Set ApriRs = dbs.OpenRecordset("MSsys_QUERY_Qry01_01_TUTTE") '// perche non funziona??? da errore
+                                '//--------------------------------------------------------------------------------//------------//
 
-                        'itero nel db
-                                With dbs
+                            '//*** FINE ***
+                            '//PULISCO I CAMPI TEXT E LABEL DELLA FORM CORRENTE - CICOLO FOR EACH -
+                            '//==================================================================================================//
 
-                                    '//RESET VARIABILI CICLO
-                                    icount = 0      '//contatore numero oggetti query
+                                '//CONTROLLO oggetto
+                                Debug.Print "MODULO O CLASSE [" & .Name & "] - Control[" & ObjModule.Name & "](" & propLoop.Name & "):" & propLoop.Value
 
+                            Next '//For Each propLoop In ObjModule.Properties
 
-                                    Debug.Print .QueryDefs.Count & _
-                                        " QueryDefs in database  " & sx_Scelta_db
 
+                        Next    '//For Each ObjModule In .Controls
 
-                                '//CICLO OGGETTI QUERY
-                                '//------------------------------------------------------------------------------//
-                                For intCiclo = 0 To .QueryDefs.Count - 1
+                                '//SALVATAGGIO FORM APERTA IN DESIGN ?? PUO ESSERE UTILIZZATO PER IL MODULO O _
+                                PER LA CLASSE !! CONTROLLARE???
+                                'Richiama la funzione che chiude la maschera aperta
+                                'DoCmd.SetWarnings False
+                                'DoCmd.Close acForm, strModuloName, acSaveYes
+                                'DoCmd.SetWarnings True
+                                'DoCmd.Close acForm, strModuloName
 
-                                        'controlli
-                                        '................................................................
+                    End With '//With MODULES(strModuloName)
 
+            '*** FINE ***
+            '//IL MODULO O CLASSE CORRENTE IN QUESTO DB
+            '//=====================================================================================================//
 
-                                                Debug.Print "-----------------------------------------------------------"
-                                                Debug.Print
-                                                            '//stampo il nome della query + il contentuto sql
-                                                            Debug.Print " stampo il NOME DELLA QUERY"
-                                                            Debug.Print "  " & .QueryDefs(intCiclo).Name
 
-                                                            '//AGGIORNAMENTO_DEL_28_02_2020
-                                                            'Stampo il contenuto sql della query
-                                                            Debug.Print
-                                                            Debug.Print "  " & .QueryDefs(intCiclo).SQL
 
-                                                            '//AGGIORNAMENTO_DEL_28_02_2020
-                                                            '//stampo il tipo di query scelta direttamente
-                                                            Debug.Print "IL TIPO DELLA Query"
-                                                            Debug.Print "  " & .QueryDefs(intCiclo).Type
+            End If
+        Next
 
-                                                Debug.Print "-----------------------------------------------------------"
-                                                Debug.Print
-
-
-                                        '................................................................
-
-                                            'SALVATAGGIO NOME QUERY
-                                            '................................................................
-                                                '//AGGIORNAMENTO_DEL_28_02_2020
-                                                '//Aggiorno il numero oggetto query salvati nel campo della tabella _
-                                                dei salvataggi del nro query.
-                                                icount = icount + 1         '//aggiorno il contatore oggetti delle query
-
-
-                                                ApriRs.AddNew
-                                                '//aggiugno alla tabella il nome della query + il contenuto sql
-                                                ApriRs.Fields("Name1_s") = .QueryDefs(intCiclo).Name
-                                                ApriRs.Fields("IdOrd_lng") = icount
-
-                                                '//Tipo di oggetto caricato = QUERY
-                                                ApriRs.Fields("TIPOGGETTO_s") = "QUERY"
-
-                                                '//AGGIORNAMENTO_DEL_28_02_2020
-                                                '//SQL + TIPO DI QUERY
-                                                ApriRs.Fields("Expression_m") = .QueryDefs(intCiclo).SQL
-
-
-                                                ApriRs.Update
-
-
-
-
-                                                '03.02 - SALVATAGGIO NOME OGGETTO TABELLA NELLA TABELLA DEL DB
-                                        '................................................................
-
-
-
-                                            '................................................................
-
-                                        'controllo nome query passata con parametro
-                                        If .QueryDefs(intCiclo).Name = par_sx_Name_Query Then
-
-                                            Bln1 = True    ' bx_Flag_b True = trovato QUERY
-
-                                            'stampo il contenuto della query scelta direttamente _
-                                            solo se esiste la query ricercata.
-                                            Debug.Print "  " & .QueryDefs(par_sx_Name_Query).SQL
-
-
-                                            'recupero il contenuto della query
-                                            RICERCA_OGGETTI_DB_PFunct = .QueryDefs(intCiclo).SQL
-
-
-                                            GoTo Exit_RICERCA_OGGETTI_DB_PFunct  'esci
-                                        Else
-                                            Bln1 = False   ' bx_Flag_b False = non trovato QUERY
-                                            RICERCA_OGGETTI_DB_PFunct = Bln1 'riassegno alla funzione il valore del bx_Flag_b
-                                        End If
-
-                                    Next intCiclo
-
-                                '//CICLO OGGETTI QUERY  --> Next intCiclo *** fine ***
-                                '//------------------------------------------------------------------------------//
-
-                                End With
-                        '//ITERAZIONE QUERYDEFS <<LE QUERY>>   *** FINE ***
-                        '//====================================================================================================//
-
-
-
-               'CICLO NEGLI OGGETTI FORMS
-               Case Is = "Cmd_Elenco_Forms"
-               '//CHIAVE =====> modulo:controllo-forms
-
-
-
-
-                        '//ITERAZIONE FORMS DEFS <<LE FORMS>>
-                        '//==============================================================================================================//
-                        '//OGGETTI FORMS
-                        '//CONTROLLO OGGETTO NEL DB: Controllo l'esistenza della FORMS
-
-
-                            'Dim obj As AccessObject, obj_Oggetto As Object
-                            Set obj_Oggetto = Application.CurrentProject
-
-                             '//RESET DELLE VARIABILI
-                            intCiclo = 0
-                            icount = 0
-
-                            'NOME form prorvvisoria ca controllare, poi cancellare
-                            par_sx_Name_FORM = "form ??? da definire"
-
-
-                            'apro la tabella per il salvataggio delle query
-                            Set ApriRs = dbs.OpenRecordset("MSsys_FORM_Qry01_01_TUTTE")
-
-
-                            '//RESET DELLE VARIABILI
-                            intCiclo = 0
-                            icount = 0
-
-                            'pulisco la tabella delle FORMS prima del salvataggio dei nuovi nomi
-                            CurrentDb.Execute ("DELETE MSsys_FORM_Qry01_01_TUTTE.* FROM MSsys_FORM_Qry01_01_TUTTE;")
-
-
-
-                        '//ITERAZIONE FORMS DEFS <<LE FORMS>>
-                        '______________________________________________________________________________
-                        '//OGGETTI FORMS
-                        '//CONTROLLO OGGETTO NEL DB: Controllo l'esistenza della FORMS
-
-
-
-                        'itero nel db
-                        With dbs
-
-
-
-                        '//ITERAZIONE Forms DEFS <<LE FORMS>> - CONTROLLO FORM -
-                        '//______________________________________________________________________________
-                        '//OGGETTI FORMS
-                        '//CONTROLLO OGGETTO NEL DB: Controllo l'esistenza della Forms
-
-                                For Each obj In obj_Oggetto.AllForms
-
-
-                                        'SALVATAGGIO NOME Forms
-                                        '................................................................
-                                        '//AGGIORNAMENTO_DEL_28_02_2020
-                                        '//Aggiorno il numero oggetto Forms  salvati nel campo della tabella _
-                                        dei salvataggi del nro Forms.
-
-                                          ApriRs.AddNew
-
-                                            'CONTROLLO DEI NOMI DELE FORMS
-                                            '................................................................
-
-                                                    '//Search for open AccessObject objects in AllForms collection. _
-                                                    con la proprieta IsLoad = esegui il controllo delle Forms Aperti _
-                                                    mentre senza questa condizione, vengono iterati tutti gli oggetti _
-                                                    Report del Db. Per le Forms APERTI O CARICATI  viene impostata la _
-                                                    proprieta IsLoaded = True mentre per quelli chiusi è impostata a _
-                                                    FALSE. _
-                                                    È possibile utilizzare la proprietà IsLoaded per determinare se _
-                                                    un oggetto AccessObject è attualmente caricato. Valore Boolean in sola lettura.
-
-
-                                                                Debug.Print "  " & obj.Name
-                                                                Debug.Print "  " & obj.Type
-
-                                                                 '//Tipo di oggetto caricato = QUERY
-                                                                 ApriRs.Fields("TIPOGGETTO_s") = "FORMS"
-
-
-
-                                                    '//obj.Type = 2 LA FORMS
-                                                    If obj.Type = 2 Then
-
-                                                            If obj.IsLoaded = True Then
-
-                                                                   '//aggiugno alla tabella il nome della FORM solo se oggetto di tipo 2
-                                                                    ApriRs.Fields("Name1_s") = obj.Name
-
-                                                                    Debug.Print "FORM APERTA = " & obj.Name
-                                                                    Debug.Print "  " & obj.Name
-                                                                    Debug.Print "Nro : " & icount
-                                                                    ApriRs.Fields("PROPRIETA_s") = "True"
-                                                                    ApriRs.Fields("VALOREPROPRIETA_m") = "FORM APERTA"
-
-                                                                     icount = icount + 1         '//aggiorno il contatore oggetti delle Forms
-                                                                     Debug.Print "Nro : " & icount
-
-                                                                     '//NRO di oggetto
-                                                                     ApriRs.Fields("IdOrd_lng") = icount
-
-
-
-                                                            Else
-
-                                                                    '//aggiugno alla tabella il nome della FORM solo se oggetto di tipo 2
-                                                                    ApriRs.Fields("Name1_s") = obj.Name
-
-
-                                                                    Debug.Print "FORM NON APERTO ---> " & obj.Name
-                                                                    ApriRs.Fields("PROPRIETA_s") = "FALSE"
-                                                                    ApriRs.Fields("VALOREPROPRIETA_m") = "FORM CHIUSA"
-
-                                                                     icount = icount + 1         '//aggiorno il contatore oggetti delle Forms
-                                                                     Debug.Print "Nro : " & icount
-
-                                                                     '//NRO di oggetto
-                                                                     ApriRs.Fields("IdOrd_lng") = icount
-
-                                                            End If
-                                                    End If
-
-
-                                            '................................................................
-
-                                          ApriRs.Update
-                                        '................................................................
-
-                                Next obj
-
-                            End With
-
-            '//ITERAZIONE FORMS DEFS <<LE FORMS>>    *** FINE ***
-            '//==============================================================================================================//
-
-                            '**************************************************************
-
-
-
-              'CICLO NEGLI OGGETTI REPORTS
-               Case Is = "Cmd_Elenco_Reports"
-                '//CHIAVE =====> modulo:controllo-Report
-                '//Aggiornamento 22 MARZO 2020
-
-                        '//ITERAZIONE FORMS DEFS <<LE FORMS>>
-                        '//______________________________________________________________________________
-                        '//OGGETTI FORMS
-                        '//CONTROLLO OGGETTO NEL DB: Controllo l'esistenza della FORMS
-
-
-
-                            'Dim obj As AccessObject, obj_Oggetto As Object
-                            Set obj_Oggetto = Application.CurrentProject
-
-                            '//RESET DELLE VARIABILI
-                            intCiclo = 0
-                            icount = 0
-
-                            'pulisco la tabella delle FORMS prima del salvataggio dei nuovi nomi
-                            CurrentDb.Execute ("DELETE MSsys_REPORT_Qry01_01_TUTTI.* FROM MSsys_REPORT_Qry01_01_TUTTI;")
-
-                            'apro la tabella per il salvataggio dei REPORT
-                            Set ApriRs = dbs.OpenRecordset("MSsys_REPORT_Qry01_01_TUTTI")
-
-
-                        '//ITERAZIONE FORMS DEFS <<LE FORMS>>
-                        '______________________________________________________________________________
-                        '//OGGETTI FORMS
-                        '//CONTROLLO OGGETTO NEL DB: Controllo l'esistenza della FORMS
-
-
-
-                        'itero nel db
-                        With dbs
-
-
-
-                        '//ITERAZIONE REPORTS DEFS <<I REPORT>> - CONTROLLO REPORT -
-                        '//______________________________________________________________________________
-                        '//OGGETTI REPORTS
-                        '//CONTROLLO OGGETTO NEL DB: Controllo l'esistenza della REPORTS
-
-                                For Each obj In obj_Oggetto.AllReports
-
-
-                                        'SALVATAGGIO NOME REPORTS
-                                        '................................................................
-                                        '//AGGIORNAMENTO_DEL_28_02_2020
-                                        '//Aggiorno il numero oggetto REPORTS  salvati nel campo della tabella _
-                                        dei salvataggi del nro REPORTS.
-
-
-
-                                          ApriRs.AddNew
-                                            '//aggiugno alla tabella il nome della query + il contenuto sql
-                                            ApriRs.Fields("Name1_s") = obj.Name
-
-
-
-
-                                            'CONTROLLO DEI NOMI DEI REPORT
-                                            '................................................................
-
-                                                    '//Search for open AccessObject objects in AllReports collection. _
-                                                    con la proprieta IsLoad = esegui il controllo dei Reports Aperti _
-                                                    mentre senza questa condizione, vengono iterati tutti gli oggetti _
-                                                    Report del Db. Per i reports APERTI O CARICATI  viene impostata la _
-                                                    proprieta IsLoaded = True mentre per quelli chiusi è impostata a _
-                                                    FALSE. _
-                                                    È possibile utilizzare la proprietà IsLoaded per determinare se _
-                                                    un oggetto AccessObject è attualmente caricato. Valore Boolean in sola lettura.
-
-
-                                                                Debug.Print "  " & obj.Name
-                                                                Debug.Print "  " & obj.Type
-
-                                                                '//Tipo di oggetto caricato = REPORTS
-                                                                ApriRs.Fields("TIPOGGETTO_s") = "REPORTS"
-
-                                                    '//obj.Type = 3 LA FORMS
-                                                    If obj.Type = 3 Then
-
-                                                            If obj.IsLoaded = True Then
-
-
-                                                                    Debug.Print "REPORT APERTO = " & obj.Name
-                                                                    Debug.Print "  " & obj.Name
-                                                                    Debug.Print "Nro : " & icount
-                                                                    ApriRs.Fields("PROPRIETA_s") = "True"
-                                                                    ApriRs.Fields("VALOREPROPRIETA_m") = "FORM APERTA"
-
-                                                                     icount = icount + 1         '//aggiorno il contatore oggetti delle REPORTS
-                                                                     Debug.Print "Nro : " & icount
-
-                                                                     '//NRO di oggetto
-                                                                     ApriRs.Fields("IdOrd_lng") = icount
-
-
-
-                                                            Else
-                                                                    Debug.Print "REPORT NON APERTO ---> " & obj.Name
-                                                                    ApriRs.Fields("PROPRIETA_s") = "FALSE"
-                                                                    ApriRs.Fields("VALOREPROPRIETA_m") = "FORM CHIUSA"
-
-                                                                     icount = icount + 1         '//aggiorno il contatore oggetti delle REPORTS
-                                                                     Debug.Print "Nro : " & icount
-
-                                                                     '//NRO di oggetto
-                                                                     ApriRs.Fields("IdOrd_lng") = icount
-
-                                                            End If
-                                                    End If
-
-                                            '................................................................
-
-
-
-
-
-                                          ApriRs.Update
-                                        '................................................................
-
-
-
-
-                                Next obj
-
-                            End With
-
-
-
-                        '//ITERAZIONE REPORTS DEFS <<I REPORT>>
-                        '//______________________________________________________________________________
-
-
-               'CICLO NEGLI OGGETTI MACRO - CONTROLLO MACRO -
-               Case Is = "Cmd_Elenco_MACRO"
-                '//CHIAVE =====> modulo:controllo-Macro
-                '//Aggiornamento 22 MARZO 2020
-
-                        '//ITERAZIONE MACRO DEFS <<LE MACRO>>
-                        '//______________________________________________________________________________
-                        '//OGGETTI MACRO
-                        '//CONTROLLO OGGETTO NEL DB: Controllo l'esistenza della MACRO
-
-
-
-                            'Dim obj As AccessObject, obj_Oggetto As Object
-                            Set obj_Oggetto = Application.CurrentProject
-
-                            '//RESET DELLE VARIABILI
-                            intCiclo = 0
-                            icount = 0
-
-                            'pulisco la tabella delLE MACRO prima del salvataggio dei nuovi nomi
-                            CurrentDb.Execute ("DELETE MSsys_MACRO_Qry01_01_TUTTE.* FROM MSsys_MACRO_Qry01_01_TUTTE;")
-
-                            'apro la tabella per il salvataggio dei Macro
-                            Set ApriRs = dbs.OpenRecordset("MSsys_MACRO_Qry01_01_TUTTE")
-
-
-                        '//ITERAZIONE MACRO DEFS <<LE MACRO>>
-                        '______________________________________________________________________________
-                        '//OGGETTI MACRO
-                        '//CONTROLLO OGGETTO NEL DB: Controllo l'esistenza della MACRO
-
-
-
-                        'itero nel db
-                        With dbs
-
-
-
-                        '//ITERAZIONE MACRO DEFS <<I Macro>>
-                        '//______________________________________________________________________________
-                        '//OGGETTI MACRO
-                        '//CONTROLLO OGGETTO NEL DB: Controllo l'esistenza della MACRO
-
-                                For Each obj In obj_Oggetto.AllMacros
-
-
-                                        'SALVATAGGIO NOME MACRO
-                                        '................................................................
-                                        '//AGGIORNAMENTO_DEL_28_02_2020
-                                        '//Aggiorno il numero oggetto MACRO  salvati nel campo della tabella _
-                                        dei salvataggi del nro MACRO.
-
-
-
-                                          ApriRs.AddNew
-                                            '//aggiugno alla tabella il nome della query + il contenuto sql
-                                            ApriRs.Fields("Name1_s") = obj.Name
-
-
-
-
-
-                                            'CONTROLLO DEI NOMI DEI Macro
-                                            '................................................................
-
-                                                    '//Search for open AccessObject objects in AllMACRO collection. _
-                                                    con la proprieta IsLoad = esegui il controllo dei MACRO Aperti _
-                                                    mentre senza questa condizione, vengono iterati tutti gli oggetti _
-                                                    Macro del Db. Per i MACRO APERTI O CARICATI  viene impostata la _
-                                                    proprieta IsLoaded = True mentre per quelli chiusi è impostata a _
-                                                    FALSE. _
-                                                    È possibile utilizzare la proprietà IsLoaded per determinare se _
-                                                    un oggetto AccessObject è attualmente caricato. Valore Boolean in sola lettura.
-
-
-                                                                Debug.Print "  " & obj.Name
-                                                                Debug.Print "  " & obj.Type
-
-                                                                '//Tipo di oggetto caricato = MACRO
-                                                                ApriRs.Fields("TIPOGGETTO_s") = "MACRO"
-
-
-                                                    '//obj.Type = 4 LA MACRO
-                                                    If obj.Type = 4 Then
-
-
-
-
-                                                                    Debug.Print "Macro APERTO = " & obj.Name
-                                                                    Debug.Print "  " & obj.Name
-                                                                    Debug.Print "Nro : " & icount
-                                                                    'ApriRs.Fields("PROPRIETA_s") = "True"
-                                                                    'ApriRs.Fields("VALOREPROPRIETA_m") = "FORM APERTA"
-
-                                                                     icount = icount + 1         '//aggiorno il contatore oggetti delle MACRO
-                                                                     Debug.Print "Nro : " & icount
-
-                                                                     '//NRO di oggetto
-                                                                     ApriRs.Fields("IdOrd_lng") = icount
-
-
-
-
-                                                    End If
-
-                                            '................................................................
-
-
-
-
-
-                                          ApriRs.Update
-                                        '................................................................
-
-
-
-
-                                Next obj
-
-                            End With
-
-
-
-                        '//ITERAZIONE MACRO DEFS <<I Macro>>
-                        '//______________________________________________________________________________
-
-
-
-                    Case Else
-                            MsgBox "Scelta comando non effettuata", vbExclamation
-                             GoTo Exit_RICERCA_OGGETTI_DB_PFunct
-                End Select
-                            'chiudo i rs aperti + Rilascio la memoria
-                            ApriRs.Close
-                            Set ApriRs = Nothing
-
-
-
-'------------------------------------------------------------------------------
-'                       FINE FUNCTIONE E GESTIONE ERRORI
-
-Exit_RICERCA_OGGETTI_DB_PFunct:
-    dbs.Close
-    Set dbs = Nothing
-    Exit Function
-
-
-Err_RICERCA_OGGETTI_DB_PFunct:
-    MsgBox "ERRORE FUNCTION PUBLIC    " & Err.Number & " - " & Err.Description, vbCritical, "RICERCA_OGGETTI_DB_PFunct"
-    Resume Exit_RICERCA_OGGETTI_DB_PFunct
-
-End Function
-
-'//*** FINE ***
-'//                                     SALVATAGGIO OGGETTI DATABASE
-'//{@=============================================================================================================@}
-
-
-
-
-'//###########################################################################################################//
-'//####
-'//####                             PROCEDURE DI RICERCA   *** FINE ***
-'//####
-'//###########################################################################################################//
-
-
-
-'// *** FINE ***
-'//CODICE----------->SALVO_ATTIVITA_CMB_02_IN_TMP_Sub.Salvataggio_ATTIVITA
-'//SALVATAGGIO PARAMETRI NELLA TABELLA TMP
-'//###########################################################################################################################//
-
-
-
-
-
-
-
-
-'//###########################################################################################################//
-'//####
-'//####                             PROCEDURE DI CONTROLLO *** INIZIO ***
-'//#### CONTROLLO/ CONTROLLA...
-'//###########################################################################################################//
-
-
-        '//FUNZIONE_DI_CONTROLLO_DELLA_ESISTENZA_DELL'OGGETTO_FORM
-        '//=======================================================================================================//
-        '//CODICE-----> Controlla_SE_OGGETTO_FORM_ESISTE_pFunct.attiva
-        '//note: è stata inserita nella classe CLASSE_GESTIONE_OGGETTI_FORM
-        Public Function Controlla_SE_OGGETTO_FORM_ESISTE_pFunct(par_sxNameForm As String) As Boolean
-
-
-
-
-
-
-            '//FUNZIONE_DI_CONTROLLO_DELLA_ESISTENZA_DELL'OGGETTO_FORM
-            '//CODICE-----> Controlla_SE_OGGETTO_FORM_ESISTE_pFunct.attiva.LaClasse
-            '//--------------------------------------------------------------------------------//-//
-            '//NOTA  :Controlla se esiste la form negli oggetti del database e restituisce TRUE _
-                      se il nome della form passata con parametro par_sxNameForm esiste; altrimenti FALSE
-
-
-
-                        'ISTANZIO LA CLASSE CLASSE_GESTIONE_OGGETTI_FORM
-                        'Assegno e creo l'oggetto di classe
-                        'Dim MyCls_CLASSE_GESTIONE_OGGETTI_FORM As Classe_GESTIONE_OGGETTI_FORM
-                        'Set MyCls_CLASSE_GESTIONE_OGGETTI_FORM = New Classe_GESTIONE_OGGETTI_FORM
-
-
-                        'PARAMETRI DI ESTRAZIONE
-                        'Attivo il metodo della classe rappresentata dalla routine passando
-                        'sxNameForm = "Nome della form"
-                        'MyCls_CLASSE_GESTIONE_OGGETTI_FORM.Controlla_SE_OGGETTO_FORM_ESISTE_pFunct sxNameForm
-
-                        'Set MyCls_CLASSE_GESTIONE_OGGETTI_FORM = Nothing
-
-                '//--------------------------------------------------------------------------------//-//
-
-
-
-
-
-
-
-
-            Dim formName_s As String
-            Dim ctl As Control
-
-            '//reset
-            FormGestione_b = False
-
-
-            'application.Form[GEST_FrmM00_GESTIONE].
-            Dim obj As AccessObject, dbs As Object
-            Set dbs = Application.CurrentProject
-            ' Search for open AccessObject objects in AllForms collection.
-            For Each obj In dbs.AllForms
-
-                    ' Print name of obj.
-                    Debug.Print obj.Name
-                    formName_s = obj.Name
-
-                    '//CONTROLLO SUL NOME
-                    If formName_s = par_sxNameForm Then
-
-                       '//La form esiste restituisco True
-                       FormGestione_b = True
-                       Controlla_SE_OGGETTO_FORM_ESISTE_pFunct = True
-
-                    Else
-                         FormGestione_b = False
-
-                    End If
-
-
-            Next obj
-
+                    '//messaggio di avviso se Bool1=false e cioè non esiste la form
 
                     If Bool1 = False Then
-                        MsgBox "ATTENZIONE LA FORM ---> " & formName_s & " NON ESISTE NEL DB CORRENTE", vbExclamation, "CONTROLLO FORM"
+                        '//imposto il testo del messaggio
+                        Msg_s = "ATTENZIONE IL MODULO O LA CLASSE RICERCATA  " & strModuloName & " NON E' STATA TROVATA IN QUESTO DATABASE!"
+                        LoopModuli_ITERA_OGGETTI_MODULI_E_CLASSI_PFunction = "OGGETTO NON TROVATO"
+                        MsgBox Msg_s, vbExclamation
                     End If
 
 
 
 
+        Exit Function
+    Err_Handler:
+        Select Case Err.Number
+            Case 2186
+                '//SE LA PROPRIETA NON ESISTE ATTIVO L'ERRORE E RIENTRO NEL CICLO FOR EACH
+                'Property not available in design view  SE NON CI SONO LE  PROPRIETA RIPROVA.
+                Resume Next
+            Case Else
+                MsgBox "Err: " & Err.Number & " - " & Err.Description
+        End Select
+    End Function
 
-                Set obj = Nothing
-                Set dbs = Nothing
-                Set ctl = Nothing
-                formName_s = vbNull
+    '//*** fine ***
+    '//ITERO ALL.MODULES - OGGETTI MODULES DEL DB CORRENTE PER LA RICERCA DELL'OGGETTO PASSATO COME PARAMETRO - _
+      EVENTUALMENTE DA UTILIZZARE PER PULIRE I MODULI
+    '//###########################################################################################################################//
+
+'//ITERO IN TUTTI GLI OGGETTI - DEL DB CORRENTE PER LA RICERCA DELL'OGGETTO PASSATO COME PARAMETRO
+    '//###########################################################################################################################//
+    '//NOTE: eseguo il ciclo nell'insieme individuato dal paramtro oggetto ALLA RICERCA dell'OGGETTO _
+       mediante la if di filtro.  - CONTROLLO ESISTENZA OGGETTO
+    '//CODICE----------->LoopFormProp_ITERA_OGGETTI_DB_CORRENTE
+
+    '****************************************************************************************************************************
+    '           PROCEDURA DI ITERAZIONE DEGLI OGGETTI DI DATABASE
+    ' i parametri ricevuti sono : par_Scelta db = path db
+    '
+    '
+    '****************************************************************************************************************************
+
+    Private Sub ITERA_OGGETTO_DB()
 
 
 
 
-        End Function
-        '//*** FINE ***
-        '//FUNZIONE_DI_CONTROLLO_DELLA_ESISTENZA_DELL'OGGETTO_FORM
-        '//=======================================================================================================//
+        '// FUNZIONE ITERAZIONE OGGETTI, Tabelle, Query, Form, Report, Macro _
+            e Moduli
+        '//====================================================================//
+        '//MODELLO : di ricerca oggetti, prova la funzione si devono comunque _
+                    impostare i parametri.
+
+                    '//Imposto le variabilie e le resetto
+                    Dim sx_Scelta_db As String
+                    Dim sx_Name_Tab As String
+                    Dim sx_Name_Query As String
+                    Dim sx_Name_FORM As String
+                    Dim sx_Name_Report As String
+                    Dim sx_Name_Macro As String
+                    Dim sx_Name_Modulo As String
+                    Dim sx_Tipo_Oggetto As String
+                    Dim ix_Operazione As Integer
+                    Dim ix_Indice1 As Integer
+                    Dim bx_Flag_b As Boolean
+
+
+                    sx_Scelta_db = ""
+                    sx_Name_Tab = ""
+                    sx_Name_Query = ""
+                    sx_Name_FORM = ""
+                    sx_Name_Report = ""
+                    sx_Name_Macro = ""
+                    sx_Name_Modulo = ""
+                    sx_Tipo_Oggetto = ""
+                    ix_Operazione = 0
+                    ix_Indice1 = 0
+                    bx_Flag_b = False
+
+
+                    '//chiamo la procedura di iterazione oggetti
+                    str1 = SALVATAGGIO_OGGETTI_DB_PFunct(sx_Scelta_db, _
+                                              sx_Name_Tab, _
+                                              sx_Name_Query, _
+                                              sx_Name_FORM, _
+                                              sx_Name_Report, _
+                                              sx_Name_Macro, _
+                                              sx_Name_Modulo, _
+                                              sx_Tipo_Oggetto, _
+                                              ix_Operazione, _
+                                              ix_Indice1, _
+                                              bx_Flag_b)
+
+        '//====================================================================//
 
 
 
 
-        '//FUNZIONE_DI_CONTROLLO_DELLA_ESISTENZA_DEL_SINGOLO_OGGETTO_NEL_DB_CORRENTE
-        '//=======================================================================================================//
-        '//CODICE----->ACONTROLLA_OGGETTO_pFunction.Funcition
+        End Sub
 
-        '//ATTIVO LA FUNZIONE TROVA L'OGGETTO NEL DB CORRENTE
-        '//--------------------------------------------------------------------------------//---//
-        '//NOTE : attivo la ricerca dell'oggetto nel DB corrente iterando in tutti gli oggetti _
-                se trova l'oggetto passato come parametro, tipo form, modulo, query od altro _
-                ritrona il parametro OGGETTO TROVATO con il quale viene effettuato un controllo _
-                con la if che da il permesso di attivare la procedura della classe. Se il parametro _
-                ritorna NON TROVATO l'attivà della classe viene saltata esplicitamente.
+'//SALVATAGGIO_OGGETTI_DB_PFunct  = PROCEDURE DI SALVATAGGIO '
+    '//###########################################################################################################//
+    '//####
+    '//####                             Funzione SALVATAGGIO OGGETTI DATABASE MDB
+    '//####
+    '//###########################################################################################################//
+
+        '//CODICE ---> 2020.02.11_SALVATAGGIO_OGGETTI_DB_PFunct_DB
+        'PARAMETRI IN IMPUT:
+        'par_sx_Scelta_db   =database interno od esterno (se la variabile path è valorizzata es. = c:\Gestioni\FILE.mdb _
+                             allora viene attivata la II opzione del database esterno);
+        'par_sx_Name_Tab    =nome tabella da ricercare;
+        'par_sx_Name_Query  =nome query da ricercare
+        'par_sTipo_Oggetto  =il tipo oggetto del db sono identificati con la seguente stringa: _
+                        Cmd_Elenco_Query    = Tutte le query _
+                        Cmd_Elenco_Tabelle  = Tutte le tabelle _
+                        Cmd_Elenco_Forms    = Tutte le Form _
+                        ATTENZIONE mancano ancora i parametri Select per LE FORM, I REPORT, LE MACRO _
+                        LE PAGINE WEB che sono da integrare.
+        'tipo di operazione =?  da definire ;
+        'par_ix_Indice1 =?  da definire ;
+        'par_bx_Flag_b = True = individuato cosa ??
+        '
+        '//OUTPUT : RESTITUISCE una stringa ANCORA DA DEFINRE E IMPLEMENTARE ???
+        '//MODULO ---> UTIL_MDL40_N01_CONTROLLO_OGGETTI_DB
+        '//DB MDB ---> UTIL_MDL40_N01_CONTROLLO_OGGETTI_DB
+
+        '//MODELLO FUNZIONE ITER OGGETTI
+        'Public Function SALVATAGGIO_OGGETTI_DB_PFunct(par_sx_Scelta_db As String, _
+                                           par_sx_Name_Tab As String, _
+                                           par_sx_Name_Query As String, _
+                                           par_sx_Name_Form As String, _
+                                           par_sTipo_Oggetto As String, _
+                                           par_ix_Operazione As Integer, _
+                                           par_ix_Indice1 As Integer, _
+                                           par_bx_Flag_b As Boolean) As String
+        '//***********************************************************************************************
+        '//ATTIVITA ESEGUITE: _
+        '02.ITERAZIONE NEL GRUPPO OGGETTI TABLEDEFS ..LE TABELLE DEL DB _
+        '02.01 - OGGETTI QUERY = CONTROLLO OGGETTO NEL DB: Faccio il Controllo l'esistenza delle TABELLE
+        'pulendo prima tutta la tabella  oggetti da quelli precedenti.
+        '03.01 - APRO LA TABELLA DI DATABASE CHE CONTIENE GLI OGGETTI TABELLA
+        '        Iterando in tutti gli oggetti dell'insieme Tables
+        '03.02 - SALVATAGGIO NOME OGGETTO TABELLA NELLA TABELLA DEL DB = Itero nel db tra gli oggetti
+        '       table negli archivi del database e salvo il nome dell'oggetto tabella nel record corrente
+        '       facendo un ciclo for nell'insieme TableDefs
+        '03.03 .... definire
+        '
+        '//                                     SALVATAGGIO OGGETTI DATABASE
+        '//{@=============================================================================================================@}
+        '//CODICE --------------------> SALVATAGGIO_OGGETTI_DB_PFunct.Funzione
         '//
-        '//CODICE----->ACONTROLLA_OGGETTO_pFunction.Funcition.ATTIVA
-            'Dim ObjDaTrovare_s As String
-            'ObjDaTrovare_s = ""
-            'Str1 = CONTROLLA_OGGETTO_pFunction(ObjDaTrovare_s)
-                'If ObjDaTrovare_s = "OGGETTO TROVATO" Then
-                    'eseguo l'attività della classe altrimenti non viene eseguita
-                    '...
-                'End If
-
-        '//Controlla_SE_OGGETTO_TABELLA_ESISTE_pFunct = CONTROLLO ESISTENZA OGGETTO TABELLA
-        '//--------------------------------------------------------------------------------//---//
-        Public Function Controlla_SE_OGGETTO_TABELLA_ESISTE_pFunct(par_sxNameTABELLA As String)
-
-
-            Dim obj As AccessObject
-            Dim dbs As Object
-
-            Dim objAllTables As AllTables
-
-              '//Variabile database corrente + reset
-            Set dbs = Application.CurrentData
-            Controlla_SE_OGGETTO_TABELLA_ESISTE_pFunct = False            '//imposto a ricerca fallita
+        Public Function SALVATAGGIO_OGGETTI_DB_PFunct( _
+                                           par_sx_Scelta_db As String, _
+                                           par_sx_Name_Tab As String, _
+                                           par_sx_Name_Query As String, _
+                                           par_sx_Name_FORM As String, _
+                                           par_sx_Name_Report As String, _
+                                           par_sx_Name_MACRO As String, _
+                                           par_sx_Name_Modulo As String, _
+                                           par_sTipo_Oggetto As String, _
+                                           par_ix_Operazione As Integer, _
+                                           par_ix_Indice1 As Integer, _
+                                           par_bx_Flag_b As Boolean) As String
 
 
-            'Search for open AccessObject objects in AllForms collection.
-            For Each obj In dbs.AllTables
+                On Error GoTo Err_SALVATAGGIO_OGGETTI_DB_PFunct
 
-                    ' Print name of obj.
-                    Debug.Print obj.Name
-                    TableName_s = obj.Name
-
-                    '//CONTROLLO SUL NOME
-                    If TableName_s = par_sxNameTABELLA Then
-
-                       '//Se esiste la TABELLA restituisco True
-
-                       Controlla_SE_OGGETTO_TABELLA_ESISTE_pFunct = True
-
-                            '//controllo TABELLE ESISTENTE
-                             Debug.Print "----------------------LA TABELLA XLS ESISTE --------------------------------------"
-                             Debug.Print
-                             Debug.Print "tabella xls passata con parametro par_sxNameTABELLA ESISTE nel db               ----> " & par_sxNameTABELLA
-
-
-                       Exit For
-
-                    End If
-
-             Next obj
+                '// FUNZIONE ITERAZIONE OGGETTI, Tabelle, Query, Form, Report, Macro _
+                    e Moduli
+                '//====================================================================//
+                'Str1 = SALVATAGGIO_OGGETTI_DB_PFunct(sScelta_db, _
+                                            sName_Tab, _
+                                            sName_Query, _
+                                            sName_Form, _
+                                            sName_Report, _
+                                            sName_Macro, _
+                                            sName_Modulo, _
+                                            sTipo_Oggetto, _
+                                            iOperazione, _
+                                            iIndice1, _
+                                            Flag_b)
+                '//====================================================================//
 
 
-        End Function
+                '------------------------------------------------------------------------------------------
+                    '1.1    SET VARIABILI, OPEN DB, CONTROLLO OGGETTO NEL DB
 
-        '//*** FINE ***
-        '//Controlla_SE_OGGETTO_TABELLA_ESISTE_pFunct = CONTROLLO ESISTENZA OGGETTO TABELLA
-        '//--------------------------------------------------------------------------------//---//
+                            'OPEN DB: Apre il database scelto per la creazione o cancellazione
+                            '         con il parametro Option = false per indicare che l'apertura è condivisa /
+                            '                          Option = True apertura esclusiva
 
+                        If par_sx_Scelta_db = "" Then
+                                'apro il db corrente se non viene indicato un database esterno
+                                Set dbs = CurrentDb
+                            Else
+                                'apro un database esterno con la path >0 passata con i parametri
+                                Set dbs = OpenDatabase(par_sx_Scelta_db, False)
+                        End If
 
-        '//Controlla_SE_OGGETTO_QUERY_ESISTE_pFunct = CONTROLLO ESISTENZA OGGETTO QUERY
-        '//--------------------------------------------------------------------------------//---//
-        Public Function Controlla_SE_OGGETTO_QUERY_ESISTE_pFunct(par_sxNameQuery As String)
+                    Select Case par_sTipo_Oggetto
 
+                        '//- CONTROLLO TABELLE -
+                        '//CHIAVE =====> modulo:controllo-tabelle
+                        Case Is = "Cmd_Elenco_Tabelle"
 
-            Dim obj As AccessObject
-            Dim dbs As Object
-
-            Dim objAllQueries As AllQueries
-
-              '//Variabile database corrente + reset
-            Set dbs = Application.CurrentData
-            Controlla_SE_OGGETTO_QUERY_ESISTE_pFunct = False            '//imposto a ricerca fallita
-
-
-            'Search for open AccessObject objects in AllForms collection.
-            For Each obj In dbs.AllQueries
-
-                    ' Print name of obj.
-                    Debug.Print obj.Name
-                    formName_s = obj.Name
-
-                    '//CONTROLLO SUL NOME
-                    If formName_s = par_sxNameQuery Then
-
-                       '//Se esiste la query restituisco True
-
-                       Controlla_SE_OGGETTO_QUERY_ESISTE_pFunct = True
-
-                       Exit For
-
-                    End If
-
-             Next obj
+                                '02.ITERAZIONE NEL GRUPPO OGGETTI TABLEDEFS ..LE TABELLE DEL DB
+                                '______________________________________________________________________________
+                                '02.01 - OGGETTI QUERY
 
 
-        End Function
+                                    'pulisco la tabella degli OGGETTI TABELLA
+                                    sSql = ""
+                                    sSql = sSql & "DELETE MSsys_TABELLE_Qry01_01_TUTTE.*"
+                                    sSql = sSql & "FROM MSsys_TABELLE_Qry01_01_TUTTE "
+                                    sSql = sSql & "WITH OWNERACCESS OPTION;"
 
-        '//*** FINE ***
-        '//Controlla_SE_OGGETTO_QUERY_ESISTE_pFunct = CONTROLLO ESISTENZA OGGETTO QUERY
-        '//--------------------------------------------------------------------------------//---//
+                                    CurrentDb.Execute (sSql)
 
-        Public Function CONTROLLA_OGGETTO_pFunction(ByVal NameObject_s As String) As String
+                                    '03.01 - APRO LA TABELLA
+                                    'apro la tabella per il salvataggio delle query + effettuo il _
+                                    controllo sulla stringa sql
+                                    Debug.Print "---------------------------------------------------------------"
+                                    Debug.Print "CONTROLLO STRINGA SQL                                          "
+                                    Debug.Print
+                                    Set ApriRs = dbs.OpenRecordset("MSsys_TABELLE_Qry01_01_TUTTE")
 
 
-                Dim obj As Object
-                Dim frm As Form
-                    Dim ctrl As Control
+                                    With dbs
 
-                    '//impsto il valore a non trovato
-                    CONTROLLA_OGGETTO_pFunction = "NON TROVATO"
+                                        '//reset
+                                        icount = 0
 
-                    For Each obj In CurrentProject.AllForms
-                        If InStr(obj.Name, "MODELLO_Frm01_M01_GE_FILTRO_M15_H15_L35_NoButton") Then Debug.Print "Forms|" & obj.Name
+                                        '//stampa di controllo
+                                        Debug.Print .TableDefs.Count & _
+                                            " TableDefs in database  " & sx_Scelta_db
 
-                            'Trovato l'oggetto nel db corrente
-                            CONTROLLA_OGGETTO_pFunction = "TROVATO"
 
-                        'Set frm = Forms(obj.Name) '- this had problems as well, so I commented out
-                        For Each ctrl In Forms(obj.Name).Controls
-                            If InStr(ctrl.Name, "LBL_FILTRO_01") Then Debug.Print "Form|" & obj.Name & "|" & ctrl.Name
-                        Next ctrl
-                    Next obj
+                                        For intCiclo = 0 To .TableDefs.Count - 1
+                                                Debug.Print "  " & .TableDefs(intCiclo).Name
+
+                                                '03.02 - SALVATAGGIO NOME OGGETTO TABELLA NELLA TABELLA DEL DB
+                                                '................................................................
+                                                    ApriRs.AddNew
+                                                    ApriRs.Fields("Name1_s") = .TableDefs(intCiclo).Name
+
+                                                    '//NRO di oggetto
+                                                    icount = icount + 1         '//aggiorno il contatore oggetti delle tabelle
+                                                    ApriRs.Fields("NRO_OGGETTO_i") = icount
+                                                    '//Tipo di oggetto caricato = FORM
+                                                    ApriRs.Fields("TIPOGGETTO_s") = "TABLE"
+
+                                                    '//SALVATAGGIO DEGLI ATTRIBUTI DELLA TABELLA - proprieta Attributes
+                                                    ApriRs.Fields("Attribute_lng") = .TableDefs(intCiclo).Attributes
+
+                                                        '//CONTROLLO OGGETTO TABELLA
+                                                        '//-----------------------------------------------------------
+
+                                                            '//controllo degli attributi
+                                                            Debug.Print "LA TABELLA "
+                                                            Debug.Print .TableDefs(intCiclo).Name
+
+                                                            Debug.Print "controllo attributi della tabella"
+                                                            Debug.Print .TableDefs(intCiclo).Attributes
+
+                                                        '//-----------------------------------------------------------
+                                                    ApriRs.Update
+                                                '................................................................
+
+
+
+                                            '03.03 .... definire
+                                            If .TableDefs(intCiclo).Name = par_sx_Name_Tab Then
+                                                Bln1 = True    ' bx_Flag_b True = trovato tabelle si può cancellare
+                                                SALVATAGGIO_OGGETTI_DB_PFunct = Bln1 'riassegno alla funzione il valore del bx_Flag_b
+                                                GoTo Exit_SALVATAGGIO_OGGETTI_DB_PFunct  'esci
+                                            Else
+                                                Bln1 = False   ' bx_Flag_b False = non trovato TABELLA
+                                                SALVATAGGIO_OGGETTI_DB_PFunct = Bln1 'riassegno alla funzione il valore del bx_Flag_b
+                                            End If
+
+                                        Next intCiclo
+
+                                    End With
+
+                       ' - CONTROLLO QUERY -
+                        Case Is = "Cmd_Elenco_Query"
+                            '//CHIAVE =====> modulo:controllo-Query
+
+                                '//ITERAZIONE QUERYDEFS <<LE QUERY>>
+                                '//====================================================================================================//
+                                'OGGETTI QUERY
+                                'CONTROLLO OGGETTO NEL DB: Controllo l'esistenza della QUERY
+
+
+                                'pulisco la tabella delle query prima del salvataggio dei nuovi nomi
+                                CurrentDb.Execute ("DELETE MSsys_QUERY_Qry01_01_TUTTE.* FROM MSsys_QUERY_Qry01_01_TUTTE;")
+
+                                'apro la tabella per il salvataggio delle query
+                                Set ApriRs = dbs.OpenRecordset("MSsys_QUERY_Qry01_01_TUTTE") '// perche non funziona??? da errore
+
+                                'itero nel db
+                                        With dbs
+
+                                            '//RESET VARIABILI CICLO
+                                            icount = 0      '//contatore numero oggetti query
+
+
+                                            Debug.Print .QueryDefs.Count & _
+                                                " QueryDefs in database  " & sx_Scelta_db
+
+
+                                        '//CICLO OGGETTI QUERY
+                                        '//------------------------------------------------------------------------------//
+                                        For intCiclo = 0 To .QueryDefs.Count - 1
+
+                                                'controlli
+                                                '................................................................
+
+
+                                                        Debug.Print "-----------------------------------------------------------"
+                                                        Debug.Print
+                                                                    '//stampo il nome della query + il contentuto sql
+                                                                    Debug.Print " stampo il NOME DELLA QUERY"
+                                                                    Debug.Print "  " & .QueryDefs(intCiclo).Name
+
+                                                                    '//AGGIORNAMENTO_DEL_28_02_2020
+                                                                    'Stampo il contenuto sql della query
+                                                                    Debug.Print
+                                                                    Debug.Print "  " & .QueryDefs(intCiclo).SQL
+
+                                                                    '//AGGIORNAMENTO_DEL_28_02_2020
+                                                                    '//stampo il tipo di query scelta direttamente
+                                                                    Debug.Print "IL TIPO DELLA Query"
+                                                                    Debug.Print "  " & .QueryDefs(intCiclo).Type
+
+                                                        Debug.Print "-----------------------------------------------------------"
+                                                        Debug.Print
+
+
+                                                '................................................................
+
+                                                    'SALVATAGGIO NOME QUERY
+                                                    '................................................................
+                                                        '//AGGIORNAMENTO_DEL_28_02_2020
+                                                        '//Aggiorno il numero oggetto query salvati nel campo della tabella _
+                                                        dei salvataggi del nro query.
+                                                        icount = icount + 1         '//aggiorno il contatore oggetti delle query
+
+
+                                                        ApriRs.AddNew
+                                                        '//aggiugno alla tabella il nome della query + il contenuto sql
+                                                        ApriRs.Fields("Name1_s") = .QueryDefs(intCiclo).Name
+                                                        ApriRs.Fields("IdOrd_lng") = icount
+
+                                                        '//Tipo di oggetto caricato = QUERY
+                                                        ApriRs.Fields("TIPOGGETTO_s") = "QUERY"
+
+                                                        '//AGGIORNAMENTO_DEL_28_02_2020
+                                                        '//SQL + TIPO DI QUERY
+                                                        ApriRs.Fields("Expression_m") = .QueryDefs(intCiclo).SQL
+
+
+                                                        ApriRs.Update
+
+
+
+
+                                                        '03.02 - SALVATAGGIO NOME OGGETTO TABELLA NELLA TABELLA DEL DB
+                                                '................................................................
+
+
+
+                                                    '................................................................
+
+                                                'controllo nome query passata con parametro
+                                                If .QueryDefs(intCiclo).Name = par_sx_Name_Query Then
+
+                                                    Bln1 = True    ' bx_Flag_b True = trovato QUERY
+
+                                                    'stampo il contenuto della query scelta direttamente _
+                                                    solo se esiste la query ricercata.
+                                                    Debug.Print "  " & .QueryDefs(par_sx_Name_Query).SQL
+
+
+                                                    'recupero il contenuto della query
+                                                    SALVATAGGIO_OGGETTI_DB_PFunct = .QueryDefs(intCiclo).SQL
+
+
+                                                    GoTo Exit_SALVATAGGIO_OGGETTI_DB_PFunct  'esci
+                                                Else
+                                                    Bln1 = False   ' bx_Flag_b False = non trovato QUERY
+                                                    SALVATAGGIO_OGGETTI_DB_PFunct = Bln1 'riassegno alla funzione il valore del bx_Flag_b
+                                                End If
+
+                                            Next intCiclo
+
+                                        '//CICLO OGGETTI QUERY  --> Next intCiclo *** fine ***
+                                        '//------------------------------------------------------------------------------//
+
+                                        End With
+                                '//ITERAZIONE QUERYDEFS <<LE QUERY>>   *** FINE ***
+                                '//====================================================================================================//
+
+
+
+                       'CICLO NEGLI OGGETTI FORMS
+                       Case Is = "Cmd_Elenco_Forms"
+                       '//CHIAVE =====> modulo:controllo-forms
+
+
+
+
+                                '//ITERAZIONE FORMS DEFS <<LE FORMS>>
+                                '//==============================================================================================================//
+                                '//OGGETTI FORMS
+                                '//CONTROLLO OGGETTO NEL DB: Controllo l'esistenza della FORMS
+
+
+                                    'Dim obj As AccessObject, obj_Oggetto As Object
+                                    Set obj_Oggetto = Application.CurrentProject
+
+                                     '//RESET DELLE VARIABILI
+                                    intCiclo = 0
+                                    icount = 0
+
+                                    'NOME form prorvvisoria ca controllare, poi cancellare
+                                    par_sx_Name_FORM = "form ??? da definire"
+
+
+                                    'apro la tabella per il salvataggio delle query
+                                    Set ApriRs = dbs.OpenRecordset("MSsys_FORM_Qry01_01_TUTTE")
+
+
+                                    '//RESET DELLE VARIABILI
+                                    intCiclo = 0
+                                    icount = 0
+
+                                    'pulisco la tabella delle FORMS prima del salvataggio dei nuovi nomi
+                                    CurrentDb.Execute ("DELETE MSsys_FORM_Qry01_01_TUTTE.* FROM MSsys_FORM_Qry01_01_TUTTE;")
+
+
+
+                                '//ITERAZIONE FORMS DEFS <<LE FORMS>>
+                                '______________________________________________________________________________
+                                '//OGGETTI FORMS
+                                '//CONTROLLO OGGETTO NEL DB: Controllo l'esistenza della FORMS
+
+
+
+                                'itero nel db
+                                With dbs
+
+
+
+                                '//ITERAZIONE Forms DEFS <<LE FORMS>> - CONTROLLO FORM -
+                                '//______________________________________________________________________________
+                                '//OGGETTI FORMS
+                                '//CONTROLLO OGGETTO NEL DB: Controllo l'esistenza della Forms
+
+                                        For Each obj In obj_Oggetto.AllForms
+
+
+                                                'SALVATAGGIO NOME Forms
+                                                '................................................................
+                                                '//AGGIORNAMENTO_DEL_28_02_2020
+                                                '//Aggiorno il numero oggetto Forms  salvati nel campo della tabella _
+                                                dei salvataggi del nro Forms.
+
+                                                  ApriRs.AddNew
+
+                                                    'CONTROLLO DEI NOMI DELE FORMS
+                                                    '................................................................
+
+                                                            '//Search for open AccessObject objects in AllForms collection. _
+                                                            con la proprieta IsLoad = esegui il controllo delle Forms Aperti _
+                                                            mentre senza questa condizione, vengono iterati tutti gli oggetti _
+                                                            Report del Db. Per le Forms APERTI O CARICATI  viene impostata la _
+                                                            proprieta IsLoaded = True mentre per quelli chiusi è impostata a _
+                                                            FALSE. _
+                                                            È possibile utilizzare la proprietà IsLoaded per determinare se _
+                                                            un oggetto AccessObject è attualmente caricato. Valore Boolean in sola lettura.
+
+
+                                                                        Debug.Print "  " & obj.Name
+                                                                        Debug.Print "  " & obj.Type
+
+                                                                         '//Tipo di oggetto caricato = QUERY
+                                                                         ApriRs.Fields("TIPOGGETTO_s") = "FORMS"
+
+
+
+                                                            '//obj.Type = 2 LA FORMS
+                                                            If obj.Type = 2 Then
+
+                                                                    If obj.IsLoaded = True Then
+
+                                                                           '//aggiugno alla tabella il nome della FORM solo se oggetto di tipo 2
+                                                                            ApriRs.Fields("Name1_s") = obj.Name
+
+                                                                            Debug.Print "FORM APERTA = " & obj.Name
+                                                                            Debug.Print "  " & obj.Name
+                                                                            Debug.Print "Nro : " & icount
+                                                                            ApriRs.Fields("PROPRIETA_s") = "True"
+                                                                            ApriRs.Fields("VALOREPROPRIETA_m") = "FORM APERTA"
+
+                                                                             icount = icount + 1         '//aggiorno il contatore oggetti delle Forms
+                                                                             Debug.Print "Nro : " & icount
+
+                                                                             '//NRO di oggetto
+                                                                             ApriRs.Fields("IdOrd_lng") = icount
+
+
+
+                                                                    Else
+
+                                                                            '//aggiugno alla tabella il nome della FORM solo se oggetto di tipo 2
+                                                                            ApriRs.Fields("Name1_s") = obj.Name
+
+
+                                                                            Debug.Print "FORM NON APERTO ---> " & obj.Name
+                                                                            ApriRs.Fields("PROPRIETA_s") = "FALSE"
+                                                                            ApriRs.Fields("VALOREPROPRIETA_m") = "FORM CHIUSA"
+
+                                                                             icount = icount + 1         '//aggiorno il contatore oggetti delle Forms
+                                                                             Debug.Print "Nro : " & icount
+
+                                                                             '//NRO di oggetto
+                                                                             ApriRs.Fields("IdOrd_lng") = icount
+
+                                                                    End If
+                                                            End If
+
+
+                                                    '................................................................
+
+                                                  ApriRs.Update
+                                                '................................................................
+
+                                        Next obj
+
+                                    End With
+
+                    '//ITERAZIONE FORMS DEFS <<LE FORMS>>    *** FINE ***
+                    '//==============================================================================================================//
+
+                                    '**************************************************************
+
+
+
+                      'CICLO NEGLI OGGETTI REPORTS
+                       Case Is = "Cmd_Elenco_Reports"
+                        '//CHIAVE =====> modulo:controllo-Report
+                        '//Aggiornamento 22 MARZO 2020
+
+                                '//ITERAZIONE FORMS DEFS <<LE FORMS>>
+                                '//______________________________________________________________________________
+                                '//OGGETTI FORMS
+                                '//CONTROLLO OGGETTO NEL DB: Controllo l'esistenza della FORMS
+
+
+
+                                    'Dim obj As AccessObject, obj_Oggetto As Object
+                                    Set obj_Oggetto = Application.CurrentProject
+
+                                    '//RESET DELLE VARIABILI
+                                    intCiclo = 0
+                                    icount = 0
+
+                                    'pulisco la tabella delle FORMS prima del salvataggio dei nuovi nomi
+                                    CurrentDb.Execute ("DELETE MSsys_REPORT_Qry01_01_TUTTI.* FROM MSsys_REPORT_Qry01_01_TUTTI;")
+
+                                    'apro la tabella per il salvataggio dei REPORT
+                                    Set ApriRs = dbs.OpenRecordset("MSsys_REPORT_Qry01_01_TUTTI")
+
+
+                                '//ITERAZIONE FORMS DEFS <<LE FORMS>>
+                                '______________________________________________________________________________
+                                '//OGGETTI FORMS
+                                '//CONTROLLO OGGETTO NEL DB: Controllo l'esistenza della FORMS
+
+
+
+                                'itero nel db
+                                With dbs
+
+
+
+                                '//ITERAZIONE REPORTS DEFS <<I REPORT>> - CONTROLLO REPORT -
+                                '//______________________________________________________________________________
+                                '//OGGETTI REPORTS
+                                '//CONTROLLO OGGETTO NEL DB: Controllo l'esistenza della REPORTS
+
+                                        For Each obj In obj_Oggetto.AllReports
+
+
+                                                'SALVATAGGIO NOME REPORTS
+                                                '................................................................
+                                                '//AGGIORNAMENTO_DEL_28_02_2020
+                                                '//Aggiorno il numero oggetto REPORTS  salvati nel campo della tabella _
+                                                dei salvataggi del nro REPORTS.
+
+
+
+                                                  ApriRs.AddNew
+                                                    '//aggiugno alla tabella il nome della query + il contenuto sql
+                                                    ApriRs.Fields("Name1_s") = obj.Name
+
+
+
+
+                                                    'CONTROLLO DEI NOMI DEI REPORT
+                                                    '................................................................
+
+                                                            '//Search for open AccessObject objects in AllReports collection. _
+                                                            con la proprieta IsLoad = esegui il controllo dei Reports Aperti _
+                                                            mentre senza questa condizione, vengono iterati tutti gli oggetti _
+                                                            Report del Db. Per i reports APERTI O CARICATI  viene impostata la _
+                                                            proprieta IsLoaded = True mentre per quelli chiusi è impostata a _
+                                                            FALSE. _
+                                                            È possibile utilizzare la proprietà IsLoaded per determinare se _
+                                                            un oggetto AccessObject è attualmente caricato. Valore Boolean in sola lettura.
+
+
+                                                                        Debug.Print "  " & obj.Name
+                                                                        Debug.Print "  " & obj.Type
+
+                                                                        '//Tipo di oggetto caricato = REPORTS
+                                                                        ApriRs.Fields("TIPOGGETTO_s") = "REPORTS"
+
+                                                            '//obj.Type = 3 LA FORMS
+                                                            If obj.Type = 3 Then
+
+                                                                    If obj.IsLoaded = True Then
+
+
+                                                                            Debug.Print "REPORT APERTO = " & obj.Name
+                                                                            Debug.Print "  " & obj.Name
+                                                                            Debug.Print "Nro : " & icount
+                                                                            ApriRs.Fields("PROPRIETA_s") = "True"
+                                                                            ApriRs.Fields("VALOREPROPRIETA_m") = "FORM APERTA"
+
+                                                                             icount = icount + 1         '//aggiorno il contatore oggetti delle REPORTS
+                                                                             Debug.Print "Nro : " & icount
+
+                                                                             '//NRO di oggetto
+                                                                             ApriRs.Fields("IdOrd_lng") = icount
+
+
+
+                                                                    Else
+                                                                            Debug.Print "REPORT NON APERTO ---> " & obj.Name
+                                                                            ApriRs.Fields("PROPRIETA_s") = "FALSE"
+                                                                            ApriRs.Fields("VALOREPROPRIETA_m") = "FORM CHIUSA"
+
+                                                                             icount = icount + 1         '//aggiorno il contatore oggetti delle REPORTS
+                                                                             Debug.Print "Nro : " & icount
+
+                                                                             '//NRO di oggetto
+                                                                             ApriRs.Fields("IdOrd_lng") = icount
+
+                                                                    End If
+                                                            End If
+
+                                                    '................................................................
+
+
+
+
+
+                                                  ApriRs.Update
+                                                '................................................................
+
+
+
+
+                                        Next obj
+
+                                    End With
+
+
+
+                                '//ITERAZIONE REPORTS DEFS <<I REPORT>>
+                                '//______________________________________________________________________________
+
+
+                       'CICLO NEGLI OGGETTI MACRO - CONTROLLO MACRO -
+                       Case Is = "Cmd_Elenco_MACRO"
+                        '//CHIAVE =====> modulo:controllo-Macro
+                        '//Aggiornamento 22 MARZO 2020
+
+                                '//ITERAZIONE MACRO DEFS <<LE MACRO>>
+                                '//______________________________________________________________________________
+                                '//OGGETTI MACRO
+                                '//CONTROLLO OGGETTO NEL DB: Controllo l'esistenza della MACRO
+
+
+
+                                    'Dim obj As AccessObject, obj_Oggetto As Object
+                                    Set obj_Oggetto = Application.CurrentProject
+
+                                    '//RESET DELLE VARIABILI
+                                    intCiclo = 0
+                                    icount = 0
+
+                                    'pulisco la tabella delLE MACRO prima del salvataggio dei nuovi nomi
+                                    CurrentDb.Execute ("DELETE MSsys_MACRO_Qry01_01_TUTTE.* FROM MSsys_MACRO_Qry01_01_TUTTE;")
+
+                                    'apro la tabella per il salvataggio dei Macro
+                                    Set ApriRs = dbs.OpenRecordset("MSsys_MACRO_Qry01_01_TUTTE")
+
+
+                                '//ITERAZIONE MACRO DEFS <<LE MACRO>>
+                                '______________________________________________________________________________
+                                '//OGGETTI MACRO
+                                '//CONTROLLO OGGETTO NEL DB: Controllo l'esistenza della MACRO
+
+
+
+                                'itero nel db
+                                With dbs
+
+
+
+                                '//ITERAZIONE MACRO DEFS <<I Macro>>
+                                '//______________________________________________________________________________
+                                '//OGGETTI MACRO
+                                '//CONTROLLO OGGETTO NEL DB: Controllo l'esistenza della MACRO
+
+                                        For Each obj In obj_Oggetto.AllMacros
+
+
+                                                'SALVATAGGIO NOME MACRO
+                                                '................................................................
+                                                '//AGGIORNAMENTO_DEL_28_02_2020
+                                                '//Aggiorno il numero oggetto MACRO  salvati nel campo della tabella _
+                                                dei salvataggi del nro MACRO.
+
+
+
+                                                  ApriRs.AddNew
+                                                    '//aggiugno alla tabella il nome della query + il contenuto sql
+                                                    ApriRs.Fields("Name1_s") = obj.Name
+
+
+
+
+
+                                                    'CONTROLLO DEI NOMI DEI Macro
+                                                    '................................................................
+
+                                                            '//Search for open AccessObject objects in AllMACRO collection. _
+                                                            con la proprieta IsLoad = esegui il controllo dei MACRO Aperti _
+                                                            mentre senza questa condizione, vengono iterati tutti gli oggetti _
+                                                            Macro del Db. Per i MACRO APERTI O CARICATI  viene impostata la _
+                                                            proprieta IsLoaded = True mentre per quelli chiusi è impostata a _
+                                                            FALSE. _
+                                                            È possibile utilizzare la proprietà IsLoaded per determinare se _
+                                                            un oggetto AccessObject è attualmente caricato. Valore Boolean in sola lettura.
+
+
+                                                                        Debug.Print "  " & obj.Name
+                                                                        Debug.Print "  " & obj.Type
+
+                                                                        '//Tipo di oggetto caricato = MACRO
+                                                                        ApriRs.Fields("TIPOGGETTO_s") = "MACRO"
+
+
+                                                            '//obj.Type = 4 LA MACRO
+                                                            If obj.Type = 4 Then
+
+
+
+
+                                                                            Debug.Print "Macro APERTO = " & obj.Name
+                                                                            Debug.Print "  " & obj.Name
+                                                                            Debug.Print "Nro : " & icount
+                                                                            'ApriRs.Fields("PROPRIETA_s") = "True"
+                                                                            'ApriRs.Fields("VALOREPROPRIETA_m") = "FORM APERTA"
+
+                                                                             icount = icount + 1         '//aggiorno il contatore oggetti delle MACRO
+                                                                             Debug.Print "Nro : " & icount
+
+                                                                             '//NRO di oggetto
+                                                                             ApriRs.Fields("IdOrd_lng") = icount
+
+
+
+
+                                                            End If
+
+                                                    '................................................................
+
+
+
+
+
+                                                  ApriRs.Update
+                                                '................................................................
+
+
+
+
+                                        Next obj
+
+                                    End With
+
+
+
+                                '//ITERAZIONE MACRO DEFS <<I Macro>>
+                                '//______________________________________________________________________________
+
+
+
+                            Case Else
+                                    MsgBox "Scelta comando non effettuata", vbExclamation
+                                     GoTo Exit_SALVATAGGIO_OGGETTI_DB_PFunct
+                        End Select
+                                    'chiudo i rs aperti + Rilascio la memoria
+                                    ApriRs.Close
+                                    Set ApriRs = Nothing
+
+
+
+            '------------------------------------------------------------------------------
+            '                       FINE FUNCTIONE E GESTIONE ERRORI
+
+                Exit_SALVATAGGIO_OGGETTI_DB_PFunct:
+                    dbs.Close
+                    Set dbs = Nothing
+                    Exit Function
+
+
+                Err_SALVATAGGIO_OGGETTI_DB_PFunct:
+                    MsgBox "ERRORE FUNCTION PUBLIC    " & Err.Number & " - " & Err.Description, vbCritical, "SALVATAGGIO_OGGETTI_DB_PFunct"
+                    Resume Exit_SALVATAGGIO_OGGETTI_DB_PFunct
 
                 End Function
 
-
-
-        '//*** FINE ***
-        '//FUNZIONE_DI_CONTROLLO_DELLA_ESISTENZA_DEL_SINGOLO_OGGETTO_NEL_DB_CORRENTE
-        '//=======================================================================================================//
-
-
-
-        '//CODICE-->Controlla_SE_OGGETTO_FORM_E_APERTA_pFunct.01
-        '//FUNZIONE_DI_CONTROLLO_DELLA_FORM_GESTIONE_APERTA.01
-        '//=======================================================================================================//
-        '//SI TROVA NEL MODULO -> GEST_FrmM00_GESTIONE_Mdl01_ControlloFormAperta
-
-        Public Function Controlla_SE_OGGETTO_FORM_E_APERTA_pFunct(NameForm_s As String) As Boolean
-
-
-        On Error GoTo Controlla_SE_OGGETTO_FORM_E_APERTA_pFunct_Err
-
-
-
-                '//FUNZIONE DELLA CLASSE PER IL CONTROLLO SE LA FORM E' APERTA
-                '//############################################################################################################################//
-
-                        '//ISTANZIO LA CLASSE PER IL CONTROLLO DELLA FORM APERTA
-                        '//.....................................................................................................
-
-
-                            '//IMPOSTO LA VARIABILE OGGETTO = per l'utilizzo della classe e le altre variabili
-                                '//--> Dim MyCls_CLASSE_ATTI_Tb01_Gestione As CLASSE_ATTI_Tb01_Gestione
-                                '//--> Dim FormAperta_b As Boolean
-
-                            '// RESET DELLE VARIABILI
-                                '//--> FormAperta_b = false
-
-                            '//ISTANZIO LA CLASSE = MyCls_CLASSE_GESTIONE_OGGETTI_FORM assegnando _
-                               l 'oggetto di classe alla variabile e creo creo l'oggetto di classe
-                                '//--> Set MyCls_CLASSE_ATTI_Tb01_Gestione = New CLASSE_ATTI_Tb01_Gestione
-
-                            '//PATH O FILE = Inserire o una path oppure una path+file con percoso esteso.
-                                'Str1 = "**** DEVI INSERIRE IL NOME DELLA FORM DA CONTROLLARE ***"
-
-                                '// LA FUNZIONE RESTITUISCE TRUE SE E' APERTA ALTRIMENTI FALSE
-                                '//--> FormAperta_b = MyCls_CLASSE_ATTI_Tb01_Gestione.Controlla_SE_OGGETTO_FORM_E_APERTA_pFunct (Str1)
-
-
-
-                            '//RILASCIO LA MEMORIA = rilascio l'oggetto ed attivo il distruttore della classe
-                                '//--> Set MyCls_CLASSE_ATTI_Tb01_Gestione = Nothing
-
-
-                        '//.....................................................................................................
-
-
-                '//*** FINE ***
-                '//FUNZIONE DELLA CLASSE PER IL CONTROLLO SE LA FORM E' APERTA
-                '//############################################################################################################################//
-
-
-
-
-        '//FUNZIONE_DI_CONTROLLO_DELLA_FORM_GESTIONE_APERTA.01_Esegui
-        '//__________________________________________________________________________________________//
-
-            Dim formName_s As String
-            Dim ctl As Control
-
-            '//reset
-            FormGestione_b = False
-
-
-            'application.Form[GEST_FrmM00_GESTIONE].
-            Dim obj As AccessObject, dbs As Object
-            Set dbs = Application.CurrentProject
-            ' Search for open AccessObject objects in AllForms collection.
-            For Each obj In dbs.AllForms
-
-                If obj.IsLoaded = True Then
-                    ' Print name of obj.
-                    Debug.Print obj.Name
-                    formName_s = obj.Name
-
-                    '//CONTROLLO SUL NOME
-                    If formName_s = "GEST_FrmM00_GESTIONE" Then
-
-                       '//FormGestione_b = true per indicare che la form è aperta e restituisco il nome della form _
-                       alla routine chiamante
-                       FormGestione_b = True
-                       Controlla_SE_OGGETTO_FORM_E_APERTA_pFunct = True
-
-                    End If
-
-                End If
-            Next obj
-
-                Set obj = Nothing
-                Set dbs = Nothing
-                Set ctl = Nothing
-                formName_s = vbNull
-
-        '//FUNZIONE_DI_CONTROLLO_DELLA_FORM_GESTIONE_APERTA.01_Esegui *** fine ***
-        '//__________________________________________________________________________________________//
-
-
-
-
-        '// USCITA E CONTROLLO ERRORI
-        '//__________________________________________________________________________________________//
-
-
-Controlla_SE_OGGETTO_FORM_E_APERTA_pFunct_Exit:
-            Exit Function
-
-Controlla_SE_OGGETTO_FORM_E_APERTA_pFunct_Err:
-            MsgBox Error$
-            Resume Controlla_SE_OGGETTO_FORM_E_APERTA_pFunct_Exit
-
-
-        End Function
-        '//*** FINE ***
-        '//FUNZIONE_DI_CONTROLLO_DELLA_FORM_GESTIONE_APERTA
-        '//=======================================================================================================//
-
-
-
-
-'//###########################################################################################################//
-'//####
-'//####                             PROCEDURE DI CONTROLLO *** FINE ***
-'//#### CONTROLLO/ CONTROLLA...
-'//###########################################################################################################//
-
-
-
-
-
-
-
-'//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@//
-'//                                             ESPORTAZIONI DATI PER IL SETTORE LAVORI PUBBLICI
-'//
-'//NOTE :ESPORTA LE TABELE XLS ESISTENTI        14.08.2020 del settore lavori pubblici.
-
-'//      ATTIVA IN VISUALIZZAZIONE LE QUERY ESISTENTI
-'//     TODO: non gestisce le tabelle collegate, da errore se esistono. Per il momento le tabelle collegate non funzionanti _
-              sono state cancellate. _
-              GESTIRE LE TABELLE COLLEGATE!!!!
-'//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@//
-
-
-
-
-'//             AGGIORNA I DATI CON LE QUERY ED ESPORTA IN MDB + XLS
-'//****************************************************************************************************************//
-'------------------------------------------------------------
-' CODICE----->AggiornaDati_ed_EsportaDati_Pfunct.ATTIVA
-' AggiornaDati_ed_EsportaDati_Pfunct
-' si trova in questo modulo                 ----> LLPP_ATTI_Mdl01_AGGIORNA_Mcr01_01_AggiornaDati+EsportaDati
-' ma sistemato all'interno della classe     ----> CLASSE_ATTI_Tb01_Gestione _
-' perchè all'interno della classe posso fare un controllo degli oggetti prima di _
-' attivare il comando Cmd; se non esistono nel db corrente da errore; ma _
-' con il controllo degli oggetti puoi attivare quelli che sono presenti.
-'------------------------------------------------------------
-Public Function AggiornaDati_ed_EsportaDati_Pfunct()
-
-    '//Variabile per le tabelle ESPORTATE E NON ESPORTATE
-    Dim MsgTabelle_ESPORTATE_s As String
-    Dim iCount_TABELLE_ESPORTATE As Integer
-    Dim MsgTabelle_NON_ESPORTATE_s As String
-    Dim iCount_NON_TABELLE_ESPORTATE As Integer
-
-
-    Dim OggettoDaRicercare_s   As String
-    Dim icount As Integer
-
-    On Error GoTo AggiornaDati_ed_EsportaDati_Pfunct_Err
-
-
-
-
-        '//RESET
-        MsgTabelle_NON_ESPORTATE_s = ""
-        icount = 0
-
-    ' AGGIORNAMENTI + ACCODAMENTI
-    ' ***********************************************************************************************************************
-    ' Note  : Eseguo l'aggiornamento dei vari argomenti di controllo.
-
-
-        '//PRES3000 AGGIORNAMENTI TABELLE PRESENZE MEDIANTE LA MACRO
-        '//=========================================================================================================
-
-
-
-            '//RIRCERCA OGGETTO NEL DB CORRENTE - Query da ricercare
-            '//.......................................................................................
-            '//NOTE : se non trova l'oggetto nel db dove si trova questa classe non esegue il comando
-
-                '//Imposto la variabile dell'ogggetto da ricercare e chiamo la funzione _
-                   di ricerca secondo il tipo di oggetto
-
-                Bool1 = False
-                OggettoDaRicercare_s = "PRES3000_Qry01_10_AGGIORNA_Campo_IDKEY_CALENDARIO"      '//Aggiorno ID nel campo idKey del calendario, per preservare la chiave univoca.
-                Bool1 = Controlla_SE_OGGETTO_QUERY_ESISTE_pFunct(OggettoDaRicercare_s)
-
-                    '//SE TRUE = oggetto esistente ed eseguo il comando
-                    If Bool1 Then
-                        '//!!!! ATTENZIONE NON GESTISCE LE TABELLE COLLEGATE SISTEMARE ????????
-
-                        '//ESEGUO IL COMANDO Docmd con 3 parametri, il nome della query + 2 variabili oggetto : _
-                        acViewNormal        0 (Impostazione predefinita) Visualizzazione Normale _
-                        acEdit              1  L'utente può visualizzare o modificare i record esistenti e aggiungere nuovi record.
-
-                        DOCMDOpenQuery_Sub OggettoDaRicercare_s, 0, 1
-
-                            '//CONTEGGIO E MSG DELLE TABELLE ESPORTATE
-                            iCount_TABELLE_ESPORTATE = iCount_TABELLE_ESPORTATE + 1
-                            MsgTabelle_ESPORTATE_s = iCount_TABELLE_ESPORTATE & ") " & MsgTabelle_ESPORTATE_s & OggettoDaRicercare_s & Chr$(13)
-                    Else
-
-                            '//CONTEGGIO E MSG DELLE TABELLE NON ESPORTATE
-                            icount = iCount_NON_TABELLE_ESPORTATE + 1
-                            MsgTabelle_NON_ESPORTATE_s = iCount_NON_TABELLE_ESPORTATE & ") " & MsgTabelle_NON_ESPORTATE_s & OggettoDaRicercare_s & Chr$(13)
-                    End If
-
-
-           '//.......................................................................................
-
-
-
-            '//*** AGGIORNO LE TIMBRATURE ***
-            '//RIRCERCA OGGETTO NEL DB CORRENTE - Query da ricercare
-            '//.......................................................................................
-            '//NOTE : se non trova l'oggetto nel db dove si trova questa classe non esegue il comando
-
-                '//Imposto la variabile dell'ogggetto da ricercare e chiamo la funzione _
-                   di ricerca secondo il tipo di oggetto
-
-                Bool1 = False
-                OggettoDaRicercare_s = "PRES3000_Qry01_11_AGGIORNA_Campo_IDKEY_GIORNALIERE"  '//Aggiorno ID nel campo timbrature giornaliere
-                Bool1 = Controlla_SE_OGGETTO_QUERY_ESISTE_pFunct(OggettoDaRicercare_s)
-
-                    '//SE TRUE = oggetto esistente ed eseguo il comando
-                    If Bool1 Then
-
-                          '//ESEGUO IL COMANDO Docmd con 3 parametri, il nome della query + 2 variabili oggetto : _
-                        acViewNormal        0 (Impostazione predefinita) Visualizzazione Normale _
-                        acEdit              1  L'utente può visualizzare o modificare i record esistenti e aggiungere nuovi record.
-
-                           DOCMDOpenQuery_Sub OggettoDaRicercare_s, 0, 1
-
-                            '//CONTEGGIO E MSG DELLE TABELLE ESPORTATE
-                            iCount_TABELLE_ESPORTATE = iCount_TABELLE_ESPORTATE + 1
-                            MsgTabelle_ESPORTATE_s = iCount_TABELLE_ESPORTATE & ") " & MsgTabelle_ESPORTATE_s & OggettoDaRicercare_s & Chr$(13)
-                    Else
-
-                            '//CONTEGGIO E MSG DELLE TABELLE NON ESPORTATE
-                            icount = iCount_NON_TABELLE_ESPORTATE + 1
-                            MsgTabelle_NON_ESPORTATE_s = iCount_NON_TABELLE_ESPORTATE & ") " & MsgTabelle_NON_ESPORTATE_s & OggettoDaRicercare_s & Chr$(13)
-                    End If
-
-
-           '//.......................................................................................
-
-
-        '//PRES3000 AGGIORNAMENTI TABELLE PRESENZE MEDIANTE LA MACRO*** FINE ***
-        '//=========================================================================================================
-
-
-
-
-        '//AGGIORNAMENTI
-        '//=========================================================================================================
-
-
-            '//INTESTATARI Aggiorna tabella INTESTARI - campo ->Argomento
-            '//================================================================================================================================//
-
-                    '//.......................................................................................
-                    '//NOTE : se non trova l'oggetto nel db dove si trova questa classe non esegue il comando
-
-                        '//Imposto la variabile dell'ogggetto da ricercare e chiamo la funzione _
-                           di ricerca secondo il tipo di oggetto
-
-                        Bool1 = False
-                        OggettoDaRicercare_s = "AGGIORNA_INTESTATARI_QyN01-01_Campo_Argomento"    '//AGGIORNA = la tabella INTESTARI - campo ->Argomento
-                        Bool1 = Controlla_SE_OGGETTO_QUERY_ESISTE_pFunct(OggettoDaRicercare_s)
-
-                            '//SE TRUE = oggetto esistente ed eseguo il comando
-                            If Bool1 Then
-
-                                '//ESEGUO IL COMANDO Docmd con 3 parametri, il nome della query + 2 variabili oggetto : _
-                                acViewNormal        0 (Impostazione predefinita) Visualizzazione Normale _
-                                acEdit              1  L'utente può visualizzare o modificare i record esistenti e aggiungere nuovi record.
-
-
-                            DOCMDOpenQuery_Sub OggettoDaRicercare_s, 0, 1
-
-                            '//CONTEGGIO E MSG DELLE TABELLE ESPORTATE
-                            iCount_TABELLE_ESPORTATE = iCount_TABELLE_ESPORTATE + 1
-                            MsgTabelle_ESPORTATE_s = iCount_TABELLE_ESPORTATE & ") " & MsgTabelle_ESPORTATE_s & OggettoDaRicercare_s & Chr$(13)
-                    Else
-
-                            '//CONTEGGIO E MSG DELLE TABELLE NON ESPORTATE
-                            icount = iCount_NON_TABELLE_ESPORTATE + 1
-                            MsgTabelle_NON_ESPORTATE_s = iCount_NON_TABELLE_ESPORTATE & ") " & MsgTabelle_NON_ESPORTATE_s & OggettoDaRicercare_s & Chr$(13)
-                    End If
-
-
-
-                   '//.......................................................................................
-
-
-           '//================================================================================================================================//
-
-
-            '//TABELLA ATTI AGGIORNAMENTI
-            '//************************************************************************************************************************************//
-
-
-                    '//01) Aggiorna tabella TABELLA ATTI - campo ->IDKeyArch+IdOrd e contestualmente aggiorno la descrizione opera - campo ->DescrCodOpera_s
-                    '//.......................................................................................
-                    '//NOTE : se non trova l'oggetto nel db dove si trova questa classe non esegue il comando
-
-                        '//Imposto la variabile dell'ogggetto da ricercare e chiamo la funzione _
-                           di ricerca secondo il tipo di oggetto
-
-                        Bool1 = False
-                        OggettoDaRicercare_s = "LLPP_ATTI_Qy01-01_Gestione_AGGIORNA_IDKeyArch+IdOrd"    '//AGGIORNA = campi ->IDKeyArch+IdOrd+DescrCodOpera_s
-                        Bool1 = Controlla_SE_OGGETTO_QUERY_ESISTE_pFunct(OggettoDaRicercare_s)
-
-                            '//SE TRUE = oggetto esistente ed eseguo il comando
-                            If Bool1 Then
-
-                                '//ESEGUO IL COMANDO Docmd con 3 parametri, il nome della query + 2 variabili oggetto : _
-                                acViewNormal        0 (Impostazione predefinita) Visualizzazione Normale _
-                                acEdit              1  L'utente può visualizzare o modificare i record esistenti e aggiungere nuovi record.
-
-
-                                    DOCMDOpenQuery_Sub OggettoDaRicercare_s, 0, 1
-
-                                    '//CONTEGGIO E MSG DELLE TABELLE ESPORTATE
-                                    iCount_TABELLE_ESPORTATE = iCount_TABELLE_ESPORTATE + 1
-                                    MsgTabelle_ESPORTATE_s = iCount_TABELLE_ESPORTATE & ") " & MsgTabelle_ESPORTATE_s & OggettoDaRicercare_s & Chr$(13)
-                            Else
-
-                                    '//CONTEGGIO E MSG DELLE TABELLE NON ESPORTATE
-                                    icount = iCount_NON_TABELLE_ESPORTATE + 1
-                                    MsgTabelle_NON_ESPORTATE_s = iCount_NON_TABELLE_ESPORTATE & ") " & MsgTabelle_NON_ESPORTATE_s & OggettoDaRicercare_s & Chr$(13)
-                            End If
-
-                   '//.......................................................................................
-
-
-
-
-                    '//02) Aggiorna tabella TABELLA ATTI - campo ->DenomFascicolo_s e la denominazione del fascicolo prendendo i dati dalla tabella [LPP_DF06_FASCICOLI].[DenomFascicolo_s]
-                    '//.......................................................................................
-                    '//NOTE : se non trova l'oggetto nel db dove si trova questa classe non esegue il comando
-
-                        '//Imposto la variabile dell'ogggetto da ricercare e chiamo la funzione _
-                           di ricerca secondo il tipo di oggetto
-
-                        Bool1 = False
-                        OggettoDaRicercare_s = "LLPP_ATTI_Qry01-06_Gestione_AGGIORNA_DenomFascicolo"    '//AGGIORNA = campi ->DenomFascicolo_s CON IL CAMPO [LPP_DF06_FASCICOLI].[DenomFascicolo_s]
-                        Bool1 = Controlla_SE_OGGETTO_QUERY_ESISTE_pFunct(OggettoDaRicercare_s)
-
-                            '//SE TRUE = oggetto esistente ed eseguo il comando
-                            If Bool1 Then
-
-                                '//ESEGUO IL COMANDO Docmd con 3 parametri, il nome della query + 2 variabili oggetto : _
-                                acViewNormal        0 (Impostazione predefinita) Visualizzazione Normale _
-                                acEdit              1  L'utente può visualizzare o modificare i record esistenti e aggiungere nuovi record.
-
-                                     DOCMDOpenQuery_Sub OggettoDaRicercare_s, 0, 1
-
-                                    '//CONTEGGIO E MSG DELLE TABELLE ESPORTATE
-                                    iCount_TABELLE_ESPORTATE = iCount_TABELLE_ESPORTATE + 1
-                                    MsgTabelle_ESPORTATE_s = iCount_TABELLE_ESPORTATE & ") " & MsgTabelle_ESPORTATE_s & OggettoDaRicercare_s & Chr$(13)
-                            Else
-
-                                    '//CONTEGGIO E MSG DELLE TABELLE NON ESPORTATE
-                                    icount = iCount_NON_TABELLE_ESPORTATE + 1
-                                    MsgTabelle_NON_ESPORTATE_s = iCount_NON_TABELLE_ESPORTATE & ") " & MsgTabelle_NON_ESPORTATE_s & OggettoDaRicercare_s & Chr$(13)
-                            End If
-                   '//.......................................................................................
-
-
-
-                    '//03) Aggiorna tabella TABELLA ATTI - campo ->ANNO l'anno di creazione del documento viene aggiornato solo se null
-                    '//.......................................................................................
-                    '//NOTE : se non trova l'oggetto nel db dove si trova questa classe non esegue il comando
-
-                        '//Imposto la variabile dell'ogggetto da ricercare e chiamo la funzione _
-                           di ricerca secondo il tipo di oggetto
-
-                        Bool1 = False
-                        OggettoDaRicercare_s = "LLPP_ATTI_Qy01-11_AGGIORNA_ANNO"    '//AGGIORNA = campo ->ANNO se > null
-                        Bool1 = Controlla_SE_OGGETTO_QUERY_ESISTE_pFunct(OggettoDaRicercare_s)
-
-                            '//SE TRUE = oggetto esistente ed eseguo il comando
-                            If Bool1 Then
-
-                                '//ESEGUO IL COMANDO Docmd con 3 parametri, il nome della query + 2 variabili oggetto : _
-                                acViewNormal        0 (Impostazione predefinita) Visualizzazione Normale _
-                                acEdit              1  L'utente può visualizzare o modificare i record esistenti e aggiungere nuovi record.
-
-                                    DOCMDOpenQuery_Sub OggettoDaRicercare_s, 0, 1
-
-                                    '//CONTEGGIO E MSG DELLE TABELLE ESPORTATE
-                                    iCount_TABELLE_ESPORTATE = iCount_TABELLE_ESPORTATE + 1
-                                    MsgTabelle_ESPORTATE_s = iCount_TABELLE_ESPORTATE & ") " & MsgTabelle_ESPORTATE_s & OggettoDaRicercare_s & Chr$(13)
-                            Else
-
-                                    '//CONTEGGIO E MSG DELLE TABELLE NON ESPORTATE
-                                    icount = iCount_NON_TABELLE_ESPORTATE + 1
-                                    MsgTabelle_NON_ESPORTATE_s = iCount_NON_TABELLE_ESPORTATE & ") " & MsgTabelle_NON_ESPORTATE_s & OggettoDaRicercare_s & Chr$(13)
-                            End If
-
-                   '//.......................................................................................
-
-
-
-            '//ATTI *** fine ***
-            '//************************************************************************************************************************************//
-
-
-
-
-            '//FALDONI + FASCICOLI *** fine ***
-            '//************************************************************************************************************************************//
-
-
-
-
-                    '//01) Aggiorna tabella TABELLA ATTI - campo ->->CodDenomFaldone_s + DenomFaldone_s + AnnoFaldone_i e la denominazione DEL FALDONE
-                    '//.......................................................................................
-                    '//NOTE : se non trova l'oggetto nel db dove si trova questa classe non esegue il comando
-
-                        '//Imposto la variabile dell'ogggetto da ricercare e chiamo la funzione _
-                           di ricerca secondo il tipo di oggetto
-
-                        Bool1 = False
-                        OggettoDaRicercare_s = "LLPP_ATTI_Qry01-06_Gestione_AGGIORNA_DenomFALDONE"    '//AGGIORNA = campi ->CodDenomFaldone_s + DenomFaldone_s + AnnoFaldone_i
-                        Bool1 = Controlla_SE_OGGETTO_QUERY_ESISTE_pFunct(OggettoDaRicercare_s)
-
-                            '//SE TRUE = oggetto esistente ed eseguo il comando
-                            If Bool1 Then
-
-                                '//ESEGUO IL COMANDO Docmd con 3 parametri, il nome della query + 2 variabili oggetto : _
-                                acViewNormal        0 (Impostazione predefinita) Visualizzazione Normale _
-                                acEdit              1  L'utente può visualizzare o modificare i record esistenti e aggiungere nuovi record.
-
-                                    DOCMDOpenQuery_Sub OggettoDaRicercare_s, 0, 1
-
-                                    '//CONTEGGIO E MSG DELLE TABELLE ESPORTATE
-                                    iCount_TABELLE_ESPORTATE = iCount_TABELLE_ESPORTATE + 1
-                                    MsgTabelle_ESPORTATE_s = iCount_TABELLE_ESPORTATE & ") " & MsgTabelle_ESPORTATE_s & OggettoDaRicercare_s & Chr$(13)
-                            Else
-
-                                    '//CONTEGGIO E MSG DELLE TABELLE NON ESPORTATE
-                                    icount = iCount_NON_TABELLE_ESPORTATE + 1
-                                    MsgTabelle_NON_ESPORTATE_s = iCount_NON_TABELLE_ESPORTATE & ") " & MsgTabelle_NON_ESPORTATE_s & OggettoDaRicercare_s & Chr$(13)
-                            End If
-
-                   '//.......................................................................................
-
-
-
-
-
-                    '//02) Aggiorna tabella TABELLA ATTI - campo ->CodDenomFaldone_s (la denominazione DEL FASCICOLO)
-                    '//.......................................................................................
-                    '//NOTE : se non trova l'oggetto nel db dove si trova questa classe non esegue il comando
-
-                        '//Imposto la variabile dell'ogggetto da ricercare e chiamo la funzione _
-                           di ricerca secondo il tipo di oggetto
-
-                        Bool1 = False
-                        OggettoDaRicercare_s = "LLPP_ATTI_Qry01-06_Gestione_AGGIORNA_DenomFascicolo"    '//AGGIORNA = campo ->CodDenomFaldone_s
-                        Bool1 = Controlla_SE_OGGETTO_QUERY_ESISTE_pFunct(OggettoDaRicercare_s)
-
-                            '//SE TRUE = oggetto esistente ed eseguo il comando
-                            If Bool1 Then
-
-                                '//ESEGUO IL COMANDO Docmd con 3 parametri, il nome della query + 2 variabili oggetto : _
-                                acViewNormal        0 (Impostazione predefinita) Visualizzazione Normale _
-                                acEdit              1  L'utente può visualizzare o modificare i record esistenti e aggiungere nuovi record.
-
-                                    DOCMDOpenQuery_Sub OggettoDaRicercare_s, 0, 1
-
-                                    '//CONTEGGIO E MSG DELLE TABELLE ESPORTATE
-                                    iCount_TABELLE_ESPORTATE = iCount_TABELLE_ESPORTATE + 1
-                                    MsgTabelle_ESPORTATE_s = iCount_TABELLE_ESPORTATE & ") " & MsgTabelle_ESPORTATE_s & OggettoDaRicercare_s & Chr$(13)
-                            Else
-
-                                    '//CONTEGGIO E MSG DELLE TABELLE NON ESPORTATE
-                                    icount = iCount_NON_TABELLE_ESPORTATE + 1
-                                    MsgTabelle_NON_ESPORTATE_s = iCount_NON_TABELLE_ESPORTATE & ") " & MsgTabelle_NON_ESPORTATE_s & OggettoDaRicercare_s & Chr$(13)
-                            End If
-
-                    '//.......................................................................................
-
-
-
-
-
-
-
-
-            '//FALDONI + FASCICOLI *** fine ***
-            '//************************************************************************************************************************************//
-
-
-
-
-
-            '//ALLEGATI
-            '//'//************************************************************************************************************************************//
-
-
-
-                    '//01) Aggiorna tabella TABELLA ATTI - campo ->CodOpera_s
-                    '//.......................................................................................
-                    '//NOTE : se non trova l'oggetto nel db dove si trova questa classe non esegue il comando
-
-                        '//Imposto la variabile dell'ogggetto da ricercare e chiamo la funzione _
-                           di ricerca secondo il tipo di oggetto
-
-                        Bool1 = False
-                        OggettoDaRicercare_s = "LLPP_ATTI_Qy02_01_Allegati_AGGIORNA_CodOpera"    '//AGGIORNA = campo ->CodOpera_s
-                        Bool1 = Controlla_SE_OGGETTO_QUERY_ESISTE_pFunct(OggettoDaRicercare_s)
-
-                            '//SE TRUE = oggetto esistente ed eseguo il comando
-                            If Bool1 Then
-
-                                '//ESEGUO IL COMANDO Docmd con 3 parametri, il nome della query + 2 variabili oggetto : _
-                                acViewNormal        0 (Impostazione predefinita) Visualizzazione Normale _
-                                acEdit              1  L'utente può visualizzare o modificare i record esistenti e aggiungere nuovi record.
-                                    DOCMDOpenQuery_Sub OggettoDaRicercare_s, 0, 1
-
-                                    '//CONTEGGIO E MSG DELLE TABELLE ESPORTATE
-                                    iCount_TABELLE_ESPORTATE = iCount_TABELLE_ESPORTATE + 1
-                                    MsgTabelle_ESPORTATE_s = iCount_TABELLE_ESPORTATE & ") " & MsgTabelle_ESPORTATE_s & OggettoDaRicercare_s & Chr$(13)
-                            Else
-
-                                    '//CONTEGGIO E MSG DELLE TABELLE NON ESPORTATE
-                                    icount = iCount_NON_TABELLE_ESPORTATE + 1
-                                    MsgTabelle_NON_ESPORTATE_s = iCount_NON_TABELLE_ESPORTATE & ") " & MsgTabelle_NON_ESPORTATE_s & OggettoDaRicercare_s & Chr$(13)
-                            End If
-
-                    '//.......................................................................................
-
-
-                    '//02) Aggiorna tabella TABELLA ATTI - i campi ->IDGestione + AnnoAtto_i + CodPratica_s +NroPratica_i
-                    '//.......................................................................................
-                    '//NOTE : se non trova l'oggetto nel db dove si trova questa classe non esegue il comando
-
-                        '//Imposto la variabile dell'ogggetto da ricercare e chiamo la funzione _
-                           di ricerca secondo il tipo di oggetto
-
-                        Bool1 = False
-                        OggettoDaRicercare_s = "LLPP_ATTI_Qry02_01_Allegati_AGGIORNA_IDGestione"    '//AGGIORNA = campi ->IDGestione + AnnoAtto_i + CodPratica_s +NroPratica_i
-                        Bool1 = Controlla_SE_OGGETTO_QUERY_ESISTE_pFunct(OggettoDaRicercare_s)
-
-                            '//SE TRUE = oggetto esistente ed eseguo il comando
-                            If Bool1 Then
-
-                                '//ESEGUO IL COMANDO Docmd con 3 parametri, il nome della query + 2 variabili oggetto : _
-                                acViewNormal        0 (Impostazione predefinita) Visualizzazione Normale _
-                                acEdit              1  L'utente può visualizzare o modificare i record esistenti e aggiungere nuovi record.
-
-                                    DOCMDOpenQuery_Sub OggettoDaRicercare_s, 0, 1
-
-                                    '//CONTEGGIO E MSG DELLE TABELLE ESPORTATE
-                                    iCount_TABELLE_ESPORTATE = iCount_TABELLE_ESPORTATE + 1
-                                    MsgTabelle_ESPORTATE_s = iCount_TABELLE_ESPORTATE & ") " & MsgTabelle_ESPORTATE_s & OggettoDaRicercare_s & Chr$(13)
-                            Else
-
-                                    '//CONTEGGIO E MSG DELLE TABELLE NON ESPORTATE
-                                    icount = iCount_NON_TABELLE_ESPORTATE + 1
-                                    MsgTabelle_NON_ESPORTATE_s = iCount_NON_TABELLE_ESPORTATE & ") " & MsgTabelle_NON_ESPORTATE_s & OggettoDaRicercare_s & Chr$(13)
-                            End If
-
-                    '//.......................................................................................
-
-
-                    '//03) Aggiorna tabella TABELLA ATTI - i campi ->NroPratica (il campo viene aggiornato con 0 (zero) solo se nullo)
-                    '//.......................................................................................
-                    '//NOTE : se non trova l'oggetto nel db dove si trova questa classe non esegue il comando
-
-                        '//Imposto la variabile dell'ogggetto da ricercare e chiamo la funzione _
-                           di ricerca secondo il tipo di oggetto
-
-                        Bool1 = False
-                        OggettoDaRicercare_s = "LLPP_ATTI_Qy01_01_Gestione_AGGIORNA_Campo_NroPratica_s=Null"    '//AGGIORNA = campi ->NroPratica
-                        Bool1 = Controlla_SE_OGGETTO_QUERY_ESISTE_pFunct(OggettoDaRicercare_s)
-
-                            '//SE TRUE = oggetto esistente ed eseguo il comando
-                            If Bool1 Then
-
-                                '//ESEGUO IL COMANDO Docmd con 3 parametri, il nome della query + 2 variabili oggetto : _
-                                acViewNormal        0 (Impostazione predefinita) Visualizzazione Normale _
-                                acEdit              1  L'utente può visualizzare o modificare i record esistenti e aggiungere nuovi record.
-
-                                    DOCMDOpenQuery_Sub OggettoDaRicercare_s, 0, 1
-
-                                    '//CONTEGGIO E MSG DELLE TABELLE ESPORTATE
-                                    iCount_TABELLE_ESPORTATE = iCount_TABELLE_ESPORTATE + 1
-                                    MsgTabelle_ESPORTATE_s = iCount_TABELLE_ESPORTATE & ") " & MsgTabelle_ESPORTATE_s & OggettoDaRicercare_s & Chr$(13)
-                            Else
-
-                                    '//CONTEGGIO E MSG DELLE TABELLE NON ESPORTATE
-                                    icount = iCount_NON_TABELLE_ESPORTATE + 1
-                                    MsgTabelle_NON_ESPORTATE_s = iCount_NON_TABELLE_ESPORTATE & ") " & MsgTabelle_NON_ESPORTATE_s & OggettoDaRicercare_s & Chr$(13)
-                            End If
-
-                    '//.......................................................................................
-
-
-
-           '//************************************************************************************************************************************//
-
-
-            '//AFFIDAMENTI
-            '//************************************************************************************************************************************//
-
-
-                    '//01) Aggiorna tabella TABELLA ATTI - i campi -> I dati degli affidamenti
-                    '//.......................................................................................
-                    '//NOTE : se non trova l'oggetto nel db dove si trova questa classe non esegue il comando
-
-                        '//Imposto la variabile dell'ogggetto da ricercare e chiamo la funzione _
-                           di ricerca secondo il tipo di oggetto
-
-                        Bool1 = False
-                        OggettoDaRicercare_s = "AGGIORNA_AFFIDAMENTI_QyN10-01_Campi_TipoAtto+NroAtto+DataAtto"    '//AGGIORNA = campi -> AFFIDAMENTI vari campi
-                        Bool1 = Controlla_SE_OGGETTO_QUERY_ESISTE_pFunct(OggettoDaRicercare_s)
-
-                            '//SE TRUE = oggetto esistente ed eseguo il comando
-                            If Bool1 Then
-
-                                '//ESEGUO IL COMANDO Docmd con 3 parametri, il nome della query + 2 variabili oggetto : _
-                                acViewNormal        0 (Impostazione predefinita) Visualizzazione Normale _
-                                acEdit              1  L'utente può visualizzare o modificare i record esistenti e aggiungere nuovi record.
-                                    DOCMDOpenQuery_Sub OggettoDaRicercare_s, 0, 1
-
-                                    '//CONTEGGIO E MSG DELLE TABELLE ESPORTATE
-                                    iCount_TABELLE_ESPORTATE = iCount_TABELLE_ESPORTATE + 1
-                                    MsgTabelle_ESPORTATE_s = iCount_TABELLE_ESPORTATE & ") " & MsgTabelle_ESPORTATE_s & OggettoDaRicercare_s & Chr$(13)
-                            Else
-
-                                    '//CONTEGGIO E MSG DELLE TABELLE NON ESPORTATE
-                                    icount = iCount_NON_TABELLE_ESPORTATE + 1
-                                    MsgTabelle_NON_ESPORTATE_s = iCount_NON_TABELLE_ESPORTATE & ") " & MsgTabelle_NON_ESPORTATE_s & OggettoDaRicercare_s & Chr$(13)
-                            End If
-
-                    '//.......................................................................................
-
-            '//************************************************************************************************************************************//
-
-
-
-            '//ACCODAMENTI
-            '//************************************************************************************************************************************//
-
-
-
-                    '//01) Aggiorna tabella TABELLA ATTI - i campi -> I dati degli affidamenti
-                    '//.......................................................................................
-                    '//NOTE : se non trova l'oggetto nel db dove si trova questa classe non esegue il comando
-
-                        '//Imposto la variabile dell'ogggetto da ricercare e chiamo la funzione _
-                           di ricerca secondo il tipo di oggetto
-
-                        Bool1 = False
-                        OggettoDaRicercare_s = "Accoda_QyDF15-01_NwEVENTI_Ins"    '//ACCODO = campi -> Nuovi eventi
-                        Bool1 = Controlla_SE_OGGETTO_QUERY_ESISTE_pFunct(OggettoDaRicercare_s)
-
-                            '//SE TRUE = oggetto esistente ed eseguo il comando
-                            If Bool1 Then
-
-                                '//ESEGUO IL COMANDO Docmd con 3 parametri, il nome della query + 2 variabili oggetto : _
-                                acViewNormal        0 (Impostazione predefinita) Visualizzazione Normale _
-                                acEdit              1  L'utente può visualizzare o modificare i record esistenti e aggiungere nuovi record.
-
-                                    DOCMDOpenQuery_Sub OggettoDaRicercare_s, 0, 1
-
-                                    '//CONTEGGIO E MSG DELLE TABELLE ESPORTATE
-                                    iCount_TABELLE_ESPORTATE = iCount_TABELLE_ESPORTATE + 1
-                                    MsgTabelle_ESPORTATE_s = iCount_TABELLE_ESPORTATE & ") " & MsgTabelle_ESPORTATE_s & OggettoDaRicercare_s & Chr$(13)
-                            Else
-
-                                    '//CONTEGGIO E MSG DELLE TABELLE NON ESPORTATE
-                                    icount = iCount_NON_TABELLE_ESPORTATE + 1
-                                    MsgTabelle_NON_ESPORTATE_s = iCount_NON_TABELLE_ESPORTATE & ") " & MsgTabelle_NON_ESPORTATE_s & OggettoDaRicercare_s & Chr$(13)
-                            End If
-
-                    '//.......................................................................................
-
-
-
-
-                    '//02) ACCODO I NUOVI CODICI - LLPP_QyDF01_CodiceOpera_ACCODA_CODICI_Ins
-                    '//.......................................................................................
-                    '//NOTE : se non trova l'oggetto nel db dove si trova questa classe non esegue il comando
-
-                        '//Imposto la variabile dell'ogggetto da ricercare e chiamo la funzione _
-                           di ricerca secondo il tipo di oggetto
-
-                        Bool1 = False
-                        OggettoDaRicercare_s = "LLPP_QryDF01_CodiceOpera_ACCODA_CODICI_Ins"    '//ACCODO = nuovi codice opera dalla tabelal GESTIONE campi -> Codici Opera
-                        Bool1 = Controlla_SE_OGGETTO_QUERY_ESISTE_pFunct(OggettoDaRicercare_s)
-
-                            '//SE TRUE = oggetto esistente ed eseguo il comando
-                            If Bool1 Then
-
-                                '//ESEGUO IL COMANDO Docmd con 3 parametri, il nome della query + 2 variabili oggetto : _
-                                acViewNormal        0 (Impostazione predefinita) Visualizzazione Normale _
-                                acEdit              1  L'utente può visualizzare o modificare i record esistenti e aggiungere nuovi record.
-                                    DOCMDOpenQuery_Sub OggettoDaRicercare_s, 0, 1
-
-                                    '//CONTEGGIO E MSG DELLE TABELLE ESPORTATE
-                                    iCount_TABELLE_ESPORTATE = iCount_TABELLE_ESPORTATE + 1
-                                    MsgTabelle_ESPORTATE_s = iCount_TABELLE_ESPORTATE & ") " & MsgTabelle_ESPORTATE_s & OggettoDaRicercare_s & Chr$(13)
-                            Else
-
-                                    '//CONTEGGIO E MSG DELLE TABELLE NON ESPORTATE
-                                    icount = iCount_NON_TABELLE_ESPORTATE + 1
-                                    MsgTabelle_NON_ESPORTATE_s = iCount_NON_TABELLE_ESPORTATE & ") " & MsgTabelle_NON_ESPORTATE_s & OggettoDaRicercare_s & Chr$(13)
-                            End If
-
-                    '//.......................................................................................
-
             '//*** FINE ***
-            '//ACCODAMENTI
-            '//************************************************************************************************************************************//
+            '//                                     SALVATAGGIO OGGETTI DATABASE
+            '//{@=============================================================================================================@}
 
 
 
 
-        '//TIMBRATURE - PRES3000
-        '//************************************************************************************************************************************//
-        '//NOTE : accodo timbrature ed orari nella tabella PRES3000
+            '//*** fine ***
+            '//ITERO IN TUTTI GLI OGGETTI - DEL DB CORRENTE PER LA RICERCA DELL'OGGETTO PASSATO COME PARAMETRO
+            '//###########################################################################################################################//
 
 
-                    '//01) ACCODO NUOVE ENTRATE  nella tabella orari.
-                    '//.......................................................................................
-                    '//NOTE : se non trova l'oggetto nel db dove si trova questa classe non esegue il comando
 
-                        '//Imposto la variabile dell'ogggetto da ricercare e chiamo la funzione _
-                           di ricerca secondo il tipo di oggetto
 
-                        Bool1 = False
-                        OggettoDaRicercare_s = "PRES3000_Qry05_N01_ACCODA_Nw_ENTRATE->Orari"    '//ACCODO = I NUOVI ORARI
-                        Bool1 = Controlla_SE_OGGETTO_QUERY_ESISTE_pFunct(OggettoDaRicercare_s)
+        '****************************************************************************************************************************
+        '           PROCEDURA DI ITERAZIONE DEGLI OGGETTI DI DATABASE PER IL CONTROLLO ESISTENZA OGGETTI
+        ' i parametri ricevuti sono : par_Scelta db = path db
+        '
+        '
+        '****************************************************************************************************************************
 
-                            '//SE TRUE = oggetto esistente ed eseguo il comando
-                            If Bool1 Then
+'//SALVO_ATTIVITA_CMB_02_IN_TMP_Sub = SALVATAGGIO PARAMETRI NELLA TABELLA TMP
+    '//###########################################################################################################################//
+    '//NOTE: Nella tabella <<GEST_Tb01_N01_PARAM_OGGETTI_TMP>> _
+    viene effettuato il salvataggio dei parametri. I parametri in entrata sono i seguenti :
+    'par_sxCODOGGETTO       = CODICE OGGETTO OBBLIGATORIO
+    'par_sxTIPOGGETTO       =
+    'par_sxATTIVITAEVENTO   =
+    'par_sxCODATTIVITA      = CODICE ATTIVITA OBBLIGATORIO
+    Public Sub SALVO_ATTIVITA_CMB_02_IN_TMP_Sub(par_sxCODOGGETTO As String, _
+                                             par_sxTIPOGGETTO As String, _
+                                             par_sxATTIVITAEVENTO As String, _
+                                             par_sxCODATTIVITA As String)
 
-                                '//ESEGUO IL COMANDO Docmd con 3 parametri, il nome della query + 2 variabili oggetto : _
-                                acViewNormal        0 (Impostazione predefinita) Visualizzazione Normale _
-                                acEdit              1  L'utente può visualizzare o modificare i record esistenti e aggiungere nuovi record.
 
-                                    DOCMDOpenQuery_Sub OggettoDaRicercare_s, 0, 1
 
-                                    '//CONTEGGIO E MSG DELLE TABELLE ESPORTATE
-                                    iCount_TABELLE_ESPORTATE = iCount_TABELLE_ESPORTATE + 1
-                                    MsgTabelle_ESPORTATE_s = iCount_TABELLE_ESPORTATE & ") " & MsgTabelle_ESPORTATE_s & OggettoDaRicercare_s & Chr$(13)
+
+
+        '//CHIAMO LA ROUTINE SALVO_ATTIVITA_CMB_02_IN_TMP_Sub DELLA CLASSE OGGETTI FORM
+        '//CODICE----------->SALVO_ATTIVITA_CMB_02_IN_TMP_Sub.Salvataggio_ATTIVITA.Attivazione
+        '//--------------------------------------------------------------------------------//-//
+        '//CLASSE_OSPITE        : CLASSE_GESTIONE_OGGETTI_FORM
+        '//PARAMETRI            : sono 4 di seguito indicati
+                'par_sxCODOGGETTO       = CODICE OGGETTO OBBLIGATORIO
+                'par_sxTIPOGGETTO       =
+                'par_sxATTIVITAEVENTO   =
+                'par_sxCODATTIVITA      = CODICE ATTIVITA OBBLIGATORIO
+        '//NOTA  :Salvo i parametri del codice oggetto e del codice attiva nella tabella tmp solo nel caso in cui _
+                sia IL CODICE OGGETTO che il CODICE ATTIVITA sono VALORIZZATI altrimenti la classe ricevente emette _
+                un msg di avviso.
+
+
+
+                    'ISTANZIO LA CLASSE CLASSE_GESTIONE_OGGETTI_FORM
+                    'Assegno e creo l'oggetto di classe
+                    'Dim MyCls_CLASSE_GESTIONE_OGGETTI_FORM As Classe_GESTIONE_OGGETTI_FORM
+                    'Set MyCls_CLASSE_GESTIONE_OGGETTI_FORM = New Classe_GESTIONE_OGGETTI_FORM
+
+
+                    'PARAMETRI DI ESTRAZIONE
+                    'Attivo il metodo della classe rappresentata dalla routine passando
+                    'i 4 parametri necessari
+                    'sxCODOGGETTO = s
+                    'sxTIPOGGETTO = s
+                    'sxATTIVITAEVENTO = s
+                    'sxCODATTIVITA = s
+                    'MyCls_CLASSE_GESTIONE_OGGETTI_FORM.SALVO_ATTIVITA_CMB_02_IN_TMP_Sub sxCODOGGETTO, sxTIPOGGETTO, sxATTIVITAEVENTO, sxCODATTIVITA
+
+                    'Set MyCls_CLASSE_GESTIONE_OGGETTI_FORM = Nothing
+
+            '//--------------------------------------------------------------------------------//-//
+
+
+
+
+
+    On Error GoTo Err_SALVO_ATTIVITA_CMB_02_IN_TMP_Sub
+
+
+
+                    '//CONTROLLO PARAMETRI RICEVENTI
+                    '//--------------------------------------------------------------------------------//-//
+                    '//NOTA : se almeno i due parametri più importanti, ossia CODICE ATTIVITA E CODICE
+                    '//     OGGETTO non sono valorizzati, viene emesso un messaggio di avviso e di uscita.
+                        If sxCODOGGETTO > "" And sxCODATTIVITA > "" Then
+                            MsgBox "ATTENZIONE I PARAMETRI CODICE OGGETTO E CODICE ATTIVITA NON SONO VALORIZZATI", vbExclamation, "CLASSE - CONTROLLO PARAMETRI"
+                        End If
+                    '//--------------------------------------------------------------------------------//-//
+
+
+
+
+                        'SALVATAGGIO ATTIVITA NELLA TABELLA GEST_Tb01_N01_PARAM_OGGETTI_TMP
+                        '___________________________________________________________________
+                            'Stringa ssql
+                            'di salvataggio nella tabella tmp della attivita da svolgere
+                            sSql = ""
+                            sSql = sSql & "UPDATE GEST_Tb01_N01_PARAM_OGGETTI_TMP "
+                            sSql = sSql & "SET GEST_Tb01_N01_PARAM_OGGETTI_TMP.CODATTIVITA = '" & sxCODATTIVITA & "', "
+                                                    'sSql = sSql & "SET GEST_Tb01_N01_PARAM_OGGETTI_TMP.CODATTIVITA = '" & sxCODATTIVITA & "'; "
+                            sSql = sSql & "GEST_Tb01_N01_PARAM_OGGETTI_TMP.CODOGGETTO = '" & par_sxCODOGGETTO & "'; "
+
+
+                            'controlo
+                            Debug.Print sSql
+
+                            'comando eseguito
+                            CurrentDb.Execute (sSql)
+                        '___________________________________________________________________
+
+
+
+    'USCITA  E GESTIONE ERRORI
+    '..............................................................................................................
+
+    Exit_SALVO_ATTIVITA_CMB_02_IN_TMP_Sub:
+        Exit Sub
+
+    Err_SALVO_ATTIVITA_CMB_02_IN_TMP_Sub:
+        MsgBox Err.Description
+        Resume Exit_SALVO_ATTIVITA_CMB_02_IN_TMP_Sub
+
+    End Sub
+
+    '//*** FINE ***
+    '//SALVATAGGIO PARAMETRI NELLA TABELLA TMP
+    '//###########################################################################################################################//
+
+
+
+
+        '//###########################################################################################################//
+        '//####
+        '//####                             PROCEDURE DI SALVATAGGIO *** FINE ***
+        '//####
+        '//###########################################################################################################//
+
+'//PROCEDURE DI RICERCA
+    '//###########################################################################################################//
+    '//####   Funzione RICERCA OGGETTI DATABASE MDB
+    '//####
+    '//###########################################################################################################//
+
+        '//                 Funzione RICERCA OGGETTI DATABASE MDB
+        '//CODICE ---> 2020.02.11_RICERCA_OGGETTI_DB_PFunct_DB
+        'PARAMETRI IN IMPUT:
+        'par_sx_Scelta_db   =database interno od esterno (se la variabile path è valorizzata es. = c:\Gestioni\FILE.mdb _
+                             allora viene attivata la II opzione del database esterno);
+        'par_sx_Name_Tab    =nome tabella da ricercare;
+        'par_sx_Name_Query  =nome query da ricercare
+        'par_sTipo_Oggetto  =il tipo oggetto del db sono identificati con la seguente stringa: _
+                        Cmd_Elenco_Query    = Tutte le query _
+                        Cmd_Elenco_Tabelle  = Tutte le tabelle _
+                        Cmd_Elenco_Forms    = Tutte le Form _
+                        ATTENZIONE mancano ancora i parametri Select per LE FORM, I REPORT, LE MACRO _
+                        LE PAGINE WEB che sono da integrare.
+        'tipo di operazione =?  da definire ;
+        'par_ix_Indice1 =?  da definire ;
+        'par_bx_Flag_b = True = individuato cosa ??
+        '
+        '//OUTPUT : RESTITUISCE UN MESSAGGIO "OGGETTO TROVATO NEL DB" O "NON TROVATO NEL DB"
+        '//MODULO ---> UTIL_MDL40_N01_CONTROLLO_OGGETTI_DB
+        '//DB MDB ---> UTIL_MDL40_N01_CONTROLLO_OGGETTI_DB
+
+        '//***********************************************************************************************
+        '//ATTIVITA ESEGUITE: _
+        '02.ITERAZIONE NEL GRUPPO OGGETTI TABLEDEFS ..LE TABELLE DEL DB _
+        '02.01 - OGGETTI QUERY = CONTROLLO OGGETTO NEL DB: Faccio il Controllo l'esistenza delle TABELLE
+        'pulendo prima tutta la tabella  oggetti da quelli precedenti.
+        '03.01 - APRO LA TABELLA DI DATABASE CHE CONTIENE GLI OGGETTI TABELLA
+        '        Iterando in tutti gli oggetti dell'insieme Tables
+        '03.02 - SALVATAGGIO NOME OGGETTO TABELLA NELLA TABELLA DEL DB = Itero nel db tra gli oggetti
+        '       table negli archivi del database e salvo il nome dell'oggetto tabella nel record corrente
+        '       facendo un ciclo for nell'insieme TableDefs
+        '03.03 .... definire
+        '
+        '//                                     SALVATAGGIO OGGETTI DATABASE
+        '//{@=============================================================================================================@}
+        '//CODICE --------------------> RICERCA_OGGETTI_DB_PFunct.Funzione
+        '//
+        Public Function RICERCA_OGGETTI_DB_PFunct( _
+                                           par_sx_Scelta_db As String, _
+                                           par_sx_Name_Tab As String, _
+                                           par_sx_Name_Query As String, _
+                                           par_sx_Name_FORM As String, _
+                                           par_sx_Name_Report As String, _
+                                           par_sx_Name_MACRO As String, _
+                                           par_sx_Name_Modulo As String, _
+                                           par_sTipo_Oggetto As String, _
+                                           par_ix_Operazione As Integer, _
+                                           par_ix_Indice1 As Integer, _
+                                           par_bx_Flag_b As Boolean) As String
+
+
+                On Error GoTo Err_RICERCA_OGGETTI_DB_PFunct
+
+
+                '------------------------------------------------------------------------------------------
+                    '1.1    SET VARIABILI, OPEN DB, CONTROLLO OGGETTO NEL DB
+
+                            'OPEN DB: Apre il database scelto per la creazione o cancellazione
+                            '         con il parametro Option = false per indicare che l'apertura è condivisa /
+                            '                          Option = True apertura esclusiva
+
+                        If par_sx_Scelta_db = "" Then
+                                'apro il db corrente se non viene indicato un database esterno
+                                Set dbs = CurrentDb
                             Else
-
-                                    '//CONTEGGIO E MSG DELLE TABELLE NON ESPORTATE
-                                    icount = iCount_NON_TABELLE_ESPORTATE + 1
-                                    MsgTabelle_NON_ESPORTATE_s = iCount_NON_TABELLE_ESPORTATE & ") " & MsgTabelle_NON_ESPORTATE_s & OggettoDaRicercare_s & Chr$(13)
-                            End If
-                    '//.......................................................................................
-
-
-                    '//02) ACCODO NUOVE ENTRATE  nella tabella orari.
-                    '//.......................................................................................
-                    '//NOTE : se non trova l'oggetto nel db dove si trova questa classe non esegue il comando
-
-                        '//Imposto la variabile dell'ogggetto da ricercare e chiamo la funzione _
-                           di ricerca secondo il tipo di oggetto
-
-                        Bool1 = False
-                        OggettoDaRicercare_s = "PRES3000_Qry05_N02_ACCODA_Nw_USCITE->Orari"    '//ACCODO = LE NUOVE USCITE
-                        Bool1 = Controlla_SE_OGGETTO_QUERY_ESISTE_pFunct(OggettoDaRicercare_s)
-
-                            '//SE TRUE = oggetto esistente ed eseguo il comando
-                            If Bool1 Then
-
-                                '//ESEGUO IL COMANDO Docmd con 3 parametri, il nome della query + 2 variabili oggetto : _
-                                acViewNormal        0 (Impostazione predefinita) Visualizzazione Normale _
-                                acEdit              1  L'utente può visualizzare o modificare i record esistenti e aggiungere nuovi record.
-
-                                    DOCMDOpenQuery_Sub OggettoDaRicercare_s, 0, 1
-
-                                    '//CONTEGGIO E MSG DELLE TABELLE ESPORTATE
-                                    iCount_TABELLE_ESPORTATE = iCount_TABELLE_ESPORTATE + 1
-                                    MsgTabelle_ESPORTATE_s = iCount_TABELLE_ESPORTATE & ") " & MsgTabelle_ESPORTATE_s & OggettoDaRicercare_s & Chr$(13)
-                            Else
-
-                                    '//CONTEGGIO E MSG DELLE TABELLE NON ESPORTATE
-                                    icount = iCount_NON_TABELLE_ESPORTATE + 1
-                                    MsgTabelle_NON_ESPORTATE_s = iCount_NON_TABELLE_ESPORTATE & ") " & MsgTabelle_NON_ESPORTATE_s & OggettoDaRicercare_s & Chr$(13)
-                            End If
-
-                    '//.......................................................................................
-
-
-
-
-
-
-        '//*** FINE ***
-        '//TIMBRATURE
-        '//************************************************************************************************************************************//
-
-    ' ***********************************************************************************************************************
-
-
-    'ESPORTAZIONI
-    '***********************************************************************************************************************
-
-        '//TABELLA GESTIONE
-        '//============================================================================================================
-
-
-           '//ESPORTO ATTI DI GESTIONE
-           '//Esporto la tabella con la specifica
-           '//ESPORTA I DATI ---------------------------------------------------------------------------------------------------------------------------------------> False = non visualizza il file
-           '//SOSPESA
-           'DoCmd.TransferText acExportDelim, "LLPP_ATTI_Tb01_Gestione - specifica di esportazione", "LLPP_ATTI_Tb01_Gestione", "c:\GESTIONI\GESTIONE_LLPP\25_GESTIONE_LLPP\LLPP_ATTI_Tb01_Gestione.txt"
-           'Esporto tabella in dos
-           'DoCmd.OutputTo acOutputTable, "LLPP_ATTI_Tb01_Gestione", "MS-DOSText(*.txt)", "c:\GESTIONI\GESTIONE_LLPP\25_GESTIONE_LLPP\LLPP_ATTI_Tb01_Gestione_DOS.txt", False, "", 0, acExportQualityPrint
-           '//Apro la tabella esportata
-           'DoCmd.OpenTable "LLPP_ATTI_Tb01_Gestione", acViewNormal, acEdit
-
-
-
-           '//TABELLA ALLEGATI
-           '//Esporto la tabella con la specifica - LLPP_ATTI_Tb02_Allegati - specifica di esportazione
-           '//SOSPESA
-           'DoCmd.TransferText acExportDelim, "LLPP_ATTI_Tb02_Allegati - specifica di esportazione", "LLPP_ATTI_Tb02_Allegati", "c:\GESTIONI\GESTIONE_LLPP\25_GESTIONE_LLPP\LLPP_ATTI_Tb02_Allegati.txt"
-           '//Esporto tabella in dos
-           'DoCmd.OutputTo acOutputTable, "LLPP_ATTI_Tb02_Allegati", "MS-DOSText(*.txt)", "c:\GESTIONI\GESTIONE_LLPP\25_GESTIONE_LLPP\LLPP_ATTI_Tb02_Allegati_Dos.txt", False, "", 0, acExportQualityPrint
-           '//Apro la tabella esportata
-           'DoCmd.OpenTable "LLPP_ATTI_Tb02_Allegati", acViewNormal, acEdit
-
-
-           '//GLI INDIRIZZI
-           '//........................................................................................................
-                '//TABELLA INTESTATARI
-                '//Esporto la tabella con la specifica - INDIRIZZI_Tb01_INTESTATARI - specifica di esportazione
-                '//SOSPESA
-                'DoCmd.TransferText acExportDelim, "INDIRIZZI_Tb01_INTESTATARI - specifica di esportazione", "Indirizzi_Tb01_INTESTATARI", "c:\GESTIONI\GESTIONE_LLPP\25_GESTIONE_LLPP\INDIRIZZI_Tb01_INTESTATARI.txt"
-                '//Esporto tabella in dos
-               ' DoCmd.OutputTo acOutputTable, "Indirizzi_Tb01_INTESTATARI", "MS-DOSText(*.txt)", "c:\GESTIONI\GESTIONE_LLPP\25_GESTIONE_LLPP\INDIRIZZI_Tb01_INTESTATARI_Dos.txt", False, "", 0, acExportQualityPrint
-                '//Apro la tabella esportata
-                'DoCmd.OpenTable "Indirizzi_Tb01_INTESTATARI", acViewNormal, acEdit
-
-
-
-
-                '//TABELLA INDIRIZZI ELENCO
-                '//Esporto la tabella con la specifica - INDIRIZZI_Tb02_ELENCO - specifica di esportazione
-                '//SOSPESA
-                'DoCmd.TransferText acExportDelim, "INDIRIZZI_Tb02_ELENCO - specifica di esportazione", "Indirizzi_Tb02_ELENCO", "c:\GESTIONI\GESTIONE_LLPP\25_GESTIONE_LLPP\INDIRIZZI_INDIRIZZI_Tb02_ELENCO.txt"
-                '//Esporto tabella in dos
-                'DoCmd.OutputTo acOutputTable, "Indirizzi_Tb02_ELENCO", "MS-DOSText(*.txt)", "c:\GESTIONI\GESTIONE_LLPP\25_GESTIONE_LLPP\INDIRIZZI_INDIRIZZI_Tb02_ELENCO_Dos.txt", False, "", 0, acExportQualityPrint
-                '//Apro la tabella esportata
-                'DoCmd.OpenTable "Indirizzi_Tb02_ELENCO", acViewNormal, acEdit
-
-              '//........................................................................................................
-
-
-        'Indirizzi_Tb02_ELENCO - specifica di esportazione
-
-        '//TABELLA GESTIONE *** FINE ***
-        '//============================================================================================================
-
-        '//PRES3000
-        '//============================================================================================================
-
-            '//IL CALENDARIO
-            'Esporto la tabella con la specifica
-            'ESPORTA I DATI ---------------------------------------------------------------------------------------------------------------------------------------> False = non visualizza il file
-            '//SOSPESA
-            'DoCmd.TransferText acExportDelim, "PRES3000_Tb01_Calendario - specifica di esportazione", "PRES3000_Tb01_Calendario", "c:\GESTIONI\GESTIONE_LLPP\25_GESTIONE_LLPP\PRES3000_Tb01_Calendario.txt"
-            'Esporto tabella in dos
-            'DoCmd.OutputTo acOutputTable, "PRES3000_Tb01_Calendario", "MS-DOSText(*.txt)", "c:\GESTIONI\GESTIONE_LLPP\25_GESTIONE_LLPP\PRES3000_Tb01_Calendario_DOS.txt", False, "", 0, acExportQualityPrint
-            '//Apro la tabella esportata
-            'DoCmd.OpenTable "PRES3000_Tb01_Calendario", acViewNormal, acEdit
-
-
-            '//LE GIORNALIERE - PRES3000_Tb02_ElencoGiornaliere
-            'Esporto la tabella con la specifica
-            'ESPORTA I DATI ---------------------------------------------------------------------------------------------------------------------------------------> False = non visualizza il file
-            '//SOSPESA
-            'DoCmd.TransferText acExportDelim, "PRES3000_Tb02_ElencoGiornaliere - specifica di esportazione", "PRES3000_Tb02_ElencoGiornaliere", "c:\GESTIONI\GESTIONE_LLPP\25_GESTIONE_LLPP\PRES3000_Tb02_ElencoGiornaliere.txt"
-            'Esporto tabella in dos
-            'DoCmd.OutputTo acOutputTable, "PRES3000_Tb02_ElencoGiornaliere", "MS-DOSText(*.txt)", "c:\GESTIONI\GESTIONE_LLPP\25_GESTIONE_LLPP\PRES3000_Tb02_ElencoGiornaliere_DOS.txt", False, "", 0, acExportQualityPrint
-            '//Apro la tabella esportata
-            'DoCmd.OpenTable "PRES3000_Tb02_ElencoGiornaliere", acViewNormal, acEdit
-
-
-
-            '//LA DEFINIZIONI
-
-            'LLPP_DF01_CodiceOpera
-
-            'ESPORTA I DATI ---------------------------------------------------------------------------------------------------------------------------------------> False = non visualizza il file
-            '//SOSPESO
-            'DoCmd.TransferText acExportDelim, "LLPP_DF01_CodiceOpera - specifica di esportazione", "LLPP_DF01_CodiceOpera", "c:\GESTIONI\GESTIONE_LLPP\25_GESTIONE_LLPP\LLPP_DF01_CodiceOpera.txt"
-            'Esporto tabella in dos
-           ' DoCmd.OutputTo acOutputTable, "LLPP_DF01_CodiceOpera", "MS-DOSText(*.txt)", "c:\GESTIONI\GESTIONE_LLPP\25_GESTIONE_LLPP\LLPP_DF01_CodiceOpera_DOS.txt", False, "", 0, acExportQualityPrint
-            '//Apro la tabella esportata
-            'DoCmd.OpenTable "LLPP_DF01_CodiceOpera", acViewNormal, acEdit
-
-
-
-
-        '//PRES3000
-        '//============================================================================================================
-
-
-        '//ESPORTA_I_FILE_IN_FORMATO_XLS
-        '//============================================================================================================
-
-
-                    '//ATTIVO LA PROCEDURA DI ESPORTAZIONE DEI FILE IN FORMATO XLS DEGLI ATTI DI IMPEGNO
-                    '//.................................................................................................
-                    '//NOTE: Dim + Reset ed impostazioni
-
-                    '//Chiamo la procedura di esportazione indicando il nome delle tabelle da esportare in xls
-                    'ESPORTA_FILE_XLS_ConMatriceDati_pFunct "", _
-                    "LLPP_ATTI_Tb01_Gestione", _
-                    "LLPP_ATTI_Tb02_Allegati", _
-                    "Indirizzi_Tb01_INTESTATARI", _
-                    "Indirizzi_Tb02_ELENCO", _
-                    "PRES3000_Tb01_Calendario", _
-                    "PRES3000_Tb02_ElencoGiornaliere", _
-                    "LLPP_DF01_CodiceOpera", _
-                    "LLPP_IMPEGNI_Tb01_ATTI_DI_IMPEGNO", _
-                    "LLPP_IMPEGNI_Tb02_ELENCO_DI_SPESA"
-
-    '//ESPORTA I DATI IN FILE XLS
-    '//........................................................
-
-
-
-       '//Chiamo la procedura di esportazione indicando il nome delle tabelle da esportare in xls _
-          ATTENZIONE, occorre inserire un record vuoto "", affinche possono essere considerati tutti gli altri _
-          file dell'esportazione altrimenti di viene saltato il primo "LLPP_ATTI_Tb01_Gestione", _
-          PER ESPORTARE CHIAMARE QUESTA FUNZIONE : CODICE------> ESPORTA_FILE_XLS_ConMatriceDati_pFunct
-
-                    ESPORTA_FILE_XLS_ConMatriceDati_pFunct "", _
-                    "LLPP_ATTI_Tb01_Gestione", _
-                    "LLPP_ATTI_Tb02_Allegati", _
-                    "Indirizzi_Tb01_INTESTATARI", _
-                    "Indirizzi_Tb02_ELENCO", _
-                    "PRES3000_Tb01_Calendario", _
-                    "PRES3000_Tb02_ElencoGiornaliere", _
-                    "LLPP_DF01_CodiceOpera", _
-                    "LLPP_IMPEGNI_Tb01_ATTI_DI_IMPEGNO", _
-                    "LLPP_IMPEGNI_Tb02_ELENCO_DI_SPESA"
-
-    '//........................................................
-
-
-
-
-
-
-                     '//APRO LE  TABELLE ESPORTATE  --- SOSPESO
-                     'DoCmd.OpenTable "LLPP_ATTI_Tb01_Gestione", acViewNormal, acEdit
-                     'DoCmd.OpenTable "LLPP_ATTI_Tb02_Allegati", acViewNormal, acEdit
-                     'DoCmd.OpenTable "Indirizzi_Tb01_INTESTATARI", acViewNormal, acEdit
-                     'DoCmd.OpenTable "Indirizzi_Tb02_ELENCO", acViewNormal, acEdit
-                     'DoCmd.OpenTable "PRES3000_Tb01_Calendario", acViewNormal, acEdit
-                     'DoCmd.OpenTable "PRES3000_Tb02_ElencoGiornaliere", acViewNormal, acEdit
-                     'DoCmd.OpenTable "LLPP_DF01_CodiceOpera", acViewNormal, acEdit
-                     'DoCmd.OpenTable "LLPP_IMPEGNI_Tb01_ATTI_DI_IMPEGNO", acViewNormal, acEdit
-                     'DoCmd.OpenTable "LLPP_IMPEGNI_Tb02_ELENCO_DI_SPESA", acViewNormal, acEdit
-
-
-                    '//.................................................................................................
-
-        '//ESPORTA_I_FILE_IN_FORMATO_XLS         *** FINE ***
-        '//============================================================================================================
-
-
-    '***********************************************************************************************************************
-
-
-                If MsgTabelle_ESPORTATE_s > "" Then
-
-                    MsgBox "LE TABELLE ESPORTATE SONO LE SEGUENTI: --->  " & MsgTabelle_ESPORTATE_s, vbExclamation
-                End If
-
-
-                If MsgTabelle_NON_ESPORTATE_s > "" Then
-
-                    MsgBox "ATTENZIONE QUESTI OGGETTI NON SONO STATI TROVATI --->  " & MsgTabelle_NON_ESPORTATE_s, vbExclamation
-                End If
-
-
-        MsgBox "FINE ATTIVITA' DI Esportazione, aggiornamento ed accodamento. Operazioni effettuate!", vbExclamation
-
-
-AggiornaDati_ed_EsportaDati_Pfunct_Exit:
-        Exit Function
-
-AggiornaDati_ed_EsportaDati_Pfunct_Err:
-        MsgBox Error$
-        Resume AggiornaDati_ed_EsportaDati_Pfunct_Exit
-
-    End Function
-
-
-
-
-
-
-
-    '// *** FINE ***
-    '//             AGGIORNA I DAITI CON LE QUERY ED ESPORTA IN MDB + XLS
-    '//****************************************************************************************************************//
-
-
-
-
-    '// *** FINE ***
-    '//             I COMANDI CMD :
-    '//                             DoCmdOpenQuery_Sub
-    '//
-    '//****************************************************************************************************************//
-    '//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@//
-
-    '//DOCMD_OPEN_QUERY = Eseguo il comando docmd di esecuzione della query la cui _
-                        esistenza viene controllata prima di chiamare questa routine. _
-                        I parametri sono due: _
-    1 paramentro par_acViewNormal, corrisponde alla variabile AcView sono i seguenti e devono essere indicati in par_acViewNormal _
-    Nome Valore         Descrizione _
-    acViewDesign        1 Visualizzazione Struttura _
-    acViewLayout        6 Visualizzazione Layout _
-    acViewNormal        0 (Impostazione predefinita) Visualizzazione Normale _
-    acViewPivotChart    4 Visualizzazione Grafico pivot _
-    acViewPivotTable    3 Visualizzazione Tabella pivot _
-    acViewPreview       2 Anteprima di stampa _
-    acViewReport        5 Visualizzazione Report _
-
-    'Il 2 parametro, par_acEdit Deve indicare le modalita di apertura dell'oggetto: _
-    Costante di enumerazione AcOpenDataMode _
-    Specifica la modalità di immissione dati all'apertura di una tabella, una query, _
-    una stored procedure, una visualizzazione o una funzione definita dall'utente. _
-    Nome Valore     Descrizione _
-    acAdd               0       L'utente può aggiungere nuovi record ma non visualizzare né modificare i record esistenti. _
-    acEdit              1       L'utente può visualizzare o modificare i record esistenti e aggiungere nuovi record. _
-    acReadOnly          2       L'utente può solo visualizzare i record.
-
-
-
-Public Sub DOCMDOpenQuery_Sub(par_Query_s As String, par_acViewNormal As Integer, par_acEdit As Integer)
-
-                        '//Eseguo la query passata come parametro solo se valorizzata _
-                           la variabile che contiene il nome della query. Il controllo se _
-                           la query esiste viene fatto a prima della routine.
-                        If par_Query_s > "" Then
-                                DoCmd.OpenQuery par_Query_s
-                        Else
-                            MsgBox "Comando Cmd.OpenQuery non eseguito in quanto il parametro oggetto 'par_Query_s' è nullo:  --> " & par_Query_s
+                                'apro un database esterno con la path >0 passata con i parametri
+                                Set dbs = OpenDatabase(par_sx_Scelta_db, False)
                         End If
 
-    End Sub
+                    Select Case par_sTipo_Oggetto
+
+                        '//- CONTROLLO TABELLE -
+                        '//CHIAVE =====> modulo:controllo-tabelle
+                        Case Is = "Cmd_Elenco_Tabelle"
+
+                                '02.ITERAZIONE NEL GRUPPO OGGETTI TABLEDEFS ..LE TABELLE DEL DB
+                                '______________________________________________________________________________
+                                '02.01 - OGGETTI QUERY
+
+
+                                    'pulisco la tabella degli OGGETTI TABELLA
+                                    sSql = ""
+                                    sSql = sSql & "DELETE MSsys_TABELLE_Qry01_01_TUTTE.*"
+                                    sSql = sSql & "FROM MSsys_TABELLE_Qry01_01_TUTTE "
+                                    sSql = sSql & "WITH OWNERACCESS OPTION;"
+
+                                    CurrentDb.Execute (sSql)
+
+                                    '03.01 - APRO LA TABELLA
+                                    'apro la tabella per il salvataggio delle query + effettuo il _
+                                    controllo sulla stringa sql
+                                    Debug.Print "---------------------------------------------------------------"
+                                    Debug.Print "CONTROLLO STRINGA SQL                                          "
+                                    Debug.Print
+                                    Set ApriRs = dbs.OpenRecordset("MSsys_TABELLE_Qry01_01_TUTTE")
+
+
+                                    With dbs
+
+                                        '//reset
+                                        icount = 0
+
+                                        '//stampa di controllo
+                                        Debug.Print .TableDefs.Count & _
+                                            " TableDefs in database  " & sx_Scelta_db
+
+
+                                        For intCiclo = 0 To .TableDefs.Count - 1
+                                                Debug.Print "  " & .TableDefs(intCiclo).Name
+
+                                                '03.02 - SALVATAGGIO NOME OGGETTO TABELLA NELLA TABELLA DEL DB
+                                                '................................................................
+                                                    ApriRs.AddNew
+                                                    ApriRs.Fields("Name1_s") = .TableDefs(intCiclo).Name
+
+                                                    '//NRO di oggetto
+                                                    icount = icount + 1         '//aggiorno il contatore oggetti delle tabelle
+                                                    ApriRs.Fields("NRO_OGGETTO_i") = icount
+                                                    '//Tipo di oggetto caricato = FORM
+                                                    ApriRs.Fields("TIPOGGETTO_s") = "TABLE"
+
+                                                    '//SALVATAGGIO DEGLI ATTRIBUTI DELLA TABELLA - proprieta Attributes
+                                                    ApriRs.Fields("Attribute_lng") = .TableDefs(intCiclo).Attributes
+
+                                                        '//CONTROLLO OGGETTO TABELLA
+                                                        '//-----------------------------------------------------------
+
+                                                            '//controllo degli attributi
+                                                            Debug.Print "LA TABELLA "
+                                                            Debug.Print .TableDefs(intCiclo).Name
+
+                                                            Debug.Print "controllo attributi della tabella"
+                                                            Debug.Print .TableDefs(intCiclo).Attributes
+
+                                                        '//-----------------------------------------------------------
+                                                    ApriRs.Update
+                                                '................................................................
+
+
+
+                                            '03.03 .... definire
+                                            If .TableDefs(intCiclo).Name = par_sx_Name_Tab Then
+                                                Bln1 = True    ' bx_Flag_b True = trovato tabelle si può cancellare
+                                                RICERCA_OGGETTI_DB_PFunct = "QUERY_TROVATA_NEL_DB" 'riassegno alla funzione il valore del bx_Flag_b
+                                                GoTo Exit_RICERCA_OGGETTI_DB_PFunct  'esci
+                                            Else
+                                                Bln1 = False   ' bx_Flag_b False = non trovato TABELLA
+                                                RICERCA_OGGETTI_DB_PFunct = "QUERY_NON_TROVATA_NEL_DB" 'riassegno alla funzione il valore del bx_Flag_b
+                                            End If
+
+                                        Next intCiclo
+
+                                    End With
+
+                       ' - CONTROLLO QUERY -
+                        Case Is = "Cmd_Elenco_Query"
+                            '//CHIAVE =====> modulo:controllo-Query
+
+                                '//ITERAZIONE QUERYDEFS <<LE QUERY>>
+                                '//====================================================================================================//
+                                'OGGETTI QUERY
+                                'CONTROLLO OGGETTO NEL DB: Controllo l'esistenza della QUERY
+
+
+                                'pulisco la tabella delle query prima del salvataggio dei nuovi nomi
+                                CurrentDb.Execute ("DELETE MSsys_QUERY_Qry01_01_TUTTE.* FROM MSsys_QUERY_Qry01_01_TUTTE;")
+
+                                'apro la tabella per il salvataggio delle query
+                                Set ApriRs = dbs.OpenRecordset("MSsys_QUERY_Qry01_01_TUTTE") '// perche non funziona??? da errore
+
+                                'itero nel db
+                                        With dbs
+
+                                            '//RESET VARIABILI CICLO
+                                            icount = 0      '//contatore numero oggetti query
+
+
+                                            Debug.Print .QueryDefs.Count & _
+                                                " QueryDefs in database  " & sx_Scelta_db
+
+
+                                        '//CICLO OGGETTI QUERY
+                                        '//------------------------------------------------------------------------------//
+                                        For intCiclo = 0 To .QueryDefs.Count - 1
+
+                                                'controlli
+                                                '................................................................
+
+
+                                                        Debug.Print "-----------------------------------------------------------"
+                                                        Debug.Print
+                                                                    '//stampo il nome della query + il contentuto sql
+                                                                    Debug.Print " stampo il NOME DELLA QUERY"
+                                                                    Debug.Print "  " & .QueryDefs(intCiclo).Name
+
+                                                                    '//AGGIORNAMENTO_DEL_28_02_2020
+                                                                    'Stampo il contenuto sql della query
+                                                                    Debug.Print
+                                                                    Debug.Print "  " & .QueryDefs(intCiclo).SQL
+
+                                                                    '//AGGIORNAMENTO_DEL_28_02_2020
+                                                                    '//stampo il tipo di query scelta direttamente
+                                                                    Debug.Print "IL TIPO DELLA Query"
+                                                                    Debug.Print "  " & .QueryDefs(intCiclo).Type
+
+                                                        Debug.Print "-----------------------------------------------------------"
+                                                        Debug.Print
+
+
+                                                '................................................................
+
+                                                    'SALVATAGGIO NOME QUERY
+                                                    '................................................................
+                                                        '//AGGIORNAMENTO_DEL_28_02_2020
+                                                        '//Aggiorno il numero oggetto query salvati nel campo della tabella _
+                                                        dei salvataggi del nro query.
+                                                        icount = icount + 1         '//aggiorno il contatore oggetti delle query
+
+
+                                                        ApriRs.AddNew
+                                                        '//aggiugno alla tabella il nome della query + il contenuto sql
+                                                        ApriRs.Fields("Name1_s") = .QueryDefs(intCiclo).Name
+                                                        ApriRs.Fields("IdOrd_lng") = icount
+
+                                                        '//Tipo di oggetto caricato = QUERY
+                                                        ApriRs.Fields("TIPOGGETTO_s") = "QUERY"
+
+                                                        '//AGGIORNAMENTO_DEL_28_02_2020
+                                                        '//SQL + TIPO DI QUERY
+                                                        ApriRs.Fields("Expression_m") = .QueryDefs(intCiclo).SQL
+
+
+                                                        ApriRs.Update
+
+
+
+
+                                                        '03.02 - SALVATAGGIO NOME OGGETTO TABELLA NELLA TABELLA DEL DB
+                                                '................................................................
+
+
+
+                                                    '................................................................
+
+                                                'controllo nome query passata con parametro
+                                                If .QueryDefs(intCiclo).Name = par_sx_Name_Query Then
+
+                                                    Bln1 = True    ' bx_Flag_b True = trovato QUERY
+
+                                                    'stampo il contenuto della query scelta direttamente _
+                                                    solo se esiste la query ricercata.
+                                                    Debug.Print "  " & .QueryDefs(par_sx_Name_Query).SQL
+
+
+                                                    'recupero il contenuto della query
+                                                    RICERCA_OGGETTI_DB_PFunct = .QueryDefs(intCiclo).SQL
+
+
+                                                    GoTo Exit_RICERCA_OGGETTI_DB_PFunct  'esci
+                                                Else
+                                                    Bln1 = False   ' bx_Flag_b False = non trovato QUERY
+                                                    RICERCA_OGGETTI_DB_PFunct = Bln1 'riassegno alla funzione il valore del bx_Flag_b
+                                                End If
+
+                                            Next intCiclo
+
+                                        '//CICLO OGGETTI QUERY  --> Next intCiclo *** fine ***
+                                        '//------------------------------------------------------------------------------//
+
+                                        End With
+                                '//ITERAZIONE QUERYDEFS <<LE QUERY>>   *** FINE ***
+                                '//====================================================================================================//
+
+
+
+                       'CICLO NEGLI OGGETTI FORMS
+                       Case Is = "Cmd_Elenco_Forms"
+                       '//CHIAVE =====> modulo:controllo-forms
+
+
+
+
+                                '//ITERAZIONE FORMS DEFS <<LE FORMS>>
+                                '//==============================================================================================================//
+                                '//OGGETTI FORMS
+                                '//CONTROLLO OGGETTO NEL DB: Controllo l'esistenza della FORMS
+
+
+                                    'Dim obj As AccessObject, obj_Oggetto As Object
+                                    Set obj_Oggetto = Application.CurrentProject
+
+                                     '//RESET DELLE VARIABILI
+                                    intCiclo = 0
+                                    icount = 0
+
+                                    'NOME form prorvvisoria ca controllare, poi cancellare
+                                    par_sx_Name_FORM = "form ??? da definire"
+
+
+                                    'apro la tabella per il salvataggio delle query
+                                    Set ApriRs = dbs.OpenRecordset("MSsys_FORM_Qry01_01_TUTTE")
+
+
+                                    '//RESET DELLE VARIABILI
+                                    intCiclo = 0
+                                    icount = 0
+
+                                    'pulisco la tabella delle FORMS prima del salvataggio dei nuovi nomi
+                                    CurrentDb.Execute ("DELETE MSsys_FORM_Qry01_01_TUTTE.* FROM MSsys_FORM_Qry01_01_TUTTE;")
+
+
+
+                                '//ITERAZIONE FORMS DEFS <<LE FORMS>>
+                                '______________________________________________________________________________
+                                '//OGGETTI FORMS
+                                '//CONTROLLO OGGETTO NEL DB: Controllo l'esistenza della FORMS
+
+
+
+                                'itero nel db
+                                With dbs
+
+
+
+                                '//ITERAZIONE Forms DEFS <<LE FORMS>> - CONTROLLO FORM -
+                                '//______________________________________________________________________________
+                                '//OGGETTI FORMS
+                                '//CONTROLLO OGGETTO NEL DB: Controllo l'esistenza della Forms
+
+                                        For Each obj In obj_Oggetto.AllForms
+
+
+                                                'SALVATAGGIO NOME Forms
+                                                '................................................................
+                                                '//AGGIORNAMENTO_DEL_28_02_2020
+                                                '//Aggiorno il numero oggetto Forms  salvati nel campo della tabella _
+                                                dei salvataggi del nro Forms.
+
+                                                  ApriRs.AddNew
+
+                                                    'CONTROLLO DEI NOMI DELE FORMS
+                                                    '................................................................
+
+                                                            '//Search for open AccessObject objects in AllForms collection. _
+                                                            con la proprieta IsLoad = esegui il controllo delle Forms Aperti _
+                                                            mentre senza questa condizione, vengono iterati tutti gli oggetti _
+                                                            Report del Db. Per le Forms APERTI O CARICATI  viene impostata la _
+                                                            proprieta IsLoaded = True mentre per quelli chiusi è impostata a _
+                                                            FALSE. _
+                                                            È possibile utilizzare la proprietà IsLoaded per determinare se _
+                                                            un oggetto AccessObject è attualmente caricato. Valore Boolean in sola lettura.
+
+
+                                                                        Debug.Print "  " & obj.Name
+                                                                        Debug.Print "  " & obj.Type
+
+                                                                         '//Tipo di oggetto caricato = QUERY
+                                                                         ApriRs.Fields("TIPOGGETTO_s") = "FORMS"
+
+
+
+                                                            '//obj.Type = 2 LA FORMS
+                                                            If obj.Type = 2 Then
+
+                                                                    If obj.IsLoaded = True Then
+
+                                                                           '//aggiugno alla tabella il nome della FORM solo se oggetto di tipo 2
+                                                                            ApriRs.Fields("Name1_s") = obj.Name
+
+                                                                            Debug.Print "FORM APERTA = " & obj.Name
+                                                                            Debug.Print "  " & obj.Name
+                                                                            Debug.Print "Nro : " & icount
+                                                                            ApriRs.Fields("PROPRIETA_s") = "True"
+                                                                            ApriRs.Fields("VALOREPROPRIETA_m") = "FORM APERTA"
+
+                                                                             icount = icount + 1         '//aggiorno il contatore oggetti delle Forms
+                                                                             Debug.Print "Nro : " & icount
+
+                                                                             '//NRO di oggetto
+                                                                             ApriRs.Fields("IdOrd_lng") = icount
+
+
+
+                                                                    Else
+
+                                                                            '//aggiugno alla tabella il nome della FORM solo se oggetto di tipo 2
+                                                                            ApriRs.Fields("Name1_s") = obj.Name
+
+
+                                                                            Debug.Print "FORM NON APERTO ---> " & obj.Name
+                                                                            ApriRs.Fields("PROPRIETA_s") = "FALSE"
+                                                                            ApriRs.Fields("VALOREPROPRIETA_m") = "FORM CHIUSA"
+
+                                                                             icount = icount + 1         '//aggiorno il contatore oggetti delle Forms
+                                                                             Debug.Print "Nro : " & icount
+
+                                                                             '//NRO di oggetto
+                                                                             ApriRs.Fields("IdOrd_lng") = icount
+
+                                                                    End If
+                                                            End If
+
+
+                                                    '................................................................
+
+                                                  ApriRs.Update
+                                                '................................................................
+
+                                        Next obj
+
+                                    End With
+
+                    '//ITERAZIONE FORMS DEFS <<LE FORMS>>    *** FINE ***
+                    '//==============================================================================================================//
+
+                                    '**************************************************************
+
+
+
+                      'CICLO NEGLI OGGETTI REPORTS
+                       Case Is = "Cmd_Elenco_Reports"
+                        '//CHIAVE =====> modulo:controllo-Report
+                        '//Aggiornamento 22 MARZO 2020
+
+                                '//ITERAZIONE FORMS DEFS <<LE FORMS>>
+                                '//______________________________________________________________________________
+                                '//OGGETTI FORMS
+                                '//CONTROLLO OGGETTO NEL DB: Controllo l'esistenza della FORMS
+
+
+
+                                    'Dim obj As AccessObject, obj_Oggetto As Object
+                                    Set obj_Oggetto = Application.CurrentProject
+
+                                    '//RESET DELLE VARIABILI
+                                    intCiclo = 0
+                                    icount = 0
+
+                                    'pulisco la tabella delle FORMS prima del salvataggio dei nuovi nomi
+                                    CurrentDb.Execute ("DELETE MSsys_REPORT_Qry01_01_TUTTI.* FROM MSsys_REPORT_Qry01_01_TUTTI;")
+
+                                    'apro la tabella per il salvataggio dei REPORT
+                                    Set ApriRs = dbs.OpenRecordset("MSsys_REPORT_Qry01_01_TUTTI")
+
+
+                                '//ITERAZIONE FORMS DEFS <<LE FORMS>>
+                                '______________________________________________________________________________
+                                '//OGGETTI FORMS
+                                '//CONTROLLO OGGETTO NEL DB: Controllo l'esistenza della FORMS
+
+
+
+                                'itero nel db
+                                With dbs
+
+
+
+                                '//ITERAZIONE REPORTS DEFS <<I REPORT>> - CONTROLLO REPORT -
+                                '//______________________________________________________________________________
+                                '//OGGETTI REPORTS
+                                '//CONTROLLO OGGETTO NEL DB: Controllo l'esistenza della REPORTS
+
+                                        For Each obj In obj_Oggetto.AllReports
+
+
+                                                'SALVATAGGIO NOME REPORTS
+                                                '................................................................
+                                                '//AGGIORNAMENTO_DEL_28_02_2020
+                                                '//Aggiorno il numero oggetto REPORTS  salvati nel campo della tabella _
+                                                dei salvataggi del nro REPORTS.
+
+
+
+                                                  ApriRs.AddNew
+                                                    '//aggiugno alla tabella il nome della query + il contenuto sql
+                                                    ApriRs.Fields("Name1_s") = obj.Name
+
+
+
+
+                                                    'CONTROLLO DEI NOMI DEI REPORT
+                                                    '................................................................
+
+                                                            '//Search for open AccessObject objects in AllReports collection. _
+                                                            con la proprieta IsLoad = esegui il controllo dei Reports Aperti _
+                                                            mentre senza questa condizione, vengono iterati tutti gli oggetti _
+                                                            Report del Db. Per i reports APERTI O CARICATI  viene impostata la _
+                                                            proprieta IsLoaded = True mentre per quelli chiusi è impostata a _
+                                                            FALSE. _
+                                                            È possibile utilizzare la proprietà IsLoaded per determinare se _
+                                                            un oggetto AccessObject è attualmente caricato. Valore Boolean in sola lettura.
+
+
+                                                                        Debug.Print "  " & obj.Name
+                                                                        Debug.Print "  " & obj.Type
+
+                                                                        '//Tipo di oggetto caricato = REPORTS
+                                                                        ApriRs.Fields("TIPOGGETTO_s") = "REPORTS"
+
+                                                            '//obj.Type = 3 LA FORMS
+                                                            If obj.Type = 3 Then
+
+                                                                    If obj.IsLoaded = True Then
+
+
+                                                                            Debug.Print "REPORT APERTO = " & obj.Name
+                                                                            Debug.Print "  " & obj.Name
+                                                                            Debug.Print "Nro : " & icount
+                                                                            ApriRs.Fields("PROPRIETA_s") = "True"
+                                                                            ApriRs.Fields("VALOREPROPRIETA_m") = "FORM APERTA"
+
+                                                                             icount = icount + 1         '//aggiorno il contatore oggetti delle REPORTS
+                                                                             Debug.Print "Nro : " & icount
+
+                                                                             '//NRO di oggetto
+                                                                             ApriRs.Fields("IdOrd_lng") = icount
+
+
+
+                                                                    Else
+                                                                            Debug.Print "REPORT NON APERTO ---> " & obj.Name
+                                                                            ApriRs.Fields("PROPRIETA_s") = "FALSE"
+                                                                            ApriRs.Fields("VALOREPROPRIETA_m") = "FORM CHIUSA"
+
+                                                                             icount = icount + 1         '//aggiorno il contatore oggetti delle REPORTS
+                                                                             Debug.Print "Nro : " & icount
+
+                                                                             '//NRO di oggetto
+                                                                             ApriRs.Fields("IdOrd_lng") = icount
+
+                                                                    End If
+                                                            End If
+
+                                                    '................................................................
+
+
+
+
+
+                                                  ApriRs.Update
+                                                '................................................................
+
+
+
+
+                                        Next obj
+
+                                    End With
+
+
+
+                                '//ITERAZIONE REPORTS DEFS <<I REPORT>>
+                                '//______________________________________________________________________________
+
+
+                       'CICLO NEGLI OGGETTI MACRO - CONTROLLO MACRO -
+                       Case Is = "Cmd_Elenco_MACRO"
+                        '//CHIAVE =====> modulo:controllo-Macro
+                        '//Aggiornamento 22 MARZO 2020
+
+                                '//ITERAZIONE MACRO DEFS <<LE MACRO>>
+                                '//______________________________________________________________________________
+                                '//OGGETTI MACRO
+                                '//CONTROLLO OGGETTO NEL DB: Controllo l'esistenza della MACRO
+
+
+
+                                    'Dim obj As AccessObject, obj_Oggetto As Object
+                                    Set obj_Oggetto = Application.CurrentProject
+
+                                    '//RESET DELLE VARIABILI
+                                    intCiclo = 0
+                                    icount = 0
+
+                                    'pulisco la tabella delLE MACRO prima del salvataggio dei nuovi nomi
+                                    CurrentDb.Execute ("DELETE MSsys_MACRO_Qry01_01_TUTTE.* FROM MSsys_MACRO_Qry01_01_TUTTE;")
+
+                                    'apro la tabella per il salvataggio dei Macro
+                                    Set ApriRs = dbs.OpenRecordset("MSsys_MACRO_Qry01_01_TUTTE")
+
+
+                                '//ITERAZIONE MACRO DEFS <<LE MACRO>>
+                                '______________________________________________________________________________
+                                '//OGGETTI MACRO
+                                '//CONTROLLO OGGETTO NEL DB: Controllo l'esistenza della MACRO
+
+
+
+                                'itero nel db
+                                With dbs
+
+
+
+                                '//ITERAZIONE MACRO DEFS <<I Macro>>
+                                '//______________________________________________________________________________
+                                '//OGGETTI MACRO
+                                '//CONTROLLO OGGETTO NEL DB: Controllo l'esistenza della MACRO
+
+                                        For Each obj In obj_Oggetto.AllMacros
+
+
+                                                'SALVATAGGIO NOME MACRO
+                                                '................................................................
+                                                '//AGGIORNAMENTO_DEL_28_02_2020
+                                                '//Aggiorno il numero oggetto MACRO  salvati nel campo della tabella _
+                                                dei salvataggi del nro MACRO.
+
+
+
+                                                  ApriRs.AddNew
+                                                    '//aggiugno alla tabella il nome della query + il contenuto sql
+                                                    ApriRs.Fields("Name1_s") = obj.Name
+
+
+
+
+
+                                                    'CONTROLLO DEI NOMI DEI Macro
+                                                    '................................................................
+
+                                                            '//Search for open AccessObject objects in AllMACRO collection. _
+                                                            con la proprieta IsLoad = esegui il controllo dei MACRO Aperti _
+                                                            mentre senza questa condizione, vengono iterati tutti gli oggetti _
+                                                            Macro del Db. Per i MACRO APERTI O CARICATI  viene impostata la _
+                                                            proprieta IsLoaded = True mentre per quelli chiusi è impostata a _
+                                                            FALSE. _
+                                                            È possibile utilizzare la proprietà IsLoaded per determinare se _
+                                                            un oggetto AccessObject è attualmente caricato. Valore Boolean in sola lettura.
+
+
+                                                                        Debug.Print "  " & obj.Name
+                                                                        Debug.Print "  " & obj.Type
+
+                                                                        '//Tipo di oggetto caricato = MACRO
+                                                                        ApriRs.Fields("TIPOGGETTO_s") = "MACRO"
+
+
+                                                            '//obj.Type = 4 LA MACRO
+                                                            If obj.Type = 4 Then
+
+
+
+
+                                                                            Debug.Print "Macro APERTO = " & obj.Name
+                                                                            Debug.Print "  " & obj.Name
+                                                                            Debug.Print "Nro : " & icount
+                                                                            'ApriRs.Fields("PROPRIETA_s") = "True"
+                                                                            'ApriRs.Fields("VALOREPROPRIETA_m") = "FORM APERTA"
+
+                                                                             icount = icount + 1         '//aggiorno il contatore oggetti delle MACRO
+                                                                             Debug.Print "Nro : " & icount
+
+                                                                             '//NRO di oggetto
+                                                                             ApriRs.Fields("IdOrd_lng") = icount
+
+
+
+
+                                                            End If
+
+                                                    '................................................................
+
+
+
+
+
+                                                  ApriRs.Update
+                                                '................................................................
+
+
+
+
+                                        Next obj
+
+                                    End With
+
+
+
+                                '//ITERAZIONE MACRO DEFS <<I Macro>>
+                                '//______________________________________________________________________________
+
+
+
+                            Case Else
+                                    MsgBox "Scelta comando non effettuata", vbExclamation
+                                     GoTo Exit_RICERCA_OGGETTI_DB_PFunct
+                        End Select
+                                    'chiudo i rs aperti + Rilascio la memoria
+                                    ApriRs.Close
+                                    Set ApriRs = Nothing
+
+
+
+        '------------------------------------------------------------------------------
+        '                       FINE FUNCTIONE E GESTIONE ERRORI
+
+        Exit_RICERCA_OGGETTI_DB_PFunct:
+            dbs.Close
+            Set dbs = Nothing
+            Exit Function
+
+
+        Err_RICERCA_OGGETTI_DB_PFunct:
+            MsgBox "ERRORE FUNCTION PUBLIC    " & Err.Number & " - " & Err.Description, vbCritical, "RICERCA_OGGETTI_DB_PFunct"
+            Resume Exit_RICERCA_OGGETTI_DB_PFunct
+
+        End Function
+
+        '//*** FINE ***
+        '//                                     SALVATAGGIO OGGETTI DATABASE
+        '//{@=============================================================================================================@}
+
+
+
+
+        '//###########################################################################################################//
+        '//####
+        '//####                             PROCEDURE DI RICERCA   *** FINE ***
+        '//####
+        '//###########################################################################################################//
+
+
+
+        '// *** FINE ***
+        '//CODICE----------->SALVO_ATTIVITA_CMB_02_IN_TMP_Sub.Salvataggio_ATTIVITA
+        '//SALVATAGGIO PARAMETRI NELLA TABELLA TMP
+        '//###########################################################################################################################//
+
+'//PROCEDURE DI CONTROLLO *** INIZIO ***
+    '//###########################################################################################################//
+    '//####
+    '//####
+    '//#### CONTROLLO/ CONTROLLA...
+    '//###########################################################################################################//
+
+
+            '//FUNZIONE_DI_CONTROLLO_DELLA_ESISTENZA_DELL'OGGETTO_FORM
+            '//=======================================================================================================//
+            '//CODICE-----> Controlla_SE_OGGETTO_FORM_ESISTE_pFunct.attiva
+            '//note: è stata inserita nella classe CLASSE_GESTIONE_OGGETTI_FORM
+            Public Function Controlla_SE_OGGETTO_FORM_ESISTE_pFunct(par_sxNameForm As String) As Boolean
 
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        '//*************************************//
-                                        '//     LE ESPORTAZIONI
-                                        '//*************************************//
-                                        '
-    '//**************************************************************************************************************************//
-    '//         FUNZIONI DI ESPORTAZIONI LAVORI PUBBLICI IN FORMATO XLS
-    '//**************************************************************************************************************************//
-    '//
-
-    '//01)_ESPORTA FILE XLS CON MATRICE = Funzione di esportazione dei dati dei lavori pubblici _
-            con esportazioni in tabelle excel. Viene utilizzata una matrice.
-    '//     CODICE------> ESPORTA_FILE_XLS_ConMatriceDati_pFunct
-
-
-
-'//ESPORTO SU FILE ESTERNO _ per ora un xls
-Public Sub OutputTo_Sub(par_Tabella_s As String, par_Path_s As String, par_NuovaDenominazioneTabella_01_s As String, par_Bool As Boolean)
-
-            '//MODELLO DI ESPORTAZIONE
-            '//Esporto le tabelle in formato xls
-            '                       par_Tabella_s                          par_PATH_S                               par_Bool
-            'DoCmd.OutputTo acTable, Tabella_01_s, "MicrosoftExcel(*.xls)", PATH_s & NuovaDenominazioneTabella_01_s, False, ""
-            'MODELLO FUNZIONANTE ---> DoCmd.OutputTo acTable, "LLPP_ATTI_Tb01_Gestione", "MicrosoftExcel(*.xls)", "c:\GESTIONI\GESTIONE_LLPP\25_GESTIONE_LLPP\LPP_ARCHIVI_SALVATAGGI\LLPP_ATTI_Tb01_Gestione.xls", False, ""
-            '//Controllo parametri:
-                Debug.Print "par_Tabella_s                              ----> " & par_Tabella_s
-                Debug.Print "par_PATH_S                                 ----> " & par_Path_s
-                Debug.Print "par_NuovaDenominazioneTabella_01_s         ----> " & par_NuovaDenominazioneTabella_01_s
-
-            DoCmd.OutputTo acTable, par_Tabella_s, "MicrosoftExcel(*.xls)", par_Path_s & par_NuovaDenominazioneTabella_01_s, par_Bool, ""
-
-    End Sub
-
-
-
-
-
-
-    '//**************************************************************************************************************************//
-
-    '//FUNZIONE ESPORTA FILE XLS
-    '//Chiamo matrice con Stringhe che rappresentano delle tabelle _
-    Impegni , Presenze
-    Private Sub CHIAMA_ESPORTA_FILE_XLS_ConMatriceDati_pFunct()
-
-        '//Chiamo la procedura di esportazione indicando il nome delle tabelle da esportare in xls
-        ESPORTA_FILE_XLS_ConMatriceDati_pFunct "LLPP_IMPEGNI_Tb01_ATTI_DI_IMPEGNO", "LLPP_IMPEGNI_Tb02_ELENCO_DI_SPESA", _
-        "PRES3000_Tb01_Calendario", "PRES3000_Tb02_ElencoGiornaliere", "PRES3000_Tb01_Calendario", "Indirizzi_Tb01_INTESTATARI", _
-        "Indirizzi_Tb02_ELENCO"
-
-    End Sub
-
-
-'//01)_ESPORTA FILE XLS CON MATRICE = Funzione di esportazione dei dati dei lavori pubblici _
-            con esportazioni in tabelle excel. Viene utilizzata una matrice.
-    '//     CODICE------> ESPORTA_FILE_XLS_ConMatriceDati_pFunct
-    '//=================================================================================================//
-    '//NOTE ------------->  : attenzione esporto la collezione di file ma il primo deve essere nullo ("") per _
-                            evitare che venga saltato.
-
-    Public Function ESPORTA_FILE_XLS_ConMatriceDati_pFunct(strName As String, ParamArray intScores() As Variant)
-        Dim PATH_s As String
-        Dim Tabella_01_s As String
-        Dim NuovaDenominazioneTabella_01_s As String
-        Dim Tabella_02_s As String
-        Dim NuovaDenominazioneTabella_02_s As String
-        Dim intI As Integer
-        Dim icount As Integer                   '//il contatore
-
-        On Error GoTo ESPORTA_FILE_XLS_ConMatriceDati_pFunct_Err
-
-
-        '//ESPORTA I DATI IN FILE XLS
-        '//........................................................
-
-
-
-           '//Chiamo la procedura di esportazione indicando il nome delle tabelle da esportare in xls _
-              ATTENZIONE, occorre inserire un record vuoto "", affinche possono essere considerati tutti gli altri _
-              file dell'esportazione altrimenti di viene saltato il primo "LLPP_ATTI_Tb01_Gestione", _
-                        Call ESPORTA_FILE_XLS_ConMatriceDati_pFunct "", _
-                        "LLPP_ATTI_Tb01_Gestione", _
-                        "LLPP_ATTI_Tb02_Allegati", _
-                        "Indirizzi_Tb01_INTESTATARI", _
-                        "Indirizzi_Tb02_ELENCO", _
-                        "PRES3000_Tb01_Calendario", _
-                        "PRES3000_Tb02_ElencoGiornaliere", _
-                        "LLPP_DF01_CodiceOpera", _
-                        "LLPP_IMPEGNI_Tb01_ATTI_DI_IMPEGNO", _
-                        "LLPP_IMPEGNI_Tb02_ELENCO_DI_SPESA"
-
-        '//........................................................
-
-
-        '//Reset ed impostazioni
-        '//........................................................
-            PATH_s = vbNull
-            PATH_s = "c:\GESTIONI\GESTIONE_LLPP\25_GESTIONE_LLPP\LPP_ARCHIVI_SALVATAGGI\"
-
-            Tabella_01_s = vbNull
-            Tabella_01_s = "LLPP_IMPEGNI_Tb01_ATTI_DI_IMPEGNO"
-
-        '//........................................................
-
-            Debug.Print
-            Debug.Print strName; " Punteggi"
-            ' Utilizza la funzione UBound per definire il
-            ' limite superiore della matrice.
-
-            '//Dimensione la matrice di file
-
-             Dim MatriceFile_s As String
-
-            icount = 0
-
-
-
-                '//ATTIVAZIONE CLASSE
-                '//ROUTINE_DI_ATTIVAZIONE_APERTURA_FILE
+                '//FUNZIONE_DI_CONTROLLO_DELLA_ESISTENZA_DELL'OGGETTO_FORM
                 '//CODICE-----> Controlla_SE_OGGETTO_FORM_ESISTE_pFunct.attiva.LaClasse
                 '//--------------------------------------------------------------------------------//-//
-                '//NOTA  :Controlla se esiste la form negli oggetti del database
-
-
-                        'If Str1 <> "OGGETTO NON TROVATO" Then
-                             '
-                                'Dim MyCls_CLASSE_ATTI_Tb01_Gestione As New CLASSE_ATTI_Tb01_Gestione
-                                'Dim OggettoDaRicercare_s As String
-
-                                'Set MyCls_CLASSE_ATTI_Tb01_Gestione = New CLASSE_ATTI_Tb01_Gestione
+                '//NOTA  :Controlla se esiste la form negli oggetti del database e restituisce TRUE _
+                          se il nome della form passata con parametro par_sxNameForm esiste; altrimenti FALSE
 
 
 
-                        'End If
+                            'ISTANZIO LA CLASSE CLASSE_GESTIONE_OGGETTI_FORM
+                            'Assegno e creo l'oggetto di classe
+                            'Dim MyCls_CLASSE_GESTIONE_OGGETTI_FORM As Classe_GESTIONE_OGGETTI_FORM
+                            'Set MyCls_CLASSE_GESTIONE_OGGETTI_FORM = New Classe_GESTIONE_OGGETTI_FORM
+
+
+                            'PARAMETRI DI ESTRAZIONE
+                            'Attivo il metodo della classe rappresentata dalla routine passando
+                            'sxNameForm = "Nome della form"
+                            'MyCls_CLASSE_GESTIONE_OGGETTI_FORM.Controlla_SE_OGGETTO_FORM_ESISTE_pFunct sxNameForm
+
+                            'Set MyCls_CLASSE_GESTIONE_OGGETTI_FORM = Nothing
 
                     '//--------------------------------------------------------------------------------//-//
 
@@ -4408,627 +2882,2049 @@ Public Sub OutputTo_Sub(par_Tabella_s As String, par_Path_s As String, par_Nuova
 
 
 
-        For intI = 0 To UBound(intScores())
-            Debug.Print "          "; intScores(intI)
-            Tabella_01_s = vbNull
-            Tabella_01_s = intScores(intI)
-            icount = icount + 1
-            Bool1 = False
-            NuovaDenominazioneTabella_01_s = intScores(intI) & ".xls"
+
+                Dim formName_s As String
+                Dim ctl As Control
+
+                '//reset
+                FormGestione_b = False
 
 
-                '//Controllo Parametri e tabella da esportare
-                Debug.Print
-                Debug.Print "----------------------CONTROLLO VARIABILI TABELLE XLS --------------------------------------"
-                Debug.Print
-                Debug.Print "tabella da ricercare - variabile           :Tabella_01_s                                   ----> " & Tabella_01_s
-                Debug.Print "la path e la variabile                     :par_PATH_S                                     ----> " & PATH_s
-                Debug.Print "nuova denominazione xls con la variabile   :NuovaDenominazioneTabella_01_s                 ----> " & NuovaDenominazioneTabella_01_s
-                Debug.Print
-                Debug.Print "--------------------------------------------------------------------------------------------"
+                'application.Form[GEST_FrmM00_GESTIONE].
+                Dim obj As AccessObject, dbs As Object
+                Set dbs = Application.CurrentProject
+                ' Search for open AccessObject objects in AllForms collection.
+                For Each obj In dbs.AllForms
+
+                        ' Print name of obj.
+                        Debug.Print obj.Name
+                        formName_s = obj.Name
+
+                        '//CONTROLLO SUL NOME
+                        If formName_s = par_sxNameForm Then
+
+                           '//La form esiste restituisco True
+                           FormGestione_b = True
+                           Controlla_SE_OGGETTO_FORM_ESISTE_pFunct = True
+
+                        Else
+                             FormGestione_b = False
+
+                        End If
 
 
-                    '//ESPORTO LA TABELLA
+                Next obj
+
+
+                        If Bool1 = False Then
+                            MsgBox "ATTENZIONE LA FORM ---> " & formName_s & " NON ESISTE NEL DB CORRENTE", vbExclamation, "CONTROLLO FORM"
+                        End If
+
+
+
+
+
+                    Set obj = Nothing
+                    Set dbs = Nothing
+                    Set ctl = Nothing
+                    formName_s = vbNull
+
+
+
+
+            End Function
+            '//*** FINE ***
+            '//FUNZIONE_DI_CONTROLLO_DELLA_ESISTENZA_DELL'OGGETTO_FORM
+            '//=======================================================================================================//
+
+
+
+
+            '//FUNZIONE_DI_CONTROLLO_DELLA_ESISTENZA_DEL_SINGOLO_OGGETTO_NEL_DB_CORRENTE
+            '//=======================================================================================================//
+            '//CODICE----->ACONTROLLA_OGGETTO_pFunction.Funcition
+
+            '//ATTIVO LA FUNZIONE TROVA L'OGGETTO NEL DB CORRENTE
+            '//--------------------------------------------------------------------------------//---//
+            '//NOTE : attivo la ricerca dell'oggetto nel DB corrente iterando in tutti gli oggetti _
+                    se trova l'oggetto passato come parametro, tipo form, modulo, query od altro _
+                    ritrona il parametro OGGETTO TROVATO con il quale viene effettuato un controllo _
+                    con la if che da il permesso di attivare la procedura della classe. Se il parametro _
+                    ritorna NON TROVATO l'attivà della classe viene saltata esplicitamente.
+            '//
+            '//CODICE----->ACONTROLLA_OGGETTO_pFunction.Funcition.ATTIVA
+                'Dim ObjDaTrovare_s As String
+                'ObjDaTrovare_s = ""
+                'Str1 = CONTROLLA_OGGETTO_pFunction(ObjDaTrovare_s)
+                    'If ObjDaTrovare_s = "OGGETTO TROVATO" Then
+                        'eseguo l'attività della classe altrimenti non viene eseguita
+                        '...
+                    'End If
+
+            '//Controlla_SE_OGGETTO_TABELLA_ESISTE_pFunct = CONTROLLO ESISTENZA OGGETTO TABELLA
+            '//--------------------------------------------------------------------------------//---//
+            Public Function Controlla_SE_OGGETTO_TABELLA_ESISTE_pFunct(par_sxNameTABELLA As String)
+
+
+                Dim obj As AccessObject
+                Dim dbs As Object
+
+                Dim objAllTables As AllTables
+
+                  '//Variabile database corrente + reset
+                Set dbs = Application.CurrentData
+                Controlla_SE_OGGETTO_TABELLA_ESISTE_pFunct = False            '//imposto a ricerca fallita
+
+
+                'Search for open AccessObject objects in AllForms collection.
+                For Each obj In dbs.AllTables
+
+                        ' Print name of obj.
+                        Debug.Print obj.Name
+                        TableName_s = obj.Name
+
+                        '//CONTROLLO SUL NOME
+                        If TableName_s = par_sxNameTABELLA Then
+
+                           '//Se esiste la TABELLA restituisco True
+
+                           Controlla_SE_OGGETTO_TABELLA_ESISTE_pFunct = True
+
+                                '//controllo TABELLE ESISTENTE
+                                 Debug.Print "----------------------LA TABELLA XLS ESISTE --------------------------------------"
+                                 Debug.Print
+                                 Debug.Print "tabella xls passata con parametro par_sxNameTABELLA ESISTE nel db               ----> " & par_sxNameTABELLA
+
+
+                           Exit For
+
+                        End If
+
+                 Next obj
+
+
+            End Function
+
+            '//*** FINE ***
+            '//Controlla_SE_OGGETTO_TABELLA_ESISTE_pFunct = CONTROLLO ESISTENZA OGGETTO TABELLA
+            '//--------------------------------------------------------------------------------//---//
+
+
+            '//Controlla_SE_OGGETTO_QUERY_ESISTE_pFunct = CONTROLLO ESISTENZA OGGETTO QUERY
+            '//--------------------------------------------------------------------------------//---//
+            Public Function Controlla_SE_OGGETTO_QUERY_ESISTE_pFunct(par_sxNameQuery As String)
+
+
+                Dim obj As AccessObject
+                Dim dbs As Object
+
+                Dim objAllQueries As AllQueries
+
+                  '//Variabile database corrente + reset
+                Set dbs = Application.CurrentData
+                Controlla_SE_OGGETTO_QUERY_ESISTE_pFunct = False            '//imposto a ricerca fallita
+
+
+                'Search for open AccessObject objects in AllForms collection.
+                For Each obj In dbs.AllQueries
+
+                        ' Print name of obj.
+                        Debug.Print obj.Name
+                        formName_s = obj.Name
+
+                        '//CONTROLLO SUL NOME
+                        If formName_s = par_sxNameQuery Then
+
+                           '//Se esiste la query restituisco True
+
+                           Controlla_SE_OGGETTO_QUERY_ESISTE_pFunct = True
+
+                           Exit For
+
+                        End If
+
+                 Next obj
+
+
+            End Function
+
+            '//*** FINE ***
+            '//Controlla_SE_OGGETTO_QUERY_ESISTE_pFunct = CONTROLLO ESISTENZA OGGETTO QUERY
+            '//--------------------------------------------------------------------------------//---//
+
+            Public Function CONTROLLA_OGGETTO_pFunction(ByVal NameObject_s As String) As String
+
+
+                    Dim obj As Object
+                    Dim frm As Form
+                        Dim ctrl As Control
+
+                        '//impsto il valore a non trovato
+                        CONTROLLA_OGGETTO_pFunction = "NON TROVATO"
+
+                        For Each obj In CurrentProject.AllForms
+                            If InStr(obj.Name, "MODELLO_Frm01_M01_GE_FILTRO_M15_H15_L35_NoButton") Then Debug.Print "Forms|" & obj.Name
+
+                                'Trovato l'oggetto nel db corrente
+                                CONTROLLA_OGGETTO_pFunction = "TROVATO"
+
+                            'Set frm = Forms(obj.Name) '- this had problems as well, so I commented out
+                            For Each ctrl In Forms(obj.Name).Controls
+                                If InStr(ctrl.Name, "LBL_FILTRO_01") Then Debug.Print "Form|" & obj.Name & "|" & ctrl.Name
+                            Next ctrl
+                        Next obj
+
+                    End Function
+
+
+
+            '//*** FINE ***
+            '//FUNZIONE_DI_CONTROLLO_DELLA_ESISTENZA_DEL_SINGOLO_OGGETTO_NEL_DB_CORRENTE
+            '//=======================================================================================================//
+
+
+
+            '//CODICE-->Controlla_SE_OGGETTO_FORM_E_APERTA_pFunct.01
+            '//FUNZIONE_DI_CONTROLLO_DELLA_FORM_GESTIONE_APERTA.01
+            '//=======================================================================================================//
+            '//SI TROVA NEL MODULO -> GEST_FrmM00_GESTIONE_Mdl01_ControlloFormAperta
+
+            Public Function Controlla_SE_OGGETTO_FORM_E_APERTA_pFunct(NameForm_s As String) As Boolean
+
+
+            On Error GoTo Controlla_SE_OGGETTO_FORM_E_APERTA_pFunct_Err
+
+
+
+                    '//FUNZIONE DELLA CLASSE PER IL CONTROLLO SE LA FORM E' APERTA
+                    '//############################################################################################################################//
+
+                            '//ISTANZIO LA CLASSE PER IL CONTROLLO DELLA FORM APERTA
+                            '//.....................................................................................................
+
+
+                                '//IMPOSTO LA VARIABILE OGGETTO = per l'utilizzo della classe e le altre variabili
+                                    '//--> Dim MyCls_CLASSE_ATTI_Tb01_Gestione As CLASSE_ATTI_Tb01_Gestione
+                                    '//--> Dim FormAperta_b As Boolean
+
+                                '// RESET DELLE VARIABILI
+                                    '//--> FormAperta_b = false
+
+                                '//ISTANZIO LA CLASSE = MyCls_CLASSE_GESTIONE_OGGETTI_FORM assegnando _
+                                   l 'oggetto di classe alla variabile e creo creo l'oggetto di classe
+                                    '//--> Set MyCls_CLASSE_ATTI_Tb01_Gestione = New CLASSE_ATTI_Tb01_Gestione
+
+                                '//PATH O FILE = Inserire o una path oppure una path+file con percoso esteso.
+                                    'Str1 = "**** DEVI INSERIRE IL NOME DELLA FORM DA CONTROLLARE ***"
+
+                                    '// LA FUNZIONE RESTITUISCE TRUE SE E' APERTA ALTRIMENTI FALSE
+                                    '//--> FormAperta_b = MyCls_CLASSE_ATTI_Tb01_Gestione.Controlla_SE_OGGETTO_FORM_E_APERTA_pFunct (Str1)
+
+
+
+                                '//RILASCIO LA MEMORIA = rilascio l'oggetto ed attivo il distruttore della classe
+                                    '//--> Set MyCls_CLASSE_ATTI_Tb01_Gestione = Nothing
+
+
+                            '//.....................................................................................................
+
+
+                    '//*** FINE ***
+                    '//FUNZIONE DELLA CLASSE PER IL CONTROLLO SE LA FORM E' APERTA
+                    '//############################################################################################################################//
+
+
+
+
+            '//FUNZIONE_DI_CONTROLLO_DELLA_FORM_GESTIONE_APERTA.01_Esegui
+            '//__________________________________________________________________________________________//
+
+                Dim formName_s As String
+                Dim ctl As Control
+
+                '//reset
+                FormGestione_b = False
+
+
+                'application.Form[GEST_FrmM00_GESTIONE].
+                Dim obj As AccessObject, dbs As Object
+                Set dbs = Application.CurrentProject
+                ' Search for open AccessObject objects in AllForms collection.
+                For Each obj In dbs.AllForms
+
+                    If obj.IsLoaded = True Then
+                        ' Print name of obj.
+                        Debug.Print obj.Name
+                        formName_s = obj.Name
+
+                        '//CONTROLLO SUL NOME
+                        If formName_s = "GEST_FrmM00_GESTIONE" Then
+
+                           '//FormGestione_b = true per indicare che la form è aperta e restituisco il nome della form _
+                           alla routine chiamante
+                           FormGestione_b = True
+                           Controlla_SE_OGGETTO_FORM_E_APERTA_pFunct = True
+
+                        End If
+
+                    End If
+                Next obj
+
+                    Set obj = Nothing
+                    Set dbs = Nothing
+                    Set ctl = Nothing
+                    formName_s = vbNull
+
+            '//FUNZIONE_DI_CONTROLLO_DELLA_FORM_GESTIONE_APERTA.01_Esegui *** fine ***
+            '//__________________________________________________________________________________________//
+
+
+
+
+            '// USCITA E CONTROLLO ERRORI
+            '//__________________________________________________________________________________________//
+
+
+    Controlla_SE_OGGETTO_FORM_E_APERTA_pFunct_Exit:
+                Exit Function
+
+    Controlla_SE_OGGETTO_FORM_E_APERTA_pFunct_Err:
+                MsgBox Error$
+                Resume Controlla_SE_OGGETTO_FORM_E_APERTA_pFunct_Exit
+
+
+            End Function
+            '//*** FINE ***
+            '//FUNZIONE_DI_CONTROLLO_DELLA_FORM_GESTIONE_APERTA
+            '//=======================================================================================================//
+
+
+
+
+    '//###########################################################################################################//
+    '//####
+    '//####                             PROCEDURE DI CONTROLLO *** FINE ***
+    '//#### CONTROLLO/ CONTROLLA...
+    '//###########################################################################################################//
+
+'//TUTTE LE ESPORTAZIONI'
+    '//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@//
+    '//                                             ESPORTAZIONI DATI PER IL SETTORE LAVORI PUBBLICI
+    '//
+    '//NOTE :ESPORTA LE TABELE XLS ESISTENTI        14.08.2020 del settore lavori pubblici.
+
+    '//      ATTIVA IN VISUALIZZAZIONE LE QUERY ESISTENTI
+    '//     TODO: non gestisce le tabelle collegate, da errore se esistono. Per il momento le tabelle collegate non funzionanti _
+                  sono state cancellate. _
+                  GESTIRE LE TABELLE COLLEGATE!!!!
+    '//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@//
+
+
+
+
+    '//AGGIORNA I DATI CON LE QUERY ED ESPORTA IN MDB + XLS
+    '//****************************************************************************************************************//
+        '------------------------------------------------------------
+        ' CODICE----->AggiornaDati_ed_EsportaDati_Pfunct.ATTIVA
+        ' AggiornaDati_ed_EsportaDati_Pfunct
+        ' si trova in questo modulo                 ----> LLPP_ATTI_Mdl01_AGGIORNA_Mcr01_01_AggiornaDati+EsportaDati
+        ' ma sistemato all'interno della classe     ----> CLASSE_ATTI_Tb01_Gestione _
+        ' perchè all'interno della classe posso fare un controllo degli oggetti prima di _
+        ' attivare il comando Cmd; se non esistono nel db corrente da errore; ma _
+        ' con il controllo degli oggetti puoi attivare quelli che sono presenti.
+        '------------------------------------------------------------
+        Public Function AggiornaDati_ed_EsportaDati_Pfunct()
+
+            '//Variabile per le tabelle ESPORTATE E NON ESPORTATE
+            Dim MsgTabelle_ESPORTATE_s As String
+            Dim iCount_TABELLE_ESPORTATE As Integer
+            Dim MsgTabelle_NON_ESPORTATE_s As String
+            Dim iCount_NON_TABELLE_ESPORTATE As Integer
+
+
+            Dim OggettoDaRicercare_s   As String
+            Dim icount As Integer
+
+            On Error GoTo AggiornaDati_ed_EsportaDati_Pfunct_Err
+
+
+
+
+                '//RESET
+                MsgTabelle_NON_ESPORTATE_s = ""
+                icount = 0
+
+            ' AGGIORNAMENTI + ACCODAMENTI
+            ' ***********************************************************************************************************************
+            ' Note  : Eseguo l'aggiornamento dei vari argomenti di controllo.
+
+
+                '//PRES3000 AGGIORNAMENTI TABELLE PRESENZE MEDIANTE LA MACRO
+                '//=========================================================================================================
+
+
+
+                    '//RIRCERCA OGGETTO NEL DB CORRENTE - Query da ricercare
                     '//.......................................................................................
-                    '//NOTE : se non trova l'oggetto nel db dove si trova questa classe non esegue il comando. _
-                            la TABELLA viene presa nella matrice.
+                    '//NOTE : se non trova l'oggetto nel db dove si trova questa classe non esegue il comando
 
                         '//Imposto la variabile dell'ogggetto da ricercare e chiamo la funzione _
                            di ricerca secondo il tipo di oggetto
 
                         Bool1 = False
-                        'Tabella da ricercare = viene indicata nella matrice intScores(intI) senza .xls
-                        Bool1 = MyCls_CLASSE_ATTI_Tb01_Gestione.Controlla_SE_OGGETTO_TABELLA_ESISTE_pFunct(Tabella_01_s)
+                        OggettoDaRicercare_s = "PRES3000_Qry01_10_AGGIORNA_Campo_IDKEY_CALENDARIO"      '//Aggiorno ID nel campo idKey del calendario, per preservare la chiave univoca.
+                        Bool1 = Controlla_SE_OGGETTO_QUERY_ESISTE_pFunct(OggettoDaRicercare_s)
 
                             '//SE TRUE = oggetto esistente ed eseguo il comando
                             If Bool1 Then
+                                '//!!!! ATTENZIONE NON GESTISCE LE TABELLE COLLEGATE SISTEMARE ????????
 
-                                '???? NON FUNZIONA
-                                'DoCmd.OutputTo acTable, Tabella_01_s, "MicrosoftExcel(*.xls)", PATH_s, NuovaDenominazioneTabella_01_s, False, ""
+                                '//ESEGUO IL COMANDO Docmd con 3 parametri, il nome della query + 2 variabili oggetto : _
+                                acViewNormal        0 (Impostazione predefinita) Visualizzazione Normale _
+                                acEdit              1  L'utente può visualizzare o modificare i record esistenti e aggiungere nuovi record.
 
+                                DOCMDOpenQuery_Sub OggettoDaRicercare_s, 0, 1
 
-                                '//ESEGUO IL COMANDO OutpuTo CON con 3 parametri, il nome della TABELLA + LA PATH dove esportare + TRUE ?
-                                'MODELLO ---> OutputTo_Sub(par_Tabella_s As String, par_PATH_S As String, par_NuovaDenominazioneTabella_01_s As String, par_Bool As Boolean)
-                                MyCls_CLASSE_ATTI_Tb01_Gestione.OutputTo_Sub Tabella_01_s, PATH_s, NuovaDenominazioneTabella_01_s, False
+                                    '//CONTEGGIO E MSG DELLE TABELLE ESPORTATE
+                                    iCount_TABELLE_ESPORTATE = iCount_TABELLE_ESPORTATE + 1
+                                    MsgTabelle_ESPORTATE_s = iCount_TABELLE_ESPORTATE & ") " & MsgTabelle_ESPORTATE_s & OggettoDaRicercare_s & Chr$(13)
+                            Else
 
-                                '//APRO TABELLA ESPORTATA
-                                DoCmd.OpenTable Tabella_01_s, acViewNormal, acEdit
+                                    '//CONTEGGIO E MSG DELLE TABELLE NON ESPORTATE
+                                    icount = iCount_NON_TABELLE_ESPORTATE + 1
+                                    MsgTabelle_NON_ESPORTATE_s = iCount_NON_TABELLE_ESPORTATE & ") " & MsgTabelle_NON_ESPORTATE_s & OggettoDaRicercare_s & Chr$(13)
+                            End If
 
-
-
-                          End If
 
                    '//.......................................................................................
 
 
 
-                        MatriceFile_s = MatriceFile_s & icount & ") " & NuovaDenominazioneTabella_01_s & " " & vbCrLf
+                    '//*** AGGIORNO LE TIMBRATURE ***
+                    '//RIRCERCA OGGETTO NEL DB CORRENTE - Query da ricercare
+                    '//.......................................................................................
+                    '//NOTE : se non trova l'oggetto nel db dove si trova questa classe non esegue il comando
 
-            '//Esporto le tabelle in formato xls
-            '                       par_Tabella_s                          par_PATH_S                               par_Bool
-            'sospesa DoCmd.OutputTo acTable, Tabella_01_s, "MicrosoftExcel(*.xls)", PATH_s, NuovaDenominazioneTabella_01_s, False, ""
+                        '//Imposto la variabile dell'ogggetto da ricercare e chiamo la funzione _
+                           di ricerca secondo il tipo di oggetto
 
+                        Bool1 = False
+                        OggettoDaRicercare_s = "PRES3000_Qry01_11_AGGIORNA_Campo_IDKEY_GIORNALIERE"  '//Aggiorno ID nel campo timbrature giornaliere
+                        Bool1 = Controlla_SE_OGGETTO_QUERY_ESISTE_pFunct(OggettoDaRicercare_s)
 
-        Next intI
+                            '//SE TRUE = oggetto esistente ed eseguo il comando
+                            If Bool1 Then
 
-        '//RILASCIO L'OGGETTO CLASSE
-        Set CLASSE_ATTI_Tb01_Gestione = Nothing
+                                  '//ESEGUO IL COMANDO Docmd con 3 parametri, il nome della query + 2 variabili oggetto : _
+                                acViewNormal        0 (Impostazione predefinita) Visualizzazione Normale _
+                                acEdit              1  L'utente può visualizzare o modificare i record esistenti e aggiungere nuovi record.
 
+                                   DOCMDOpenQuery_Sub OggettoDaRicercare_s, 0, 1
 
-        '//Messaggio di fine attivita'
-        MsgBox "ESPORTAZIONE DATI IN FILE XLS EFFETTUATI in --> " & PATH_s & vbCrLf & MatriceFile_s & vbCrLf
+                                    '//CONTEGGIO E MSG DELLE TABELLE ESPORTATE
+                                    iCount_TABELLE_ESPORTATE = iCount_TABELLE_ESPORTATE + 1
+                                    MsgTabelle_ESPORTATE_s = iCount_TABELLE_ESPORTATE & ") " & MsgTabelle_ESPORTATE_s & OggettoDaRicercare_s & Chr$(13)
+                            Else
 
-
-ESPORTA_FILE_XLS_ConMatriceDati_pFunct_Exit:
-                Exit Function
-
-ESPORTA_FILE_XLS_ConMatriceDati_pFunct_Err:
-                MsgBox Error$
-                Resume ESPORTA_FILE_XLS_ConMatriceDati_pFunct_Exit
-
-        End Function
-        '//01)_ESPORTA FILE XLS CON MATRICE = Funzione di esportazione dei dati dei lavori pubblici   ***FINE***
-        '//=================================================================================================//
-
-        '//ESPORTA_FILE_XLS_ConMatriceDati_pFunct
-        '//*************************************************************************************************//
-        '//NOTE : ESPORTA i file in formato xls (csv)   *** FINE ***
-        '//*************************************************************************************************//
+                                    '//CONTEGGIO E MSG DELLE TABELLE NON ESPORTATE
+                                    icount = iCount_NON_TABELLE_ESPORTATE + 1
+                                    MsgTabelle_NON_ESPORTATE_s = iCount_NON_TABELLE_ESPORTATE & ") " & MsgTabelle_NON_ESPORTATE_s & OggettoDaRicercare_s & Chr$(13)
+                            End If
 
 
+                   '//.......................................................................................
 
 
-                                                    '//*** FINE ***
-                                            '//*************************************//
-                                            '//     LE ESPORTAZIONI
-                                            '//*************************************//
-
-        '//**************************************************************************************************************************//
-        '//         FUNZIONI DI ESPORTAZIONI LAVORI PUBBLICI IN FORMATO XLS
-        '//**************************************************************************************************************************//
-
-
-
-                                            '//***INIZIO***
-                                            '//*************************************//
-                                            '//     LE FUNZIONI GENERALI
-                                            '//*************************************//
-        '//********************************************************************************************************************************************************//
-        '//                                 LE FUNZIONI DI GESTIONE ATTI Tb01_Gestione
-        '//********************************************************************************************************************************************************//
-        '//
-        '//NOTA: In questa classe vengon raggruppate tutte le fuzioni che attengono alla gestione della TABELLA ATTI _
-                per la gestione dei lavori pubblici. _
-                IL seguente elenco specifica le funzioni implementate:
-
-
-'//01.AGGIORNA_FILE_ATTO_pfunct = Aggiorna file atto crea il NOME DI FILE da salvare composto da _
-                                   fileAtto+NroAtto+Annoatto, solo se nro atto e data sono > 0 _
-                                   CODICE------>AGGIORNA_FILE_ATTO_pfunct.attiva
-
-    '//********************************************************************************************************************************************************//
-    '//********************************************************************************************************************************************************//
-
-
-
-    '//01.AGGIORNA_FILE_ATTO_pfunct = Aggiorna file atto crea il NOME DI FILE da salvare composto da _
-                                    fileAtto+NroAtto+Annoatto, solo se nro atto e data sono > 0 _
-                                    CODICE------>AGGIORNA_FILE_ATTO_pfunct.attiva
-    '//===========================================================:===================================:================================
-    '//AGGIORNA_ATTI_Mdl_N001_001_Function.001.01__________:Funzione 00 CALCOLA                                :Calcola
-    '//...........................................:.....................................................................................
-    '//NOTA PROCEDURA: La Funzione Aggiona il campo FILE_ATTO ricostruendo il nome del file con i parametri passati.
-
-    Public Function AGGIORNA_FILE_ATTO_pfunct(par_TipoAtto_s As String, _
-                                              par_NroAtto_lng As Long, _
-                                              par_DataAtto_d As Date, _
-                                              par_AnnoAtto_i As Integer) As String
-
-        '//.......................................................
-        '// DIM VARIABILI
-        'Dim sScelta_db As String
+                '//PRES3000 AGGIORNAMENTI TABELLE PRESENZE MEDIANTE LA MACRO*** FINE ***
+                '//=========================================================================================================
 
 
 
 
-            '//MODELLO-> AGGIORNA_FILE_ATTO
-            '//--------------------------------------------------------------------------//
-            '//NOTA   : Aggiorna il file atto costruendo il nome del file _
-                       con i parametri passati ottengo il nome dai seguenti dati _
-                       FILE_ATTO=TipoAtto+NroAtto+Annoatto a condizione che _
-                       il NroAtto >0 and DataAtto >"", altrimenti la funzione restituisce _
-                       il valore nullo. Vengono controllati anche le variabili Nro atto, _
-                       data atto ed anno anno che devono essere sempre valorizzate.
+                '//AGGIORNAMENTI
+                '//=========================================================================================================
 
-                       '//RESETTO IL FILE ATTO _
-                       in questo modo posso riattivare l'evento anche nel caso di errori nella _
-                       digitazione del numero file atto, potendo ricostruire in automatico il _
-                       nome completo del File_atto
-                       'Me.FileAtto_s_Txt = ""
 
-                        '//CONTROLLO VARIABILE E CHIAMATA PROCEDURA
-                        '//.........................................................//
-                            'sSTR1 = ""
-                            'TipoAtto_s = Me.TipoAtto_s
-                            'If Me.NroAtto_lng > 0 Then
-                            '    NroAtto_lng = Me.NroAtto_lng
-                            'Else
-                            '    Me.NroAtto_lng = 0
-                            'End If
+                    '//INTESTATARI Aggiorna tabella INTESTARI - campo ->Argomento
+                    '//================================================================================================================================//
 
-                            '//CONTROLLO DATA = se la data nulla viene recuperato quella di calendario.
-                            'If IsNull(DataAtto_d) = TRUE Then
-                            '    DataAtto_d = Date
-                            'Else
-                                '//Altrimenti viene recuperata quella della casella di testo valorizzata.
-                            '    DataAtto_d = Me.DataAtto_d
-                            'End If
+                            '//.......................................................................................
+                            '//NOTE : se non trova l'oggetto nel db dove si trova questa classe non esegue il comando
 
-                            '//Controllo variabile Anno deve essere valorizzata
-                            'If AnnoAtto_i = 0 Or IsNull(AnnoAtto_i) = True Then
-                                '//Se NULL o Zero, viena applicato l'anno corrente
-                            '    AnnoAtto_i = Year(Date)
-                            'Else
-                                '//Altrimenti viene recuperato l'anno del campo testo
-                            '    AnnoAtto_i = Me.AnnoAtto_i
-                            'End If
+                                '//Imposto la variabile dell'ogggetto da ricercare e chiamo la funzione _
+                                   di ricerca secondo il tipo di oggetto
+
+                                Bool1 = False
+                                OggettoDaRicercare_s = "AGGIORNA_INTESTATARI_QyN01-01_Campo_Argomento"    '//AGGIORNA = la tabella INTESTARI - campo ->Argomento
+                                Bool1 = Controlla_SE_OGGETTO_QUERY_ESISTE_pFunct(OggettoDaRicercare_s)
+
+                                    '//SE TRUE = oggetto esistente ed eseguo il comando
+                                    If Bool1 Then
+
+                                        '//ESEGUO IL COMANDO Docmd con 3 parametri, il nome della query + 2 variabili oggetto : _
+                                        acViewNormal        0 (Impostazione predefinita) Visualizzazione Normale _
+                                        acEdit              1  L'utente può visualizzare o modificare i record esistenti e aggiungere nuovi record.
+
+
+                                    DOCMDOpenQuery_Sub OggettoDaRicercare_s, 0, 1
+
+                                    '//CONTEGGIO E MSG DELLE TABELLE ESPORTATE
+                                    iCount_TABELLE_ESPORTATE = iCount_TABELLE_ESPORTATE + 1
+                                    MsgTabelle_ESPORTATE_s = iCount_TABELLE_ESPORTATE & ") " & MsgTabelle_ESPORTATE_s & OggettoDaRicercare_s & Chr$(13)
+                            Else
+
+                                    '//CONTEGGIO E MSG DELLE TABELLE NON ESPORTATE
+                                    icount = iCount_NON_TABELLE_ESPORTATE + 1
+                                    MsgTabelle_NON_ESPORTATE_s = iCount_NON_TABELLE_ESPORTATE & ") " & MsgTabelle_NON_ESPORTATE_s & OggettoDaRicercare_s & Chr$(13)
+                            End If
 
 
 
-                            '//IMPOSTO LA VARIABILE OGGETTO = per l'utilizzo della classe
-                            'Dim MyCls_CLASSE_ATTI_Tb01_Gestione As CLASSE_ATTI_Tb01_Gestione
-
-                            '//ISTANZIO LA CLASSE = MyCls_CLASSE_GESTIONE_OGGETTI_FORM assegnando _
-                            l 'oggetto di classe alla variabile e creo creo l'oggetto di classe
-                            'Set MyCls_CLASSE_ATTI_Tb01_Gestione = New CLASSE_ATTI_Tb01_Gestione
-
-                             '//MODELLO FUNZIONANTE
-                             'sSTR1 = AGGIORNA_FILE_ATTO_pfunct(TipoAtto_s, NroAtto_lng, DataAtto_d, AnnoAtto_i)
+                           '//.......................................................................................
 
 
-                            'sSTR1 = MyCls_CLASSE_ATTI_Tb01_Gestione.AGGIORNA_FILE_ATTO_pfunct(TipoAtto_s, NroAtto_lng, DataAtto_d, AnnoAtto_i)
-
-                            '//RILASCIO LA MEMORIA = rilascio l'oggetto ed attivo il distruttore della classe
-                            'Set MyCls_CLASSE_ATTI_Tb01_Gestione = Nothing
+                   '//================================================================================================================================//
 
 
-                            'Me.DATAAGG_TXT = Date
-                            'Me.TIMEOPER_TXT = Time()
-
-                        '//.........................................................//
-
-            '//MODELLO-> AGGIORNA_FILE_ATTO *** FINE ***
-            '//--------------------------------------------------------------------------//
+                    '//TABELLA ATTI AGGIORNAMENTI
+                    '//************************************************************************************************************************************//
 
 
+                            '//01) Aggiorna tabella TABELLA ATTI - campo ->IDKeyArch+IdOrd e contestualmente aggiorno la descrizione opera - campo ->DescrCodOpera_s
+                            '//.......................................................................................
+                            '//NOTE : se non trova l'oggetto nel db dove si trova questa classe non esegue il comando
+
+                                '//Imposto la variabile dell'ogggetto da ricercare e chiamo la funzione _
+                                   di ricerca secondo il tipo di oggetto
+
+                                Bool1 = False
+                                OggettoDaRicercare_s = "LLPP_ATTI_Qy01-01_Gestione_AGGIORNA_IDKeyArch+IdOrd"    '//AGGIORNA = campi ->IDKeyArch+IdOrd+DescrCodOpera_s
+                                Bool1 = Controlla_SE_OGGETTO_QUERY_ESISTE_pFunct(OggettoDaRicercare_s)
+
+                                    '//SE TRUE = oggetto esistente ed eseguo il comando
+                                    If Bool1 Then
+
+                                        '//ESEGUO IL COMANDO Docmd con 3 parametri, il nome della query + 2 variabili oggetto : _
+                                        acViewNormal        0 (Impostazione predefinita) Visualizzazione Normale _
+                                        acEdit              1  L'utente può visualizzare o modificare i record esistenti e aggiungere nuovi record.
 
 
-                On Error GoTo Err_AGGIORNA_FILE_ATTO_pfunct
+                                            DOCMDOpenQuery_Sub OggettoDaRicercare_s, 0, 1
 
+                                            '//CONTEGGIO E MSG DELLE TABELLE ESPORTATE
+                                            iCount_TABELLE_ESPORTATE = iCount_TABELLE_ESPORTATE + 1
+                                            MsgTabelle_ESPORTATE_s = iCount_TABELLE_ESPORTATE & ") " & MsgTabelle_ESPORTATE_s & OggettoDaRicercare_s & Chr$(13)
+                                    Else
 
-                '//AGGIORNA_FILE_ATTO
-                '//-------------------------------------------:-----------------------------------------------
-                '//AGGIORNA_ATTI_Mdl_N001_001_Function.001.02__________:
-                '//NOTA   : Aggiorna il file atto costruendo il nome del file con i parametri passati.
-
-
-                                '//AGGIORNAMENTO CAMPO NRO ATTO -
-                                '//..............................................................
-                                '//Aggiorna il nro att and data > 0 allora _
-                                creo il nome del file con fileAtto+NroAtto+Annoatto, solo se _
-                                nro atto e data sono > 0
-
-                                    If par_NroAtto_lng > 0 And par_DataAtto_d > 0 Then
-                                        str1 = ""
-                                        str1 = par_TipoAtto_s & "_" & par_NroAtto_lng & "_" & par_AnnoAtto_i
-                                        '//controllo e salvataggio
-                                        Debug.Print "-------------------------------------------------------"
-                                        Debug.Print "file creato"
-                                        Debug.Print str1
-                                        Debug.Print "-------------------------------------------------------"
-                                        AGGIORNA_FILE_ATTO_pfunct = str1
-
-
+                                            '//CONTEGGIO E MSG DELLE TABELLE NON ESPORTATE
+                                            icount = iCount_NON_TABELLE_ESPORTATE + 1
+                                            MsgTabelle_NON_ESPORTATE_s = iCount_NON_TABELLE_ESPORTATE & ") " & MsgTabelle_NON_ESPORTATE_s & OggettoDaRicercare_s & Chr$(13)
                                     End If
 
-                                '//..............................................................
-
-                '//-------------------------------------------:-----------------------------------------------
+                           '//.......................................................................................
 
 
 
 
+                            '//02) Aggiorna tabella TABELLA ATTI - campo ->DenomFascicolo_s e la denominazione del fascicolo prendendo i dati dalla tabella [LPP_DF06_FASCICOLI].[DenomFascicolo_s]
+                            '//.......................................................................................
+                            '//NOTE : se non trova l'oggetto nel db dove si trova questa classe non esegue il comando
+
+                                '//Imposto la variabile dell'ogggetto da ricercare e chiamo la funzione _
+                                   di ricerca secondo il tipo di oggetto
+
+                                Bool1 = False
+                                OggettoDaRicercare_s = "LLPP_ATTI_Qry01-06_Gestione_AGGIORNA_DenomFascicolo"    '//AGGIORNA = campi ->DenomFascicolo_s CON IL CAMPO [LPP_DF06_FASCICOLI].[DenomFascicolo_s]
+                                Bool1 = Controlla_SE_OGGETTO_QUERY_ESISTE_pFunct(OggettoDaRicercare_s)
+
+                                    '//SE TRUE = oggetto esistente ed eseguo il comando
+                                    If Bool1 Then
+
+                                        '//ESEGUO IL COMANDO Docmd con 3 parametri, il nome della query + 2 variabili oggetto : _
+                                        acViewNormal        0 (Impostazione predefinita) Visualizzazione Normale _
+                                        acEdit              1  L'utente può visualizzare o modificare i record esistenti e aggiungere nuovi record.
+
+                                             DOCMDOpenQuery_Sub OggettoDaRicercare_s, 0, 1
+
+                                            '//CONTEGGIO E MSG DELLE TABELLE ESPORTATE
+                                            iCount_TABELLE_ESPORTATE = iCount_TABELLE_ESPORTATE + 1
+                                            MsgTabelle_ESPORTATE_s = iCount_TABELLE_ESPORTATE & ") " & MsgTabelle_ESPORTATE_s & OggettoDaRicercare_s & Chr$(13)
+                                    Else
+
+                                            '//CONTEGGIO E MSG DELLE TABELLE NON ESPORTATE
+                                            icount = iCount_NON_TABELLE_ESPORTATE + 1
+                                            MsgTabelle_NON_ESPORTATE_s = iCount_NON_TABELLE_ESPORTATE & ") " & MsgTabelle_NON_ESPORTATE_s & OggettoDaRicercare_s & Chr$(13)
+                                    End If
+                           '//.......................................................................................
 
 
 
-        '//--------------------------------------------------------------------------------//------------------
-        '//                       FINE FUNCTION E GESTIONE ERRORI
+                            '//03) Aggiorna tabella TABELLA ATTI - campo ->ANNO l'anno di creazione del documento viene aggiornato solo se null
+                            '//.......................................................................................
+                            '//NOTE : se non trova l'oggetto nel db dove si trova questa classe non esegue il comando
 
-Exit_AGGIORNA_FILE_ATTO_pfunct:
+                                '//Imposto la variabile dell'ogggetto da ricercare e chiamo la funzione _
+                                   di ricerca secondo il tipo di oggetto
+
+                                Bool1 = False
+                                OggettoDaRicercare_s = "LLPP_ATTI_Qy01-11_AGGIORNA_ANNO"    '//AGGIORNA = campo ->ANNO se > null
+                                Bool1 = Controlla_SE_OGGETTO_QUERY_ESISTE_pFunct(OggettoDaRicercare_s)
+
+                                    '//SE TRUE = oggetto esistente ed eseguo il comando
+                                    If Bool1 Then
+
+                                        '//ESEGUO IL COMANDO Docmd con 3 parametri, il nome della query + 2 variabili oggetto : _
+                                        acViewNormal        0 (Impostazione predefinita) Visualizzazione Normale _
+                                        acEdit              1  L'utente può visualizzare o modificare i record esistenti e aggiungere nuovi record.
+
+                                            DOCMDOpenQuery_Sub OggettoDaRicercare_s, 0, 1
+
+                                            '//CONTEGGIO E MSG DELLE TABELLE ESPORTATE
+                                            iCount_TABELLE_ESPORTATE = iCount_TABELLE_ESPORTATE + 1
+                                            MsgTabelle_ESPORTATE_s = iCount_TABELLE_ESPORTATE & ") " & MsgTabelle_ESPORTATE_s & OggettoDaRicercare_s & Chr$(13)
+                                    Else
+
+                                            '//CONTEGGIO E MSG DELLE TABELLE NON ESPORTATE
+                                            icount = iCount_NON_TABELLE_ESPORTATE + 1
+                                            MsgTabelle_NON_ESPORTATE_s = iCount_NON_TABELLE_ESPORTATE & ") " & MsgTabelle_NON_ESPORTATE_s & OggettoDaRicercare_s & Chr$(13)
+                                    End If
+
+                           '//.......................................................................................
+
+
+
+                    '//ATTI *** fine ***
+                    '//************************************************************************************************************************************//
+
+
+
+
+                    '//FALDONI + FASCICOLI *** fine ***
+                    '//************************************************************************************************************************************//
+
+
+
+
+                            '//01) Aggiorna tabella TABELLA ATTI - campo ->->CodDenomFaldone_s + DenomFaldone_s + AnnoFaldone_i e la denominazione DEL FALDONE
+                            '//.......................................................................................
+                            '//NOTE : se non trova l'oggetto nel db dove si trova questa classe non esegue il comando
+
+                                '//Imposto la variabile dell'ogggetto da ricercare e chiamo la funzione _
+                                   di ricerca secondo il tipo di oggetto
+
+                                Bool1 = False
+                                OggettoDaRicercare_s = "LLPP_ATTI_Qry01-06_Gestione_AGGIORNA_DenomFALDONE"    '//AGGIORNA = campi ->CodDenomFaldone_s + DenomFaldone_s + AnnoFaldone_i
+                                Bool1 = Controlla_SE_OGGETTO_QUERY_ESISTE_pFunct(OggettoDaRicercare_s)
+
+                                    '//SE TRUE = oggetto esistente ed eseguo il comando
+                                    If Bool1 Then
+
+                                        '//ESEGUO IL COMANDO Docmd con 3 parametri, il nome della query + 2 variabili oggetto : _
+                                        acViewNormal        0 (Impostazione predefinita) Visualizzazione Normale _
+                                        acEdit              1  L'utente può visualizzare o modificare i record esistenti e aggiungere nuovi record.
+
+                                            DOCMDOpenQuery_Sub OggettoDaRicercare_s, 0, 1
+
+                                            '//CONTEGGIO E MSG DELLE TABELLE ESPORTATE
+                                            iCount_TABELLE_ESPORTATE = iCount_TABELLE_ESPORTATE + 1
+                                            MsgTabelle_ESPORTATE_s = iCount_TABELLE_ESPORTATE & ") " & MsgTabelle_ESPORTATE_s & OggettoDaRicercare_s & Chr$(13)
+                                    Else
+
+                                            '//CONTEGGIO E MSG DELLE TABELLE NON ESPORTATE
+                                            icount = iCount_NON_TABELLE_ESPORTATE + 1
+                                            MsgTabelle_NON_ESPORTATE_s = iCount_NON_TABELLE_ESPORTATE & ") " & MsgTabelle_NON_ESPORTATE_s & OggettoDaRicercare_s & Chr$(13)
+                                    End If
+
+                           '//.......................................................................................
+
+
+
+
+
+                            '//02) Aggiorna tabella TABELLA ATTI - campo ->CodDenomFaldone_s (la denominazione DEL FASCICOLO)
+                            '//.......................................................................................
+                            '//NOTE : se non trova l'oggetto nel db dove si trova questa classe non esegue il comando
+
+                                '//Imposto la variabile dell'ogggetto da ricercare e chiamo la funzione _
+                                   di ricerca secondo il tipo di oggetto
+
+                                Bool1 = False
+                                OggettoDaRicercare_s = "LLPP_ATTI_Qry01-06_Gestione_AGGIORNA_DenomFascicolo"    '//AGGIORNA = campo ->CodDenomFaldone_s
+                                Bool1 = Controlla_SE_OGGETTO_QUERY_ESISTE_pFunct(OggettoDaRicercare_s)
+
+                                    '//SE TRUE = oggetto esistente ed eseguo il comando
+                                    If Bool1 Then
+
+                                        '//ESEGUO IL COMANDO Docmd con 3 parametri, il nome della query + 2 variabili oggetto : _
+                                        acViewNormal        0 (Impostazione predefinita) Visualizzazione Normale _
+                                        acEdit              1  L'utente può visualizzare o modificare i record esistenti e aggiungere nuovi record.
+
+                                            DOCMDOpenQuery_Sub OggettoDaRicercare_s, 0, 1
+
+                                            '//CONTEGGIO E MSG DELLE TABELLE ESPORTATE
+                                            iCount_TABELLE_ESPORTATE = iCount_TABELLE_ESPORTATE + 1
+                                            MsgTabelle_ESPORTATE_s = iCount_TABELLE_ESPORTATE & ") " & MsgTabelle_ESPORTATE_s & OggettoDaRicercare_s & Chr$(13)
+                                    Else
+
+                                            '//CONTEGGIO E MSG DELLE TABELLE NON ESPORTATE
+                                            icount = iCount_NON_TABELLE_ESPORTATE + 1
+                                            MsgTabelle_NON_ESPORTATE_s = iCount_NON_TABELLE_ESPORTATE & ") " & MsgTabelle_NON_ESPORTATE_s & OggettoDaRicercare_s & Chr$(13)
+                                    End If
+
+                            '//.......................................................................................
+
+
+
+
+
+
+
+
+                    '//FALDONI + FASCICOLI *** fine ***
+                    '//************************************************************************************************************************************//
+
+
+
+
+
+                    '//ALLEGATI
+                    '//'//************************************************************************************************************************************//
+
+
+
+                            '//01) Aggiorna tabella TABELLA ATTI - campo ->CodOpera_s
+                            '//.......................................................................................
+                            '//NOTE : se non trova l'oggetto nel db dove si trova questa classe non esegue il comando
+
+                                '//Imposto la variabile dell'ogggetto da ricercare e chiamo la funzione _
+                                   di ricerca secondo il tipo di oggetto
+
+                                Bool1 = False
+                                OggettoDaRicercare_s = "LLPP_ATTI_Qy02_01_Allegati_AGGIORNA_CodOpera"    '//AGGIORNA = campo ->CodOpera_s
+                                Bool1 = Controlla_SE_OGGETTO_QUERY_ESISTE_pFunct(OggettoDaRicercare_s)
+
+                                    '//SE TRUE = oggetto esistente ed eseguo il comando
+                                    If Bool1 Then
+
+                                        '//ESEGUO IL COMANDO Docmd con 3 parametri, il nome della query + 2 variabili oggetto : _
+                                        acViewNormal        0 (Impostazione predefinita) Visualizzazione Normale _
+                                        acEdit              1  L'utente può visualizzare o modificare i record esistenti e aggiungere nuovi record.
+                                            DOCMDOpenQuery_Sub OggettoDaRicercare_s, 0, 1
+
+                                            '//CONTEGGIO E MSG DELLE TABELLE ESPORTATE
+                                            iCount_TABELLE_ESPORTATE = iCount_TABELLE_ESPORTATE + 1
+                                            MsgTabelle_ESPORTATE_s = iCount_TABELLE_ESPORTATE & ") " & MsgTabelle_ESPORTATE_s & OggettoDaRicercare_s & Chr$(13)
+                                    Else
+
+                                            '//CONTEGGIO E MSG DELLE TABELLE NON ESPORTATE
+                                            icount = iCount_NON_TABELLE_ESPORTATE + 1
+                                            MsgTabelle_NON_ESPORTATE_s = iCount_NON_TABELLE_ESPORTATE & ") " & MsgTabelle_NON_ESPORTATE_s & OggettoDaRicercare_s & Chr$(13)
+                                    End If
+
+                            '//.......................................................................................
+
+
+                            '//02) Aggiorna tabella TABELLA ATTI - i campi ->IDGestione + AnnoAtto_i + CodPratica_s +NroPratica_i
+                            '//.......................................................................................
+                            '//NOTE : se non trova l'oggetto nel db dove si trova questa classe non esegue il comando
+
+                                '//Imposto la variabile dell'ogggetto da ricercare e chiamo la funzione _
+                                   di ricerca secondo il tipo di oggetto
+
+                                Bool1 = False
+                                OggettoDaRicercare_s = "LLPP_ATTI_Qry02_01_Allegati_AGGIORNA_IDGestione"    '//AGGIORNA = campi ->IDGestione + AnnoAtto_i + CodPratica_s +NroPratica_i
+                                Bool1 = Controlla_SE_OGGETTO_QUERY_ESISTE_pFunct(OggettoDaRicercare_s)
+
+                                    '//SE TRUE = oggetto esistente ed eseguo il comando
+                                    If Bool1 Then
+
+                                        '//ESEGUO IL COMANDO Docmd con 3 parametri, il nome della query + 2 variabili oggetto : _
+                                        acViewNormal        0 (Impostazione predefinita) Visualizzazione Normale _
+                                        acEdit              1  L'utente può visualizzare o modificare i record esistenti e aggiungere nuovi record.
+
+                                            DOCMDOpenQuery_Sub OggettoDaRicercare_s, 0, 1
+
+                                            '//CONTEGGIO E MSG DELLE TABELLE ESPORTATE
+                                            iCount_TABELLE_ESPORTATE = iCount_TABELLE_ESPORTATE + 1
+                                            MsgTabelle_ESPORTATE_s = iCount_TABELLE_ESPORTATE & ") " & MsgTabelle_ESPORTATE_s & OggettoDaRicercare_s & Chr$(13)
+                                    Else
+
+                                            '//CONTEGGIO E MSG DELLE TABELLE NON ESPORTATE
+                                            icount = iCount_NON_TABELLE_ESPORTATE + 1
+                                            MsgTabelle_NON_ESPORTATE_s = iCount_NON_TABELLE_ESPORTATE & ") " & MsgTabelle_NON_ESPORTATE_s & OggettoDaRicercare_s & Chr$(13)
+                                    End If
+
+                            '//.......................................................................................
+
+
+                            '//03) Aggiorna tabella TABELLA ATTI - i campi ->NroPratica (il campo viene aggiornato con 0 (zero) solo se nullo)
+                            '//.......................................................................................
+                            '//NOTE : se non trova l'oggetto nel db dove si trova questa classe non esegue il comando
+
+                                '//Imposto la variabile dell'ogggetto da ricercare e chiamo la funzione _
+                                   di ricerca secondo il tipo di oggetto
+
+                                Bool1 = False
+                                OggettoDaRicercare_s = "LLPP_ATTI_Qy01_01_Gestione_AGGIORNA_Campo_NroPratica_s=Null"    '//AGGIORNA = campi ->NroPratica
+                                Bool1 = Controlla_SE_OGGETTO_QUERY_ESISTE_pFunct(OggettoDaRicercare_s)
+
+                                    '//SE TRUE = oggetto esistente ed eseguo il comando
+                                    If Bool1 Then
+
+                                        '//ESEGUO IL COMANDO Docmd con 3 parametri, il nome della query + 2 variabili oggetto : _
+                                        acViewNormal        0 (Impostazione predefinita) Visualizzazione Normale _
+                                        acEdit              1  L'utente può visualizzare o modificare i record esistenti e aggiungere nuovi record.
+
+                                            DOCMDOpenQuery_Sub OggettoDaRicercare_s, 0, 1
+
+                                            '//CONTEGGIO E MSG DELLE TABELLE ESPORTATE
+                                            iCount_TABELLE_ESPORTATE = iCount_TABELLE_ESPORTATE + 1
+                                            MsgTabelle_ESPORTATE_s = iCount_TABELLE_ESPORTATE & ") " & MsgTabelle_ESPORTATE_s & OggettoDaRicercare_s & Chr$(13)
+                                    Else
+
+                                            '//CONTEGGIO E MSG DELLE TABELLE NON ESPORTATE
+                                            icount = iCount_NON_TABELLE_ESPORTATE + 1
+                                            MsgTabelle_NON_ESPORTATE_s = iCount_NON_TABELLE_ESPORTATE & ") " & MsgTabelle_NON_ESPORTATE_s & OggettoDaRicercare_s & Chr$(13)
+                                    End If
+
+                            '//.......................................................................................
+
+
+
+                   '//************************************************************************************************************************************//
+
+
+                    '//AFFIDAMENTI
+                    '//************************************************************************************************************************************//
+
+
+                            '//01) Aggiorna tabella TABELLA ATTI - i campi -> I dati degli affidamenti
+                            '//.......................................................................................
+                            '//NOTE : se non trova l'oggetto nel db dove si trova questa classe non esegue il comando
+
+                                '//Imposto la variabile dell'ogggetto da ricercare e chiamo la funzione _
+                                   di ricerca secondo il tipo di oggetto
+
+                                Bool1 = False
+                                OggettoDaRicercare_s = "AGGIORNA_AFFIDAMENTI_QyN10-01_Campi_TipoAtto+NroAtto+DataAtto"    '//AGGIORNA = campi -> AFFIDAMENTI vari campi
+                                Bool1 = Controlla_SE_OGGETTO_QUERY_ESISTE_pFunct(OggettoDaRicercare_s)
+
+                                    '//SE TRUE = oggetto esistente ed eseguo il comando
+                                    If Bool1 Then
+
+                                        '//ESEGUO IL COMANDO Docmd con 3 parametri, il nome della query + 2 variabili oggetto : _
+                                        acViewNormal        0 (Impostazione predefinita) Visualizzazione Normale _
+                                        acEdit              1  L'utente può visualizzare o modificare i record esistenti e aggiungere nuovi record.
+                                            DOCMDOpenQuery_Sub OggettoDaRicercare_s, 0, 1
+
+                                            '//CONTEGGIO E MSG DELLE TABELLE ESPORTATE
+                                            iCount_TABELLE_ESPORTATE = iCount_TABELLE_ESPORTATE + 1
+                                            MsgTabelle_ESPORTATE_s = iCount_TABELLE_ESPORTATE & ") " & MsgTabelle_ESPORTATE_s & OggettoDaRicercare_s & Chr$(13)
+                                    Else
+
+                                            '//CONTEGGIO E MSG DELLE TABELLE NON ESPORTATE
+                                            icount = iCount_NON_TABELLE_ESPORTATE + 1
+                                            MsgTabelle_NON_ESPORTATE_s = iCount_NON_TABELLE_ESPORTATE & ") " & MsgTabelle_NON_ESPORTATE_s & OggettoDaRicercare_s & Chr$(13)
+                                    End If
+
+                            '//.......................................................................................
+
+                    '//************************************************************************************************************************************//
+
+
+
+                    '//ACCODAMENTI
+                    '//************************************************************************************************************************************//
+
+
+
+                            '//01) Aggiorna tabella TABELLA ATTI - i campi -> I dati degli affidamenti
+                            '//.......................................................................................
+                            '//NOTE : se non trova l'oggetto nel db dove si trova questa classe non esegue il comando
+
+                                '//Imposto la variabile dell'ogggetto da ricercare e chiamo la funzione _
+                                   di ricerca secondo il tipo di oggetto
+
+                                Bool1 = False
+                                OggettoDaRicercare_s = "Accoda_QyDF15-01_NwEVENTI_Ins"    '//ACCODO = campi -> Nuovi eventi
+                                Bool1 = Controlla_SE_OGGETTO_QUERY_ESISTE_pFunct(OggettoDaRicercare_s)
+
+                                    '//SE TRUE = oggetto esistente ed eseguo il comando
+                                    If Bool1 Then
+
+                                        '//ESEGUO IL COMANDO Docmd con 3 parametri, il nome della query + 2 variabili oggetto : _
+                                        acViewNormal        0 (Impostazione predefinita) Visualizzazione Normale _
+                                        acEdit              1  L'utente può visualizzare o modificare i record esistenti e aggiungere nuovi record.
+
+                                            DOCMDOpenQuery_Sub OggettoDaRicercare_s, 0, 1
+
+                                            '//CONTEGGIO E MSG DELLE TABELLE ESPORTATE
+                                            iCount_TABELLE_ESPORTATE = iCount_TABELLE_ESPORTATE + 1
+                                            MsgTabelle_ESPORTATE_s = iCount_TABELLE_ESPORTATE & ") " & MsgTabelle_ESPORTATE_s & OggettoDaRicercare_s & Chr$(13)
+                                    Else
+
+                                            '//CONTEGGIO E MSG DELLE TABELLE NON ESPORTATE
+                                            icount = iCount_NON_TABELLE_ESPORTATE + 1
+                                            MsgTabelle_NON_ESPORTATE_s = iCount_NON_TABELLE_ESPORTATE & ") " & MsgTabelle_NON_ESPORTATE_s & OggettoDaRicercare_s & Chr$(13)
+                                    End If
+
+                            '//.......................................................................................
+
+
+
+
+                            '//02) ACCODO I NUOVI CODICI - LLPP_QyDF01_CodiceOpera_ACCODA_CODICI_Ins
+                            '//.......................................................................................
+                            '//NOTE : se non trova l'oggetto nel db dove si trova questa classe non esegue il comando
+
+                                '//Imposto la variabile dell'ogggetto da ricercare e chiamo la funzione _
+                                   di ricerca secondo il tipo di oggetto
+
+                                Bool1 = False
+                                OggettoDaRicercare_s = "LLPP_QryDF01_CodiceOpera_ACCODA_CODICI_Ins"    '//ACCODO = nuovi codice opera dalla tabelal GESTIONE campi -> Codici Opera
+                                Bool1 = Controlla_SE_OGGETTO_QUERY_ESISTE_pFunct(OggettoDaRicercare_s)
+
+                                    '//SE TRUE = oggetto esistente ed eseguo il comando
+                                    If Bool1 Then
+
+                                        '//ESEGUO IL COMANDO Docmd con 3 parametri, il nome della query + 2 variabili oggetto : _
+                                        acViewNormal        0 (Impostazione predefinita) Visualizzazione Normale _
+                                        acEdit              1  L'utente può visualizzare o modificare i record esistenti e aggiungere nuovi record.
+                                            DOCMDOpenQuery_Sub OggettoDaRicercare_s, 0, 1
+
+                                            '//CONTEGGIO E MSG DELLE TABELLE ESPORTATE
+                                            iCount_TABELLE_ESPORTATE = iCount_TABELLE_ESPORTATE + 1
+                                            MsgTabelle_ESPORTATE_s = iCount_TABELLE_ESPORTATE & ") " & MsgTabelle_ESPORTATE_s & OggettoDaRicercare_s & Chr$(13)
+                                    Else
+
+                                            '//CONTEGGIO E MSG DELLE TABELLE NON ESPORTATE
+                                            icount = iCount_NON_TABELLE_ESPORTATE + 1
+                                            MsgTabelle_NON_ESPORTATE_s = iCount_NON_TABELLE_ESPORTATE & ") " & MsgTabelle_NON_ESPORTATE_s & OggettoDaRicercare_s & Chr$(13)
+                                    End If
+
+                            '//.......................................................................................
+
+                    '//*** FINE ***
+                    '//ACCODAMENTI
+                    '//************************************************************************************************************************************//
+
+
+
+
+                '//TIMBRATURE - PRES3000
+                '//************************************************************************************************************************************//
+                '//NOTE : accodo timbrature ed orari nella tabella PRES3000
+
+
+                            '//01) ACCODO NUOVE ENTRATE  nella tabella orari.
+                            '//.......................................................................................
+                            '//NOTE : se non trova l'oggetto nel db dove si trova questa classe non esegue il comando
+
+                                '//Imposto la variabile dell'ogggetto da ricercare e chiamo la funzione _
+                                   di ricerca secondo il tipo di oggetto
+
+                                Bool1 = False
+                                OggettoDaRicercare_s = "PRES3000_Qry05_N01_ACCODA_Nw_ENTRATE->Orari"    '//ACCODO = I NUOVI ORARI
+                                Bool1 = Controlla_SE_OGGETTO_QUERY_ESISTE_pFunct(OggettoDaRicercare_s)
+
+                                    '//SE TRUE = oggetto esistente ed eseguo il comando
+                                    If Bool1 Then
+
+                                        '//ESEGUO IL COMANDO Docmd con 3 parametri, il nome della query + 2 variabili oggetto : _
+                                        acViewNormal        0 (Impostazione predefinita) Visualizzazione Normale _
+                                        acEdit              1  L'utente può visualizzare o modificare i record esistenti e aggiungere nuovi record.
+
+                                            DOCMDOpenQuery_Sub OggettoDaRicercare_s, 0, 1
+
+                                            '//CONTEGGIO E MSG DELLE TABELLE ESPORTATE
+                                            iCount_TABELLE_ESPORTATE = iCount_TABELLE_ESPORTATE + 1
+                                            MsgTabelle_ESPORTATE_s = iCount_TABELLE_ESPORTATE & ") " & MsgTabelle_ESPORTATE_s & OggettoDaRicercare_s & Chr$(13)
+                                    Else
+
+                                            '//CONTEGGIO E MSG DELLE TABELLE NON ESPORTATE
+                                            icount = iCount_NON_TABELLE_ESPORTATE + 1
+                                            MsgTabelle_NON_ESPORTATE_s = iCount_NON_TABELLE_ESPORTATE & ") " & MsgTabelle_NON_ESPORTATE_s & OggettoDaRicercare_s & Chr$(13)
+                                    End If
+                            '//.......................................................................................
+
+
+                            '//02) ACCODO NUOVE ENTRATE  nella tabella orari.
+                            '//.......................................................................................
+                            '//NOTE : se non trova l'oggetto nel db dove si trova questa classe non esegue il comando
+
+                                '//Imposto la variabile dell'ogggetto da ricercare e chiamo la funzione _
+                                   di ricerca secondo il tipo di oggetto
+
+                                Bool1 = False
+                                OggettoDaRicercare_s = "PRES3000_Qry05_N02_ACCODA_Nw_USCITE->Orari"    '//ACCODO = LE NUOVE USCITE
+                                Bool1 = Controlla_SE_OGGETTO_QUERY_ESISTE_pFunct(OggettoDaRicercare_s)
+
+                                    '//SE TRUE = oggetto esistente ed eseguo il comando
+                                    If Bool1 Then
+
+                                        '//ESEGUO IL COMANDO Docmd con 3 parametri, il nome della query + 2 variabili oggetto : _
+                                        acViewNormal        0 (Impostazione predefinita) Visualizzazione Normale _
+                                        acEdit              1  L'utente può visualizzare o modificare i record esistenti e aggiungere nuovi record.
+
+                                            DOCMDOpenQuery_Sub OggettoDaRicercare_s, 0, 1
+
+                                            '//CONTEGGIO E MSG DELLE TABELLE ESPORTATE
+                                            iCount_TABELLE_ESPORTATE = iCount_TABELLE_ESPORTATE + 1
+                                            MsgTabelle_ESPORTATE_s = iCount_TABELLE_ESPORTATE & ") " & MsgTabelle_ESPORTATE_s & OggettoDaRicercare_s & Chr$(13)
+                                    Else
+
+                                            '//CONTEGGIO E MSG DELLE TABELLE NON ESPORTATE
+                                            icount = iCount_NON_TABELLE_ESPORTATE + 1
+                                            MsgTabelle_NON_ESPORTATE_s = iCount_NON_TABELLE_ESPORTATE & ") " & MsgTabelle_NON_ESPORTATE_s & OggettoDaRicercare_s & Chr$(13)
+                                    End If
+
+                            '//.......................................................................................
+
+
+
+
+
+
+                '//*** FINE ***
+                '//TIMBRATURE
+                '//************************************************************************************************************************************//
+
+            ' ***********************************************************************************************************************
+
+
+            'ESPORTAZIONI
+            '***********************************************************************************************************************
+
+                '//TABELLA GESTIONE
+                '//============================================================================================================
+
+
+                   '//ESPORTO ATTI DI GESTIONE
+                   '//Esporto la tabella con la specifica
+                   '//ESPORTA I DATI ---------------------------------------------------------------------------------------------------------------------------------------> False = non visualizza il file
+                   '//SOSPESA
+                   'DoCmd.TransferText acExportDelim, "LLPP_ATTI_Tb01_Gestione - specifica di esportazione", "LLPP_ATTI_Tb01_Gestione", "c:\GESTIONI\GESTIONE_LLPP\25_GESTIONE_LLPP\LLPP_ATTI_Tb01_Gestione.txt"
+                   'Esporto tabella in dos
+                   'DoCmd.OutputTo acOutputTable, "LLPP_ATTI_Tb01_Gestione", "MS-DOSText(*.txt)", "c:\GESTIONI\GESTIONE_LLPP\25_GESTIONE_LLPP\LLPP_ATTI_Tb01_Gestione_DOS.txt", False, "", 0, acExportQualityPrint
+                   '//Apro la tabella esportata
+                   'DoCmd.OpenTable "LLPP_ATTI_Tb01_Gestione", acViewNormal, acEdit
+
+
+
+                   '//TABELLA ALLEGATI
+                   '//Esporto la tabella con la specifica - LLPP_ATTI_Tb02_Allegati - specifica di esportazione
+                   '//SOSPESA
+                   'DoCmd.TransferText acExportDelim, "LLPP_ATTI_Tb02_Allegati - specifica di esportazione", "LLPP_ATTI_Tb02_Allegati", "c:\GESTIONI\GESTIONE_LLPP\25_GESTIONE_LLPP\LLPP_ATTI_Tb02_Allegati.txt"
+                   '//Esporto tabella in dos
+                   'DoCmd.OutputTo acOutputTable, "LLPP_ATTI_Tb02_Allegati", "MS-DOSText(*.txt)", "c:\GESTIONI\GESTIONE_LLPP\25_GESTIONE_LLPP\LLPP_ATTI_Tb02_Allegati_Dos.txt", False, "", 0, acExportQualityPrint
+                   '//Apro la tabella esportata
+                   'DoCmd.OpenTable "LLPP_ATTI_Tb02_Allegati", acViewNormal, acEdit
+
+
+                   '//GLI INDIRIZZI
+                   '//........................................................................................................
+                        '//TABELLA INTESTATARI
+                        '//Esporto la tabella con la specifica - INDIRIZZI_Tb01_INTESTATARI - specifica di esportazione
+                        '//SOSPESA
+                        'DoCmd.TransferText acExportDelim, "INDIRIZZI_Tb01_INTESTATARI - specifica di esportazione", "Indirizzi_Tb01_INTESTATARI", "c:\GESTIONI\GESTIONE_LLPP\25_GESTIONE_LLPP\INDIRIZZI_Tb01_INTESTATARI.txt"
+                        '//Esporto tabella in dos
+                       ' DoCmd.OutputTo acOutputTable, "Indirizzi_Tb01_INTESTATARI", "MS-DOSText(*.txt)", "c:\GESTIONI\GESTIONE_LLPP\25_GESTIONE_LLPP\INDIRIZZI_Tb01_INTESTATARI_Dos.txt", False, "", 0, acExportQualityPrint
+                        '//Apro la tabella esportata
+                        'DoCmd.OpenTable "Indirizzi_Tb01_INTESTATARI", acViewNormal, acEdit
+
+
+
+
+                        '//TABELLA INDIRIZZI ELENCO
+                        '//Esporto la tabella con la specifica - INDIRIZZI_Tb02_ELENCO - specifica di esportazione
+                        '//SOSPESA
+                        'DoCmd.TransferText acExportDelim, "INDIRIZZI_Tb02_ELENCO - specifica di esportazione", "Indirizzi_Tb02_ELENCO", "c:\GESTIONI\GESTIONE_LLPP\25_GESTIONE_LLPP\INDIRIZZI_INDIRIZZI_Tb02_ELENCO.txt"
+                        '//Esporto tabella in dos
+                        'DoCmd.OutputTo acOutputTable, "Indirizzi_Tb02_ELENCO", "MS-DOSText(*.txt)", "c:\GESTIONI\GESTIONE_LLPP\25_GESTIONE_LLPP\INDIRIZZI_INDIRIZZI_Tb02_ELENCO_Dos.txt", False, "", 0, acExportQualityPrint
+                        '//Apro la tabella esportata
+                        'DoCmd.OpenTable "Indirizzi_Tb02_ELENCO", acViewNormal, acEdit
+
+                      '//........................................................................................................
+
+
+                'Indirizzi_Tb02_ELENCO - specifica di esportazione
+
+                '//TABELLA GESTIONE *** FINE ***
+                '//============================================================================================================
+
+                '//PRES3000
+                '//============================================================================================================
+
+                    '//IL CALENDARIO
+                    'Esporto la tabella con la specifica
+                    'ESPORTA I DATI ---------------------------------------------------------------------------------------------------------------------------------------> False = non visualizza il file
+                    '//SOSPESA
+                    'DoCmd.TransferText acExportDelim, "PRES3000_Tb01_Calendario - specifica di esportazione", "PRES3000_Tb01_Calendario", "c:\GESTIONI\GESTIONE_LLPP\25_GESTIONE_LLPP\PRES3000_Tb01_Calendario.txt"
+                    'Esporto tabella in dos
+                    'DoCmd.OutputTo acOutputTable, "PRES3000_Tb01_Calendario", "MS-DOSText(*.txt)", "c:\GESTIONI\GESTIONE_LLPP\25_GESTIONE_LLPP\PRES3000_Tb01_Calendario_DOS.txt", False, "", 0, acExportQualityPrint
+                    '//Apro la tabella esportata
+                    'DoCmd.OpenTable "PRES3000_Tb01_Calendario", acViewNormal, acEdit
+
+
+                    '//LE GIORNALIERE - PRES3000_Tb02_ElencoGiornaliere
+                    'Esporto la tabella con la specifica
+                    'ESPORTA I DATI ---------------------------------------------------------------------------------------------------------------------------------------> False = non visualizza il file
+                    '//SOSPESA
+                    'DoCmd.TransferText acExportDelim, "PRES3000_Tb02_ElencoGiornaliere - specifica di esportazione", "PRES3000_Tb02_ElencoGiornaliere", "c:\GESTIONI\GESTIONE_LLPP\25_GESTIONE_LLPP\PRES3000_Tb02_ElencoGiornaliere.txt"
+                    'Esporto tabella in dos
+                    'DoCmd.OutputTo acOutputTable, "PRES3000_Tb02_ElencoGiornaliere", "MS-DOSText(*.txt)", "c:\GESTIONI\GESTIONE_LLPP\25_GESTIONE_LLPP\PRES3000_Tb02_ElencoGiornaliere_DOS.txt", False, "", 0, acExportQualityPrint
+                    '//Apro la tabella esportata
+                    'DoCmd.OpenTable "PRES3000_Tb02_ElencoGiornaliere", acViewNormal, acEdit
+
+
+
+                    '//LA DEFINIZIONI
+
+                    'LLPP_DF01_CodiceOpera
+
+                    'ESPORTA I DATI ---------------------------------------------------------------------------------------------------------------------------------------> False = non visualizza il file
+                    '//SOSPESO
+                    'DoCmd.TransferText acExportDelim, "LLPP_DF01_CodiceOpera - specifica di esportazione", "LLPP_DF01_CodiceOpera", "c:\GESTIONI\GESTIONE_LLPP\25_GESTIONE_LLPP\LLPP_DF01_CodiceOpera.txt"
+                    'Esporto tabella in dos
+                   ' DoCmd.OutputTo acOutputTable, "LLPP_DF01_CodiceOpera", "MS-DOSText(*.txt)", "c:\GESTIONI\GESTIONE_LLPP\25_GESTIONE_LLPP\LLPP_DF01_CodiceOpera_DOS.txt", False, "", 0, acExportQualityPrint
+                    '//Apro la tabella esportata
+                    'DoCmd.OpenTable "LLPP_DF01_CodiceOpera", acViewNormal, acEdit
+
+
+
+
+                '//PRES3000
+                '//============================================================================================================
+
+
+                '//ESPORTA_I_FILE_IN_FORMATO_XLS
+                '//============================================================================================================
+
+
+                            '//ATTIVO LA PROCEDURA DI ESPORTAZIONE DEI FILE IN FORMATO XLS DEGLI ATTI DI IMPEGNO
+                            '//.................................................................................................
+                            '//NOTE: Dim + Reset ed impostazioni
+
+                            '//Chiamo la procedura di esportazione indicando il nome delle tabelle da esportare in xls
+                            'ESPORTA_FILE_XLS_ConMatriceDati_pFunct "", _
+                            "LLPP_ATTI_Tb01_Gestione", _
+                            "LLPP_ATTI_Tb02_Allegati", _
+                            "Indirizzi_Tb01_INTESTATARI", _
+                            "Indirizzi_Tb02_ELENCO", _
+                            "PRES3000_Tb01_Calendario", _
+                            "PRES3000_Tb02_ElencoGiornaliere", _
+                            "LLPP_DF01_CodiceOpera", _
+                            "LLPP_IMPEGNI_Tb01_ATTI_DI_IMPEGNO", _
+                            "LLPP_IMPEGNI_Tb02_ELENCO_DI_SPESA"
+
+            '//ESPORTA I DATI IN FILE XLS
+            '//........................................................
+
+
+
+               '//Chiamo la procedura di esportazione indicando il nome delle tabelle da esportare in xls _
+                  ATTENZIONE, occorre inserire un record vuoto "", affinche possono essere considerati tutti gli altri _
+                  file dell'esportazione altrimenti di viene saltato il primo "LLPP_ATTI_Tb01_Gestione", _
+                  PER ESPORTARE CHIAMARE QUESTA FUNZIONE : CODICE------> ESPORTA_FILE_XLS_ConMatriceDati_pFunct
+
+                            ESPORTA_FILE_XLS_ConMatriceDati_pFunct "", _
+                            "LLPP_ATTI_Tb01_Gestione", _
+                            "LLPP_ATTI_Tb02_Allegati", _
+                            "Indirizzi_Tb01_INTESTATARI", _
+                            "Indirizzi_Tb02_ELENCO", _
+                            "PRES3000_Tb01_Calendario", _
+                            "PRES3000_Tb02_ElencoGiornaliere", _
+                            "LLPP_DF01_CodiceOpera", _
+                            "LLPP_IMPEGNI_Tb01_ATTI_DI_IMPEGNO", _
+                            "LLPP_IMPEGNI_Tb02_ELENCO_DI_SPESA"
+
+            '//........................................................
+
+
+
+
+
+
+                             '//APRO LE  TABELLE ESPORTATE  --- SOSPESO
+                             'DoCmd.OpenTable "LLPP_ATTI_Tb01_Gestione", acViewNormal, acEdit
+                             'DoCmd.OpenTable "LLPP_ATTI_Tb02_Allegati", acViewNormal, acEdit
+                             'DoCmd.OpenTable "Indirizzi_Tb01_INTESTATARI", acViewNormal, acEdit
+                             'DoCmd.OpenTable "Indirizzi_Tb02_ELENCO", acViewNormal, acEdit
+                             'DoCmd.OpenTable "PRES3000_Tb01_Calendario", acViewNormal, acEdit
+                             'DoCmd.OpenTable "PRES3000_Tb02_ElencoGiornaliere", acViewNormal, acEdit
+                             'DoCmd.OpenTable "LLPP_DF01_CodiceOpera", acViewNormal, acEdit
+                             'DoCmd.OpenTable "LLPP_IMPEGNI_Tb01_ATTI_DI_IMPEGNO", acViewNormal, acEdit
+                             'DoCmd.OpenTable "LLPP_IMPEGNI_Tb02_ELENCO_DI_SPESA", acViewNormal, acEdit
+
+
+                            '//.................................................................................................
+
+                '//ESPORTA_I_FILE_IN_FORMATO_XLS         *** FINE ***
+                '//============================================================================================================
+
+
+            '***********************************************************************************************************************
+
+
+                        If MsgTabelle_ESPORTATE_s > "" Then
+
+                            MsgBox "LE TABELLE ESPORTATE SONO LE SEGUENTI: --->  " & MsgTabelle_ESPORTATE_s, vbExclamation
+                        End If
+
+
+                        If MsgTabelle_NON_ESPORTATE_s > "" Then
+
+                            MsgBox "ATTENZIONE QUESTI OGGETTI NON SONO STATI TROVATI --->  " & MsgTabelle_NON_ESPORTATE_s, vbExclamation
+                        End If
+
+
+                MsgBox "FINE ATTIVITA' DI Esportazione, aggiornamento ed accodamento. Operazioni effettuate!", vbExclamation
+
+
+        AggiornaDati_ed_EsportaDati_Pfunct_Exit:
                 Exit Function
 
-Err_AGGIORNA_FILE_ATTO_pfunct:
-                    MsgBox "ERRORE FUNCTION PUBLIC    " & Err.Number & " - " & Err.Description, vbCritical, "AGGIORNA_FILE_ATTO_pfunct"
-                    Resume Exit_AGGIORNA_FILE_ATTO_pfunct
-
-        End Function
-        '//AGGIORNA_FILE_ATTO_pfunct                                              *** FINE ***
-        '//===========================================================:===================================:================================
-
-
-
- '//TODO: APRI FINESTRA SHOWOPENFILE DIALOG
-
- '//01_API_FINESTRA_DI_SELEZIONE_FILE = APRO LA FINESTRA DI SELEZIONE DEI FILE CON PARAMETRI *** INIZIO ***
-    '//==================================================================================================================//
-    ' ----------------------------------------------------------------------------------
-    ' Funzione pubblica che mostra la finestra di selezione file
-    ' Parametri:
-    '   allowMultiSelect     True = permette selezione multipla
-    '   filtroDescrizione    Descrizione del tipo di file (es. "Immagini (*.jpg)")
-    '   filtroEstensione     Estensione filtro (es. "*.jpg;*.png")
-    '   titoloFinestra       Titolo della finestra (es. "Seleziona file")
-    '   cartellaIniziale     Cartella iniziale di apertura
-    ' Restituisce:
-    '   - Stringa (singolo file)
-    '   - Array di stringhe (più file)
-    '   - Null se l'utente annulla
-    ' ----------------------------------------------------------------------------------
-
-    Public Function ShowOpenFileDialog(Optional ByVal allowMultiSelect As Boolean = False, _
-                                       Optional ByVal filtroDescrizione As String = "Tutti i file (*.*)", _
-                                       Optional ByVal filtroEstensione As String = "*.*", _
-                                       Optional ByVal titoloFinestra As String = "Seleziona file", _
-                                       Optional ByVal cartellaIniziale As String = vbNullString) As Variant
-        On Error GoTo ErrHandler ' Attiva la gestione degli errori
-
-        ' -- Dichiarazioni variabili
-        Dim OFN As OPENFILENAME           ' Struttura per l'API GetOpenFileName
-        Dim sFileName As String           ' Buffer per contenere i nomi dei file
-        Dim filterString As String        ' Filtro per i tipi di file
-        Dim ret As Long                   ' Risultato della chiamata API
-        Dim fileList() As String          ' Array per la selezione multipla
-        Dim i As Long                     ' Contatore
-        Dim s As String                   ' File singolo selezionato
-        Dim result() As String            ' Array con percorsi completi (se multi)
-
-        ' -- Crea il filtro nel formato richiesto dall'API (terminato da doppio Null)
-        filterString = filtroDescrizione & vbNullChar & filtroEstensione & vbNullChar
-
-        ' -- Crea una stringa di 4096 caratteri nulli come buffer per i file
-        sFileName = String$(4096, vbNullChar)
-
-        ' -- Compila la struttura OPENFILENAME con i parametri forniti
-        With OFN
-            .lStructSize = LenB(OFN)                              ' Dimensione della struttura
-            .hwndOwner = 0                                        ' Nessun proprietario (oppure Application.hWndAccessApp)
-            .lpstrFilter = filterString                           ' Filtro dei tipi di file
-            .nFilterIndex = 1                                     ' Indice filtro predefinito
-            .lpstrFile = sFileName                                ' Buffer per i nomi
-            .nMaxFile = Len(sFileName)                            ' Lunghezza massima del buffer
-            .lpstrFileTitle = String$(260, vbNullChar)            ' Buffer per il nome del file senza percorso
-            .nMaxFileTitle = 260                                  ' Lunghezza del nome file
-            .lpstrInitialDir = cartellaIniziale                   ' Cartella iniziale di apertura
-            .lpstrTitle = titoloFinestra                          ' Titolo della finestra di dialogo
-            .flags = OFN_FILEMUSTEXIST Or OFN_PATHMUSTEXIST Or OFN_EXPLORER ' Opzioni standard
-            If allowMultiSelect Then
-                .flags = .flags Or OFN_ALLOWMULTISELECT           ' Aggiungi selezione multipla se richiesto
-            End If
-        End With
-
-        ' -- Mostra la finestra di dialogo: ritorna 1 se OK, 0 se Annulla
-        ret = GetOpenFileNameA(OFN)
-
-        ' -- Se è stato selezionato almeno un file
-        If ret <> 0 Then
-            ' -- Estrai il primo file (o il path base in caso di selezione multipla)
-            s = Left$(OFN.lpstrFile, InStr(OFN.lpstrFile, vbNullChar) - 1)
-
-            If allowMultiSelect Then
-                ' -- Divide i nomi dei file multipli usando il separatore Null
-                fileList = Split(Left$(OFN.lpstrFile, InStr(OFN.lpstrFile & vbNullChar, vbNullChar & vbNullChar) - 1), vbNullChar)
-
-                If UBound(fileList) = 0 Then
-                    ' -- Se è stato selezionato un solo file
-                    ShowOpenFileDialog = fileList(0)
-                Else
-                    ' -- Se sono stati selezionati più file
-                    ReDim result(UBound(fileList) - 1)
-                    For i = 1 To UBound(fileList)
-                        ' -- Costruisce il percorso completo per ciascun file
-                        result(i - 1) = fileList(0) & "\" & fileList(i)
-                    Next i
-                    ShowOpenFileDialog = result ' Ritorna array con tutti i percorsi
-                End If
-            Else
-                ' -- Selezione singola: ritorna direttamente il percorso del file
-                ShowOpenFileDialog = s
-            End If
-        Else
-            ' -- L’utente ha annullato la finestra: ritorna Null
-            ShowOpenFileDialog = Null
-        End If
+        AggiornaDati_ed_EsportaDati_Pfunct_Err:
+                MsgBox Error$
+                Resume AggiornaDati_ed_EsportaDati_Pfunct_Exit
 
-        Exit Function ' Esce normalmente dalla funzione
+            End Function
 
-    ' -- Blocco di gestione degli errori
-ErrHandler:
-            ' Log dell'errore tramite sub interna della classe - CHIAMO LA ROUTINE PRIVATA NRO 11
-            ScriviLogErrore "ShowOpenFileDialog", Err.Number, Err.Description, Erl
-            ' (opzionale)
-            MsgBox "Errore durante l'apertura della finestra di dialogo: " & Err.Description, vbCritical, "Errore"
-            ShowOpenFileDialog = Null ' Ritorna Null in caso di errore
-        End Function
 
-         '//01_API_FINESTRA_DI_SELEZIONE_FILE = APRO LA FINESTRA DI SELEZIONE DEI FILE CON PARAMETRI *** FINE ***
-        '//==================================================================================================================//
 
 
 
-'// TODO: FUNZIONE DA UTILIZZARE CON 4 PARAMETRI
 
 
-    '//09_FUNZIONE_DA_UTILIZZABILE_API = LA FUNZIONE E UN BASE DI UTILIZZO  *** INIZIO ***
-    '//==================================================================================================================//
+            '// *** FINE ***
+            '//             AGGIORNA I DAITI CON LE QUERY ED ESPORTA IN MDB + XLS
+            '//****************************************************************************************************************//
 
-    Public Function DA_UTILIZZARE_FUNCTION_Pfunct(filePath As String, Optional ByRef txtBox As Control = Nothing) As Boolean
-            On Error GoTo GestioneErrore
 
 
 
-            '// CREA ISTANZA DELLA CLASSE E APRI FILE
-            '//--------------------------------------------------------------------------------------//
-            '//Note: creo l'istanza della classe e chiamo la funzione apri file con le Api _
-                    windows utilizzando la CLASSE per la gestonione dei file classe Msys_GEFILE_CLS01_GESTIONI _
-                    Come parametro devo passare una path completa di file come ad esempio: _
-                    filePath = "c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSYS_BASE\MDB\MSYS_BASE.mdb" _
-                    controllare se tale istanza della funzione è valida per tutti i tipi di file.
+            '// *** FINE ***
+            '//             I COMANDI CMD :
+            '//                             DoCmdOpenQuery_Sub
+            '//
+            '//****************************************************************************************************************//
+            '//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@//
 
+            '//DOCMD_OPEN_QUERY = Eseguo il comando docmd di esecuzione della query la cui _
+                                esistenza viene controllata prima di chiamare questa routine. _
+                                I parametri sono due: _
+            1 paramentro par_acViewNormal, corrisponde alla variabile AcView sono i seguenti e devono essere indicati in par_acViewNormal _
+            Nome Valore         Descrizione _
+            acViewDesign        1 Visualizzazione Struttura _
+            acViewLayout        6 Visualizzazione Layout _
+            acViewNormal        0 (Impostazione predefinita) Visualizzazione Normale _
+            acViewPivotChart    4 Visualizzazione Grafico pivot _
+            acViewPivotTable    3 Visualizzazione Tabella pivot _
+            acViewPreview       2 Anteprima di stampa _
+            acViewReport        5 Visualizzazione Report _
 
-                'Dim clsGestione As New Msys_GEFILE_CLS01_GESTIONI
+            'Il 2 parametro, par_acEdit Deve indicare le modalita di apertura dell'oggetto: _
+            Costante di enumerazione AcOpenDataMode _
+            Specifica la modalità di immissione dati all'apertura di una tabella, una query, _
+            una stored procedure, una visualizzazione o una funzione definita dall'utente. _
+            Nome Valore     Descrizione _
+            acAdd               0       L'utente può aggiungere nuovi record ma non visualizzare né modificare i record esistenti. _
+            acEdit              1       L'utente può visualizzare o modificare i record esistenti e aggiungere nuovi record. _
+            acReadOnly          2       L'utente può solo visualizzare i record.
 
-                'If clsGestione.DA_UTILIZZARE_FUNCTION_Pfunct(filePath) = False Then
-                '    MsgBox "Apertura file fallita.", vbExclamation
-                'End If
 
 
+        Public Sub DOCMDOpenQuery_Sub(par_Query_s As String, par_acViewNormal As Integer, par_acEdit As Integer)
 
-            '//--------------------------------------------------------------------------------------//
+                                '//Eseguo la query passata come parametro solo se valorizzata _
+                                   la variabile che contiene il nome della query. Il controllo se _
+                                   la query esiste viene fatto a prima della routine.
+                                If par_Query_s > "" Then
+                                        DoCmd.OpenQuery par_Query_s
+                                Else
+                                    MsgBox "Comando Cmd.OpenQuery non eseguito in quanto il parametro oggetto 'par_Query_s' è nullo:  --> " & par_Query_s
+                                End If
 
+            End Sub
 
 
-            #If VBA7 Then
-                Dim result As LongPtr
-            #Else
-                Dim result As Long
-            #End If
 
-            ' --- Verifica che il file esista prima di tentare di aprirlo ---
-            If Len(Dir(filePath)) = 0 Then
-                MsgBox "Il file selezionato non esiste o non è valido.", vbExclamation
-                DA_UTILIZZARE_FUNCTION_Pfunct = False
-                Exit Function
-            End If
 
-            ' --- Se è stata passata una TextBox, aggiorna il suo contenuto col percorso file ---
-            If Not txtBox Is Nothing Then
-                On Error Resume Next ' Evita errori se controllo non esiste o non è modificabile
-                If filePath <> "" Then
-                    txtBox.SetFocus
-                    txtBox.Value = filePath
-                End If
-                On Error GoTo GestioneErrore
-            End If
 
-            ' --- Chiama ShellExecute per aprire il file con l'applicazione predefinita ---
-            result = ShellExecute(0, "open", filePath, vbNullString, vbNullString, vbNormalFocus)
 
-            ' --- Controlla risultato ShellExecute, valori <= 32 indicano errore ---
-            If result <= 32 Then
-                MsgBox "Impossibile aprire il file: " & filePath, vbCritical
-                DA_UTILIZZARE_FUNCTION_Pfunct = False
-                Exit Function
-            End If
 
-            ' --- Se tutto è andato a buon fine ---
-            DA_UTILIZZARE_FUNCTION_Pfunct = True
-            Exit Function
 
-        ' --- Gestione errori generica ---
-GestioneErrore:
-            ' Registra il dettaglio errore nel log (funzione da implementare)
-            ScriviLogErrore "DA_UTILIZZARE_FUNCTION_Pfunct", Err.Number, Err.Description, Erl
-            MsgBox "Errore durante l'apertura del file: " & Err.Description, vbCritical, "Errore #" & Err.Number
-            DA_UTILIZZARE_FUNCTION_Pfunct = False
-        End Function
 
 
-        '//09_FUNZIONE_DA_UTILIZZABILE_API = LA FUNZIONE E UN BASE DI UTILIZZO  *** FINE ***
-        '//==================================================================================================================//
 
 
 
-'//TODO : GESTIONE ERRORI:
 
 
 
-    '//MostraProprietaFile  - 10_CLASSE_MOSTRA_PROPRIETA_FILE = LA FUNZIONE MOSTRA LE PROPRIETA DEL FILE PASSATO COME PARAMETRO
-        '//==================================================================================================================//
-        ' Funzione per mostrare le proprietà del file con controllo errori e log
-        ' Mostra le proprietà di un file con gestione robusta degli errori
-        ' e log automatico tramite ScriviLogErrore in caso di eccezioni
 
-        Public Sub MostraProprietaFile(filePath As String)
-            On Error GoTo ErrHandler ' Gestione errori centralizzata
 
-            ' Verifica che il percorso non sia vuoto
-            If Trim(filePath) = "" Then
-                MsgBox "Il percorso del file è vuoto.", vbExclamation, "Percorso mancante"
-                Exit Sub
-            End If
 
-            ' Verifica che il file esista
-            If Dir(filePath) = "" Then
-                MsgBox "Il file non esiste o non è stato trovato.", vbExclamation, "File non trovato"
-                Exit Sub
-            End If
 
-            ' Crea il FileSystemObject
-            Dim fso As Object
-            Set fso = CreateObject("Scripting.FileSystemObject")
+                                                '//*************************************//
+                                                '//     LE ESPORTAZIONI
+                                                '//*************************************//
+                                                '
+            '//**************************************************************************************************************************//
+            '//         FUNZIONI DI ESPORTAZIONI LAVORI PUBBLICI IN FORMATO XLS
+            '//**************************************************************************************************************************//
+            '//
 
-            Dim FILE As Object
-            Set FILE = fso.GetFile(filePath)
+            '//01)_ESPORTA FILE XLS CON MATRICE = Funzione di esportazione dei dati dei lavori pubblici _
+                    con esportazioni in tabelle excel. Viene utilizzata una matrice.
+            '//     CODICE------> ESPORTA_FILE_XLS_ConMatriceDati_pFunct
 
-            ' Mostra le proprietà del file
-            MsgBox "Proprietà del file:" & vbCrLf & _
-                   "Percorso: " & FILE.Path & vbCrLf & _
-                   "Nome: " & FILE.Name & vbCrLf & _
-                   "Tipo: " & FILE.Type & vbCrLf & _
-                   "Dimensione: " & Format(FILE.Size, "#,##0") & " bytes" & vbCrLf & _
-                   "Data di creazione: " & FILE.DateCreated & vbCrLf & _
-                   "Data di modifica: " & FILE.DateLastModified, _
-                   vbInformation, "Informazioni sul file"
 
-            Exit Sub ' Uscita normale
 
-        '--- Gestione Errori ---
-ErrHandler:
-            ' Chiamata alla funzione di log errori (classe Msys_GEFILE_CLS01_GESTIONI)
-            ScriviLogErrore "MostraProprietaFile", Err.Number, Err.Description, Erl
+        '//ESPORTO SU FILE ESTERNO _ per ora un xls
+        Public Sub OutputTo_Sub(par_Tabella_s As String, par_Path_s As String, par_NuovaDenominazioneTabella_01_s As String, par_Bool As Boolean)
 
-            MsgBox "Si è verificato un errore durante il recupero delle proprietà del file:" & vbCrLf & _
-                   Err.Description, vbCritical, "Errore"
-        End Sub
+                    '//MODELLO DI ESPORTAZIONE
+                    '//Esporto le tabelle in formato xls
+                    '                       par_Tabella_s                          par_PATH_S                               par_Bool
+                    'DoCmd.OutputTo acTable, Tabella_01_s, "MicrosoftExcel(*.xls)", PATH_s & NuovaDenominazioneTabella_01_s, False, ""
+                    'MODELLO FUNZIONANTE ---> DoCmd.OutputTo acTable, "LLPP_ATTI_Tb01_Gestione", "MicrosoftExcel(*.xls)", "c:\GESTIONI\GESTIONE_LLPP\25_GESTIONE_LLPP\LPP_ARCHIVI_SALVATAGGI\LLPP_ATTI_Tb01_Gestione.xls", False, ""
+                    '//Controllo parametri:
+                        Debug.Print "par_Tabella_s                              ----> " & par_Tabella_s
+                        Debug.Print "par_PATH_S                                 ----> " & par_Path_s
+                        Debug.Print "par_NuovaDenominazioneTabella_01_s         ----> " & par_NuovaDenominazioneTabella_01_s
 
+                    DoCmd.OutputTo acTable, par_Tabella_s, "MicrosoftExcel(*.xls)", par_Path_s & par_NuovaDenominazioneTabella_01_s, par_Bool, ""
 
+            End Sub
 
-        '//==================================================================================================================//
 
 
 
 
 
-    '//*** INIZIO ***
-    '//11_CLASSE_GESTIONI_GESTIONE_ERRORI = LA GESTIONE DEGLI ERRORI CHE SI TROVA NELLA CLASSE UTILIZZABILE DALLE FUNZIONI
-        '//==================================================================================================================//
-        ' Note - Spiegazione: _
-            Quando succede un errore nella funzione ShowOpenFileDialog o altra, il flusso passa al label ErrHandler. _
-            A questo punto si richiama ScriviLogErrore, passando: _
-            Il nome della funzione dove è avvenuto l’errore (stringa "ShowOpenFileDialog"), _
-            Il numero dell’errore (Err.Number), _
-            La descrizione dell’errore (Err.Description), _
-            Il numero di riga dove si è verificato l’errore (Erl). _
-            Quindi, ogni volta che un errore si verifica in ShowOpenFileDialog, verrà registrato nel file di log tramite ScriviLogErrore.
-        '//miglioramenti: _
-            Formattazione più leggibile della data/ora _
-            Creazione automatica della cartella Logs _
-            Percorso di log leggermente più strutturato (\Logs\LogErrori.txt) _
-            Commenti chiari per manutenzione futura
+            '//**************************************************************************************************************************//
 
-        Public Sub ScriviLogErrore(nomeFunzione As String, NumeroErrore As Long, DescrizioneErrore As String, RigaErrore As Long)
-            On Error GoTo GestioneErrore
+            '//FUNZIONE ESPORTA FILE XLS
+            '//Chiamo matrice con Stringhe che rappresentano delle tabelle _
+            Impegni , Presenze
+            Private Sub CHIAMA_ESPORTA_FILE_XLS_ConMatriceDati_pFunct()
 
-            Dim percorsoLog As String
-            Dim fileNum As Integer
-            Dim testo As String
-            Dim dataOra As String
-            Dim cartellaLogs As String
+                '//Chiamo la procedura di esportazione indicando il nome delle tabelle da esportare in xls
+                ESPORTA_FILE_XLS_ConMatriceDati_pFunct "LLPP_IMPEGNI_Tb01_ATTI_DI_IMPEGNO", "LLPP_IMPEGNI_Tb02_ELENCO_DI_SPESA", _
+                "PRES3000_Tb01_Calendario", "PRES3000_Tb02_ElencoGiornaliere", "PRES3000_Tb01_Calendario", "Indirizzi_Tb01_INTESTATARI", _
+                "Indirizzi_Tb02_ELENCO"
 
-            ' Format data/ora per log
-            dataOra = Format(Now, "yyyy-mm-dd HH:nn:ss")
+            End Sub
 
-            ' Imposta la cartella Logs nel percorso del database
-            cartellaLogs = CurrentProject.Path & "\Logs"
 
-            ' Crea la cartella Logs se non esiste
-            If Dir(cartellaLogs, vbDirectory) = "" Then
-                MkDir cartellaLogs
-            End If
+        '//01)_ESPORTA FILE XLS CON MATRICE = Funzione di esportazione dei dati dei lavori pubblici _
+                    con esportazioni in tabelle excel. Viene utilizzata una matrice.
+            '//     CODICE------> ESPORTA_FILE_XLS_ConMatriceDati_pFunct
+            '//=================================================================================================//
+            '//NOTE ------------->  : attenzione esporto la collezione di file ma il primo deve essere nullo ("") per _
+                                    evitare che venga saltato.
 
-            ' Costruisci il percorso completo del file di log
-            percorsoLog = cartellaLogs & "\LogErrori.txt"
+            Public Function ESPORTA_FILE_XLS_ConMatriceDati_pFunct(strName As String, ParamArray intScores() As Variant)
+                Dim PATH_s As String
+                Dim Tabella_01_s As String
+                Dim NuovaDenominazioneTabella_01_s As String
+                Dim Tabella_02_s As String
+                Dim NuovaDenominazioneTabella_02_s As String
+                Dim intI As Integer
+                Dim icount As Integer                   '//il contatore
 
-            ' Componi il testo da scrivere
-            testo = dataOra & " | Classe: Msys_GEFILE_CLS01_GESTIONI | Funzione: " & nomeFunzione & _
-                    " | Errore #: " & NumeroErrore & " | Descrizione: " & DescrizioneErrore & _
-                    " | Riga: " & RigaErrore
+                On Error GoTo ESPORTA_FILE_XLS_ConMatriceDati_pFunct_Err
 
-            ' Scrive nel file in modalità Append
-            fileNum = FreeFile
-            Open percorsoLog For Append As #fileNum
-                Print #fileNum, testo
-            Close #fileNum
 
-            Exit Sub
+                '//ESPORTA I DATI IN FILE XLS
+                '//........................................................
 
-GestioneErrore:
-            ' Gestione errori interni alla funzione di log
-            MsgBox "Errore durante la scrittura del log." & vbCrLf & _
-                   "Descrizione: " & Err.Description & vbCrLf & _
-                   "Errore #: " & Err.Number, vbCritical, "Errore ScriviLogErrore"
 
-            ' Scrittura di emergenza in un file alternativo
-            On Error Resume Next
-            percorsoLog = CurrentProject.Path & "\LogErrore_di_Sistema.txt"
-            fileNum = FreeFile
-            Open percorsoLog For Append As #fileNum
-                Print #fileNum, Format(Now, "yyyy-mm-dd HH:nn:ss") & _
-                      " | Scrittura log fallita nella funzione: ScriviLogErrore" & _
-                      " | Errore interno #: " & Err.Number & " - " & Err.Description
-            Close #fileNum
-        End Sub
 
-        '//==================================================================================================================//
+                   '//Chiamo la procedura di esportazione indicando il nome delle tabelle da esportare in xls _
+                      ATTENZIONE, occorre inserire un record vuoto "", affinche possono essere considerati tutti gli altri _
+                      file dell'esportazione altrimenti di viene saltato il primo "LLPP_ATTI_Tb01_Gestione", _
+                                Call ESPORTA_FILE_XLS_ConMatriceDati_pFunct "", _
+                                "LLPP_ATTI_Tb01_Gestione", _
+                                "LLPP_ATTI_Tb02_Allegati", _
+                                "Indirizzi_Tb01_INTESTATARI", _
+                                "Indirizzi_Tb02_ELENCO", _
+                                "PRES3000_Tb01_Calendario", _
+                                "PRES3000_Tb02_ElencoGiornaliere", _
+                                "LLPP_DF01_CodiceOpera", _
+                                "LLPP_IMPEGNI_Tb01_ATTI_DI_IMPEGNO", _
+                                "LLPP_IMPEGNI_Tb02_ELENCO_DI_SPESA"
 
+                '//........................................................
 
 
+                '//Reset ed impostazioni
+                '//........................................................
+                    PATH_s = vbNull
+                    PATH_s = "c:\GESTIONI\GESTIONE_LLPP\25_GESTIONE_LLPP\LPP_ARCHIVI_SALVATAGGI\"
 
+                    Tabella_01_s = vbNull
+                    Tabella_01_s = "LLPP_IMPEGNI_Tb01_ATTI_DI_IMPEGNO"
+
+                '//........................................................
+
+                    Debug.Print
+                    Debug.Print strName; " Punteggi"
+                    ' Utilizza la funzione UBound per definire il
+                    ' limite superiore della matrice.
+
+                    '//Dimensione la matrice di file
+
+                     Dim MatriceFile_s As String
+
+                    icount = 0
+
+
+
+                        '//ATTIVAZIONE CLASSE
+                        '//ROUTINE_DI_ATTIVAZIONE_APERTURA_FILE
+                        '//CODICE-----> Controlla_SE_OGGETTO_FORM_ESISTE_pFunct.attiva.LaClasse
+                        '//--------------------------------------------------------------------------------//-//
+                        '//NOTA  :Controlla se esiste la form negli oggetti del database
+
+
+                                'If Str1 <> "OGGETTO NON TROVATO" Then
+                                     '
+                                        'Dim MyCls_CLASSE_ATTI_Tb01_Gestione As New CLASSE_ATTI_Tb01_Gestione
+                                        'Dim OggettoDaRicercare_s As String
+
+                                        'Set MyCls_CLASSE_ATTI_Tb01_Gestione = New CLASSE_ATTI_Tb01_Gestione
+
+
+
+                                'End If
+
+                            '//--------------------------------------------------------------------------------//-//
+
+
+
+
+
+
+
+                For intI = 0 To UBound(intScores())
+                    Debug.Print "          "; intScores(intI)
+                    Tabella_01_s = vbNull
+                    Tabella_01_s = intScores(intI)
+                    icount = icount + 1
+                    Bool1 = False
+                    NuovaDenominazioneTabella_01_s = intScores(intI) & ".xls"
+
+
+                        '//Controllo Parametri e tabella da esportare
+                        Debug.Print
+                        Debug.Print "----------------------CONTROLLO VARIABILI TABELLE XLS --------------------------------------"
+                        Debug.Print
+                        Debug.Print "tabella da ricercare - variabile           :Tabella_01_s                                   ----> " & Tabella_01_s
+                        Debug.Print "la path e la variabile                     :par_PATH_S                                     ----> " & PATH_s
+                        Debug.Print "nuova denominazione xls con la variabile   :NuovaDenominazioneTabella_01_s                 ----> " & NuovaDenominazioneTabella_01_s
+                        Debug.Print
+                        Debug.Print "--------------------------------------------------------------------------------------------"
+
+
+                            '//ESPORTO LA TABELLA
+                            '//.......................................................................................
+                            '//NOTE : se non trova l'oggetto nel db dove si trova questa classe non esegue il comando. _
+                                    la TABELLA viene presa nella matrice.
+
+                                '//Imposto la variabile dell'ogggetto da ricercare e chiamo la funzione _
+                                   di ricerca secondo il tipo di oggetto
+
+                                Bool1 = False
+                                'Tabella da ricercare = viene indicata nella matrice intScores(intI) senza .xls
+                                Bool1 = MyCls_CLASSE_ATTI_Tb01_Gestione.Controlla_SE_OGGETTO_TABELLA_ESISTE_pFunct(Tabella_01_s)
+
+                                    '//SE TRUE = oggetto esistente ed eseguo il comando
+                                    If Bool1 Then
+
+                                        '???? NON FUNZIONA
+                                        'DoCmd.OutputTo acTable, Tabella_01_s, "MicrosoftExcel(*.xls)", PATH_s, NuovaDenominazioneTabella_01_s, False, ""
+
+
+                                        '//ESEGUO IL COMANDO OutpuTo CON con 3 parametri, il nome della TABELLA + LA PATH dove esportare + TRUE ?
+                                        'MODELLO ---> OutputTo_Sub(par_Tabella_s As String, par_PATH_S As String, par_NuovaDenominazioneTabella_01_s As String, par_Bool As Boolean)
+                                        MyCls_CLASSE_ATTI_Tb01_Gestione.OutputTo_Sub Tabella_01_s, PATH_s, NuovaDenominazioneTabella_01_s, False
+
+                                        '//APRO TABELLA ESPORTATA
+                                        DoCmd.OpenTable Tabella_01_s, acViewNormal, acEdit
+
+
+
+                                  End If
+
+                           '//.......................................................................................
+
+
+
+                                MatriceFile_s = MatriceFile_s & icount & ") " & NuovaDenominazioneTabella_01_s & " " & vbCrLf
+
+                    '//Esporto le tabelle in formato xls
+                    '                       par_Tabella_s                          par_PATH_S                               par_Bool
+                    'sospesa DoCmd.OutputTo acTable, Tabella_01_s, "MicrosoftExcel(*.xls)", PATH_s, NuovaDenominazioneTabella_01_s, False, ""
+
+
+                Next intI
+
+                '//RILASCIO L'OGGETTO CLASSE
+                Set CLASSE_ATTI_Tb01_Gestione = Nothing
+
+
+                '//Messaggio di fine attivita'
+                MsgBox "ESPORTAZIONE DATI IN FILE XLS EFFETTUATI in --> " & PATH_s & vbCrLf & MatriceFile_s & vbCrLf
+
+
+        ESPORTA_FILE_XLS_ConMatriceDati_pFunct_Exit:
+                        Exit Function
+
+        ESPORTA_FILE_XLS_ConMatriceDati_pFunct_Err:
+                        MsgBox Error$
+                        Resume ESPORTA_FILE_XLS_ConMatriceDati_pFunct_Exit
+
+                End Function
+                '//01)_ESPORTA FILE XLS CON MATRICE = Funzione di esportazione dei dati dei lavori pubblici   ***FINE***
+                '//=================================================================================================//
+
+                '//ESPORTA_FILE_XLS_ConMatriceDati_pFunct
+                '//*************************************************************************************************//
+                '//NOTE : ESPORTA i file in formato xls (csv)   *** FINE ***
+                '//*************************************************************************************************//
+
+
+
+
+                                                            '//*** FINE ***
+                                                    '//*************************************//
+                                                    '//     LE ESPORTAZIONI
+                                                    '//*************************************//
+
+                '//**************************************************************************************************************************//
+                '//         FUNZIONI DI ESPORTAZIONI LAVORI PUBBLICI IN FORMATO XLS
+                '//**************************************************************************************************************************//
+
+
+
+                                                    '//***INIZIO***
+                                                    '//*************************************//
+                                                    '//     LE FUNZIONI GENERALI
+                                                    '//*************************************//
+                '//********************************************************************************************************************************************************//
+                '//                                 LE FUNZIONI DI GESTIONE ATTI Tb01_Gestione
+                '//********************************************************************************************************************************************************//
+                '//
+                '//NOTA: In questa classe vengon raggruppate tutte le fuzioni che attengono alla gestione della TABELLA ATTI _
+                        per la gestione dei lavori pubblici. _
+                        IL seguente elenco specifica le funzioni implementate:
+
+
+        '//01.AGGIORNA_FILE_ATTO_pfunct = Aggiorna file atto crea il NOME DI FILE da salvare composto da _
+                                           fileAtto+NroAtto+Annoatto, solo se nro atto e data sono > 0 _
+                                           CODICE------>AGGIORNA_FILE_ATTO_pfunct.attiva
+
+            '//********************************************************************************************************************************************************//
+            '//********************************************************************************************************************************************************//
+
+
+
+            '//01.AGGIORNA_FILE_ATTO_pfunct = Aggiorna file atto crea il NOME DI FILE da salvare composto da _
+                                            fileAtto+NroAtto+Annoatto, solo se nro atto e data sono > 0 _
+                                            CODICE------>AGGIORNA_FILE_ATTO_pfunct.attiva
+            '//===========================================================:===================================:================================
+            '//AGGIORNA_ATTI_Mdl_N001_001_Function.001.01__________:Funzione 00 CALCOLA                                :Calcola
+            '//...........................................:.....................................................................................
+            '//NOTA PROCEDURA: La Funzione Aggiona il campo FILE_ATTO ricostruendo il nome del file con i parametri passati.
+
+            Public Function AGGIORNA_FILE_ATTO_pfunct(par_TipoAtto_s As String, _
+                                                      par_NroAtto_lng As Long, _
+                                                      par_DataAtto_d As Date, _
+                                                      par_AnnoAtto_i As Integer) As String
+
+                '//.......................................................
+                '// DIM VARIABILI
+                'Dim sScelta_db As String
+
+
+
+
+                    '//MODELLO-> AGGIORNA_FILE_ATTO
+                    '//--------------------------------------------------------------------------//
+                    '//NOTA   : Aggiorna il file atto costruendo il nome del file _
+                               con i parametri passati ottengo il nome dai seguenti dati _
+                               FILE_ATTO=TipoAtto+NroAtto+Annoatto a condizione che _
+                               il NroAtto >0 and DataAtto >"", altrimenti la funzione restituisce _
+                               il valore nullo. Vengono controllati anche le variabili Nro atto, _
+                               data atto ed anno anno che devono essere sempre valorizzate.
+
+                               '//RESETTO IL FILE ATTO _
+                               in questo modo posso riattivare l'evento anche nel caso di errori nella _
+                               digitazione del numero file atto, potendo ricostruire in automatico il _
+                               nome completo del File_atto
+                               'Me.FileAtto_s_Txt = ""
+
+                                '//CONTROLLO VARIABILE E CHIAMATA PROCEDURA
+                                '//.........................................................//
+                                    'sSTR1 = ""
+                                    'TipoAtto_s = Me.TipoAtto_s
+                                    'If Me.NroAtto_lng > 0 Then
+                                    '    NroAtto_lng = Me.NroAtto_lng
+                                    'Else
+                                    '    Me.NroAtto_lng = 0
+                                    'End If
+
+                                    '//CONTROLLO DATA = se la data nulla viene recuperato quella di calendario.
+                                    'If IsNull(DataAtto_d) = TRUE Then
+                                    '    DataAtto_d = Date
+                                    'Else
+                                        '//Altrimenti viene recuperata quella della casella di testo valorizzata.
+                                    '    DataAtto_d = Me.DataAtto_d
+                                    'End If
+
+                                    '//Controllo variabile Anno deve essere valorizzata
+                                    'If AnnoAtto_i = 0 Or IsNull(AnnoAtto_i) = True Then
+                                        '//Se NULL o Zero, viena applicato l'anno corrente
+                                    '    AnnoAtto_i = Year(Date)
+                                    'Else
+                                        '//Altrimenti viene recuperato l'anno del campo testo
+                                    '    AnnoAtto_i = Me.AnnoAtto_i
+                                    'End If
+
+
+
+                                    '//IMPOSTO LA VARIABILE OGGETTO = per l'utilizzo della classe
+                                    'Dim MyCls_CLASSE_ATTI_Tb01_Gestione As CLASSE_ATTI_Tb01_Gestione
+
+                                    '//ISTANZIO LA CLASSE = MyCls_CLASSE_GESTIONE_OGGETTI_FORM assegnando _
+                                    l 'oggetto di classe alla variabile e creo creo l'oggetto di classe
+                                    'Set MyCls_CLASSE_ATTI_Tb01_Gestione = New CLASSE_ATTI_Tb01_Gestione
+
+                                     '//MODELLO FUNZIONANTE
+                                     'sSTR1 = AGGIORNA_FILE_ATTO_pfunct(TipoAtto_s, NroAtto_lng, DataAtto_d, AnnoAtto_i)
+
+
+                                    'sSTR1 = MyCls_CLASSE_ATTI_Tb01_Gestione.AGGIORNA_FILE_ATTO_pfunct(TipoAtto_s, NroAtto_lng, DataAtto_d, AnnoAtto_i)
+
+                                    '//RILASCIO LA MEMORIA = rilascio l'oggetto ed attivo il distruttore della classe
+                                    'Set MyCls_CLASSE_ATTI_Tb01_Gestione = Nothing
+
+
+                                    'Me.DATAAGG_TXT = Date
+                                    'Me.TIMEOPER_TXT = Time()
+
+                                '//.........................................................//
+
+                    '//MODELLO-> AGGIORNA_FILE_ATTO *** FINE ***
+                    '//--------------------------------------------------------------------------//
+
+
+
+
+                        On Error GoTo Err_AGGIORNA_FILE_ATTO_pfunct
+
+
+                        '//AGGIORNA_FILE_ATTO
+                        '//-------------------------------------------:-----------------------------------------------
+                        '//AGGIORNA_ATTI_Mdl_N001_001_Function.001.02__________:
+                        '//NOTA   : Aggiorna il file atto costruendo il nome del file con i parametri passati.
+
+
+                                        '//AGGIORNAMENTO CAMPO NRO ATTO -
+                                        '//..............................................................
+                                        '//Aggiorna il nro att and data > 0 allora _
+                                        creo il nome del file con fileAtto+NroAtto+Annoatto, solo se _
+                                        nro atto e data sono > 0
+
+                                            If par_NroAtto_lng > 0 And par_DataAtto_d > 0 Then
+                                                str1 = ""
+                                                str1 = par_TipoAtto_s & "_" & par_NroAtto_lng & "_" & par_AnnoAtto_i
+                                                '//controllo e salvataggio
+                                                Debug.Print "-------------------------------------------------------"
+                                                Debug.Print "file creato"
+                                                Debug.Print str1
+                                                Debug.Print "-------------------------------------------------------"
+                                                AGGIORNA_FILE_ATTO_pfunct = str1
+
+
+                                            End If
+
+                                        '//..............................................................
+
+                        '//-------------------------------------------:-----------------------------------------------
+
+
+
+
+
+
+
+                '//--------------------------------------------------------------------------------//------------------
+                '//                       FINE FUNCTION E GESTIONE ERRORI
+
+            Exit_AGGIORNA_FILE_ATTO_pfunct:
+                            Exit Function
+
+            Err_AGGIORNA_FILE_ATTO_pfunct:
+                                MsgBox "ERRORE FUNCTION PUBLIC    " & Err.Number & " - " & Err.Description, vbCritical, "AGGIORNA_FILE_ATTO_pfunct"
+                                Resume Exit_AGGIORNA_FILE_ATTO_pfunct
+
+                    End Function
+                    '//AGGIORNA_FILE_ATTO_pfunct                                              *** FINE ***
+                    '//===========================================================:===================================:================================
+
+
+
+             '//TODO: APRI FINESTRA SHOWOPENFILE DIALOG
+
+             '//01_API_FINESTRA_DI_SELEZIONE_FILE = APRO LA FINESTRA DI SELEZIONE DEI FILE CON PARAMETRI *** INIZIO ***
+                '//==================================================================================================================//
+                ' ----------------------------------------------------------------------------------
+                ' Funzione pubblica che mostra la finestra di selezione file
+                ' Parametri:
+                '   allowMultiSelect     True = permette selezione multipla
+                '   filtroDescrizione    Descrizione del tipo di file (es. "Immagini (*.jpg)")
+                '   filtroEstensione     Estensione filtro (es. "*.jpg;*.png")
+                '   titoloFinestra       Titolo della finestra (es. "Seleziona file")
+                '   cartellaIniziale     Cartella iniziale di apertura
+                ' Restituisce:
+                '   - Stringa (singolo file)
+                '   - Array di stringhe (più file)
+                '   - Null se l'utente annulla
+                ' ----------------------------------------------------------------------------------
+
+                Public Function ShowOpenFileDialog(Optional ByVal allowMultiSelect As Boolean = False, _
+                                                   Optional ByVal filtroDescrizione As String = "Tutti i file (*.*)", _
+                                                   Optional ByVal filtroEstensione As String = "*.*", _
+                                                   Optional ByVal titoloFinestra As String = "Seleziona file", _
+                                                   Optional ByVal cartellaIniziale As String = vbNullString) As Variant
+                    On Error GoTo ErrHandler ' Attiva la gestione degli errori
+
+                    ' -- Dichiarazioni variabili
+                    Dim OFN As OPENFILENAME           ' Struttura per l'API GetOpenFileName
+                    Dim sFileName As String           ' Buffer per contenere i nomi dei file
+                    Dim filterString As String        ' Filtro per i tipi di file
+                    Dim ret As Long                   ' Risultato della chiamata API
+                    Dim fileList() As String          ' Array per la selezione multipla
+                    Dim i As Long                     ' Contatore
+                    Dim s As String                   ' File singolo selezionato
+                    Dim result() As String            ' Array con percorsi completi (se multi)
+
+                    ' -- Crea il filtro nel formato richiesto dall'API (terminato da doppio Null)
+                    filterString = filtroDescrizione & vbNullChar & filtroEstensione & vbNullChar
+
+                    ' -- Crea una stringa di 4096 caratteri nulli come buffer per i file
+                    sFileName = String$(4096, vbNullChar)
+
+                    ' -- Compila la struttura OPENFILENAME con i parametri forniti
+                    With OFN
+                        .lStructSize = LenB(OFN)                              ' Dimensione della struttura
+                        .hwndOwner = 0                                        ' Nessun proprietario (oppure Application.hWndAccessApp)
+                        .lpstrFilter = filterString                           ' Filtro dei tipi di file
+                        .nFilterIndex = 1                                     ' Indice filtro predefinito
+                        .lpstrFile = sFileName                                ' Buffer per i nomi
+                        .nMaxFile = Len(sFileName)                            ' Lunghezza massima del buffer
+                        .lpstrFileTitle = String$(260, vbNullChar)            ' Buffer per il nome del file senza percorso
+                        .nMaxFileTitle = 260                                  ' Lunghezza del nome file
+                        .lpstrInitialDir = cartellaIniziale                   ' Cartella iniziale di apertura
+                        .lpstrTitle = titoloFinestra                          ' Titolo della finestra di dialogo
+                        .flags = OFN_FILEMUSTEXIST Or OFN_PATHMUSTEXIST Or OFN_EXPLORER ' Opzioni standard
+                        If allowMultiSelect Then
+                            .flags = .flags Or OFN_ALLOWMULTISELECT           ' Aggiungi selezione multipla se richiesto
+                        End If
+                    End With
+
+                    ' -- Mostra la finestra di dialogo: ritorna 1 se OK, 0 se Annulla
+                    ret = GetOpenFileNameA(OFN)
+
+                    ' -- Se è stato selezionato almeno un file
+                    If ret <> 0 Then
+                        ' -- Estrai il primo file (o il path base in caso di selezione multipla)
+                        s = Left$(OFN.lpstrFile, InStr(OFN.lpstrFile, vbNullChar) - 1)
+
+                        If allowMultiSelect Then
+                            ' -- Divide i nomi dei file multipli usando il separatore Null
+                            fileList = Split(Left$(OFN.lpstrFile, InStr(OFN.lpstrFile & vbNullChar, vbNullChar & vbNullChar) - 1), vbNullChar)
+
+                            If UBound(fileList) = 0 Then
+                                ' -- Se è stato selezionato un solo file
+                                ShowOpenFileDialog = fileList(0)
+                            Else
+                                ' -- Se sono stati selezionati più file
+                                ReDim result(UBound(fileList) - 1)
+                                For i = 1 To UBound(fileList)
+                                    ' -- Costruisce il percorso completo per ciascun file
+                                    result(i - 1) = fileList(0) & "\" & fileList(i)
+                                Next i
+                                ShowOpenFileDialog = result ' Ritorna array con tutti i percorsi
+                            End If
+                        Else
+                            ' -- Selezione singola: ritorna direttamente il percorso del file
+                            ShowOpenFileDialog = s
+                        End If
+                    Else
+                        ' -- L’utente ha annullato la finestra: ritorna Null
+                        ShowOpenFileDialog = Null
+                    End If
+
+                    Exit Function ' Esce normalmente dalla funzione
+
+                ' -- Blocco di gestione degli errori
+            ErrHandler:
+                        ' Log dell'errore tramite sub interna della classe - CHIAMO LA ROUTINE PRIVATA NRO 11
+                        ScriviLogErrore "ShowOpenFileDialog", Err.Number, Err.Description, Erl
+                        ' (opzionale)
+                        MsgBox "Errore durante l'apertura della finestra di dialogo: " & Err.Description, vbCritical, "Errore"
+                        ShowOpenFileDialog = Null ' Ritorna Null in caso di errore
+                    End Function
+
+                     '//01_API_FINESTRA_DI_SELEZIONE_FILE = APRO LA FINESTRA DI SELEZIONE DEI FILE CON PARAMETRI *** FINE ***
+                    '//==================================================================================================================//
+
+
+
+            '// TODO: FUNZIONE DA UTILIZZARE CON 4 PARAMETRI
+
+
+                '//09_FUNZIONE_DA_UTILIZZABILE_API = LA FUNZIONE E UN BASE DI UTILIZZO  *** INIZIO ***
+                '//==================================================================================================================//
+
+                Public Function DA_UTILIZZARE_FUNCTION_Pfunct(filePath As String, Optional ByRef txtBox As Control = Nothing) As Boolean
+                        On Error GoTo GestioneErrore
+
+
+
+                        '// CREA ISTANZA DELLA CLASSE E APRI FILE
+                        '//--------------------------------------------------------------------------------------//
+                        '//Note: creo l'istanza della classe e chiamo la funzione apri file con le Api _
+                                windows utilizzando la CLASSE per la gestonione dei file classe Msys_GEFILE_CLS01_GESTIONI _
+                                Come parametro devo passare una path completa di file come ad esempio: _
+                                filePath = "c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSYS_BASE\MDB\MSYS_BASE.mdb" _
+                                controllare se tale istanza della funzione è valida per tutti i tipi di file.
+
+
+                            'Dim clsGestione As New Msys_GEFILE_CLS01_GESTIONI
+
+                            'If clsGestione.DA_UTILIZZARE_FUNCTION_Pfunct(filePath) = False Then
+                            '    MsgBox "Apertura file fallita.", vbExclamation
+                            'End If
+
+
+
+                        '//--------------------------------------------------------------------------------------//
+
+
+
+                        #If VBA7 Then
+                            Dim result As LongPtr
+                        #Else
+                            Dim result As Long
+                        #End If
+
+                        ' --- Verifica che il file esista prima di tentare di aprirlo ---
+                        If Len(Dir(filePath)) = 0 Then
+                            MsgBox "Il file selezionato non esiste o non è valido.", vbExclamation
+                            DA_UTILIZZARE_FUNCTION_Pfunct = False
+                            Exit Function
+                        End If
+
+                        ' --- Se è stata passata una TextBox, aggiorna il suo contenuto col percorso file ---
+                        If Not txtBox Is Nothing Then
+                            On Error Resume Next ' Evita errori se controllo non esiste o non è modificabile
+                            If filePath <> "" Then
+                                txtBox.SetFocus
+                                txtBox.Value = filePath
+                            End If
+                            On Error GoTo GestioneErrore
+                        End If
+
+                        ' --- Chiama ShellExecute per aprire il file con l'applicazione predefinita ---
+                        result = ShellExecute(0, "open", filePath, vbNullString, vbNullString, vbNormalFocus)
+
+                        ' --- Controlla risultato ShellExecute, valori <= 32 indicano errore ---
+                        If result <= 32 Then
+                            MsgBox "Impossibile aprire il file: " & filePath, vbCritical
+                            DA_UTILIZZARE_FUNCTION_Pfunct = False
+                            Exit Function
+                        End If
+
+                        ' --- Se tutto è andato a buon fine ---
+                        DA_UTILIZZARE_FUNCTION_Pfunct = True
+                        Exit Function
+
+                    ' --- Gestione errori generica ---
+            GestioneErrore:
+                    ' Registra il dettaglio errore nel log (funzione da implementare)
+                    ScriviLogErrore "DA_UTILIZZARE_FUNCTION_Pfunct", Err.Number, Err.Description, Erl
+                    MsgBox "Errore durante l'apertura del file: " & Err.Description, vbCritical, "Errore #" & Err.Number
+                    DA_UTILIZZARE_FUNCTION_Pfunct = False
+                End Function
+
+
+                '//09_FUNZIONE_DA_UTILIZZABILE_API = LA FUNZIONE E UN BASE DI UTILIZZO  *** FINE ***
+                '//==================================================================================================================//
+
+
+
+            '//TODO : GESTIONE ERRORI:
+
+
+
+                '//MostraProprietaFile  - 10_CLASSE_MOSTRA_PROPRIETA_FILE = LA FUNZIONE MOSTRA LE PROPRIETA DEL FILE PASSATO COME PARAMETRO
+                    '//==================================================================================================================//
+                    ' Funzione per mostrare le proprietà del file con controllo errori e log
+                    ' Mostra le proprietà di un file con gestione robusta degli errori
+                    ' e log automatico tramite ScriviLogErrore in caso di eccezioni
+
+                    Public Sub MostraProprietaFile(filePath As String)
+                        On Error GoTo ErrHandler ' Gestione errori centralizzata
+
+                        ' Verifica che il percorso non sia vuoto
+                        If Trim(filePath) = "" Then
+                            MsgBox "Il percorso del file è vuoto.", vbExclamation, "Percorso mancante"
+                            Exit Sub
+                        End If
+
+                        ' Verifica che il file esista
+                        If Dir(filePath) = "" Then
+                            MsgBox "Il file non esiste o non è stato trovato.", vbExclamation, "File non trovato"
+                            Exit Sub
+                        End If
+
+                        ' Crea il FileSystemObject
+                        Dim fso As Object
+                        Set fso = CreateObject("Scripting.FileSystemObject")
+
+                        Dim FILE As Object
+                        Set FILE = fso.GetFile(filePath)
+
+                        ' Mostra le proprietà del file
+                        MsgBox "Proprietà del file:" & vbCrLf & _
+                               "Percorso: " & FILE.Path & vbCrLf & _
+                               "Nome: " & FILE.Name & vbCrLf & _
+                               "Tipo: " & FILE.Type & vbCrLf & _
+                               "Dimensione: " & Format(FILE.Size, "#,##0") & " bytes" & vbCrLf & _
+                               "Data di creazione: " & FILE.DateCreated & vbCrLf & _
+                               "Data di modifica: " & FILE.DateLastModified, _
+                               vbInformation, "Informazioni sul file"
+
+                        Exit Sub ' Uscita normale
+
+                    '--- Gestione Errori ---
+            ErrHandler:
+                        ' Chiamata alla funzione di log errori (classe Msys_GEFILE_CLS01_GESTIONI)
+                        ScriviLogErrore "MostraProprietaFile", Err.Number, Err.Description, Erl
+
+                        MsgBox "Si è verificato un errore durante il recupero delle proprietà del file:" & vbCrLf & _
+                               Err.Description, vbCritical, "Errore"
+                    End Sub
+
+
+
+                    '//==================================================================================================================//
+
+
+
+
+
+                '//*** INIZIO ***
+                '//11_CLASSE_GESTIONI_GESTIONE_ERRORI = LA GESTIONE DEGLI ERRORI CHE SI TROVA NELLA CLASSE UTILIZZABILE DALLE FUNZIONI
+                    '//==================================================================================================================//
+                    ' Note - Spiegazione: _
+                        Quando succede un errore nella funzione ShowOpenFileDialog o altra, il flusso passa al label ErrHandler. _
+                        A questo punto si richiama ScriviLogErrore, passando: _
+                        Il nome della funzione dove è avvenuto l’errore (stringa "ShowOpenFileDialog"), _
+                        Il numero dell’errore (Err.Number), _
+                        La descrizione dell’errore (Err.Description), _
+                        Il numero di riga dove si è verificato l’errore (Erl). _
+                        Quindi, ogni volta che un errore si verifica in ShowOpenFileDialog, verrà registrato nel file di log tramite ScriviLogErrore.
+                    '//miglioramenti: _
+                        Formattazione più leggibile della data/ora _
+                        Creazione automatica della cartella Logs _
+                        Percorso di log leggermente più strutturato (\Logs\LogErrori.txt) _
+                        Commenti chiari per manutenzione futura
+
+                    Public Sub ScriviLogErrore(nomeFunzione As String, NumeroErrore As Long, DescrizioneErrore As String, RigaErrore As Long)
+                        On Error GoTo GestioneErrore
+
+                        Dim percorsoLog As String
+                        Dim fileNum As Integer
+                        Dim testo As String
+                        Dim dataOra As String
+                        Dim cartellaLogs As String
+
+                        ' Format data/ora per log
+                        dataOra = Format(Now, "yyyy-mm-dd HH:nn:ss")
+
+                        ' Imposta la cartella Logs nel percorso del database
+                        cartellaLogs = CurrentProject.Path & "\Logs"
+
+                        ' Crea la cartella Logs se non esiste
+                        If Dir(cartellaLogs, vbDirectory) = "" Then
+                            MkDir cartellaLogs
+                        End If
+
+                        ' Costruisci il percorso completo del file di log
+                        percorsoLog = cartellaLogs & "\LogErrori.txt"
+
+                        ' Componi il testo da scrivere
+                        testo = dataOra & " | Classe: Msys_GEFILE_CLS01_GESTIONI | Funzione: " & nomeFunzione & _
+                                " | Errore #: " & NumeroErrore & " | Descrizione: " & DescrizioneErrore & _
+                                " | Riga: " & RigaErrore
+
+                        ' Scrive nel file in modalità Append
+                        fileNum = FreeFile
+                        Open percorsoLog For Append As #fileNum
+                            Print #fileNum, testo
+                        Close #fileNum
+
+                        Exit Sub
+
+            GestioneErrore:
+                        ' Gestione errori interni alla funzione di log
+                        MsgBox "Errore durante la scrittura del log." & vbCrLf & _
+                               "Descrizione: " & Err.Description & vbCrLf & _
+                               "Errore #: " & Err.Number, vbCritical, "Errore ScriviLogErrore"
+
+                        ' Scrittura di emergenza in un file alternativo
+                        On Error Resume Next
+                        percorsoLog = CurrentProject.Path & "\LogErrore_di_Sistema.txt"
+                        fileNum = FreeFile
+                        Open percorsoLog For Append As #fileNum
+                            Print #fileNum, Format(Now, "yyyy-mm-dd HH:nn:ss") & _
+                                  " | Scrittura log fallita nella funzione: ScriviLogErrore" & _
+                                  " | Errore interno #: " & Err.Number & " - " & Err.Description
+                        Close #fileNum
+                    End Sub
+
+                    '//==================================================================================================================//
 
 '//TODO: RISISTEMARE PER IL CONTROLL TABLE
 
+'//CONTROLLO OGGETTI TABLE + FIELD TABLE +'
+    '//##########################################################################################################################################//
+    '//
+    '//                     PROCEDURE DI CONTROLLO OGGETTI TABLE NEL DATABASE CORRENTE O ESTERNO
+    '//
+    '//##########################################################################################################################################//
+    '//
+    '//NOTE                     : Procedura a funzione che controlla l'esistenza dell'oggetto tabella nel database esterno o interno.
+    '//MODULO DI CREAZIONE  --> UTIL_MDL40_N05_CONTROLLO_OGGETTI_DB_TABLES
+    '//DATABASE             --> GE_OGGETTI_DB_MDB.mdb
+    '//DOVE SI TROVA        --> c:\CASA\LINGUAGGI\ACCESS\ACCESS_PROGETTI_MDB\ACCESS_GESTIONE_OGGETTI_DB_MDB\GESTIONE_OGGETTI\GESTIONE_OGGETTI_MDB\
+    '//
+    '//LE FUNZIONI E ROUTINE :
+    '//                         01)_FUNZIONE_CONTROLLO_OGGETTI_TABELLA = permette il controllo dell'esistenza della tabella oggetto all'interno del db corrente _
+                                                                        oppure in un database esterno. _
+                                                                        CODICE----------> pfCONTROLLO_OGGETTI_Table.Funzione
 
-'//##########################################################################################################################################//
-'//
-'//                     PROCEDURE DI CONTROLLO OGGETTI TABLE NEL DATABASE CORRENTE O ESTERNO
-'//
-'//##########################################################################################################################################//
-'//
-'//NOTE                     : Procedura a funzione che controlla l'esistenza dell'oggetto tabella nel database esterno o interno.
-'//MODULO DI CREAZIONE  --> UTIL_MDL40_N05_CONTROLLO_OGGETTI_DB_TABLES
-'//DATABASE             --> GE_OGGETTI_DB_MDB.mdb
-'//DOVE SI TROVA        --> c:\CASA\LINGUAGGI\ACCESS\ACCESS_PROGETTI_MDB\ACCESS_GESTIONE_OGGETTI_DB_MDB\GESTIONE_OGGETTI\GESTIONE_OGGETTI_MDB\
-'//
-'//LE FUNZIONI E ROUTINE :
-'//                         01)_FUNZIONE_CONTROLLO_OGGETTI_TABELLA = permette il controllo dell'esistenza della tabella oggetto all'interno del db corrente _
-                                                                    oppure in un database esterno. _
-                                                                    CODICE----------> pfCONTROLLO_OGGETTI_Table.Funzione
 
-
-'//                         02)...
-'//
-'//
-'//##########################################################################################################################################//
+    '//                         02)...
+    '//
+    '//
+    '//##########################################################################################################################################//
 
 '//pfCONTROLLO_OGGETTI_Table - CONTROLLO_ESISTENZA_OGGETTI_TABELLA
     '//****************************************************************************************************************************
@@ -5048,7 +4944,7 @@ GestioneErrore:
     '//         06) par_bx_Flag_b =?
 
 
-Public Function pfCONTROLLO_OGGETTI_Table( _
+    Public Function pfCONTROLLO_OGGETTI_Table( _
                                             par_sx_Scelta_db As String, _
                                             par_sx_Name_Table As String, _
                                             par_sx_Proprieta_Table As String, _
@@ -5192,13 +5088,13 @@ Public Function pfCONTROLLO_OGGETTI_Table( _
 
     '//ERRORI ED USCITA
     '//--------------------------------------------------------------------------------------------------------------------------//
-Exit_pfCONTROLLO_OGGETTI_Table:
+        Exit_pfCONTROLLO_OGGETTI_Table:
                     dbs.Close
                     Set dbs = Nothing
 
                     Exit Function
 
-Err_pfCONTROLLO_OGGETTI_Table:
+        Err_pfCONTROLLO_OGGETTI_Table:
                     MsgBox "ERRORE FUNCTION PUBLIC    " & Err.Number & " - " & Err.Description, vbCritical, "pfCONTROLLO_OGGETTI_Table"
                     Resume Exit_pfCONTROLLO_OGGETTI_Table
 
@@ -5215,7 +5111,6 @@ Err_pfCONTROLLO_OGGETTI_Table:
     '//                     PROCEDURE DI CONTROLLO OGGETTI TABLE NEL DATABASE CORRENTE O ESTERNO *** fine ***
     '//
     '//##########################################################################################################################################//
-
 
 '//Function CONTROLLO_OGGETTI_TABLE_Tipo_Field_pFunct - CONTROLLO OGGETTI TABLE
     '//==============================================================================================================================//
@@ -5238,109 +5133,109 @@ Err_pfCONTROLLO_OGGETTI_Table:
 
 
 
-    Dim MSG As String ' For error handling.
-    Dim ws As Workspace, db As Database
-    Dim tblDef As TableDef, fldDef As Field
-    Dim i As Integer, handle As Integer
-    Dim fldName As String, fldDataInfo As String
-    Dim Size_s As String
-    Dim TotField_i As Integer
+        Dim MSG As String ' For error handling.
+        Dim ws As Workspace, db As Database
+        Dim tblDef As TableDef, fldDef As Field
+        Dim i As Integer, handle As Integer
+        Dim fldName As String, fldDataInfo As String
+        Dim Size_s As String
+        Dim TotField_i As Integer
 
-             ' -----------------------------------------------
-                Set db = CurrentDb()
-                str1 = par_NameTable_s
-             ' -----------------------------------------------
-
-
-    '//imposto l'oggetto tabella con il nome della tabella passata come parametro
-    Set tblDef = db.TableDefs(str1)
-             With tblDef
-                    '//reset variabili
-                        TotField_i = .Fields.Count - 1              '//calcolo il totale dei field della tabella
-                For i = 0 To .Fields.Count - 1
-                   Set fldDef = .Fields(i)
-
-                    '//qualifico l'oggetto
-                    With fldDef
-                            fldName = .Name
-
-                            '//CONTROLLO FIELD
-                            Debug.Print i & ") NOME CAMPO -> " & fldName
-
-                            '//effettuo il controllo tra il campo della tabella e quello della ricerca _
-                              se trovato il campo di ricerca trovo il tipo e restituisco il timpo di _
-                              campo con l'enventuale grandezza
-                            If fldName = par_NameField_s Then
-
-                                      Select Case .Type
-                                         Case dbBoolean
-                                            fldDataInfo = "Bit/Boolean"
-                                         Case dbByte
-                                            fldDataInfo = "Byte"
-                                         Case dbInteger
-                                            fldDataInfo = "Short"
-                                         Case dbLong
-                                            fldDataInfo = "Integer"
-                                         Case dbCurrency
-                                            fldDataInfo = "Currency"
-                                         Case dbSingle
-                                            fldDataInfo = "Single"
-                                         Case dbDouble
-                                            fldDataInfo = "Double"
-                                         Case dbDate
-                                            fldDataInfo = "Date"
-                                         Case dbText
-                                            fldDataInfo = "Char"
-                                                '//FUTURI UTILIZZI _
-                                                Al momento non è necessariore restituire la grandezza del campo perchè crea problemi _
-                                                con il filtro impostato nella routine chiamante. Nel futuro puoi costruire una
-                                                Debug.Print "per futuri utilizzi puoi visualizzare"
-                                                Debug.Print "il char e la grandezza del campo"
-                                                Debug.Print "Char Width " & Format(Size > 0)
+                 ' -----------------------------------------------
+                    Set db = CurrentDb()
+                    str1 = par_NameTable_s
+                 ' -----------------------------------------------
 
 
-                                         Case dbLongBinary
-                                            fldDataInfo = "OLE"
-                                         Case dbMemo
-                                            fldDataInfo = "LongChar"
-                                         Case dbGUID
-                                            fldDataInfo = "Char Width 16"
-                                      End Select
+        '//imposto l'oggetto tabella con il nome della tabella passata come parametro
+        Set tblDef = db.TableDefs(str1)
+                 With tblDef
+                        '//reset variabili
+                            TotField_i = .Fields.Count - 1              '//calcolo il totale dei field della tabella
+                    For i = 0 To .Fields.Count - 1
+                       Set fldDef = .Fields(i)
+
+                        '//qualifico l'oggetto
+                        With fldDef
+                                fldName = .Name
+
+                                '//CONTROLLO FIELD
+                                Debug.Print i & ") NOME CAMPO -> " & fldName
+
+                                '//effettuo il controllo tra il campo della tabella e quello della ricerca _
+                                  se trovato il campo di ricerca trovo il tipo e restituisco il timpo di _
+                                  campo con l'enventuale grandezza
+                                If fldName = par_NameField_s Then
+
+                                          Select Case .Type
+                                             Case dbBoolean
+                                                fldDataInfo = "Bit/Boolean"
+                                             Case dbByte
+                                                fldDataInfo = "Byte"
+                                             Case dbInteger
+                                                fldDataInfo = "Short"
+                                             Case dbLong
+                                                fldDataInfo = "Integer"
+                                             Case dbCurrency
+                                                fldDataInfo = "Currency"
+                                             Case dbSingle
+                                                fldDataInfo = "Single"
+                                             Case dbDouble
+                                                fldDataInfo = "Double"
+                                             Case dbDate
+                                                fldDataInfo = "Date"
+                                             Case dbText
+                                                fldDataInfo = "Char"
+                                                    '//FUTURI UTILIZZI _
+                                                    Al momento non è necessariore restituire la grandezza del campo perchè crea problemi _
+                                                    con il filtro impostato nella routine chiamante. Nel futuro puoi costruire una
+                                                    Debug.Print "per futuri utilizzi puoi visualizzare"
+                                                    Debug.Print "il char e la grandezza del campo"
+                                                    Debug.Print "Char Width " & Format(Size > 0)
 
 
-                                        '//se trova il campo di ricerca lo restituisco al _
-                                        chiamante e esco dal ciclo impostando il contatore dei campi _
-                                        FIELD al massimo con l'operazione i = TotField_i in modo da uscire _
-                                        in anticipo dal ciclo.
-                                                CONTROLLO_OGGETTI_TABLE_Tipo_Field_pFunct = fldDataInfo
-                                                    i = TotField_i
-
-                            Else
-                                    '//se non trova il campo di ricerca restituisco null
-                                    CONTROLLO_OGGETTI_TABLE_Tipo_Field_pFunct = ""
-
-                            End If
-                                        '//controllo tipo di campo iterato
-                                        Debug.Print "         tipo campo ---> " & fldDataInfo
-                                        Debug.Print
-
-                   End With
-                Next i
-             End With
-
-                        '//reset variabili ed oggetti
-                        i = vbNull
-                        Set tblDef = Nothing
+                                             Case dbLongBinary
+                                                fldDataInfo = "OLE"
+                                             Case dbMemo
+                                                fldDataInfo = "LongChar"
+                                             Case dbGUID
+                                                fldDataInfo = "Char Width 16"
+                                          End Select
 
 
-    'EXIT E GESTIONE ERRORI
-    '-----------------------------------------------------------------------------------------------
+                                            '//se trova il campo di ricerca lo restituisco al _
+                                            chiamante e esco dal ciclo impostando il contatore dei campi _
+                                            FIELD al massimo con l'operazione i = TotField_i in modo da uscire _
+                                            in anticipo dal ciclo.
+                                                    CONTROLLO_OGGETTI_TABLE_Tipo_Field_pFunct = fldDataInfo
+                                                        i = TotField_i
 
-CONTROLLO_OGGETTI_TABLE_Tipo_Field_pFunct_Exit:
-        Exit Function
+                                Else
+                                        '//se non trova il campo di ricerca restituisco null
+                                        CONTROLLO_OGGETTI_TABLE_Tipo_Field_pFunct = ""
 
-CONTROLLO_OGGETTI_TABLE_Tipo_Field_pFunct_Err:
-        MsgBox "ERRORE FUNCTION PUBLIC    " & Err.Number & " - " & Err.Description, vbCritical, "pfCONTROLLO_OGGETTI_Table"
+                                End If
+                                            '//controllo tipo di campo iterato
+                                            Debug.Print "         tipo campo ---> " & fldDataInfo
+                                            Debug.Print
+
+                       End With
+                    Next i
+                 End With
+
+                            '//reset variabili ed oggetti
+                            i = vbNull
+                            Set tblDef = Nothing
+
+
+        'EXIT E GESTIONE ERRORI
+        '-----------------------------------------------------------------------------------------------
+
+        CONTROLLO_OGGETTI_TABLE_Tipo_Field_pFunct_Exit:
+            Exit Function
+
+        CONTROLLO_OGGETTI_TABLE_Tipo_Field_pFunct_Err:
+            MsgBox "ERRORE FUNCTION PUBLIC    " & Err.Number & " - " & Err.Description, vbCritical, "pfCONTROLLO_OGGETTI_Table"
 
         Resume CONTROLLO_OGGETTI_TABLE_Tipo_Field_pFunct_Exit
 
@@ -5364,550 +5259,6 @@ CONTROLLO_OGGETTI_TABLE_Tipo_Field_pFunct_Err:
                                         '//     LE FUNZIONI GENERALI
                                         '//*************************************//
 
-
-
-
-    '//##########################################################################################################################################//
-    '//
-    '//                     MODELLI DI ISTANZIAMENTO CLASSE
-    '//
-    '//##########################################################################################################################################//
-
-
-
-Private Sub ZZFINE_____________________________________________()
-
-        End Sub
-
-Private Sub ZZFINE_RECUPERO_CODOGGETTO_da_TMP_pbFunct()
-
-        '//CHIAMO LA ROUTINE CONTROLLO_OGGETTO_FORM_LaFormAPERTA DELLA CLASSE OGGETTI FORM
-        '//CODICE----------->CONTROLLO_OGGETTO_FORM_LaFormAPERTA.Salvataggio_ATTIVITA.Attivazione
-        '//--------------------------------------------------------------------------------//-//
-        '//CLASSE_OSPITE        : CLASSE_GESTIONE_OGGETTI_DATABASE
-        '//PARAMETRI            : sono 4 di seguito indicati
-        'par_sxCODOGGETTO       = CODICE OGGETTO OBBLIGATORIO
-        'par_sxTIPOGGETTO       =
-        'par_sxATTIVITAEVENTO   =
-        'par_sxCODATTIVITA      = CODICE ATTIVITA OBBLIGATORIO
-        '//NOTA  :Salvo i parametri del codice oggetto e del codice attiva nella tabella tmp solo nel caso in cui _
-        sia IL CODICE OGGETTO che il CODICE ATTIVITA sono VALORIZZATI altrimenti la classe ricevente emette _
-        un msg di avviso.
-
-
-
-                '1) ISTANZIO LA CLASSE
-                '........................................................
-
-                'Recupero la stringa da applicare alla
-                'successiva classe
-                '
-                'sxCODOGGETTO = ""
-                '//trovo il codice oggetto mediante il codice attivita
-                'sxCODOGGETTO = TROVA_CLASSE_DI_GESTIONE_pFunct(par_sxCODATTIVITA)
-
-                'ISTANZIO LA CLASSE CLASSE_GESTIONE_OGGETTI_DATABASE
-                'Assegno e creo l'oggetto di classe
-                '--->                     Dim MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE As CLASSE_GESTIONE_OGGETTI_DATABASE
-                '--->                     Set MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE = New CLASSE_GESTIONE_OGGETTI_DATABASE
-
-
-
-                    'PARAMETRI DI ESTRAZIONE
-                    'Recupero la stringa da applicare alla
-                    'successiva classe
-                     '---> sxCODOGGETTO = ""
-                     '---> sxCODOGGETTO = MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE.RECUPERO_CODOGGETTO_da_TMP_pbFunct
-
-
-                '--->                     Set MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE = Nothing
-
-        '//--------------------------------------------------------------------------------//-//
-    End Sub
-'//ZZFINE_CONTROLLO_OGGETTI_TABLE_Tipo_Field_pFunct - MODELLO ATTIVA LA CLASSE PER LA RICERCA DEI TIPI DI CAMPI DI UNA TABELLA ACCESS
-  Private Sub ZZFINE_CONTROLLO_OGGETTI_TABLE_Tipo_Field_pFunct()
-    '//CODICE----------->ZZFINE_CONTROLLO_OGGETTI_TABLE_Tipo_Field_pFunct.ATTIVA_LA_CLASSE
-
-
-    '...........................................................................................................................................
-    '                                       **** COPIARE DA QUI *****
-    '   Devi copiare siala Routine che la funzione ed inserirla in un modulo, classe, form o report per utilizzare le funzioni comuni.
-    '...........................................................................................................................................
-
-
-
-    '//ROUTINE ATTIVA LA CLASSE PER I CONTROLLO OGGETTI TABLE =  Questa Routine multiuso _
-                        puo' essere attivata per diverse chiamate sul tipo di campo, da utilizzare nel modulo _
-                        di classe, di una form, report o modulo del progetto ospite. Questa Routine e la Funzione _
-                        associata per l'attivazione della classe si trova nella classe identificata da codice _
-                        di seguito indicato:
-    '//CODICE----------->ZZFINE_CONTROLLO_OGGETTI_TABLE_Tipo_Field_pFunct.ATTIVA_LA_CLASSE
-    '//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^//
-    '---> Private Sub ATTIVA_CONTROLLO_OGGETTI_TABLE_Tipo_Field_pFunct()
-    '---> Dim NameTable_s As String
-    '---> Dim NameField_s As String
-    '---> Dim AttivaMessaggio_b As Boolean
-
-        '//PER ATTIVARE IL MESSAGGIO -> TRUE
-        '---> AttivaMessaggio_b = True                        '//FALSE = MESSAGGIO NON ATTIVATO, TRUE MESSAGGIO DI CONTROLLO ATTIVATO
-
-        '---> NameTable_s = "MSys_DF02_TIPO_OGGETTO"          '// nome della tabella da ricerca
-        '---> NameField_s = "Scel_b"                          '// il campo da controllare. es. Scel_b, TIPOGGETTO_s
-        '//Restituisco una stringa se trovato oppure null
-        '---> vV1 = Cls_CONTROLLO_OGGETTI_TABLE_Tipo_Field_pFunct(NameTable_s, NameField_s)
-
-            '//CONTROLLO MSGBOX POSITIVO O NEGATIVO
-            '//..........................................................................//
-                '---> If AttivaMessaggio_b = True Then '//SE TRUE IL MESSAGGIO VIENE ATTIVATO
-                    '---> If vV1 > "" Then
-                       '---> MsgBox NameTable_s & " QUESTA TABELLA CONTIENE questo tipo di campo : " & vV1, _
-                                            vbExclamation, "MSG CONTROLLO TIPO DI CAMPO"
-                    '---> Else
-                       '---> MsgBox "ATTENZIONE - CONTROLLO DELLA CLASSE DENOMINATA GESTIONE OGGETTI DATABASE:  --->  ! QUESTA TABELLA NON ESISTE -> " & Chr$(13) & Chr$(13) & NameTable_s & _
-                                Chr$(13) & Chr$(13) & _
-                               "OPPURE NON ESISTE IL TIPO DI CAMPO RICERCATO ->" & _
-                                Chr$(13) & Chr$(13) & _
-                                NameField_s, vbCritical, "ERRORE RICERCA TIPO DI CAMPO"
-                    '---> End If
-                '---> End If
-            '//..........................................................................//
-
-    '--->End Sub
-
-
-
-
-        '//FUNZIONE CHE ATTIVA LA CLASSE OGGETTI = la quale permette la ricerca dei campi della tabella _
-                            passata come parametro. Questa funzione è riutilizzabile dalla _
-                            routine di seguito indicata. Restituisce una stringa che rappresenta _
-                            il campo e le sue proprieta. Puo essere utilizzata per verificare ogni _
-                            singolo campo della tabella.
-        '---> Private Function Cls_CONTROLLO_OGGETTI_TABLE_Tipo_Field_pFunct(par_NameTable_s As String, par_NameField_s As String) As String
-
-        '//CODICE---------->CONTROLLO_OGGETTI_TABLE_Tipo_Field_pFunct.attiva.classe
-        '//--------------------------------------------------------------------------------//-//
-        '//CLASSE_OSPITE        : CLASSE_GESTIONE_OGGETTI_DATABASE
-        '//PARAMETRI            : stringa che rappresenta il nome della della tabella + _
-                                  il nome del campo da ricerca.
-        '//RESTITUISCE          : Stringa ossia il tipo di campo esaminato
-        '//NOTE         : L'attivazione della classe viene inserita in una Funzione denominata _
-                        ATTIVA_LA_FUNZIONE_MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE _
-        '//MODULO_DOVE_SI_TROVA:CODICE---------->CONTROLLO_OGGETTI_TABLE_Tipo_Field_pFunct.attiva
-        '//CALSSE_CHE_LA_IMPLEMENTA:CODICE---------->CONTROLLO_OGGETTI_TABLE_Tipo_Field_pFunct.attiva
-
-
-            '1) ISTANZIO LA CLASSE
-            '........................................................
-
-            'ISTANZIO LA CLASSE CLASSE_GESTIONE_OGGETTI_DATABASE
-            'Assegno e creo l'oggetto di classe
-            '---> Dim MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE As CLASSE_GESTIONE_OGGETTI_DATABASE
-            '---> Set MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE = New CLASSE_GESTIONE_OGGETTI_DATABASE
-
-
-
-                'CONTROLLO SE IL TIPO DI CAMPO
-                'Passo come parametri il nome della tabella in cui ricercare il campo
-                 '--->                            NameField_s = "nome tabella?"
-                 '--->                            NameField_s = "nome field?"
-                 'Restituisce il nome del campo ed il titolo altrimenti se non esiste la tabella _
-                    o non esiste il field viene emesso un msg di avviso dalla funzione.
-                '---> Cls_CONTROLLO_OGGETTI_TABLE_Tipo_Field_pFunct = MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE.CONTROLLO_OGGETTI_TABLE_Tipo_Field_pFunct(par_NameTable_s, par_NameField_s)
-                '---> Set MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE = Nothing
-            '//--------------------------------------------------------------------------------//-//
-
-            '---> End Function
-
-
-            '...........................................................................................................................................
-            '                                       **** FINO QUI *****
-            '...........................................................................................................................................
-
-
-    End Sub
-
-Private Sub ZZFINE_Controlla_FormGESTIONE_APERTA()
-
-
-
-
-
-        '//CODICE----------->CONTROLLO_OGGETTO_FORM_LaFormAPERTA.Salvataggio_ATTIVITA.Attivazione
-        '//--------------------------------------------------------------------------------//-//
-        '//CLASSE_OSPITE        : CLASSE_GESTIONE_OGGETTI_DATABASE
-        '//PARAMETRI            : stringa che rappresenta il nome della form.
-        '//RESTITUISCE          : bool True se la form è aperta
-
-                '//LE VARIABILI
-                '--->                    Dim par_sxNameForm   As String                      '//La variabile della form passato come parametro
-
-                '1) ISTANZIO LA CLASSE
-                '........................................................
-
-                'ISTANZIO LA CLASSE CLASSE_GESTIONE_OGGETTI_DATABASE
-                'Assegno e creo l'oggetto di classe
-                '--->                    Dim MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE As CLASSE_GESTIONE_OGGETTI_DATABASE
-                '--->                    Set MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE = New CLASSE_GESTIONE_OGGETTI_DATABASE
-
-
-
-                    'CONTROLLO SE LA FORM E' APERTA
-                    'Passo come parametro la stringa nome form e ritora True se è aperta
-                     '--->                            par_sxNameForm = Str1
-                     '--->                            Routine_CONTROLLO_FORM_DI_GESTIONE_APERTA = MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE.Controlla_FormGESTIONE_APERTA(par_sxNameForm)
-
-
-                    '--->                            Set MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE = Nothing
-
-        '//--------------------------------------------------------------------------------//-//
-
-
-
-            '//IN FONDO PUOI INSERIRE LA ROUTINE nel caso di parecchie operazioni di controllo della form se _
-                    aperta oppure no. La routine contiene un solo richiamo della classe.
-            '//ROUTINE PER IL CONTROLLO DELLA FORM APERTA
-            '//CODICE -----> Routine_CONTROLLO_FORM_DI_GESTIONE_APERTA
-            '//==========================================================================================================================================//
-            'Private Function Routine_CONTROLLO_FORM_DI_GESTIONE_APERTA(Str1) As Boolean
-
-
-            'On Error GoTo Err_Routine_CONTROLLO_FORM_DI_GESTIONE_APERTA
-
-                    '//CHIAMO LA FUNZIONE DI CONTROLLO SE LA FORM E' APERTA
-                    '//--------------------------------------------------------------------------------//-//
-                    '//NOTE: passare come stringa il nome della form da controllare. La funzione attiva _
-                            la classe di gestione oggetti con la quale viene effettuato il controllo tra _
-                            gli oggetti del db corrente, ossia le form e per quella specificata se la _
-                            form passata come parametro è aperta viene restituito TRUE.
-
-                            '----> Routine_CONTROLLO_FORM_DI_GESTIONE_APERTA (Str1)
-
-                    '//--------------------------------------------------------------------------------//-//
-
-
-                    '// CONTROLLA SE LA FORM GESTIONE E' APERTA
-                    '//============================================================================================//
-                    '//NOTE : chiamo la funzione per il controllo se la form principale  è aperta _
-                    viene passato come parametro il nome della form MASTER e restituisce un Boolean _
-                    TRUE se la form è aperta.
-
-                            '//1) ISTANZIO LA CLASSE
-                            '//--------------------------------------------------------------------------------//-//
-
-
-                                'ISTANZIO LA CLASSE CLASSE_GESTIONE_OGGETTI_DATABASE
-                                'Assegno e creo l'oggetto di classe
-                                '--->
-                                'Dim MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE As CLASSE_GESTIONE_OGGETTI_DATABASE
-                                '--->
-                                'Set MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE = New CLASSE_GESTIONE_OGGETTI_DATABASE
-
-
-                                    '//
-                                    'Bolean1 = False
-
-                                    'Bolean1 = MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE.Controlla_FormGESTIONE_APERTA(Str1)
-
-
-                                '---> Set MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE = Nothing
-
-                        '//--------------------------------------------------------------------------------//-//
-
-                    '//============================================================================================//
-
-
-
-
-
-        '//USCITA E CONTROLLO ERRORI
-        '//==========================================================================================================================================//
-
-        'Exit_Routine_CONTROLLO_FORM_DI_GESTIONE_APERTA:
-        '    Exit Function
-
-        'Err_Routine_CONTROLLO_FORM_DI_GESTIONE_APERTA:
-        '    MsgBox Err.Description
-        '    Resume Exit_Routine_CONTROLLO_FORM_DI_GESTIONE_APERTA
-        'End Function
-
-        'End Function
-        '//ROUTINE PER IL CONTROLLO DELLA FORM APERTA *** FINE ***
-        '//==========================================================================================================================================//
-
-    End Sub
-
-Private Sub ZZFINE_Istanzia_TROVA_CLASSE_DI_GESTIONE_pFunct()
-
-
-
-
-
-
-                '//CHIAMO LA ROUTINE SALVO_ATTIVITA_CMB_02_IN_TMP_Sub DELLA CLASSE OGGETTI FORM
-                '//CODICE----------->SALVO_ATTIVITA_CMB_02_IN_TMP_Sub.Salvataggio_ATTIVITA.Attivazione
-                '//--------------------------------------------------------------------------------//-//
-                '//CLASSE_OSPITE        : CLASSE_GESTIONE_OGGETTI_DATABASE
-                '//PARAMETRI            : sono 4 di seguito indicati
-                'par_sxCODOGGETTO       = CODICE OGGETTO OBBLIGATORIO
-                'par_sxTIPOGGETTO       =
-                'par_sxATTIVITAEVENTO   =
-                'par_sxCODATTIVITA      = CODICE ATTIVITA OBBLIGATORIO
-                '//NOTA  :Salvo i parametri del codice oggetto e del codice attiva nella tabella tmp solo nel caso in cui _
-                sia IL CODICE OGGETTO che il CODICE ATTIVITA sono VALORIZZATI altrimenti la classe ricevente emette _
-                un msg di avviso.
-
-
-
-                            '1) ISTANZIO LA CLASSE
-                            '........................................................
-                            'Uscita dalla routine se non trova la classe tramite il codice _
-                            oggetto allora viene emesso un msg di errore.
-                            'Recupero la stringa da applicare alla
-                            'successiva classe tramite il codice attivita ritrovo il _
-                            codice oggetto.
-                            '---> sxCODOGGETTO = ""
-                            '//trovo il codice oggetto mediante il codice attivita
-                            '---> sxCODOGGETTO = TROVA_CLASSE_DI_GESTIONE_pFunct(par_sxCODATTIVITA)
-
-                            'ISTANZIO LA CLASSE CLASSE_GESTIONE_OGGETTI_DATABASE
-                            'Assegno e creo l'oggetto di classe
-                            '---> Dim MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE As CLASSE_GESTIONE_OGGETTI_DATABASE
-                            '---> Set MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE = New CLASSE_GESTIONE_OGGETTI_DATABASE
-
-                                'PARAMETRI DI ESTRAZIONE
-                                'Recupero la stringa da applicare alla
-                                'successiva classe
-                                '---> sxCODOGGETTO = MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE.TROVA_CLASSE_DI_GESTIONE_pFunct(par_sxCODATTIVITA)
-                                '---> Set MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE = Nothing
-
-
-                                'SE NON ESISTE LA FUNZIONE USCITA DALLA ROUTINE
-                                '........................................................
-                                'Uscita dalla routine se non trova la classe tramite il codice _
-                                oggetto allora viene emesso un msg di errore.
-
-                                    '---> If sxCODOGGETTO = "" Then
-
-                                            '---> MsgBox "Funzione non Abilitata!!", vbExclamation, "MSG GESTIONI"
-
-                                            '---> GoTo Exit_RECUPERO_I_DATI_DALLA_CLASSE_Sub
-
-                                    '---> End If
-                                '........................................................
-
-
-
-                    '//--------------------------------------------------------------------------------//-//
-
-    End Sub
-
-Private Sub ZZFINE_Istanzia_SALVATAGGIO_PARAMETRO_CODOGGETTO_in_TMP()
-
-
-    '//CODICE----------->SALVATAGGIO_PARAMETRO_CODOGGETTO_in_TMP_pFunct.AttivoLaClasse
-    '//--------------------------------------------------------------------------------//-//
-    '//CLASSE_OSPITE        : CLASSE_GESTIONE_OGGETTI_DATABASE
-    '//PARAMETRI            : sono il par_sxCODOGGETTO       = CODICE OGGETTO OBBLIGATORIO
-
-    '//NOTA  : AGGIORNO IL CODICE OGGETTO nella tabella oggetti tmp GEST_Tb01_N01_PARAM_OGGETTI_TMP
-
-
-
-                   'ISTANZIO LA CLASSE CLASSE_GESTIONE_OGGETTI_DATABASE
-                   'Assegno e creo l'oggetto di classe
-                   'Creo la variabile oggetto                              ---> Dim MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE As CLASSE_GESTIONE_OGGETTI_DATABASE
-                   'Creo l'oggetto classe                                  ---> Set MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE = New CLASSE_GESTIONE_OGGETTI_DATABASE
-
-                   'RECUPERO PARAMETRO DA TABELLA OGGETTI
-                    'Utilizzo la funzione pubblica di recupero del codice oggetto dal
-                    'codice attivita. Restituisco la chiamante il CODICE OGGETTO
-                    'Creo l'oggetto e attivo la funzione e ricevo la stringa ---> Str1 = MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE.SALVATAGGIO_PARAMETRO_CODOGGETTO_in_TMP_pFunct(par_sxCODOGGETTO)
-
-                   'Libero la memoria                                       ---> Set MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE = Nothing
-
-    '//--------------------------------------------------------------------------------//------------------------------------------------//
-    End Sub
-
-Private Sub ZZFINE_Istanzia_SALVO_ATTIVITA_CMB_02_IN_TMP_Sub()
-
-        '//CHIAMO LA ROUTINE SALVO_ATTIVITA_CMB_02_IN_TMP_Sub DELLA CLASSE OGGETTI FORM
-        '//CODICE----------->SALVO_ATTIVITA_CMB_02_IN_TMP_Sub.Salvataggio_ATTIVITA.Attivazione
-        '//--------------------------------------------------------------------------------//-//
-        '//CLASSE_OSPITE        : CLASSE_GESTIONE_OGGETTI_DATABASE
-        '//PARAMETRI            : sono 4 di seguito indicati
-        'par_sxCODOGGETTO       = CODICE OGGETTO OBBLIGATORIO
-        'par_sxTIPOGGETTO       =
-        'par_sxATTIVITAEVENTO   =
-        'par_sxCODATTIVITA      = CODICE ATTIVITA OBBLIGATORIO
-        '//NOTA  :Salvo i parametri del codice oggetto e del codice attiva nella tabella tmp solo nel caso in cui _
-        sia IL CODICE OGGETTO che il CODICE ATTIVITA sono VALORIZZATI altrimenti la classe ricevente emette _
-        un msg di avviso.
-
-
-            'ISTANZIO LA CLASSE CLASSE_GESTIONE_OGGETTI_DATABASE
-            'Assegno e creo l'oggetto di classe
-            '---> Dim MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE As CLASSE_GESTIONE_OGGETTI_DATABASE
-            '---> Set MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE = New CLASSE_GESTIONE_OGGETTI_DATABASE
-
-
-
-            'PARAMETRI DI ESTRAZIONE
-            'Attivo il metodo della classe rappresentata dalla routine passando
-            'i 4 parametri necessari
-            'sxCODOGGETTO = s
-            'sxTIPOGGETTO = s
-            'sxATTIVITAEVENTO = s
-            'sxCODATTIVITA = s
-            '---> MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE.SALVO_ATTIVITA_CMB_02_IN_TMP_Sub sxCODOGGETTO, sxTIPOGGETTO, sxATTIVITAEVENTO, sxCODATTIVITA
-
-
-            '---> Set MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE = Nothing
-
-
-        '//--------------------------------------------------------------------------------//-//
-
-
-    End Sub
-
-Private Sub ZZFINE_Istanzia_RECUPERO_CODOGGETTO()
-
-    '//CODICE----------->RECUPERO_CODOGGETTO_pbFunct.AttivoLaClasse
-    '//--------------------------------------------------------------------------------//-//
-    '//CLASSE_OSPITE        : CLASSE_GESTIONE_OGGETTI_DATABASE
-    '//PARAMETRI            : sono il par_sxCODOGGETTO       = CODICE OGGETTO OBBLIGATORIO
-
-    '//NOTA  : AGGIORNO IL CODICE OGGETTO nella tabella oggetti tmp GEST_Tb01_N01_PARAM_OGGETTI_TMP
-
-
-
-                   'ISTANZIO LA CLASSE CLASSE_GESTIONE_OGGETTI_DATABASE
-                   'Assegno e creo l'oggetto di classe
-                   'Creo la variabile oggetto                              ---> Dim MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE As CLASSE_GESTIONE_OGGETTI_DATABASE
-                   'Creo l'oggetto classe                                  ---> Set MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE = New CLASSE_GESTIONE_OGGETTI_DATABASE
-
-                   'RECUPERO PARAMETRO DA TABELLA OGGETTI
-                    'Utilizzo la funzione pubblica di recupero del codice oggetto dal
-                    'codice attivita. Restituisco la chiamante il CODICE OGGETTO
-                    'Creo l'oggetto e attivo la funzione e ricevo la stringa ---> TROVA_CODOGGETTO_Funct = MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE.RECUPERO_CODOGGETTO_pbFunct(sxCODATTIVITA)
-
-                   'Libero la memoria                                       ---> Set MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE = Nothing
-
-        '//--------------------------------------------------------------------------------//------------------------------------------------//
-
-
-    End Sub
-
-Private Sub ZZFINE_Istanzia_CERCA_OGGETTI()
-
-
-        '//01) CLASSE_GESTIONE_OGGETTI_DATABASE
-        '//ISTANZIA LA CLASSE
-        '//06.30
-        '//FUNZIONE CERCA OGGETTI = Con due parametri Tipo oggetto e Nome oggetto lo ricerca nella db.
-        '//CODICE-------->CERCA_OGGETTI.01.Attiva
-        '//.....................................................................................................
-            '//IMPOSTO LA VARIABILE OGGETTO = per l'utilizzo della classe
-                '//---> Dim MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE As CLASSE_GESTIONE_OGGETTI_DATABASE
-
-            '//ISTANZIO LA CLASSE = MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE assegnando _
-                 l'oggetto di classe alla variabile e creo creo l'oggetto di classe
-                '//---> Set MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE = New CLASSE_GESTIONE_OGGETTI_DATABASE
-
-            '//PARAMETRI= TIPO OGGETTO E NOME OGGETTO.
-                '//---> Str1 = MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE.CERCA_OGGETTI(sxTIPOGGETTO, sxNOMEOGGETTO)
-
-            '//RILASCIO LA MEMORIA = rilascio l'oggetto ed attivo il distruttore della classe
-                '//---> Set MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE = Nothing
-
-        '//.....................................................................................................
-
-
-
-    End Sub
-
-
-'//ZZFINE_ESEMPI_ISTANZIAMENTO_CLASSE - @ESEMPI@ISTANZIAMENTO@CLASSE
-   Private Sub ZZFINE_ESEMPI_ISTANZIAMENTO_CLASSE()
-
-
-
-    '//01) CLASSE CON LA PATH ED IL FILE DA APRIRE
-    '//
-    '//MODELLO ISTANZIAMENTO CLASSE ATTI DI GESTIONE
-    '//.....................................................................................................
-        '//IMPOSTO LA VARIABILE OGGETTO = per l'utilizzo della classe
-            'Dim MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE As CLASSE_GESTIONE_OGGETTI_DATABASE
-
-        '//ISTANZIO LA CLASSE = MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE assegnando _
-           l 'oggetto di classe alla variabile e creo creo l'oggetto di classe
-            'Set MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE = New CLASSE_GESTIONE_OGGETTI_DATABASE
-
-        '//PATH O FILE = Inserire o una path oppure una path+file con percoso esteso.
-            'Str1 = "C:\GESTIONI\GESTIONE_LLPP\25_GESTIONE_LLPP\LLPP_ARCHVI_MDB\LLPP_GESTIONE\LPP_ANALISI\GESTIONE_SERVIZI\MDB"
-            'MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE.APRO_PATH_O_FILE_GENERICI_pSub (Str1)
-
-        '//RILASCIO LA MEMORIA = rilascio l'oggetto ed attivo il distruttore della classe
-            'Set MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE = Nothing
-
-    '//.....................................................................................................
-
-
-    '//02) CLASSE CON PER L'ATTIVAZIONE DI UNA FUNZIONE O ROUTINE E CON RETURN DI UN BOOLEAN
-    '//
-    '//MODELLO ISTANZIAMENTO CLASSE ATTI DI GESTIONE
-    '//.....................................................................................................
-        '//IMPOSTO LA VARIABILE OGGETTO = per l'utilizzo della classe
-            'Dim MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE As CLASSE_GESTIONE_OGGETTI_DATABASE
-
-        '//ISTANZIO LA CLASSE = MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE assegnando _
-           l 'oggetto di classe alla variabile e creo creo l'oggetto di classe
-            'Set MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE = New CLASSE_GESTIONE_OGGETTI_DATABASE
-
-        '//CHIAMO LA FUNZIONE CON I PARAMETRI E CON RESTITUZIONE DI UN BOOLEAN
-            'Str1 = "C:\GESTIONI\GESTIONE_LLPP\25_GESTIONE_LLPP\LLPP_ARCHVI_MDB\LLPP_GESTIONE\LPP_ANALISI\GESTIONE_SERVIZI\MDB"
-            'Bool1 =  MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE.pfRICERCA_NEL_DB_OGGETTI_Table(sx_Scelta_db, _
-                                                                                      sx_Name_Table, _
-                                                                                      sx_Proprieta_Table, _
-                                                                                      ix_Operazione, _
-                                                                                      ix_Indice1, _
-                                                                                      bx_Flag_b)
-
-
-
-
-        '//RILASCIO LA MEMORIA = rilascio l'oggetto ed attivo il distruttore della classe
-            'Set MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE = Nothing
-
-    '//.....................................................................................................
-
-
-    End Sub
-
-
-
-
-
-    '//                                     @CLASSE@OGGETTI@DATABASE                                    **** FINE *****
-    '@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-
-
-
-
-        '//**********************************************************************************************************************************************************
-        '//
-        '//                                     @ULTIME@FUNZIONI@AGGIUNTE                                    **** INIZIO *****
-        '//
-        '//         @FUNZ_01=LoopFormProps_FormCorrente_PULISCI_OGGETTI_TEXT_LABEL_PSub
-        '//         @FUNZ_02=SALVO_ATTIVITA_CMB_02_IN_TMP_Sub
-        '//
-        '//
-        '//**********************************************************************************************************************************************************
-
-
-
-
-
-
 '//LoopFormProps_FormCorrente_PULISCI_OGGETTI_TEXT_LABEL_PSub- PULISCO I CAMPI TEXT E LABEL DELLA FORM CORRENTE -
     '//###########################################################################################################################//
     '//NOTE: eseguo il ciclo nell'insieme forms e nell'insieme dei controlli della form filtrata con il nome e condizionata _
@@ -5916,157 +5267,157 @@ Private Sub ZZFINE_Istanzia_CERCA_OGGETTI()
     '//@FUNZ_01=LoopFormProps_FormCorrente_PULISCI_OGGETTI_TEXT_LABEL_PSub
 
 
-  Public Sub LoopFormProps_FormCorrente_PULISCI_OGGETTI_TEXT_LABEL_PSub(par_NameForm_s As String)
-    On Error GoTo Err_Handler
-    Dim frmLoop As Object
-    Dim ctrl As Control
-    Dim propLoop As Property
-    Dim strFormName As String
+      Public Sub LoopFormProps_FormCorrente_PULISCI_OGGETTI_TEXT_LABEL_PSub(par_NameForm_s As String)
+        On Error GoTo Err_Handler
+        Dim frmLoop As Object
+        Dim ctrl As Control
+        Dim propLoop As Property
+        Dim strFormName As String
 
-    '//La variabile BOOLEAN per indicare se esiste
-    Dim Bool1 As Boolean
-    Dim NameForm_s As String
-    Dim Msg_s  As String
-
-
-    '//CHIAMO LA ROUTINE DI PULITURA DEI CAMPI TEXT E LABEL
-    '//--------------------------------------------------------------------------------//-//
-    '//CODICE----------->LoopFormProps_FormCorrente_PULISCI_OGGETTI_TEXT_LABEL_PSub.puliscoTutto
-
-        '//ATTIVO LA ROUTINE Call LoopFormProps_FormCorrente_PULISCI_OGGETTI_TEXT_LABEL_PSub
-
-    '//--------------------------------------------------------------------------------//-//
-
-    For Each frmLoop In CurrentProject.AllForms
-
-        '//imposto la variabile bool
-        Bool1 = False
-        '//la form da ricercare nel db
-        'NameForm_s = "MOD30_Frm01_S01_ELENCO_SCH01_65txt_campi_1key"
-
-        NameForm_s = par_NameForm_s
-
-        '//TROVA QUELLA CORRENTE
-        'If frmLoop.NAME = "MOD30_Frm01_S01_ELENCO_SCH01_65txt_campi_1key" Then
-        If frmLoop.Name = par_NameForm_s Then
-
-        '//LA FORM CORRENTE
-        '//=====================================================================================================//
-
-                '//form trovata imposto il nome e  la variabile
-                strFormName = frmLoop.Name
-                '//imposto la variabile bool a true per individuare che è stata trovata
-                Bool1 = True
+        '//La variabile BOOLEAN per indicare se esiste
+        Dim Bool1 As Boolean
+        Dim NameForm_s As String
+        Dim Msg_s  As String
 
 
-                '//APRO LA FORM IN MODALITA DESIGN
-                DoCmd.OpenForm strFormName, acDesign, , , , acHidden
+        '//CHIAMO LA ROUTINE DI PULITURA DEI CAMPI TEXT E LABEL
+        '//--------------------------------------------------------------------------------//-//
+        '//CODICE----------->LoopFormProps_FormCorrente_PULISCI_OGGETTI_TEXT_LABEL_PSub.puliscoTutto
 
-                '//Qualifico l'oggetto form pe le proprieta
-                With Forms(strFormName)
+            '//ATTIVO LA ROUTINE Call LoopFormProps_FormCorrente_PULISCI_OGGETTI_TEXT_LABEL_PSub
 
-                    For Each ctrl In .Controls
+        '//--------------------------------------------------------------------------------//-//
 
-                        DoEvents
+        For Each frmLoop In CurrentProject.AllForms
 
-                        For Each propLoop In ctrl.Properties
+            '//imposto la variabile bool
+            Bool1 = False
+            '//la form da ricercare nel db
+            'NameForm_s = "MOD30_Frm01_S01_ELENCO_SCH01_65txt_campi_1key"
 
-                             If ctrl.Name = "TXT_01" Then
-                                'Stop
-                             End If
+            NameForm_s = par_NameForm_s
+
+            '//TROVA QUELLA CORRENTE
+            'If frmLoop.NAME = "MOD30_Frm01_S01_ELENCO_SCH01_65txt_campi_1key" Then
+            If frmLoop.Name = par_NameForm_s Then
+
+            '//LA FORM CORRENTE
+            '//=====================================================================================================//
+
+                    '//form trovata imposto il nome e  la variabile
+                    strFormName = frmLoop.Name
+                    '//imposto la variabile bool a true per individuare che è stata trovata
+                    Bool1 = True
 
 
-                        '//PULISCO I CAMPI TEXT E LABEL DELLA FORM CORRENTE - CICOLO FOR EACH -
-                        '//==================================================================================================//
-                        '//NOTE : pulisco le caselle di testo impostando la proprieta recordsource a null mentre le label _
-                                corrispondenti vengono impostate al nome oggetto label corrente.
-                        '//CODICE----------->LoopFormProps_FormCorrente_PULISCI_OGGETTI_TEXT_LABEL_PSub.puliscoTutto
+                    '//APRO LA FORM IN MODALITA DESIGN
+                    DoCmd.OpenForm strFormName, acDesign, , , , acHidden
+
+                    '//Qualifico l'oggetto form pe le proprieta
+                    With Forms(strFormName)
+
+                        For Each ctrl In .Controls
+
+                            DoEvents
+
+                            For Each propLoop In ctrl.Properties
+
+                                 If ctrl.Name = "TXT_01" Then
+                                    'Stop
+                                 End If
 
 
-
-                            '//PULISCO LA PROPRIETA RECORD SOURCE DELLE CASELLE DI TESTO
-                            '//--------------------------------------------------------------------------------//------------//
-                            '//NELLA CASELLE TEXT riconosciute con il valore ControlSource _
-                            viene azzerata la proprieta control source con valore ""
-                                If propLoop.Name = "ControlSource" Then
-                                    Debug.Print propLoop.Value
-                                    propLoop.Value = ""
-                                End If
-
-                            '//--------------------------------------------------------------------------------//------------//
+                            '//PULISCO I CAMPI TEXT E LABEL DELLA FORM CORRENTE - CICOLO FOR EACH -
+                            '//==================================================================================================//
+                            '//NOTE : pulisco le caselle di testo impostando la proprieta recordsource a null mentre le label _
+                                    corrispondenti vengono impostate al nome oggetto label corrente.
+                            '//CODICE----------->LoopFormProps_FormCorrente_PULISCI_OGGETTI_TEXT_LABEL_PSub.puliscoTutto
 
 
 
-                            '//PULISCO LA PROPRIETA CAPTION DELLE LABEL
-                            '//--------------------------------------------------------------------------------//------------//
-                            '//se è una label riconosciuta con il nome della proprieta _
-                            Caption, viene sostituita il valore del contenuto della _
-                            etichetta con il nome della label
-                                 If propLoop.Name = "Caption" Then
-                                            Debug.Print propLoop.Value
-                                            '//inserisco il nome label?
-                                            propLoop.Value = ctrl.Name
+                                '//PULISCO LA PROPRIETA RECORD SOURCE DELLE CASELLE DI TESTO
+                                '//--------------------------------------------------------------------------------//------------//
+                                '//NELLA CASELLE TEXT riconosciute con il valore ControlSource _
+                                viene azzerata la proprieta control source con valore ""
+                                    If propLoop.Name = "ControlSource" Then
+                                        Debug.Print propLoop.Value
+                                        propLoop.Value = ""
+                                    End If
 
-
-                                End If
-
-                            '//--------------------------------------------------------------------------------//------------//
-
-                        '//*** FINE ***
-                        '//PULISCO I CAMPI TEXT E LABEL DELLA FORM CORRENTE - CICOLO FOR EACH -
-                        '//==================================================================================================//
-
-                            '//CONTROLLO oggetto
-                            Debug.Print "Form [" & .Name & "] - Control[" & ctrl.Name & "](" & propLoop.Name & "):" & propLoop.Value
-
-                        Next '//For Each propLoop In ctrl.Properties
-
-
-                    Next    '//For Each ctrl In .Controls
-
-                            '//SALVATAGGIO FORM APERTA IN DESIGN
-                            'Richiama la funzione che chiude la maschera aperta
-                            DoCmd.SetWarnings False
-                            DoCmd.Close acForm, strFormName, acSaveYes
-                            DoCmd.SetWarnings True
-                            DoCmd.Close acForm, strFormName
-
-                End With '//With Forms(strFormName)
-
-
-        '//=====================================================================================================//
+                                '//--------------------------------------------------------------------------------//------------//
 
 
 
-        End If
-    Next
-
-                '//messaggio di avviso se Bool1=false e cioè non esiste la form
-
-                If Bool1 = False Then
-                    '//imposto il testo del messaggio
-                    Msg_s = "ATTENZIONE LA FORM " & NameForm_s & " NON E' STATA TROVATA IN QUESTO DATABASE!"
-                    MsgBox Msg_s, vbExclamation
-                End If
-
+                                '//PULISCO LA PROPRIETA CAPTION DELLE LABEL
+                                '//--------------------------------------------------------------------------------//------------//
+                                '//se è una label riconosciuta con il nome della proprieta _
+                                Caption, viene sostituita il valore del contenuto della _
+                                etichetta con il nome della label
+                                     If propLoop.Name = "Caption" Then
+                                                Debug.Print propLoop.Value
+                                                '//inserisco il nome label?
+                                                propLoop.Value = ctrl.Name
 
 
+                                    End If
 
-    Exit Sub
-Err_Handler:
-        Select Case Err.Number
-            Case 2186
-                '//SE LA PROPRIETA NON ESISTE ATTIVO L'ERRORE E RIENTRO NEL CICLO FOR EACH
-                'Property not available in design view  SE NON CI SONO LE  PROPRIETA RIPROVA.
-                Resume Next
-            Case Else
-                MsgBox "Err: " & Err.Number & " - " & Err.Description
-        End Select
-    End Sub
+                                '//--------------------------------------------------------------------------------//------------//
 
-    '//*** fine ***
-    '//PULISCO I CAMPI TEXT E LABEL DELLA FORM CORRENTE -
-    '//###########################################################################################################################//
+                            '//*** FINE ***
+                            '//PULISCO I CAMPI TEXT E LABEL DELLA FORM CORRENTE - CICOLO FOR EACH -
+                            '//==================================================================================================//
+
+                                '//CONTROLLO oggetto
+                                Debug.Print "Form [" & .Name & "] - Control[" & ctrl.Name & "](" & propLoop.Name & "):" & propLoop.Value
+
+                            Next '//For Each propLoop In ctrl.Properties
+
+
+                        Next    '//For Each ctrl In .Controls
+
+                                '//SALVATAGGIO FORM APERTA IN DESIGN
+                                'Richiama la funzione che chiude la maschera aperta
+                                DoCmd.SetWarnings False
+                                DoCmd.Close acForm, strFormName, acSaveYes
+                                DoCmd.SetWarnings True
+                                DoCmd.Close acForm, strFormName
+
+                    End With '//With Forms(strFormName)
+
+
+            '//=====================================================================================================//
+
+
+
+            End If
+        Next
+
+                    '//messaggio di avviso se Bool1=false e cioè non esiste la form
+
+                    If Bool1 = False Then
+                        '//imposto il testo del messaggio
+                        Msg_s = "ATTENZIONE LA FORM " & NameForm_s & " NON E' STATA TROVATA IN QUESTO DATABASE!"
+                        MsgBox Msg_s, vbExclamation
+                    End If
+
+
+
+
+        Exit Sub
+            Err_Handler:
+                    Select Case Err.Number
+                        Case 2186
+                            '//SE LA PROPRIETA NON ESISTE ATTIVO L'ERRORE E RIENTRO NEL CICLO FOR EACH
+                            'Property not available in design view  SE NON CI SONO LE  PROPRIETA RIPROVA.
+                            Resume Next
+                        Case Else
+                            MsgBox "Err: " & Err.Number & " - " & Err.Description
+                    End Select
+                End Sub
+
+        '//*** fine ***
+        '//PULISCO I CAMPI TEXT E LABEL DELLA FORM CORRENTE -
+        '//###########################################################################################################################//
 
 '//SALVATAGGIO_PARAMETRO_CODOGGETTO_in_TMP_pbFunctsxCODOGGETTO - SALVATAGGIO PARAMETRO DEL CODOGGETTO - SALVATAGGIO_PARAMETRO_CODOGGETTO_in_TMP_pbFunctsxCODOGGETTO
     '//--------------------------------------------------------------------------------//------------------------------------------------//
@@ -6147,10 +5498,10 @@ Err_Handler:
         'USCITA  E GESTIONE ERRORI
         '..............................................................................................................
 
-Exit_SALVATAGGIO_PARAMETRO_CODOGGETTO_in_TMP_pbFunctsxCODOGGETTO:
+            Exit_SALVATAGGIO_PARAMETRO_CODOGGETTO_in_TMP_pbFunctsxCODOGGETTO:
                         Exit Function
 
-Err_SALVATAGGIO_PARAMETRO_CODOGGETTO_in_TMP_pbFunctsxCODOGGETTO:
+            Err_SALVATAGGIO_PARAMETRO_CODOGGETTO_in_TMP_pbFunctsxCODOGGETTO:
                         MsgBox Err.Description
                         Resume Exit_SALVATAGGIO_PARAMETRO_CODOGGETTO_in_TMP_pbFunctsxCODOGGETTO
 
@@ -6229,7 +5580,7 @@ Err_SALVATAGGIO_PARAMETRO_CODOGGETTO_in_TMP_pbFunctsxCODOGGETTO:
                 Debug.Print "modulo APERTO -> " & obj.Name
             End If
         Next obj
-    End Sub
+        End Sub
 
 '//pfCONTROLLO_ESISTENZA_OGGETTI_QUERY - CONTROLLA SE ESISTE L'OGGETTO QUERY NEL DB  - @itera.oggetti.QUERY, @itera.QUERYs, @itera.tutte.le.QUERY _
 
@@ -6346,11 +5697,11 @@ Err_SALVATAGGIO_PARAMETRO_CODOGGETTO_in_TMP_pbFunctsxCODOGGETTO:
 
             '//ERRORI ED USCITA FINE FUNCTIONE E GESTIONE ERRORI
             '//--------------------------------------------------------------------------------//------------------------------------------//
-Exit_pfCONTROLLO_ESISTENZA_OGGETTI_QUERY:
+                        Exit_pfCONTROLLO_ESISTENZA_OGGETTI_QUERY:
 
                                 Exit Function
 
-Err_pfCONTROLLO_ESISTENZA_OGGETTI_QUERY:
+                    Err_pfCONTROLLO_ESISTENZA_OGGETTI_QUERY:
                                 MsgBox "ERRORE FUNCTION PUBLIC    " & Err.Number & " - " & Err.Description, vbCritical, "pfCONTROLLO_ESISTENZA_OGGETTI_QUERY"
                                 Resume Exit_pfCONTROLLO_ESISTENZA_OGGETTI_QUERY
 
@@ -6441,13 +5792,13 @@ Err_pfCONTROLLO_ESISTENZA_OGGETTI_QUERY:
         Set rs = Nothing
         Set db = Nothing
 
-Exit_pfCONTROLLO_ESISTENZA_OGGETTI_TABLE:
-                Exit Function
+                Exit_pfCONTROLLO_ESISTENZA_OGGETTI_TABLE:
+                                Exit Function
 
-Err_pfCONTROLLO_ESISTENZA_OGGETTI_TABLE:
-                MsgBox "ERRORE FUNCTION PUBLIC " & Err.Number & " - " & Err.Description, vbCritical, "pfCONTROLLO_ESISTENZA_OGGETTI_TABLE"
-                Resume Exit_pfCONTROLLO_ESISTENZA_OGGETTI_TABLE
-            End Function
+                Err_pfCONTROLLO_ESISTENZA_OGGETTI_TABLE:
+                                MsgBox "ERRORE FUNCTION PUBLIC " & Err.Number & " - " & Err.Description, vbCritical, "pfCONTROLLO_ESISTENZA_OGGETTI_TABLE"
+                                Resume Exit_pfCONTROLLO_ESISTENZA_OGGETTI_TABLE
+                            End Function
 
 
 
@@ -6562,18 +5913,18 @@ Err_pfCONTROLLO_ESISTENZA_OGGETTI_TABLE:
 
 
 
-    '//ERRORI ED USCITA FINE FUNCTIONE E GESTIONE ERRORI
-    '//--------------------------------------------------------------------------------//------------------------------------------//
-Exit_pfCONTROLLO_ESISTENZA_OGGETTI_Form:
+        '//ERRORI ED USCITA FINE FUNCTIONE E GESTIONE ERRORI
+        '//--------------------------------------------------------------------------------//------------------------------------------//
+                Exit_pfCONTROLLO_ESISTENZA_OGGETTI_Form:
 
-                            Exit Function
+                                            Exit Function
 
-Err_pfCONTROLLO_ESISTENZA_OGGETTI_Form:
-                            MsgBox "ERRORE FUNCTION PUBLIC    " & Err.Number & " - " & Err.Description, vbCritical, "pfCONTROLLO_ESISTENZA_OGGETTI_Form"
-                            Resume Exit_pfCONTROLLO_ESISTENZA_OGGETTI_Form
+                Err_pfCONTROLLO_ESISTENZA_OGGETTI_Form:
+                                            MsgBox "ERRORE FUNCTION PUBLIC    " & Err.Number & " - " & Err.Description, vbCritical, "pfCONTROLLO_ESISTENZA_OGGETTI_Form"
+                                            Resume Exit_pfCONTROLLO_ESISTENZA_OGGETTI_Form
 
 
-    End Function
+        End Function
 
     '//*** FINE ***
     '//CONTROLLO_ESISTENZA_OGGETTI_FORM
@@ -6689,16 +6040,16 @@ Err_pfCONTROLLO_ESISTENZA_OGGETTI_Form:
 
     '//ERRORI ED USCITA FINE FUNCTIONE E GESTIONE ERRORI
     '//--------------------------------------------------------------------------------//------------------------------------------//
-Exit_pfCONTROLLO_ESISTENZA_OGGETTI_REPORTS:
+            Exit_pfCONTROLLO_ESISTENZA_OGGETTI_REPORTS:
 
-                        Exit Function
+                                    Exit Function
 
-Err_pfCONTROLLO_ESISTENZA_OGGETTI_REPORTS:
-                        MsgBox "ERRORE FUNCTION PUBLIC    " & Err.Number & " - " & Err.Description, vbCritical, "pfCONTROLLO_ESISTENZA_OGGETTI_REPORTS"
-                        Resume Exit_pfCONTROLLO_ESISTENZA_OGGETTI_REPORTS
+            Err_pfCONTROLLO_ESISTENZA_OGGETTI_REPORTS:
+                                    MsgBox "ERRORE FUNCTION PUBLIC    " & Err.Number & " - " & Err.Description, vbCritical, "pfCONTROLLO_ESISTENZA_OGGETTI_REPORTS"
+                                    Resume Exit_pfCONTROLLO_ESISTENZA_OGGETTI_REPORTS
 
 
-    End Function
+            End Function
 
     '//*** FINE ***
     '//CONTROLLO_ESISTENZA_OGGETTI_REPORTS
@@ -6814,16 +6165,16 @@ Err_pfCONTROLLO_ESISTENZA_OGGETTI_REPORTS:
 
     '//ERRORI ED USCITA FINE FUNCTIONE E GESTIONE ERRORI
     '//--------------------------------------------------------------------------------//------------------------------------------//
-Exit_pfCONTROLLO_ESISTENZA_OGGETTI_MODULI:
+            Exit_pfCONTROLLO_ESISTENZA_OGGETTI_MODULI:
 
                         Exit Function
 
-Err_pfCONTROLLO_ESISTENZA_OGGETTI_MODULI:
-                        MsgBox "ERRORE FUNCTION PUBLIC    " & Err.Number & " - " & Err.Description, vbCritical, "pfCONTROLLO_ESISTENZA_OGGETTI_MODULI"
-                        Resume Exit_pfCONTROLLO_ESISTENZA_OGGETTI_MODULI
+            Err_pfCONTROLLO_ESISTENZA_OGGETTI_MODULI:
+                                    MsgBox "ERRORE FUNCTION PUBLIC    " & Err.Number & " - " & Err.Description, vbCritical, "pfCONTROLLO_ESISTENZA_OGGETTI_MODULI"
+                                    Resume Exit_pfCONTROLLO_ESISTENZA_OGGETTI_MODULI
 
 
-    End Function
+            End Function
 
     '//*** FINE ***
     '//CONTROLLO_ESISTENZA_OGGETTI_MODULI
@@ -6937,16 +6288,16 @@ Err_pfCONTROLLO_ESISTENZA_OGGETTI_MODULI:
 
     '//ERRORI ED USCITA FINE FUNCTIONE E GESTIONE ERRORI
     '//--------------------------------------------------------------------------------//------------------------------------------//
-Exit_pfCONTROLLO_ESISTENZA_OGGETTI_MACRO:
+                Exit_pfCONTROLLO_ESISTENZA_OGGETTI_MACRO:
 
                         Exit Function
 
-Err_pfCONTROLLO_ESISTENZA_OGGETTI_MACRO:
+                Err_pfCONTROLLO_ESISTENZA_OGGETTI_MACRO:
                         MsgBox "ERRORE FUNCTION PUBLIC    " & Err.Number & " - " & Err.Description, vbCritical, "pfCONTROLLO_ESISTENZA_OGGETTI_MACRO"
                         Resume Exit_pfCONTROLLO_ESISTENZA_OGGETTI_MACRO
 
 
-    End Function
+        End Function
 
     '//*** FINE ***
     '//CONTROLLO_ESISTENZA_OGGETTI_MACRO
@@ -8063,16 +7414,16 @@ Err_pfCONTROLLO_ESISTENZA_OGGETTI_MACRO:
         '------------------------------------------------------------------------------
         '                       FINE FUNCTIONE E GESTIONE ERRORI
 
-Exit_Iterazione_oggetti:
+                Exit_Iterazione_oggetti:
 
-                    Exit Function
+                                    Exit Function
 
 
-Err_Iterazione_oggetti:
-            dbs.Close
-            Set dbs = Nothing
-            MsgBox "ERRORE FUNCTION PUBLIC    " & Err.Number & " - " & Err.Description, vbCritical, "Iterazione_oggetti"
-            Resume Exit_Iterazione_oggetti
+                Err_Iterazione_oggetti:
+                            dbs.Close
+                            Set dbs = Nothing
+                            MsgBox "ERRORE FUNCTION PUBLIC    " & Err.Number & " - " & Err.Description, vbCritical, "Iterazione_oggetti"
+                            Resume Exit_Iterazione_oggetti
 
         End Function
         '//=======================================================================================================================================================//
@@ -9210,10 +8561,10 @@ Err_Iterazione_oggetti:
 
             'USCITA ED ERRORI
             '..............................................................
-Exit_RECUPERO_PARAMETRI_TABELLA_OGGETTI_pFc:
+            Exit_RECUPERO_PARAMETRI_TABELLA_OGGETTI_pFc:
                             Exit Function
 
-Err_RECUPERO_PARAMETRI_TABELLA_OGGETTI_pFc:
+            Err_RECUPERO_PARAMETRI_TABELLA_OGGETTI_pFc:
                             MsgBox Err.Description
                             Resume Exit_RECUPERO_PARAMETRI_TABELLA_OGGETTI_pFc
 
@@ -9222,7 +8573,7 @@ Err_RECUPERO_PARAMETRI_TABELLA_OGGETTI_pFc:
             End Function
         '//###########################################################################################################################//
 
-'// OGGETTI_ITERA_TUTTE_LE_FORM_COLLEGA_MSys_TABELLE_LINK_PFunct                     COLLEGA LE TABELLE   **** INIZIO ****
+'//OGGETTI_ITERA_TUTTE_LE_FORM_COLLEGA_MSys_TABELLE_LINK_PFunct                     COLLEGA LE TABELLE   **** INIZIO ****
             '//=======================================================================================================================================================//
             '//FUNZIONAMENTO DEL MODULO COLLEGA LE TABELLE: _
                 OGGETTI SYS _
@@ -9423,7 +8774,7 @@ Err_RECUPERO_PARAMETRI_TABELLA_OGGETTI_pFc:
             '//                                         COLLEGA LE TABELLE   **** FINE ****
             '//=======================================================================================================================================================//
 
-'// COLLEGA_TABELLA_pfunct   FUNZIONE_DI_COLLEGAMENTO_CON_PARAMETRI: *** INIZIO***
+'//COLLEGA_TABELLA_pfunct   FUNZIONE_DI_COLLEGAMENTO_CON_PARAMETRI: *** INIZIO***
         '//======================================================================================================================//
         '//PARAMETRI: TODO: DA CREARE COME FUNZIONE GENERALE, per ora solo 2 parametri ma deve essere allargata anche al Flag = True per la cancellazione _
            alla tabella da collegare + e al database per renderlo piu generico possibile.
@@ -9506,19 +8857,16 @@ Err_RECUPERO_PARAMETRI_TABELLA_OGGETTI_pFc:
                     ' collego la tabella PRES3000_Tb25_}------------------------------------------------@
                     'OLD DoCmd.TransferDatabase acLink, "Microsoft Access", "c:\GESTIONI\GESTIONE_LLPP\PRES3000_GESTIONE\ARCHIVI_PRES3000\PRES3000_N25_PIANTA_ORGANICA.mdb", acTable, "PRES3000_Tb25_}------------------------------------------------@", "PRES3000_Tb25_}------------------------------------------------@", False
 
+        COLLEGA_TABELLA_pfunct_Exit:
+                                Exit Function
 
+        COLLEGA_TABELLA_pfunct_Err:
+                                MsgBox Error$
+                                Resume COLLEGA_TABELLA_pfunct_Exit
 
+    End Function
 
-COLLEGA_TABELLA_pfunct_Exit:
-                        Exit Function
-
-COLLEGA_TABELLA_pfunct_Err:
-                        MsgBox Error$
-                        Resume COLLEGA_TABELLA_pfunct_Exit
-
-        End Function
-
-'//ATTIVA_CANCELLA_MSys_TABELLE_LINK_PFunct -                             FUNZIONE_DI_CANCELLAMENTO_LINK_TABELLE: *** INIZIO***
+'//ATTIVA_CANCELLA_MSys_TABELLE_LINK_PFunct - FUNZIONE_DI_CANCELLAMENTO_LINK_TABELLE: *** INIZIO***
     '//======================================================================================================================//
     '//PARAMETRI: CANCELLO LE TABELLE SENGNALATE NEL RECORDSET CON IL Flag = True per la cancellazione _
     '//2024.08.07_@CANCELLO@TABELLE@LINK_(la funzione cancella le tabelle in precedenza collegate)
@@ -9610,8 +8958,8 @@ COLLEGA_TABELLA_pfunct_Err:
                 '//............................................................................//
 
 
-    '//ITERO NEL RS     *** fine ***
-    '//--------------------------------------------------------------------------------//-------//
+        '//ITERO NEL RS     *** fine ***
+        '//--------------------------------------------------------------------------------//-------//
 
 
     End Function
@@ -9677,13 +9025,10 @@ COLLEGA_TABELLA_pfunct_Err:
                 End If
 
 
-
-
-
-CANCELLA_TABELLE_LINK_Exit:
+            CANCELLA_TABELLE_LINK_Exit:
                 Exit Function
 
-CANCELLA_TABELLE_LINK_Err:
+            CANCELLA_TABELLE_LINK_Err:
                 MsgBox Error$
                 Resume CANCELLA_TABELLE_LINK_Exit
 
@@ -10021,18 +9366,18 @@ CANCELLA_TABELLE_LINK_Err:
 
     '//ERRORI ED USCITA FINE FUNCTIONE E GESTIONE ERRORI
     '//--------------------------------------------------------------------------------//------------------------------------------//
-Exit_pfRICERCA_NEL_DB_OGGETTI_MACRO:
+            Exit_pfRICERCA_NEL_DB_OGGETTI_MACRO:
                         dbs.Close
                         Set dbs = Nothing
 
                         Exit Function
 
-Err_pfRICERCA_NEL_DB_OGGETTI_MACRO:
+            Err_pfRICERCA_NEL_DB_OGGETTI_MACRO:
                         MsgBox "ERRORE FUNCTION PUBLIC    " & Err.Number & " - " & Err.Description, vbCritical, "pfRICERCA_NEL_DB_OGGETTI_MACRO"
                         Resume Exit_pfRICERCA_NEL_DB_OGGETTI_MACRO
 
 
-    End Function
+        End Function
 
     '//*** FINE ***
     '//CONTROLLO_ESISTENZA_OGGETTI_MACRO
@@ -10235,13 +9580,13 @@ Err_pfRICERCA_NEL_DB_OGGETTI_MACRO:
 
     '//ERRORI ED USCITA FINE FUNCTIONE E GESTIONE ERRORI
     '//--------------------------------------------------------------------------------//------------------------------------------//
-Exit_pfRICERCA_NEL_DB_OGGETTI_Moduli:
+            Exit_pfRICERCA_NEL_DB_OGGETTI_Moduli:
                         dbs.Close
                         Set dbs = Nothing
 
                         Exit Function
 
-Err_pfRICERCA_NEL_DB_OGGETTI_Moduli:
+            Err_pfRICERCA_NEL_DB_OGGETTI_Moduli:
                         MsgBox "ERRORE FUNCTION PUBLIC    " & Err.Number & " - " & Err.Description, vbCritical, "pfRICERCA_NEL_DB_OGGETTI_Moduli"
                         Resume Exit_pfRICERCA_NEL_DB_OGGETTI_Moduli
 
@@ -10449,18 +9794,18 @@ Err_pfRICERCA_NEL_DB_OGGETTI_Moduli:
 
     '//ERRORI ED USCITA FINE FUNCTIONE E GESTIONE ERRORI
     '//--------------------------------------------------------------------------------//------------------------------------------//
-Exit_pfRICERCA_NEL_DB_OGGETTI_Form:
+            Exit_pfRICERCA_NEL_DB_OGGETTI_Form:
                         dbs.Close
                         Set dbs = Nothing
 
                         Exit Function
 
-Err_pfRICERCA_NEL_DB_OGGETTI_Form:
+            Err_pfRICERCA_NEL_DB_OGGETTI_Form:
                         MsgBox "ERRORE FUNCTION PUBLIC    " & Err.Number & " - " & Err.Description, vbCritical, "pfRICERCA_NEL_DB_OGGETTI_Form"
                         Resume Exit_pfRICERCA_NEL_DB_OGGETTI_Form
 
 
-    End Function
+        End Function
 
     '//*** FINE ***
     '//CONTROLLO_ESISTENZA_OGGETTI_FORM
@@ -10663,22 +10008,22 @@ Err_pfRICERCA_NEL_DB_OGGETTI_Form:
 
     '//ERRORI ED USCITA FINE FUNCTIONE E GESTIONE ERRORI
     '//--------------------------------------------------------------------------------//------------------------------------------//
-Exit_pfRICERCA_NEL_DB_OGGETTI_Report:
+                Exit_pfRICERCA_NEL_DB_OGGETTI_Report:
                         dbs.Close
                         Set dbs = Nothing
 
                         Exit Function
 
-Err_pfRICERCA_NEL_DB_OGGETTI_Report:
+                Err_pfRICERCA_NEL_DB_OGGETTI_Report:
                         MsgBox "ERRORE FUNCTION PUBLIC    " & Err.Number & " - " & Err.Description, vbCritical, "pfRICERCA_NEL_DB_OGGETTI_Report"
                         Resume Exit_pfRICERCA_NEL_DB_OGGETTI_Report
 
 
             End Function
 
-            '//*** FINE ***
-            '//CONTROLLO_ESISTENZA_OGGETTI_REPORT
-            '//****************************************************************************************************************************
+        '//*** FINE ***
+        '//CONTROLLO_ESISTENZA_OGGETTI_REPORT
+        '//****************************************************************************************************************************
 
 '//pfRICERCA_NEL_DB_OGGETTI_Query - CONTROLLO_ESISTENZA_OGGETTI_QUERY      A.G06
     '//****************************************************************************************************************************
@@ -10849,22 +10194,22 @@ Err_pfRICERCA_NEL_DB_OGGETTI_Report:
         '//ERRORI ED USCITA FINE FUNCTIONE E GESTIONE ERRORI
         '//--------------------------------------------------------------------------------//------------------------------------------//
 
-Exit_pfRICERCA_NEL_DB_OGGETTI_Query:
+            Exit_pfRICERCA_NEL_DB_OGGETTI_Query:
                     dbs.Close
                     Set dbs = Nothing
 
                     Exit Function
 
-Err_pfRICERCA_NEL_DB_OGGETTI_Query:
+            Err_pfRICERCA_NEL_DB_OGGETTI_Query:
                     MsgBox "ERRORE FUNCTION PUBLIC    " & Err.Number & " - " & Err.Description, vbCritical, "pfRICERCA_NEL_DB_OGGETTI_Query"
                     Resume Exit_pfRICERCA_NEL_DB_OGGETTI_Query
 
 
         End Function
 
-        '//*** FINE ***
-        '//CONTROLLO_ESISTENZA_OGGETTI_QUERY
-        '//****************************************************************************************************************************
+    '//*** FINE ***
+    '//CONTROLLO_ESISTENZA_OGGETTI_QUERY
+    '//****************************************************************************************************************************
 
 '/Public Function pfCONTROLLO_OGGETTI_DB - CONTROLLO OGGETTI DATABASE
     '****************************************************************************************************************************
@@ -10934,19 +10279,19 @@ Err_pfRICERCA_NEL_DB_OGGETTI_Query:
     '------------------------------------------------------------------------------
     '                       FINE FUNCTIONE E GESTIONE ERRORI
 
-Exit_pfCONTROLLO_OGGETTI_DB:
+            Exit_pfCONTROLLO_OGGETTI_DB:
                 dbs.Close
                 Set dbs = Nothing
 
             Exit Function
 
-Err_pfCONTROLLO_OGGETTI_DB:
+            Err_pfCONTROLLO_OGGETTI_DB:
                 MsgBox "ERRORE FUNCTION PUBLIC    " & Err.Number & " - " & Err.Description, vbCritical, "pfCONTROLLO_OGGETTI_DB"
                 Resume Exit_pfCONTROLLO_OGGETTI_DB
 
 
 
-            End Function
+        End Function
 
 
 
@@ -10960,7 +10305,6 @@ Err_pfCONTROLLO_OGGETTI_DB:
     '********************************************************************************************************************************************************
     '                   RICERCA OGGETTI NEL DATABASE                                        *** fine ***
     '********************************************************************************************************************************************************
-
 
 '//ApriFile_3Parametri_PFunct - APRI_IL_FILE_PDF - FUNZIONE INTERNA DI APERTURA DEI FILE CON 3 PARAMETRI-   A.G07
     '//==================================================================================================================//
@@ -11065,11 +10409,10 @@ Err_pfCONTROLLO_OGGETTI_DB:
                     '//Attivo il comando ed aggiungo @exit per @chiudere@il@terminale occorre lo spazio per evitare l'errore & " ^exit"
                 'WshPDF.Run Stringa1 & " ^exit"
 
-
-ApriFile_3Parametri_PFunct_Exit:
+     ApriFile_3Parametri_PFunct_Exit:
         Exit Function
 
-ApriFile_3Parametri_PFunct_Err:
+     ApriFile_3Parametri_PFunct_Err:
         MsgBox Error$
         Resume ApriFile_3Parametri_PFunct_Exit
 
@@ -11078,8 +10421,7 @@ ApriFile_3Parametri_PFunct_Err:
     '//APRI_IL_FILE_PDF - FUNZIONE INTERNA DI APERTURA DEI FILE CON 3 PARAMETRI-         *** FINE ***
     '//==================================================================================================================//
 
-
-'// SALVA_MENU_pFunct  Public Function e ROUTINE PER I MENU                           **** INIZIO ****
+'//SALVA_MENU_pFunct  Public Function e ROUTINE PER I MENU                           **** INIZIO ****
     '//*********************************************************************************************************************************************//
     '//
     '//
@@ -11206,10 +10548,10 @@ ApriFile_3Parametri_PFunct_Err:
     '//--------------------------------------------------------------------------------------------------
     '//                       FINE FUNCTION E GESTIONE ERRORI
 
-Exit_SALVA_MENU_pFunct:
+        Exit_SALVA_MENU_pFunct:
             Exit Function
 
-Err_SALVA_MENU_pFunct:
+        Err_SALVA_MENU_pFunct:
                 MsgBox "ERRORE FUNCTION PUBLIC    " & Err.Number & " - " & Err.Description, vbCritical, "SALVA_MENU_pFunct"
                 Resume Exit_SALVA_MENU_pFunct
 
@@ -11301,10 +10643,10 @@ Err_SALVA_MENU_pFunct:
     '//--------------------------------------------------------------------------------------------------
     '//                       FINE FUNCTION E GESTIONE ERRORI
 
-Exit_ESEGUI_MENU_GeCasaMENU_TMP_pFunct:
-        Exit Function
+        Exit_ESEGUI_MENU_GeCasaMENU_TMP_pFunct:
+            Exit Function
 
-Err_ESEGUI_MENU_GeCasaMENU_TMP_pFunct:
+        Err_ESEGUI_MENU_GeCasaMENU_TMP_pFunct:
             MsgBox "ERRORE FUNCTION PUBLIC    " & Err.Number & " - " & Err.Description, vbCritical, "ESEGUI_MENU_GeCasaMENU_TMP_pFunct " & ProceduraAttivaEseguita_s
             Resume Exit_ESEGUI_MENU_GeCasaMENU_TMP_pFunct
 
@@ -11313,9 +10655,9 @@ Err_ESEGUI_MENU_GeCasaMENU_TMP_pFunct:
         '//===========================================================:===================================:================================
 
 
-        '//**********************************************************************************************************//
-        '//                     MENU:    GeCasaMENU       **** FINE ****
-        '//**********************************************************************************************************//
+    '//**********************************************************************************************************//
+    '//                     MENU:    GeCasaMENU       **** FINE ****
+    '//**********************************************************************************************************//
 
 
 
@@ -11325,7 +10667,6 @@ Err_ESEGUI_MENU_GeCasaMENU_TMP_pFunct:
     '//
     '//
     '//*********************************************************************************************************************************************//
-
 
 '//DbNortWind - CREA TABELLA CON 1 CAMPO + TABELLA CON 3 CAMPI
     '//****************************************************************************************************************************//
@@ -11475,8 +10816,6 @@ Err_ESEGUI_MENU_GeCasaMENU_TMP_pFunct:
         End Sub
     '//****************************************************************************************************************************
 
-
-
 '//pfRICERCA_NEL_DB_OGGETTI_Table_ControllaCampi - FUNZIONE DI CONTROLLO DELLO OGGETTO TABELLA - CAMPI = controllo il tipo di campo della tabella.  *** INIZIO****
     '//CODICE----------> pfRICERCA_NEL_DB_OGGETTI_Table_ControllaCampi.Funzione
     '//****************************************************************************************************************************
@@ -11582,13 +10921,13 @@ Err_ESEGUI_MENU_GeCasaMENU_TMP_pFunct:
 
                     '//ERRORI ED USCITA
                     '//--------------------------------------------------------------------------------//------------------------------------------//
-Exit_pfRICERCA_NEL_DB_OGGETTI_Table:
+        Exit_pfRICERCA_NEL_DB_OGGETTI_Table:
                                         'Dbs.Close
                                         'Set Dbs = Nothing
 
                                         Exit Function
 
-Err_pfRICERCA_NEL_DB_OGGETTI_Table:
+        Err_pfRICERCA_NEL_DB_OGGETTI_Table:
                                         MsgBox "ERRORE FUNCTION PUBLIC    " & Err.Number & " - " & Err.Description, vbCritical, "pfRICERCA_NEL_DB_OGGETTI_Table"
                                         Resume Exit_pfRICERCA_NEL_DB_OGGETTI_Table
 
@@ -11616,26 +10955,539 @@ Err_pfRICERCA_NEL_DB_OGGETTI_Table:
     '//
     '//**********************************************************************************************************************************************************
 
+'//ZZFINE_MODELLI_ISTANZA_OGGETTI_CLASSE                          *** INIZIO ***
+  '//****************************************************************************************************//'
+
+    '//#######################################################################//
+    '//
+    '//                     MODELLI DI ISTANZIAMENTO CLASSE
+    '//
+    '//#######################################################################//
+
+    Private Sub ZZFINE_____________________________________________()
+
+            End Sub
+
+    Private Sub ZZFINE_RECUPERO_CODOGGETTO_da_TMP_pbFunct()
+
+            '//CHIAMO LA ROUTINE CONTROLLO_OGGETTO_FORM_LaFormAPERTA DELLA CLASSE OGGETTI FORM
+            '//CODICE----------->CONTROLLO_OGGETTO_FORM_LaFormAPERTA.Salvataggio_ATTIVITA.Attivazione
+            '//--------------------------------------------------------------------------------//-//
+            '//CLASSE_OSPITE        : CLASSE_GESTIONE_OGGETTI_DATABASE
+            '//PARAMETRI            : sono 4 di seguito indicati
+            'par_sxCODOGGETTO       = CODICE OGGETTO OBBLIGATORIO
+            'par_sxTIPOGGETTO       =
+            'par_sxATTIVITAEVENTO   =
+            'par_sxCODATTIVITA      = CODICE ATTIVITA OBBLIGATORIO
+            '//NOTA  :Salvo i parametri del codice oggetto e del codice attiva nella tabella tmp solo nel caso in cui _
+            sia IL CODICE OGGETTO che il CODICE ATTIVITA sono VALORIZZATI altrimenti la classe ricevente emette _
+            un msg di avviso.
+
+
+
+                    '1) ISTANZIO LA CLASSE
+                    '........................................................
+
+                    'Recupero la stringa da applicare alla
+                    'successiva classe
+                    '
+                    'sxCODOGGETTO = ""
+                    '//trovo il codice oggetto mediante il codice attivita
+                    'sxCODOGGETTO = TROVA_CLASSE_DI_GESTIONE_pFunct(par_sxCODATTIVITA)
+
+                    'ISTANZIO LA CLASSE CLASSE_GESTIONE_OGGETTI_DATABASE
+                    'Assegno e creo l'oggetto di classe
+                    '--->                     Dim MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE As CLASSE_GESTIONE_OGGETTI_DATABASE
+                    '--->                     Set MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE = New CLASSE_GESTIONE_OGGETTI_DATABASE
+
+
+
+                        'PARAMETRI DI ESTRAZIONE
+                        'Recupero la stringa da applicare alla
+                        'successiva classe
+                         '---> sxCODOGGETTO = ""
+                         '---> sxCODOGGETTO = MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE.RECUPERO_CODOGGETTO_da_TMP_pbFunct
+
+
+                    '--->                     Set MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE = Nothing
+
+            '//--------------------------------------------------------------------------------//-//
+        End Sub
+
+    Private Sub ZZFINE_CONTROLLO_OGGETTI_TABLE_Tipo_Field_pFunct()
+        '//CODICE----------->ZZFINE_CONTROLLO_OGGETTI_TABLE_Tipo_Field_pFunct.ATTIVA_LA_CLASSE
+
+
+        '...........................................................................................................................................
+        '                                       **** COPIARE DA QUI *****
+        '   Devi copiare siala Routine che la funzione ed inserirla in un modulo, classe, form o report per utilizzare le funzioni comuni.
+        '...........................................................................................................................................
+
+
+
+        '//ROUTINE ATTIVA LA CLASSE PER I CONTROLLO OGGETTI TABLE =  Questa Routine multiuso _
+                            puo' essere attivata per diverse chiamate sul tipo di campo, da utilizzare nel modulo _
+                            di classe, di una form, report o modulo del progetto ospite. Questa Routine e la Funzione _
+                            associata per l'attivazione della classe si trova nella classe identificata da codice _
+                            di seguito indicato:
+        '//CODICE----------->ZZFINE_CONTROLLO_OGGETTI_TABLE_Tipo_Field_pFunct.ATTIVA_LA_CLASSE
+        '//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^//
+        '---> Private Sub ATTIVA_CONTROLLO_OGGETTI_TABLE_Tipo_Field_pFunct()
+        '---> Dim NameTable_s As String
+        '---> Dim NameField_s As String
+        '---> Dim AttivaMessaggio_b As Boolean
+
+            '//PER ATTIVARE IL MESSAGGIO -> TRUE
+            '---> AttivaMessaggio_b = True                        '//FALSE = MESSAGGIO NON ATTIVATO, TRUE MESSAGGIO DI CONTROLLO ATTIVATO
+
+            '---> NameTable_s = "MSys_DF02_TIPO_OGGETTO"          '// nome della tabella da ricerca
+            '---> NameField_s = "Scel_b"                          '// il campo da controllare. es. Scel_b, TIPOGGETTO_s
+            '//Restituisco una stringa se trovato oppure null
+            '---> vV1 = Cls_CONTROLLO_OGGETTI_TABLE_Tipo_Field_pFunct(NameTable_s, NameField_s)
+
+                '//CONTROLLO MSGBOX POSITIVO O NEGATIVO
+                '//..........................................................................//
+                    '---> If AttivaMessaggio_b = True Then '//SE TRUE IL MESSAGGIO VIENE ATTIVATO
+                        '---> If vV1 > "" Then
+                           '---> MsgBox NameTable_s & " QUESTA TABELLA CONTIENE questo tipo di campo : " & vV1, _
+                                                vbExclamation, "MSG CONTROLLO TIPO DI CAMPO"
+                        '---> Else
+                           '---> MsgBox "ATTENZIONE - CONTROLLO DELLA CLASSE DENOMINATA GESTIONE OGGETTI DATABASE:  --->  ! QUESTA TABELLA NON ESISTE -> " & Chr$(13) & Chr$(13) & NameTable_s & _
+                                    Chr$(13) & Chr$(13) & _
+                                   "OPPURE NON ESISTE IL TIPO DI CAMPO RICERCATO ->" & _
+                                    Chr$(13) & Chr$(13) & _
+                                    NameField_s, vbCritical, "ERRORE RICERCA TIPO DI CAMPO"
+                        '---> End If
+                    '---> End If
+                '//..........................................................................//
+
+        '--->End Sub
+
+
+
+
+            '//FUNZIONE CHE ATTIVA LA CLASSE OGGETTI = la quale permette la ricerca dei campi della tabella _
+                                passata come parametro. Questa funzione è riutilizzabile dalla _
+                                routine di seguito indicata. Restituisce una stringa che rappresenta _
+                                il campo e le sue proprieta. Puo essere utilizzata per verificare ogni _
+                                singolo campo della tabella.
+            '---> Private Function Cls_CONTROLLO_OGGETTI_TABLE_Tipo_Field_pFunct(par_NameTable_s As String, par_NameField_s As String) As String
+
+            '//CODICE---------->CONTROLLO_OGGETTI_TABLE_Tipo_Field_pFunct.attiva.classe
+            '//--------------------------------------------------------------------------------//-//
+            '//CLASSE_OSPITE        : CLASSE_GESTIONE_OGGETTI_DATABASE
+            '//PARAMETRI            : stringa che rappresenta il nome della della tabella + _
+                                      il nome del campo da ricerca.
+            '//RESTITUISCE          : Stringa ossia il tipo di campo esaminato
+            '//NOTE         : L'attivazione della classe viene inserita in una Funzione denominata _
+                            ATTIVA_LA_FUNZIONE_MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE _
+            '//MODULO_DOVE_SI_TROVA:CODICE---------->CONTROLLO_OGGETTI_TABLE_Tipo_Field_pFunct.attiva
+            '//CALSSE_CHE_LA_IMPLEMENTA:CODICE---------->CONTROLLO_OGGETTI_TABLE_Tipo_Field_pFunct.attiva
+
+
+                '1) ISTANZIO LA CLASSE
+                '........................................................
+
+                'ISTANZIO LA CLASSE CLASSE_GESTIONE_OGGETTI_DATABASE
+                'Assegno e creo l'oggetto di classe
+                '---> Dim MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE As CLASSE_GESTIONE_OGGETTI_DATABASE
+                '---> Set MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE = New CLASSE_GESTIONE_OGGETTI_DATABASE
+
+
+
+                    'CONTROLLO SE IL TIPO DI CAMPO
+                    'Passo come parametri il nome della tabella in cui ricercare il campo
+                     '--->                            NameField_s = "nome tabella?"
+                     '--->                            NameField_s = "nome field?"
+                     'Restituisce il nome del campo ed il titolo altrimenti se non esiste la tabella _
+                        o non esiste il field viene emesso un msg di avviso dalla funzione.
+                    '---> Cls_CONTROLLO_OGGETTI_TABLE_Tipo_Field_pFunct = MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE.CONTROLLO_OGGETTI_TABLE_Tipo_Field_pFunct(par_NameTable_s, par_NameField_s)
+                    '---> Set MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE = Nothing
+                '//--------------------------------------------------------------------------------//-//
+
+                '---> End Function
+
+
+                '...........................................................................................................................................
+                '                                       **** FINO QUI *****
+                '...........................................................................................................................................
+
+
+        End Sub
+
+    Private Sub ZZFINE_Controlla_FormGESTIONE_APERTA()
+
+
+
+
+
+            '//CODICE----------->CONTROLLO_OGGETTO_FORM_LaFormAPERTA.Salvataggio_ATTIVITA.Attivazione
+            '//--------------------------------------------------------------------------------//-//
+            '//CLASSE_OSPITE        : CLASSE_GESTIONE_OGGETTI_DATABASE
+            '//PARAMETRI            : stringa che rappresenta il nome della form.
+            '//RESTITUISCE          : bool True se la form è aperta
+
+                    '//LE VARIABILI
+                    '--->                    Dim par_sxNameForm   As String                      '//La variabile della form passato come parametro
+
+                    '1) ISTANZIO LA CLASSE
+                    '........................................................
+
+                    'ISTANZIO LA CLASSE CLASSE_GESTIONE_OGGETTI_DATABASE
+                    'Assegno e creo l'oggetto di classe
+                    '--->                    Dim MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE As CLASSE_GESTIONE_OGGETTI_DATABASE
+                    '--->                    Set MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE = New CLASSE_GESTIONE_OGGETTI_DATABASE
+
+
+
+                        'CONTROLLO SE LA FORM E' APERTA
+                        'Passo come parametro la stringa nome form e ritora True se è aperta
+                         '--->                            par_sxNameForm = Str1
+                         '--->                            Routine_CONTROLLO_FORM_DI_GESTIONE_APERTA = MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE.Controlla_FormGESTIONE_APERTA(par_sxNameForm)
+
+
+                        '--->                            Set MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE = Nothing
+
+            '//--------------------------------------------------------------------------------//-//
+
+
+
+                '//IN FONDO PUOI INSERIRE LA ROUTINE nel caso di parecchie operazioni di controllo della form se _
+                        aperta oppure no. La routine contiene un solo richiamo della classe.
+                '//ROUTINE PER IL CONTROLLO DELLA FORM APERTA
+                '//CODICE -----> Routine_CONTROLLO_FORM_DI_GESTIONE_APERTA
+                '//==========================================================================================================================================//
+                'Private Function Routine_CONTROLLO_FORM_DI_GESTIONE_APERTA(Str1) As Boolean
+
+
+                'On Error GoTo Err_Routine_CONTROLLO_FORM_DI_GESTIONE_APERTA
+
+                        '//CHIAMO LA FUNZIONE DI CONTROLLO SE LA FORM E' APERTA
+                        '//--------------------------------------------------------------------------------//-//
+                        '//NOTE: passare come stringa il nome della form da controllare. La funzione attiva _
+                                la classe di gestione oggetti con la quale viene effettuato il controllo tra _
+                                gli oggetti del db corrente, ossia le form e per quella specificata se la _
+                                form passata come parametro è aperta viene restituito TRUE.
+
+                                '----> Routine_CONTROLLO_FORM_DI_GESTIONE_APERTA (Str1)
+
+                        '//--------------------------------------------------------------------------------//-//
+
+
+                        '// CONTROLLA SE LA FORM GESTIONE E' APERTA
+                        '//============================================================================================//
+                        '//NOTE : chiamo la funzione per il controllo se la form principale  è aperta _
+                        viene passato come parametro il nome della form MASTER e restituisce un Boolean _
+                        TRUE se la form è aperta.
+
+                                '//1) ISTANZIO LA CLASSE
+                                '//--------------------------------------------------------------------------------//-//
+
+
+                                    'ISTANZIO LA CLASSE CLASSE_GESTIONE_OGGETTI_DATABASE
+                                    'Assegno e creo l'oggetto di classe
+                                    '--->
+                                    'Dim MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE As CLASSE_GESTIONE_OGGETTI_DATABASE
+                                    '--->
+                                    'Set MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE = New CLASSE_GESTIONE_OGGETTI_DATABASE
+
+
+                                        '//
+                                        'Bolean1 = False
+
+                                        'Bolean1 = MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE.Controlla_FormGESTIONE_APERTA(Str1)
+
+
+                                    '---> Set MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE = Nothing
+
+                            '//--------------------------------------------------------------------------------//-//
+
+                        '//============================================================================================//
+
+
+
+
+
+            '//USCITA E CONTROLLO ERRORI
+            '//==========================================================================================================================================//
+
+            'Exit_Routine_CONTROLLO_FORM_DI_GESTIONE_APERTA:
+            '    Exit Function
+
+            'Err_Routine_CONTROLLO_FORM_DI_GESTIONE_APERTA:
+            '    MsgBox Err.Description
+            '    Resume Exit_Routine_CONTROLLO_FORM_DI_GESTIONE_APERTA
+            'End Function
+
+            'End Function
+            '//ROUTINE PER IL CONTROLLO DELLA FORM APERTA *** FINE ***
+            '//==========================================================================================================================================//
+
+        End Sub
+
+    Private Sub ZZFINE_Istanzia_TROVA_CLASSE_DI_GESTIONE_pFunct()
 
 
 
 
 
 
+                    '//CHIAMO LA ROUTINE SALVO_ATTIVITA_CMB_02_IN_TMP_Sub DELLA CLASSE OGGETTI FORM
+                    '//CODICE----------->SALVO_ATTIVITA_CMB_02_IN_TMP_Sub.Salvataggio_ATTIVITA.Attivazione
+                    '//--------------------------------------------------------------------------------//-//
+                    '//CLASSE_OSPITE        : CLASSE_GESTIONE_OGGETTI_DATABASE
+                    '//PARAMETRI            : sono 4 di seguito indicati
+                    'par_sxCODOGGETTO       = CODICE OGGETTO OBBLIGATORIO
+                    'par_sxTIPOGGETTO       =
+                    'par_sxATTIVITAEVENTO   =
+                    'par_sxCODATTIVITA      = CODICE ATTIVITA OBBLIGATORIO
+                    '//NOTA  :Salvo i parametri del codice oggetto e del codice attiva nella tabella tmp solo nel caso in cui _
+                    sia IL CODICE OGGETTO che il CODICE ATTIVITA sono VALORIZZATI altrimenti la classe ricevente emette _
+                    un msg di avviso.
+
+
+
+                                '1) ISTANZIO LA CLASSE
+                                '........................................................
+                                'Uscita dalla routine se non trova la classe tramite il codice _
+                                oggetto allora viene emesso un msg di errore.
+                                'Recupero la stringa da applicare alla
+                                'successiva classe tramite il codice attivita ritrovo il _
+                                codice oggetto.
+                                '---> sxCODOGGETTO = ""
+                                '//trovo il codice oggetto mediante il codice attivita
+                                '---> sxCODOGGETTO = TROVA_CLASSE_DI_GESTIONE_pFunct(par_sxCODATTIVITA)
+
+                                'ISTANZIO LA CLASSE CLASSE_GESTIONE_OGGETTI_DATABASE
+                                'Assegno e creo l'oggetto di classe
+                                '---> Dim MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE As CLASSE_GESTIONE_OGGETTI_DATABASE
+                                '---> Set MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE = New CLASSE_GESTIONE_OGGETTI_DATABASE
+
+                                    'PARAMETRI DI ESTRAZIONE
+                                    'Recupero la stringa da applicare alla
+                                    'successiva classe
+                                    '---> sxCODOGGETTO = MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE.TROVA_CLASSE_DI_GESTIONE_pFunct(par_sxCODATTIVITA)
+                                    '---> Set MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE = Nothing
+
+
+                                    'SE NON ESISTE LA FUNZIONE USCITA DALLA ROUTINE
+                                    '........................................................
+                                    'Uscita dalla routine se non trova la classe tramite il codice _
+                                    oggetto allora viene emesso un msg di errore.
+
+                                        '---> If sxCODOGGETTO = "" Then
+
+                                                '---> MsgBox "Funzione non Abilitata!!", vbExclamation, "MSG GESTIONI"
+
+                                                '---> GoTo Exit_RECUPERO_I_DATI_DALLA_CLASSE_Sub
+
+                                        '---> End If
+                                    '........................................................
+
+
+
+                        '//--------------------------------------------------------------------------------//-//
+
+        End Sub
+
+    Private Sub ZZFINE_Istanzia_SALVATAGGIO_PARAMETRO_CODOGGETTO_in_TMP()
+
+
+        '//CODICE----------->SALVATAGGIO_PARAMETRO_CODOGGETTO_in_TMP_pFunct.AttivoLaClasse
+        '//--------------------------------------------------------------------------------//-//
+        '//CLASSE_OSPITE        : CLASSE_GESTIONE_OGGETTI_DATABASE
+        '//PARAMETRI            : sono il par_sxCODOGGETTO       = CODICE OGGETTO OBBLIGATORIO
+
+        '//NOTA  : AGGIORNO IL CODICE OGGETTO nella tabella oggetti tmp GEST_Tb01_N01_PARAM_OGGETTI_TMP
+
+
+
+                       'ISTANZIO LA CLASSE CLASSE_GESTIONE_OGGETTI_DATABASE
+                       'Assegno e creo l'oggetto di classe
+                       'Creo la variabile oggetto                              ---> Dim MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE As CLASSE_GESTIONE_OGGETTI_DATABASE
+                       'Creo l'oggetto classe                                  ---> Set MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE = New CLASSE_GESTIONE_OGGETTI_DATABASE
+
+                       'RECUPERO PARAMETRO DA TABELLA OGGETTI
+                        'Utilizzo la funzione pubblica di recupero del codice oggetto dal
+                        'codice attivita. Restituisco la chiamante il CODICE OGGETTO
+                        'Creo l'oggetto e attivo la funzione e ricevo la stringa ---> Str1 = MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE.SALVATAGGIO_PARAMETRO_CODOGGETTO_in_TMP_pFunct(par_sxCODOGGETTO)
+
+                       'Libero la memoria                                       ---> Set MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE = Nothing
+
+        '//--------------------------------------------------------------------------------//------------------------------------------------//
+        End Sub
+
+    Private Sub ZZFINE_Istanzia_SALVO_ATTIVITA_CMB_02_IN_TMP_Sub()
+
+            '//CHIAMO LA ROUTINE SALVO_ATTIVITA_CMB_02_IN_TMP_Sub DELLA CLASSE OGGETTI FORM
+            '//CODICE----------->SALVO_ATTIVITA_CMB_02_IN_TMP_Sub.Salvataggio_ATTIVITA.Attivazione
+            '//--------------------------------------------------------------------------------//-//
+            '//CLASSE_OSPITE        : CLASSE_GESTIONE_OGGETTI_DATABASE
+            '//PARAMETRI            : sono 4 di seguito indicati
+            'par_sxCODOGGETTO       = CODICE OGGETTO OBBLIGATORIO
+            'par_sxTIPOGGETTO       =
+            'par_sxATTIVITAEVENTO   =
+            'par_sxCODATTIVITA      = CODICE ATTIVITA OBBLIGATORIO
+            '//NOTA  :Salvo i parametri del codice oggetto e del codice attiva nella tabella tmp solo nel caso in cui _
+            sia IL CODICE OGGETTO che il CODICE ATTIVITA sono VALORIZZATI altrimenti la classe ricevente emette _
+            un msg di avviso.
+
+
+                'ISTANZIO LA CLASSE CLASSE_GESTIONE_OGGETTI_DATABASE
+                'Assegno e creo l'oggetto di classe
+                '---> Dim MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE As CLASSE_GESTIONE_OGGETTI_DATABASE
+                '---> Set MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE = New CLASSE_GESTIONE_OGGETTI_DATABASE
+
+
+
+                'PARAMETRI DI ESTRAZIONE
+                'Attivo il metodo della classe rappresentata dalla routine passando
+                'i 4 parametri necessari
+                'sxCODOGGETTO = s
+                'sxTIPOGGETTO = s
+                'sxATTIVITAEVENTO = s
+                'sxCODATTIVITA = s
+                '---> MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE.SALVO_ATTIVITA_CMB_02_IN_TMP_Sub sxCODOGGETTO, sxTIPOGGETTO, sxATTIVITAEVENTO, sxCODATTIVITA
+
+
+                '---> Set MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE = Nothing
+
+
+            '//--------------------------------------------------------------------------------//-//
+
+
+        End Sub
+
+    Private Sub ZZFINE_Istanzia_RECUPERO_CODOGGETTO()
+
+        '//CODICE----------->RECUPERO_CODOGGETTO_pbFunct.AttivoLaClasse
+        '//--------------------------------------------------------------------------------//-//
+        '//CLASSE_OSPITE        : CLASSE_GESTIONE_OGGETTI_DATABASE
+        '//PARAMETRI            : sono il par_sxCODOGGETTO       = CODICE OGGETTO OBBLIGATORIO
+
+        '//NOTA  : AGGIORNO IL CODICE OGGETTO nella tabella oggetti tmp GEST_Tb01_N01_PARAM_OGGETTI_TMP
+
+
+
+                       'ISTANZIO LA CLASSE CLASSE_GESTIONE_OGGETTI_DATABASE
+                       'Assegno e creo l'oggetto di classe
+                       'Creo la variabile oggetto                              ---> Dim MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE As CLASSE_GESTIONE_OGGETTI_DATABASE
+                       'Creo l'oggetto classe                                  ---> Set MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE = New CLASSE_GESTIONE_OGGETTI_DATABASE
+
+                       'RECUPERO PARAMETRO DA TABELLA OGGETTI
+                        'Utilizzo la funzione pubblica di recupero del codice oggetto dal
+                        'codice attivita. Restituisco la chiamante il CODICE OGGETTO
+                        'Creo l'oggetto e attivo la funzione e ricevo la stringa ---> TROVA_CODOGGETTO_Funct = MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE.RECUPERO_CODOGGETTO_pbFunct(sxCODATTIVITA)
+
+                       'Libero la memoria                                       ---> Set MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE = Nothing
+
+            '//--------------------------------------------------------------------------------//------------------------------------------------//
+
+
+        End Sub
+
+    Private Sub ZZFINE_Istanzia_CERCA_OGGETTI()
+
+
+            '//01) CLASSE_GESTIONE_OGGETTI_DATABASE
+            '//ISTANZIA LA CLASSE
+            '//06.30
+            '//FUNZIONE CERCA OGGETTI = Con due parametri Tipo oggetto e Nome oggetto lo ricerca nella db.
+            '//CODICE-------->CERCA_OGGETTI.01.Attiva
+            '//.....................................................................................................
+                '//IMPOSTO LA VARIABILE OGGETTO = per l'utilizzo della classe
+                    '//---> Dim MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE As CLASSE_GESTIONE_OGGETTI_DATABASE
+
+                '//ISTANZIO LA CLASSE = MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE assegnando _
+                     l'oggetto di classe alla variabile e creo creo l'oggetto di classe
+                    '//---> Set MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE = New CLASSE_GESTIONE_OGGETTI_DATABASE
+
+                '//PARAMETRI= TIPO OGGETTO E NOME OGGETTO.
+                    '//---> Str1 = MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE.CERCA_OGGETTI(sxTIPOGGETTO, sxNOMEOGGETTO)
+
+                '//RILASCIO LA MEMORIA = rilascio l'oggetto ed attivo il distruttore della classe
+                    '//---> Set MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE = Nothing
+
+            '//.....................................................................................................
+
+
+
+        End Sub
+
+    Private Sub ZZFINE_ESEMPI_ISTANZIAMENTO_CLASSE() '//ESEMPI_ISTANZIAMENTO_CLASSE - @ESEMPI@ISTANZIAMENTO@CLASSE
+
+        '//01) CLASSE CON LA PATH ED IL FILE DA APRIRE
+        '//
+        '//MODELLO ISTANZIAMENTO CLASSE ATTI DI GESTIONE
+        '//.....................................................................................................
+            '//IMPOSTO LA VARIABILE OGGETTO = per l'utilizzo della classe
+                'Dim MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE As CLASSE_GESTIONE_OGGETTI_DATABASE
+
+            '//ISTANZIO LA CLASSE = MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE assegnando _
+               l 'oggetto di classe alla variabile e creo creo l'oggetto di classe
+                'Set MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE = New CLASSE_GESTIONE_OGGETTI_DATABASE
+
+            '//PATH O FILE = Inserire o una path oppure una path+file con percoso esteso.
+                'Str1 = "C:\GESTIONI\GESTIONE_LLPP\25_GESTIONE_LLPP\LLPP_ARCHVI_MDB\LLPP_GESTIONE\LPP_ANALISI\GESTIONE_SERVIZI\MDB"
+                'MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE.APRO_PATH_O_FILE_GENERICI_pSub (Str1)
+
+            '//RILASCIO LA MEMORIA = rilascio l'oggetto ed attivo il distruttore della classe
+                'Set MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE = Nothing
+
+        '//.....................................................................................................
+
+
+        '//02) CLASSE CON PER L'ATTIVAZIONE DI UNA FUNZIONE O ROUTINE E CON RETURN DI UN BOOLEAN
+        '//
+        '//MODELLO ISTANZIAMENTO CLASSE ATTI DI GESTIONE
+        '//.....................................................................................................
+            '//IMPOSTO LA VARIABILE OGGETTO = per l'utilizzo della classe
+                'Dim MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE As CLASSE_GESTIONE_OGGETTI_DATABASE
+
+            '//ISTANZIO LA CLASSE = MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE assegnando _
+               l 'oggetto di classe alla variabile e creo creo l'oggetto di classe
+                'Set MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE = New CLASSE_GESTIONE_OGGETTI_DATABASE
+
+            '//CHIAMO LA FUNZIONE CON I PARAMETRI E CON RESTITUZIONE DI UN BOOLEAN
+                'Str1 = "C:\GESTIONI\GESTIONE_LLPP\25_GESTIONE_LLPP\LLPP_ARCHVI_MDB\LLPP_GESTIONE\LPP_ANALISI\GESTIONE_SERVIZI\MDB"
+                'Bool1 =  MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE.pfRICERCA_NEL_DB_OGGETTI_Table(sx_Scelta_db, _
+                                                                                          sx_Name_Table, _
+                                                                                          sx_Proprieta_Table, _
+                                                                                          ix_Operazione, _
+                                                                                          ix_Indice1, _
+                                                                                          bx_Flag_b)
+
+
+
+
+            '//RILASCIO LA MEMORIA = rilascio l'oggetto ed attivo il distruttore della classe
+                'Set MyCls_CLASSE_GESTIONE_OGGETTI_DATABASE = Nothing
+
+        '//.....................................................................................................
+
+
+        End Sub
 
 
 
 
 
+        '//                                     @CLASSE@OGGETTI@DATABASE                                    **** FINE *****
+        '@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 
 
 
+        '//**********************************************************************************************************************************************************
+        '//
+        '//                                     @ULTIME@FUNZIONI@AGGIUNTE                                    **** INIZIO *****
+        '//
+        '//         @FUNZ_01=LoopFormProps_FormCorrente_PULISCI_OGGETTI_TEXT_LABEL_PSub
+        '//         @FUNZ_02=SALVO_ATTIVITA_CMB_02_IN_TMP_Sub
+        '//
+        '//
+        '//**********************************************************************************************************************************************************
 
-
-
-
-
-
-
+    '//ZZFINE_MODELLI_ISTANZA_OGGETTI_CLASSE                          *** FINE ***
+    '//****************************************************************************************************//'
 
