@@ -1,7 +1,7 @@
 ============================================================
 LOG ESPORTAZIONE OGGETTI ACCESS
-Database origine: C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_GE_FILE\MDB\MSys_GE_FILE.mdb
-Data/Ora inizio: 30/10/2025 12:13:53
+Database origine: C:\Casa\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_GE_FILE\MDB\MSys_GE_FILE.mdb
+Data/Ora inizio: 30/10/2025 17:20:36
 ============================================================
 
 
@@ -58,5 +58,5 @@ OK  -> Msys_GEFILE_CARICA_Mdl00_}-------------------------------------@
 OK  -> Msys_GEFILE_CARICA_Mdl01_LIBRERIE
 
 Totale OK: 43 - Errori: 1
-Data/Ora fine: 30/10/2025 12:16:13
+Data/Ora fine: 30/10/2025 17:21:18
 ============================================================

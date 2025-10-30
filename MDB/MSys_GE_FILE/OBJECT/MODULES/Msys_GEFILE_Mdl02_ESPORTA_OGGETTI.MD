@@ -177,13 +177,13 @@
                  Next itm
 
                  dbDest.Close
-NextPath:
+            NextPath:
              Next Obj_v
 
              '=== Chiusura log dettagliato
              logFileOggetti.Close
 
-Esci:
+            Esci:
              logFile.WriteLine vbCrLf & "Totale OK: " & totaleOk & " - Errori: " & totaleErr
              logFile.WriteLine "Data/Ora fine: " & Now()
              logFile.WriteLine String(60, "=")
@@ -196,7 +196,7 @@ Esci:
 
              Exit Function
 
-GestErr:
+            GestErr:
              MsgBox "Errore durante l’esportazione: " & Err.Description, vbCritical, "ERRORE"
              If Not logFile Is Nothing Then logFile.Close
              If Not logFileOggetti Is Nothing Then logFileOggetti.Close
@@ -219,7 +219,7 @@ GestErr:
              Set CaricaPercorsiEsportazione = colPercorsi
              Exit Function
 
-GestErr:
+            GestErr:
              MsgBox "Errore in CaricaPercorsiEsportazione: " & Err.Description, vbCritical
              Set CaricaPercorsiEsportazione = Nothing
          End Function
@@ -266,7 +266,7 @@ GestErr:
              Set CaricaOggettiDaEsportare = colOggetti
              Exit Function
 
-GestErr:
+             GestErr:
              MsgBox "Errore in CaricaOggettiDaEsportare: " & Err.Description, vbCritical
              Set CaricaOggettiDaEsportare = Nothing
          End Function
@@ -301,14 +301,14 @@ GestErr:
              Set rs = Nothing
              Exit Function
 
-GestErr:
+            GestErr:
              Debug.Print "Errore in OggettoEsisteNelDB: " & Err.Description
              OggettoEsisteNelDB = False
          End Function
 
-         '==========================================================
-         '=== ROUTINE DI CANCELLAZIONE OGGETTO NEL DB ESTERNO =====
-         '==========================================================
+ '==========================================================
+ '=== ROUTINE DI CANCELLAZIONE OGGETTO NEL DB ESTERNO =====
+        '==========================================================
          Private Sub CancellaOggetto(dbDest As DAO.Database, sxPath As String, tipo As Integer, nome As String)
              On Error GoTo GestErr
 
@@ -331,7 +331,7 @@ GestErr:
              ScriviLog "Cancellato oggetto esistente: " & nome & " nel DB: " & sxPath
              Exit Sub
 
-GestErr:
+             GestErr:
              ScriviLog "Errore in CancellaOggetto (" & nome & "): " & Err.Description
          End Sub
 

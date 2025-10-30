@@ -64,23 +64,189 @@
 	"buffers":
 	[
 		{
-			"file": "/Y/Valter/DIRIGENTE/HTML_POSTA/PROCEDURA_JAVA_SCRIPT.MD",
-			"settings":
-			{
-				"buffer_size": 681,
-				"line_ending": "Windows"
-			}
-		},
-		{
 			"file": "OBJECT/MODULES/Msys_GEFILE_Mdl02_ESPORTA_OGGETTI.MD",
 			"settings":
 			{
-				"buffer_size": 17995,
+				"buffer_size": 18064,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			},
 			"undo_stack":
 			[
+				[
+					6,
+					1,
+					"insert",
+					{
+						"characters": "\t\t\t"
+					},
+					"AwAAAHYpAAAAAAAAeikAAAAAAAAAAAAAeikAAAAAAAB+KQAAAAAAAAAAAAB+KQAAAAAAAIIpAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAdikAAAAAAAB2KQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					7,
+					1,
+					"insert",
+					{
+						"characters": "\t"
+					},
+					"AQAAAIIpAAAAAAAAhikAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAgikAAAAAAACCKQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					8,
+					1,
+					"left_delete",
+					null,
+					"AQAAAIIpAAAAAAAAgikAAAAAAAAEAAAAICAgIA",
+					"AQAAAAAAAAABAAAAhikAAAAAAACGKQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					12,
+					1,
+					"insert",
+					{
+						"characters": "\t\t\t"
+					},
+					"AwAAAMUzAAAAAAAAyTMAAAAAAAAAAAAAyTMAAAAAAADNMwAAAAAAAAAAAADNMwAAAAAAANEzAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAxTMAAAAAAADFMwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					13,
+					1,
+					"insert",
+					{
+						"characters": " "
+					},
+					"AQAAANEzAAAAAAAA0jMAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA0TMAAAAAAADRMwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					20,
+					1,
+					"insert",
+					{
+						"characters": "\t\t\t"
+					},
+					"AwAAAMI5AAAAAAAAxjkAAAAAAAAAAAAAxjkAAAAAAADKOQAAAAAAAAAAAADKOQAAAAAAAM45AAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAwjkAAAAAAADCOQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					24,
+					1,
+					"insert",
+					{
+						"characters": "\t\t\t"
+					},
+					"AwAAAMY+AAAAAAAAyj4AAAAAAAAAAAAAyj4AAAAAAADOPgAAAAAAAAAAAADOPgAAAAAAANI+AAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAxj4AAAAAAADGPgAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					25,
+					1,
+					"insert",
+					{
+						"characters": " "
+					},
+					"AQAAANI+AAAAAAAA0z4AAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA0j4AAAAAAADSPgAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					26,
+					1,
+					"left_delete",
+					null,
+					"AQAAANI+AAAAAAAA0j4AAAAAAAABAAAAIA",
+					"AQAAAAAAAAABAAAA0z4AAAAAAADTPgAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					27,
+					1,
+					"insert",
+					{
+						"characters": " "
+					},
+					"AQAAANI+AAAAAAAA0z4AAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA0j4AAAAAAADSPgAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					31,
+					2,
+					"unindent",
+					null,
+					"BgAAAGI6AAAAAAAAYjoAAAAAAAAEAAAAICAgIKM6AAAAAAAAozoAAAAAAAAEAAAAICAgIOM6AAAAAAAA4zoAAAAAAAAEAAAAICAgIGI6AAAAAAAAYjoAAAAAAAAEAAAAICAgIJ86AAAAAAAAnzoAAAAAAAAEAAAAICAgINs6AAAAAAAA2zoAAAAAAAAEAAAAICAgIA",
+					"AQAAAAAAAAABAAAAazoAAAAAAAD0OgAAAAAAAAAAAAAAwFhA"
+				],
+				[
+					35,
+					1,
+					"insert",
+					{
+						"characters": "\t\t"
+					},
+					"AgAAANw6AAAAAAAA3zoAAAAAAAAAAAAA3zoAAAAAAADjOgAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA3DoAAAAAAADcOgAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					75,
+					1,
+					"insert",
+					{
+						"characters": "\t"
+					},
+					"AQAAAGgiAAAAAAAAbCIAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAaCIAAAAAAABoIgAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					78,
+					1,
+					"insert",
+					{
+						"characters": "\t"
+					},
+					"AQAAAN0iAAAAAAAA4SIAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA3SIAAAAAAADdIgAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					81,
+					1,
+					"insert",
+					{
+						"characters": "\t"
+					},
+					"AQAAACclAAAAAAAAKyUAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAJyUAAAAAAAAnJQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					82,
+					1,
+					"insert",
+					{
+						"characters": "\t\t"
+					},
+					"AgAAACslAAAAAAAALyUAAAAAAAAAAAAALyUAAAAAAAAzJQAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAKyUAAAAAAAArJQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					85,
+					1,
+					"insert",
+					{
+						"characters": "\t\t"
+					},
+					"AgAAAOEiAAAAAAAA5SIAAAAAAAAAAAAA5SIAAAAAAADpIgAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA4SIAAAAAAADhIgAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					88,
+					1,
+					"insert",
+					{
+						"characters": "\t\t"
+					},
+					"AgAAAGwiAAAAAAAAcCIAAAAAAAAAAAAAcCIAAAAAAAB0IgAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAbCIAAAAAAABsIgAAAAAAAAAAAAAAAPC/"
+				]
 			]
 		}
 	],
@@ -252,14 +418,11 @@
 	[
 		"/C/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/MDB/MSys_GE_FILE",
 		"/C/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/MDB/MSys_GE_FILE/OBJECT",
-		"/C/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/MDB/MSys_GE_FILE/OBJECT/CLASSI",
 		"/C/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/MDB/MSys_GE_FILE/OBJECT/MODULES"
 	],
 	"file_history":
 	[
 		"/C/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/MDB/MSys_GE_FILE/OBJECT/CLASSI/CLASSE_GESTIONE_OGGETTI_DATABASE.MD",
-		"/C/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/MDB/MSys_GE_FILE/OBJECT/MODULES/Msys_GEFILE_Mdl02_ESPORTA_OGGETTI.MD",
-		"/C/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/MDB/MSys_GE_FILE/CHATGBT.MD",
 		"/C/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/MDB/MSys_GE_FILE/README_GE_FILE.MD",
 		"/C/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/MDB/MSys_GE_FILE/README.MD",
 		"/C/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/MDB/MSys_GE_FILE/OBJECT/RUST/help_html/src/main.rs",
@@ -384,7 +547,9 @@
 		"/C/Users/icivi/AppData/Roaming/Sublime Text/Packages/User/MarkdownEditor-Dark.sublime-color-scheme",
 		"/C/Users/icivi/AppData/Roaming/Sublime Text/Packages/User/Monokai.sublime-color-scheme",
 		"/C/Users/icivi/AppData/Roaming/Sublime Text/Packages/User/Monokai+.sublime-color-scheme",
-		"/C/Users/icivi/AppData/Roaming/Sublime Text/Packages/User/Terminus.sublime-settings"
+		"/C/Users/icivi/AppData/Roaming/Sublime Text/Packages/User/Terminus.sublime-settings",
+		"/C/Users/icivi/AppData/Roaming/Sublime Text/Packages/Color Scheme - Default/Monokai.sublime-color-scheme",
+		"/C/CASA/LINGUAGGI/HTML/PROGETTI_HTML/REACT_GUIDA_HTML_IT/react-guida-html/tutorial/TUTORIAL_SUBLIMETEXT.MD"
 	],
 	"find":
 	{
@@ -403,8 +568,6 @@
 		"case_sensitive": false,
 		"find_history":
 		[
-			"ESPORTA MODULI",
-			"ESPORTA",
 			"@path@completa+file"
 		],
 		"highlight": false,
@@ -429,60 +592,30 @@
 			[
 				{
 					"buffer": 0,
-					"file": "/Y/Valter/DIRIGENTE/HTML_POSTA/PROCEDURA_JAVA_SCRIPT.MD",
+					"file": "OBJECT/MODULES/Msys_GEFILE_Mdl02_ESPORTA_OGGETTI.MD",
+					"selected": true,
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 681,
+						"buffer_size": 18064,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
+								18064,
 								0
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Markdown/Markdown.sublime-syntax",
+							"mde.folding.target_level": 1,
+							"syntax": "Packages/LaTeX/TeX.sublime-syntax",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"stack_multiselect": false,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "OBJECT/MODULES/Msys_GEFILE_Mdl02_ESPORTA_OGGETTI.MD",
-					"selected": true,
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 17995,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								209,
-								209
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Markdown/Markdown.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 12.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
@@ -566,7 +699,7 @@
 	"project": "Project_Msys_GE_FILE.sublime-project",
 	"replace":
 	{
-		"height": 60.0
+		"height": 60.8
 	},
 	"save_all_on_build": true,
 	"select_file":
