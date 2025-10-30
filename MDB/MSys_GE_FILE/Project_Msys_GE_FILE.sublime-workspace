@@ -63,6 +63,26 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "/Y/Valter/DIRIGENTE/HTML_POSTA/PROCEDURA_JAVA_SCRIPT.MD",
+			"settings":
+			{
+				"buffer_size": 681,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "OBJECT/MODULES/Msys_GEFILE_Mdl02_ESPORTA_OGGETTI.MD",
+			"settings":
+			{
+				"buffer_size": 17995,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			},
+			"undo_stack":
+			[
+			]
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -407,6 +427,69 @@
 		{
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "/Y/Valter/DIRIGENTE/HTML_POSTA/PROCEDURA_JAVA_SCRIPT.MD",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 681,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Markdown/Markdown.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"stack_multiselect": false,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "OBJECT/MODULES/Msys_GEFILE_Mdl02_ESPORTA_OGGETTI.MD",
+					"selected": true,
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 17995,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								209,
+								209
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Markdown/Markdown.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 12.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"stack_multiselect": false,
+					"type": "text"
+				}
 			]
 		}
 	],
