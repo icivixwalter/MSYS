@@ -1,0 +1,62 @@
+============================================================
+LOG ESPORTAZIONE OGGETTI ACCESS
+Database origine: C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_GE_FILE\MDB\MSys_GE_FILE.mdb
+Data/Ora inizio: 30/10/2025 12:13:53
+============================================================
+
+
+--------------------------------------------------
+DESTINAZIONE: C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSYS_ATTIVA_GEST_OGGETTI\MDB\MSYS_ATTIVA_GEST_OGGETTI.mdb
+--------------------------------------------------
+OK  -> UTILITA_Msys_Qry21_00_{@======================================@}
+OK  -> UTILITA_Msys_Qry21_01_GRUPPO_OGGETTI_CORRENTI
+OK  -> UTILITA_Msys_Qry21_02_Oggetti_Tutti
+OK  -> UTILITA_Msys_Qry21_02_Oggetti_Tutti_RICERCA
+OK  -> UTILITA_Msys_Qry21_03_Oggetti_Form
+OK  -> UTILITA_Msys_Qry21_03_Oggetti_Form_RICERCA
+OK  -> UTILITA_Msys_Qry21_04_Oggetti_Macro
+OK  -> UTILITA_Msys_Qry21_04_Oggetti_Macro_RICERCA
+OK  -> UTILITA_Msys_Qry21_05_Oggetti_Report
+OK  -> UTILITA_Msys_Qry21_05_Oggetti_Report_RICERCA
+OK  -> UTILITA_Msys_Qry21_06_Oggetti_Moduli
+OK  -> UTILITA_Msys_Qry21_06_Oggetti_Moduli_RICERCA
+OK  -> UTILITA_Msys_Qry21_07_Oggetti_TABELLE
+OK  -> UTILITA_Msys_Qry21_07_Oggetti_TABELLE_Link
+OK  -> UTILITA_Msys_Qry21_07_Oggetti_TABELLE_Link_RICERCA
+OK  -> UTILITA_Msys_Qry21_07_Oggetti_TABELLE_RICERCA
+OK  -> UTILITA_Msys_Qry21_08_Oggetti_Query
+OK  -> UTILITA_Msys_Qry21_08_Oggetti_Query_RICERCA
+OK  -> CLASSE_GESTIONE_OGGETTI_}--------------------------------------@
+ERRORE -> CLASSE_GESTIONE_OGGETTI_DATABASE (Impossibile salvare il modulo di classe'' su un modulo standard utilizzando lo stesso nome.)
+OK  -> Msys_GEFILE_CARICA_Mdl00_}-------------------------------------@
+OK  -> Msys_GEFILE_CARICA_Mdl01_LIBRERIE
+
+--------------------------------------------------
+DESTINAZIONE: C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSYS_BASE\MDB\MSYS_BASE_MODELLO.mdb
+--------------------------------------------------
+OK  -> UTILITA_Msys_Qry21_00_{@======================================@}
+OK  -> UTILITA_Msys_Qry21_01_GRUPPO_OGGETTI_CORRENTI
+OK  -> UTILITA_Msys_Qry21_02_Oggetti_Tutti
+OK  -> UTILITA_Msys_Qry21_02_Oggetti_Tutti_RICERCA
+OK  -> UTILITA_Msys_Qry21_03_Oggetti_Form
+OK  -> UTILITA_Msys_Qry21_03_Oggetti_Form_RICERCA
+OK  -> UTILITA_Msys_Qry21_04_Oggetti_Macro
+OK  -> UTILITA_Msys_Qry21_04_Oggetti_Macro_RICERCA
+OK  -> UTILITA_Msys_Qry21_05_Oggetti_Report
+OK  -> UTILITA_Msys_Qry21_05_Oggetti_Report_RICERCA
+OK  -> UTILITA_Msys_Qry21_06_Oggetti_Moduli
+OK  -> UTILITA_Msys_Qry21_06_Oggetti_Moduli_RICERCA
+OK  -> UTILITA_Msys_Qry21_07_Oggetti_TABELLE
+OK  -> UTILITA_Msys_Qry21_07_Oggetti_TABELLE_Link
+OK  -> UTILITA_Msys_Qry21_07_Oggetti_TABELLE_Link_RICERCA
+OK  -> UTILITA_Msys_Qry21_07_Oggetti_TABELLE_RICERCA
+OK  -> UTILITA_Msys_Qry21_08_Oggetti_Query
+OK  -> UTILITA_Msys_Qry21_08_Oggetti_Query_RICERCA
+OK  -> CLASSE_GESTIONE_OGGETTI_}--------------------------------------@
+OK  -> CLASSE_GESTIONE_OGGETTI_DATABASE
+OK  -> Msys_GEFILE_CARICA_Mdl00_}-------------------------------------@
+OK  -> Msys_GEFILE_CARICA_Mdl01_LIBRERIE
+
+Totale OK: 43 - Errori: 1
+Data/Ora fine: 30/10/2025 12:16:13
+============================================================

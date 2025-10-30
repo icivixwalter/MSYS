@@ -1,2 +1,0 @@
-2025-09-13 10:24:01 | Classe: Msys_GEFILE_CLS01_GESTIONI | Funzione: ApriFileShellApiWindows | Errore #: 1002 | Descrizione: File non trovato: C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSYS_BASE\MDB\MSYS_BASE | Riga: 0
-2025-09-14 10:53:26 | Classe: Msys_GEFILE_CLS01_GESTIONI | Funzione: ApriFileShellApiWindows | Errore #: 1002 | Descrizione: File non trovato: C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSYS_BASE\MDB\MSYS_BASE | Riga: 0
