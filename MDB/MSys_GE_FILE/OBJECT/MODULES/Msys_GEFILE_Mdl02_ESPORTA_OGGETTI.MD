@@ -6,6 +6,10 @@
    Option Compare Database
    Option Explicit
 
+    '//dim variabili generali per il log di cancellazione
+    Private logFilePath As String
+
+
 '//02_ESPORTO TUTTI GLI OGGETTI DI GEFILE      ***INIZIO ***
          '//============================================================================================================================//
          '// ATTIVITA ESEGUITE:
@@ -274,40 +278,40 @@
 '==========================================================
 '=== FUNZIONE DI CONTROLLO ESISTENZA OGGETTO NEL DB ESTERNO
          '==========================================================
-         Private Function OggettoEsisteNelDB(db As DAO.Database, tipoOggetto As Integer, nomeOggetto As String) As Boolean
-             On Error GoTo GestErr
-             Dim rs As DAO.Recordset
-             Dim sql As String
-             Dim tipoFiltro As Long
+             Private Function OggettoEsisteNelDB(db As DAO.Database, tipoOggetto As Integer, nomeOggetto As String) As Boolean
+                 On Error GoTo GestErr
+                 Dim rs As DAO.Recordset
+                 Dim sql As String
+                 Dim tipoFiltro As Long
 
-             '--- Mappatura tipo Access ? tipo MSysObjects
-             Select Case tipoOggetto
-                 Case 1: tipoFiltro = 5          ' Query
-                 Case 2: tipoFiltro = -32758     ' Form
-                 Case 3: tipoFiltro = -32764     ' Report
-                 Case 4: tipoFiltro = -32766     ' Macro
-                 Case 5: tipoFiltro = -32761     ' Modulo
-                 Case 6: tipoFiltro = -32768     ' Tabella
-                 Case Else
-                     OggettoEsisteNelDB = False
-                     Exit Function
-             End Select
+                 '--- Mappatura tipo Access ? tipo MSysObjects
+                 Select Case tipoOggetto
+                     Case 1: tipoFiltro = 5          ' Query
+                     Case 2: tipoFiltro = -32758     ' Form
+                     Case 3: tipoFiltro = -32764     ' Report
+                     Case 4: tipoFiltro = -32766     ' Macro
+                     Case 5: tipoFiltro = -32761     ' Modulo
+                     Case 6: tipoFiltro = -32768     ' Tabella
+                     Case Else
+                         OggettoEsisteNelDB = False
+                         Exit Function
+                 End Select
 
-             sql = "SELECT Name FROM MSysObjects WHERE Type=" & tipoFiltro & _
-                   " AND Name='" & nomeOggetto & "'"
-             Set rs = db.OpenRecordset(sql, dbOpenSnapshot)
-             OggettoEsisteNelDB = (Not rs.EOF)
-             rs.Close
-             Set rs = Nothing
-             Exit Function
+                 sql = "SELECT Name FROM MSysObjects WHERE Type=" & tipoFiltro & _
+                       " AND Name='" & nomeOggetto & "'"
+                 Set rs = db.OpenRecordset(sql, dbOpenSnapshot)
+                 OggettoEsisteNelDB = (Not rs.EOF)
+                 rs.Close
+                 Set rs = Nothing
+                 Exit Function
 
-            GestErr:
-             Debug.Print "Errore in OggettoEsisteNelDB: " & Err.Description
-             OggettoEsisteNelDB = False
-         End Function
+                GestErr:
+                 Debug.Print "Errore in OggettoEsisteNelDB: " & Err.Description
+                 OggettoEsisteNelDB = False
+             End Function
 
- '==========================================================
- '=== ROUTINE DI CANCELLAZIONE OGGETTO NEL DB ESTERNO =====
+'==========================================================
+'=== ROUTINE DI CANCELLAZIONE OGGETTO NEL DB ESTERNO =====
         '==========================================================
          Private Sub CancellaOggetto(dbDest As DAO.Database, sxPath As String, tipo As Integer, nome As String)
              On Error GoTo GestErr
@@ -368,5 +372,112 @@
       '//============================================================================================================================//
 
 
+
+
+
+
+
+ '==========================================================
+ '=== ROUTINE: CANCELLA_OGGETTI_DB_ESTERNO_Sub ============
+    '==========================================================
+    'Note: Cancello gli oggetti nel db esterno riutilizzando le routine del modulo
+            'Caricare la collection di oggetti da procedura_01 (CaricaOggettiDaEsportare)
+            'Caricare la collection di percorsi DB esterni da procedura_02 (CaricaPercorsiEsportazione)
+            'Iterare per ogni DB esterno e per ogni oggetto da cancellare
+            'Controllare se esiste nel DB usando OggettoEsisteNelDB
+            'Se esiste ? cancellarlo con CancellaOggetto
+            'Loggare ogni azione in CancellazioneOggettiLog.txt
+            'Gestire errori senza bloccare l’intero processo
+
+
+
+
+              Public Sub CANCELLA_OGGETTI_DB_ESTERNO_Sub()
+                  On Error GoTo GestErr
+
+                  Dim colOggetti As Collection
+                  Dim colPercorsi As Collection
+                  Dim dbDest As DAO.Database
+                  Dim sxPath As String
+                  Dim itm As Variant
+                  Dim itmPerc As Variant
+                  Dim tipo As Integer
+                  Dim nome As String
+                  Dim parts() As String
+                  Dim logPath As String
+
+                  '=== Imposta percorso file di log
+                  logPath = CurrentProject.Path & "\Logs\CancellazioneOggettiLog.txt"
+
+                  'Crea cartella Logs se non esiste
+                  If Dir(CurrentProject.Path & "\Logs\", vbDirectory) = "" Then MkDir CurrentProject.Path & "\Logs\"
+
+                  'Reindirizza ScriviLog al nuovo file
+                  Call ImpostaLogFile(logPath)
+
+                  ScriviLog "=== AVVIO CANCELLAZIONE OGGETTI DB ESTERNI ==="
+
+                  '=== 1. Carica gli oggetti da cancellare
+                  Set colOggetti = CaricaOggettiDaEsportare()
+                  If colOggetti Is Nothing Then
+                      ScriviLog "Errore: impossibile caricare collezione oggetti."
+                      GoTo Uscita
+                  End If
+
+                  '=== 2. Carica i percorsi dei DB esterni
+                  Set colPercorsi = CaricaPercorsiEsportazione()
+                  If colPercorsi Is Nothing Then
+                      ScriviLog "Errore: impossibile caricare percorsi DB esterni."
+                      GoTo Uscita
+                  End If
+
+                  '=== 3. Loop sui DB esterni
+                  For Each itmPerc In colPercorsi
+                      sxPath = CStr(itmPerc)
+                      ScriviLog "Connessione a DB esterno: " & sxPath
+
+                      If Dir(sxPath) = "" Then
+                          ScriviLog "ATTENZIONE: DB non trovato - " & sxPath
+                          GoTo NextPercorso
+                      End If
+
+                      Set dbDest = DBEngine.OpenDatabase(sxPath)
+
+                      '=== 4. Loop su oggetti da cancellare
+                      For Each itm In colOggetti
+                          parts = Split(itm, "|")
+                          If UBound(parts) = 1 Then
+                              tipo = CInt(parts(0))
+                              nome = parts(1)
+
+                              'Controlla se oggetto esiste
+                              If OggettoEsisteNelDB(dbDest, tipo, nome) Then
+                                  CancellaOggetto dbDest, sxPath, tipo, nome
+                              Else
+                                  ScriviLog "Oggetto NON trovato: " & nome & " nel DB: " & sxPath
+                              End If
+                          End If
+                      Next itm
+
+                      dbDest.Close
+                      Set dbDest = Nothing
+                NextPercorso:
+                  Next itmPerc
+
+                Uscita:
+                  ScriviLog "=== FINE CANCELLAZIONE OGGETTI DB ESTERNI ==="
+                  Exit Sub
+
+            GestErr:
+                  ScriviLog "ERRORE GENERALE in CANCELLA_OGGETTI_DB_ESTERNO_Sub: " & Err.Description
+                  Resume Uscita
+              End Sub
+
+        '//imposta log file
+        Private Sub ImpostaLogFile(ByVal nuovoPercorso As String)
+            logFilePath = nuovoPercorso
+        End Sub
+
+    '==========================================================
 
 

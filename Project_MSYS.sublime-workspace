@@ -15,34 +15,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "/c/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/README_MSYS.md",
-			"settings":
-			{
-				"buffer_size": 14986,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"contents": "Searching 563 files for \"@ESPORTA@IMPORTA@OGGETTI\"\n\nc:\\CASA\\LINGUAGGI\\ACCESS\\PROGETTI_MDB\\MSYS_OGGETTI\\MSYS\\README_MSYS.md:\n    1  # @PROGETTI@IN@LAVORAZIONE\n    2     2025.10.12 = IL PROGETTO IN LAVORAZIONE è quello esporta ed importa oggetti, vedi codice\n    3:                 @ESPORTA@IMPORTA@OGGETTI\n    4  \n    5  # SCHEMA CARTELLE E ASPETTI GENERALI DI UN MULTIPROGETTO ACCESS\n\nc:\\CASA\\LINGUAGGI\\ACCESS\\PROGETTI_MDB\\MSYS_OGGETTI\\MSYS\\MDB\\MSys_ESPORTA_IMPORTA\\README_MINI_PROGETTO_MSys_ESPORTA_IMPORTA.md:\n    3  ### GE_MSys_ESPORTA_IMPORTA.mdb\n    4        NOTE\n    5:          CODICE----> @PROGETTO@ESPORTA@IMPORTA@OGGETTI\n    6           il progetto si trova in questa path ed è costruito per le esportazioni e le importazioni:\n    7              start \"ESPORTA IMPORTA\" \"c:\\CASA\\LINGUAGGI\\ACCESS\\PROGETTI_MDB\\MSYS_OGGETTI\\MSYS\\MDB\\MSys_ESPORTA_IMPORTA\\\"\n\n2 matches across 2 files\n",
-			"settings":
-			{
-				"buffer_size": 890,
-				"line_ending": "Windows",
-				"name": "Find Results",
-				"scratch": true
-			}
-		},
-		{
-			"file": "/c/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/MDB/MSys_ESPORTA_IMPORTA/README_MINI_PROGETTO_MSys_ESPORTA_IMPORTA.md",
-			"settings":
-			{
-				"buffer_size": 1730,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -100,8 +72,7 @@
 	},
 	"expanded_folders":
 	[
-		"/c/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS",
-		"/c/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/GIT_BAT"
+		"/c/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS"
 	],
 	"file_history":
 	[
@@ -271,123 +242,6 @@
 		{
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "/c/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/README_MSYS.md",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 14986,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								135,
-								159
-							]
-						],
-						"settings":
-						{
-							"mde.match_heading_hashes": false,
-							"syntax": "Packages/Markdown/Markdown.sublime-syntax",
-							"tab_size": 3,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"stack_multiselect": false,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 890,
-						"regions":
-						{
-							"match":
-							{
-								"flags": 112,
-								"regions":
-								[
-									[
-										280,
-										304
-									],
-									[
-										606,
-										630
-									]
-								],
-								"scope": ""
-							}
-						},
-						"selection":
-						[
-							[
-								607,
-								607
-							]
-						],
-						"settings":
-						{
-							"detect_indentation": false,
-							"line_numbers": false,
-							"output_tag": 1,
-							"result_base_dir": "",
-							"result_file_regex": "^([^ \t].*):$",
-							"result_line_regex": "^ +([0-9]+):",
-							"scroll_past_end": true,
-							"syntax": "Packages/Default/Find Results.hidden-tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"stack_multiselect": false,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "/c/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/MDB/MSys_ESPORTA_IMPORTA/README_MINI_PROGETTO_MSys_ESPORTA_IMPORTA.md",
-					"selected": true,
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1730,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"mde.match_heading_hashes": false,
-							"syntax": "Packages/Markdown/Markdown.sublime-syntax",
-							"tab_size": 3,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 138.4,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"stack_multiselect": false,
-					"type": "text"
-				}
 			]
 		}
 	],
