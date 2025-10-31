@@ -64,10 +64,13 @@
 	"buffers":
 	[
 		{
+			"contents": "'//NAME_MODULO = Msys_GEFILE_Mdl02_ESPORTA_OGGETTI\n   '//PATH_PROGETTO: _\n   '       START \"APRI PROGETTO CLASSE\" \"c:\\Casa\\LINGUAGGI\\ACCESS\\PROGETTI_MDB\\MSYS_OGGETTI\\MSYS\\MDB\\MSys_GE_FILE\\MDB\\MSys_GE_FILE.mdb\"\n\n'//01_IMPOSTAZIONI MODULO\n   Option Compare Database\n   Option Explicit\n\n    '//dim variabili generali per il log di cancellazione\n    Private logFilePath As String\n\n\n'//02_ESPORTO TUTTI GLI OGGETTI DI GEFILE      ***INIZIO ***\n         '//============================================================================================================================//\n         '// ATTIVITA ESEGUITE:\n         '// - gestisce più percorsi (sxPath1, sxPath2, ecc.)\n         '// - usa Collection numeriche per i tipi oggetto (1, 2, 3, …)\n         '// - verifica esistenza oggetto prima dell’esportazione\n         '// - cancella preventivamente gli oggetti già presenti nel DB esterno\n         '// - scrive tutto su un file di log (oggetti OK, errori, mancanti)\n         '// - salta in sicurezza se una Collection è vuota\n         '// - mostra un messaggio riepilogativo finale\n         '//----------------------------------------------------------------------------'\n         '// FILTRO NUMERICO APPLICATO PER I DIVERSI OGGETTI:\n         '// Tipo numerico  Costante VBA   Oggetto Access\n         '// 1  acQuery    Query\n         '// 2  acForm     Form\n         '// 3  acReport   Report\n         '// 4  acMacro    Macro\n         '// 5  acModule   Modulo\n         '// 6  acTable    Tabella\n\n         Public Function Msys_GEFILE_Mdl01_ESPORTA_OGGETTI_Pfnc()\n\n             On Error GoTo GestErr\n             \n             MsgBox \"ESPORTAZIONE OGGETTI GE_FILE IN TUTTI I DB ACCESS\", vbExclamation, \"ESPORTO OGGETTI\"\n\n             '//DIM VARIABILI **** INIZIO ****\n             '====================================================================================================\n             '/collection\n             Dim colOggetti As Collection\n             Dim colPercorsi As Collection\n             Dim itm As Variant, Obj_v As Variant\n             '//PER IL FILE LOG\n             Dim fso As Object, logFile As Object\n             Dim logFileOggetti As Object\n             Dim exportNro As Long\n             Dim logPath As String\n             Dim startTime As Date\n             Dim totaleOk As Long, totaleErr As Long\n             Dim tipo As Integer, nome As String\n             Dim Path_s As String\n             Dim dbDest As DAO.Database\n             Dim NomeDB As String\n             \n             \n             '//FILE LOG SALVATO NELLA CARTELLA LOGS CREATA SE NON ESISTE **** INIZIO ****\n             '====================================================================================================\n             ' Creazione di FileSystemObject prima di qualsiasi operazione sui file.\n             ' Controllo e creazione della cartella Logs se non esiste.\n             ' Creazione dei due file di log:\n             '   ExportLog.txt ? log generale dell’esportazione.\n             '   ExportOggetti.txt ? log dettagliato con intestazioni Nro;NomeOggetto;Tipo;PathDestinazione;DBDestinazione.\n             ' Precaricamento delle collection: colPercorsi e colOggetti.\n             ' Verifiche preliminari con messaggi e scrittura nel log se le collection sono vuote.\n\n             '=== Creo il FileSystemObject\n             Set fso = CreateObject(\"Scripting.FileSystemObject\")\n\n             '=== Creo la cartella Logs se non esiste\n             If Not fso.FolderExists(CurrentProject.Path & \"\\Logs\") Then\n                 fso.CreateFolder CurrentProject.Path & \"\\Logs\"\n             End If\n\n             '=== Log dettagliato oggetti esportati\n             Set logFileOggetti = fso.CreateTextFile(CurrentProject.Path & \"\\Logs\\ExportOggetti.txt\", True)\n             logFileOggetti.WriteLine \"Nro;NomeOggetto;Tipo;PathDestinazione;DBDestinazione\"\n             exportNro = 0\n\n             '=== Log principale\n             startTime = Now()\n             logPath = CurrentProject.Path & \"\\Logs\\ExportLog.txt\"\n             Set logFile = fso.CreateTextFile(logPath, True)\n             logFile.WriteLine String(60, \"=\")\n             logFile.WriteLine \"LOG ESPORTAZIONE OGGETTI ACCESS\"\n             logFile.WriteLine \"Database origine: \" & CurrentDb.Name\n             logFile.WriteLine \"Data/Ora inizio: \" & startTime\n             logFile.WriteLine String(60, \"=\")\n             logFile.WriteLine \"\"\n\n             '=== Precarico le path dei DB esterni\n             Set colPercorsi = CaricaPercorsiEsportazione()\n\n             '=== Precarico gli oggetti da esportare\n             Set colOggetti = CaricaOggettiDaEsportare()\n\n             '=== Verifiche preliminari\n             If colPercorsi.Count = 0 Then\n                 MsgBox \"Nessun percorso di destinazione definito. Esportazione annullata.\", vbExclamation\n                 logFile.WriteLine \"?? Nessun percorso di destinazione definito. Esportazione annullata.\"\n                 GoTo Esci\n             End If\n\n             If colOggetti.Count = 0 Then\n                 MsgBox \"Nessun oggetto da esportare. Esportazione annullata.\", vbExclamation\n                 logFile.WriteLine \"?? Nessun oggetto da esportare. Collection vuota.\"\n                 GoTo Esci\n             End If\n\n             '==================================================================================================== fine log\n\n             '==========================================================\n             '=== CICLO PRINCIPALE DI ESPORTAZIONE ===================\n             '==========================================================\n             For Each Obj_v In colPercorsi\n                 Path_s = Obj_v\n                 logFile.WriteLine vbCrLf & String(50, \"-\")\n                 logFile.WriteLine \"DESTINAZIONE: \" & Path_s\n                 logFile.WriteLine String(50, \"-\")\n\n                 If Not fso.FileExists(Path_s) Then\n                     logFile.WriteLine \"? ATTENZIONE: file non trovato -> \" & Path_s\n                     Debug.Print \"ATTENZIONE: file non trovato -> \" & Path_s\n                     GoTo NextPath\n                 End If\n\n                 '=== Apro il database esterno\n                 Set dbDest = DBEngine.OpenDatabase(Path_s)\n\n                 '=== Cancellazione preventiva degli oggetti già presenti\n                 For Each itm In colOggetti\n                     tipo = CLng(Split(itm, \"|\")(0))\n                     nome = Split(itm, \"|\")(1)\n                     If OggettoEsisteNelDB(dbDest, tipo, nome) Then\n                         CancellaOggetto dbDest, Path_s, tipo, nome\n                     End If\n                 Next itm\n\n                 '=== Esporto gli oggetti\n                 For Each itm In colOggetti\n                     tipo = CLng(Split(itm, \"|\")(0))\n                     nome = Split(itm, \"|\")(1)\n\n                     '=== Controllo se l'oggetto esiste nel DB origine\n                     If OggettoEsiste(tipo, nome) Then\n                         On Error Resume Next\n                         '=== Copia oggetto nel DB esterno\n                         DoCmd.CopyObject Path_s, \"\", tipo, nome\n                         If Err.Number = 0 Then\n                             totaleOk = totaleOk + 1\n                             exportNro = exportNro + 1\n\n                             '=== Scrittura nel log generale\n                             Debug.Print \"OK -> \" & nome\n                             logFile.WriteLine \"OK  -> \" & nome\n\n                             '=== Scrittura nel log dettagliato ExportOggetti.txt\n                             logFileOggetti.WriteLine exportNro & \";\" & nome & \";\" & tipo & \";\" & Path_s & \";\" & Path_s\n\n                         Else\n                             totaleErr = totaleErr + 1\n                             Debug.Print \"ERRORE -> \" & nome & \" (\" & Err.Description & \")\"\n                             logFile.WriteLine \"ERRORE -> \" & nome & \" (\" & Err.Description & \")\"\n\n                             '=== Scrittura nel log dettagliato anche in caso di errore\n                             exportNro = exportNro + 1\n                             logFileOggetti.WriteLine exportNro & \";\" & nome & \";\" & tipo & \";\" & Path_s & \";\" & Path_s & \" - ERRORE: \" & Err.Description\n                         End If\n                         Err.Clear\n                         On Error GoTo GestErr\n                     Else\n                         totaleErr = totaleErr + 1\n                         Debug.Print \"NON TROVATO -> \" & nome\n                         logFile.WriteLine \"NON TROVATO -> \" & nome\n\n                         '=== Scrittura nel log dettagliato anche per oggetti non trovati\n                         exportNro = exportNro + 1\n                         logFileOggetti.WriteLine exportNro & \";\" & nome & \";\" & tipo & \";\" & Path_s & \";\" & Path_s & \" - NON TROVATO\"\n                     End If\n                 Next itm\n\n                 dbDest.Close\n            NextPath:\n             Next Obj_v\n\n             '=== Chiusura log dettagliato\n             logFileOggetti.Close\n\n            Esci:\n             logFile.WriteLine vbCrLf & \"Totale OK: \" & totaleOk & \" - Errori: \" & totaleErr\n             logFile.WriteLine \"Data/Ora fine: \" & Now()\n             logFile.WriteLine String(60, \"=\")\n             logFile.Close\n\n             MsgBox \"? Esportazione completata!\" & vbCrLf & _\n                    \"Oggetti OK: \" & totaleOk & vbCrLf & _\n                    \"Errori o non trovati: \" & totaleErr & vbCrLf & _\n                    \"Log dettagliato: \" & CurrentProject.Path & \"\\Logs\\ExportOggetti.txt\", vbInformation, \"RISULTATO ESPORTAZIONE\"\n\n             Exit Function\n\n            GestErr:\n             MsgBox \"Errore durante l’esportazione: \" & Err.Description, vbCritical, \"ERRORE\"\n             If Not logFile Is Nothing Then logFile.Close\n             If Not logFileOggetti Is Nothing Then logFileOggetti.Close\n\n         End Function\n\n'==========================================================\n'=== ROUTINE: Caricamento percorsi DB esterni ============\n         '==========================================================\n         Private Function CaricaPercorsiEsportazione() As Collection\n             On Error GoTo GestErr\n                 \n             Dim colPercorsi As New Collection\n\n             '=== Aggiungere qui i percorsi dei database di destinazione\n             colPercorsi.Add \"C:\\CASA\\LINGUAGGI\\ACCESS\\PROGETTI_MDB\\MSYS_OGGETTI\\MSYS\\MDB\\MSYS_ATTIVA_GEST_OGGETTI\\MDB\\MSYS_ATTIVA_GEST_OGGETTI.mdb\"\n             colPercorsi.Add \"C:\\CASA\\LINGUAGGI\\ACCESS\\PROGETTI_MDB\\MSYS_OGGETTI\\MSYS\\MDB\\MSYS_BASE\\MDB\\MSYS_BASE_MODELLO.mdb\"\n             '... aggiungere altri percorsi come necessario\n\n             Set CaricaPercorsiEsportazione = colPercorsi\n             Exit Function\n\n            GestErr:\n             MsgBox \"Errore in CaricaPercorsiEsportazione: \" & Err.Description, vbCritical\n             Set CaricaPercorsiEsportazione = Nothing\n         End Function\n\n         '==========================================================\n         '=== ROUTINE: Caricamento oggetti da esportare ===========\n         '==========================================================\n         Private Function CaricaOggettiDaEsportare() As Collection\n             On Error GoTo GestErr\n             Dim colOggetti As New Collection\n\n             '=== Formato: (tipo, nome)\n             ' 1 = Query, 2 = Form, 3 = Report, 4 = Macro, 5 = Modulo, 6 = Tabella\n             \n              'QUERY codice = 1\n                 colOggetti.Add \"1|UTILITA_Msys_Qry21_00_{@======================================@}\"\n                 colOggetti.Add \"1|UTILITA_Msys_Qry21_01_GRUPPO_OGGETTI_CORRENTI\"\n                 colOggetti.Add \"1|UTILITA_Msys_Qry21_02_Oggetti_Tutti\"\n                 colOggetti.Add \"1|UTILITA_Msys_Qry21_02_Oggetti_Tutti_RICERCA\"\n                 colOggetti.Add \"1|UTILITA_Msys_Qry21_03_Oggetti_Form\"\n                 colOggetti.Add \"1|UTILITA_Msys_Qry21_03_Oggetti_Form_RICERCA\"\n                 colOggetti.Add \"1|UTILITA_Msys_Qry21_04_Oggetti_Macro\"\n                 colOggetti.Add \"1|UTILITA_Msys_Qry21_04_Oggetti_Macro_RICERCA\"\n                 colOggetti.Add \"1|UTILITA_Msys_Qry21_05_Oggetti_Report\"\n                 colOggetti.Add \"1|UTILITA_Msys_Qry21_05_Oggetti_Report_RICERCA\"\n                 colOggetti.Add \"1|UTILITA_Msys_Qry21_06_Oggetti_Moduli\"\n                 colOggetti.Add \"1|UTILITA_Msys_Qry21_06_Oggetti_Moduli_RICERCA\"\n                 colOggetti.Add \"1|UTILITA_Msys_Qry21_07_Oggetti_TABELLE\"\n                 colOggetti.Add \"1|UTILITA_Msys_Qry21_07_Oggetti_TABELLE_Link\"\n                 colOggetti.Add \"1|UTILITA_Msys_Qry21_07_Oggetti_TABELLE_Link_RICERCA\"\n                 colOggetti.Add \"1|UTILITA_Msys_Qry21_07_Oggetti_TABELLE_RICERCA\"\n                 colOggetti.Add \"1|UTILITA_Msys_Qry21_08_Oggetti_Query\"\n                 colOggetti.Add \"1|UTILITA_Msys_Qry21_08_Oggetti_Query_RICERCA\"\n                 \n                 \n                 'MODULI codice = 5\n                colOggetti.Add \"5|CLASSE_GESTIONE_OGGETTI_}--------------------------------------@\"\n                colOggetti.Add \"5|CLASSE_GESTIONE_OGGETTI_DATABASE\"\n                colOggetti.Add \"5|Msys_GEFILE_CARICA_Mdl00_}-------------------------------------@\"\n                colOggetti.Add \"5|Msys_GEFILE_CARICA_Mdl01_LIBRERIE\"\n            \n\n\n             Set CaricaOggettiDaEsportare = colOggetti\n             Exit Function\n\n             GestErr:\n             MsgBox \"Errore in CaricaOggettiDaEsportare: \" & Err.Description, vbCritical\n             Set CaricaOggettiDaEsportare = Nothing\n         End Function\n\n'==========================================================\n'=== FUNZIONE DI CONTROLLO ESISTENZA OGGETTO NEL DB ESTERNO\n         '==========================================================\n             Private Function OggettoEsisteNelDB(db As DAO.Database, tipoOggetto As Integer, nomeOggetto As String) As Boolean\n                 On Error GoTo GestErr\n                 Dim rs As DAO.Recordset\n                 Dim sql As String\n                 Dim tipoFiltro As Long\n\n                 '--- Mappatura tipo Access ? tipo MSysObjects\n                 Select Case tipoOggetto\n                     Case 1: tipoFiltro = 5          ' Query\n                     Case 2: tipoFiltro = -32758     ' Form\n                     Case 3: tipoFiltro = -32764     ' Report\n                     Case 4: tipoFiltro = -32766     ' Macro\n                     Case 5: tipoFiltro = -32761     ' Modulo\n                     Case 6: tipoFiltro = -32768     ' Tabella\n                     Case Else\n                         OggettoEsisteNelDB = False\n                         Exit Function\n                 End Select\n\n                 sql = \"SELECT Name FROM MSysObjects WHERE Type=\" & tipoFiltro & _\n                       \" AND Name='\" & nomeOggetto & \"'\"\n                 Set rs = db.OpenRecordset(sql, dbOpenSnapshot)\n                 OggettoEsisteNelDB = (Not rs.EOF)\n                 rs.Close\n                 Set rs = Nothing\n                 Exit Function\n\n                GestErr:\n                 Debug.Print \"Errore in OggettoEsisteNelDB: \" & Err.Description\n                 OggettoEsisteNelDB = False\n             End Function\n\n'==========================================================\n'=== ROUTINE DI CANCELLAZIONE OGGETTO NEL DB ESTERNO =====\n        '==========================================================\n         Private Sub CancellaOggetto(dbDest As DAO.Database, sxPath As String, tipo As Integer, nome As String)\n             On Error GoTo GestErr\n\n             Select Case tipo\n                 Case 1\n                     dbDest.QueryDefs.Delete nome\n                 Case 6\n                     dbDest.TableDefs.Delete nome\n                 Case Else\n                     '--- Per Form, Report, Macro, Moduli serve Access.Application\n                     Dim accApp As Object\n                     Set accApp = CreateObject(\"Access.Application\")\n                     accApp.OpenCurrentDatabase sxPath\n                     accApp.DoCmd.DeleteObject tipo, nome\n                     accApp.CloseCurrentDatabase\n                     accApp.Quit\n                     Set accApp = Nothing\n             End Select\n\n             ScriviLog \"Cancellato oggetto esistente: \" & nome & \" nel DB: \" & sxPath\n             Exit Sub\n\n             GestErr:\n             ScriviLog \"Errore in CancellaOggetto (\" & nome & \"): \" & Err.Description\n         End Sub\n\n         '==========================================================\n         '=== FUNZIONE DI CONTROLLO ESISTENZA OGGETTO NEL DB ORIGINE\n         '==========================================================\n         Private Function OggettoEsiste(tipoOggetto As Integer, nomeOggetto As String) As Boolean\n             On Error Resume Next\n             Select Case tipoOggetto\n                 Case 1: OggettoEsiste = Not IsNull(CurrentData.AllQueries(nomeOggetto).Name)\n                 Case 2: OggettoEsiste = Not IsNull(CurrentProject.AllForms(nomeOggetto).Name)\n                 Case 3: OggettoEsiste = Not IsNull(CurrentProject.AllReports(nomeOggetto).Name)\n                 Case 4: OggettoEsiste = Not IsNull(CurrentProject.AllMacros(nomeOggetto).Name)\n                 Case 5: OggettoEsiste = Not IsNull(CurrentProject.AllModules(nomeOggetto).Name)\n                 Case 6: OggettoEsiste = Not IsNull(CurrentData.AllTables(nomeOggetto).Name)\n                 Case Else: OggettoEsiste = False\n             End Select\n         End Function\n\n'==========================================================\n'=== ROUTINE DI LOG (FACOLTATIVA) =======================\n      '==========================================================\n      Private Sub ScriviLog(ByVal testo As String)\n          On Error Resume Next\n          Dim f As Integer\n          f = FreeFile\n          Open CurrentProject.Path & \"\\Logs\\ExportLog.txt\" For Append As #f\n          Print #f, Now & \" - \" & testo\n          Close #f\n      End Sub\n\n      '//============================================================================================================================//\n      '//ESPORTO TUTTI GLI OGGETTI DI GEFILE      ***FINE ***\n      '//============================================================================================================================//\n\n\n\n\n\n\n\n '==========================================================\n '=== ROUTINE: CANCELLA_OGGETTI_DB_ESTERNO_Sub ============\n    '==========================================================\n    'Note: Cancello gli oggetti nel db esterno riutilizzando le routine del modulo\n            'Caricare la collection di oggetti da procedura_01 (CaricaOggettiDaEsportare)\n            'Caricare la collection di percorsi DB esterni da procedura_02 (CaricaPercorsiEsportazione)\n            'Iterare per ogni DB esterno e per ogni oggetto da cancellare\n            'Controllare se esiste nel DB usando OggettoEsisteNelDB\n            'Se esiste ? cancellarlo con CancellaOggetto\n            'Loggare ogni azione in CancellazioneOggettiLog.txt\n            'Gestire errori senza bloccare l’intero processo\n\n     Public Sub CANCELLA_OGGETTI_DB_ESTERNO_Sub()\n                  On Error GoTo GestErr\n\n                  Dim colOggetti As Collection\n                  Dim colPercorsi As Collection\n                  Dim dbDest As DAO.Database\n                  Dim sxPath As String\n                  Dim itm As Variant\n                  Dim itmPerc As Variant\n                  Dim tipo As Integer\n                  Dim nome As String\n                  Dim parts() As String\n                  Dim logPath As String\n\n                  '=== Imposta percorso file di log\n                  logPath = CurrentProject.Path & \"\\Logs\\CancellazioneOggettiLog.txt\"\n\n                  'Crea cartella Logs se non esiste\n                  If Dir(CurrentProject.Path & \"\\Logs\\\", vbDirectory) = \"\" Then MkDir CurrentProject.Path & \"\\Logs\\\"\n\n                  'Reindirizza ScriviLog al nuovo file\n                  Call ImpostaLogFile(logPath)\n\n                  ScriviLog \"=== AVVIO CANCELLAZIONE OGGETTI DB ESTERNI ===\"\n\n                  '=== 1. Carica gli oggetti da cancellare\n                  Set colOggetti = CaricaOggettiDaEsportare()\n                  If colOggetti Is Nothing Then\n                      ScriviLog \"Errore: impossibile caricare collezione oggetti.\"\n                      GoTo Uscita\n                  End If\n\n                  '=== 2. Carica i percorsi dei DB esterni\n                  Set colPercorsi = CaricaPercorsiEsportazione()\n                  If colPercorsi Is Nothing Then\n                      ScriviLog \"Errore: impossibile caricare percorsi DB esterni.\"\n                      GoTo Uscita\n                  End If\n\n                  '=== 3. Loop sui DB esterni\n                  For Each itmPerc In colPercorsi\n                      sxPath = CStr(itmPerc)\n                      ScriviLog \"Connessione a DB esterno: \" & sxPath\n\n                      If Dir(sxPath) = \"\" Then\n                          ScriviLog \"ATTENZIONE: DB non trovato - \" & sxPath\n                          GoTo NextPercorso\n                      End If\n\n                      Set dbDest = DBEngine.OpenDatabase(sxPath)\n\n                      '=== 4. Loop su oggetti da cancellare\n                      For Each itm In colOggetti\n                          parts = Split(itm, \"|\")\n                          If UBound(parts) = 1 Then\n                              tipo = CInt(parts(0))\n                              nome = parts(1)\n\n                              'Controlla se oggetto esiste\n                              If OggettoEsisteNelDB(dbDest, tipo, nome) Then\n                                  CancellaOggetto dbDest, sxPath, tipo, nome\n                              Else\n                                  ScriviLog \"Oggetto NON trovato: \" & nome & \" nel DB: \" & sxPath\n                              End If\n                          End If\n                      Next itm\n\n                      dbDest.Close\n                      Set dbDest = Nothing\n                NextPercorso:\n                  Next itmPerc\n\n                Uscita:\n                  ScriviLog \"=== FINE CANCELLAZIONE OGGETTI DB ESTERNI ===\"\n                  Exit Sub\n\n            GestErr:\n                  ScriviLog \"ERRORE GENERALE in CANCELLA_OGGETTI_DB_ESTERNO_Sub: \" & Err.Description\n                  Resume Uscita\n              End Sub\n\n        '//imposta log file\n        Private Sub ImpostaLogFile(ByVal nuovoPercorso As String)\n            logFilePath = nuovoPercorso\n        End Sub\n\n    '==========================================================\n\n\n",
 			"file": "OBJECT/MODULES/Msys_GEFILE_Mdl02_ESPORTA_OGGETTI.MD",
+			"file_size": 23086,
+			"file_write_time": 134063910705180364,
 			"settings":
 			{
-				"buffer_size": 18064,
+				"buffer_size": 22577,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			},
@@ -81,7 +84,7 @@
 						"characters": "\t\t\t"
 					},
 					"AwAAAHYpAAAAAAAAeikAAAAAAAAAAAAAeikAAAAAAAB+KQAAAAAAAAAAAAB+KQAAAAAAAIIpAAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAdikAAAAAAAB2KQAAAAAAAAAAAAAAAPC/"
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAB2KQAAAAAAAHYpAAAAAAAAAAAAAAAA8L8"
 				],
 				[
 					7,
@@ -91,7 +94,7 @@
 						"characters": "\t"
 					},
 					"AQAAAIIpAAAAAAAAhikAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAgikAAAAAAACCKQAAAAAAAAAAAAAAAPC/"
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAACCKQAAAAAAAIIpAAAAAAAAAAAAAAAA8L8"
 				],
 				[
 					8,
@@ -99,7 +102,7 @@
 					"left_delete",
 					null,
 					"AQAAAIIpAAAAAAAAgikAAAAAAAAEAAAAICAgIA",
-					"AQAAAAAAAAABAAAAhikAAAAAAACGKQAAAAAAAAAAAAAAAPC/"
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAACGKQAAAAAAAIYpAAAAAAAAAAAAAAAA8L8"
 				],
 				[
 					12,
@@ -109,7 +112,7 @@
 						"characters": "\t\t\t"
 					},
 					"AwAAAMUzAAAAAAAAyTMAAAAAAAAAAAAAyTMAAAAAAADNMwAAAAAAAAAAAADNMwAAAAAAANEzAAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAxTMAAAAAAADFMwAAAAAAAAAAAAAAAPC/"
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAADFMwAAAAAAAMUzAAAAAAAAAAAAAAAA8L8"
 				],
 				[
 					13,
@@ -119,7 +122,7 @@
 						"characters": " "
 					},
 					"AQAAANEzAAAAAAAA0jMAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAA0TMAAAAAAADRMwAAAAAAAAAAAAAAAPC/"
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAADRMwAAAAAAANEzAAAAAAAAAAAAAAAA8L8"
 				],
 				[
 					20,
@@ -129,7 +132,7 @@
 						"characters": "\t\t\t"
 					},
 					"AwAAAMI5AAAAAAAAxjkAAAAAAAAAAAAAxjkAAAAAAADKOQAAAAAAAAAAAADKOQAAAAAAAM45AAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAwjkAAAAAAADCOQAAAAAAAAAAAAAAAPC/"
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAADCOQAAAAAAAMI5AAAAAAAAAAAAAAAA8L8"
 				],
 				[
 					24,
@@ -139,7 +142,7 @@
 						"characters": "\t\t\t"
 					},
 					"AwAAAMY+AAAAAAAAyj4AAAAAAAAAAAAAyj4AAAAAAADOPgAAAAAAAAAAAADOPgAAAAAAANI+AAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAxj4AAAAAAADGPgAAAAAAAAAAAAAAAPC/"
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAADGPgAAAAAAAMY+AAAAAAAAAAAAAAAA8L8"
 				],
 				[
 					25,
@@ -149,7 +152,7 @@
 						"characters": " "
 					},
 					"AQAAANI+AAAAAAAA0z4AAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAA0j4AAAAAAADSPgAAAAAAAAAAAAAAAPC/"
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAADSPgAAAAAAANI+AAAAAAAAAAAAAAAA8L8"
 				],
 				[
 					26,
@@ -157,7 +160,7 @@
 					"left_delete",
 					null,
 					"AQAAANI+AAAAAAAA0j4AAAAAAAABAAAAIA",
-					"AQAAAAAAAAABAAAA0z4AAAAAAADTPgAAAAAAAAAAAAAAAPC/"
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAADTPgAAAAAAANM+AAAAAAAAAAAAAAAA8L8"
 				],
 				[
 					27,
@@ -167,7 +170,7 @@
 						"characters": " "
 					},
 					"AQAAANI+AAAAAAAA0z4AAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAA0j4AAAAAAADSPgAAAAAAAAAAAAAAAPC/"
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAADSPgAAAAAAANI+AAAAAAAAAAAAAAAA8L8"
 				],
 				[
 					31,
@@ -175,7 +178,7 @@
 					"unindent",
 					null,
 					"BgAAAGI6AAAAAAAAYjoAAAAAAAAEAAAAICAgIKM6AAAAAAAAozoAAAAAAAAEAAAAICAgIOM6AAAAAAAA4zoAAAAAAAAEAAAAICAgIGI6AAAAAAAAYjoAAAAAAAAEAAAAICAgIJ86AAAAAAAAnzoAAAAAAAAEAAAAICAgINs6AAAAAAAA2zoAAAAAAAAEAAAAICAgIA",
-					"AQAAAAAAAAABAAAAazoAAAAAAAD0OgAAAAAAAAAAAAAAwFhA"
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABrOgAAAAAAAPQ6AAAAAAAAAAAAAADAWEA"
 				],
 				[
 					35,
@@ -185,7 +188,7 @@
 						"characters": "\t\t"
 					},
 					"AgAAANw6AAAAAAAA3zoAAAAAAAAAAAAA3zoAAAAAAADjOgAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAA3DoAAAAAAADcOgAAAAAAAAAAAAAAAPC/"
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAADcOgAAAAAAANw6AAAAAAAAAAAAAAAA8L8"
 				],
 				[
 					75,
@@ -195,7 +198,7 @@
 						"characters": "\t"
 					},
 					"AQAAAGgiAAAAAAAAbCIAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAaCIAAAAAAABoIgAAAAAAAAAAAAAAAPC/"
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABoIgAAAAAAAGgiAAAAAAAAAAAAAAAA8L8"
 				],
 				[
 					78,
@@ -205,7 +208,7 @@
 						"characters": "\t"
 					},
 					"AQAAAN0iAAAAAAAA4SIAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAA3SIAAAAAAADdIgAAAAAAAAAAAAAAAPC/"
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAADdIgAAAAAAAN0iAAAAAAAAAAAAAAAA8L8"
 				],
 				[
 					81,
@@ -215,7 +218,7 @@
 						"characters": "\t"
 					},
 					"AQAAACclAAAAAAAAKyUAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAJyUAAAAAAAAnJQAAAAAAAAAAAAAAAPC/"
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAnJQAAAAAAACclAAAAAAAAAAAAAAAA8L8"
 				],
 				[
 					82,
@@ -225,7 +228,7 @@
 						"characters": "\t\t"
 					},
 					"AgAAACslAAAAAAAALyUAAAAAAAAAAAAALyUAAAAAAAAzJQAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAKyUAAAAAAAArJQAAAAAAAAAAAAAAAPC/"
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAArJQAAAAAAACslAAAAAAAAAAAAAAAA8L8"
 				],
 				[
 					85,
@@ -235,7 +238,7 @@
 						"characters": "\t\t"
 					},
 					"AgAAAOEiAAAAAAAA5SIAAAAAAAAAAAAA5SIAAAAAAADpIgAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAA4SIAAAAAAADhIgAAAAAAAAAAAAAAAPC/"
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAADhIgAAAAAAAOEiAAAAAAAAAAAAAAAA8L8"
 				],
 				[
 					88,
@@ -245,7 +248,431 @@
 						"characters": "\t\t"
 					},
 					"AgAAAGwiAAAAAAAAcCIAAAAAAAAAAAAAcCIAAAAAAAB0IgAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAbCIAAAAAAABsIgAAAAAAAAAAAAAAAPC/"
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABsIgAAAAAAAGwiAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					16,
+					1,
+					"indent",
+					null,
+					"HAAAAGA1AAAAAAAAZDUAAAAAAAAAAAAA3zUAAAAAAADjNQAAAAAAAAAAAAAGNgAAAAAAAAo2AAAAAAAAAAAAAC82AAAAAAAAMzYAAAAAAAAAAAAAUjYAAAAAAABWNgAAAAAAAAAAAAB7NgAAAAAAAH82AAAAAAAAAAAAALo2AAAAAAAAvjYAAAAAAAAAAAAA4zYAAAAAAADnNgAAAAAAAAAAAAAgNwAAAAAAACQ3AAAAAAAAAAAAAFw3AAAAAAAAYDcAAAAAAAAAAAAAmjcAAAAAAACeNwAAAAAAAAAAAADXNwAAAAAAANs3AAAAAAAAAAAAABU4AAAAAAAAGTgAAAAAAAAAAAAAVDgAAAAAAABYOAAAAAAAAAAAAABzOAAAAAAAAHc4AAAAAAAAAAAAAKc4AAAAAAAAqzgAAAAAAAAAAAAAzjgAAAAAAADSOAAAAAAAAAAAAADrOAAAAAAAAO84AAAAAAAAAAAAAD45AAAAAAAAQjkAAAAAAAAAAAAAdzkAAAAAAAB7OQAAAAAAAAAAAAC3OQAAAAAAALs5AAAAAAAAAAAAAOo5AAAAAAAA7jkAAAAAAAAAAAAABDoAAAAAAAAIOgAAAAAAAAAAAAAmOgAAAAAAACo6AAAAAAAAAAAAAEY6AAAAAAAASjoAAAAAAAAAAAAAXzoAAAAAAABjOgAAAAAAAAAAAACvOgAAAAAAALM6AAAAAAAAAAAAANs6AAAAAAAA3zoAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAhToAAAAAAABgNQAAAAAAAAAAAAAAAAAA"
+				],
+				[
+					20,
+					1,
+					"left_delete",
+					null,
+					"AQAAAPY6AAAAAAAA9joAAAAAAAABAAAAIA",
+					"AQAAAAAAAAABAAAA9zoAAAAAAAD3OgAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					22,
+					1,
+					"right_delete",
+					null,
+					"AQAAADI7AAAAAAAAMjsAAAAAAAABAAAAIA",
+					"AQAAAAAAAAABAAAAMjsAAAAAAAAyOwAAAAAAAAAAAAAAAAAA"
+				],
+				[
+					39,
+					1,
+					"insert",
+					{
+						"characters": "\n\n"
+					},
+					"AwAAABoBAAAAAAAAHgEAAAAAAAAAAAAAHgEAAAAAAAAiAQAAAAAAAAAAAAAbAQAAAAAAABsBAAAAAAAAAwAAACAgIA",
+					"AQAAAAAAAAABAAAAGgEAAAAAAAAaAQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					40,
+					1,
+					"paste",
+					null,
+					"AQAAAB8BAAAAAAAAXwEAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAHwEAAAAAAAAfAQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					45,
+					2,
+					"left_delete",
+					null,
+					"AgAAACABAAAAAAAAIAEAAAAAAAADAAAAICAgHAEAAAAAAAAcAQAAAAAAAAQAAAAgICAg",
+					"AQAAAAAAAAABAAAAIwEAAAAAAAAjAQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					46,
+					1,
+					"insert",
+					{
+						"characters": "\t"
+					},
+					"AQAAABwBAAAAAAAAIAEAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAHAEAAAAAAAAcAQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					48,
+					1,
+					"insert",
+					{
+						"characters": " per"
+					},
+					"BAAAADkBAAAAAAAAOgEAAAAAAAAAAAAAOgEAAAAAAAA7AQAAAAAAAAAAAAA7AQAAAAAAADwBAAAAAAAAAAAAADwBAAAAAAAAPQEAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAOQEAAAAAAAA5AQAAAAAAAP///////+9/"
+				],
+				[
+					49,
+					1,
+					"insert",
+					{
+						"characters": " il"
+					},
+					"AwAAAD0BAAAAAAAAPgEAAAAAAAAAAAAAPgEAAAAAAAA/AQAAAAAAAAAAAAA/AQAAAAAAAEABAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAPQEAAAAAAAA9AQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					50,
+					1,
+					"insert",
+					{
+						"characters": " log"
+					},
+					"BAAAAEABAAAAAAAAQQEAAAAAAAAAAAAAQQEAAAAAAABCAQAAAAAAAAAAAABCAQAAAAAAAEMBAAAAAAAAAAAAAEMBAAAAAAAARAEAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAQAEAAAAAAABAAQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					51,
+					1,
+					"insert",
+					{
+						"characters": " di"
+					},
+					"AwAAAEQBAAAAAAAARQEAAAAAAAAAAAAARQEAAAAAAABGAQAAAAAAAAAAAABGAQAAAAAAAEcBAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAARAEAAAAAAABEAQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					52,
+					1,
+					"insert",
+					{
+						"characters": " cancellazione"
+					},
+					"DgAAAEcBAAAAAAAASAEAAAAAAAAAAAAASAEAAAAAAABJAQAAAAAAAAAAAABJAQAAAAAAAEoBAAAAAAAAAAAAAEoBAAAAAAAASwEAAAAAAAAAAAAASwEAAAAAAABMAQAAAAAAAAAAAABMAQAAAAAAAE0BAAAAAAAAAAAAAE0BAAAAAAAATgEAAAAAAAAAAAAATgEAAAAAAABPAQAAAAAAAAAAAABPAQAAAAAAAFABAAAAAAAAAAAAAFABAAAAAAAAUQEAAAAAAAAAAAAAUQEAAAAAAABSAQAAAAAAAAAAAABSAQAAAAAAAFMBAAAAAAAAAAAAAFMBAAAAAAAAVAEAAAAAAAAAAAAAVAEAAAAAAABVAQAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAARwEAAAAAAABHAQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					55,
+					1,
+					"insert",
+					{
+						"characters": "\n\n\n"
+					},
+					"AwAAAFxHAAAAAAAAXUcAAAAAAAAAAAAAXUcAAAAAAABeRwAAAAAAAAAAAABeRwAAAAAAAF9HAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAXEcAAAAAAABcRwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					56,
+					1,
+					"paste",
+					null,
+					"AQAAAF9HAAAAAAAARloAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAX0cAAAAAAABfRwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					58,
+					1,
+					"insert",
+					{
+						"characters": "\t\t\t\t\t"
+					},
+					"BQAAACdYAAAAAAAAK1gAAAAAAAAAAAAAK1gAAAAAAAAvWAAAAAAAAAAAAAAvWAAAAAAAADNYAAAAAAAAAAAAADNYAAAAAAAAN1gAAAAAAAAAAAAAN1gAAAAAAAA7WAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAJ1gAAAAAAAAnWAAAAAAAAAAAAAAAAAAA"
+				],
+				[
+					61,
+					1,
+					"insert",
+					{
+						"characters": "\t\t\t\t\t"
+					},
+					"BQAAAINYAAAAAAAAh1gAAAAAAAAAAAAAh1gAAAAAAACLWAAAAAAAAAAAAACLWAAAAAAAAI9YAAAAAAAAAAAAAI9YAAAAAAAAk1gAAAAAAAAAAAAAk1gAAAAAAACXWAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAg1gAAAAAAACDWAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					64,
+					1,
+					"insert",
+					{
+						"characters": "\t\t\t\t"
+					},
+					"BAAAACVZAAAAAAAAKVkAAAAAAAAAAAAAKVkAAAAAAAAtWQAAAAAAAAAAAAAtWQAAAAAAADFZAAAAAAAAAAAAADFZAAAAAAAANVkAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAJVkAAAAAAAAlWQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					69,
+					1,
+					"unindent",
+					null,
+					"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"
+				],
+				[
+					73,
+					2,
+					"left_delete",
+					null,
+					"AgAAAKBHAAAAAAAAoEcAAAAAAAAEAAAAICAgIJxHAAAAAAAAnEcAAAAAAAAEAAAAICAgIA",
+					"AQAAAAAAAAABAAAApEcAAAAAAACkRwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					74,
+					1,
+					"insert",
+					{
+						"characters": " "
+					},
+					"AQAAAJxHAAAAAAAAnUcAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAnEcAAAAAAACcRwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					77,
+					3,
+					"left_delete",
+					null,
+					"AwAAAORHAAAAAAAA5EcAAAAAAAACAAAAICDgRwAAAAAAAOBHAAAAAAAABAAAACAgICDcRwAAAAAAANxHAAAAAAAABAAAACAgICA",
+					"AQAAAAAAAAABAAAA5kcAAAAAAADmRwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					85,
+					1,
+					"insert",
+					{
+						"characters": "\n\n"
+					},
+					"AwAAAPZYAAAAAAAA+1gAAAAAAAAAAAAA+1gAAAAAAAAAWQAAAAAAAAAAAAD3WAAAAAAAAPdYAAAAAAAABAAAACAgICA",
+					"AQAAAAAAAAABAAAA9lgAAAAAAAD2WAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					86,
+					1,
+					"paste",
+					null,
+					"AQAAAPxYAAAAAAAAN1kAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA/FgAAAAAAAD8WAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					89,
+					1,
+					"indent",
+					null,
+					"BAAAAHFYAAAAAAAAdVgAAAAAAAAAAAAAjVgAAAAAAACRWAAAAAAAAAAAAADPWAAAAAAAANNYAAAAAAAAAAAAAPdYAAAAAAAA+1gAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA91gAAAAAAABzWAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					90,
+					1,
+					"trim_trailing_white_space",
+					null,
+					"DwAAAK1XAAAAAAAArVcAAAAAAAASAAAAICAgICAgICAgICAgICAgICAgG1cAAAAAAAAbVwAAAAAAABIAAAAgICAgICAgICAgICAgICAgICB5VgAAAAAAAHlWAAAAAAAAFgAAACAgICAgICAgICAgICAgICAgICAgICCbVAAAAAAAAJtUAAAAAAAAHgAAACAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIE9TAAAAAAAAT1MAAAAAAAAWAAAAICAgICAgICAgICAgICAgICAgICAgIPdSAAAAAAAA91IAAAAAAAAWAAAAICAgICAgICAgICAgICAgICAgICAgIBtSAAAAAAAAG1IAAAAAAAAWAAAAICAgICAgICAgICAgICAgICAgICAgIDVRAAAAAAAANVEAAAAAAAASAAAAICAgICAgICAgICAgICAgICAg5k8AAAAAAADmTwAAAAAAABIAAAAgICAgICAgICAgICAgICAgICCcTgAAAAAAAJxOAAAAAAAAEgAAACAgICAgICAgICAgICAgICAgIDxOAAAAAAAAPE4AAAAAAAASAAAAICAgICAgICAgICAgICAgICAgw00AAAAAAADDTQAAAAAAABIAAAAgICAgICAgICAgICAgICAgICAHTQAAAAAAAAdNAAAAAAAAEgAAACAgICAgICAgICAgICAgICAgIGpMAAAAAAAAakwAAAAAAAASAAAAICAgICAgICAgICAgICAgICAgu0oAAAAAAAC7SgAAAAAAABIAAAAgICAgICAgICAgICAgICAgICA",
+					"AQAAAAAAAAABAAAAB1kAAAAAAAB3WAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					98,
+					2,
+					"unindent",
+					null,
+					"DgAAABhIAAAAAAAAGEgAAAAAAAAEAAAAICAgIHRIAAAAAAAAdEgAAAAAAAAEAAAAICAgIOBIAAAAAAAA4EgAAAAAAAAEAAAAICAgIC5JAAAAAAAALkkAAAAAAAAEAAAAICAgIHZJAAAAAAAAdkkAAAAAAAAEAAAAICAgILNJAAAAAAAAs0kAAAAAAAAEAAAAICAgIPdJAAAAAAAA90kAAAAAAAAEAAAAICAgIBhIAAAAAAAAGEgAAAAAAAAEAAAAICAgIHBIAAAAAAAAcEgAAAAAAAAEAAAAICAgINhIAAAAAAAA2EgAAAAAAAAEAAAAICAgICJJAAAAAAAAIkkAAAAAAAAEAAAAICAgIGZJAAAAAAAAZkkAAAAAAAAEAAAAICAgIJ9JAAAAAAAAn0kAAAAAAAAEAAAAICAgIN9JAAAAAAAA30kAAAAAAAAEAAAAICAgIA",
+					"AQAAAAAAAAABAAAAIkgAAAAAAABUSgAAAAAAAAAAAAAAgFtA"
+				],
+				[
+					103,
+					1,
+					"insert",
+					{
+						"characters": "CAnce"
+					},
+					"BQAAACNIAAAAAAAAJEgAAAAAAAAAAAAAJEgAAAAAAAAlSAAAAAAAAAAAAAAlSAAAAAAAACZIAAAAAAAAAAAAACZIAAAAAAAAJ0gAAAAAAAAAAAAAJ0gAAAAAAAAoSAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAI0gAAAAAAAAjSAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					104,
+					5,
+					"left_delete",
+					null,
+					"BQAAACdIAAAAAAAAJ0gAAAAAAAABAAAAZSZIAAAAAAAAJkgAAAAAAAABAAAAYyVIAAAAAAAAJUgAAAAAAAABAAAAbiRIAAAAAAAAJEgAAAAAAAABAAAAQSNIAAAAAAAAI0gAAAAAAAABAAAAQw",
+					"AQAAAAAAAAABAAAAKEgAAAAAAAAoSAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					105,
+					1,
+					"insert",
+					{
+						"characters": "Cancello"
+					},
+					"CAAAACNIAAAAAAAAJEgAAAAAAAAAAAAAJEgAAAAAAAAlSAAAAAAAAAAAAAAlSAAAAAAAACZIAAAAAAAAAAAAACZIAAAAAAAAJ0gAAAAAAAAAAAAAJ0gAAAAAAAAoSAAAAAAAAAAAAAAoSAAAAAAAAClIAAAAAAAAAAAAAClIAAAAAAAAKkgAAAAAAAAAAAAAKkgAAAAAAAArSAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAI0gAAAAAAAAjSAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					106,
+					1,
+					"insert",
+					{
+						"characters": " glio"
+					},
+					"BQAAACtIAAAAAAAALEgAAAAAAAAAAAAALEgAAAAAAAAtSAAAAAAAAAAAAAAtSAAAAAAAAC5IAAAAAAAAAAAAAC5IAAAAAAAAL0gAAAAAAAAAAAAAL0gAAAAAAAAwSAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAK0gAAAAAAAArSAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					107,
+					1,
+					"left_delete",
+					null,
+					"AQAAAC9IAAAAAAAAL0gAAAAAAAABAAAAbw",
+					"AQAAAAAAAAABAAAAMEgAAAAAAAAwSAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					108,
+					1,
+					"insert",
+					{
+						"characters": " oggetti"
+					},
+					"CAAAAC9IAAAAAAAAMEgAAAAAAAAAAAAAMEgAAAAAAAAxSAAAAAAAAAAAAAAxSAAAAAAAADJIAAAAAAAAAAAAADJIAAAAAAAAM0gAAAAAAAAAAAAAM0gAAAAAAAA0SAAAAAAAAAAAAAA0SAAAAAAAADVIAAAAAAAAAAAAADVIAAAAAAAANkgAAAAAAAAAAAAANkgAAAAAAAA3SAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAL0gAAAAAAAAvSAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					109,
+					1,
+					"insert",
+					{
+						"characters": " nel"
+					},
+					"BAAAADdIAAAAAAAAOEgAAAAAAAAAAAAAOEgAAAAAAAA5SAAAAAAAAAAAAAA5SAAAAAAAADpIAAAAAAAAAAAAADpIAAAAAAAAO0gAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAN0gAAAAAAAA3SAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					110,
+					1,
+					"insert",
+					{
+						"characters": " db"
+					},
+					"AwAAADtIAAAAAAAAPEgAAAAAAAAAAAAAPEgAAAAAAAA9SAAAAAAAAAAAAAA9SAAAAAAAAD5IAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAO0gAAAAAAAA7SAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					111,
+					1,
+					"insert",
+					{
+						"characters": " esterno"
+					},
+					"CAAAAD5IAAAAAAAAP0gAAAAAAAAAAAAAP0gAAAAAAABASAAAAAAAAAAAAABASAAAAAAAAEFIAAAAAAAAAAAAAEFIAAAAAAAAQkgAAAAAAAAAAAAAQkgAAAAAAABDSAAAAAAAAAAAAABDSAAAAAAAAERIAAAAAAAAAAAAAERIAAAAAAAARUgAAAAAAAAAAAAARUgAAAAAAABGSAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAPkgAAAAAAAA+SAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					112,
+					1,
+					"insert",
+					{
+						"characters": " i"
+					},
+					"AgAAAEZIAAAAAAAAR0gAAAAAAAAAAAAAR0gAAAAAAABISAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAARkgAAAAAAABGSAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					113,
+					1,
+					"left_delete",
+					null,
+					"AQAAAEdIAAAAAAAAR0gAAAAAAAABAAAAaQ",
+					"AQAAAAAAAAABAAAASEgAAAAAAABISAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					114,
+					1,
+					"insert",
+					{
+						"characters": "riutilizzando"
+					},
+					"DQAAAEdIAAAAAAAASEgAAAAAAAAAAAAASEgAAAAAAABJSAAAAAAAAAAAAABJSAAAAAAAAEpIAAAAAAAAAAAAAEpIAAAAAAAAS0gAAAAAAAAAAAAAS0gAAAAAAABMSAAAAAAAAAAAAABMSAAAAAAAAE1IAAAAAAAAAAAAAE1IAAAAAAAATkgAAAAAAAAAAAAATkgAAAAAAABPSAAAAAAAAAAAAABPSAAAAAAAAFBIAAAAAAAAAAAAAFBIAAAAAAAAUUgAAAAAAAAAAAAAUUgAAAAAAABSSAAAAAAAAAAAAABSSAAAAAAAAFNIAAAAAAAAAAAAAFNIAAAAAAAAVEgAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAR0gAAAAAAABHSAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					115,
+					1,
+					"insert",
+					{
+						"characters": " le"
+					},
+					"AwAAAFRIAAAAAAAAVUgAAAAAAAAAAAAAVUgAAAAAAABWSAAAAAAAAAAAAABWSAAAAAAAAFdIAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAVEgAAAAAAABUSAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					116,
+					1,
+					"insert",
+					{
+						"characters": " routine"
+					},
+					"CAAAAFdIAAAAAAAAWEgAAAAAAAAAAAAAWEgAAAAAAABZSAAAAAAAAAAAAABZSAAAAAAAAFpIAAAAAAAAAAAAAFpIAAAAAAAAW0gAAAAAAAAAAAAAW0gAAAAAAABcSAAAAAAAAAAAAABcSAAAAAAAAF1IAAAAAAAAAAAAAF1IAAAAAAAAXkgAAAAAAAAAAAAAXkgAAAAAAABfSAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAV0gAAAAAAABXSAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					117,
+					1,
+					"insert",
+					{
+						"characters": " del"
+					},
+					"BAAAAF9IAAAAAAAAYEgAAAAAAAAAAAAAYEgAAAAAAABhSAAAAAAAAAAAAABhSAAAAAAAAGJIAAAAAAAAAAAAAGJIAAAAAAAAY0gAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAX0gAAAAAAABfSAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					118,
+					1,
+					"insert",
+					{
+						"characters": " modulo"
+					},
+					"BwAAAGNIAAAAAAAAZEgAAAAAAAAAAAAAZEgAAAAAAABlSAAAAAAAAAAAAABlSAAAAAAAAGZIAAAAAAAAAAAAAGZIAAAAAAAAZ0gAAAAAAAAAAAAAZ0gAAAAAAABoSAAAAAAAAAAAAABoSAAAAAAAAGlIAAAAAAAAAAAAAGlIAAAAAAAAakgAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAY0gAAAAAAABjSAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					119,
+					1,
+					"insert",
+					{
+						"characters": "\n\t\t'"
+					},
+					"BAAAAGpIAAAAAAAAb0gAAAAAAAAAAAAAb0gAAAAAAABzSAAAAAAAAAAAAABzSAAAAAAAAHdIAAAAAAAAAAAAAHdIAAAAAAAAeEgAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAakgAAAAAAABqSAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					144,
+					3,
+					"left_delete",
+					null,
+					"AwAAAIFKAAAAAAAAgUoAAAAAAAACAAAAICB9SgAAAAAAAH1KAAAAAAAABAAAACAgICB5SgAAAAAAAHlKAAAAAAAABAAAACAgICA",
+					"AQAAAAAAAAABAAAAg0oAAAAAAACDSgAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					149,
+					3,
+					"right_delete",
+					null,
+					"AwAAAHJKAAAAAAAAckoAAAAAAAABAAAACnJKAAAAAAAAckoAAAAAAAABAAAACnJKAAAAAAAAckoAAAAAAAABAAAACg",
+					"AQAAAAAAAAABAAAAckoAAAAAAABySgAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					151,
+					1,
+					"insert",
+					{
+						"characters": " "
+					},
+					"AQAAAHZKAAAAAAAAd0oAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAdkoAAAAAAAB2SgAAAAAAAAAAAAAAAPC/"
 				]
 			]
 		}
@@ -422,6 +849,7 @@
 	],
 	"file_history":
 	[
+		"/C/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/MDB/MSys_GE_FILE/CHATGBT.MD",
 		"/C/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/MDB/MSys_GE_FILE/OBJECT/CLASSI/CLASSE_GESTIONE_OGGETTI_DATABASE.MD",
 		"/C/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/MDB/MSys_GE_FILE/README_GE_FILE.MD",
 		"/C/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/MDB/MSys_GE_FILE/README.MD",
@@ -548,8 +976,7 @@
 		"/C/Users/icivi/AppData/Roaming/Sublime Text/Packages/User/Monokai.sublime-color-scheme",
 		"/C/Users/icivi/AppData/Roaming/Sublime Text/Packages/User/Monokai+.sublime-color-scheme",
 		"/C/Users/icivi/AppData/Roaming/Sublime Text/Packages/User/Terminus.sublime-settings",
-		"/C/Users/icivi/AppData/Roaming/Sublime Text/Packages/Color Scheme - Default/Monokai.sublime-color-scheme",
-		"/C/CASA/LINGUAGGI/HTML/PROGETTI_HTML/REACT_GUIDA_HTML_IT/react-guida-html/tutorial/TUTORIAL_SUBLIMETEXT.MD"
+		"/C/Users/icivi/AppData/Roaming/Sublime Text/Packages/Color Scheme - Default/Monokai.sublime-color-scheme"
 	],
 	"find":
 	{
@@ -597,15 +1024,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 18064,
+						"buffer_size": 22577,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								18064,
-								0
+								0,
+								22577
 							]
 						],
 						"settings":
@@ -616,7 +1043,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 483.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
