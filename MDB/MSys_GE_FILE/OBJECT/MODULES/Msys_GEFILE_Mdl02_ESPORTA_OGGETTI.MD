@@ -1,108 +1,111 @@
 '//NAME_MODULO = Msys_GEFILE_Mdl02_ESPORTA_OGGETTI
    '//PATH_PROGETTO: _
-   '       START "APRI PROGETTO CLASSE" "c:\Casa\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_GE_FILE\MDB\MSys_GE_FILE.mdb"
+      'START "APRI PROGETTO CLASSE" "c:\Casa\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_GE_FILE\MDB\MSys_GE_FILE.mdb"
 
 '//01_IMPOSTAZIONI MODULO
-   Option Compare Database
-   Option Explicit
+      Option Compare Database
+      Option Explicit
 
-    '//dim variabili generali per il log di cancellazione
-    Private logFilePath As String
+       '//dim variabili generali per il log di cancellazione
+       Private logFilePath As String
 
-
+'//===================================================================================================//
 '//02_ESPORTO TUTTI GLI OGGETTI DI GEFILE      ***INIZIO ***
-         '//============================================================================================================================//
-         '// ATTIVITA ESEGUITE:
-         '// - gestisce più percorsi (sxPath1, sxPath2, ecc.)
-         '// - usa Collection numeriche per i tipi oggetto (1, 2, 3, …)
-         '// - verifica esistenza oggetto prima dell’esportazione
-         '// - cancella preventivamente gli oggetti già presenti nel DB esterno
-         '// - scrive tutto su un file di log (oggetti OK, errori, mancanti)
-         '// - salta in sicurezza se una Collection è vuota
-         '// - mostra un messaggio riepilogativo finale
-         '//----------------------------------------------------------------------------'
-         '// FILTRO NUMERICO APPLICATO PER I DIVERSI OGGETTI:
-         '// Tipo numerico  Costante VBA   Oggetto Access
-         '// 1  acQuery    Query
-         '// 2  acForm     Form
-         '// 3  acReport   Report
-         '// 4  acMacro    Macro
-         '// 5  acModule   Modulo
-         '// 6  acTable    Tabella
+'//===================================================================================================//
+      '// ATTIVITA ESEGUITE:
+            '// - gestisce più percorsi (sxPath1, sxPath2, ecc.)
+            '// - usa Collection numeriche per i tipi oggetto (1, 2, 3, …)
+            '// - verifica esistenza oggetto prima dell’esportazione
+            '// - cancella preventivamente gli oggetti già presenti nel DB esterno
+            '// - scrive tutto su un file di log (oggetti OK, errori, mancanti)
+            '// - salta in sicurezza se una Collection è vuota
+            '// - mostra un messaggio riepilogativo finale
+            '//----------------------------------------------------------------------------'
+            '// FILTRO NUMERICO APPLICATO PER I DIVERSI OGGETTI:
+            '// Tipo numerico  Costante VBA   Oggetto Access
+            '// 1  acQuery    Query
+            '// 2  acForm     Form
+            '// 3  acReport   Report
+            '// 4  acMacro    Macro
+            '// 5  acModule   Modulo
+            '// 6  acTable    Tabella
 
-         Public Function Msys_GEFILE_Mdl01_ESPORTA_OGGETTI_Pfnc()
+      Public Function Msys_GEFILE_Mdl01_ESPORTA_OGGETTI_Pfnc()
 
-             On Error GoTo GestErr
+         On Error GoTo GestErr
              
-             MsgBox "ESPORTAZIONE OGGETTI GE_FILE IN TUTTI I DB ACCESS", vbExclamation, "ESPORTO OGGETTI"
+               MsgBox "ESPORTAZIONE OGGETTI GE_FILE IN TUTTI I DB ACCESS", vbExclamation, "ESPORTO OGGETTI"
 
-             '//DIM VARIABILI **** INIZIO ****
-             '====================================================================================================
+         '//DIM VARIABILI **** INIZIO ****
+         '=============================================================================================
              '/collection
-             Dim colOggetti As Collection
-             Dim colPercorsi As Collection
-             Dim itm As Variant, Obj_v As Variant
-             '//PER IL FILE LOG
-             Dim fso As Object, logFile As Object
-             Dim logFileOggetti As Object
-             Dim exportNro As Long
-             Dim logPath As String
-             Dim startTime As Date
-             Dim totaleOk As Long, totaleErr As Long
-             Dim tipo As Integer, nome As String
-             Dim Path_s As String
-             Dim dbDest As DAO.Database
-             Dim NomeDB As String
+                Dim colOggetti As Collection
+                Dim colPercorsi As Collection
+                Dim itm As Variant, Obj_v As Variant
+                '//PER IL FILE LOG
+                Dim fso As Object, logFile As Object
+                Dim logFileOggetti As Object
+                Dim exportNro As Long
+                Dim logPath As String
+                Dim startTime As Date
+                Dim totaleOk As Long, totaleErr As Long
+                Dim tipo As Integer, nome As String
+                Dim Path_s As String
+                Dim dbDest As DAO.Database
+                Dim NomeDB As String
+                
              
-             
-             '//FILE LOG SALVATO NELLA CARTELLA LOGS CREATA SE NON ESISTE **** INIZIO ****
-             '====================================================================================================
-             ' Creazione di FileSystemObject prima di qualsiasi operazione sui file.
-             ' Controllo e creazione della cartella Logs se non esiste.
-             ' Creazione dei due file di log:
-             '   ExportLog.txt ? log generale dell’esportazione.
-             '   ExportOggetti.txt ? log dettagliato con intestazioni Nro;NomeOggetto;Tipo;PathDestinazione;DBDestinazione.
-             ' Precaricamento delle collection: colPercorsi e colOggetti.
-             ' Verifiche preliminari con messaggi e scrittura nel log se le collection sono vuote.
+         '//FILE LOG SALVATO NELLA CARTELLA LOGS CREATA SE NON ESISTE **** INIZIO ****
+         '================================================================================================
+                   ' Creazione di FileSystemObject prima di qualsiasi operazione sui file.
+                   ' Controllo e creazione della cartella Logs se non esiste.
+                   ' Creazione dei due file di log:
+                   ' ExportLog.txt ? log generale dell’esportazione.
+                   ' ExportOggetti.txt ? log dettagliato con intestazioni Nro;NomeOggetto;Tipo;PathDestinazione;DBDestinazione.
+                   ' Precaricamento delle collection: colPercorsi e colOggetti.
+                   ' Verifiche preliminari con messaggi e scrittura nel log se le collection sono vuote.
 
-             '=== Creo il FileSystemObject
-             Set fso = CreateObject("Scripting.FileSystemObject")
+         '=== Creo il FileSystemObject
+               Set fso = CreateObject("Scripting.FileSystemObject")
 
-             '=== Creo la cartella Logs se non esiste
-             If Not fso.FolderExists(CurrentProject.Path & "\Logs") Then
-                 fso.CreateFolder CurrentProject.Path & "\Logs"
-             End If
+         '=== Creo la cartella Logs se non esiste
+                If Not fso.FolderExists(CurrentProject.Path & "\Logs") Then
+                    fso.CreateFolder CurrentProject.Path & "\Logs"
+                End If
 
-             '=== Log dettagliato oggetti esportati
-             Set logFileOggetti = fso.CreateTextFile(CurrentProject.Path & "\Logs\ExportOggetti.txt", True)
-             logFileOggetti.WriteLine "Nro;NomeOggetto;Tipo;PathDestinazione;DBDestinazione"
-             exportNro = 0
+         '=== Log dettagliato oggetti esportati
+                Set logFileOggetti = fso.CreateTextFile(CurrentProject.Path & "\Logs\ExportOggetti.txt", True)
+                logFileOggetti.WriteLine "Nro;NomeOggetto;Tipo;PathDestinazione;DBDestinazione"
+                exportNro = 0
 
-             '=== Log principale
-             startTime = Now()
-             logPath = CurrentProject.Path & "\Logs\ExportLog.txt"
-             Set logFile = fso.CreateTextFile(logPath, True)
-             logFile.WriteLine String(60, "=")
-             logFile.WriteLine "LOG ESPORTAZIONE OGGETTI ACCESS"
-             logFile.WriteLine "Database origine: " & CurrentDb.Name
-             logFile.WriteLine "Data/Ora inizio: " & startTime
-             logFile.WriteLine String(60, "=")
-             logFile.WriteLine ""
+         '=== Log principale
+                
+                doEvents  ' per il controllo del ciclo'
+                
+                startTime = Now()
+                logPath = CurrentProject.Path & "\Logs\ExportLog.txt"
+                Set logFile = fso.CreateTextFile(logPath, True)
+                logFile.WriteLine String(60, "=")
+                logFile.WriteLine "LOG ESPORTAZIONE OGGETTI ACCESS"
+                logFile.WriteLine "Database origine: " & CurrentDb.Name
+                logFile.WriteLine "Data/Ora inizio: " & startTime
+                logFile.WriteLine String(60, "=")
+                logFile.WriteLine ""
 
-             '=== Precarico le path dei DB esterni
+         '=== Precarico le path dei DB esterni
              Set colPercorsi = CaricaPercorsiEsportazione()
 
-             '=== Precarico gli oggetti da esportare
+         '=== Precarico gli oggetti da esportare
              Set colOggetti = CaricaOggettiDaEsportare()
 
-             '=== Verifiche preliminari
+         '=== Verifiche preliminari
              If colPercorsi.Count = 0 Then
                  MsgBox "Nessun percorso di destinazione definito. Esportazione annullata.", vbExclamation
                  logFile.WriteLine "?? Nessun percorso di destinazione definito. Esportazione annullata."
                  GoTo Esci
              End If
 
-             If colOggetti.Count = 0 Then
+         If colOggetti.Count = 0 Then
                  MsgBox "Nessun oggetto da esportare. Esportazione annullata.", vbExclamation
                  logFile.WriteLine "?? Nessun oggetto da esportare. Collection vuota."
                  GoTo Esci
@@ -110,111 +113,112 @@
 
              '==================================================================================================== fine log
 
-             '==========================================================
-             '=== CICLO PRINCIPALE DI ESPORTAZIONE ===================
-             '==========================================================
-             For Each Obj_v In colPercorsi
-                 Path_s = Obj_v
-                 logFile.WriteLine vbCrLf & String(50, "-")
-                 logFile.WriteLine "DESTINAZIONE: " & Path_s
-                 logFile.WriteLine String(50, "-")
+         '==========================================================
+         '=== CICLO PRINCIPALE DI ESPORTAZIONE ===================
+                '==========================================================
+            For Each Obj_v In colPercorsi
+                  'Dim + Set variabili'  
+                    Path_s = Obj_v
+                    logFile.WriteLine vbCrLf & String(50, "-")
+                    logFile.WriteLine "DESTINAZIONE: " & Path_s
+                    logFile.WriteLine String(50, "-")
 
-                 If Not fso.FileExists(Path_s) Then
-                     logFile.WriteLine "? ATTENZIONE: file non trovato -> " & Path_s
-                     Debug.Print "ATTENZIONE: file non trovato -> " & Path_s
-                     GoTo NextPath
-                 End If
+                  If Not fso.FileExists(Path_s) Then
+                        logFile.WriteLine "? ATTENZIONE: file non trovato -> " & Path_s
+                        Debug.Print "ATTENZIONE: file non trovato -> " & Path_s
+                        GoTo NextPath
+                    End If
 
-                 '=== Apro il database esterno
-                 Set dbDest = DBEngine.OpenDatabase(Path_s)
+                    '=== Apro il database esterno
+                    Set dbDest = DBEngine.OpenDatabase(Path_s)
 
-                 '=== Cancellazione preventiva degli oggetti già presenti
-                 For Each itm In colOggetti
-                     tipo = CLng(Split(itm, "|")(0))
-                     nome = Split(itm, "|")(1)
-                     If OggettoEsisteNelDB(dbDest, tipo, nome) Then
-                         CancellaOggetto dbDest, Path_s, tipo, nome
-                     End If
-                 Next itm
+            '=== Cancellazione preventiva degli oggetti già presenti
+                  For Each itm In colOggetti
+                        tipo = CLng(Split(itm, "|")(0))
+                        nome = Split(itm, "|")(1)
+                        If OggettoEsisteNelDB(dbDest, tipo, nome) Then
+                            CancellaOggetto dbDest, Path_s, tipo, nome
+                        End If
+                    Next itm
 
-                 '=== Esporto gli oggetti
-                 For Each itm In colOggetti
-                     tipo = CLng(Split(itm, "|")(0))
-                     nome = Split(itm, "|")(1)
+            '=== Esporto gli oggetti
+                  For Each itm In colOggetti
+                        tipo = CLng(Split(itm, "|")(0))
+                        nome = Split(itm, "|")(1)
 
-                     '=== Controllo se l'oggetto esiste nel DB origine
-                     If OggettoEsiste(tipo, nome) Then
-                         On Error Resume Next
-                         '=== Copia oggetto nel DB esterno
-                         DoCmd.CopyObject Path_s, "", tipo, nome
-                         If Err.Number = 0 Then
-                             totaleOk = totaleOk + 1
-                             exportNro = exportNro + 1
+            '=== Controllo se l'oggetto esiste nel DB origine
+                  If OggettoEsiste(tipo, nome) Then
+                            On Error Resume Next
+                            '=== Copia oggetto nel DB esterno
+                            DoCmd.CopyObject Path_s, "", tipo, nome
+                     If Err.Number = 0 Then
+                                totaleOk = totaleOk + 1
+                                exportNro = exportNro + 1
 
-                             '=== Scrittura nel log generale
-                             Debug.Print "OK -> " & nome
-                             logFile.WriteLine "OK  -> " & nome
+                           '=== Scrittura nel log generale
+                                Debug.Print "OK -> " & nome
+                                logFile.WriteLine "OK  -> " & nome
 
-                             '=== Scrittura nel log dettagliato ExportOggetti.txt
-                             logFileOggetti.WriteLine exportNro & ";" & nome & ";" & tipo & ";" & Path_s & ";" & Path_s
+                                '=== Scrittura nel log dettagliato ExportOggetti.txt
+                                logFileOggetti.WriteLine exportNro & ";" & nome & ";" & tipo & ";" & Path_s & ";" & NomeDB
 
-                         Else
-                             totaleErr = totaleErr + 1
-                             Debug.Print "ERRORE -> " & nome & " (" & Err.Description & ")"
-                             logFile.WriteLine "ERRORE -> " & nome & " (" & Err.Description & ")"
+                            Else
+                                totaleErr = totaleErr + 1
+                                Debug.Print "ERRORE -> " & nome & " (" & Err.Description & ")"
+                                logFile.WriteLine "ERRORE -> " & nome & " (" & Err.Description & ")"
 
-                             '=== Scrittura nel log dettagliato anche in caso di errore
-                             exportNro = exportNro + 1
-                             logFileOggetti.WriteLine exportNro & ";" & nome & ";" & tipo & ";" & Path_s & ";" & Path_s & " - ERRORE: " & Err.Description
-                         End If
-                         Err.Clear
-                         On Error GoTo GestErr
-                     Else
-                         totaleErr = totaleErr + 1
-                         Debug.Print "NON TROVATO -> " & nome
-                         logFile.WriteLine "NON TROVATO -> " & nome
+                                '=== Scrittura nel log dettagliato anche in caso di errore
+                                exportNro = exportNro + 1
+                                logFileOggetti.WriteLine exportNro & ";" & nome & ";" & tipo & ";" & Path_s & ";" & NomeDB & " - ERRORE: " & Err.Description
+                            End If
+                            Err.Clear
+                            On Error GoTo GestErr
+                        Else
+                            totaleErr = totaleErr + 1
+                            Debug.Print "NON TROVATO -> " & nome
+                            logFile.WriteLine "NON TROVATO -> " & nome
 
-                         '=== Scrittura nel log dettagliato anche per oggetti non trovati
-                         exportNro = exportNro + 1
-                         logFileOggetti.WriteLine exportNro & ";" & nome & ";" & tipo & ";" & Path_s & ";" & Path_s & " - NON TROVATO"
-                     End If
-                 Next itm
+                            '=== Scrittura nel log dettagliato anche per oggetti non trovati
+                            exportNro = exportNro + 1
+                            logFileOggetti.WriteLine exportNro & ";" & nome & ";" & tipo & ";" & Path_s & ";" & NomeDB & " - NON TROVATO"
+                        End If
+                  Next itm
 
-                 dbDest.Close
-            NextPath:
-             Next Obj_v
+                    dbDest.Close
+                  NextPath:
+                     Next Obj_v
 
-             '=== Chiusura log dettagliato
-             logFileOggetti.Close
+            '=== Chiusura log dettagliato
+                     logFileOggetti.Close
 
-            Esci:
-             logFile.WriteLine vbCrLf & "Totale OK: " & totaleOk & " - Errori: " & totaleErr
-             logFile.WriteLine "Data/Ora fine: " & Now()
-             logFile.WriteLine String(60, "=")
-             logFile.Close
+               Esci:
+                   logFile.WriteLine vbCrLf & "Totale OK: " & totaleOk & " - Errori: " & totaleErr
+                   logFile.WriteLine "Data/Ora fine: " & Now()
+                   logFile.WriteLine String(60, "=")
+                   logFile.Close
 
-             MsgBox "? Esportazione completata!" & vbCrLf & _
-                    "Oggetti OK: " & totaleOk & vbCrLf & _
-                    "Errori o non trovati: " & totaleErr & vbCrLf & _
-                    "Log dettagliato: " & CurrentProject.Path & "\Logs\ExportOggetti.txt", vbInformation, "RISULTATO ESPORTAZIONE"
+                   MsgBox "? Esportazione completata!" & vbCrLf & _
+                          "Oggetti OK: " & totaleOk & vbCrLf & _
+                          "Errori o non trovati: " & totaleErr & vbCrLf & _
+                          "Log dettagliato: " & CurrentProject.Path & "\Logs\ExportOggetti.txt", vbInformation, "RISULTATO ESPORTAZIONE"
 
-             Exit Function
+               Exit Function
 
-            GestErr:
-             MsgBox "Errore durante l’esportazione: " & Err.Description, vbCritical, "ERRORE"
-             If Not logFile Is Nothing Then logFile.Close
-             If Not logFileOggetti Is Nothing Then logFileOggetti.Close
+               GestErr:
+                   MsgBox "Errore durante l’esportazione: " & Err.Description, vbCritical, "ERRORE"
+                   If Not logFile Is Nothing Then logFile.Close
+                   If Not logFileOggetti Is Nothing Then logFileOggetti.Close
 
-         End Function
+      End Function
 
 '==========================================================
 '=== ROUTINE: Caricamento percorsi DB esterni ============
          '==========================================================
-         Private Function CaricaPercorsiEsportazione() As Collection
+      Private Function CaricaPercorsiEsportazione() As Collection
              On Error GoTo GestErr
                  
              Dim colPercorsi As New Collection
-
+             doEvents  ' per il controllo del ciclo'
              '=== Aggiungere qui i percorsi dei database di destinazione
              colPercorsi.Add "C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSYS_ATTIVA_GEST_OGGETTI\MDB\MSYS_ATTIVA_GEST_OGGETTI.mdb"
              colPercorsi.Add "C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSYS_BASE\MDB\MSYS_BASE_MODELLO.mdb"
@@ -226,65 +230,68 @@
             GestErr:
              MsgBox "Errore in CaricaPercorsiEsportazione: " & Err.Description, vbCritical
              Set CaricaPercorsiEsportazione = Nothing
-         End Function
+      End Function
 
+'==========================================================
+'=== ROUTINE: Caricamento oggetti da esportare ===========
          '==========================================================
-         '=== ROUTINE: Caricamento oggetti da esportare ===========
-         '==========================================================
-         Private Function CaricaOggettiDaEsportare() As Collection
-             On Error GoTo GestErr
-             Dim colOggetti As New Collection
+      Private Function CaricaOggettiDaEsportare() As Collection
+          On Error GoTo GestErr
+          Dim colOggetti As New Collection
 
-             '=== Formato: (tipo, nome)
-             ' 1 = Query, 2 = Form, 3 = Report, 4 = Macro, 5 = Modulo, 6 = Tabella
-             
-              'QUERY codice = 1
-                 colOggetti.Add "1|UTILITA_Msys_Qry21_00_{@======================================@}"
-                 colOggetti.Add "1|UTILITA_Msys_Qry21_01_GRUPPO_OGGETTI_CORRENTI"
-                 colOggetti.Add "1|UTILITA_Msys_Qry21_02_Oggetti_Tutti"
-                 colOggetti.Add "1|UTILITA_Msys_Qry21_02_Oggetti_Tutti_RICERCA"
-                 colOggetti.Add "1|UTILITA_Msys_Qry21_03_Oggetti_Form"
-                 colOggetti.Add "1|UTILITA_Msys_Qry21_03_Oggetti_Form_RICERCA"
-                 colOggetti.Add "1|UTILITA_Msys_Qry21_04_Oggetti_Macro"
-                 colOggetti.Add "1|UTILITA_Msys_Qry21_04_Oggetti_Macro_RICERCA"
-                 colOggetti.Add "1|UTILITA_Msys_Qry21_05_Oggetti_Report"
-                 colOggetti.Add "1|UTILITA_Msys_Qry21_05_Oggetti_Report_RICERCA"
-                 colOggetti.Add "1|UTILITA_Msys_Qry21_06_Oggetti_Moduli"
-                 colOggetti.Add "1|UTILITA_Msys_Qry21_06_Oggetti_Moduli_RICERCA"
-                 colOggetti.Add "1|UTILITA_Msys_Qry21_07_Oggetti_TABELLE"
-                 colOggetti.Add "1|UTILITA_Msys_Qry21_07_Oggetti_TABELLE_Link"
-                 colOggetti.Add "1|UTILITA_Msys_Qry21_07_Oggetti_TABELLE_Link_RICERCA"
-                 colOggetti.Add "1|UTILITA_Msys_Qry21_07_Oggetti_TABELLE_RICERCA"
-                 colOggetti.Add "1|UTILITA_Msys_Qry21_08_Oggetti_Query"
-                 colOggetti.Add "1|UTILITA_Msys_Qry21_08_Oggetti_Query_RICERCA"
-                 
-                 
-                 'MODULI codice = 5
-                colOggetti.Add "5|CLASSE_GESTIONE_OGGETTI_}--------------------------------------@"
-                colOggetti.Add "5|CLASSE_GESTIONE_OGGETTI_DATABASE"
-                colOggetti.Add "5|Msys_GEFILE_CARICA_Mdl00_}-------------------------------------@"
-                colOggetti.Add "5|Msys_GEFILE_CARICA_Mdl01_LIBRERIE"
-            
+          '=== Formato: (tipo, nome)
+          ' 1 = Query, 2 = Form, 3 = Report, 4 = Macro, 5 = Modulo, 6 = Tabella
+          
+           'QUERY codice = 1
+              colOggetti.Add "1|UTILITA_Msys_Qry21_00_{@======================================@}"
+              colOggetti.Add "1|UTILITA_Msys_Qry21_01_GRUPPO_OGGETTI_CORRENTI"
+              colOggetti.Add "1|UTILITA_Msys_Qry21_02_Oggetti_Tutti"
+              colOggetti.Add "1|UTILITA_Msys_Qry21_02_Oggetti_Tutti_RICERCA"
+              colOggetti.Add "1|UTILITA_Msys_Qry21_03_Oggetti_Form"
+              colOggetti.Add "1|UTILITA_Msys_Qry21_03_Oggetti_Form_RICERCA"
+              colOggetti.Add "1|UTILITA_Msys_Qry21_04_Oggetti_Macro"
+              colOggetti.Add "1|UTILITA_Msys_Qry21_04_Oggetti_Macro_RICERCA"
+              colOggetti.Add "1|UTILITA_Msys_Qry21_05_Oggetti_Report"
+              colOggetti.Add "1|UTILITA_Msys_Qry21_05_Oggetti_Report_RICERCA"
+              colOggetti.Add "1|UTILITA_Msys_Qry21_06_Oggetti_Moduli"
+              colOggetti.Add "1|UTILITA_Msys_Qry21_06_Oggetti_Moduli_RICERCA"
+              colOggetti.Add "1|UTILITA_Msys_Qry21_07_Oggetti_TABELLE"
+              colOggetti.Add "1|UTILITA_Msys_Qry21_07_Oggetti_TABELLE_Link"
+              colOggetti.Add "1|UTILITA_Msys_Qry21_07_Oggetti_TABELLE_Link_RICERCA"
+              colOggetti.Add "1|UTILITA_Msys_Qry21_07_Oggetti_TABELLE_RICERCA"
+              colOggetti.Add "1|UTILITA_Msys_Qry21_08_Oggetti_Query"
+              colOggetti.Add "1|UTILITA_Msys_Qry21_08_Oggetti_Query_RICERCA"
+              
+              
+              'MODULI codice = 5
+             colOggetti.Add "5|CLASSE_GESTIONE_OGGETTI_}--------------------------------------@"
+             colOggetti.Add "5|CLASSE_GESTIONE_OGGETTI_DATABASE"
+             colOggetti.Add "5|Msys_GEFILE_CARICA_Mdl00_}-------------------------------------@"
+             colOggetti.Add "5|Msys_GEFILE_CARICA_Mdl01_LIBRERIE"
+         
 
 
-             Set CaricaOggettiDaEsportare = colOggetti
-             Exit Function
+          Set CaricaOggettiDaEsportare = colOggetti
+          Exit Function
 
-             GestErr:
-             MsgBox "Errore in CaricaOggettiDaEsportare: " & Err.Description, vbCritical
-             Set CaricaOggettiDaEsportare = Nothing
-         End Function
+          GestErr:
+          MsgBox "Errore in CaricaOggettiDaEsportare: " & Err.Description, vbCritical
+          Set CaricaOggettiDaEsportare = Nothing
+      End Function
 
 '==========================================================
 '=== FUNZIONE DI CONTROLLO ESISTENZA OGGETTO NEL DB ESTERNO
          '==========================================================
-             Private Function OggettoEsisteNelDB(db As DAO.Database, tipoOggetto As Integer, nomeOggetto As String) As Boolean
+      Private Function OggettoEsisteNelDB(db As DAO.Database, tipoOggetto As Integer, _
+                                          nomeOggetto As String) As Boolean
                  On Error GoTo GestErr
                  Dim rs As DAO.Recordset
                  Dim sql As String
                  Dim tipoFiltro As Long
 
                  '--- Mappatura tipo Access ? tipo MSysObjects
+                 doEvents  ' per il controllo del ciclo'
+                 
                  Select Case tipoOggetto
                      Case 1: tipoFiltro = 5          ' Query
                      Case 2: tipoFiltro = -32758     ' Form
@@ -308,13 +315,15 @@
                 GestErr:
                  Debug.Print "Errore in OggettoEsisteNelDB: " & Err.Description
                  OggettoEsisteNelDB = False
-             End Function
+      End Function
 
 '==========================================================
 '=== ROUTINE DI CANCELLAZIONE OGGETTO NEL DB ESTERNO =====
         '==========================================================
-         Private Sub CancellaOggetto(dbDest As DAO.Database, sxPath As String, tipo As Integer, nome As String)
+      Private Function CancellaOggetto(dbDest As DAO.Database, sxPath As String, _
+                                  tipo As Integer, nome As String)
              On Error GoTo GestErr
+             doEvents  ' per il controllo del ciclo'
 
              Select Case tipo
                  Case 1
@@ -332,55 +341,88 @@
                      Set accApp = Nothing
              End Select
 
-             ScriviLog "Cancellato oggetto esistente: " & nome & " nel DB: " & sxPath
-             Exit Sub
+             ScriviLog "GestioneOggetti", "CancellaOggetto", "INFO", _
+                     "Cancellato oggetto esistente: " & nome & " nel DB: " & sxPath
+             Exit Function
 
              GestErr:
-             ScriviLog "Errore in CancellaOggetto (" & nome & "): " & Err.Description
-         End Sub
+             ScriviLog "GestioneOggetti", "CancellaOggetto", "ERRORE", _
+                        "Errore in CancellaOggetto (" & nome & "): " & Err.Description
 
-         '==========================================================
-         '=== FUNZIONE DI CONTROLLO ESISTENZA OGGETTO NEL DB ORIGINE
-         '==========================================================
-         Private Function OggettoEsiste(tipoOggetto As Integer, nomeOggetto As String) As Boolean
-             On Error Resume Next
-             Select Case tipoOggetto
-                 Case 1: OggettoEsiste = Not IsNull(CurrentData.AllQueries(nomeOggetto).Name)
-                 Case 2: OggettoEsiste = Not IsNull(CurrentProject.AllForms(nomeOggetto).Name)
-                 Case 3: OggettoEsiste = Not IsNull(CurrentProject.AllReports(nomeOggetto).Name)
-                 Case 4: OggettoEsiste = Not IsNull(CurrentProject.AllMacros(nomeOggetto).Name)
-                 Case 5: OggettoEsiste = Not IsNull(CurrentProject.AllModules(nomeOggetto).Name)
-                 Case 6: OggettoEsiste = Not IsNull(CurrentData.AllTables(nomeOggetto).Name)
-                 Case Else: OggettoEsiste = False
-             End Select
          End Function
 
 '==========================================================
-'=== ROUTINE DI LOG (FACOLTATIVA) =======================
-      '==========================================================
-      Private Sub ScriviLog(ByVal testo As String)
-          On Error Resume Next
-          Dim f As Integer
-          f = FreeFile
-          Open CurrentProject.Path & "\Logs\ExportLog.txt" For Append As #f
-          Print #f, Now & " - " & testo
-          Close #f
+'=== FUNZIONE DI CONTROLLO ESISTENZA OGGETTO NEL DB ORIGINE
+'==========================================================
+      Private Function OggettoEsiste(tipoOggetto As Integer, nomeOggetto As String) As Boolean
+                On Error Resume Next
+                doEvents  ' per il controllo del ciclo'
+                Select Case tipoOggetto
+                    Case 1: OggettoEsiste = Not IsNull(CurrentData.AllQueries(nomeOggetto).Name)
+                    Case 2: OggettoEsiste = Not IsNull(CurrentProject.AllForms(nomeOggetto).Name)
+                    Case 3: OggettoEsiste = Not IsNull(CurrentProject.AllReports(nomeOggetto).Name)
+                    Case 4: OggettoEsiste = Not IsNull(CurrentProject.AllMacros(nomeOggetto).Name)
+                    Case 5: OggettoEsiste = Not IsNull(CurrentProject.AllModules(nomeOggetto).Name)
+                    Case 6: OggettoEsiste = Not IsNull(CurrentData.AllTables(nomeOggetto).Name)
+                    Case Else: OggettoEsiste = False
+                End Select
+      End Function
+
+
+'==========================================================
+'=== ROUTINE DI LOG CSV SENZA INTESTAZIONE ===============
+'==========================================================
+
+      Private Sub ScriviLog(ByVal testo As String, Optional ByVal NomeRoutine As String = "", _
+                            Optional ByVal Livello As String = "", Optional ByVal Dettaglio As String = "")
+                On Error GoTo ErrHandler
+                
+                Dim f As Integer
+                Dim logsFolder As String
+                
+                ' Percorso CSV di default
+                If Trim$(logFilePath) = "" Then
+                    logFilePath = CurrentProject.Path & "\Logs\ExportLog.csv"
+                End If
+                
+                logsFolder = CurrentProject.Path & "\Logs\"
+                
+                ' Assicuro esistenza cartella Logs
+                If Dir(logsFolder, vbDirectory) = "" Then
+                    MkDir logsFolder
+                End If
+                
+                f = FreeFile
+                Open logFilePath For Append As #f
+                
+                ' Scrivo riga CSV con tutti i parametri
+                Print #f, Format(Now, "yyyy-mm-dd hh:nn:ss") & ";" & _
+                           IIf(NomeRoutine = "", "GENERICA", NomeRoutine) & ";" & _
+                           testo & ";" & _
+                           Livello & ";" & _
+                           Replace(Dettaglio, vbCrLf, " ")
+                
+                Close #f
+                Exit Sub
+                
+               ErrHandler:
+                   On Error Resume Next
+                   Debug.Print "Errore ScriviLog: " & Err.Description
+                   If f <> 0 Then Close #f
+
       End Sub
 
-      '//============================================================================================================================//
-      '//ESPORTO TUTTI GLI OGGETTI DI GEFILE      ***FINE ***
-      '//============================================================================================================================//
 
+'//===================================================================================================//
+'//ESPORTO TUTTI GLI OGGETTI DI GEFILE      ***FINE ***
+'//===================================================================================================//
 
-
-
-
-
-
- '==========================================================
- '=== ROUTINE: CANCELLA_OGGETTI_DB_ESTERNO_Sub ============
-    '==========================================================
-    'Note: Cancello gli oggetti nel db esterno riutilizzando le routine del modulo
+'==========================================================
+'=== ROUTINE: CANCELLA_OGGETTI_DB_ESTERNO_Funct() 
+   'NOTE: per la cancellazione utilizzo DUE ROUTINE '
+    'LA PRIMA CANCELLA GLI OGGETTI NEL DB ESTERNO riutilizzando le routine del modulo 
+    'LA SECONDA IMPOSTO IL FILE LOG'
+    'LE ATTIVITA SVOLTE SONO:'
             'Caricare la collection di oggetti da procedura_01 (CaricaOggettiDaEsportare)
             'Caricare la collection di percorsi DB esterni da procedura_02 (CaricaPercorsiEsportazione)
             'Iterare per ogni DB esterno e per ogni oggetto da cancellare
@@ -388,11 +430,11 @@
             'Se esiste ? cancellarlo con CancellaOggetto
             'Loggare ogni azione in CancellazioneOggettiLog.txt
             'Gestire errori senza bloccare l’intero processo
+    '==========================================================
 
-
-
-
-              Public Sub CANCELLA_OGGETTI_DB_ESTERNO_Sub()
+   Public Function CANCELLA_OGGETTI_DB_ESTERNO_Funct ()
+              
+            '=== 0.1 On error + Dim variabiliYYY
                   On Error GoTo GestErr
 
                   Dim colOggetti As Collection
@@ -405,79 +447,98 @@
                   Dim nome As String
                   Dim parts() As String
                   Dim logPath As String
+               '----------------------------------------------------------------------------------'
 
-                  '=== Imposta percorso file di log
+            '=== 0.2 Imposta percorso file di log
+                '----------------------------------------------------------------------------------'
+                  msgbox "ATTIVA CANCELLA OGGETTI",vbExclamation, "INIZIO CANCELLA OGGETTI"
                   logPath = CurrentProject.Path & "\Logs\CancellazioneOggettiLog.txt"
 
                   'Crea cartella Logs se non esiste
                   If Dir(CurrentProject.Path & "\Logs\", vbDirectory) = "" Then MkDir CurrentProject.Path & "\Logs\"
 
                   'Reindirizza ScriviLog al nuovo file
-                  Call ImpostaLogFile(logPath)
+                   ImpostaLogFile(logPath)
+                    
+                    ScriviLog "=== AVVIO CANCELLAZIONE OGGETTI DB ESTERNI ==="
+                '----------------------------------------------------------------------------------'
 
-                  ScriviLog "=== AVVIO CANCELLAZIONE OGGETTI DB ESTERNI ==="
-
-                  '=== 1. Carica gli oggetti da cancellare
+            '=== 1.0 Carica gli oggetti da cancellare
                   Set colOggetti = CaricaOggettiDaEsportare()
                   If colOggetti Is Nothing Then
                       ScriviLog "Errore: impossibile caricare collezione oggetti."
                       GoTo Uscita
                   End If
+                  '----------------------------------------------------------------------------------'
 
-                  '=== 2. Carica i percorsi dei DB esterni
-                  Set colPercorsi = CaricaPercorsiEsportazione()
-                  If colPercorsi Is Nothing Then
-                      ScriviLog "Errore: impossibile caricare percorsi DB esterni."
-                      GoTo Uscita
-                  End If
-
-                  '=== 3. Loop sui DB esterni
-                  For Each itmPerc In colPercorsi
-                      sxPath = CStr(itmPerc)
-                      ScriviLog "Connessione a DB esterno: " & sxPath
-
-                      If Dir(sxPath) = "" Then
-                          ScriviLog "ATTENZIONE: DB non trovato - " & sxPath
-                          GoTo NextPercorso
+            '=== 2.0 Carica i percorsi dei DB esterni
+               '----------------------------------------------------------------------------------'
+                      Set colPercorsi = CaricaPercorsiEsportazione()
+                      If colPercorsi Is Nothing Then
+                          ScriviLog "Errore: impossibile caricare percorsi DB esterni."
+                          GoTo Uscita
                       End If
 
-                      Set dbDest = DBEngine.OpenDatabase(sxPath)
+            '=== 3.0 Loop sui DB esterni
+               '----------------------------------------------------------------------------------'
+                    For Each itmPerc In colPercorsi
+                          doEvents  ' per il controllo del ciclo'
+                          sxPath = CStr(itmPerc)
+                          ScriviLog "Connessione a DB esterno: " & sxPath
 
-                      '=== 4. Loop su oggetti da cancellare
-                      For Each itm In colOggetti
-                          parts = Split(itm, "|")
-                          If UBound(parts) = 1 Then
-                              tipo = CInt(parts(0))
-                              nome = parts(1)
-
-                              'Controlla se oggetto esiste
-                              If OggettoEsisteNelDB(dbDest, tipo, nome) Then
-                                  CancellaOggetto dbDest, sxPath, tipo, nome
-                              Else
-                                  ScriviLog "Oggetto NON trovato: " & nome & " nel DB: " & sxPath
-                              End If
+                          If Dir(sxPath) = "" Then
+                              ScriviLog "ATTENZIONE: DB non trovato - " & sxPath
+                              GoTo NextPercorso
                           End If
-                      Next itm
 
+                          Set dbDest = DBEngine.OpenDatabase(sxPath)
+
+                          '=== 4. Loop su oggetti da cancellare
+                              For Each itm In colOggetti
+                                  parts = Split(itm, "|")
+                                  If UBound(parts) = 1 Then
+                                      tipo = CInt(parts(0))
+                                      nome = parts(1)
+
+                                      'Controlla se oggetto esiste
+                                      If OggettoEsisteNelDB(dbDest, tipo, nome) Then
+                                          CancellaOggetto dbDest, sxPath, tipo, nome
+                                      Else
+                                          ScriviLog "Oggetto NON trovato: " & nome & " nel DB: " & sxPath
+                                      End If
+                                  End If
+                              Next itm
+
+                          '----------------------------------------------------------------------------------'
                       dbDest.Close
                       Set dbDest = Nothing
+
                 NextPercorso:
                   Next itmPerc
 
-                Uscita:
-                  ScriviLog "=== FINE CANCELLAZIONE OGGETTI DB ESTERNI ==="
-                  Exit Sub
+                           msgbox "FINE CANCELLA OGGETTI",vbExclamation, "FINE CANCELLA OGGETTI"
+                '----------------------------------------------------------------------------------'
 
-            GestErr:
-                  ScriviLog "ERRORE GENERALE in CANCELLA_OGGETTI_DB_ESTERNO_Sub: " & Err.Description
-                  Resume Uscita
-              End Sub
+            '=== 4.0 Uscita + gestine errori
+                    Uscita:
+                      ScriviLog "=== FINE CANCELLAZIONE OGGETTI DB ESTERNI ==="
+                      Exit Function
 
-        '//imposta log file
-        Private Sub ImpostaLogFile(ByVal nuovoPercorso As String)
-            logFilePath = nuovoPercorso
-        End Sub
+                GestErr:
+                      ScriviLog "ERRORE GENERALE in CANCELLA_OGGETTI_DB_ESTERNO_Funct(): " & Err.Description
+                      Resume Uscita
+   End Function
 
-    '==========================================================
+
+   Private Function ImpostaLogFile(ByVal nuovoPercorso As String) '// imposta file log'
+    If LCase$(Right$(nuovoPercorso, 4)) = ".txt" Then
+        nuovoPercorso = Left$(nuovoPercorso, Len(nuovoPercorso) - 4) & ".csv"
+    End If
+    logFilePath = nuovoPercorso
+End Function
+
+
+
+'==========================================================
 
 
