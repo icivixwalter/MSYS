@@ -1,7 +1,12 @@
 @PROGETTO@GE@FILE
    Note
-      progetto di gestione dei file e delle cartelle con le API
-      WINDOWS
+      progetto di gestione dei file e delle cartelle con le API WINDOWS ed i codici per 
+      identificare i progetti sono :
+
+      CODICE_ACCESS     -----> MSys_GE_FILE
+      GROUP_QUOTE_s     -----> GROUP_QUOTA_MSys_GE_FILE
+      NOTE_PROGETTO_s   -----> PROGETTO GESTIONE FILE
+      
 
 
 AGGIORNAMENTI
