@@ -1,4 +1,16 @@
 # README_MINI_PROGETTO_Msys_TB01_PROGETTI
+### 2025.11.15 = MODIFICA RECUPERO GROUP_QUOTE_s
+   la modifica riguarda il campo GROUP_QUOTE_s (@GRUPPO@QUOTE) che recupera adesso la definizione dei codici
+   quote direttamente dalla tabella di definzione del codice progetto con la seguente select
+      SELECT
+            [Msys_DF11_COD_PROGETTO].[GROUP_QUOTE_s],
+            [Msys_DF11_COD_PROGETTO].[DESCR_QUOTE_S]
+            FROM Msys_DF11_COD_PROGETTO
+            GROUP BY [Msys_DF11_COD_PROGETTO].[GROUP_QUOTE_s],
+            [Msys_DF11_COD_PROGETTO].[DESCR_QUOTE_S]
+            WITH OWNERACCESS OPTION;
+
+
 
 ### GE_Msys_TB01_PROGETTI.mdb
    NOTE

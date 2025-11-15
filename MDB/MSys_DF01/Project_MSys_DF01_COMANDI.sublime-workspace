@@ -15,94 +15,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "/c/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/MDB/MSys_DF01/README_DF01_COMANDI.MD",
-			"settings":
-			{
-				"buffer_size": 2371,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			},
-			"undo_stack":
-			[
-				[
-					3,
-					1,
-					"insert",
-					{
-						"characters": " PERL"
-					},
-					"BQAAAFUAAAAAAAAAVgAAAAAAAAAAAAAAVgAAAAAAAABXAAAAAAAAAAAAAABXAAAAAAAAAFgAAAAAAAAAAAAAAFgAAAAAAAAAWQAAAAAAAAAAAAAAWQAAAAAAAABaAAAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAVQAAAAAAAABVAAAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					4,
-					1,
-					"left_delete",
-					null,
-					"AQAAAFkAAAAAAAAAWQAAAAAAAAABAAAATA",
-					"AQAAAAAAAAABAAAAWgAAAAAAAABaAAAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					5,
-					1,
-					"insert",
-					{
-						"characters": " LA"
-					},
-					"AwAAAFkAAAAAAAAAWgAAAAAAAAAAAAAAWgAAAAAAAABbAAAAAAAAAAAAAABbAAAAAAAAAFwAAAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAWQAAAAAAAABZAAAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					6,
-					1,
-					"insert",
-					{
-						"characters": " GESTIONE"
-					},
-					"CQAAAFwAAAAAAAAAXQAAAAAAAAAAAAAAXQAAAAAAAABeAAAAAAAAAAAAAABeAAAAAAAAAF8AAAAAAAAAAAAAAF8AAAAAAAAAYAAAAAAAAAAAAAAAYAAAAAAAAABhAAAAAAAAAAAAAABhAAAAAAAAAGIAAAAAAAAAAAAAAGIAAAAAAAAAYwAAAAAAAAAAAAAAYwAAAAAAAABkAAAAAAAAAAAAAABkAAAAAAAAAGUAAAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAXAAAAAAAAABcAAAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					7,
-					1,
-					"insert",
-					{
-						"characters": " DEI"
-					},
-					"BAAAAGUAAAAAAAAAZgAAAAAAAAAAAAAAZgAAAAAAAABnAAAAAAAAAAAAAABnAAAAAAAAAGgAAAAAAAAAAAAAAGgAAAAAAAAAaQAAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAZQAAAAAAAABlAAAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					8,
-					1,
-					"insert",
-					{
-						"characters": " O"
-					},
-					"AgAAAGkAAAAAAAAAagAAAAAAAAAAAAAAagAAAAAAAABrAAAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAaQAAAAAAAABpAAAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					9,
-					1,
-					"left_delete",
-					null,
-					"AQAAAGoAAAAAAAAAagAAAAAAAAABAAAATw",
-					"AQAAAAAAAAABAAAAawAAAAAAAABrAAAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					10,
-					1,
-					"insert",
-					{
-						"characters": "COMANDI"
-					},
-					"BwAAAGoAAAAAAAAAawAAAAAAAAAAAAAAawAAAAAAAABsAAAAAAAAAAAAAABsAAAAAAAAAG0AAAAAAAAAAAAAAG0AAAAAAAAAbgAAAAAAAAAAAAAAbgAAAAAAAABvAAAAAAAAAAAAAABvAAAAAAAAAHAAAAAAAAAAAAAAAHAAAAAAAAAAcQAAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAagAAAAAAAABqAAAAAAAAAAAAAAAAAPC/"
-				]
-			]
-		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -165,6 +77,7 @@
 	],
 	"file_history":
 	[
+		"/c/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/MDB/MSys_DF01/README_DF01_COMANDI.MD",
 		"/c/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/MDB/MSys_ESPORTA_IMPORTA/README_MINI_PROGETTO_MSys_ESPORTA_IMPORTA.md",
 		"/C/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/MDB/MSys_ESPORTA_IMPORTA/OBJECT/QUERY/CONFRONTA_Qry01_TB03_ELENCO_ObjProgetti.MD",
 		"/C/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/MDB/MSys_ESPORTA_IMPORTA/OBJECT/QUERY/CONFRONTA_Qry01_ESPORTA_IMPORTA.md",
@@ -307,39 +220,6 @@
 		{
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "/c/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/MDB/MSys_DF01/README_DF01_COMANDI.MD",
-					"selected": true,
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2371,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								113,
-								113
-							]
-						],
-						"settings":
-						{
-							"mde.match_heading_hashes": false,
-							"syntax": "Packages/Markdown/Markdown.sublime-syntax",
-							"tab_size": 3,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"stack_multiselect": false,
-					"type": "text"
-				}
 			]
 		}
 	],

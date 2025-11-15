@@ -1,0 +1,4 @@
+2025-11-15 13:10:36 | Classe: Msys_GEFILE_CLS01_GESTIONI | Funzione: ApriFileShellApiWindows | Errore #: 1002 | Descrizione: File non trovato: \ | Riga: 0
+2025-11-15 13:12:42 | Classe: Msys_GEFILE_CLS01_GESTIONI | Funzione: ApriFileShellApiWindows | Errore #: 1002 | Descrizione: File non trovato: \ | Riga: 0
+2025-11-15 13:14:15 | Classe: Msys_GEFILE_CLS01_GESTIONI | Funzione: ApriFileShellApiWindows | Errore #: 1002 | Descrizione: File non trovato: \ | Riga: 0
+2025-11-15 13:14:29 | Classe: Msys_GEFILE_CLS01_GESTIONI | Funzione: ApriFileShellApiWindows | Errore #: 1002 | Descrizione: File non trovato: \ | Riga: 0
