@@ -10,6 +10,12 @@
             [Msys_DF11_COD_PROGETTO].[DESCR_QUOTE_S]
             WITH OWNERACCESS OPTION;
 
+### 2025.11.15 = EVENTO DOPPIO CLICK DEL CAMPO COD_PROGETTO_s_TXT MIGLIORATO
+      Nella form PROGETTI_Msys_TB01Frm01_01_PROJECT nel campo  COD_PROGETTO_s_TXT è stato
+      migliorato l'evento doppio click adesso utilizza le api windows per aprei un 
+      progetto .mde
+
+
 
 
 ### GE_Msys_TB01_PROGETTI.mdb

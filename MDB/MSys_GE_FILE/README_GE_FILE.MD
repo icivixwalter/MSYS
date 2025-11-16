@@ -7,11 +7,13 @@
       GROUP_QUOTE_s     -----> GROUP_QUOTA_MSys_GE_FILE
       NOTE_PROGETTO_s   -----> PROGETTO GESTIONE FILE
       
-
+MSys_TAB502_Qry01_01_VISUAL_PAG_SEMPLICE
 
 AGGIORNAMENTI
    2025_10_28_MODULO_LIBRERIE = creato un modulo per l'inserimento automatico delle librerie.
 
+   2025_10_28_MODULO_LIBRERIE = AGGIORNATA LA CLASSE GESTIONE OGGETTI
+      Migliorato l'esempio di attivazione e apertura file con le api windows.
 
 
 PARAMETRI_VBA
