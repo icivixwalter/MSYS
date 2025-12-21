@@ -2,6 +2,12 @@
 
 
 ### MODIFICHE
+   2025_12_09 = CANCELLATO QUERY ERRATA CON NUOVA QUERY 
+         La query di cancellazione è stata sostituita da 
+            da ----> Msys_Qry01_01_ESPORTA_DB_EST_TMP_Delete (*** errata ***) 
+            a  ----> Msys_Qry01_01_ESPORTA_IMPORTA_DB_EST_TMP_Delete
+         vedi codice -----> @2025_12_09=RinominaQuery_in_Msys_Qry01_01_ESPORTA_IMPORTA_DB_EST_TMP_Delete
+
    2025_10_19 = ATTIVATO HELP
          Ho attivato l'help sia pdf che project. 
             vedi codice---> @2025_10_19@MODIFICA@ATTIVATO@HELP@PROGETTI
