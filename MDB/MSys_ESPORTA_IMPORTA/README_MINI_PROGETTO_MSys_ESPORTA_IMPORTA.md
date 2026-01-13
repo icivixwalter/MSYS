@@ -2,6 +2,22 @@
 
 
 ### MODIFICHE
+   2026_01_08 = CORREZIONE CAMPO QUOTE + CAMPO HELP
+      CAMPO QUOTE
+         Nella form PROGETTI_Msys_TB02Frm01_01_TIPO_OGGETTI ho corretto 
+         il campo GROUP_QUOTE_s_TXT in modo da estrarre dalla casella combinata
+            l'origine riga corretta:
+               SELECT [PROGETTI_Msys_TB02_TIPO_OGGETTI].[GROUP_QUOTE_s] 
+               FROM PROGETTI_Msys_TB02_TIPO_OGGETTI 
+               GROUP BY [PROGETTI_Msys_TB02_TIPO_OGGETTI].[GROUP_QUOTE_s] 
+               ORDER BY [PROGETTI_Msys_TB02_TIPO_OGGETTI].[GROUP_QUOTE_s] 
+               WITH OWNERACCESS OPTION;
+      CAMPO HELP
+         Help_Progetti
+            Creato una maschera per i servizi DENOMINATA PROGETTI_UTILITA_Frm99_SERVIZI_TUTTI
+
+
+
    2025_12_09 = CANCELLATO QUERY ERRATA CON NUOVA QUERY 
          La query di cancellazione è stata sostituita da 
             da ----> Msys_Qry01_01_ESPORTA_DB_EST_TMP_Delete (*** errata ***) 

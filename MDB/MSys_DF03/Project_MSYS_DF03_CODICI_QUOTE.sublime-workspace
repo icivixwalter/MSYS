@@ -1,0 +1,592 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"w",
+				"white3"
+			],
+			[
+				"whi",
+				"white2"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/c/Casa/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/MDB/MSys_DF03/MSYS_DF03_ANALISI_CODICE_QUOTE.MD",
+			"settings":
+			{
+				"buffer_size": 545,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			},
+			"undo_stack":
+			[
+				[
+					3,
+					1,
+					"insert",
+					{
+						"characters": "###"
+					},
+					"AwAAABkBAAAAAAAAGgEAAAAAAAAAAAAAGgEAAAAAAAAbAQAAAAAAAAAAAAAbAQAAAAAAABwBAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAGQEAAAAAAAAZAQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					4,
+					4,
+					"left_delete",
+					null,
+					"BAAAABsBAAAAAAAAGwEAAAAAAAABAAAAIxoBAAAAAAAAGgEAAAAAAAABAAAAIxkBAAAAAAAAGQEAAAAAAAABAAAAIxgBAAAAAAAAGAEAAAAAAAABAAAACg",
+					"AQAAAAAAAAABAAAAHAEAAAAAAAAcAQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					14,
+					1,
+					"duplicate_line",
+					null,
+					"AQAAAL4BAAAAAAAAEAIAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAdQEAAAAAAAB1AQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					18,
+					1,
+					"paste",
+					null,
+					"AQAAAM8BAAAAAAAA5AEAAAAAAAAPAAAATVN5c19ERjAzX1FVT1RF",
+					"AQAAAAAAAAABAAAAzwEAAAAAAADeAQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					21,
+					1,
+					"insert",
+					{
+						"characters": "\t\t"
+					},
+					"AgAAAI0BAAAAAAAAkAEAAAAAAAAAAAAAkAEAAAAAAACTAQAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAjQEAAAAAAACNAQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					26,
+					1,
+					"insert",
+					{
+						"characters": "il"
+					},
+					"AgAAAO0BAAAAAAAA7gEAAAAAAAAuAAAAcmlkZWZpbmlzY28gbGUgdm9jaSBjaGlhdmUgZGVsbGUgc2luZ29sZSBxdW90Ze4BAAAAAAAA7wEAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA7QEAAAAAAAAbAgAAAAAAAP///////+9/"
+				],
+				[
+					27,
+					1,
+					"insert",
+					{
+						"characters": " gruppo"
+					},
+					"BwAAAO8BAAAAAAAA8AEAAAAAAAAAAAAA8AEAAAAAAADxAQAAAAAAAAAAAADxAQAAAAAAAPIBAAAAAAAAAAAAAPIBAAAAAAAA8wEAAAAAAAAAAAAA8wEAAAAAAAD0AQAAAAAAAAAAAAD0AQAAAAAAAPUBAAAAAAAAAAAAAPUBAAAAAAAA9gEAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA7wEAAAAAAADvAQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					28,
+					1,
+					"insert",
+					{
+						"characters": " delle"
+					},
+					"BgAAAPYBAAAAAAAA9wEAAAAAAAAAAAAA9wEAAAAAAAD4AQAAAAAAAAAAAAD4AQAAAAAAAPkBAAAAAAAAAAAAAPkBAAAAAAAA+gEAAAAAAAAAAAAA+gEAAAAAAAD7AQAAAAAAAAAAAAD7AQAAAAAAAPwBAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA9gEAAAAAAAD2AQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					29,
+					1,
+					"insert",
+					{
+						"characters": " quote"
+					},
+					"BgAAAPwBAAAAAAAA/QEAAAAAAAAAAAAA/QEAAAAAAAD+AQAAAAAAAAAAAAD+AQAAAAAAAP8BAAAAAAAAAAAAAP8BAAAAAAAAAAIAAAAAAAAAAAAAAAIAAAAAAAABAgAAAAAAAAAAAAABAgAAAAAAAAICAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA/AEAAAAAAAD8AQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					30,
+					1,
+					"insert",
+					{
+						"characters": " legate"
+					},
+					"BwAAAAICAAAAAAAAAwIAAAAAAAAAAAAAAwIAAAAAAAAEAgAAAAAAAAAAAAAEAgAAAAAAAAUCAAAAAAAAAAAAAAUCAAAAAAAABgIAAAAAAAAAAAAABgIAAAAAAAAHAgAAAAAAAAAAAAAHAgAAAAAAAAgCAAAAAAAAAAAAAAgCAAAAAAAACQIAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAAgIAAAAAAAACAgAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					31,
+					1,
+					"insert",
+					{
+						"characters": " al"
+					},
+					"AwAAAAkCAAAAAAAACgIAAAAAAAAAAAAACgIAAAAAAAALAgAAAAAAAAAAAAALAgAAAAAAAAwCAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAACQIAAAAAAAAJAgAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					32,
+					1,
+					"insert",
+					{
+						"characters": " progetto"
+					},
+					"CQAAAAwCAAAAAAAADQIAAAAAAAAAAAAADQIAAAAAAAAOAgAAAAAAAAAAAAAOAgAAAAAAAA8CAAAAAAAAAAAAAA8CAAAAAAAAEAIAAAAAAAAAAAAAEAIAAAAAAAARAgAAAAAAAAAAAAARAgAAAAAAABICAAAAAAAAAAAAABICAAAAAAAAEwIAAAAAAAAAAAAAEwIAAAAAAAAUAgAAAAAAAAAAAAAUAgAAAAAAABUCAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAADAIAAAAAAAAMAgAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					33,
+					1,
+					"insert",
+					{
+						"characters": " e"
+					},
+					"AgAAABUCAAAAAAAAFgIAAAAAAAAAAAAAFgIAAAAAAAAXAgAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAFQIAAAAAAAAVAgAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					34,
+					1,
+					"insert",
+					{
+						"characters": " "
+					},
+					"AQAAABcCAAAAAAAAGAIAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAFwIAAAAAAAAXAgAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					35,
+					1,
+					"swap_line_up",
+					null,
+					"AgAAAMQBAAAAAAAAxAEAAAAAAABVAAAAICAgICAgICAgVEFCRUxMQSBNU1lTX0RGMDNfR1JPVVBfUVVPVEUgPSBpbCBncnVwcG8gZGVsbGUgcXVvdGUgbGVnYXRlIGFsIHByb2dldHRvIGUgCmwBAAAAAAAAwQEAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAGAIAAAAAAAAYAgAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					36,
+					3,
+					"left_delete",
+					null,
+					"AwAAAL8BAAAAAAAAvwEAAAAAAAABAAAAIL4BAAAAAAAAvgEAAAAAAAABAAAAZb0BAAAAAAAAvQEAAAAAAAABAAAAIA",
+					"AQAAAAAAAAABAAAAwAEAAAAAAADAAQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					39,
+					1,
+					"insert",
+					{
+						"characters": "\n"
+					},
+					"AQAAAL0BAAAAAAAAxwEAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAvQEAAAAAAAC9AQAAAAAAAAAAAAAAAPC/"
+				]
+			]
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"previ",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"PREVIE",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"defa",
+				"Terminus: Open Default Shell in Panel"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Remove Package"
+			],
+			[
+				"terminus",
+				"Terminus: Open Default Shell in Panel"
+			],
+			[
+				"Package Control: in",
+				"Package Control: Install Package"
+			],
+			[
+				"termin",
+				"Terminus: Open Default Shell in Panel"
+			],
+			[
+				"Package Control: ins",
+				"Package Control: Install Package"
+			],
+			[
+				"term",
+				"Terminal: Open in project folder"
+			],
+			[
+				"termi",
+				"Terminal: Open in project folder"
+			],
+			[
+				"chek",
+				"Help: Check for Updates"
+			],
+			[
+				"instal",
+				"Selection: Select All"
+			],
+			[
+				"pack",
+				"View Package File"
+			],
+			[
+				"",
+				"Build: New Build System"
+			],
+			[
+				"prv",
+				"PackageResourceViewer: Open Resource"
+			],
+			[
+				"install ",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"Package ",
+				"Install Package Control"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 231.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '6f4c264a24d933ce70df5dedcf1dcaee' + 'ebe013ee18cced0ef93d5f746d80ef60'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'https://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": true
+	},
+	"expanded_folders":
+	[
+		"/c/Casa/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/MDB/MSys_DF03"
+	],
+	"file_history":
+	[
+		"/c/Casa/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/MDB/MSys_DF03/BAT_RICREA_PATH_MSYS_DF03.BAT",
+		"/C/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/MDB/MSys_DF03/MSYS_DF03_ANALISI_CODICE_QUOTE.MD",
+		"/C/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/MDB/MSys_ESPORTA_IMPORTA/README_MINI_PROGETTO_MSys_ESPORTA_IMPORTA.md",
+		"/C/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/MDB/MSys_DF01/README_DF01_COMANDI.MD",
+		"/c/Casa/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_WEB7_LINK_ACCESS/READEME_ELECTRON_ACCESS.md",
+		"/c/Casa/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_WEB7_LINK_ACCESS/src/main.js",
+		"/c/Casa/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_WEB7_LINK_ACCESS/renderer/LINKACCESS_index.html",
+		"/c/Casa/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_WEB7_LINK_ACCESS/package_README.md",
+		"/c/Casa/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_WEB7_LINK_ACCESS/package.json",
+		"/c/Casa/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_WEB7_LINK_ACCESS/src/preload.js",
+		"/C/CASA/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_WEB7_LINK_ACCESS/package.json",
+		"/C/Users/icivi/AppData/Local/Temp/f9c5c48d-753f-436d-a722-e9b935a48089_sqlite-src-3510200 (1).zip.089/sqlite-src-3510200/README.md",
+		"/C/CASA/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_WEB6/READEME_ELECTRON.md",
+		"/C/CASA/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_WEB6/renderer/appLLPP_index.html",
+		"/C/CASA/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_WEB6/src/main.js",
+		"/C/CASA/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_WEB6/README_ELECTRON_TUTORIAL.MD",
+		"/C/CASA/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_WEB6/package.json",
+		"/C/Users/Giacomo/AppData/Roaming/Sublime Text/Packages/User/Terminus.sublime-settings",
+		"/C/Users/Giacomo/AppData/Roaming/Sublime Text/Packages/struttura.txt",
+		"/C/Users/Giacomo/AppData/Roaming/Sublime Text/struttura.txt",
+		"/C/CASA/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_WEB6/git_STATUS.BAT",
+		"/C/CASA/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_WEB4/modules/telefono/telefono.html",
+		"/C/CASA/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_WEB4/modules/telefono/telefono - Copia.html",
+		"/C/CASA/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_WEB3/HTML_GESTIONE_LLPP_index.html",
+		"/C/CASA/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_WEB4/modules/telefono/telefono_old.html",
+		"/C/CASA/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_WEB4/modules/telefono/app.js",
+		"/C/CASA/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_WEB4/modules/telefono/README_TELEFONO.MD",
+		"/C/CASA/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_WEB4/modules/telefono/telefono_2insieme.html",
+		"/C/CASA/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_WEB3/HTML_index.html",
+		"/C/CASA/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_WEB4/app.js",
+		"/c/CASA/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_WEB4/README_HTML_MULTIPROGETTO_WEB4.md",
+		"/C/CASA/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_WEB4/modules/telefono/app.css",
+		"/c/CASA/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_WEB3/Project_HTML_MULTIPROGETTO_WEB3.sublime-project",
+		"/c/CASA/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_WEB3/README_HTML_MULTIPROGETTO_WEB3.md",
+		"/C/CASA/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_WEB3/Project_HTML_MULTIPROGETTO_WEB3.sublime-project",
+		"/C/CASA/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_WEB3/app.js",
+		"/C/CASA/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_WEB3/modules/lavori_pubblici/lavori_pubblici_js/app.js",
+		"/C/CASA/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_WEB3/modules/lavori_pubblici/lavori_pubblici_js/lavori_pubblici.html",
+		"/C/CASA/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_WEB3/modules/lavori_pubblici/lavori_pubblici_json/app.js",
+		"/C/CASA/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_WEB3/modules/lavori_pubblici/lavori_pubblici_json/lavori_pubblici.html",
+		"/C/CASA/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_WEB3/modules/lavori_pubblici/lavori_pubblici_json/ELENCO_LAVORI_PUBBLICI_B.js",
+		"/C/CASA/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_WEB3/modules/lavori_pubblici/lavori_pubblici_json/ELENCO_LAVORI_PUBBLICI_A.js",
+		"/C/CASA/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_WEB3/modules/lavori_pubblici/lavori_pubblici_json/lavori_pubblici.js",
+		"/C/CASA/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_WEB3/modules/lavori_pubblici/lavori_pubblici.js",
+		"/C/CASA/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_WEB3/modules/lavori_pubblici/lavori_pubblici.html",
+		"/C/CASA/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_WEB3/modules/lavori_pubblici/lavori_pubblici_json/A.TXT",
+		"/C/CASA/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_WEB3/modules/lavori_pubblici/lavori_pubblici_json/ELENCO_LAVORI_PUBBLICI_A.json",
+		"/C/CASA/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_WEB3/modules/lavori_pubblici/struttura.txt",
+		"/C/CASA/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_WEB3/modules/posta/posta.html",
+		"/C/CASA/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_WEB3/modules/lavori_pubblici/A.TXT",
+		"/C/CASA/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_WEB3/modules/lavori_pubblici/lavori_pubblici.css",
+		"/C/CASA/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_WEB3/app.css",
+		"/C/CASA/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTI_PROGETTO_SECONDO/moduli/telefono/ELENCO_JavaScript_NUMERI_TELEFONICI_DIPENDENTI_LETT_Z.JS",
+		"/C/CASA/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_WEB3/modules/telefono/telefono_json/telefono.html",
+		"/C/CASA/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_WEB3/modules/telefono/telefono.html",
+		"/C/CASA/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTI_PROGETTO_SECONDO/moduli/telefono/telefono.html",
+		"/C/CASA/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_WEB3/modules/telefono/telefono_json/ELENCO_JavaScript_NUMERI_TELEFONICI_DIPENDENTI_LETT_A.json",
+		"/C/CASA/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_WEB2/modules/telefono/telefono.html",
+		"/C/CASA/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_WEB2/app/HTML_GESTIONE_LLPP_index.html",
+		"/C/CASA/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_WEB3/struttura.txt",
+		"/C/CASA/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_WEB3/A.TXT",
+		"/C/CASA/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_WEB2/A.TXT",
+		"/C/CASA/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_WEB2/app/app.js",
+		"/C/CASA/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTI_PROGETTO_SECONDO/app.js",
+		"/C/CASA/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_WEB2/app/app.css",
+		"/C/CASA/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_WEB2/modules/posta/posta.html",
+		"/C/CASA/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTI_PROGETTO_SECONDO/moduli/posta/posta.html",
+		"/C/CASA/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_WEB2/app/HTML_index.html",
+		"/C/CASA/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_WEB2/app/A.TXT",
+		"/C/CASA/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTI_PROGETTO_SECONDO/HTML_index.html",
+		"/C/CASA/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_WEB2/app.js",
+		"/C/CASA/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_WEB2/data/HTML_index.html",
+		"/C/CASA/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_WEB2/HTML_index.html",
+		"/C/CASA/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_WEB2/app.css",
+		"/C/CASA/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_WEB2/README_HTML_WEB2_CHATGBT.MD",
+		"/C/CASA/LINGUAGGI/HTML/HTML_PROGETTI/HTML_POSTA_UFFICIO_JSON/HTML_TAB_CONTROLL_Y.HTML",
+		"/C/CASA/LINGUAGGI/HTML/HTML_PROGETTI/HTML_POSTA_UFFICIO_JSON/ELENCO_HTML_NUMERI_TELEFONICI_DIPENDENTI.html",
+		"/C/CASA/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_WEB2/app/debug_log_2025-12-27T19-51-40.json",
+		"/C/CASA/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_PWA/app.js",
+		"/C/CASA/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_PWA/HTML_index.html",
+		"/C/CASA/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_PWA/app.css",
+		"/C/CASA/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTI_PROGETTO_SECONDO/moduli/lavori_pubblici/dati.json",
+		"/C/CASA/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_WEB2/modules/telefono/a.txt",
+		"/C/CASA/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_WEB2/modules/lavori_pubblici/lavori_pubblici_json/ELENCO_LAVORI_PUBBLICI_A.json",
+		"/C/CASA/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_WEB2/struttura.txt",
+		"/C/CASA/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_WEB2/modules/posta/a.txt",
+		"/C/CASA/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_WEB2/README_HTML_MULTIPROGETTO_WEB2.md",
+		"/C/CASA/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_WEB2/step01_verifica.bat",
+		"/C/CASA/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_WEB2/step04_test_app.bat",
+		"/C/CASA/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_WEB2/pdf/README_WEB2_CHATGBT.MD",
+		"/C/CASA/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_WEB2/step05_fix_manifest.bat",
+		"/C/CASA/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_WEB2/step06_build_and_run.bat",
+		"/C/CASA/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_WEB2/step11_Pulisci_cartelle.bat",
+		"/C/CASA/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_WEB2/step1_verifica_LOG.TXT",
+		"/C/CASA/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_WEB2/step2_manifest_LOG.TXT",
+		"/C/CASA/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_WEB2/Step06_build_and_run.bat",
+		"/C/CASA/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_WEB2/Step05_fix_manifest.bat",
+		"/C/CASA/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_WEB2/a.txt",
+		"/C/CASA/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_WEB2/aggiona_sublimetxt.bat",
+		"/C/CASA/LINGUAGGI/DOS/COMANDI_DOS/DOS_DIR_N01.txt",
+		"/C/CASA/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_WEB2/step1_verifica.bat",
+		"/C/CASA/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_WEB2/host/Program.cs",
+		"/C/CASA/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_WEB2/test_app.bat",
+		"/C/CASA/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_WEB2/fix_manifest.bat",
+		"/C/CASA/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_WEB2/host/Program_old.md",
+		"/C/CASA/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_WEB2/host/HTML_MULTIPROGETTO_WEB2.csproj",
+		"/C/CASA/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_WEB2/host/Program_old.cs",
+		"/C/CASA/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_WEB2/test_app_old.bat",
+		"/C/CASA/GE_CASA/GE_MARINO/BANCA/POCKET_OPTION/PCKET_OPTION_CONTRATTO.MD",
+		"/C/CASA/GE_CASA/GE_MARINO/BANCA/POCKET_OPTION/README_POCKET_OPTION.MD",
+		"/C/CASA/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_WEB2/Perpexlity.md/HTML_index.html",
+		"/C/CASA/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_WEB2/test_app_LOG.TXT",
+		"/C/CASA/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_WEB2/build_and_run.bat",
+		"/C/CASA/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_WEB2/host/HTML_MULTIPROGETTO_HTA.csproj",
+		"/c/Casa/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_HTA/README_HTML_MULTIPROGETTO_HTA.md",
+		"/c/Casa/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_HTA/FILE.TXT",
+		"/c/Casa/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_HTA/HTML_index.hta",
+		"/c/Casa/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_HTA/app.css",
+		"/c/Casa/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_HTA/app.js",
+		"/c/Casa/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_HTA/Program.cs",
+		"/C/CASA/LINGUAGGI/HTML/HTML_PROGETTI/HTML_MULTIPROGETTO_HTA/data/posta.json",
+		"/c/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/MDB/MSys_ESPORTA_IMPORTA/README_MINI_PROGETTO_MSys_ESPORTA_IMPORTA.md",
+		"/C/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/MDB/MSys_ESPORTA_IMPORTA/OBJECT/QUERY/ESPOSRTA.MD",
+		"/c/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/MDB/MSys_ESPORTA_IMPORTA/Project_RICOSTRUISCI_PATH_MSys_ESPORTA_IMPORTA.bat",
+		"/c/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/MDB/MSys_TB01_PROGETTI/README_MINI_PROGETTO_MSys_TB01_PROGETTI.md",
+		"/c/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/MDB/MSys_TB01_PROGETTI/README_GE_Msys_TB01_PROGETTI.md",
+		"/C/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/MDB/MSys_TB01_PROGETTI/MDB/README_Msys_DF11_Frm01_M01_GE_CODICE_PROGETTI_TUTT",
+		"/c/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/MDB/MSys_TB01_PROGETTI/Project_GE_Msys_TB01_PROGETTI.sublime-project"
+	],
+	"find":
+	{
+		"height": 63.2
+	},
+	"find_in_files":
+	{
+		"height": 135.2,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"\n         "
+		],
+		"highlight": false,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"scrollbar_highlights": true,
+		"show_context": true,
+		"use_buffer2": true,
+		"use_gitignore": true,
+		"whole_word": false,
+		"wrap": false
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/c/Casa/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/MDB/MSys_DF03/MSYS_DF03_ANALISI_CODICE_QUOTE.MD",
+					"selected": true,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 545,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								455,
+								455
+							]
+						],
+						"settings":
+						{
+							"mde.match_heading_hashes": false,
+							"syntax": "Packages/Markdown/Markdown.sublime-syntax",
+							"tab_size": 3,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 42.4,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"stack_multiselect": false,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 63.2
+	},
+	"input":
+	{
+		"height": 50.4
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"pinned_build_system": "",
+	"project": "Project_MSYS_DF03_CODICI_QUOTE.sublime-project",
+	"replace":
+	{
+		"height": 124.0
+	},
+	"save_all_on_build": false,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"C:\\CASA\\LINGUAGGI\\ACCESS\\ACCESS_PROGETTI_MDB\\GE_ACCESS.sublime-project"
+			]
+		],
+		"width": 391.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 358.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
