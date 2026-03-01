@@ -1,0 +1,1 @@
+Msys_Tb01_ESPORTA_DB_EST                  = DB ESTERNO DOVE ESPORTARE

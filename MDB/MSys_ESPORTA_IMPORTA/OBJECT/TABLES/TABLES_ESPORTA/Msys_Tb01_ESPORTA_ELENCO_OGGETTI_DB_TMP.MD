@@ -1,0 +1,3 @@
+Msys_Tb01_ESPORTA_ELENCO_OGGETTI_DB_TMP   = ELENCO OGGETTI DA  ESPORTARE TMP
+
+Tabella tmp per la esportazioni.

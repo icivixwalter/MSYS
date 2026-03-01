@@ -1,0 +1,24 @@
+Msys_Tb01Qry01_01_ESPORTA_DB_EST
+
+
+
+
+
+
+
+
+
+
+## sql
+
+SELECT
+    [Msys_Tb01_ESPORTA_DB_EST].[Scel_b],
+    [Msys_Tb01_ESPORTA_DB_EST].[COD_PROGETTO_s],
+    [Msys_Tb01_ESPORTA_DB_EST].[PATH_s],
+    [Msys_Tb01_ESPORTA_DB_EST].[DATABASE_s],
+    [Msys_Tb01_ESPORTA_DB_EST].[NOTE_s]
+FROM
+    Msys_Tb01_ESPORTA_DB_EST
+WITH
+    OWNERACCESS
+OPTION;

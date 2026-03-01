@@ -2,6 +2,18 @@
 
 
 ### MODIFICHE
+   2026_03_01 = RICOSTRUZIONE DB ESPORTA
+      DB ESPORTA RICOSTRUITO COME : MSys_ESPORTA.mdb
+
+         TABELLE
+            Msys_Tb01_ESPORTA_DB_EST                  = DB ESTERNO DOVE ESPORTARE
+            Msys_Tb01_ESPORTA_DB_EST_TMP              = DB ESTERNO DOVE ESPORTARE TMP
+            Msys_Tb01_ESPORTA_ELENCO_OGGETTI_DB       = ELENCO OGGETTI DA  ESPORTARE 
+            Msys_Tb01_ESPORTA_ELENCO_OGGETTI_DB_TMP   = ELENCO OGGETTI DA  ESPORTARE TMP
+
+         QUERY
+            Msys_Tb01Qry01_01_ESPORTA_OGGETT_}-------------------------@
+   
    2026_01_08 = CORREZIONE CAMPO QUOTE + CAMPO HELP
       CAMPO QUOTE
          Nella form PROGETTI_Msys_TB02Frm01_01_TIPO_OGGETTI ho corretto 
@@ -15,6 +27,7 @@
       CAMPO HELP
          Help_Progetti
             Creato una maschera per i servizi DENOMINATA PROGETTI_UTILITA_Frm99_SERVIZI_TUTTI
+            
 
 
 
