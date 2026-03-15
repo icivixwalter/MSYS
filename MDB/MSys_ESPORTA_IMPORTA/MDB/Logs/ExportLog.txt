@@ -1,0 +1,6 @@
+============================================================
+LOG ESPORTAZIONE OGGETTI ACCESS
+Database origine: C:\Casa\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_ESPORTA_IMPORTA\MDB\MSys_ESPORTA.mdb
+Data/Ora inizio: 15/03/2026 19:50:35
+============================================================
+

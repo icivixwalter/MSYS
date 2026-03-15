@@ -1,4 +1,9 @@
 # README_MINI_PROGETTO_Msys_TB01_PROGETTI
+
+
+### 2026.03.12 = CORREZIONE ERRORE GROUP_COD_PROG_s
+   QUESTO CAMPO GROUP_COD_PROG_s non è presente in    
+
 ### 2025.11.15 = MODIFICA RECUPERO GROUP_QUOTE_s
    la modifica riguarda il campo GROUP_QUOTE_s (@GRUPPO@QUOTE) che recupera adesso la definizione dei codici
    quote direttamente dalla tabella di definzione del codice progetto con la seguente select
@@ -13,7 +18,7 @@
 ### 2025.11.15 = EVENTO DOPPIO CLICK DEL CAMPO COD_PROGETTO_s_TXT MIGLIORATO
       Nella form PROGETTI_Msys_TB01Frm01_01_PROJECT nel campo  COD_PROGETTO_s_TXT è stato
       migliorato l'evento doppio click adesso utilizza le api windows per aprei un 
-      progetto .mde
+      progetto .md
 
 
 

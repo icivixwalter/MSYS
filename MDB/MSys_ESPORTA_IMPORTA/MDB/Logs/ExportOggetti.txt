@@ -1,0 +1,1 @@
+Nro;NomeOggetto;Tipo;PathDestinazione;DBDestinazione;Timestamp
