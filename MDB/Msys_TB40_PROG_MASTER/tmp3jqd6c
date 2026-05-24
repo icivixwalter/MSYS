@@ -1,0 +1,31 @@
+# PROGETTO TB4O PROGETTO MASTER
+
+## ATTIVITA
+con il progetto Msys_TB40_PROG_MASTER.MD costruisco il PROGETTO MASTER di
+gestione delle form
+
+
+## CODICI ACCESS
+      codice ----> TB40                                  = ESTRAGGO TUTTI GLI OGGETTI
+      codice ----> TAB40_Qry01                           = ESTRATTO i dati della progetto master TB40
+         
+## OGGETTI COSTRUITI
+   TABLES
+      TB40
+            le tabelle create
+         MSys_TAB40_}----------------------------------------@FORM_MASTER
+         MSys_TAB40_PROG_MASTER
+            tabella dove vengono salvate i progetti master
+         MSys_TAB40_PROG_MASTER_TMP
+      TB41             
+         MSys_TAB41_VISUAL_PAG_MASTER
+            visualizzo le pagine master
+   QUERY
+      MSys_TAB401_Qry01_01_GE_TabContr_MASTER
+            estrazione dalla tabella master 
+         MSys_TAB40_Qry01_01_FORM_MASTER_INSERT_toTmp
+            inserisce in tmp
+         MSys_TAB40_Qry01_01_FORM_MASTER_TMP_Delete
+
+   MSys_TAB40_PROG_Qry01_01_FORM_MASTER
+   

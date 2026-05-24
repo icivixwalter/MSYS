@@ -1,0 +1,31 @@
+# QUERY DI ESTRAZIONE DALLA @TABELLA@MASTER
+
+## ATTIVITA
+La query 
+   MSys_TAB40_Qry01_01_FORM_MASTER
+estrae i dati dalla tabella master
+
+
+
+## SQL
+   SELECT
+          MSys_TAB40_FORM_MASTER.*,
+          "->" AS TxtChiavi,
+          MSys_TAB40_FORM_MASTER.COD_PROGETTO_s AS [KeyCOD_PROGETTO_s] 
+      FROM
+          MSys_TAB40_FORM_MASTER;
+
+
+
+
+
+## PROPRIETA
+      query master 
+
+      MSys_TAB40_Qry01_01_FORM_MASTER
+      |
+      |
+      |key = 
+      |
+      MSys_TAB402_Qry01_01_VISUAL_PAG_MASTER
+      MSys_TAB40_Qry01_01_FORM_MASTER

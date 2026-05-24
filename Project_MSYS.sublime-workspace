@@ -16,14 +16,628 @@
 	"buffers":
 	[
 		{
-			"file": "/c/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/Zip_N70_ElencoFile.txt",
+			"contents": "# @PROGETTI@IN@LAVORAZIONE\n   2025.10.12 = IL PROGETTO IN LAVORAZIONE è quello esporta ed importa oggetti, vedi codice\n                @ESPORTA@IMPORTA@OGGETTI\n\n# SCHEMA CARTELLE E ASPETTI GENERALI DI UN MULTIPROGETTO ACCESS\n   Note\n      schema delle cartelle e dei file sul percorso del progetto:\n            c:\\CASA\\LINGUAGGI\\ACCESS\\PROGETTI_MDB\\MSYS_OGGETTI\\MSYS\\\n      Un PROGETTO ACCESS è composto da varie parti divisi fisicamente in cartelle.\n      La cartella principale e le cartelle secondarie che dividono il progetto in questo modo:\n            PROGETTO MASTER\n               Contiene il database MULTIPROGETTO denominati\n                  MULTIPROGETTO_MASTER.MDB\n            MINI PROGETTI\n               GESTIONE_PROGETTO_MINI.mdb\n               ProgettiDefinizioni.mdb\n               ProgettiArchivio.mdb\n      Esempio di questa divisione puo essere questa:\n         MSYS_ATTIVA_GEST_OGGETTI.mdb\n            |__GE_MSys_DF01.mdb\n                  |__MSys_DF01.mdb\n   Vantaggi\n      con questa divisione si possono costruire i proggetti in modo separato e modulare\n      e con prove di gestione sia nel mini progetto che nel progetto master, essendo\n      facilmente manutenibili.\n   Accortezze\n      Nel mini progetto BASE.MDB viene costruito un GESTORE DI OGGETTI che ha come unica\n      funzione quella di IMPORTARE GLI OGGETTI direttamente dai mini progetti escluso dal\n      proprio progetto sorgente.\n      Quindi si hanno 2 tabelle di gestione per questa attivita:\n         1) TABELLA OGGETTI     = che contiene path+database e gli oggetti che devono essere importati\n         2) TABELLA SORGENTI    = contiene i database archivio e database definizioni che non possono \n         3)                         attivare l'importazione degli oggetti per evitare le cancellazioni\n                                    inavvertite.\n\n\n\n   ALBERO CARTELLE E FILE\n         MSYS/\n            │\n            ├─GIT_BAT/\n            ├─MDB/\n            |  |\n            |  |\n            |  |--------MSYS_ATTIVA_GEST_OGGETTI/        .... il progetto MASTER\n            |                 |___MSYS_BASE/             .... tutti i mini progetti\n            |                 |___MSys_DF01/\n            |                 |___MSys_DF02/\n            |                 |___MSys_DF05/\n            |                 |___MSys_DF10/\n            |                 |___MSys_DF11/\n            |                 |___MSys_DF12/\n            |                 |___MSys_DF13/\n            |                 |___MSys_DF14/\n            |                 |___MSys_ELENCO/\n            |                 |___MSys_ESPORTA/\n            |                 |___MSys_FORMS/\n            |                 |___MSys_FORMS_MASTER/\n            |                 |___MSys_GE_FILE/\n            |                 |___MSys_MACRO/\n            |                 |___MSYS_MENU/\n            |                 |___MSys_MODULI/\n            |                 |___MSYS_OBJECT_DB_EST/\n            |                 |___MSYS_OGGETTI_OLD/\n            |                 |___MSys_PAGINE/\n            |                 |___MSys_QUERY/\n            |                 |___MSys_REPORT/\n            |                 |___MSys_TABELLE/\n            |                 |___MSys_TB01_PROGETTI/\n            |                 |___MSys_TB02_TIPO_OGGETTI/\n            |                 |___MSys_TB03_ELENCO_OGGETTI/\n            |                 |___Msys_TB05_FORMS/                         = MSYS PER LA GESTIONE DI TUTTE LE FORMS *** IN RICOSTRUZIONE   \n            |                 |___Msys_TB40_PROG_MASTER/                   = LE FORM MASTER E LE SOTTOFORM MASTER  *** IN RIOSTRUZIONE\n            |                 |___MSys_TB41_VISUAL_PAG_MASTER/             = LA VISUALIZZAZIONE DELLE PAGINE\n            |                 |___MSys_TUTTI_MODELLI/\n            |                 |___TAB_CONTROL/\n            |                 |___TAB_CONTROL_MASTER_(401_402_501_502)/\n            |                 |___TMP_IMPORTA_MODULI/\n            |                 |___TMP_IMPORTA_MODULIOBJECT/\n            |                 |___TMP_OGGETTI_DA_CANCELLARE/\n            |                 |___TREVIEW/\n            |                 |___UTIL/\n            |\n            ├─OBJECT/\n            ├─XLS/\n            ├─.gitignore\n            ├─AA________________________________________________________________________AA.txt\n            ├─ATTIVA_SALVATAGGI_COLLETTIVI_MSYS_OGGETTI+MENU+IMPEGNI.BAT\n            ├─CANCELLA_{MDB+OBJECT+PROJECT}.BAT\n            ├─git_OPEN_OVERLEAF.BAT\n            ├─git_OpenGitHub.bat\n            ├─git_PULL.BAT\n            ├─git_STATUS.BAT\n            ├─git_STATUS+PULL+ADD+COMMIT+PUSH.BAT\n            ├─MSYS_N02________________________________________________________________MSYS.txt\n            ├─Project_MSYS.sublime-project\n            ├─Project_MSYS.sublime-workspace\n            ├─README.md\n            ├─ZIP_7ZIP_________________________________________________________________ZZ.txt\n            ├─ZIP_7ZIP_INCREMENTALE_{CRIPTA+DECODIFICA_INTERNO}_CASA_C.BAT\n            ├─ZIP_7ZIP_INCREMENTALE_{CRIPTA+DECODIFICA_INTERNO}_SAN_GIORGIO_C.BAT\n            ├─ZIP_7ZIP_INCREMENTALE_{CRIPTA+DECODIFICA_INTERNO}_UFFICIO_C.BAT\n            ├─Zip_N70_CRIPTA.bat\n            ├─Zip_N70_DECODIFICA.bat\n            ├─Zip_N70_ElencoFile.txt\n            ├─Zip_N70_ElencoFileESCLUSI.txt\n            └─ZZ________________________________________________________________________ZZ.txt\n\n   ALBERO PROGETTO MSYS\n      \n# RICOSTRUIRE LA REPOSITORY LOCALE ALLINEATA ALLA REMOTA CON GIT\n   Note\n      devi svuotare completamente la cartella MSYS anche con i dati della\n      repository locale .git ed applicare i seguenti comandi in seguenza.\n      Nota bene è valita solo per la repository REMOTA MSYS.git\n\n   RICOSTRUIRE LA REPOSITORY LOCALE DI GIT \n         per la repository REMOTA:  https://github.com/icivixwalter/MSYS.git\n         \n         Tutti i passaggi per ricostruire la repository locale allineata con quella remota :\n         \n        01) git init → creata la repository locale vuota.\n        02) git remote add origin ... → collegato il repository remoto.\n        03) git remote -v → confermato che il remote è registrato correttamente.\n        04) git fetch origin → scaricati tutti i branch e commit remoti senza modificare il tuo branch locale.\n        05) git checkout -b calcolo origin/calcolo → creato il branch locale calcolo e impostato il tracking con il remoto.\n        06) git pull → niente da aggiornare perché ora il tuo branch locale è già allineato con origin/calcolo.\n      \n      Ora la tua repository locale è perfettamente sincronizzata con il remoto e pronta per lavorare.\n         \n         TUTTI I COMANDI DA ESEGUIRE:\n         \n         \n            cd c:\\CASA\\LINGUAGGI\\ACCESS\\PROGETTI_MDB\\MSYS_OGGETTI\\MSYS\n            git init\n            git remote add origin https://github.com/icivixwalter/MSYS.git\n            git remote -v\n            git fetch origin\n            git checkout -b calcolo origin/calcolo\n            git pull\n# RICOSTRUIRE LA PATH MSYS CON IL FILE .BAT\n   Note\n      la path msys puo essere ricostruita con il comando dos di seguito indicato.\n      Essa ricalca lo schema delle cartelle sopra indito:\n\n   DOS\n\n         @REM FILE ----> BAT_RICREA_PATH_MSYS.BAT\n            @echo off\n            setlocal enableextensions\n            \n            rem Percorso completo da ricostruire\n            set \"TARGET=c:\\CASA\\LINGUAGGI\\ACCESS\\PROGETTI_MDB\\MSYS_OGGETTI\\MSYS\"\n            \n            if exist \"%TARGET%\" (\n                echo Esiste già: \"%TARGET%\"\n            ) else (\n                echo Creo: \"%TARGET%\"\n                mkdir \"%TARGET%\"\n                if errorlevel 1 (\n                    echo ERRORE: impossibile creare \"%TARGET%\".\n                    exit /b 1\n                ) else (\n                    echo Creato con successo.\n                )\n            )\n            \n            endlocal\n\n# MSYS_OGGETTI _(ANALISI PRINCIPALE)\n@ UTILIZZO GIORNALIER0\n\tdove il github:           git : icivixwalter/MSYS_OGGETTI\n\tCOMANDO PLURIMO               : \n               git pull & git status & git add . & git commit -m \"agg casa\" & git push & git pull\n\n\n\n# MODIFICHE\n##  2025_05_12_EFFICIENTATO_LA GESTIONE DEI FILE \n      nel progetto GEFILE_Frm01_GESTIONI ho efficientato la gestione dei file, sulla \n         PAG_01 = il button RECUPERA PATH  è attivo e salva nella casella di testo\n                  Percorso_Txt\n\n         PAG_02 =    IL COMANDO APRI TUTTI I FILE CON 3 PARAMETRI è stato\n               sistemato ed ora è attivo come button e sia come doppio click sia \n               sul campo testo path che su file. \n\n   2025_07_25_MSYS_ATTIVA_GEST_OGGETTI = CREO FUNZIONE PER IMPORTAZIONE LINK TABELLE\n      Note\n\n            DATABASE DI PROVA\n               il db di prova in cui testo la nuova procedur si trova in questa path:\n\n                  START \"apro DB TEST\" c:\\Casa\\LINGUAGGI\\ACCESS\\PROGETTI_MDB\\MSYS_OGGETTI\\MSYS\\MDB\\TMP_IMPORTA_MODULI\\MSYS_MODELLO.mdb\n\n                     @total@commader_(apro la path test con il totalcommander)\n                  START \"APRI PATH TEST\" \"C:\\Program Files\\totalcmd\\TOTALCMD64.EXE\" /L=\"c:\\Casa\\LINGUAGGI\\ACCESS\\PROGETTI_MDB\\MSYS_OGGETTI\\MSYS\\MDB\\TMP_IMPORTA_MODULI\\\" /R=\"c:\\Casa\\LINGUAGGI\\ACCESS\\PROGETTI_MDB\\MSYS_OGGETTI\\MSYS\\MDB\\TMP_IMPORTA_MODULI\\\"\n\n            per la gestione del database MSYS_ATTIVA_GEST_OGGETTI.mdb e delle sue\n            form e query occorre gestione il collegamento di diverse tabelle.\n            Il modulo che gestisce il link si chiama UTILITA_MsysDF14Mdl05_IMPORTAZIONE_SEMPLICE_DI_OGGETTI.\n            Per ora viene utilizzata la routine di attivazione delle importazione denominata\n            InizializzaCollectionTABELLE con la quale vengono gestite le seguenti importazioni\n            o link codificate con :\n               questo codice----> MSYS_ATTIVA_GEST_OGGETTI_Link_Tables.\n\n            I link di seguito indicato sono rappresentati in gruppi di definizioni e quindi\n            possono riguardare piu tabelle e db es. gruppo df13:\n                  tbl.Add \"Nome\", \"Msys_DF13_}----------------------------------------------------@\"\n                  \"Msys_DF13_}----------------------------------------------------@\"\n\n            per attivare la procedura di collegamento chiamare la sub:\n                  ImportaTabelle()\n\n\n         GRUPPO LINK EFFETTUATI:\n            01)_DF01\n            02)_DF02 *     = correggi la path  ... OK CORRETTA\n            04)_DF04\n            05)_DF11\n            06)_DF12\n            07)_DF13\n            08)_DF14\n\n               RISULTATI DEI COLLEGAMENTI\n\n                  Tabella 1: MSys_DF01_}----------------------------------------------------@\n                  Tabella 2: MSys_DF01_COMANDI\n                  Tabella 3: MSys_DF02_}----------------------------------------------------@\n                  Tabella 4: MSys_DF02_TIPO_OGGETTO\n                  Tabella 5: MSys_DF05_}----------------------------------------------------@\n                  Tabella 6: MSys_DF05_ATTRIBUTI_TABELLA\n                  Tabella 7: MSys_DF11_{@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@}_Tab\n                  Tabella 8: MSys_DF11_}----------------------------------------------------@\n                  Tabella 9: Msys_DF11_PROGETTI\n                  Tabella 10: Msys_DF12_}----------------------------------------------------@\n                  Tabella 11: Msys_DF12_GE_ObjProgetti\n                  Tabella 12: Msys_DF13_}----------------------------------------------------@\n                  Tabella 13: Msys_DF13_DLL_PROGETTO\n                  Tabella 14: Msys_DF14_}----------------------------------------------------@\n                  Tabella 15: Msys_DF14_DLL_LIBRERIE\n\n\n\n\nOGGETTI CREATI MODIFICATI O MIGLIORATI\n   DB MSys_MODULI.mdb\n      2025.08.05\n         START \"APRI CARTELLA\" \"c:\\CASA\\LINGUAGGI\\ACCESS\\PROGETTI_MDB\\MSYS_OGGETTI\\MSYS\\MDB\\MSys_MODULI\\MDB\\\"\n         Ho creato un modulo che esporta tutti gli oggetti in un file.txt\n         per ora ESPORTA TUTTE LE QUERY del db corrente.\n         Il modulo si chiama :\n            ESPORTA_Mdl00_}------------------------------------------------@\n            ESPORTA_Mdl01_TUTTI_GLI_OGGETTI_IN_FILE_LOG\n\n\n   DB MSys_MODULI.mdb\n      codice ---> 2025.08.05_MSys_MODULI.mdb_(vedi REAME per le modifiche e miglioramenti nel modulo)\n\n         START \"APRI CARTELLA\" \"c:\\CASA\\LINGUAGGI\\ACCESS\\PROGETTI_MDB\\MSYS_OGGETTI\\MSYS\\MDB\\MSys_MODULI\\MDB\\\"\n\n         Sul progetto ho fatto le seguenti modifiche e migliramenti e creazioni di oggetti:\n         Ho creato 4 macro per la cancellazione e la importazione degli oggetti moduli e tabelle:\n            UTILITA_MsysDF14Mcr05_ATTIVA_CancellaModuli\n            UTILITA_MsysDF14Mcr05_ATTIVA_CancellaTabelle\n            UTILITA_MsysDF14Mcr05_ATTIVA_ImportaTabelle\n\n         Ho migliorato il modulo di importazione semplice:\n            UTILITA_MsysDF14Mdl05_}----------------------------------------@\n            UTILITA_MsysDF14Mdl05_IMPORTAZIONE_SEMPLICE_DI_OGGETTI\n\n   DB MSys_MODULI.mdb 06.08.2025\n         CREATO MODULO: ESPORTA_Mdl01_TUTTI_GLI_OGGETTI_IN_FILE_HTML\n\n            Sul db moduli ho fatto questi miglioramenti:\n               c:\\Casa\\LINGUAGGI\\ACCESS\\PROGETTI_MDB\\MSYS_OGGETTI\\MSYS\\MDB\\MSys_TABELLE\\MDB\\MSys_TABELLE.mdb\n               sul modulo:\n                  ESPORTA_Mdl01_TUTTI_GLI_OGGETTI_IN_FILE_HTML, ho creato\n               tutte le funzione per l'esportazione degli oggetti, TABELLE, QUERY, FORM, MODULI\n               REPORT in fomato HTML VEDI CODICE ----> @esporta@query@HTML\n               Con la macro SALVA_Mcr01_TUTTI_GLI_OGGETTI_IN_HTML, salvo tutti gli oggetti del db\n               in OBJECT in formato html e quindi vale come salvataggi visibili e ricopiabili e\n               quindi ricostruibili come codice. UNICA NOTA DA FINIRE sono i REPORT dove salva\n               i dati in formato report  ma non la classe del report; quindi da rivedere.\n               ATTENZIONE L'ESPORTAZIONE DELLA FORM MASTER deve essere duplicata, esportata e cancellata\n               perche quella originale essendo aperto non puo essere esportata.\n         MODIFICA MODULI 2025.08.25\n            l'ulteriore modifica effettuata sul db moduli riguarda la FORM\n               UTILITA_MsysDF14Frm05_ATTIVA_FUNZIONI\n            la form vie utilizzata per la gestione MSYS_ATTIVA_GEST_OGGETTI.mdb è cioè per \n            il db principale; ho creato nella stessa almeno 3 tab con questo significato:\n               TAB_PAG_01 = 01) CANCELLA ED IMPORTA OGGETTI UTILITA\n                  serve per importare gli oggetti necessari per il funzionamento della\n                  form master MSYS_ATTIVA_GEST_OGGETTI.mdb\n                  con 4 button importa e cancella.\n\n                  \n                  \n\n\n\n          TODO: rimande da controllare se questa esportazione funzona:\n\n               1) COLLEGARE QUESTE TABELLE\n                  MSys_TAB_}-----------------------------------------------------@\n                  MSys_TABELLE\n                  MSys_TABELLE_TMP\n               2) IMPORTARE LE QUERY\n                  MSys_TABELLE_Qry01_01_SELECT_TUTTE\n                  MSys_TABELLE_Qry01_01_SELECT_TUTTE_TMP\n               3) IMPORTARE LA FORM\n                  MSys_TABELLE_Frm01_}-------------------------------------------@\n                  MSys_TABELLE_Frm01_S01_TUTTE\n                  MSys_TABELLE_Frm01_S01_TUTTE_TMP\n\n\n",
+			"file": "/c/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/README_MSYS.md",
+			"file_size": 15841,
+			"file_write_time": 134223039559521785,
 			"settings":
 			{
-				"buffer_size": 1152,
+				"buffer_size": 15390,
+				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			},
 			"undo_stack":
 			[
+				[
+					5,
+					1,
+					"duplicate_line",
+					null,
+					"AQAAABUNAAAAAAAAUQ0AAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAAA0AAAAAAAAADQAAAAAAAAAAAAAAIHxA"
+				],
+				[
+					13,
+					1,
+					"paste",
+					null,
+					"AQAAADcNAAAAAAAATA0AAAAAAAAYAAAATVN5c19UQjAzX0VMRU5DT19PR0dFVFRJ",
+					"AQAAAAAAAAABAAAANw0AAAAAAABPDQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					15,
+					1,
+					"insert",
+					{
+						"characters": "\t\t\t\t\t\t\t"
+					},
+					"BwAAAE0NAAAAAAAATg0AAAAAAAAAAAAATg0AAAAAAABRDQAAAAAAAAAAAABRDQAAAAAAAFQNAAAAAAAAAAAAAFQNAAAAAAAAVw0AAAAAAAAAAAAAVw0AAAAAAABaDQAAAAAAAAAAAABaDQAAAAAAAF0NAAAAAAAAAAAAAF0NAAAAAAAAYA0AAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAATQ0AAAAAAABNDQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					16,
+					1,
+					"insert",
+					{
+						"characters": "="
+					},
+					"AQAAAGANAAAAAAAAYQ0AAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAYA0AAAAAAABgDQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					17,
+					1,
+					"insert",
+					{
+						"characters": " LE"
+					},
+					"AwAAAGENAAAAAAAAYg0AAAAAAAAAAAAAYg0AAAAAAABjDQAAAAAAAAAAAABjDQAAAAAAAGQNAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAYQ0AAAAAAABhDQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					18,
+					1,
+					"insert",
+					{
+						"characters": " FORM"
+					},
+					"BQAAAGQNAAAAAAAAZQ0AAAAAAAAAAAAAZQ0AAAAAAABmDQAAAAAAAAAAAABmDQAAAAAAAGcNAAAAAAAAAAAAAGcNAAAAAAAAaA0AAAAAAAAAAAAAaA0AAAAAAABpDQAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAZA0AAAAAAABkDQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					19,
+					1,
+					"insert",
+					{
+						"characters": " MASTER"
+					},
+					"BwAAAGkNAAAAAAAAag0AAAAAAAAAAAAAag0AAAAAAABrDQAAAAAAAAAAAABrDQAAAAAAAGwNAAAAAAAAAAAAAGwNAAAAAAAAbQ0AAAAAAAAAAAAAbQ0AAAAAAABuDQAAAAAAAAAAAABuDQAAAAAAAG8NAAAAAAAAAAAAAG8NAAAAAAAAcA0AAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAaQ0AAAAAAABpDQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					20,
+					1,
+					"insert",
+					{
+						"characters": " E"
+					},
+					"AgAAAHANAAAAAAAAcQ0AAAAAAAAAAAAAcQ0AAAAAAAByDQAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAcA0AAAAAAABwDQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					21,
+					1,
+					"insert",
+					{
+						"characters": " LE"
+					},
+					"AwAAAHINAAAAAAAAcw0AAAAAAAAAAAAAcw0AAAAAAAB0DQAAAAAAAAAAAAB0DQAAAAAAAHUNAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAcg0AAAAAAAByDQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					22,
+					1,
+					"insert",
+					{
+						"characters": " SOTTOT"
+					},
+					"BwAAAHUNAAAAAAAAdg0AAAAAAAAAAAAAdg0AAAAAAAB3DQAAAAAAAAAAAAB3DQAAAAAAAHgNAAAAAAAAAAAAAHgNAAAAAAAAeQ0AAAAAAAAAAAAAeQ0AAAAAAAB6DQAAAAAAAAAAAAB6DQAAAAAAAHsNAAAAAAAAAAAAAHsNAAAAAAAAfA0AAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAdQ0AAAAAAAB1DQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					23,
+					1,
+					"insert",
+					{
+						"characters": "O"
+					},
+					"AQAAAHwNAAAAAAAAfQ0AAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAfA0AAAAAAAB8DQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					24,
+					2,
+					"left_delete",
+					null,
+					"AgAAAHwNAAAAAAAAfA0AAAAAAAABAAAAT3sNAAAAAAAAew0AAAAAAAABAAAAVA",
+					"AQAAAAAAAAABAAAAfQ0AAAAAAAB9DQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					25,
+					1,
+					"insert",
+					{
+						"characters": "FORM"
+					},
+					"BAAAAHsNAAAAAAAAfA0AAAAAAAAAAAAAfA0AAAAAAAB9DQAAAAAAAAAAAAB9DQAAAAAAAH4NAAAAAAAAAAAAAH4NAAAAAAAAfw0AAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAew0AAAAAAAB7DQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					26,
+					1,
+					"insert",
+					{
+						"characters": " MASTER"
+					},
+					"BwAAAH8NAAAAAAAAgA0AAAAAAAAAAAAAgA0AAAAAAACBDQAAAAAAAAAAAACBDQAAAAAAAIINAAAAAAAAAAAAAIINAAAAAAAAgw0AAAAAAAAAAAAAgw0AAAAAAACEDQAAAAAAAAAAAACEDQAAAAAAAIUNAAAAAAAAAAAAAIUNAAAAAAAAhg0AAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAfw0AAAAAAAB/DQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					29,
+					1,
+					"duplicate_line",
+					null,
+					"AQAAAIcNAAAAAAAA+Q0AAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAFQ0AAAAAAAAVDQAAAAAAAAAAAAAAAAAA"
+				],
+				[
+					34,
+					1,
+					"paste",
+					null,
+					"AQAAAKkNAAAAAAAAxA0AAAAAAAAVAAAATXN5c19UQjQwX1BST0dfTUFTVEVS",
+					"AQAAAAAAAAABAAAAvg0AAAAAAACpDQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					36,
+					6,
+					"right_delete",
+					null,
+					"BgAAAMUNAAAAAAAAxQ0AAAAAAAABAAAAIMUNAAAAAAAAxQ0AAAAAAAABAAAAIMUNAAAAAAAAxQ0AAAAAAAABAAAAIMUNAAAAAAAAxQ0AAAAAAAABAAAAIMUNAAAAAAAAxQ0AAAAAAAABAAAAIMUNAAAAAAAAxQ0AAAAAAAABAAAAIA",
+					"AQAAAAAAAAABAAAAxQ0AAAAAAADFDQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					41,
+					1,
+					"insert",
+					{
+						"characters": "LA"
+					},
+					"AgAAANQNAAAAAAAA1Q0AAAAAAAAkAAAATEUgRk9STSBNQVNURVIgRSBMRSBTT1RUT0ZPUk0gTUFTVEVS1Q0AAAAAAADWDQAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA1A0AAAAAAAD4DQAAAAAAAP///////+9/"
+				],
+				[
+					42,
+					1,
+					"insert",
+					{
+						"characters": " VISUALIZZA"
+					},
+					"CwAAANYNAAAAAAAA1w0AAAAAAAAAAAAA1w0AAAAAAADYDQAAAAAAAAAAAADYDQAAAAAAANkNAAAAAAAAAAAAANkNAAAAAAAA2g0AAAAAAAAAAAAA2g0AAAAAAADbDQAAAAAAAAAAAADbDQAAAAAAANwNAAAAAAAAAAAAANwNAAAAAAAA3Q0AAAAAAAAAAAAA3Q0AAAAAAADeDQAAAAAAAAAAAADeDQAAAAAAAN8NAAAAAAAAAAAAAN8NAAAAAAAA4A0AAAAAAAAAAAAA4A0AAAAAAADhDQAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA1g0AAAAAAADWDQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					43,
+					1,
+					"insert",
+					{
+						"characters": "ZIONE"
+					},
+					"BQAAAOENAAAAAAAA4g0AAAAAAAAAAAAA4g0AAAAAAADjDQAAAAAAAAAAAADjDQAAAAAAAOQNAAAAAAAAAAAAAOQNAAAAAAAA5Q0AAAAAAAAAAAAA5Q0AAAAAAADmDQAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA4Q0AAAAAAADhDQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					44,
+					1,
+					"insert",
+					{
+						"characters": " DELLE"
+					},
+					"BgAAAOYNAAAAAAAA5w0AAAAAAAAAAAAA5w0AAAAAAADoDQAAAAAAAAAAAADoDQAAAAAAAOkNAAAAAAAAAAAAAOkNAAAAAAAA6g0AAAAAAAAAAAAA6g0AAAAAAADrDQAAAAAAAAAAAADrDQAAAAAAAOwNAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA5g0AAAAAAADmDQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					45,
+					1,
+					"insert",
+					{
+						"characters": " PAGINE"
+					},
+					"BwAAAOwNAAAAAAAA7Q0AAAAAAAAAAAAA7Q0AAAAAAADuDQAAAAAAAAAAAADuDQAAAAAAAO8NAAAAAAAAAAAAAO8NAAAAAAAA8A0AAAAAAAAAAAAA8A0AAAAAAADxDQAAAAAAAAAAAADxDQAAAAAAAPINAAAAAAAAAAAAAPINAAAAAAAA8w0AAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA7A0AAAAAAADsDQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					49,
+					1,
+					"duplicate_line",
+					null,
+					"AQAAABUNAAAAAAAAUQ0AAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAFA0AAAAAAAAUDQAAAAAAAAAAAAAAfJNA"
+				],
+				[
+					56,
+					1,
+					"paste",
+					null,
+					"AQAAADcNAAAAAAAARg0AAAAAAAAYAAAATVN5c19UQjAzX0VMRU5DT19PR0dFVFRJ",
+					"AQAAAAAAAAABAAAANw0AAAAAAABPDQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					58,
+					1,
+					"insert",
+					{
+						"characters": "\t\t\t\t\t\t\t\t\t\t"
+					},
+					"CgAAAEcNAAAAAAAASA0AAAAAAAAAAAAASA0AAAAAAABLDQAAAAAAAAAAAABLDQAAAAAAAE4NAAAAAAAAAAAAAE4NAAAAAAAAUQ0AAAAAAAAAAAAAUQ0AAAAAAABUDQAAAAAAAAAAAABUDQAAAAAAAFcNAAAAAAAAAAAAAFcNAAAAAAAAWg0AAAAAAAAAAAAAWg0AAAAAAABdDQAAAAAAAAAAAABdDQAAAAAAAGANAAAAAAAAAAAAAGANAAAAAAAAYw0AAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAARw0AAAAAAABHDQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					60,
+					1,
+					"insert",
+					{
+						"characters": "="
+					},
+					"AQAAAGANAAAAAAAAYQ0AAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAYA0AAAAAAABgDQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					61,
+					1,
+					"insert",
+					{
+						"characters": " "
+					},
+					"AQAAAGENAAAAAAAAYg0AAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAYQ0AAAAAAABhDQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					62,
+					1,
+					"insert",
+					{
+						"characters": "MSYS"
+					},
+					"BAAAAGINAAAAAAAAYw0AAAAAAAAAAAAAYw0AAAAAAABkDQAAAAAAAAAAAABkDQAAAAAAAGUNAAAAAAAAAAAAAGUNAAAAAAAAZg0AAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAYg0AAAAAAABiDQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					63,
+					1,
+					"insert",
+					{
+						"characters": " PER"
+					},
+					"BAAAAGYNAAAAAAAAZw0AAAAAAAAAAAAAZw0AAAAAAABoDQAAAAAAAAAAAABoDQAAAAAAAGkNAAAAAAAAAAAAAGkNAAAAAAAAag0AAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAZg0AAAAAAABmDQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					64,
+					1,
+					"insert",
+					{
+						"characters": " LA"
+					},
+					"AwAAAGoNAAAAAAAAaw0AAAAAAAAAAAAAaw0AAAAAAABsDQAAAAAAAAAAAABsDQAAAAAAAG0NAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAag0AAAAAAABqDQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					65,
+					1,
+					"insert",
+					{
+						"characters": " GESTIONE"
+					},
+					"CQAAAG0NAAAAAAAAbg0AAAAAAAAAAAAAbg0AAAAAAABvDQAAAAAAAAAAAABvDQAAAAAAAHANAAAAAAAAAAAAAHANAAAAAAAAcQ0AAAAAAAAAAAAAcQ0AAAAAAAByDQAAAAAAAAAAAAByDQAAAAAAAHMNAAAAAAAAAAAAAHMNAAAAAAAAdA0AAAAAAAAAAAAAdA0AAAAAAAB1DQAAAAAAAAAAAAB1DQAAAAAAAHYNAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAbQ0AAAAAAABtDQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					66,
+					1,
+					"insert",
+					{
+						"characters": " DI"
+					},
+					"AwAAAHYNAAAAAAAAdw0AAAAAAAAAAAAAdw0AAAAAAAB4DQAAAAAAAAAAAAB4DQAAAAAAAHkNAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAdg0AAAAAAAB2DQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					67,
+					1,
+					"insert",
+					{
+						"characters": " TUTTE"
+					},
+					"BgAAAHkNAAAAAAAAeg0AAAAAAAAAAAAAeg0AAAAAAAB7DQAAAAAAAAAAAAB7DQAAAAAAAHwNAAAAAAAAAAAAAHwNAAAAAAAAfQ0AAAAAAAAAAAAAfQ0AAAAAAAB+DQAAAAAAAAAAAAB+DQAAAAAAAH8NAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAeQ0AAAAAAAB5DQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					68,
+					1,
+					"insert",
+					{
+						"characters": " LE"
+					},
+					"AwAAAH8NAAAAAAAAgA0AAAAAAAAAAAAAgA0AAAAAAACBDQAAAAAAAAAAAACBDQAAAAAAAIINAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAfw0AAAAAAAB/DQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					69,
+					1,
+					"insert",
+					{
+						"characters": " FORMS"
+					},
+					"BgAAAIINAAAAAAAAgw0AAAAAAAAAAAAAgw0AAAAAAACEDQAAAAAAAAAAAACEDQAAAAAAAIUNAAAAAAAAAAAAAIUNAAAAAAAAhg0AAAAAAAAAAAAAhg0AAAAAAACHDQAAAAAAAAAAAACHDQAAAAAAAIgNAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAgg0AAAAAAACCDQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					72,
+					1,
+					"insert",
+					{
+						"characters": " "
+					},
+					"AQAAAIgNAAAAAAAAiQ0AAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAiA0AAAAAAACIDQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					73,
+					1,
+					"insert_snippet",
+					{
+						"contents": "*$0*"
+					},
+					"AQAAAIkNAAAAAAAAiw0AAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAiQ0AAAAAAACJDQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					75,
+					1,
+					"insert",
+					{
+						"characters": "*"
+					},
+					"AQAAAIsNAAAAAAAAjA0AAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAiw0AAAAAAACLDQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					76,
+					1,
+					"insert",
+					{
+						"characters": " IN"
+					},
+					"AwAAAIwNAAAAAAAAjQ0AAAAAAAAAAAAAjQ0AAAAAAACODQAAAAAAAAAAAACODQAAAAAAAI8NAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAjA0AAAAAAACMDQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					77,
+					1,
+					"insert",
+					{
+						"characters": " RICOSST"
+					},
+					"CAAAAI8NAAAAAAAAkA0AAAAAAAAAAAAAkA0AAAAAAACRDQAAAAAAAAAAAACRDQAAAAAAAJINAAAAAAAAAAAAAJINAAAAAAAAkw0AAAAAAAAAAAAAkw0AAAAAAACUDQAAAAAAAAAAAACUDQAAAAAAAJUNAAAAAAAAAAAAAJUNAAAAAAAAlg0AAAAAAAAAAAAAlg0AAAAAAACXDQAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAjw0AAAAAAACPDQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					78,
+					1,
+					"insert",
+					{
+						"characters": "R"
+					},
+					"AQAAAJcNAAAAAAAAmA0AAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAlw0AAAAAAACXDQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					79,
+					3,
+					"left_delete",
+					null,
+					"AwAAAJcNAAAAAAAAlw0AAAAAAAABAAAAUpYNAAAAAAAAlg0AAAAAAAABAAAAVJUNAAAAAAAAlQ0AAAAAAAABAAAAUw",
+					"AQAAAAAAAAABAAAAmA0AAAAAAACYDQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					80,
+					1,
+					"insert",
+					{
+						"characters": "TRUZIONE"
+					},
+					"CAAAAJUNAAAAAAAAlg0AAAAAAAAAAAAAlg0AAAAAAACXDQAAAAAAAAAAAACXDQAAAAAAAJgNAAAAAAAAAAAAAJgNAAAAAAAAmQ0AAAAAAAAAAAAAmQ0AAAAAAACaDQAAAAAAAAAAAACaDQAAAAAAAJsNAAAAAAAAAAAAAJsNAAAAAAAAnA0AAAAAAAAAAAAAnA0AAAAAAACdDQAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAlQ0AAAAAAACVDQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					83,
+					1,
+					"insert",
+					{
+						"characters": "  "
+					},
+					"AgAAABIOAAAAAAAAEw4AAAAAAAAAAAAAEw4AAAAAAAAUDgAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAEg4AAAAAAAASDgAAAAAAAAAAAAAAiJhA"
+				],
+				[
+					84,
+					1,
+					"insert_snippet",
+					{
+						"contents": "*$0*"
+					},
+					"AQAAABQOAAAAAAAAFg4AAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAFA4AAAAAAAAUDgAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					86,
+					1,
+					"insert",
+					{
+						"characters": " "
+					},
+					"AQAAABYOAAAAAAAAFw4AAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAFg4AAAAAAAAWDgAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					87,
+					1,
+					"left_delete",
+					null,
+					"AQAAABYOAAAAAAAAFg4AAAAAAAABAAAAIA",
+					"AQAAAAAAAAABAAAAFw4AAAAAAAAXDgAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					88,
+					1,
+					"insert",
+					{
+						"characters": "*"
+					},
+					"AQAAABYOAAAAAAAAFw4AAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAFg4AAAAAAAAWDgAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					89,
+					1,
+					"insert",
+					{
+						"characters": " IN"
+					},
+					"AwAAABcOAAAAAAAAGA4AAAAAAAAAAAAAGA4AAAAAAAAZDgAAAAAAAAAAAAAZDgAAAAAAABoOAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAFw4AAAAAAAAXDgAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					90,
+					1,
+					"insert",
+					{
+						"characters": " RIOSTRUZIONE"
+					},
+					"DQAAABoOAAAAAAAAGw4AAAAAAAAAAAAAGw4AAAAAAAAcDgAAAAAAAAAAAAAcDgAAAAAAAB0OAAAAAAAAAAAAAB0OAAAAAAAAHg4AAAAAAAAAAAAAHg4AAAAAAAAfDgAAAAAAAAAAAAAfDgAAAAAAACAOAAAAAAAAAAAAACAOAAAAAAAAIQ4AAAAAAAAAAAAAIQ4AAAAAAAAiDgAAAAAAAAAAAAAiDgAAAAAAACMOAAAAAAAAAAAAACMOAAAAAAAAJA4AAAAAAAAAAAAAJA4AAAAAAAAlDgAAAAAAAAAAAAAlDgAAAAAAACYOAAAAAAAAAAAAACYOAAAAAAAAJw4AAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAGg4AAAAAAAAaDgAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					99,
+					1,
+					"insert",
+					{
+						"characters": " con"
+					},
+					"BAAAAGobAAAAAAAAaxsAAAAAAAAAAAAAaxsAAAAAAABsGwAAAAAAAAAAAABsGwAAAAAAAG0bAAAAAAAAAAAAAG0bAAAAAAAAbhsAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAahsAAAAAAABqGwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					100,
+					3,
+					"left_delete",
+					null,
+					"AwAAAG0bAAAAAAAAbRsAAAAAAAABAAAAbmwbAAAAAAAAbBsAAAAAAAABAAAAb2sbAAAAAAAAaxsAAAAAAAABAAAAYw",
+					"AQAAAAAAAAABAAAAbhsAAAAAAABuGwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					101,
+					1,
+					"insert",
+					{
+						"characters": "CON"
+					},
+					"AwAAAGsbAAAAAAAAbBsAAAAAAAAAAAAAbBsAAAAAAABtGwAAAAAAAAAAAABtGwAAAAAAAG4bAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAaxsAAAAAAABrGwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					102,
+					1,
+					"insert",
+					{
+						"characters": " IL"
+					},
+					"AwAAAG4bAAAAAAAAbxsAAAAAAAAAAAAAbxsAAAAAAABwGwAAAAAAAAAAAABwGwAAAAAAAHEbAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAbhsAAAAAAABuGwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					103,
+					1,
+					"insert",
+					{
+						"characters": " FILE"
+					},
+					"BQAAAHEbAAAAAAAAchsAAAAAAAAAAAAAchsAAAAAAABzGwAAAAAAAAAAAABzGwAAAAAAAHQbAAAAAAAAAAAAAHQbAAAAAAAAdRsAAAAAAAAAAAAAdRsAAAAAAAB2GwAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAcRsAAAAAAABxGwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					104,
+					1,
+					"insert",
+					{
+						"characters": " .BAT"
+					},
+					"BQAAAHYbAAAAAAAAdxsAAAAAAAAAAAAAdxsAAAAAAAB4GwAAAAAAAAAAAAB4GwAAAAAAAHkbAAAAAAAAAAAAAHkbAAAAAAAAehsAAAAAAAAAAAAAehsAAAAAAAB7GwAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAdhsAAAAAAAB2GwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					109,
+					1,
+					"insert",
+					{
+						"characters": " CON"
+					},
+					"BAAAAIEVAAAAAAAAghUAAAAAAAAAAAAAghUAAAAAAACDFQAAAAAAAAAAAACDFQAAAAAAAIQVAAAAAAAAAAAAAIQVAAAAAAAAhRUAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAgRUAAAAAAACBFQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					110,
+					1,
+					"insert",
+					{
+						"characters": " GIT"
+					},
+					"BAAAAIUVAAAAAAAAhhUAAAAAAAAAAAAAhhUAAAAAAACHFQAAAAAAAAAAAACHFQAAAAAAAIgVAAAAAAAAAAAAAIgVAAAAAAAAiRUAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAhRUAAAAAAACFFQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					114,
+					2,
+					"right_delete",
+					null,
+					"AgAAAFYbAAAAAAAAVhsAAAAAAAABAAAAClYbAAAAAAAAVhsAAAAAAAABAAAACg",
+					"AQAAAAAAAAABAAAAVhsAAAAAAABWGwAAAAAAAAAAAAAAAAAA"
+				],
+				[
+					116,
+					2,
+					"right_delete",
+					null,
+					"AgAAANweAAAAAAAA3B4AAAAAAAABAAAACtweAAAAAAAA3B4AAAAAAAABAAAACg",
+					"AQAAAAAAAAABAAAA3B4AAAAAAADcHgAAAAAAAAAAAAAAAAAA"
+				],
+				[
+					122,
+					2,
+					"right_delete",
+					null,
+					"AgAAAAIfAAAAAAAAAh8AAAAAAAABAAAACgIfAAAAAAAAAh8AAAAAAAABAAAACg",
+					"AQAAAAAAAAABAAAAAh8AAAAAAAACHwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					136,
+					1,
+					"insert",
+					{
+						"characters": "##"
+					},
+					"AgAAAOcfAAAAAAAA6B8AAAAAAAAAAAAA6B8AAAAAAADpHwAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA5x8AAAAAAADnHwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					137,
+					1,
+					"insert",
+					{
+						"characters": " "
+					},
+					"AQAAAOkfAAAAAAAA6h8AAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA6R8AAAAAAADpHwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					138,
+					2,
+					"right_delete",
+					null,
+					"AgAAAOofAAAAAAAA6h8AAAAAAAABAAAAIOofAAAAAAAA6h8AAAAAAAABAAAAIA",
+					"AQAAAAAAAAABAAAA6h8AAAAAAADqHwAAAAAAAAAAAAAAAPC/"
+				]
 			]
 		}
 	],
@@ -83,8 +697,7 @@
 	},
 	"expanded_folders":
 	[
-		"/c/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS",
-		"/c/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/MDB"
+		"/c/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS"
 	],
 	"file_history":
 	[
@@ -256,25 +869,27 @@
 			[
 				{
 					"buffer": 0,
-					"file": "/c/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/Zip_N70_ElencoFile.txt",
+					"file": "/c/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/README_MSYS.md",
 					"selected": true,
-					"semi_transient": true,
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1152,
+						"buffer_size": 15390,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								158,
-								158
+								8170,
+								8170
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
+							"mde.folding.target_level": 1,
+							"mde.match_heading_hashes": false,
+							"syntax": "Packages/Markdown/Markdown.sublime-syntax"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,

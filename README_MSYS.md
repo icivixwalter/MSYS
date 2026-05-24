@@ -69,6 +69,9 @@
             |                 |___MSys_TB01_PROGETTI/
             |                 |___MSys_TB02_TIPO_OGGETTI/
             |                 |___MSys_TB03_ELENCO_OGGETTI/
+            |                 |___Msys_TB05_FORMS/                         = MSYS PER LA GESTIONE DI TUTTE LE FORMS *** IN RICOSTRUZIONE   
+            |                 |___Msys_TB40_PROG_MASTER/                   = LE FORM MASTER E LE SOTTOFORM MASTER  *** IN RIOSTRUZIONE
+            |                 |___MSys_TB41_VISUAL_PAG_MASTER/             = LA VISUALIZZAZIONE DELLE PAGINE
             |                 |___MSys_TUTTI_MODELLI/
             |                 |___TAB_CONTROL/
             |                 |___TAB_CONTROL_MASTER_(401_402_501_502)/
@@ -137,7 +140,7 @@
             git pull
 
 
-# RICOSTRUIRE LA PATH MSYS
+# RICOSTRUIRE LA PATH MSYS CON IL FILE .BAT
    Note
       la path msys puo essere ricostruita con il comando dos di seguito indicato.
       Essa ricalca lo schema delle cartelle sopra indito:

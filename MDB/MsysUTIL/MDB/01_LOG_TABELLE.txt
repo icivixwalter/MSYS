@@ -1,0 +1,5 @@
+Tabella 2: MSys_DF02_}----------------------------------------------------@
+Tabella 3: MSys_DF02_TIPO_OGGETTO
+Tabella 4: MSys_DF11_}----------------------------------------------------@
+Tabella 5: Msys_DF11_COD_PROGETTO
+Tabella 5: MSYS_UTILITA_OGGETTI_PER_PROGETTO

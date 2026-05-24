@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<!-- ===============================================================================
+STRUTTURA MODULARE DEL FILE - HELP CODICE OPERA FORM CODICI SCELTI
+===================================================================================
+| Segnalibro                          | Descrizione                                |
+|-------------------------------------|--------------------------------------------|
+| [SEZIONE_01_STYLE]                  | Stili CSS della pagina (commenti chiari)   |
+| [SEZIONE_02_CONTENUTO_HTML]         | Titolo, cornice textarea, nota e footer    |
+| [SEZIONE_03_NESSUN_IMPORT_DATI]     | Nessun caricamento dati esterno            |
+| [SEZIONE_04_SCRIPT_BASE]            | Eventuali funzioni JS minime (non usate)   |
+| [SEZIONE_05_SPIEGAZIONE_MODIFICABILE]| Textarea con testo spiegazione modificabile|
+===================================================================================
+-->
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Help - FORM ELENCO OGGETTI </title>
+
+  <!-- ================================
+       SEZIONE_01_STYLE
+       COMMENTI DETTAGLIATI PER FACILE MODIFICA
+  ================================= -->
+  <style>
+    /* -------------------------------
+       STILE GENERALE DEL CORPO PAGINA
+       - Imposta il font di base
+       - Margine esterno di 2rem (distanza dai bordi)
+       - Sfondo grigio chiaro (leggero)
+    ------------------------------- */
+    body {
+      font-family: Arial, sans-serif;   /* Font semplice e leggibile */
+      margin: 2rem;                     /* Spazio attorno al contenuto principale */
+      background: #f5f7fa;              /* Colore di sfondo neutro (grigio molto chiaro) */
+    }
+
+    /* -------------------------------
+       CONTENITORE PRINCIPALE (CARD)
+       - Larghezza massima 800px (si adatta su schermi piccoli)
+       - Centrato orizzontalmente con margin: auto
+       - Sfondo bianco, angoli arrotondati, ombra leggera
+       - Padding interno per separare il testo dai bordi
+    ------------------------------- */
+    .container {
+      max-width: 90%;                 /* La card non supera gli 800px - Larghezza massima al 90% del contenitore padre */
+                                        ma posso esprimerla in % es max-width: 40% */
+      min-height: 600px;           /* forza un'altezza minima min-height: 600px, ma si espande se il contenuto cresce */
+
+      margin: 0 auto;                  /* Centra la card nella pagina */
+      background: white;               /* Sfondo bianco per contrasto */
+      border-radius: 12px;             /* Angoli arrotondati */
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* Ombra leggera per effetto 3D */
+      padding: 1.5rem 2rem 2rem 2rem;  /* Spazio interno: sopra 1.5rem, lati 2rem, sotto 2rem */
+    }
+
+    /* -------------------------------
+       TITOLO PRINCIPALE (H1)
+       - Colore blu scuro
+       - Rimuove margine superiore di default
+       - Bordo sinistro spesso 6px di colore blu
+       - Spaziatura interna sinistra per distanziare il bordo dal testo
+    ------------------------------- */
+    h1 {
+      color: #2c3e50;                  /* Blu scuro elegante */
+      margin-top: 0;                   /* Elimina margine superiore predefinito */
+      border-left: 6px solid #2980b9;  /* Barra laterale decorativa */
+      padding-left: 1rem;              /* Distanza tra barra e testo */
+    }
+
+    /* -------------------------------
+       ETICHETTA DELLA TEXTAREA
+       - Testo in grassetto
+       - Margine superiore 1.2rem, inferiore 0.5rem
+       - Colore blu scuro (armonizzato)
+    ------------------------------- */
+    label {
+      font-weight: bold;               /* Grassetto per evidenziare */
+      display: block;                  /* Occupa tutta la larghezza disponibile */
+      margin: 1.2rem 0 0.5rem 0;      /* Spazio sopra, nessuno a sinistra/destra, spazio sotto */
+      color: #1e4663;                  /* Blu scuro ma leggermente più chiaro dell'h1 */
+    }
+
+    /* -------------------------------
+       TEXTAREA (CORNICE MODIFICABILE)
+       - Larghezza piena rispetto al contenitore
+       - Padding interno per il testo
+       - Dimensione font 1rem (leggibile)
+       - Bordo grigio chiaro, angoli arrotondati
+       - resize: vertical → permette di trascinare solo in altezza (più/meno righe)
+       - box-sizing: border-box → include padding e bordo nella larghezza totale
+    ------------------------------- */
+    textarea {
+      width: 100%;                     /* Occupa tutta la larghezza del .container */
+      padding: 0.8rem;                /* Spazio interno comodo */
+      font-size: 1rem;                /* Dimensione standard */
+      font-family: inherit;           /* Eredita il font dal body (Arial) */
+      border: 1px solid #bdc3c7;      /* Bordo grigio tenue */
+      border-radius: 8px;             /* Angoli leggermente arrotondati */
+      resize: vertical;               /* Ridimensionabile SOLO in verticale (altezza) */
+      box-sizing: border-box;         /* Larghezza include padding e bordo */
+    }
+
+    /* -------------------------------
+       TEXTAREA: FOCUS (quando si clicca dentro)
+       - Rimuove il contorno di default del browser
+       - Cambia colore del bordo in blu
+       - Aggiunge una leggera ombra esterna blu per feedback visivo
+    ------------------------------- */
+    textarea:focus {
+      outline: none;                  /* Toglie il bordo nero di default */
+      border-color: #2980b9;         /* Bordo diventa blu */
+      box-shadow: 0 0 0 2px rgba(41,128,185,0.2); /* Ombra blu trasparente */
+    }
+
+    /* -------------------------------
+       NOTA INFORMATIVA (SOTTO LA TEXTAREA)
+       - Sfondo grigio azzurrino molto chiaro
+       - Padding interno, angoli arrotondati
+       - Margine sopra per distanziarsi dalla textarea
+       - Dimensione font ridotta (0.85rem) per non rubare attenzione
+    ------------------------------- */
+    .note {
+      background: #eef2f7;            /* Colore di sfondo delicato */
+      padding: 0.6rem 1rem;           /* Spazio interno verticale e orizzontale */
+      border-radius: 8px;             /* Angoli arrotondati */
+      margin-top: 1.5rem;             /* Distanza dalla textarea */
+      font-size: 0.85rem;             /* Testo più piccolo */
+      color: #2c3e50;                 /* Colore testo uguale al titolo */
+    }
+
+    /* -------------------------------
+       FOOTER (in basso)
+       - Margine sopra per separazione
+       - Testo centrato
+       - Font piccola, colore grigio
+    ------------------------------- */
+    footer {
+      margin-top: 1.5rem;
+      text-align: center;
+      font-size: 0.75rem;
+      color: #7f8c8d;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ================================
+     SEZIONE_02_CONTENUTO_HTML
+================================= -->
+<div class="container">
+  <h1>📌 HELP FORM ELENCO OGGETTI </h1>
+
+  <label>📝 Spiegazione del funzionamento (cornice modificabile)</label>
+  <!-- ================================
+       SEZIONE_05_SPIEGAZIONE_MODIFICABILE (textarea)
+       se aumenti le righe rows="8",15 a 18 aumenta il banner
+  ================================= -->
+  <textarea id="spiegazione" rows="15" placeholder="Scrivi qui la spiegazione della casella combinata...">
+🔹 HEL DELLA FORM PROGETTI
+    Serve per gestire i progetti
+
+🔹 e gli oggetti dei progetti.
+
+
+  </textarea>
+
+  <div class="note">
+    💡 <strong>Suggerimento:</strong> Trascina l’angolo in basso a destra della cornice per aumentare o ridurre il numero di righe visibili. Il testo si adatterà automaticamente.
+  </div>
+  <footer>
+    Form di aiuto – Modifica liberamente la spiegazione nella cornice.
+  </footer>
+</div>
+
+<!-- ================================
+     SEZIONE_03_NESSUN_IMPORT_DATI
+     (nessun file JS esterno caricato)
+     SEZIONE_04_SCRIPT_BASE (nessuna funzione aggiuntiva richiesta)
+================================= -->
+</body>
+</html>

@@ -16,7 +16,8 @@
       su cui esportare gli oggetti della tabella 3:
          PROGETTI_Msys_TB03_ELENCO_ObjProgetti
 
-
+   todo: creare una query di prova che colleghi 3 database
+      CODICE---> TB01
 
 
 
