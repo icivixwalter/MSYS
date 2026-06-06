@@ -15,6 +15,15 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "/C/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/README_MSYS.md",
+			"settings":
+			{
+				"buffer_size": 18114,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -72,9 +81,13 @@
 	},
 	"expanded_folders":
 	[
+		"/C/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS",
+		"/C/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/XLS"
 	],
 	"file_history":
 	[
+		"/C/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/README_MSYS.md",
+		"/C/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/MDB/MSys_TB99_LINK/OBJECT/MODULES/MSys_TB30_UTIL_Export_Mdl01_TABELLE_Link_RicreaCollegamento.bas",
 		"/C/CASA/GE_CASA/GE_MARINO/BANCA/POCKET_OPTION/TUTORIAL_POCKET_OPTION.MD",
 		"/c/Casa/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/MDB/Msys_TB40_PROG_MASTER/README_Msys_TB40_PROG_MASTER.MD",
 		"/C/CASA/GE_CASA/GE_MARINO/BANCA/POCKET_OPTION/README_POCKET_OPTION.MD",
@@ -200,19 +213,21 @@
 		"/C/GESTIONI/GESTIONE_LLPP/25_GESTIONE_LLPP/LLPP_ARCHIVI_MDB/CIVILIA_GESTIONE/CIVILIA_TEXT_ANALISI/SUBLIME_TEXT_ANALISI/TABELLE/CIVILIA_Tb01_ATTI.MD",
 		"/C/GESTIONI/GESTIONE_LLPP/25_GESTIONE_LLPP/LLPP_ARCHIVI_MDB/CIVILIA_GESTIONE/CIVILIA_TEXT_ANALISI/SUBLIME_TEXT_ANALISI/FORM/CIVILIA_FrmTb01_00_GE_ATTI.MD",
 		"/C/TMP/TMP_oggi/CONDOMINIO_QUADRINI/CONDOMINIO_QUADRINI_ATTI/Condominio_QUADRINI_ATTI_NOCE",
-		"/C/GESTIONI/GESTIONE_LLPP/25_GESTIONE_LLPP/LLPP_ARCHIVI_MDB/CIVILIA_GESTIONE/CIVILIA_TEXT_ANALISI/SUBLIME_TEXT_ANALISI/PROGETTO_SUBLIME_TEXT/CIVILIA_SUBLIME_TEXT_ANALISI.sublime-project",
-		"/C/TMP/TMP_oggi/DA_SISTEMARE/COPIE_DISCARICA_LA_PROVINCIA",
-		"/C/TMP/TMP_oggi/DA_PUBBLICARE/LPDD_200_2021_DET_1409_2021/DET_1409_2021_TEXT.txt"
+		"/C/GESTIONI/GESTIONE_LLPP/25_GESTIONE_LLPP/LLPP_ARCHIVI_MDB/CIVILIA_GESTIONE/CIVILIA_TEXT_ANALISI/SUBLIME_TEXT_ANALISI/PROGETTO_SUBLIME_TEXT/CIVILIA_SUBLIME_TEXT_ANALISI.sublime-project"
 	],
 	"find":
 	{
-		"height": 34.4
+		"height": 32.0
 	},
 	"find_in_files":
 	{
 		"height": 135.2,
 		"where_history":
 		[
+			"*.md, *,bas",
+			"*.md",
+			".bas ;.md",
+			".class"
 		]
 	},
 	"find_state":
@@ -220,6 +235,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"@SHADOW_SYSTEM_CATALOG"
 		],
 		"highlight": false,
 		"in_selection": false,
@@ -241,12 +257,43 @@
 		{
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "/C/CASA/LINGUAGGI/ACCESS/PROGETTI_MDB/MSYS_OGGETTI/MSYS/README_MSYS.md",
+					"selected": true,
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 18114,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"mde.match_heading_hashes": false,
+							"syntax": "Packages/Markdown/Markdown.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"stack_multiselect": false,
+					"type": "text"
+				}
 			]
 		}
 	],
 	"incremental_find":
 	{
-		"height": 34.4
+		"height": 32.0
 	},
 	"input":
 	{
@@ -286,7 +333,7 @@
 	"project": "Project_MSYS.sublime-project",
 	"replace":
 	{
-		"height": 65.6
+		"height": 60.8
 	},
 	"save_all_on_build": false,
 	"select_file":
