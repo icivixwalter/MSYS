@@ -1,6 +1,7 @@
-MSYS_DF11_ANALISI.MD
-	
-	Note
+# SUB PROGETTO MSYS_DF11_ANALISI.MD
+
+## NOTE
+	nella tabella @DF11 vengono salvati i @CODICI@PROGETTO e la loro definizione.
 		@analisi@DF11_(analisi per msys DF11)
 
 		

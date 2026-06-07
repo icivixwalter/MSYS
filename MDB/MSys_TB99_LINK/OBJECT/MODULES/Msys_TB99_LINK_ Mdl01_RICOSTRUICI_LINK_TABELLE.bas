@@ -1,14 +1,22 @@
-Attribute VB_Name = "MSys_TB30_UTIL_Export_Mdl01_TABELLE_Link_RicreaCollegamento"
+Attribute VB_Name = "Msys_TB99_LINK_ Mdl01_RICOSTRUICI_LINK_TABELLE"
 Option Compare Database
 Option Explicit
 
 '======================================================================
-' MODULO    : LLPP_DF99_LINK_Mdl01_TABELLE_Link_RicreaCollegamento
-' PROCEDURA : RICOSTRUICI_LINK_TABELLE_pf
+' MODULO     : Msys_TB99_LINK_ Mdl01_RICOSTRUICI_LINK_TABELLE
+' PATH       : c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_TB99_LINK\
+' DB         : MSys_TB99_LINK.mdb
+' PATH_LOG   : \LOGS
+' PROCEDURA  : RICOSTRUICI_LINK_TABELLE_pf
 ' CODICE     : @SHADOW_SYSTEM_CATALOG
 ' AUTORE     : System
 ' DATA       : 2026
 ' VERSIONE   : 3.0 TB99 SELF-HEALING LINK ENGINE WITH LOGGING
+' CODICE_EST : IL codice di estrazione di tutti gli oggetti è --->  Msys_TB99_LINK
+'
+' FAQ        : @TB99@LINK_(modulo per la ricostruzione delle Tabelle Link di tutti i subprogetti)
+'            : @COME@RICOSTRUIRE@_(I COLLEGAMENTI TRA LE TABELLE, @RICOSTRUIRE@LINK)
+'
 '
 '======================================================================
 ' SCOPO DEL MODULO
@@ -173,7 +181,7 @@ Private Const LOG_FILE_NAME As String = "TB99_Link_Rebuild_Log.txt"
 ' PROCEDURA PRINCIPALE
 '======================================================================
 
-Public Sub RICOSTRUICI_LINK_TABELLE_pf()
+Public Function RICOSTRUICI_LINK_TABELLE_pf()
 
     Dim db As DAO.Database
     Dim rs As DAO.Recordset
@@ -242,7 +250,7 @@ Public Sub RICOSTRUICI_LINK_TABELLE_pf()
         logFile.Close
         Set logFile = Nothing
         MsgBox "Query Msys_TB99_LINK_Qry99_01_SELECT_Archivio non trovata", vbCritical
-        Exit Sub
+        Exit Function
     End If
     
     Call WriteLog(logFile, "[VERIFICA_QUERY] Query trovata con successo.")
@@ -258,7 +266,7 @@ Public Sub RICOSTRUICI_LINK_TABELLE_pf()
         Call WriteLog(logFile, "[FINE] Log chiuso.")
         logFile.Close
         Set logFile = Nothing
-        Exit Sub
+        Exit Function
     End If
     
     Call WriteLog(logFile, "[UTENTE] Operazione CONFERMATA.")
@@ -484,7 +492,7 @@ Public Sub RICOSTRUICI_LINK_TABELLE_pf()
            "? Tabella non censita (NOT_REGISTERED): " & nNotRegistered & vbCrLf & vbCrLf & _
            "Log salvato in: " & logFilePath, vbInformation
 
-    Exit Sub
+    Exit Function
 
 '======================================================================
 ' 99_GESTIONE_ERRORI = Error handler globale con logging
@@ -504,7 +512,7 @@ ErrorHandler:
     
     MsgBox errorMsg, vbCritical
 
-End Sub
+End Function
 
 '======================================================================
 ' FUNZIONE DI SCRITTURA LOG

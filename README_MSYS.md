@@ -35,51 +35,51 @@
 
 
 
-   ALBERO CARTELLE E FILE
+   ALBERO CARTELLE E FILE  - @albero@progetto_(il Progetto master ed i sub progetti)_@albero@cartelle
          MSYS/
             │
             ├─GIT_BAT/
             ├─MDB/
             |  |
             |  |
-            |  |--------MSYS_ATTIVA_GEST_OGGETTI/        .... il progetto MASTER
-            |                 |___MSYS_BASE/             .... tutti i mini progetti
-            |                 |___MSys_DF01/
-            |                 |___MSys_DF02/
-            |                 |___MSys_DF05/
-            |                 |___MSys_DF10/
-            |                 |___MSys_DF11/
-            |                 |___MSys_DF12/
-            |                 |___MSys_DF13/
-            |                 |___MSys_DF14/
-            |                 |___MSys_ELENCO/
-            |                 |___MSys_ESPORTA/
-            |                 |___MSys_FORMS/
-            |                 |___MSys_FORMS_MASTER/
-            |                 |___MSys_GE_FILE/
-            |                 |___MSys_MACRO/
-            |                 |___MSYS_MENU/
-            |                 |___MSys_MODULI/
-            |                 |___MSYS_OBJECT_DB_EST/
-            |                 |___MSYS_OGGETTI_OLD/
-            |                 |___MSys_PAGINE/
-            |                 |___MSys_QUERY/
-            |                 |___MSys_REPORT/
-            |                 |___MSys_TABELLE/
-            |                 |___MSys_TB01_PROGETTI/
-            |                 |___MSys_TB02_TIPO_OGGETTI/
-            |                 |___MSys_TB03_ELENCO_OGGETTI/
-            |                 |___Msys_TB05_FORMS/                         = MSYS PER LA GESTIONE DI TUTTE LE FORMS *** IN RICOSTRUZIONE   
-            |                 |___Msys_TB40_PROG_MASTER/                   = LE FORM MASTER E LE SOTTOFORM MASTER  *** IN RIOSTRUZIONE
-            |                 |___MSys_TB41_VISUAL_PAG_MASTER/             = LA VISUALIZZAZIONE DELLE PAGINE
-            |                 |___MSys_TUTTI_MODELLI/
-            |                 |___TAB_CONTROL/
-            |                 |___TAB_CONTROL_MASTER_(401_402_501_502)/
-            |                 |___TMP_IMPORTA_MODULI/
-            |                 |___TMP_IMPORTA_MODULIOBJECT/
-            |                 |___TMP_OGGETTI_DA_CANCELLARE/
-            |                 |___TREVIEW/
-            |                 |___UTIL/
+            |  |----MSYS_ATTIVA_GEST_OGGETTI/                         = il @progetto@MASTER 
+            |            |___MSYS_BASE/                               = @DB@BASE da utilzzare per tutti i mini progetti 
+            |            |___MSys_DF01/                               = DEFINIZIONE dei @comandi@menu_(di tutto il @superprogetto) 
+            |            |___MSys_DF02/                               = DEFINIZIONE del @TIPO@DI@OGGETTO_(vengono definiti i tipi di oggetto gesti, FORM, QUERY TABELLE ECC..) 
+            |            |___MSys_DF05/                               = DEFINIZIONE delle @QUOTE@DI@PROGETTO_(con le quote per ogni subprogetto puoi definire i gruppi di oggetti utilizzati) TODO: fose inutile dupelicato controllare o sostituire con CODICE PROGETTO 
+            |            |___MSys_DF10/                               = DEFINIZIONE dei @DATABASE@UTILIZZATI_(i vari database utilizzati per la gestione del progetto di importazone ed esportazione) todo: COME UTILIZZARLI? 
+            |            |___MSys_DF11/                               = DEFINIZIONE di @CODICI@PROGETTO_(con la TABELLA @DF11 ad ogni sub progetto viene attribuito un @codice@progetto, anche al MASTER) 
+            |            |___MSys_DF12/                               = DEFINIZIONE degli 8 oggetti necessari per oggi progetto @oggetti@object_(per ogni progetto occorrono 8 oggetti, QURY, FORM REPORT ECC.) TODO: come utilizzarli? 
+            |            |___MSys_DF13/                               = DEFINIZIONI DELLE @DLL_(per ogni progetto occorrono le librerie DLL da stabilire) 
+            |            |___MSys_DF14/                               = DEFIIZIONI DELLE LIBRERIE ACCESS dove sono state salve @librerie_(dove si trovano o dove sono state salvate) 
+            |            |___MSys_ELENCO/                             = da definire l'utilizzo??
+            |            |___MSys_ESPORTA/                            = da definire l'utilizzo??
+            |            |___MSys_FORMS/                              = da definire l'utilizzo??
+            |            |___MSys_FORMS_MASTER/                       = da definire l'utilizzo??
+            |            |___MSys_GE_FILE/                            = da definire l'utilizzo??
+            |            |___MSys_MACRO/                              = da definire l'utilizzo??
+            |            |___MSYS_MENU/                               = da definire l'utilizzo??
+            |            |___MSys_MODULI/                             = da definire l'utilizzo??
+            |            |___MSYS_OBJECT_DB_EST/                      = da definire l'utilizzo??
+            |            |___MSYS_OGGETTI_OLD/                        = da definire l'utilizzo??
+            |            |___MSys_PAGINE/                             = da definire l'utilizzo??
+            |            |___MSys_QUERY/                              = da definire l'utilizzo??
+            |            |___MSys_REPORT/                             = da definire l'utilizzo??
+            |            |___MSys_TABELLE/                            = da definire l'utilizzo??
+            |            |___MSys_TB01_PROGETTI/                      = I CODICE DI PROGETTO E LA LORO DEFINIZIONE @CODICI@PROGETTI_(dove sono definiti i codice dei progetti la denominazione e cosa fanno)
+            |            |___MSys_TB02_TIPO_OGGETTI/                  = IL GRUPPO DI OGGETTI NECESSARI AL FUNZIONAMENTO DEI PROGETTI @gruppo@oggetti_(raggruppamento degli oggetti per ogni progetto)
+            |            |___MSys_TB03_ELENCO_OGGETTI/                = ELENCO DEGLI OGGETTI ASSEGNATI ad ogni progetto @eleco@project_(tutti gli oggetti necessari)
+            |            |___Msys_TB05_FORMS/                         = MSYS PER LA GESTIONE DI TUTTE LE FORMS *** IN RICOSTRUZIONE   
+            |            |___Msys_TB40_PROG_MASTER/                   = LE FORM MASTER E LE SOTTOFORM MASTER  *** IN RIOSTRUZIONE
+            |            |___MSys_TB41_VISUAL_PAG_MASTER/             = LA VISUALIZZAZIONE DELLE PAGINE
+            |            |___MSys_TUTTI_MODELLI/                      = da studiare come ridefinire queti mini progetti
+            |            |___TAB_CONTROL/                             = da studiare come ridefinire queti mini progetti
+            |            |___TAB_CONTROL_MASTER_(401_402_501_502)/    = da studiare come ridefinire queti mini progetti
+            |            |___TMP_IMPORTA_MODULI/                      = da studiare come ridefinire queti mini progetti
+            |            |___TMP_IMPORTA_MODULIOBJECT/                = da studiare come ridefinire queti mini progetti
+            |            |___TMP_OGGETTI_DA_CANCELLARE/               = da studiare come ridefinire queti mini progetti
+            |            |___TREVIEW/                                 = da studiare come ridefinire queti mini progetti
+            |            |___UTIL/                                    = da studiare come ridefinire queti mini progetti
             |
             ├─OBJECT/
             ├─XLS/
@@ -320,88 +320,3 @@ OGGETTI CREATI MODIFICATI O MIGLIORATI
                   MSys_TABELLE_Frm01_S01_TUTTE_TMP
 
 
-
-## SHADOW SYSTEM CATALOG (CATALOGO SPECCHIO DEL SISTEMA)
-
-CODICE: @SHADOW_SYSTEM_CATALOG
-STRUTTURA
-   
-   MDB/
-   │
-   └── MSYS_ATTIVA_GEST_OGGETTI/            .... PROGETTO MASTER
-       │
-       ├── MSYS_BASE/
-       ├── MSys_DF01/
-       ├── MSys_DF02/
-       ├── MSys_DF03/
-       ├── MSys_DF05/
-       ├── MSys_DF10/
-       ├── MSys_DF11/
-       ├── MSys_DF12/
-       ├── MSys_DF13/
-       ├── MSys_DF14/
-       ├── MSys_ELENCO/
-       ├── MSys_ESPORTA_IMPORTA/
-       ├── MSys_FORMS/
-       ├── MSys_FORMS_MASTER/
-       ├── MSys_GE_FILE/
-       ├── MSys_MACRO/
-       ├── MSYS_MENU/
-       ├── MSys_MODULI/
-       ├── MSYS_OBJECT_DB_EST/
-       ├── MSYS_OGGETTI_OLD/
-       ├── MSys_PAGINE/
-       ├── MSys_QUERY/
-       ├── MSys_REPORT/
-       ├── MSys_TABELLE/
-       ├── MSys_TB01_PROGETTI/
-       ├── MSys_TB02_TIPO_OGGETTI/
-       ├── MSys_TB03_ELENCO_OGGETTI/
-       ├── MSys_TB04_DB_ESTERNO/
-       ├── Msys_TB05_FORMS/                 .... gestione FORMS
-       ├── Msys_TB06_MACROS/
-       ├── Msys_TB07_MENU/
-       ├── Msys_TB08_MODULES/
-       ├── Msys_TB09_QUERY/
-       ├── Msys_TB10_REPORTS/
-       ├── Msys_TB11_TABLES/
-       ├── Msys_TB30_UTIL/
-       ├── Msys_TB40_PROG_MASTER/           .... FORMS MASTER
-       ├── MSys_TB41_VISUAL_PAG_MASTER/     .... visualizzazione pagine
-       ├── MSys_TB99_LINK/
-       ├── MSys_TUTTI_MODELLI/
-       ├── MsysUTIL/
-       ├── TAB_CONTROL/
-       ├── TAB_CONTROL_MASTER_(401_402_501_502)/
-       ├── TMP_ESPORTA_OGGETTI/
-       ├── TMP_ESPORTA_OGGETTI_NUOVO_TEST/
-       ├── TMP_IMPORTA_MODULI/
-       ├── TMP_IMPORTA_MODULIOBJECT/
-       ├── TMP_OGGETTI_DA_CANCELLARE/
-       └── TREVIEW/
-“SHADOW METADATA REPOSITORY”
-cioè
-SISTEMA REALE (MSysObjects)
-        ↓ (replica controllata)
-SISTEMA APPLICATIVO (MSys_TB99_LINK)
-
-    MSysObjects (Access interno, non modificabile in sicurezza)
-        ↓
-MSys_TB99_LINK (mirror controllato e modificabile)
-   Quindi hai costruito:
-   un catalogo parallelo controllato dall’applicazione
-   con un’aggiunta fondamentale:
-      Verifica_b = stato di coerenza runtime dei link
-STATUS DEL LINK DI SISTEMA
-    il campo verifica deve essere trasformato in testo con queste opzioni:
-    Verifica_t = nuovo campo verifica
-
-    STATUS:
-
-      - OK              → valido e raggiungibile
-      - NOT_REGISTERED  → non censito in TB99
-      - MISSING         → censito ma file/oggetto non trovato
-      - INVALID_PATH    → path strutturalmente errato
-      - NOT_CHECKED     → non ancora verificato
-            
-            proprieta della tabella = OK;Valido e raggiungibile;NOT_REGISTERED;Non censito in TB99;MISSING;Censito ma file/oggetto non trovato;INVALID_PATH;Path strutturalmente errato;NOT_CHECKED;Non ancora verificato;

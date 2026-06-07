@@ -1,0 +1,55 @@
+07/06/2026 11:23:52 - ========================================================================
+07/06/2026 11:23:52 - INIZIO RICOSTRUZIONE LINK TB99
+07/06/2026 11:23:52 - Data/Ora avvio: 07/06/2026 11:23:52
+07/06/2026 11:23:52 - Database corrente: C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_TB99_LINK\MSys_TB99_LINK.mdb
+07/06/2026 11:23:52 - File di log: C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_TB99_LINK\LOGS\20260607_112352_TB99_Link_Rebuild_Log.txt
+07/06/2026 11:23:52 - ========================================================================
+07/06/2026 11:23:52 - 
+07/06/2026 11:23:52 - [VERIFICA_QUERY] Controllo esistenza query Msys_TB99_LINK_Qry99_01_SELECT_Archivio...
+07/06/2026 11:23:52 - [VERIFICA_QUERY] Query trovata con successo.
+07/06/2026 11:23:52 - 
+07/06/2026 11:23:52 - [UTENTE] Richiesta conferma operazione...
+07/06/2026 11:23:53 - [UTENTE] Operazione CONFERMATA.
+07/06/2026 11:23:53 - 
+07/06/2026 11:23:53 - [APERTURA_QUERY] Recordset aperto. Record trovati: 1
+07/06/2026 11:23:53 - 
+07/06/2026 11:23:53 - [STATISTICHE] Contatori inizializzati.
+07/06/2026 11:23:53 - 
+07/06/2026 11:23:53 - ========================================================================
+07/06/2026 11:23:53 - INIZIO CICLO ELABORAZIONE RECORD
+07/06/2026 11:23:53 - ========================================================================
+07/06/2026 11:23:53 - 
+07/06/2026 11:23:53 - ----------------------------------------
+07/06/2026 11:23:53 - RECORD N. 1
+07/06/2026 11:23:53 - ----------------------------------------
+07/06/2026 11:23:53 - [LETTURA_RECORD] Nome tabella: 'Msys_DF11_COD_PROGETTO'
+07/06/2026 11:23:53 - [LETTURA_RECORD] Database path: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF11\MDB\MSys_DF11.mdb'
+07/06/2026 11:23:53 - [LETTURA_RECORD] Type: 6
+07/06/2026 11:23:53 - [VALIDAZIONE] Avvio validazione...
+07/06/2026 11:23:53 - [VALIDAZIONE] Path valido. File database ESISTE.
+07/06/2026 11:23:53 - [VALIDAZIONE] Inizio verifica lato SORGENTE...
+07/06/2026 11:23:53 - [APERTURA_DB] Tentativo apertura database: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF11\MDB\MSys_DF11.mdb'
+07/06/2026 11:23:53 - [APERTURA_DB] Database aperto con successo.
+07/06/2026 11:23:53 - [VERIFICA_TABELLA] Ricerca tabella 'Msys_DF11_COD_PROGETTO' in MSysObjects...
+07/06/2026 11:23:53 - [VERIFICA_TABELLA] Tabella 'Msys_DF11_COD_PROGETTO' TROVATA
+07/06/2026 11:23:53 - [CHIUSURA_DB] Database chiuso e risorse rilasciate.
+07/06/2026 11:23:53 - [VERIFICA_TABELLA] Tabella 'Msys_DF11_COD_PROGETTO' TROVATA nel database di destinazione.
+07/06/2026 11:23:53 - [ELIMINAZIONE_LINK] Link esistente TROVATO in MSysObjects.
+07/06/2026 11:23:53 - [ELIMINAZIONE_LINK] Eliminazione in corso...
+07/06/2026 11:23:53 - [DELETE_LINK] Eliminazione link 'Msys_DF11_COD_PROGETTO' da TableDefs...
+07/06/2026 11:23:53 - [DELETE_LINK] Link 'Msys_DF11_COD_PROGETTO' eliminato con successo.
+07/06/2026 11:23:53 - [RICOSTRUZIONE_LINK] Creazione nuovo link...
+07/06/2026 11:23:53 - [RICOSTRUZIONE_LINK] Tabella: 'Msys_DF11_COD_PROGETTO'
+07/06/2026 11:23:53 - [RICOSTRUZIONE_LINK] Database sorgente: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF11\MDB\MSys_DF11.mdb'
+07/06/2026 11:23:53 - [CREATE_LINK] Creazione TableDef per 'Msys_DF11_COD_PROGETTO'...
+07/06/2026 11:23:53 - [CREATE_LINK] TableDef creato.
+07/06/2026 11:23:53 - [CREATE_LINK] Connect string impostata
+07/06/2026 11:23:53 - [CREATE_LINK] SourceTableName impostato: 'Msys_DF11_COD_PROGETTO'
+07/06/2026 11:23:53 - [CREATE_LINK] Appendo TableDef al database...
+07/06/2026 11:23:53 - [CREATE_LINK] TableDef appeso con successo.
+07/06/2026 11:23:53 - [CREATE_LINK] Refresh del link...
+07/06/2026 11:23:53 - [CREATE_LINK] Link aggiornato con successo.
+07/06/2026 11:23:53 - [CREATE_LINK] Link creato correttamente per 'Msys_DF11_COD_PROGETTO'
+07/06/2026 11:23:53 - [RICOSTRUZIONE_LINK] Link CREATO con successo!
+07/06/2026 11:23:53 - [RICOSTRUZIONE_LINK] Stato assegnato: OK
+07/06/2026 11:23:53 - [AGGIORNAMENTO] Salvataggio stato nel campo Verifica_s...
