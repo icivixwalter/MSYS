@@ -17,8 +17,8 @@
                ProgettiArchivio.mdb
       Esempio di questa divisione puo essere questa:
          MSYS_ATTIVA_GEST_OGGETTI.mdb
-            |__GE_MSys_DF01.mdb
-                  |__MSys_DF01.mdb
+            │__GE_MSys_DF01.mdb
+                  │__MSys_DF01.mdb
    Vantaggi
       con questa divisione si possono costruire i proggetti in modo separato e modulare
       e con prove di gestione sia nel mini progetto che nel progetto master, essendo
@@ -40,47 +40,50 @@
             │
             ├─GIT_BAT/
             ├─MDB/
-            |  |
-            |  |
-            |  |----MSYS_ATTIVA_GEST_OGGETTI/                         = il @progetto@MASTER 
-            |            |___MSYS_BASE/                               = @DB@BASE da utilzzare per tutti i mini progetti 
-            |            |___MSys_DF01/                               = DEFINIZIONE dei @comandi@menu_(di tutto il @superprogetto) 
-            |            |___MSys_DF02/                               = DEFINIZIONE del @TIPO@DI@OGGETTO_(vengono definiti i tipi di oggetto gesti, FORM, QUERY TABELLE ECC..) 
-            |            |___MSys_DF05/                               = DEFINIZIONE delle @QUOTE@DI@PROGETTO_(con le quote per ogni subprogetto puoi definire i gruppi di oggetti utilizzati) TODO: fose inutile dupelicato controllare o sostituire con CODICE PROGETTO 
-            |            |___MSys_DF10/                               = DEFINIZIONE dei @DATABASE@UTILIZZATI_(i vari database utilizzati per la gestione del progetto di importazone ed esportazione) todo: COME UTILIZZARLI? 
-            |            |___MSys_DF11/                               = DEFINIZIONE di @CODICI@PROGETTO_(con la TABELLA @DF11 ad ogni sub progetto viene attribuito un @codice@progetto, anche al MASTER) 
-            |            |___MSys_DF12/                               = DEFINIZIONE degli 8 oggetti necessari per oggi progetto @oggetti@object_(per ogni progetto occorrono 8 oggetti, QURY, FORM REPORT ECC.) TODO: come utilizzarli? 
-            |            |___MSys_DF13/                               = DEFINIZIONI DELLE @DLL_(per ogni progetto occorrono le librerie DLL da stabilire) 
-            |            |___MSys_DF14/                               = DEFIIZIONI DELLE LIBRERIE ACCESS dove sono state salve @librerie_(dove si trovano o dove sono state salvate) 
-            |            |___MSys_ELENCO/                             = da definire l'utilizzo??
-            |            |___MSys_ESPORTA/                            = da definire l'utilizzo??
-            |            |___MSys_FORMS/                              = da definire l'utilizzo??
-            |            |___MSys_FORMS_MASTER/                       = da definire l'utilizzo??
-            |            |___MSys_GE_FILE/                            = da definire l'utilizzo??
-            |            |___MSys_MACRO/                              = da definire l'utilizzo??
-            |            |___MSYS_MENU/                               = da definire l'utilizzo??
-            |            |___MSys_MODULI/                             = da definire l'utilizzo??
-            |            |___MSYS_OBJECT_DB_EST/                      = da definire l'utilizzo??
-            |            |___MSYS_OGGETTI_OLD/                        = da definire l'utilizzo??
-            |            |___MSys_PAGINE/                             = da definire l'utilizzo??
-            |            |___MSys_QUERY/                              = da definire l'utilizzo??
-            |            |___MSys_REPORT/                             = da definire l'utilizzo??
-            |            |___MSys_TABELLE/                            = da definire l'utilizzo??
-            |            |___MSys_TB01_PROGETTI/                      = I CODICE DI PROGETTO E LA LORO DEFINIZIONE @CODICI@PROGETTI_(dove sono definiti i codice dei progetti la denominazione e cosa fanno)
-            |            |___MSys_TB02_TIPO_OGGETTI/                  = IL GRUPPO DI OGGETTI NECESSARI AL FUNZIONAMENTO DEI PROGETTI @gruppo@oggetti_(raggruppamento degli oggetti per ogni progetto)
-            |            |___MSys_TB03_ELENCO_OGGETTI/                = ELENCO DEGLI OGGETTI ASSEGNATI ad ogni progetto @eleco@project_(tutti gli oggetti necessari)
-            |            |___Msys_TB05_FORMS/                         = MSYS PER LA GESTIONE DI TUTTE LE FORMS *** IN RICOSTRUZIONE   
-            |            |___Msys_TB40_PROG_MASTER/                   = LE FORM MASTER E LE SOTTOFORM MASTER  *** IN RIOSTRUZIONE
-            |            |___MSys_TB41_VISUAL_PAG_MASTER/             = LA VISUALIZZAZIONE DELLE PAGINE
-            |            |___MSys_TUTTI_MODELLI/                      = da studiare come ridefinire queti mini progetti
-            |            |___TAB_CONTROL/                             = da studiare come ridefinire queti mini progetti
-            |            |___TAB_CONTROL_MASTER_(401_402_501_502)/    = da studiare come ridefinire queti mini progetti
-            |            |___TMP_IMPORTA_MODULI/                      = da studiare come ridefinire queti mini progetti
-            |            |___TMP_IMPORTA_MODULIOBJECT/                = da studiare come ridefinire queti mini progetti
-            |            |___TMP_OGGETTI_DA_CANCELLARE/               = da studiare come ridefinire queti mini progetti
-            |            |___TREVIEW/                                 = da studiare come ridefinire queti mini progetti
-            |            |___UTIL/                                    = da studiare come ridefinire queti mini progetti
-            |
+            │  │
+            │  │
+            │  │----MSYS_ATTIVA_GEST_OGGETTI/             CODICE=            
+            │  --------------------------------------------------------------------------------------------------------------------------
+            │           PROJECT                          CODICE_PROJECT                    ATTIVITA
+            │  --------------------------------------------------------------------------------------------------------------------------
+            │            │___MSYS_BASE/                            │  CODICE =BASE    │    = @DB@BASE da utilzzare per tutti i mini progetti 
+            │            │___MSys_DF01/                            │  CODICE =DF01    │    = DEFINIZIONE DEI COMANDI DEL MENU                         - @comandi@menu_(di tutto il @superprogetto) 
+            │            │___MSys_DF02/                            │  CODICE =DF02    │    = DEFINIZIONE DEI TIPI DI OGGETTO                          - @TIPO@DI@OGGETTO_(vengono definiti i tipi di oggetto gesti, FORM, QUERY TABELLE ECC..) 
+            │            │___MSys_DF05/                            │  CODICE =DF05    │    = DEFINIZIONE DELLE QUOTE DEGLI OGGETTI                    - @QUOTE@DI@PROGETTO_(con le quote per ogni subprogetto puoi definire i gruppi di oggetti utilizzati) TODO: fose inutile dupelicato controllare o sostituire con CODICE PROGETTO 
+            │            │___MSys_DF10/                            │  CODICE =DF10    │    = DEFINIZIONE DEI DATABASE UTILIZZATI                      - @DATABASE@UTILIZZATI_(i vari database utilizzati per la gestione del progetto di importazone ed esportazione) todo: COME UTILIZZARLI? 
+            │            │___MSys_DF11/                            │  CODICE =DF11    │    = DEFINIZIONE DEI CODICI DI PROGETTO                       - @CODICI@PROGETTO_(con la TABELLA @DF11 ad ogni sub progetto viene attribuito un @codice@progetto, anche al MASTER) 
+            │            │___MSys_DF12/                            │  CODICE =DF12    │    = DEFINIZIONE DEGLI OGGETTI NECESSARI AL PROGETTO          - 8 oggetti necessari per oggi progetto @oggetti@object_(per ogni progetto occorrono 8 oggetti, QURY, FORM REPORT ECC.) TODO: come utilizzarli? 
+            │            │___MSys_DF13/                            │  CODICE =DF13    │    = DEFINIZIONI DELL LIBRERIE DLL DEL PROGETTO               - @DLL_(per ogni progetto occorrono le librerie DLL da stabilire) 
+            │            │___MSys_DF14/                            │  CODICE =DF14    │    = PATH DI SALVATAGGIO DELLE LIBRERIE ACCESS                - dove sono state salve @librerie_(dove si trovano o dove sono state salvate) 
+            │            │___MSys_ELENCO/                          │  CODICE =123456  │    = da definire l'utilizzo??
+            │            │___MSys_ESPORTA/                         │  CODICE =123456  │    = da definire l'utilizzo??
+            │            │___MSys_FORMS/                           │  CODICE =123456  │    = da definire l'utilizzo??
+            │            │___MSys_FORMS_MASTER/                    │  CODICE =123456  │    = da definire l'utilizzo??
+            │            │___MSys_GE_FILE/                         │  CODICE =123456  │    = da definire l'utilizzo??
+            │            │___MSys_MACRO/                           │  CODICE =123456  │    = da definire l'utilizzo??
+            │            │___MSYS_MENU/                            │  CODICE =123456  │    = da definire l'utilizzo??
+            │            │___MSys_MODULI/                          │  CODICE =123456  │    = da definire l'utilizzo??
+            │            │___MSYS_OBJECT_DB_EST/                   │  CODICE =123456  │    = da definire l'utilizzo??
+            │            │___MSYS_OGGETTI_OLD/                     │  CODICE =123456  │    = da definire l'utilizzo??
+            │            │___MSys_PAGINE/                          │  CODICE =123456  │    = da definire l'utilizzo??
+            │            │___MSys_QUERY/                           │  CODICE =123456  │    = da definire l'utilizzo??
+            │            │___MSys_REPORT/                          │  CODICE =123456  │    = da definire l'utilizzo??
+            │            │___MSys_TABELLE/                         │  CODICE =123456  │    = da definire l'utilizzo??
+            │            │___MSys_TB01_PROGETTI/                   │  CODICE=         │    = I CODICE DI PROGETTO E LA LORO DEFINIZIONE @CODICI@PROGETTI_(dove sono definiti i codice dei progetti la denominazione e cosa fanno)
+            │            │___MSys_TB02_TIPO_OGGETTI/               │  CODICE=         │    = IL GRUPPO DI OGGETTI NECESSARI AL FUNZIONAMENTO DEI PROGETTI @gruppo@oggetti_(raggruppamento degli oggetti per ogni progetto)
+            │            │___MSys_TB03_ELENCO_OGGETTI/             │  CODICE=         │    = ELENCO DEGLI OGGETTI ASSEGNATI ad ogni progetto @eleco@project_(tutti gli oggetti necessari)
+            │            │___Msys_TB05_FORMS/                      │  CODICE=         │    = MSYS PER LA GESTIONE DI TUTTE LE FORMS *** IN RICOSTRUZIONE   
+            │            │___Msys_TB40_PROG_MASTER/                │                  │    = LE FORM MASTER E LE SOTTOFORM MASTER  *** IN RIOSTRUZIONE
+            │            │___MSys_TB41_VISUAL_PAG_MASTER/          │                  │    = LA VISUALIZZAZIONE DELLE PAGINE
+            │            │___MSys_TUTTI_MODELLI/                   │                  │    = da studiare come ridefinire queti mini progetti
+            │            │___TAB_CONTROL/                          │                  │    = da studiare come ridefinire queti mini progetti
+            │            │___TAB_CONTROL_MASTER_(401_402_501_502)/ │                  │    = da studiare come ridefinire queti mini progetti
+            │            │___TMP_IMPORTA_MODULI/                   │                  │    = da studiare come ridefinire queti mini progetti
+            │            │___TMP_IMPORTA_MODULIOBJECT/             │                  │    = da studiare come ridefinire queti mini progetti
+            │            │___TMP_OGGETTI_DA_CANCELLARE/            │                  │    = da studiare come ridefinire queti mini progetti
+            │            │___TREVIEW/                              │                  │    = da studiare come ridefinire queti mini progetti
+            │            │___UTIL/                                 │                  │    = da studiare come ridefinire queti mini progetti
+            │
             ├─OBJECT/
             ├─XLS/
             ├─.gitignore
