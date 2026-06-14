@@ -1,0 +1,107 @@
+==================================================
+LOG IMPORTAZIONE OGGETTI DA DATABASE ESTERNI
+Data/Ora: 14/06/2026 17:58:54
+==================================================
+
+04_PULISCI_TABELLA_DETAIL - Cancellazione vecchi dati da Msys_TB99_LINK_Object
+05_RECUPERO_PROGETTI - Lettura progetti dalla query
+06_PREPARAZIONE_CONTATORI - Progetti trovati: 17
+
+[1/17] Progetto: MSys_DF01
+    Database: c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF01\MDB\MSys_DF01.mdb
+    Database aperto con successo
+    Oggetti trovati: 161 - Importati: 161
+
+[2/17] Progetto: MSys_DF02
+    Database: C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF02\MDB\MSys_DF02.mdb
+    Database aperto con successo
+    Oggetti trovati: 151 - Importati: 151
+
+[3/17] Progetto: MSys_DF03
+    Database: C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF03\MDB\MSys_DF03.mdb
+    Database aperto con successo
+    Oggetti trovati: 150 - Importati: 150
+
+[4/17] Progetto: MSys_DF05
+    Database: C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF05\MDB\MSys_DF05.mdb
+    Database aperto con successo
+    Oggetti trovati: 146 - Importati: 146
+
+[5/17] Progetto: MSys_DF10
+    Database: C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF10\MDB\MSYS_DF10.mdb
+    Database aperto con successo
+    Oggetti trovati: 39 - Importati: 39
+
+[6/17] Progetto: Msys_DF11
+    Database: C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF11\MDB\MSys_DF11.mdb
+    Database aperto con successo
+    Oggetti trovati: 8 - Importati: 8
+
+[7/17] Progetto: Msys_DF12
+    Database: C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF12\MDB\MSys_DF12.mdb
+    Database aperto con successo
+    Nessun oggetto trovato (esclusi Tabelle e TMP)
+
+[8/17] Progetto: MSys_DF13
+    Database: C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF13\MDB\MSys_DF13.mdb
+    Database aperto con successo
+    Oggetti trovati: 6 - Importati: 6
+
+[9/17] Progetto: MSys_DF14
+    Database: C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF14\MDB\MSys_DF14.mdb
+    Database aperto con successo
+    Oggetti trovati: 11 - Importati: 11
+
+[10/17] Progetto: Msys_TB01
+    Database: C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_TB01_PROGETTI\MDB\Msys_TB01_PROGETTI.mdb
+    Database aperto con successo
+    Oggetti trovati: 273 - Importati: 273
+
+[11/17] Progetto: Msys_TB02
+    Database: C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_TB02_TIPO_OGGETTI\MDB\Msys_TB02_TIPO_OGGETTI.MDB
+    Database aperto con successo
+    Oggetti trovati: 229 - Importati: 229
+
+[12/17] Progetto: Msys_TB03
+    Database: C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_TB03_ELENCO_OGGETTI\MDB\Msys_TB03_ELENCO_ObjProgetti.mdb
+    Database aperto con successo
+    Oggetti trovati: 256 - Importati: 256
+
+[13/17] Progetto: MSYS_TB04
+    Database: C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_TB04_DB_ESTERNO\MDB\MSys_TB04_DB_ESTERNO.mdb
+    Database aperto con successo
+    Oggetti trovati: 254 - Importati: 254
+
+[14/17] Progetto: MSys_TB05
+    Database: C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\Msys_TB05_FORMS\MDB\MSys_TB05_FORMS.mdb
+    Database aperto con successo
+    Oggetti trovati: 211 - Importati: 211
+
+[15/17] Progetto: MSys_TB30
+    Database: C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\Msys_TB30_UTIL\MDB\Msys_TB30_UTIL.mdb
+    Database aperto con successo
+    Oggetti trovati: 98 - Importati: 98
+
+[16/17] Progetto: MSys_TB40
+    Database: C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\Msys_TB40_PROG_MASTER\MDB\Msys_TB40_PROG_MASTER.mdb
+    Database aperto con successo
+    Oggetti trovati: 165 - Importati: 165
+
+[17/17] Progetto: MSys_TB41
+    Database: C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_TB41_VISUAL_PAG_MASTER\MDB\MSys_TB41_VISUAL_PAG_MASTER.mdb
+    Database aperto con successo
+    Oggetti trovati: 168 - Importati: 168
+
+
+==================================================
+STATISTICHE FINALI
+==================================================
+
+Progetti elaborati: 17
+Oggetti importati: 2.326
+Tempo impiegato: 2,15 secondi
+Velocita media: 1081 record/sec
+
+==================================================
+FINE LOG
+==================================================

@@ -1,0 +1,107 @@
+==================================================
+LOG IMPORTAZIONE OGGETTI DA DATABASE ESTERNI
+Data/Ora: 14/06/2026 18:03:10
+==================================================
+
+04_PULISCI_TABELLA_DETAIL - Cancellazione vecchi dati da Msys_TB99_LINK_Object
+05_RECUPERO_PROGETTI - Lettura progetti dalla query
+06_PREPARAZIONE_CONTATORI - Progetti trovati: 17
+
+[1/17] Progetto: MSys_DF01
+    Database: c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF01\MDB\MSys_DF01.mdb
+    Database aperto con successo
+    Oggetti trovati: 161 - Importati: 18 (esclusi ~sq_c)
+
+[2/17] Progetto: MSys_DF02
+    Database: C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF02\MDB\MSys_DF02.mdb
+    Database aperto con successo
+    Oggetti trovati: 151 - Importati: 8 (esclusi ~sq_c)
+
+[3/17] Progetto: MSys_DF03
+    Database: C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF03\MDB\MSys_DF03.mdb
+    Database aperto con successo
+    Oggetti trovati: 150 - Importati: 7 (esclusi ~sq_c)
+
+[4/17] Progetto: MSys_DF05
+    Database: C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF05\MDB\MSys_DF05.mdb
+    Database aperto con successo
+    Oggetti trovati: 146 - Importati: 3 (esclusi ~sq_c)
+
+[5/17] Progetto: MSys_DF10
+    Database: C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF10\MDB\MSYS_DF10.mdb
+    Database aperto con successo
+    Oggetti trovati: 39 - Importati: 15 (esclusi ~sq_c)
+
+[6/17] Progetto: Msys_DF11
+    Database: C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF11\MDB\MSys_DF11.mdb
+    Database aperto con successo
+    Oggetti trovati: 8 - Importati: 8 (esclusi ~sq_c)
+
+[7/17] Progetto: Msys_DF12
+    Database: C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF12\MDB\MSys_DF12.mdb
+    Database aperto con successo
+    Nessun oggetto trovato (esclusi Tabelle, TMP e ~sq_c)
+
+[8/17] Progetto: MSys_DF13
+    Database: C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF13\MDB\MSys_DF13.mdb
+    Database aperto con successo
+    Oggetti trovati: 6 - Importati: 6 (esclusi ~sq_c)
+
+[9/17] Progetto: MSys_DF14
+    Database: C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF14\MDB\MSys_DF14.mdb
+    Database aperto con successo
+    Oggetti trovati: 11 - Importati: 11 (esclusi ~sq_c)
+
+[10/17] Progetto: Msys_TB01
+    Database: C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_TB01_PROGETTI\MDB\Msys_TB01_PROGETTI.mdb
+    Database aperto con successo
+    Oggetti trovati: 273 - Importati: 86 (esclusi ~sq_c)
+
+[11/17] Progetto: Msys_TB02
+    Database: C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_TB02_TIPO_OGGETTI\MDB\Msys_TB02_TIPO_OGGETTI.MDB
+    Database aperto con successo
+    Oggetti trovati: 229 - Importati: 43 (esclusi ~sq_c)
+
+[12/17] Progetto: Msys_TB03
+    Database: C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_TB03_ELENCO_OGGETTI\MDB\Msys_TB03_ELENCO_ObjProgetti.mdb
+    Database aperto con successo
+    Oggetti trovati: 256 - Importati: 54 (esclusi ~sq_c)
+
+[13/17] Progetto: MSYS_TB04
+    Database: C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_TB04_DB_ESTERNO\MDB\MSys_TB04_DB_ESTERNO.mdb
+    Database aperto con successo
+    Oggetti trovati: 254 - Importati: 53 (esclusi ~sq_c)
+
+[14/17] Progetto: MSys_TB05
+    Database: C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\Msys_TB05_FORMS\MDB\MSys_TB05_FORMS.mdb
+    Database aperto con successo
+    Oggetti trovati: 211 - Importati: 47 (esclusi ~sq_c)
+
+[15/17] Progetto: MSys_TB30
+    Database: C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\Msys_TB30_UTIL\MDB\Msys_TB30_UTIL.mdb
+    Database aperto con successo
+    Oggetti trovati: 98 - Importati: 72 (esclusi ~sq_c)
+
+[16/17] Progetto: MSys_TB40
+    Database: C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\Msys_TB40_PROG_MASTER\MDB\Msys_TB40_PROG_MASTER.mdb
+    Database aperto con successo
+    Oggetti trovati: 165 - Importati: 40 (esclusi ~sq_c)
+
+[17/17] Progetto: MSys_TB41
+    Database: C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_TB41_VISUAL_PAG_MASTER\MDB\MSys_TB41_VISUAL_PAG_MASTER.mdb
+    Database aperto con successo
+    Oggetti trovati: 168 - Importati: 42 (esclusi ~sq_c)
+
+
+==================================================
+STATISTICHE FINALI
+==================================================
+
+Progetti elaborati: 17
+Oggetti importati: 513
+Tempo impiegato: 1,01 secondi
+Velocita media: 508 record/sec
+
+==================================================
+FINE LOG
+==================================================

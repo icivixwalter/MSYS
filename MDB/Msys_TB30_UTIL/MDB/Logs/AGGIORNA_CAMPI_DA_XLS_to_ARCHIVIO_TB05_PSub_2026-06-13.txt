@@ -1,0 +1,4 @@
+ORA | ESITO | OPERAZIONE | DETTAGLIO | FUNZIONE
+------------------------------------------------------------------------------------------
+20:45:56 | INFO | START | Avvio procedura aggiornamento | AGGIORNA_CAMPI_DA_XLS_to_ARCHIVIO_TB05_PSub
+20:45:57 | FATAL | ERROR | Tabella origine non trovata | AGGIORNA_CAMPI_DA_XLS_to_ARCHIVIO_TB05_PSub

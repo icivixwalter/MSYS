@@ -111,6 +111,66 @@
 
    ALBERO PROGETTO MSYS
       
+
+# HELP IN HTML
+## COME COSTRUIRE UN HELP CON LA PAGINA HTML
+codice -----> @attivo@pagina@htlm
+occorre inserire un un campo l'evento KeyDown o @Tasto@giu e si attiva l'evento
+per chiamare dall'esterno la pagina html
+
+
+   '//==================================================================================================//
+   '//             EVENTI CASELLA DI TESTO @MODELLO@HELP@HTML_(EVENTI CON KEY DOWN  )   *** INIZIO ***
+   '//==================================================================================================//
+   '//EVENTI: _
+       '//01_?                             = ...........
+       '//02_MODELLO_HELP_s_TXT_KeyDown     = TASTO GIU CON KEY DOWN
+       '//'
+       '//codice -----> @attivo@pagina@htlm_(chiamo un evento tasto giu ed attivo la @pagina@html)'
+       '//              puoi attivarlo anche per click in tal caso devi disattivare gli if e Keycode'
+   
+   
+   
+   '//@HELP@HTML@MODELLO
+   Private Sub MODELLO_HELP_s_TXT_KeyDown(KeyCode As Integer, Shift As Integer)
+   
+   
+   
+       
+       ' Se l'utente preme F1 (codice 112)
+       If KeyCode = vbKeyF1 Then  ' vbKeyF1 è una costante VBA = 112
+           ' Percorso assoluto del file HTML
+           Dim percorsoHelp As String
+           Dim FileHelp As String
+           Dim HelpHtml_s  As String
+           '//il percorso help + il file help
+           percorsoHelp = "c:\Casa\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_TB03_ELENCO_OGGETTI\HELP\FORM\PROGETTI_Msys_TB02Frm01_01_TIPO_OGGETTI\"
+           FileHelp = "HELP_MODELLO_HELP_s_TXT.html"
+           HelpHtml_s = percorsoHelp & FileHelp
+           
+           ' Apri il file HTML
+           Application.FollowHyperlink HelpHtml_s
+           
+           ' Annulla l'azione predefinita di F1
+           KeyCode = 0
+       End If
+   
+   
+   
+   End Sub
+   
+   
+   '//==================================================================================================//
+
+
+
+
+
+
+
+
+
+
 # RICOSTRUIRE LA REPOSITORY LOCALE ALLINEATA ALLA REMOTA
    Note
       devi svuotare completamente la cartella MSYS anche con i dati della

@@ -1,0 +1,20 @@
+==================================================
+LOG IMPORTAZIONE OGGETTI DA DATABASE ESTERNI
+Data/Ora: 14/06/2026 18:44:50
+==================================================
+
+04_PULISCI_TABELLA_DETAIL - Cancellazione vecchi dati da Msys_TB99_LINK_Object
+05_RECUPERO_PROGETTI - Lettura progetti dalla query
+06_PREPARAZIONE_CONTATORI - Progetti trovati: 17
+
+[1/17] Progetto: MSys_DF01
+    Database: c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF01\MDB\MSys_DF01.mdb
+    Database aperto con successo
+
+==================================================
+ERRORE! Operazione interrotta
+==================================================
+Errore: 3134 - Syntax error in INSERT INTO statement.
+Progetto: MSys_DF01
+Database: c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF01\MDB\MSys_DF01.mdb
+Progetti elaborati: 1
