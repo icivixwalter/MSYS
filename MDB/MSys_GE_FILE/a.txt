@@ -1,0 +1,18 @@
+ Il volume nell'unit… C Š Windows-SSD
+ Numero di serie del volume: 8EE0-A1E8
+
+ Directory di c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_GE_FILE
+
+15/06/2026  20:14    <DIR>          .
+14/06/2026  16:42    <DIR>          ..
+15/06/2026  20:14    <DIR>          MDB
+04/11/2025  18:32    <DIR>          OBJECT
+15/06/2026  20:14                 0 a.txt
+04/11/2025  18:32           105.898 CHATGBT.MD
+04/11/2025  18:32                55 Project_Msys_GE_FILE.sublime-project
+15/11/2025  16:46            62.521 Project_Msys_GE_FILE.sublime-workspace
+15/11/2025  16:45             2.108 README_GE_FILE.MD
+04/11/2025  18:32             1.281 tmpdsfcc3
+04/11/2025  18:32             1.281 tmpfdy2al
+               7 File        173.144 byte
+               4 Directory  608.175.943.680 byte disponibili

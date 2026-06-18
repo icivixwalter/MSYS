@@ -41,8 +41,8 @@ importazione. Per le esportazioni puoi : attivare una
       - 1) esportazione di DATI (sono i dati di backup salvati in un db esterno per ogni tabella collegata); 
       - 2) esportazione di OGGETTI (query, form ecc. del mini progetto della tabella collegata);
 IMPORTAZIONI
-Per le importazioni si intende solo l'importazione 
-      - 3) DEI NOMI DEGLI OGGETTI 
+Per le importazioni si intende solo : 
+      - 3) IMPORTAZIONE DEI NOMI DEGLI OGGETTI 
 e che vengono salvati nella tabella collegata denominata: Msys_TB99_LINK_Object
 tramite il codice progetto; VENGONO SALVATI SOLO I NOMI DEGLI OGGETTI. In questo modo 
 con  il collegamento delle due tabelle
@@ -55,7 +55,7 @@ linkate in altri mini progetti puoi importare gli oggetti collegati a singole ta
 verficate con precisione e velocita.
 
 
-## COSTRUZIONE DELLA ESPORTAZIONE DATI
+## 01) ESPORTAZIONE DATI E TABELLE
 La esportazione dei dati della singola tabella collegata avviene mediante la query di 
 estrazione delle tabelle collegata sia :
    VERIFICATE (collegamento attivo)
@@ -88,6 +88,14 @@ TODO: definire le modalita di esportazione ecc.... POSSIAMO DEFINIRE
          DATABASE ho gia COSTRUITO una procedura che permetta di riattive il link delle tabelle.
          vedi routine:
             codice ----> @RICOSTRUICI_LINK_TABELLE_pf
+## 02) ESPORTAZIONE OGGETTI *** DA FARE ***
+## 03) IMPORTAZIONE NOME OGGETTI
+Dalle tabelle collegate VERIFICATE e con campo scelto = TRUE recupero le 
+PATH ed il DATABASE ed importo i NOMEI DEGLI OGGETTI del db corrente.
+Viene popolata la TABELLA Msys_TB99_LINK_Object con i campi:
+   - 
+
+
 
 
 
