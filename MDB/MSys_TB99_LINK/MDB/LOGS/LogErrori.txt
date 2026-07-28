@@ -1,0 +1,578 @@
+2026-07-28 18:03:42 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ======================================================================== | Riga: 0
+2026-07-28 18:03:42 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: INIZIO CANCELLAZIONE TUTTI I LINK ESISTENTI | Riga: 0
+2026-07-28 18:03:42 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: Data/Ora avvio: 28/07/2026 18:03:42 | Riga: 0
+2026-07-28 18:03:42 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: Database corrente: C:\Casa\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_TB99_LINK\MDB\MSys_TB99_LINK.mdb | Riga: 0
+2026-07-28 18:03:42 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: File di log: C:\Casa\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_TB99_LINK\MDB\LOGS\DELETE_LINKS_20260728_180342.txt | Riga: 0
+2026-07-28 18:03:42 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ======================================================================== | Riga: 0
+2026-07-28 18:03:42 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione:  | Riga: 0
+2026-07-28 18:03:42 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: [VERIFICA_QUERY] Controllo esistenza query Msys_TB99_LINK_Qry99_01_SELECT_Archivio... | Riga: 0
+2026-07-28 18:03:42 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: [VERIFICA_QUERY] Query trovata con successo. | Riga: 0
+2026-07-28 18:03:42 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione:  | Riga: 0
+2026-07-28 18:03:42 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: [UTENTE] Richiesta conferma cancellazione 1 link... | Riga: 0
+2026-07-28 18:03:46 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: [UTENTE] Operazione CONFERMATA. | Riga: 0
+2026-07-28 18:03:46 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione:  | Riga: 0
+2026-07-28 18:03:46 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: [APERTURA_QUERY] Recordset aperto. Record trovati: 1 | Riga: 0
+2026-07-28 18:03:46 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione:  | Riga: 0
+2026-07-28 18:03:46 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ======================================================================== | Riga: 0
+2026-07-28 18:03:46 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: INIZIO CANCELLAZIONE LINK | Riga: 0
+2026-07-28 18:03:46 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ======================================================================== | Riga: 0
+2026-07-28 18:03:46 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione:  | Riga: 0
+2026-07-28 18:03:46 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:46 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: RECORD N. 1 - Tabella: 'MSys_DF01_}----------------------------------------------------@' | Riga: 0
+2026-07-28 18:03:46 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:46 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: [CANCELLAZIONE] Link 'MSys_DF01_}----------------------------------------------------@' eliminato con SUCCESSO. | Riga: 0
+2026-07-28 18:03:46 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:46 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione:  | Riga: 0
+2026-07-28 18:03:46 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:46 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: RECORD N. 2 - Tabella: 'MSys_DF01_COMANDI' | Riga: 0
+2026-07-28 18:03:46 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:46 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: [CANCELLAZIONE] Link 'MSys_DF01_COMANDI' eliminato con SUCCESSO. | Riga: 0
+2026-07-28 18:03:46 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:46 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione:  | Riga: 0
+2026-07-28 18:03:46 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:46 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: RECORD N. 3 - Tabella: 'MSys_TB05_FORMS' | Riga: 0
+2026-07-28 18:03:46 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:46 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: [CANCELLAZIONE] Link 'MSys_TB05_FORMS' eliminato con SUCCESSO. | Riga: 0
+2026-07-28 18:03:46 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:46 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione:  | Riga: 0
+2026-07-28 18:03:46 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:46 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: RECORD N. 4 - Tabella: 'MSys_TB05_FORMS_TMP' | Riga: 0
+2026-07-28 18:03:46 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:46 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: [CANCELLAZIONE] Link 'MSys_TB05_FORMS_TMP' eliminato con SUCCESSO. | Riga: 0
+2026-07-28 18:03:46 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:46 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione:  | Riga: 0
+2026-07-28 18:03:46 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:46 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: RECORD N. 5 - Tabella: 'MSys_TB30_}----------------------------------------------------@' | Riga: 0
+2026-07-28 18:03:46 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:46 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: [CANCELLAZIONE] Link 'MSys_TB30_}----------------------------------------------------@' eliminato con SUCCESSO. | Riga: 0
+2026-07-28 18:03:46 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:46 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione:  | Riga: 0
+2026-07-28 18:03:46 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:46 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: RECORD N. 6 - Tabella: 'MSys_TB30_UTIL_MSysObjects' | Riga: 0
+2026-07-28 18:03:46 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:46 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: [CANCELLAZIONE] Link 'MSys_TB30_UTIL_MSysObjects' eliminato con SUCCESSO. | Riga: 0
+2026-07-28 18:03:46 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:46 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione:  | Riga: 0
+2026-07-28 18:03:46 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:46 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: RECORD N. 7 - Tabella: 'MSys_TB40_}-----------------------------------------@PROG_MASTER' | Riga: 0
+2026-07-28 18:03:46 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:46 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: [CANCELLAZIONE] Link 'MSys_TB40_}-----------------------------------------@PROG_MASTER' eliminato con SUCCESSO. | Riga: 0
+2026-07-28 18:03:46 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:46 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione:  | Riga: 0
+2026-07-28 18:03:46 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:46 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: RECORD N. 8 - Tabella: 'MSys_TB40_PROG_MASTER' | Riga: 0
+2026-07-28 18:03:46 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:46 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: [CANCELLAZIONE] Link 'MSys_TB40_PROG_MASTER' eliminato con SUCCESSO. | Riga: 0
+2026-07-28 18:03:46 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:46 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione:  | Riga: 0
+2026-07-28 18:03:46 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:46 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: RECORD N. 9 - Tabella: 'MSys_TB40_PROG_MASTER_TMP' | Riga: 0
+2026-07-28 18:03:46 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:46 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: [CANCELLAZIONE] Link 'MSys_TB40_PROG_MASTER_TMP' eliminato con SUCCESSO. | Riga: 0
+2026-07-28 18:03:46 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:46 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione:  | Riga: 0
+2026-07-28 18:03:46 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:46 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: RECORD N. 10 - Tabella: 'MSys_TB41_{@==================================================@}' | Riga: 0
+2026-07-28 18:03:46 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:46 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: [CANCELLAZIONE] Link 'MSys_TB41_{@==================================================@}' eliminato con SUCCESSO. | Riga: 0
+2026-07-28 18:03:46 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:46 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione:  | Riga: 0
+2026-07-28 18:03:46 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:46 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: RECORD N. 11 - Tabella: 'MSys_TB41_VISUAL_PAG_MASTER' | Riga: 0
+2026-07-28 18:03:46 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:46 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: [CANCELLAZIONE] Link 'MSys_TB41_VISUAL_PAG_MASTER' eliminato con SUCCESSO. | Riga: 0
+2026-07-28 18:03:46 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:46 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione:  | Riga: 0
+2026-07-28 18:03:46 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:46 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: RECORD N. 12 - Tabella: 'MSys_TB41_VISUAL_PAG_MASTER_TMP' | Riga: 0
+2026-07-28 18:03:46 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:46 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: [CANCELLAZIONE] Link 'MSys_TB41_VISUAL_PAG_MASTER_TMP' eliminato con SUCCESSO. | Riga: 0
+2026-07-28 18:03:46 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:46 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione:  | Riga: 0
+2026-07-28 18:03:46 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:46 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: RECORD N. 13 - Tabella: 'MSys_DF01_COMANDI_TMP' | Riga: 0
+2026-07-28 18:03:46 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:46 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: [CANCELLAZIONE] Link 'MSys_DF01_COMANDI_TMP' eliminato con SUCCESSO. | Riga: 0
+2026-07-28 18:03:46 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:46 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione:  | Riga: 0
+2026-07-28 18:03:46 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:46 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: RECORD N. 14 - Tabella: 'MSys_DF02_}----------------------------------------------------@' | Riga: 0
+2026-07-28 18:03:46 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:46 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: [CANCELLAZIONE] Link 'MSys_DF02_}----------------------------------------------------@' eliminato con SUCCESSO. | Riga: 0
+2026-07-28 18:03:46 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:46 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione:  | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: RECORD N. 15 - Tabella: 'MSys_DF02_TIPO_OGGETTO' | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: [CANCELLAZIONE] Link 'MSys_DF02_TIPO_OGGETTO' eliminato con SUCCESSO. | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione:  | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: RECORD N. 16 - Tabella: 'MSys_DF03_}----------------------------------------------------@' | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: [CANCELLAZIONE] Link 'MSys_DF03_}----------------------------------------------------@' eliminato con SUCCESSO. | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione:  | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: RECORD N. 17 - Tabella: 'MSYS_DF03_GROUP_QUOTE' | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: [CANCELLAZIONE] Link 'MSYS_DF03_GROUP_QUOTE' eliminato con SUCCESSO. | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione:  | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: RECORD N. 18 - Tabella: 'MSys_DF03_QUOTE' | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: [CANCELLAZIONE] Link 'MSys_DF03_QUOTE' eliminato con SUCCESSO. | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione:  | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: RECORD N. 19 - Tabella: 'MSys_DF05_}----------------------------------------------------@' | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: [CANCELLAZIONE] Link 'MSys_DF05_}----------------------------------------------------@' eliminato con SUCCESSO. | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione:  | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: RECORD N. 20 - Tabella: 'MSys_DF05_ATTRIBUTI_TABELLA' | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: [CANCELLAZIONE] Link 'MSys_DF05_ATTRIBUTI_TABELLA' eliminato con SUCCESSO. | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione:  | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: RECORD N. 21 - Tabella: 'MSys_DF10_}----------------------------------------------------@' | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: [CANCELLAZIONE] Link 'MSys_DF10_}----------------------------------------------------@' eliminato con SUCCESSO. | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione:  | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: RECORD N. 22 - Tabella: 'MSys_DF10_DATABASE' | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: [CANCELLAZIONE] Link 'MSys_DF10_DATABASE' eliminato con SUCCESSO. | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione:  | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: RECORD N. 23 - Tabella: 'MSys_DF10_DATABASE_TMP' | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: [CANCELLAZIONE] Link 'MSys_DF10_DATABASE_TMP' eliminato con SUCCESSO. | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione:  | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: RECORD N. 24 - Tabella: 'MSys_DF11_{@@@@@@@@@@@@@@@@@@@COD_PROGETTO@@@@@@@@@@@@@@@@@@@@@}' | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: [CANCELLAZIONE] Link 'MSys_DF11_{@@@@@@@@@@@@@@@@@@@COD_PROGETTO@@@@@@@@@@@@@@@@@@@@@}' eliminato con SUCCESSO. | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione:  | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: RECORD N. 25 - Tabella: 'MSys_DF11_}----------------------------------------------------@' | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: [CANCELLAZIONE] Link 'MSys_DF11_}----------------------------------------------------@' eliminato con SUCCESSO. | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione:  | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: RECORD N. 26 - Tabella: 'Msys_DF11_COD_PROGETTO' | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: [CANCELLAZIONE] Link 'Msys_DF11_COD_PROGETTO' eliminato con SUCCESSO. | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione:  | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: RECORD N. 27 - Tabella: 'Msys_DF12_}----------------------------------------------------@' | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: [CANCELLAZIONE] Link 'Msys_DF12_}----------------------------------------------------@' eliminato con SUCCESSO. | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione:  | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: RECORD N. 28 - Tabella: 'Msys_DF12_ObjProgetti' | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: [CANCELLAZIONE] Link 'Msys_DF12_ObjProgetti' eliminato con SUCCESSO. | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione:  | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: RECORD N. 29 - Tabella: 'MSys_DF13_{@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@}_Tab' | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: [CANCELLAZIONE] Link 'MSys_DF13_{@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@}_Tab' eliminato con SUCCESSO. | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione:  | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: RECORD N. 30 - Tabella: 'Msys_DF13_}----------------------------------------------------@' | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: [CANCELLAZIONE] Link 'Msys_DF13_}----------------------------------------------------@' eliminato con SUCCESSO. | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione:  | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: RECORD N. 31 - Tabella: 'Msys_DF13_DLL_PROGETTO' | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: [CANCELLAZIONE] Link 'Msys_DF13_DLL_PROGETTO' eliminato con SUCCESSO. | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione:  | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: RECORD N. 32 - Tabella: 'MSys_DF14_{@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@}_Tab' | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: [CANCELLAZIONE] Link 'MSys_DF14_{@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@}_Tab' eliminato con SUCCESSO. | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione:  | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: RECORD N. 33 - Tabella: 'Msys_DF14_}----------------------------------------------------@' | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: [CANCELLAZIONE] Link 'Msys_DF14_}----------------------------------------------------@' eliminato con SUCCESSO. | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione:  | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: RECORD N. 34 - Tabella: 'Msys_DF14_DLL_LIBRERIE' | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: [CANCELLAZIONE] Link 'Msys_DF14_DLL_LIBRERIE' eliminato con SUCCESSO. | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione:  | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: RECORD N. 35 - Tabella: 'Msys_TB01_}---------------------------------------@PROGETTI' | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: [CANCELLAZIONE] Link 'Msys_TB01_}---------------------------------------@PROGETTI' eliminato con SUCCESSO. | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione:  | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: RECORD N. 36 - Tabella: 'Msys_TB01_PROGETTI' | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: [CANCELLAZIONE] Link 'Msys_TB01_PROGETTI' eliminato con SUCCESSO. | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione:  | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: RECORD N. 37 - Tabella: 'Msys_TB02_}----------------------------------------@TIPO_OGGETTI' | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: [CANCELLAZIONE] Link 'Msys_TB02_}----------------------------------------@TIPO_OGGETTI' eliminato con SUCCESSO. | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione:  | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: RECORD N. 38 - Tabella: 'Msys_TB02_TIPO_OGGETTI' | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: [CANCELLAZIONE] Link 'Msys_TB02_TIPO_OGGETTI' eliminato con SUCCESSO. | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione:  | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: RECORD N. 39 - Tabella: 'Msys_TB03_ELENCO_}----------------------------------@ObjProgetti' | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: [CANCELLAZIONE] Link 'Msys_TB03_ELENCO_}----------------------------------@ObjProgetti' eliminato con SUCCESSO. | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione:  | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: RECORD N. 40 - Tabella: 'Msys_TB03_ELENCO_ObjProgetti' | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: [CANCELLAZIONE] Link 'Msys_TB03_ELENCO_ObjProgetti' eliminato con SUCCESSO. | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione:  | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: RECORD N. 41 - Tabella: 'MSYS_TB04_DB_}----------------------------------@ESTERNOProgetti' | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: [CANCELLAZIONE] Link 'MSYS_TB04_DB_}----------------------------------@ESTERNOProgetti' eliminato con SUCCESSO. | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione:  | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: RECORD N. 42 - Tabella: 'MSYS_TB04_DB_ESTERNO' | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: [CANCELLAZIONE] Link 'MSYS_TB04_DB_ESTERNO' eliminato con SUCCESSO. | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione:  | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: RECORD N. 43 - Tabella: 'MSys_TB05_}-----------------------------------------------@FORMS' | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: [CANCELLAZIONE] Link 'MSys_TB05_}-----------------------------------------------@FORMS' eliminato con SUCCESSO. | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione:  | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ======================================================================== | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: STATISTICHE FINALI CANCELLAZIONE | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ======================================================================== | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: Data/Ora fine: 28/07/2026 18:03:47 | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: Durata totale: 00:00:05 | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione:  | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: LINK ESISTENTI PRIMA DELLA CANCELLAZIONE: 1 | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: TOTALE RECORD ESAMINATI: 43 | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: LINK CANCELLATI CON SUCCESSO: 43 | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ERRORI DURANTE CANCELLAZIONE: 0 | Riga: 0
+2026-07-28 18:03:47 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ======================================================================== | Riga: 0
+2026-07-28 18:03:48 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: [CHIUSURA] File di log salvato in: C:\Casa\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_TB99_LINK\MDB\LOGS\DELETE_LINKS_20260728_180342.txt | Riga: 0
+2026-07-28 18:16:36 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ======================================================================== | Riga: 0
+2026-07-28 18:16:36 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: INIZIO CANCELLAZIONE TUTTI I LINK ESISTENTI | Riga: 0
+2026-07-28 18:16:36 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: Data/Ora avvio: 28/07/2026 18:16:36 | Riga: 0
+2026-07-28 18:16:36 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: Database corrente: C:\Casa\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_TB99_LINK\MDB\MSys_TB99_LINK.mdb | Riga: 0
+2026-07-28 18:16:36 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: File di log: C:\Casa\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_TB99_LINK\MDB\LOGS\DELETE_LINKS_20260728_181636.txt | Riga: 0
+2026-07-28 18:16:36 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ======================================================================== | Riga: 0
+2026-07-28 18:16:36 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione:  | Riga: 0
+2026-07-28 18:16:36 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: [VERIFICA_QUERY] Controllo esistenza query Msys_TB99_LINK_Qry99_01_SELECT_Archivio... | Riga: 0
+2026-07-28 18:16:36 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: [VERIFICA_QUERY] Query trovata con successo. | Riga: 0
+2026-07-28 18:16:36 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione:  | Riga: 0
+2026-07-28 18:16:36 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: [UTENTE] Richiesta conferma cancellazione 1 link... | Riga: 0
+2026-07-28 18:16:37 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: [UTENTE] Operazione CONFERMATA. | Riga: 0
+2026-07-28 18:16:37 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione:  | Riga: 0
+2026-07-28 18:16:37 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: [APERTURA_QUERY] Recordset aperto. Record trovati: 1 | Riga: 0
+2026-07-28 18:16:37 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione:  | Riga: 0
+2026-07-28 18:16:37 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ======================================================================== | Riga: 0
+2026-07-28 18:16:37 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: INIZIO CANCELLAZIONE LINK | Riga: 0
+2026-07-28 18:16:37 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ======================================================================== | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione:  | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: RECORD N. 1 - Tabella: 'MSys_DF01_}----------------------------------------------------@' | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: [CANCELLAZIONE] Link 'MSys_DF01_}----------------------------------------------------@' eliminato con SUCCESSO. | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione:  | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: RECORD N. 2 - Tabella: 'MSys_DF01_COMANDI' | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: [CANCELLAZIONE] Link 'MSys_DF01_COMANDI' eliminato con SUCCESSO. | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione:  | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: RECORD N. 3 - Tabella: 'MSys_DF01_COMANDI_TMP' | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: [CANCELLAZIONE] Link 'MSys_DF01_COMANDI_TMP' eliminato con SUCCESSO. | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione:  | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: RECORD N. 4 - Tabella: 'MSys_DF02_}----------------------------------------------------@' | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: [CANCELLAZIONE] Link 'MSys_DF02_}----------------------------------------------------@' eliminato con SUCCESSO. | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione:  | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: RECORD N. 5 - Tabella: 'MSys_DF02_TIPO_OGGETTO' | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: [CANCELLAZIONE] Link 'MSys_DF02_TIPO_OGGETTO' eliminato con SUCCESSO. | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione:  | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: RECORD N. 6 - Tabella: 'MSys_DF03_}----------------------------------------------------@' | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: [CANCELLAZIONE] Link 'MSys_DF03_}----------------------------------------------------@' eliminato con SUCCESSO. | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione:  | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: RECORD N. 7 - Tabella: 'MSYS_DF03_GROUP_QUOTE' | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: [CANCELLAZIONE] Link 'MSYS_DF03_GROUP_QUOTE' eliminato con SUCCESSO. | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione:  | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: RECORD N. 8 - Tabella: 'MSys_DF03_QUOTE' | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: [CANCELLAZIONE] Link 'MSys_DF03_QUOTE' eliminato con SUCCESSO. | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione:  | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: RECORD N. 9 - Tabella: 'MSys_DF05_}----------------------------------------------------@' | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: [CANCELLAZIONE] Link 'MSys_DF05_}----------------------------------------------------@' eliminato con SUCCESSO. | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione:  | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: RECORD N. 10 - Tabella: 'MSys_DF05_ATTRIBUTI_TABELLA' | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: [CANCELLAZIONE] Link 'MSys_DF05_ATTRIBUTI_TABELLA' eliminato con SUCCESSO. | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione:  | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: RECORD N. 11 - Tabella: 'MSys_DF10_}----------------------------------------------------@' | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: [CANCELLAZIONE] Link 'MSys_DF10_}----------------------------------------------------@' eliminato con SUCCESSO. | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione:  | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: RECORD N. 12 - Tabella: 'MSys_DF10_DATABASE' | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: [CANCELLAZIONE] Link 'MSys_DF10_DATABASE' eliminato con SUCCESSO. | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione:  | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: RECORD N. 13 - Tabella: 'MSys_DF10_DATABASE_TMP' | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: [CANCELLAZIONE] Link 'MSys_DF10_DATABASE_TMP' eliminato con SUCCESSO. | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione:  | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: RECORD N. 14 - Tabella: 'MSys_DF11_{@@@@@@@@@@@@@@@@@@@COD_PROGETTO@@@@@@@@@@@@@@@@@@@@@}' | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: [CANCELLAZIONE] Link 'MSys_DF11_{@@@@@@@@@@@@@@@@@@@COD_PROGETTO@@@@@@@@@@@@@@@@@@@@@}' eliminato con SUCCESSO. | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione:  | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: RECORD N. 15 - Tabella: 'MSys_DF11_}----------------------------------------------------@' | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: [CANCELLAZIONE] Link 'MSys_DF11_}----------------------------------------------------@' eliminato con SUCCESSO. | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione:  | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: RECORD N. 16 - Tabella: 'Msys_DF11_COD_PROGETTO' | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: [CANCELLAZIONE] Link 'Msys_DF11_COD_PROGETTO' eliminato con SUCCESSO. | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione:  | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: RECORD N. 17 - Tabella: 'Msys_DF12_}----------------------------------------------------@' | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: [CANCELLAZIONE] Link 'Msys_DF12_}----------------------------------------------------@' eliminato con SUCCESSO. | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione:  | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: RECORD N. 18 - Tabella: 'Msys_DF12_ObjProgetti' | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: [CANCELLAZIONE] Link 'Msys_DF12_ObjProgetti' eliminato con SUCCESSO. | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione:  | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: RECORD N. 19 - Tabella: 'MSys_DF13_{@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@}_Tab' | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: [CANCELLAZIONE] Link 'MSys_DF13_{@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@}_Tab' eliminato con SUCCESSO. | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione:  | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: RECORD N. 20 - Tabella: 'Msys_DF13_}----------------------------------------------------@' | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: [CANCELLAZIONE] Link 'Msys_DF13_}----------------------------------------------------@' eliminato con SUCCESSO. | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione:  | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: RECORD N. 21 - Tabella: 'Msys_DF13_DLL_PROGETTO' | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: [CANCELLAZIONE] Link 'Msys_DF13_DLL_PROGETTO' eliminato con SUCCESSO. | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione:  | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: RECORD N. 22 - Tabella: 'MSys_DF14_{@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@}_Tab' | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: [CANCELLAZIONE] Link 'MSys_DF14_{@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@}_Tab' eliminato con SUCCESSO. | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione:  | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: RECORD N. 23 - Tabella: 'Msys_DF14_}----------------------------------------------------@' | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: [CANCELLAZIONE] Link 'Msys_DF14_}----------------------------------------------------@' eliminato con SUCCESSO. | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione:  | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: RECORD N. 24 - Tabella: 'Msys_DF14_DLL_LIBRERIE' | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: [CANCELLAZIONE] Link 'Msys_DF14_DLL_LIBRERIE' eliminato con SUCCESSO. | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione:  | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: RECORD N. 25 - Tabella: 'Msys_TB01_}---------------------------------------@PROGETTI' | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: [CANCELLAZIONE] Link 'Msys_TB01_}---------------------------------------@PROGETTI' eliminato con SUCCESSO. | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione:  | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: RECORD N. 26 - Tabella: 'Msys_TB01_PROGETTI' | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: [CANCELLAZIONE] Link 'Msys_TB01_PROGETTI' eliminato con SUCCESSO. | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione:  | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: RECORD N. 27 - Tabella: 'Msys_TB02_}----------------------------------------@TIPO_OGGETTI' | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: [CANCELLAZIONE] Link 'Msys_TB02_}----------------------------------------@TIPO_OGGETTI' eliminato con SUCCESSO. | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione:  | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: RECORD N. 28 - Tabella: 'Msys_TB02_TIPO_OGGETTI' | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: [CANCELLAZIONE] Link 'Msys_TB02_TIPO_OGGETTI' eliminato con SUCCESSO. | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione:  | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: RECORD N. 29 - Tabella: 'Msys_TB03_ELENCO_}----------------------------------@ObjProgetti' | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: [CANCELLAZIONE] Link 'Msys_TB03_ELENCO_}----------------------------------@ObjProgetti' eliminato con SUCCESSO. | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione:  | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: RECORD N. 30 - Tabella: 'Msys_TB03_ELENCO_ObjProgetti' | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: [CANCELLAZIONE] Link 'Msys_TB03_ELENCO_ObjProgetti' eliminato con SUCCESSO. | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione:  | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: RECORD N. 31 - Tabella: 'MSYS_TB04_DB_}----------------------------------@ESTERNOProgetti' | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: [CANCELLAZIONE] Link 'MSYS_TB04_DB_}----------------------------------@ESTERNOProgetti' eliminato con SUCCESSO. | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione:  | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: RECORD N. 32 - Tabella: 'MSYS_TB04_DB_ESTERNO' | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:38 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: [CANCELLAZIONE] Link 'MSYS_TB04_DB_ESTERNO' eliminato con SUCCESSO. | Riga: 0
+2026-07-28 18:16:39 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:39 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione:  | Riga: 0
+2026-07-28 18:16:39 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:39 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: RECORD N. 33 - Tabella: 'MSys_TB05_}-----------------------------------------------@FORMS' | Riga: 0
+2026-07-28 18:16:39 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:39 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: [CANCELLAZIONE] Link 'MSys_TB05_}-----------------------------------------------@FORMS' eliminato con SUCCESSO. | Riga: 0
+2026-07-28 18:16:39 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:39 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione:  | Riga: 0
+2026-07-28 18:16:39 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:39 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: RECORD N. 34 - Tabella: 'MSys_TB05_FORMS' | Riga: 0
+2026-07-28 18:16:39 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:39 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: [CANCELLAZIONE] Link 'MSys_TB05_FORMS' eliminato con SUCCESSO. | Riga: 0
+2026-07-28 18:16:39 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:39 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione:  | Riga: 0
+2026-07-28 18:16:39 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:39 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: RECORD N. 35 - Tabella: 'MSys_TB05_FORMS_TMP' | Riga: 0
+2026-07-28 18:16:39 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:39 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: [CANCELLAZIONE] Link 'MSys_TB05_FORMS_TMP' eliminato con SUCCESSO. | Riga: 0
+2026-07-28 18:16:39 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:39 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione:  | Riga: 0
+2026-07-28 18:16:39 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:39 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: RECORD N. 36 - Tabella: 'MSys_TB30_}----------------------------------------------------@' | Riga: 0
+2026-07-28 18:16:39 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:39 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: [CANCELLAZIONE] Link 'MSys_TB30_}----------------------------------------------------@' eliminato con SUCCESSO. | Riga: 0
+2026-07-28 18:16:39 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:39 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione:  | Riga: 0
+2026-07-28 18:16:39 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:39 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: RECORD N. 37 - Tabella: 'MSys_TB30_UTIL_MSysObjects' | Riga: 0
+2026-07-28 18:16:39 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:39 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: [CANCELLAZIONE] Link 'MSys_TB30_UTIL_MSysObjects' eliminato con SUCCESSO. | Riga: 0
+2026-07-28 18:16:39 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:39 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione:  | Riga: 0
+2026-07-28 18:16:39 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:39 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: RECORD N. 38 - Tabella: 'MSys_TB40_}-----------------------------------------@PROG_MASTER' | Riga: 0
+2026-07-28 18:16:39 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:39 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: [CANCELLAZIONE] Link 'MSys_TB40_}-----------------------------------------@PROG_MASTER' eliminato con SUCCESSO. | Riga: 0
+2026-07-28 18:16:39 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:39 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione:  | Riga: 0
+2026-07-28 18:16:39 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:39 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: RECORD N. 39 - Tabella: 'MSys_TB40_PROG_MASTER' | Riga: 0
+2026-07-28 18:16:39 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:39 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: [CANCELLAZIONE] Link 'MSys_TB40_PROG_MASTER' eliminato con SUCCESSO. | Riga: 0
+2026-07-28 18:16:39 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:39 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione:  | Riga: 0
+2026-07-28 18:16:39 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:39 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: RECORD N. 40 - Tabella: 'MSys_TB40_PROG_MASTER_TMP' | Riga: 0
+2026-07-28 18:16:39 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:39 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: [CANCELLAZIONE] Link 'MSys_TB40_PROG_MASTER_TMP' eliminato con SUCCESSO. | Riga: 0
+2026-07-28 18:16:39 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:39 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione:  | Riga: 0
+2026-07-28 18:16:39 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:39 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: RECORD N. 41 - Tabella: 'MSys_TB41_{@==================================================@}' | Riga: 0
+2026-07-28 18:16:39 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:39 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: [CANCELLAZIONE] Link 'MSys_TB41_{@==================================================@}' eliminato con SUCCESSO. | Riga: 0
+2026-07-28 18:16:39 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:39 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione:  | Riga: 0
+2026-07-28 18:16:39 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:39 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: RECORD N. 42 - Tabella: 'MSys_TB41_VISUAL_PAG_MASTER' | Riga: 0
+2026-07-28 18:16:39 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:39 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: [CANCELLAZIONE] Link 'MSys_TB41_VISUAL_PAG_MASTER' eliminato con SUCCESSO. | Riga: 0
+2026-07-28 18:16:39 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:39 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione:  | Riga: 0
+2026-07-28 18:16:39 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:39 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: RECORD N. 43 - Tabella: 'MSys_TB41_VISUAL_PAG_MASTER_TMP' | Riga: 0
+2026-07-28 18:16:39 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:39 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: [CANCELLAZIONE] Link 'MSys_TB41_VISUAL_PAG_MASTER_TMP' eliminato con SUCCESSO. | Riga: 0
+2026-07-28 18:16:39 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ---------------------------------------- | Riga: 0
+2026-07-28 18:16:39 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione:  | Riga: 0
+2026-07-28 18:16:39 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ======================================================================== | Riga: 0
+2026-07-28 18:16:39 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: STATISTICHE FINALI CANCELLAZIONE | Riga: 0
+2026-07-28 18:16:39 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ======================================================================== | Riga: 0
+2026-07-28 18:16:39 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: Data/Ora fine: 28/07/2026 18:16:39 | Riga: 0
+2026-07-28 18:16:39 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: Durata totale: 00:00:03 | Riga: 0
+2026-07-28 18:16:39 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione:  | Riga: 0
+2026-07-28 18:16:39 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: LINK ESISTENTI PRIMA DELLA CANCELLAZIONE: 1 | Riga: 0
+2026-07-28 18:16:39 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: TOTALE RECORD ESAMINATI: 43 | Riga: 0
+2026-07-28 18:16:39 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: LINK CANCELLATI CON SUCCESSO: 43 | Riga: 0
+2026-07-28 18:16:39 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ERRORI DURANTE CANCELLAZIONE: 0 | Riga: 0
+2026-07-28 18:16:39 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: ======================================================================== | Riga: 0
+2026-07-28 18:16:39 | Classe: My_Msys_TB12_FILES_CLASSE_clsLogger | Funzione: WriteLogMessage | Errore #: 0 | Descrizione: [CHIUSURA] File di log salvato in: C:\Casa\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_TB99_LINK\MDB\LOGS\DELETE_LINKS_20260728_181636.txt | Riga: 0

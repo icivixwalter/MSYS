@@ -1,0 +1,1797 @@
+28/07/2026 18:11:49 - ========================================================================
+28/07/2026 18:11:49 - INIZIO RICOSTRUZIONE LINK TB99
+28/07/2026 18:11:49 - Data/Ora avvio: 28/07/2026 18:11:49
+28/07/2026 18:11:49 - Database corrente: C:\Casa\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_TB99_LINK\MDB\MSys_TB99_LINK.mdb
+28/07/2026 18:11:49 - File di log: c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_TB99_LINK\MDB\LOGS\20260728_181149_TB99_Link_Rebuild_Log.txt
+28/07/2026 18:11:49 - ========================================================================
+28/07/2026 18:11:49 - 
+28/07/2026 18:11:49 - [VERIFICA_QUERY] Controllo esistenza query Msys_TB99_LINK_Qry99_01_SELECT_Archivio...
+28/07/2026 18:11:49 - [VERIFICA_QUERY] Query trovata con successo.
+28/07/2026 18:11:49 - 
+28/07/2026 18:11:49 - [UTENTE] Richiesta conferma operazione...
+28/07/2026 18:11:52 - [UTENTE] Operazione CONFERMATA.
+28/07/2026 18:11:52 - 
+28/07/2026 18:11:52 - [APERTURA_QUERY] Recordset aperto. Record trovati: 1
+28/07/2026 18:11:52 - 
+28/07/2026 18:11:52 - [STATISTICHE] Contatori inizializzati.
+28/07/2026 18:11:52 - 
+28/07/2026 18:11:52 - ========================================================================
+28/07/2026 18:11:52 - INIZIO CICLO ELABORAZIONE RECORD
+28/07/2026 18:11:52 - ========================================================================
+28/07/2026 18:11:52 - 
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - RECORD N. 1
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - [LETTURA_RECORD] Nome tabella: 'MSys_DF01_}----------------------------------------------------@'
+28/07/2026 18:11:52 - [LETTURA_RECORD] Database path: 'c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF01\MDB\MSys_DF01.mdb'
+28/07/2026 18:11:52 - [LETTURA_RECORD] Type: 6
+28/07/2026 18:11:52 - [VALIDAZIONE] Avvio validazione...
+28/07/2026 18:11:52 - [VALIDAZIONE] Path valido. File database ESISTE.
+28/07/2026 18:11:52 - [VALIDAZIONE] Inizio verifica lato SORGENTE...
+28/07/2026 18:11:52 - [APERTURA_DB] Tentativo apertura database: 'c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF01\MDB\MSys_DF01.mdb'
+28/07/2026 18:11:52 - [APERTURA_DB] Database aperto con successo.
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Ricerca tabella 'MSys_DF01_}----------------------------------------------------@' in MSysObjects...
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Tabella 'MSys_DF01_}----------------------------------------------------@' TROVATA
+28/07/2026 18:11:52 - [CHIUSURA_DB] Database chiuso e risorse rilasciate.
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Tabella 'MSys_DF01_}----------------------------------------------------@' TROVATA nel database di destinazione.
+28/07/2026 18:11:52 - [ELIMINAZIONE_LINK] Link esistente NON trovato in MSysObjects.
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Creazione nuovo link...
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Tabella: 'MSys_DF01_}----------------------------------------------------@'
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Database sorgente: 'c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF01\MDB\MSys_DF01.mdb'
+28/07/2026 18:11:52 - [CREATE_LINK] Creazione TableDef per 'MSys_DF01_}----------------------------------------------------@'...
+28/07/2026 18:11:52 - [CREATE_LINK] TableDef creato.
+28/07/2026 18:11:52 - [CREATE_LINK] Connect string impostata
+28/07/2026 18:11:52 - [CREATE_LINK] SourceTableName impostato: 'MSys_DF01_}----------------------------------------------------@'
+28/07/2026 18:11:52 - [CREATE_LINK] Appendo TableDef al database...
+28/07/2026 18:11:52 - [CREATE_LINK] TableDef appeso con successo.
+28/07/2026 18:11:52 - [CREATE_LINK] Refresh del link...
+28/07/2026 18:11:52 - [CREATE_LINK] Link aggiornato con successo.
+28/07/2026 18:11:52 - [CREATE_LINK] Link creato correttamente per 'MSys_DF01_}----------------------------------------------------@'
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Link CREATO con successo!
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Stato assegnato: OK
+28/07/2026 18:11:52 - [AGGIORNAMENTO] Salvataggio stato nel campo Verifica_s...
+28/07/2026 18:11:52 - [AGGIORNAMENTO] COD_SUB_PROGETTO_s impostato a: 'MSys_DF01'
+28/07/2026 18:11:52 - [AGGIORNAMENTO] Recordset aggiornato con stato: 'OK' nel campo Verifica_s
+28/07/2026 18:11:52 - [STATISTICHE] Aggiornamento contatori:
+28/07/2026 18:11:52 -             OK: 1
+28/07/2026 18:11:52 -             MISSING: 0
+28/07/2026 18:11:52 -             INVALID_PATH: 0
+28/07/2026 18:11:52 -             NOT_REGISTERED: 0
+28/07/2026 18:11:52 -             Totale elaborati: 1
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - 
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - RECORD N. 2
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - [LETTURA_RECORD] Nome tabella: 'MSys_DF01_COMANDI'
+28/07/2026 18:11:52 - [LETTURA_RECORD] Database path: 'c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF01\MDB\MSys_DF01.mdb'
+28/07/2026 18:11:52 - [LETTURA_RECORD] Type: 6
+28/07/2026 18:11:52 - [VALIDAZIONE] Avvio validazione...
+28/07/2026 18:11:52 - [VALIDAZIONE] Path valido. File database ESISTE.
+28/07/2026 18:11:52 - [VALIDAZIONE] Inizio verifica lato SORGENTE...
+28/07/2026 18:11:52 - [APERTURA_DB] Tentativo apertura database: 'c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF01\MDB\MSys_DF01.mdb'
+28/07/2026 18:11:52 - [APERTURA_DB] Database aperto con successo.
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Ricerca tabella 'MSys_DF01_COMANDI' in MSysObjects...
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Tabella 'MSys_DF01_COMANDI' TROVATA
+28/07/2026 18:11:52 - [CHIUSURA_DB] Database chiuso e risorse rilasciate.
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Tabella 'MSys_DF01_COMANDI' TROVATA nel database di destinazione.
+28/07/2026 18:11:52 - [ELIMINAZIONE_LINK] Link esistente NON trovato in MSysObjects.
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Creazione nuovo link...
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Tabella: 'MSys_DF01_COMANDI'
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Database sorgente: 'c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF01\MDB\MSys_DF01.mdb'
+28/07/2026 18:11:52 - [CREATE_LINK] Creazione TableDef per 'MSys_DF01_COMANDI'...
+28/07/2026 18:11:52 - [CREATE_LINK] TableDef creato.
+28/07/2026 18:11:52 - [CREATE_LINK] Connect string impostata
+28/07/2026 18:11:52 - [CREATE_LINK] SourceTableName impostato: 'MSys_DF01_COMANDI'
+28/07/2026 18:11:52 - [CREATE_LINK] Appendo TableDef al database...
+28/07/2026 18:11:52 - [CREATE_LINK] TableDef appeso con successo.
+28/07/2026 18:11:52 - [CREATE_LINK] Refresh del link...
+28/07/2026 18:11:52 - [CREATE_LINK] Link aggiornato con successo.
+28/07/2026 18:11:52 - [CREATE_LINK] Link creato correttamente per 'MSys_DF01_COMANDI'
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Link CREATO con successo!
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Stato assegnato: OK
+28/07/2026 18:11:52 - [AGGIORNAMENTO] Salvataggio stato nel campo Verifica_s...
+28/07/2026 18:11:52 - [AGGIORNAMENTO] COD_SUB_PROGETTO_s impostato a: 'MSys_DF01'
+28/07/2026 18:11:52 - [AGGIORNAMENTO] Recordset aggiornato con stato: 'OK' nel campo Verifica_s
+28/07/2026 18:11:52 - [STATISTICHE] Aggiornamento contatori:
+28/07/2026 18:11:52 -             OK: 2
+28/07/2026 18:11:52 -             MISSING: 0
+28/07/2026 18:11:52 -             INVALID_PATH: 0
+28/07/2026 18:11:52 -             NOT_REGISTERED: 0
+28/07/2026 18:11:52 -             Totale elaborati: 2
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - 
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - RECORD N. 3
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - [LETTURA_RECORD] Nome tabella: 'MSys_DF01_COMANDI_TMP'
+28/07/2026 18:11:52 - [LETTURA_RECORD] Database path: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF01\MDB\MSys_DF01.mdb'
+28/07/2026 18:11:52 - [LETTURA_RECORD] Type: 6
+28/07/2026 18:11:52 - [VALIDAZIONE] Avvio validazione...
+28/07/2026 18:11:52 - [VALIDAZIONE] Path valido. File database ESISTE.
+28/07/2026 18:11:52 - [VALIDAZIONE] Inizio verifica lato SORGENTE...
+28/07/2026 18:11:52 - [APERTURA_DB] Tentativo apertura database: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF01\MDB\MSys_DF01.mdb'
+28/07/2026 18:11:52 - [APERTURA_DB] Database aperto con successo.
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Ricerca tabella 'MSys_DF01_COMANDI_TMP' in MSysObjects...
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Tabella 'MSys_DF01_COMANDI_TMP' TROVATA
+28/07/2026 18:11:52 - [CHIUSURA_DB] Database chiuso e risorse rilasciate.
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Tabella 'MSys_DF01_COMANDI_TMP' TROVATA nel database di destinazione.
+28/07/2026 18:11:52 - [ELIMINAZIONE_LINK] Link esistente NON trovato in MSysObjects.
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Creazione nuovo link...
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Tabella: 'MSys_DF01_COMANDI_TMP'
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Database sorgente: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF01\MDB\MSys_DF01.mdb'
+28/07/2026 18:11:52 - [CREATE_LINK] Creazione TableDef per 'MSys_DF01_COMANDI_TMP'...
+28/07/2026 18:11:52 - [CREATE_LINK] TableDef creato.
+28/07/2026 18:11:52 - [CREATE_LINK] Connect string impostata
+28/07/2026 18:11:52 - [CREATE_LINK] SourceTableName impostato: 'MSys_DF01_COMANDI_TMP'
+28/07/2026 18:11:52 - [CREATE_LINK] Appendo TableDef al database...
+28/07/2026 18:11:52 - [CREATE_LINK] TableDef appeso con successo.
+28/07/2026 18:11:52 - [CREATE_LINK] Refresh del link...
+28/07/2026 18:11:52 - [CREATE_LINK] Link aggiornato con successo.
+28/07/2026 18:11:52 - [CREATE_LINK] Link creato correttamente per 'MSys_DF01_COMANDI_TMP'
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Link CREATO con successo!
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Stato assegnato: OK
+28/07/2026 18:11:52 - [AGGIORNAMENTO] Salvataggio stato nel campo Verifica_s...
+28/07/2026 18:11:52 - [AGGIORNAMENTO] COD_SUB_PROGETTO_s impostato a: 'MSys_DF01'
+28/07/2026 18:11:52 - [AGGIORNAMENTO] Recordset aggiornato con stato: 'OK' nel campo Verifica_s
+28/07/2026 18:11:52 - [STATISTICHE] Aggiornamento contatori:
+28/07/2026 18:11:52 -             OK: 3
+28/07/2026 18:11:52 -             MISSING: 0
+28/07/2026 18:11:52 -             INVALID_PATH: 0
+28/07/2026 18:11:52 -             NOT_REGISTERED: 0
+28/07/2026 18:11:52 -             Totale elaborati: 3
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - 
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - RECORD N. 4
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - [LETTURA_RECORD] Nome tabella: 'MSys_DF02_}----------------------------------------------------@'
+28/07/2026 18:11:52 - [LETTURA_RECORD] Database path: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF02\MDB\MSys_DF02.mdb'
+28/07/2026 18:11:52 - [LETTURA_RECORD] Type: 6
+28/07/2026 18:11:52 - [VALIDAZIONE] Avvio validazione...
+28/07/2026 18:11:52 - [VALIDAZIONE] Path valido. File database ESISTE.
+28/07/2026 18:11:52 - [VALIDAZIONE] Inizio verifica lato SORGENTE...
+28/07/2026 18:11:52 - [APERTURA_DB] Tentativo apertura database: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF02\MDB\MSys_DF02.mdb'
+28/07/2026 18:11:52 - [APERTURA_DB] Database aperto con successo.
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Ricerca tabella 'MSys_DF02_}----------------------------------------------------@' in MSysObjects...
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Tabella 'MSys_DF02_}----------------------------------------------------@' TROVATA
+28/07/2026 18:11:52 - [CHIUSURA_DB] Database chiuso e risorse rilasciate.
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Tabella 'MSys_DF02_}----------------------------------------------------@' TROVATA nel database di destinazione.
+28/07/2026 18:11:52 - [ELIMINAZIONE_LINK] Link esistente NON trovato in MSysObjects.
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Creazione nuovo link...
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Tabella: 'MSys_DF02_}----------------------------------------------------@'
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Database sorgente: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF02\MDB\MSys_DF02.mdb'
+28/07/2026 18:11:52 - [CREATE_LINK] Creazione TableDef per 'MSys_DF02_}----------------------------------------------------@'...
+28/07/2026 18:11:52 - [CREATE_LINK] TableDef creato.
+28/07/2026 18:11:52 - [CREATE_LINK] Connect string impostata
+28/07/2026 18:11:52 - [CREATE_LINK] SourceTableName impostato: 'MSys_DF02_}----------------------------------------------------@'
+28/07/2026 18:11:52 - [CREATE_LINK] Appendo TableDef al database...
+28/07/2026 18:11:52 - [CREATE_LINK] TableDef appeso con successo.
+28/07/2026 18:11:52 - [CREATE_LINK] Refresh del link...
+28/07/2026 18:11:52 - [CREATE_LINK] Link aggiornato con successo.
+28/07/2026 18:11:52 - [CREATE_LINK] Link creato correttamente per 'MSys_DF02_}----------------------------------------------------@'
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Link CREATO con successo!
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Stato assegnato: OK
+28/07/2026 18:11:52 - [AGGIORNAMENTO] Salvataggio stato nel campo Verifica_s...
+28/07/2026 18:11:52 - [AGGIORNAMENTO] COD_SUB_PROGETTO_s impostato a: 'MSys_DF02'
+28/07/2026 18:11:52 - [AGGIORNAMENTO] Recordset aggiornato con stato: 'OK' nel campo Verifica_s
+28/07/2026 18:11:52 - [STATISTICHE] Aggiornamento contatori:
+28/07/2026 18:11:52 -             OK: 4
+28/07/2026 18:11:52 -             MISSING: 0
+28/07/2026 18:11:52 -             INVALID_PATH: 0
+28/07/2026 18:11:52 -             NOT_REGISTERED: 0
+28/07/2026 18:11:52 -             Totale elaborati: 4
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - 
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - RECORD N. 5
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - [LETTURA_RECORD] Nome tabella: 'MSys_DF02_TIPO_OGGETTO'
+28/07/2026 18:11:52 - [LETTURA_RECORD] Database path: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF02\MDB\MSys_DF02.mdb'
+28/07/2026 18:11:52 - [LETTURA_RECORD] Type: 6
+28/07/2026 18:11:52 - [VALIDAZIONE] Avvio validazione...
+28/07/2026 18:11:52 - [VALIDAZIONE] Path valido. File database ESISTE.
+28/07/2026 18:11:52 - [VALIDAZIONE] Inizio verifica lato SORGENTE...
+28/07/2026 18:11:52 - [APERTURA_DB] Tentativo apertura database: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF02\MDB\MSys_DF02.mdb'
+28/07/2026 18:11:52 - [APERTURA_DB] Database aperto con successo.
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Ricerca tabella 'MSys_DF02_TIPO_OGGETTO' in MSysObjects...
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Tabella 'MSys_DF02_TIPO_OGGETTO' TROVATA
+28/07/2026 18:11:52 - [CHIUSURA_DB] Database chiuso e risorse rilasciate.
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Tabella 'MSys_DF02_TIPO_OGGETTO' TROVATA nel database di destinazione.
+28/07/2026 18:11:52 - [ELIMINAZIONE_LINK] Link esistente NON trovato in MSysObjects.
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Creazione nuovo link...
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Tabella: 'MSys_DF02_TIPO_OGGETTO'
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Database sorgente: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF02\MDB\MSys_DF02.mdb'
+28/07/2026 18:11:52 - [CREATE_LINK] Creazione TableDef per 'MSys_DF02_TIPO_OGGETTO'...
+28/07/2026 18:11:52 - [CREATE_LINK] TableDef creato.
+28/07/2026 18:11:52 - [CREATE_LINK] Connect string impostata
+28/07/2026 18:11:52 - [CREATE_LINK] SourceTableName impostato: 'MSys_DF02_TIPO_OGGETTO'
+28/07/2026 18:11:52 - [CREATE_LINK] Appendo TableDef al database...
+28/07/2026 18:11:52 - [CREATE_LINK] TableDef appeso con successo.
+28/07/2026 18:11:52 - [CREATE_LINK] Refresh del link...
+28/07/2026 18:11:52 - [CREATE_LINK] Link aggiornato con successo.
+28/07/2026 18:11:52 - [CREATE_LINK] Link creato correttamente per 'MSys_DF02_TIPO_OGGETTO'
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Link CREATO con successo!
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Stato assegnato: OK
+28/07/2026 18:11:52 - [AGGIORNAMENTO] Salvataggio stato nel campo Verifica_s...
+28/07/2026 18:11:52 - [AGGIORNAMENTO] COD_SUB_PROGETTO_s impostato a: 'MSys_DF02'
+28/07/2026 18:11:52 - [AGGIORNAMENTO] Recordset aggiornato con stato: 'OK' nel campo Verifica_s
+28/07/2026 18:11:52 - [STATISTICHE] Aggiornamento contatori:
+28/07/2026 18:11:52 -             OK: 5
+28/07/2026 18:11:52 -             MISSING: 0
+28/07/2026 18:11:52 -             INVALID_PATH: 0
+28/07/2026 18:11:52 -             NOT_REGISTERED: 0
+28/07/2026 18:11:52 -             Totale elaborati: 5
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - 
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - RECORD N. 6
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - [LETTURA_RECORD] Nome tabella: 'MSys_DF03_}----------------------------------------------------@'
+28/07/2026 18:11:52 - [LETTURA_RECORD] Database path: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF03\MDB\MSys_DF03.mdb'
+28/07/2026 18:11:52 - [LETTURA_RECORD] Type: 6
+28/07/2026 18:11:52 - [VALIDAZIONE] Avvio validazione...
+28/07/2026 18:11:52 - [VALIDAZIONE] Path valido. File database ESISTE.
+28/07/2026 18:11:52 - [VALIDAZIONE] Inizio verifica lato SORGENTE...
+28/07/2026 18:11:52 - [APERTURA_DB] Tentativo apertura database: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF03\MDB\MSys_DF03.mdb'
+28/07/2026 18:11:52 - [APERTURA_DB] Database aperto con successo.
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Ricerca tabella 'MSys_DF03_}----------------------------------------------------@' in MSysObjects...
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Tabella 'MSys_DF03_}----------------------------------------------------@' TROVATA
+28/07/2026 18:11:52 - [CHIUSURA_DB] Database chiuso e risorse rilasciate.
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Tabella 'MSys_DF03_}----------------------------------------------------@' TROVATA nel database di destinazione.
+28/07/2026 18:11:52 - [ELIMINAZIONE_LINK] Link esistente NON trovato in MSysObjects.
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Creazione nuovo link...
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Tabella: 'MSys_DF03_}----------------------------------------------------@'
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Database sorgente: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF03\MDB\MSys_DF03.mdb'
+28/07/2026 18:11:52 - [CREATE_LINK] Creazione TableDef per 'MSys_DF03_}----------------------------------------------------@'...
+28/07/2026 18:11:52 - [CREATE_LINK] TableDef creato.
+28/07/2026 18:11:52 - [CREATE_LINK] Connect string impostata
+28/07/2026 18:11:52 - [CREATE_LINK] SourceTableName impostato: 'MSys_DF03_}----------------------------------------------------@'
+28/07/2026 18:11:52 - [CREATE_LINK] Appendo TableDef al database...
+28/07/2026 18:11:52 - [CREATE_LINK] TableDef appeso con successo.
+28/07/2026 18:11:52 - [CREATE_LINK] Refresh del link...
+28/07/2026 18:11:52 - [CREATE_LINK] Link aggiornato con successo.
+28/07/2026 18:11:52 - [CREATE_LINK] Link creato correttamente per 'MSys_DF03_}----------------------------------------------------@'
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Link CREATO con successo!
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Stato assegnato: OK
+28/07/2026 18:11:52 - [AGGIORNAMENTO] Salvataggio stato nel campo Verifica_s...
+28/07/2026 18:11:52 - [AGGIORNAMENTO] COD_SUB_PROGETTO_s impostato a: 'MSys_DF03'
+28/07/2026 18:11:52 - [AGGIORNAMENTO] Recordset aggiornato con stato: 'OK' nel campo Verifica_s
+28/07/2026 18:11:52 - [STATISTICHE] Aggiornamento contatori:
+28/07/2026 18:11:52 -             OK: 6
+28/07/2026 18:11:52 -             MISSING: 0
+28/07/2026 18:11:52 -             INVALID_PATH: 0
+28/07/2026 18:11:52 -             NOT_REGISTERED: 0
+28/07/2026 18:11:52 -             Totale elaborati: 6
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - 
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - RECORD N. 7
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - [LETTURA_RECORD] Nome tabella: 'MSYS_DF03_GROUP_QUOTE'
+28/07/2026 18:11:52 - [LETTURA_RECORD] Database path: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF03\MDB\MSys_DF03.mdb'
+28/07/2026 18:11:52 - [LETTURA_RECORD] Type: 6
+28/07/2026 18:11:52 - [VALIDAZIONE] Avvio validazione...
+28/07/2026 18:11:52 - [VALIDAZIONE] Path valido. File database ESISTE.
+28/07/2026 18:11:52 - [VALIDAZIONE] Inizio verifica lato SORGENTE...
+28/07/2026 18:11:52 - [APERTURA_DB] Tentativo apertura database: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF03\MDB\MSys_DF03.mdb'
+28/07/2026 18:11:52 - [APERTURA_DB] Database aperto con successo.
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Ricerca tabella 'MSYS_DF03_GROUP_QUOTE' in MSysObjects...
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Tabella 'MSYS_DF03_GROUP_QUOTE' TROVATA
+28/07/2026 18:11:52 - [CHIUSURA_DB] Database chiuso e risorse rilasciate.
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Tabella 'MSYS_DF03_GROUP_QUOTE' TROVATA nel database di destinazione.
+28/07/2026 18:11:52 - [ELIMINAZIONE_LINK] Link esistente NON trovato in MSysObjects.
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Creazione nuovo link...
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Tabella: 'MSYS_DF03_GROUP_QUOTE'
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Database sorgente: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF03\MDB\MSys_DF03.mdb'
+28/07/2026 18:11:52 - [CREATE_LINK] Creazione TableDef per 'MSYS_DF03_GROUP_QUOTE'...
+28/07/2026 18:11:52 - [CREATE_LINK] TableDef creato.
+28/07/2026 18:11:52 - [CREATE_LINK] Connect string impostata
+28/07/2026 18:11:52 - [CREATE_LINK] SourceTableName impostato: 'MSYS_DF03_GROUP_QUOTE'
+28/07/2026 18:11:52 - [CREATE_LINK] Appendo TableDef al database...
+28/07/2026 18:11:52 - [CREATE_LINK] TableDef appeso con successo.
+28/07/2026 18:11:52 - [CREATE_LINK] Refresh del link...
+28/07/2026 18:11:52 - [CREATE_LINK] Link aggiornato con successo.
+28/07/2026 18:11:52 - [CREATE_LINK] Link creato correttamente per 'MSYS_DF03_GROUP_QUOTE'
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Link CREATO con successo!
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Stato assegnato: OK
+28/07/2026 18:11:52 - [AGGIORNAMENTO] Salvataggio stato nel campo Verifica_s...
+28/07/2026 18:11:52 - [AGGIORNAMENTO] COD_SUB_PROGETTO_s impostato a: 'MSYS_DF03'
+28/07/2026 18:11:52 - [AGGIORNAMENTO] Recordset aggiornato con stato: 'OK' nel campo Verifica_s
+28/07/2026 18:11:52 - [STATISTICHE] Aggiornamento contatori:
+28/07/2026 18:11:52 -             OK: 7
+28/07/2026 18:11:52 -             MISSING: 0
+28/07/2026 18:11:52 -             INVALID_PATH: 0
+28/07/2026 18:11:52 -             NOT_REGISTERED: 0
+28/07/2026 18:11:52 -             Totale elaborati: 7
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - 
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - RECORD N. 8
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - [LETTURA_RECORD] Nome tabella: 'MSys_DF03_QUOTE'
+28/07/2026 18:11:52 - [LETTURA_RECORD] Database path: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF03\MDB\MSys_DF03.mdb'
+28/07/2026 18:11:52 - [LETTURA_RECORD] Type: 6
+28/07/2026 18:11:52 - [VALIDAZIONE] Avvio validazione...
+28/07/2026 18:11:52 - [VALIDAZIONE] Path valido. File database ESISTE.
+28/07/2026 18:11:52 - [VALIDAZIONE] Inizio verifica lato SORGENTE...
+28/07/2026 18:11:52 - [APERTURA_DB] Tentativo apertura database: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF03\MDB\MSys_DF03.mdb'
+28/07/2026 18:11:52 - [APERTURA_DB] Database aperto con successo.
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Ricerca tabella 'MSys_DF03_QUOTE' in MSysObjects...
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Tabella 'MSys_DF03_QUOTE' TROVATA
+28/07/2026 18:11:52 - [CHIUSURA_DB] Database chiuso e risorse rilasciate.
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Tabella 'MSys_DF03_QUOTE' TROVATA nel database di destinazione.
+28/07/2026 18:11:52 - [ELIMINAZIONE_LINK] Link esistente NON trovato in MSysObjects.
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Creazione nuovo link...
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Tabella: 'MSys_DF03_QUOTE'
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Database sorgente: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF03\MDB\MSys_DF03.mdb'
+28/07/2026 18:11:52 - [CREATE_LINK] Creazione TableDef per 'MSys_DF03_QUOTE'...
+28/07/2026 18:11:52 - [CREATE_LINK] TableDef creato.
+28/07/2026 18:11:52 - [CREATE_LINK] Connect string impostata
+28/07/2026 18:11:52 - [CREATE_LINK] SourceTableName impostato: 'MSys_DF03_QUOTE'
+28/07/2026 18:11:52 - [CREATE_LINK] Appendo TableDef al database...
+28/07/2026 18:11:52 - [CREATE_LINK] TableDef appeso con successo.
+28/07/2026 18:11:52 - [CREATE_LINK] Refresh del link...
+28/07/2026 18:11:52 - [CREATE_LINK] Link aggiornato con successo.
+28/07/2026 18:11:52 - [CREATE_LINK] Link creato correttamente per 'MSys_DF03_QUOTE'
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Link CREATO con successo!
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Stato assegnato: OK
+28/07/2026 18:11:52 - [AGGIORNAMENTO] Salvataggio stato nel campo Verifica_s...
+28/07/2026 18:11:52 - [AGGIORNAMENTO] COD_SUB_PROGETTO_s impostato a: 'MSys_DF03'
+28/07/2026 18:11:52 - [AGGIORNAMENTO] Recordset aggiornato con stato: 'OK' nel campo Verifica_s
+28/07/2026 18:11:52 - [STATISTICHE] Aggiornamento contatori:
+28/07/2026 18:11:52 -             OK: 8
+28/07/2026 18:11:52 -             MISSING: 0
+28/07/2026 18:11:52 -             INVALID_PATH: 0
+28/07/2026 18:11:52 -             NOT_REGISTERED: 0
+28/07/2026 18:11:52 -             Totale elaborati: 8
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - 
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - RECORD N. 9
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - [LETTURA_RECORD] Nome tabella: 'MSys_DF05_}----------------------------------------------------@'
+28/07/2026 18:11:52 - [LETTURA_RECORD] Database path: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF05\MDB\MSys_DF05.mdb'
+28/07/2026 18:11:52 - [LETTURA_RECORD] Type: 6
+28/07/2026 18:11:52 - [VALIDAZIONE] Avvio validazione...
+28/07/2026 18:11:52 - [VALIDAZIONE] Path valido. File database ESISTE.
+28/07/2026 18:11:52 - [VALIDAZIONE] Inizio verifica lato SORGENTE...
+28/07/2026 18:11:52 - [APERTURA_DB] Tentativo apertura database: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF05\MDB\MSys_DF05.mdb'
+28/07/2026 18:11:52 - [APERTURA_DB] Database aperto con successo.
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Ricerca tabella 'MSys_DF05_}----------------------------------------------------@' in MSysObjects...
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Tabella 'MSys_DF05_}----------------------------------------------------@' TROVATA
+28/07/2026 18:11:52 - [CHIUSURA_DB] Database chiuso e risorse rilasciate.
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Tabella 'MSys_DF05_}----------------------------------------------------@' TROVATA nel database di destinazione.
+28/07/2026 18:11:52 - [ELIMINAZIONE_LINK] Link esistente NON trovato in MSysObjects.
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Creazione nuovo link...
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Tabella: 'MSys_DF05_}----------------------------------------------------@'
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Database sorgente: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF05\MDB\MSys_DF05.mdb'
+28/07/2026 18:11:52 - [CREATE_LINK] Creazione TableDef per 'MSys_DF05_}----------------------------------------------------@'...
+28/07/2026 18:11:52 - [CREATE_LINK] TableDef creato.
+28/07/2026 18:11:52 - [CREATE_LINK] Connect string impostata
+28/07/2026 18:11:52 - [CREATE_LINK] SourceTableName impostato: 'MSys_DF05_}----------------------------------------------------@'
+28/07/2026 18:11:52 - [CREATE_LINK] Appendo TableDef al database...
+28/07/2026 18:11:52 - [CREATE_LINK] TableDef appeso con successo.
+28/07/2026 18:11:52 - [CREATE_LINK] Refresh del link...
+28/07/2026 18:11:52 - [CREATE_LINK] Link aggiornato con successo.
+28/07/2026 18:11:52 - [CREATE_LINK] Link creato correttamente per 'MSys_DF05_}----------------------------------------------------@'
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Link CREATO con successo!
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Stato assegnato: OK
+28/07/2026 18:11:52 - [AGGIORNAMENTO] Salvataggio stato nel campo Verifica_s...
+28/07/2026 18:11:52 - [AGGIORNAMENTO] COD_SUB_PROGETTO_s impostato a: 'MSys_DF05'
+28/07/2026 18:11:52 - [AGGIORNAMENTO] Recordset aggiornato con stato: 'OK' nel campo Verifica_s
+28/07/2026 18:11:52 - [STATISTICHE] Aggiornamento contatori:
+28/07/2026 18:11:52 -             OK: 9
+28/07/2026 18:11:52 -             MISSING: 0
+28/07/2026 18:11:52 -             INVALID_PATH: 0
+28/07/2026 18:11:52 -             NOT_REGISTERED: 0
+28/07/2026 18:11:52 -             Totale elaborati: 9
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - 
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - RECORD N. 10
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - [LETTURA_RECORD] Nome tabella: 'MSys_DF05_ATTRIBUTI_TABELLA'
+28/07/2026 18:11:52 - [LETTURA_RECORD] Database path: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF05\MDB\MSys_DF05.mdb'
+28/07/2026 18:11:52 - [LETTURA_RECORD] Type: 6
+28/07/2026 18:11:52 - [VALIDAZIONE] Avvio validazione...
+28/07/2026 18:11:52 - [VALIDAZIONE] Path valido. File database ESISTE.
+28/07/2026 18:11:52 - [VALIDAZIONE] Inizio verifica lato SORGENTE...
+28/07/2026 18:11:52 - [APERTURA_DB] Tentativo apertura database: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF05\MDB\MSys_DF05.mdb'
+28/07/2026 18:11:52 - [APERTURA_DB] Database aperto con successo.
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Ricerca tabella 'MSys_DF05_ATTRIBUTI_TABELLA' in MSysObjects...
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Tabella 'MSys_DF05_ATTRIBUTI_TABELLA' TROVATA
+28/07/2026 18:11:52 - [CHIUSURA_DB] Database chiuso e risorse rilasciate.
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Tabella 'MSys_DF05_ATTRIBUTI_TABELLA' TROVATA nel database di destinazione.
+28/07/2026 18:11:52 - [ELIMINAZIONE_LINK] Link esistente NON trovato in MSysObjects.
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Creazione nuovo link...
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Tabella: 'MSys_DF05_ATTRIBUTI_TABELLA'
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Database sorgente: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF05\MDB\MSys_DF05.mdb'
+28/07/2026 18:11:52 - [CREATE_LINK] Creazione TableDef per 'MSys_DF05_ATTRIBUTI_TABELLA'...
+28/07/2026 18:11:52 - [CREATE_LINK] TableDef creato.
+28/07/2026 18:11:52 - [CREATE_LINK] Connect string impostata
+28/07/2026 18:11:52 - [CREATE_LINK] SourceTableName impostato: 'MSys_DF05_ATTRIBUTI_TABELLA'
+28/07/2026 18:11:52 - [CREATE_LINK] Appendo TableDef al database...
+28/07/2026 18:11:52 - [CREATE_LINK] TableDef appeso con successo.
+28/07/2026 18:11:52 - [CREATE_LINK] Refresh del link...
+28/07/2026 18:11:52 - [CREATE_LINK] Link aggiornato con successo.
+28/07/2026 18:11:52 - [CREATE_LINK] Link creato correttamente per 'MSys_DF05_ATTRIBUTI_TABELLA'
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Link CREATO con successo!
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Stato assegnato: OK
+28/07/2026 18:11:52 - [AGGIORNAMENTO] Salvataggio stato nel campo Verifica_s...
+28/07/2026 18:11:52 - [AGGIORNAMENTO] COD_SUB_PROGETTO_s impostato a: 'MSys_DF05'
+28/07/2026 18:11:52 - [AGGIORNAMENTO] Recordset aggiornato con stato: 'OK' nel campo Verifica_s
+28/07/2026 18:11:52 - [STATISTICHE] Aggiornamento contatori:
+28/07/2026 18:11:52 -             OK: 10
+28/07/2026 18:11:52 -             MISSING: 0
+28/07/2026 18:11:52 -             INVALID_PATH: 0
+28/07/2026 18:11:52 -             NOT_REGISTERED: 0
+28/07/2026 18:11:52 -             Totale elaborati: 10
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - 
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - RECORD N. 11
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - [LETTURA_RECORD] Nome tabella: 'MSys_DF10_}----------------------------------------------------@'
+28/07/2026 18:11:52 - [LETTURA_RECORD] Database path: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF10\MDB\MSYS_DF10.mdb'
+28/07/2026 18:11:52 - [LETTURA_RECORD] Type: 6
+28/07/2026 18:11:52 - [VALIDAZIONE] Avvio validazione...
+28/07/2026 18:11:52 - [VALIDAZIONE] Path valido. File database ESISTE.
+28/07/2026 18:11:52 - [VALIDAZIONE] Inizio verifica lato SORGENTE...
+28/07/2026 18:11:52 - [APERTURA_DB] Tentativo apertura database: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF10\MDB\MSYS_DF10.mdb'
+28/07/2026 18:11:52 - [APERTURA_DB] Database aperto con successo.
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Ricerca tabella 'MSys_DF10_}----------------------------------------------------@' in MSysObjects...
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Tabella 'MSys_DF10_}----------------------------------------------------@' TROVATA
+28/07/2026 18:11:52 - [CHIUSURA_DB] Database chiuso e risorse rilasciate.
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Tabella 'MSys_DF10_}----------------------------------------------------@' TROVATA nel database di destinazione.
+28/07/2026 18:11:52 - [ELIMINAZIONE_LINK] Link esistente NON trovato in MSysObjects.
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Creazione nuovo link...
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Tabella: 'MSys_DF10_}----------------------------------------------------@'
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Database sorgente: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF10\MDB\MSYS_DF10.mdb'
+28/07/2026 18:11:52 - [CREATE_LINK] Creazione TableDef per 'MSys_DF10_}----------------------------------------------------@'...
+28/07/2026 18:11:52 - [CREATE_LINK] TableDef creato.
+28/07/2026 18:11:52 - [CREATE_LINK] Connect string impostata
+28/07/2026 18:11:52 - [CREATE_LINK] SourceTableName impostato: 'MSys_DF10_}----------------------------------------------------@'
+28/07/2026 18:11:52 - [CREATE_LINK] Appendo TableDef al database...
+28/07/2026 18:11:52 - [CREATE_LINK] TableDef appeso con successo.
+28/07/2026 18:11:52 - [CREATE_LINK] Refresh del link...
+28/07/2026 18:11:52 - [CREATE_LINK] Link aggiornato con successo.
+28/07/2026 18:11:52 - [CREATE_LINK] Link creato correttamente per 'MSys_DF10_}----------------------------------------------------@'
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Link CREATO con successo!
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Stato assegnato: OK
+28/07/2026 18:11:52 - [AGGIORNAMENTO] Salvataggio stato nel campo Verifica_s...
+28/07/2026 18:11:52 - [AGGIORNAMENTO] COD_SUB_PROGETTO_s impostato a: 'MSys_DF10'
+28/07/2026 18:11:52 - [AGGIORNAMENTO] Recordset aggiornato con stato: 'OK' nel campo Verifica_s
+28/07/2026 18:11:52 - [STATISTICHE] Aggiornamento contatori:
+28/07/2026 18:11:52 -             OK: 11
+28/07/2026 18:11:52 -             MISSING: 0
+28/07/2026 18:11:52 -             INVALID_PATH: 0
+28/07/2026 18:11:52 -             NOT_REGISTERED: 0
+28/07/2026 18:11:52 -             Totale elaborati: 11
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - 
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - RECORD N. 12
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - [LETTURA_RECORD] Nome tabella: 'MSys_DF10_DATABASE'
+28/07/2026 18:11:52 - [LETTURA_RECORD] Database path: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF10\MDB\MSYS_DF10.mdb'
+28/07/2026 18:11:52 - [LETTURA_RECORD] Type: 6
+28/07/2026 18:11:52 - [VALIDAZIONE] Avvio validazione...
+28/07/2026 18:11:52 - [VALIDAZIONE] Path valido. File database ESISTE.
+28/07/2026 18:11:52 - [VALIDAZIONE] Inizio verifica lato SORGENTE...
+28/07/2026 18:11:52 - [APERTURA_DB] Tentativo apertura database: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF10\MDB\MSYS_DF10.mdb'
+28/07/2026 18:11:52 - [APERTURA_DB] Database aperto con successo.
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Ricerca tabella 'MSys_DF10_DATABASE' in MSysObjects...
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Tabella 'MSys_DF10_DATABASE' TROVATA
+28/07/2026 18:11:52 - [CHIUSURA_DB] Database chiuso e risorse rilasciate.
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Tabella 'MSys_DF10_DATABASE' TROVATA nel database di destinazione.
+28/07/2026 18:11:52 - [ELIMINAZIONE_LINK] Link esistente NON trovato in MSysObjects.
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Creazione nuovo link...
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Tabella: 'MSys_DF10_DATABASE'
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Database sorgente: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF10\MDB\MSYS_DF10.mdb'
+28/07/2026 18:11:52 - [CREATE_LINK] Creazione TableDef per 'MSys_DF10_DATABASE'...
+28/07/2026 18:11:52 - [CREATE_LINK] TableDef creato.
+28/07/2026 18:11:52 - [CREATE_LINK] Connect string impostata
+28/07/2026 18:11:52 - [CREATE_LINK] SourceTableName impostato: 'MSys_DF10_DATABASE'
+28/07/2026 18:11:52 - [CREATE_LINK] Appendo TableDef al database...
+28/07/2026 18:11:52 - [CREATE_LINK] TableDef appeso con successo.
+28/07/2026 18:11:52 - [CREATE_LINK] Refresh del link...
+28/07/2026 18:11:52 - [CREATE_LINK] Link aggiornato con successo.
+28/07/2026 18:11:52 - [CREATE_LINK] Link creato correttamente per 'MSys_DF10_DATABASE'
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Link CREATO con successo!
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Stato assegnato: OK
+28/07/2026 18:11:52 - [AGGIORNAMENTO] Salvataggio stato nel campo Verifica_s...
+28/07/2026 18:11:52 - [AGGIORNAMENTO] COD_SUB_PROGETTO_s impostato a: 'MSys_DF10'
+28/07/2026 18:11:52 - [AGGIORNAMENTO] Recordset aggiornato con stato: 'OK' nel campo Verifica_s
+28/07/2026 18:11:52 - [STATISTICHE] Aggiornamento contatori:
+28/07/2026 18:11:52 -             OK: 12
+28/07/2026 18:11:52 -             MISSING: 0
+28/07/2026 18:11:52 -             INVALID_PATH: 0
+28/07/2026 18:11:52 -             NOT_REGISTERED: 0
+28/07/2026 18:11:52 -             Totale elaborati: 12
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - 
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - RECORD N. 13
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - [LETTURA_RECORD] Nome tabella: 'MSys_DF10_DATABASE_TMP'
+28/07/2026 18:11:52 - [LETTURA_RECORD] Database path: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF10\MDB\MSYS_DF10.mdb'
+28/07/2026 18:11:52 - [LETTURA_RECORD] Type: 6
+28/07/2026 18:11:52 - [VALIDAZIONE] Avvio validazione...
+28/07/2026 18:11:52 - [VALIDAZIONE] Path valido. File database ESISTE.
+28/07/2026 18:11:52 - [VALIDAZIONE] Inizio verifica lato SORGENTE...
+28/07/2026 18:11:52 - [APERTURA_DB] Tentativo apertura database: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF10\MDB\MSYS_DF10.mdb'
+28/07/2026 18:11:52 - [APERTURA_DB] Database aperto con successo.
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Ricerca tabella 'MSys_DF10_DATABASE_TMP' in MSysObjects...
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Tabella 'MSys_DF10_DATABASE_TMP' TROVATA
+28/07/2026 18:11:52 - [CHIUSURA_DB] Database chiuso e risorse rilasciate.
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Tabella 'MSys_DF10_DATABASE_TMP' TROVATA nel database di destinazione.
+28/07/2026 18:11:52 - [ELIMINAZIONE_LINK] Link esistente NON trovato in MSysObjects.
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Creazione nuovo link...
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Tabella: 'MSys_DF10_DATABASE_TMP'
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Database sorgente: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF10\MDB\MSYS_DF10.mdb'
+28/07/2026 18:11:52 - [CREATE_LINK] Creazione TableDef per 'MSys_DF10_DATABASE_TMP'...
+28/07/2026 18:11:52 - [CREATE_LINK] TableDef creato.
+28/07/2026 18:11:52 - [CREATE_LINK] Connect string impostata
+28/07/2026 18:11:52 - [CREATE_LINK] SourceTableName impostato: 'MSys_DF10_DATABASE_TMP'
+28/07/2026 18:11:52 - [CREATE_LINK] Appendo TableDef al database...
+28/07/2026 18:11:52 - [CREATE_LINK] TableDef appeso con successo.
+28/07/2026 18:11:52 - [CREATE_LINK] Refresh del link...
+28/07/2026 18:11:52 - [CREATE_LINK] Link aggiornato con successo.
+28/07/2026 18:11:52 - [CREATE_LINK] Link creato correttamente per 'MSys_DF10_DATABASE_TMP'
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Link CREATO con successo!
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Stato assegnato: OK
+28/07/2026 18:11:52 - [AGGIORNAMENTO] Salvataggio stato nel campo Verifica_s...
+28/07/2026 18:11:52 - [AGGIORNAMENTO] COD_SUB_PROGETTO_s impostato a: 'MSys_DF10'
+28/07/2026 18:11:52 - [AGGIORNAMENTO] Recordset aggiornato con stato: 'OK' nel campo Verifica_s
+28/07/2026 18:11:52 - [STATISTICHE] Aggiornamento contatori:
+28/07/2026 18:11:52 -             OK: 13
+28/07/2026 18:11:52 -             MISSING: 0
+28/07/2026 18:11:52 -             INVALID_PATH: 0
+28/07/2026 18:11:52 -             NOT_REGISTERED: 0
+28/07/2026 18:11:52 -             Totale elaborati: 13
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - 
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - RECORD N. 14
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - [LETTURA_RECORD] Nome tabella: 'MSys_DF11_{@@@@@@@@@@@@@@@@@@@COD_PROGETTO@@@@@@@@@@@@@@@@@@@@@}'
+28/07/2026 18:11:52 - [LETTURA_RECORD] Database path: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF11\MDB\MSys_DF11.mdb'
+28/07/2026 18:11:52 - [LETTURA_RECORD] Type: 6
+28/07/2026 18:11:52 - [VALIDAZIONE] Avvio validazione...
+28/07/2026 18:11:52 - [VALIDAZIONE] Path valido. File database ESISTE.
+28/07/2026 18:11:52 - [VALIDAZIONE] Inizio verifica lato SORGENTE...
+28/07/2026 18:11:52 - [APERTURA_DB] Tentativo apertura database: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF11\MDB\MSys_DF11.mdb'
+28/07/2026 18:11:52 - [APERTURA_DB] Database aperto con successo.
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Ricerca tabella 'MSys_DF11_{@@@@@@@@@@@@@@@@@@@COD_PROGETTO@@@@@@@@@@@@@@@@@@@@@}' in MSysObjects...
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Tabella 'MSys_DF11_{@@@@@@@@@@@@@@@@@@@COD_PROGETTO@@@@@@@@@@@@@@@@@@@@@}' TROVATA
+28/07/2026 18:11:52 - [CHIUSURA_DB] Database chiuso e risorse rilasciate.
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Tabella 'MSys_DF11_{@@@@@@@@@@@@@@@@@@@COD_PROGETTO@@@@@@@@@@@@@@@@@@@@@}' TROVATA nel database di destinazione.
+28/07/2026 18:11:52 - [ELIMINAZIONE_LINK] Link esistente NON trovato in MSysObjects.
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Creazione nuovo link...
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Tabella: 'MSys_DF11_{@@@@@@@@@@@@@@@@@@@COD_PROGETTO@@@@@@@@@@@@@@@@@@@@@}'
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Database sorgente: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF11\MDB\MSys_DF11.mdb'
+28/07/2026 18:11:52 - [CREATE_LINK] Creazione TableDef per 'MSys_DF11_{@@@@@@@@@@@@@@@@@@@COD_PROGETTO@@@@@@@@@@@@@@@@@@@@@}'...
+28/07/2026 18:11:52 - [CREATE_LINK] TableDef creato.
+28/07/2026 18:11:52 - [CREATE_LINK] Connect string impostata
+28/07/2026 18:11:52 - [CREATE_LINK] SourceTableName impostato: 'MSys_DF11_{@@@@@@@@@@@@@@@@@@@COD_PROGETTO@@@@@@@@@@@@@@@@@@@@@}'
+28/07/2026 18:11:52 - [CREATE_LINK] Appendo TableDef al database...
+28/07/2026 18:11:52 - [CREATE_LINK] TableDef appeso con successo.
+28/07/2026 18:11:52 - [CREATE_LINK] Refresh del link...
+28/07/2026 18:11:52 - [CREATE_LINK] Link aggiornato con successo.
+28/07/2026 18:11:52 - [CREATE_LINK] Link creato correttamente per 'MSys_DF11_{@@@@@@@@@@@@@@@@@@@COD_PROGETTO@@@@@@@@@@@@@@@@@@@@@}'
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Link CREATO con successo!
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Stato assegnato: OK
+28/07/2026 18:11:52 - [AGGIORNAMENTO] Salvataggio stato nel campo Verifica_s...
+28/07/2026 18:11:52 - [AGGIORNAMENTO] COD_SUB_PROGETTO_s impostato a: 'MSys_DF11'
+28/07/2026 18:11:52 - [AGGIORNAMENTO] Recordset aggiornato con stato: 'OK' nel campo Verifica_s
+28/07/2026 18:11:52 - [STATISTICHE] Aggiornamento contatori:
+28/07/2026 18:11:52 -             OK: 14
+28/07/2026 18:11:52 -             MISSING: 0
+28/07/2026 18:11:52 -             INVALID_PATH: 0
+28/07/2026 18:11:52 -             NOT_REGISTERED: 0
+28/07/2026 18:11:52 -             Totale elaborati: 14
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - 
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - RECORD N. 15
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - [LETTURA_RECORD] Nome tabella: 'MSys_DF11_}----------------------------------------------------@'
+28/07/2026 18:11:52 - [LETTURA_RECORD] Database path: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF11\MDB\MSys_DF11.mdb'
+28/07/2026 18:11:52 - [LETTURA_RECORD] Type: 6
+28/07/2026 18:11:52 - [VALIDAZIONE] Avvio validazione...
+28/07/2026 18:11:52 - [VALIDAZIONE] Path valido. File database ESISTE.
+28/07/2026 18:11:52 - [VALIDAZIONE] Inizio verifica lato SORGENTE...
+28/07/2026 18:11:52 - [APERTURA_DB] Tentativo apertura database: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF11\MDB\MSys_DF11.mdb'
+28/07/2026 18:11:52 - [APERTURA_DB] Database aperto con successo.
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Ricerca tabella 'MSys_DF11_}----------------------------------------------------@' in MSysObjects...
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Tabella 'MSys_DF11_}----------------------------------------------------@' TROVATA
+28/07/2026 18:11:52 - [CHIUSURA_DB] Database chiuso e risorse rilasciate.
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Tabella 'MSys_DF11_}----------------------------------------------------@' TROVATA nel database di destinazione.
+28/07/2026 18:11:52 - [ELIMINAZIONE_LINK] Link esistente NON trovato in MSysObjects.
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Creazione nuovo link...
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Tabella: 'MSys_DF11_}----------------------------------------------------@'
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Database sorgente: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF11\MDB\MSys_DF11.mdb'
+28/07/2026 18:11:52 - [CREATE_LINK] Creazione TableDef per 'MSys_DF11_}----------------------------------------------------@'...
+28/07/2026 18:11:52 - [CREATE_LINK] TableDef creato.
+28/07/2026 18:11:52 - [CREATE_LINK] Connect string impostata
+28/07/2026 18:11:52 - [CREATE_LINK] SourceTableName impostato: 'MSys_DF11_}----------------------------------------------------@'
+28/07/2026 18:11:52 - [CREATE_LINK] Appendo TableDef al database...
+28/07/2026 18:11:52 - [CREATE_LINK] TableDef appeso con successo.
+28/07/2026 18:11:52 - [CREATE_LINK] Refresh del link...
+28/07/2026 18:11:52 - [CREATE_LINK] Link aggiornato con successo.
+28/07/2026 18:11:52 - [CREATE_LINK] Link creato correttamente per 'MSys_DF11_}----------------------------------------------------@'
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Link CREATO con successo!
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Stato assegnato: OK
+28/07/2026 18:11:52 - [AGGIORNAMENTO] Salvataggio stato nel campo Verifica_s...
+28/07/2026 18:11:52 - [AGGIORNAMENTO] COD_SUB_PROGETTO_s impostato a: 'MSys_DF11'
+28/07/2026 18:11:52 - [AGGIORNAMENTO] Recordset aggiornato con stato: 'OK' nel campo Verifica_s
+28/07/2026 18:11:52 - [STATISTICHE] Aggiornamento contatori:
+28/07/2026 18:11:52 -             OK: 15
+28/07/2026 18:11:52 -             MISSING: 0
+28/07/2026 18:11:52 -             INVALID_PATH: 0
+28/07/2026 18:11:52 -             NOT_REGISTERED: 0
+28/07/2026 18:11:52 -             Totale elaborati: 15
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - 
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - RECORD N. 16
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - [LETTURA_RECORD] Nome tabella: 'Msys_DF11_COD_PROGETTO'
+28/07/2026 18:11:52 - [LETTURA_RECORD] Database path: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF11\MDB\MSys_DF11.mdb'
+28/07/2026 18:11:52 - [LETTURA_RECORD] Type: 6
+28/07/2026 18:11:52 - [VALIDAZIONE] Avvio validazione...
+28/07/2026 18:11:52 - [VALIDAZIONE] Path valido. File database ESISTE.
+28/07/2026 18:11:52 - [VALIDAZIONE] Inizio verifica lato SORGENTE...
+28/07/2026 18:11:52 - [APERTURA_DB] Tentativo apertura database: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF11\MDB\MSys_DF11.mdb'
+28/07/2026 18:11:52 - [APERTURA_DB] Database aperto con successo.
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Ricerca tabella 'Msys_DF11_COD_PROGETTO' in MSysObjects...
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Tabella 'Msys_DF11_COD_PROGETTO' TROVATA
+28/07/2026 18:11:52 - [CHIUSURA_DB] Database chiuso e risorse rilasciate.
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Tabella 'Msys_DF11_COD_PROGETTO' TROVATA nel database di destinazione.
+28/07/2026 18:11:52 - [ELIMINAZIONE_LINK] Link esistente NON trovato in MSysObjects.
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Creazione nuovo link...
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Tabella: 'Msys_DF11_COD_PROGETTO'
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Database sorgente: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF11\MDB\MSys_DF11.mdb'
+28/07/2026 18:11:52 - [CREATE_LINK] Creazione TableDef per 'Msys_DF11_COD_PROGETTO'...
+28/07/2026 18:11:52 - [CREATE_LINK] TableDef creato.
+28/07/2026 18:11:52 - [CREATE_LINK] Connect string impostata
+28/07/2026 18:11:52 - [CREATE_LINK] SourceTableName impostato: 'Msys_DF11_COD_PROGETTO'
+28/07/2026 18:11:52 - [CREATE_LINK] Appendo TableDef al database...
+28/07/2026 18:11:52 - [CREATE_LINK] TableDef appeso con successo.
+28/07/2026 18:11:52 - [CREATE_LINK] Refresh del link...
+28/07/2026 18:11:52 - [CREATE_LINK] Link aggiornato con successo.
+28/07/2026 18:11:52 - [CREATE_LINK] Link creato correttamente per 'Msys_DF11_COD_PROGETTO'
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Link CREATO con successo!
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Stato assegnato: OK
+28/07/2026 18:11:52 - [AGGIORNAMENTO] Salvataggio stato nel campo Verifica_s...
+28/07/2026 18:11:52 - [AGGIORNAMENTO] COD_SUB_PROGETTO_s impostato a: 'Msys_DF11'
+28/07/2026 18:11:52 - [AGGIORNAMENTO] Recordset aggiornato con stato: 'OK' nel campo Verifica_s
+28/07/2026 18:11:52 - [STATISTICHE] Aggiornamento contatori:
+28/07/2026 18:11:52 -             OK: 16
+28/07/2026 18:11:52 -             MISSING: 0
+28/07/2026 18:11:52 -             INVALID_PATH: 0
+28/07/2026 18:11:52 -             NOT_REGISTERED: 0
+28/07/2026 18:11:52 -             Totale elaborati: 16
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - 
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - RECORD N. 17
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - [LETTURA_RECORD] Nome tabella: 'Msys_DF12_}----------------------------------------------------@'
+28/07/2026 18:11:52 - [LETTURA_RECORD] Database path: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF12\MDB\MSys_DF12.mdb'
+28/07/2026 18:11:52 - [LETTURA_RECORD] Type: 6
+28/07/2026 18:11:52 - [VALIDAZIONE] Avvio validazione...
+28/07/2026 18:11:52 - [VALIDAZIONE] Path valido. File database ESISTE.
+28/07/2026 18:11:52 - [VALIDAZIONE] Inizio verifica lato SORGENTE...
+28/07/2026 18:11:52 - [APERTURA_DB] Tentativo apertura database: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF12\MDB\MSys_DF12.mdb'
+28/07/2026 18:11:52 - [APERTURA_DB] Database aperto con successo.
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Ricerca tabella 'Msys_DF12_}----------------------------------------------------@' in MSysObjects...
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Tabella 'Msys_DF12_}----------------------------------------------------@' TROVATA
+28/07/2026 18:11:52 - [CHIUSURA_DB] Database chiuso e risorse rilasciate.
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Tabella 'Msys_DF12_}----------------------------------------------------@' TROVATA nel database di destinazione.
+28/07/2026 18:11:52 - [ELIMINAZIONE_LINK] Link esistente NON trovato in MSysObjects.
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Creazione nuovo link...
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Tabella: 'Msys_DF12_}----------------------------------------------------@'
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Database sorgente: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF12\MDB\MSys_DF12.mdb'
+28/07/2026 18:11:52 - [CREATE_LINK] Creazione TableDef per 'Msys_DF12_}----------------------------------------------------@'...
+28/07/2026 18:11:52 - [CREATE_LINK] TableDef creato.
+28/07/2026 18:11:52 - [CREATE_LINK] Connect string impostata
+28/07/2026 18:11:52 - [CREATE_LINK] SourceTableName impostato: 'Msys_DF12_}----------------------------------------------------@'
+28/07/2026 18:11:52 - [CREATE_LINK] Appendo TableDef al database...
+28/07/2026 18:11:52 - [CREATE_LINK] TableDef appeso con successo.
+28/07/2026 18:11:52 - [CREATE_LINK] Refresh del link...
+28/07/2026 18:11:52 - [CREATE_LINK] Link aggiornato con successo.
+28/07/2026 18:11:52 - [CREATE_LINK] Link creato correttamente per 'Msys_DF12_}----------------------------------------------------@'
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Link CREATO con successo!
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Stato assegnato: OK
+28/07/2026 18:11:52 - [AGGIORNAMENTO] Salvataggio stato nel campo Verifica_s...
+28/07/2026 18:11:52 - [AGGIORNAMENTO] COD_SUB_PROGETTO_s impostato a: 'Msys_DF12'
+28/07/2026 18:11:52 - [AGGIORNAMENTO] Recordset aggiornato con stato: 'OK' nel campo Verifica_s
+28/07/2026 18:11:52 - [STATISTICHE] Aggiornamento contatori:
+28/07/2026 18:11:52 -             OK: 17
+28/07/2026 18:11:52 -             MISSING: 0
+28/07/2026 18:11:52 -             INVALID_PATH: 0
+28/07/2026 18:11:52 -             NOT_REGISTERED: 0
+28/07/2026 18:11:52 -             Totale elaborati: 17
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - 
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - RECORD N. 18
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - [LETTURA_RECORD] Nome tabella: 'Msys_DF12_ObjProgetti'
+28/07/2026 18:11:52 - [LETTURA_RECORD] Database path: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF12\MDB\MSys_DF12.mdb'
+28/07/2026 18:11:52 - [LETTURA_RECORD] Type: 6
+28/07/2026 18:11:52 - [VALIDAZIONE] Avvio validazione...
+28/07/2026 18:11:52 - [VALIDAZIONE] Path valido. File database ESISTE.
+28/07/2026 18:11:52 - [VALIDAZIONE] Inizio verifica lato SORGENTE...
+28/07/2026 18:11:52 - [APERTURA_DB] Tentativo apertura database: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF12\MDB\MSys_DF12.mdb'
+28/07/2026 18:11:52 - [APERTURA_DB] Database aperto con successo.
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Ricerca tabella 'Msys_DF12_ObjProgetti' in MSysObjects...
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Tabella 'Msys_DF12_ObjProgetti' TROVATA
+28/07/2026 18:11:52 - [CHIUSURA_DB] Database chiuso e risorse rilasciate.
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Tabella 'Msys_DF12_ObjProgetti' TROVATA nel database di destinazione.
+28/07/2026 18:11:52 - [ELIMINAZIONE_LINK] Link esistente NON trovato in MSysObjects.
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Creazione nuovo link...
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Tabella: 'Msys_DF12_ObjProgetti'
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Database sorgente: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF12\MDB\MSys_DF12.mdb'
+28/07/2026 18:11:52 - [CREATE_LINK] Creazione TableDef per 'Msys_DF12_ObjProgetti'...
+28/07/2026 18:11:52 - [CREATE_LINK] TableDef creato.
+28/07/2026 18:11:52 - [CREATE_LINK] Connect string impostata
+28/07/2026 18:11:52 - [CREATE_LINK] SourceTableName impostato: 'Msys_DF12_ObjProgetti'
+28/07/2026 18:11:52 - [CREATE_LINK] Appendo TableDef al database...
+28/07/2026 18:11:52 - [CREATE_LINK] TableDef appeso con successo.
+28/07/2026 18:11:52 - [CREATE_LINK] Refresh del link...
+28/07/2026 18:11:52 - [CREATE_LINK] Link aggiornato con successo.
+28/07/2026 18:11:52 - [CREATE_LINK] Link creato correttamente per 'Msys_DF12_ObjProgetti'
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Link CREATO con successo!
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Stato assegnato: OK
+28/07/2026 18:11:52 - [AGGIORNAMENTO] Salvataggio stato nel campo Verifica_s...
+28/07/2026 18:11:52 - [AGGIORNAMENTO] COD_SUB_PROGETTO_s impostato a: 'Msys_DF12'
+28/07/2026 18:11:52 - [AGGIORNAMENTO] Recordset aggiornato con stato: 'OK' nel campo Verifica_s
+28/07/2026 18:11:52 - [STATISTICHE] Aggiornamento contatori:
+28/07/2026 18:11:52 -             OK: 18
+28/07/2026 18:11:52 -             MISSING: 0
+28/07/2026 18:11:52 -             INVALID_PATH: 0
+28/07/2026 18:11:52 -             NOT_REGISTERED: 0
+28/07/2026 18:11:52 -             Totale elaborati: 18
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - 
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - RECORD N. 19
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - [LETTURA_RECORD] Nome tabella: 'MSys_DF13_{@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@}_Tab'
+28/07/2026 18:11:52 - [LETTURA_RECORD] Database path: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF13\MDB\MSys_DF13.mdb'
+28/07/2026 18:11:52 - [LETTURA_RECORD] Type: 6
+28/07/2026 18:11:52 - [VALIDAZIONE] Avvio validazione...
+28/07/2026 18:11:52 - [VALIDAZIONE] Path valido. File database ESISTE.
+28/07/2026 18:11:52 - [VALIDAZIONE] Inizio verifica lato SORGENTE...
+28/07/2026 18:11:52 - [APERTURA_DB] Tentativo apertura database: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF13\MDB\MSys_DF13.mdb'
+28/07/2026 18:11:52 - [APERTURA_DB] Database aperto con successo.
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Ricerca tabella 'MSys_DF13_{@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@}_Tab' in MSysObjects...
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Tabella 'MSys_DF13_{@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@}_Tab' TROVATA
+28/07/2026 18:11:52 - [CHIUSURA_DB] Database chiuso e risorse rilasciate.
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Tabella 'MSys_DF13_{@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@}_Tab' TROVATA nel database di destinazione.
+28/07/2026 18:11:52 - [ELIMINAZIONE_LINK] Link esistente NON trovato in MSysObjects.
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Creazione nuovo link...
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Tabella: 'MSys_DF13_{@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@}_Tab'
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Database sorgente: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF13\MDB\MSys_DF13.mdb'
+28/07/2026 18:11:52 - [CREATE_LINK] Creazione TableDef per 'MSys_DF13_{@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@}_Tab'...
+28/07/2026 18:11:52 - [CREATE_LINK] TableDef creato.
+28/07/2026 18:11:52 - [CREATE_LINK] Connect string impostata
+28/07/2026 18:11:52 - [CREATE_LINK] SourceTableName impostato: 'MSys_DF13_{@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@}_Tab'
+28/07/2026 18:11:52 - [CREATE_LINK] Appendo TableDef al database...
+28/07/2026 18:11:52 - [CREATE_LINK] TableDef appeso con successo.
+28/07/2026 18:11:52 - [CREATE_LINK] Refresh del link...
+28/07/2026 18:11:52 - [CREATE_LINK] Link aggiornato con successo.
+28/07/2026 18:11:52 - [CREATE_LINK] Link creato correttamente per 'MSys_DF13_{@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@}_Tab'
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Link CREATO con successo!
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Stato assegnato: OK
+28/07/2026 18:11:52 - [AGGIORNAMENTO] Salvataggio stato nel campo Verifica_s...
+28/07/2026 18:11:52 - [AGGIORNAMENTO] COD_SUB_PROGETTO_s impostato a: 'MSys_DF13'
+28/07/2026 18:11:52 - [AGGIORNAMENTO] Recordset aggiornato con stato: 'OK' nel campo Verifica_s
+28/07/2026 18:11:52 - [STATISTICHE] Aggiornamento contatori:
+28/07/2026 18:11:52 -             OK: 19
+28/07/2026 18:11:52 -             MISSING: 0
+28/07/2026 18:11:52 -             INVALID_PATH: 0
+28/07/2026 18:11:52 -             NOT_REGISTERED: 0
+28/07/2026 18:11:52 -             Totale elaborati: 19
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - 
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - RECORD N. 20
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - [LETTURA_RECORD] Nome tabella: 'Msys_DF13_}----------------------------------------------------@'
+28/07/2026 18:11:52 - [LETTURA_RECORD] Database path: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF13\MDB\MSys_DF13.mdb'
+28/07/2026 18:11:52 - [LETTURA_RECORD] Type: 6
+28/07/2026 18:11:52 - [VALIDAZIONE] Avvio validazione...
+28/07/2026 18:11:52 - [VALIDAZIONE] Path valido. File database ESISTE.
+28/07/2026 18:11:52 - [VALIDAZIONE] Inizio verifica lato SORGENTE...
+28/07/2026 18:11:52 - [APERTURA_DB] Tentativo apertura database: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF13\MDB\MSys_DF13.mdb'
+28/07/2026 18:11:52 - [APERTURA_DB] Database aperto con successo.
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Ricerca tabella 'Msys_DF13_}----------------------------------------------------@' in MSysObjects...
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Tabella 'Msys_DF13_}----------------------------------------------------@' TROVATA
+28/07/2026 18:11:52 - [CHIUSURA_DB] Database chiuso e risorse rilasciate.
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Tabella 'Msys_DF13_}----------------------------------------------------@' TROVATA nel database di destinazione.
+28/07/2026 18:11:52 - [ELIMINAZIONE_LINK] Link esistente NON trovato in MSysObjects.
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Creazione nuovo link...
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Tabella: 'Msys_DF13_}----------------------------------------------------@'
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Database sorgente: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF13\MDB\MSys_DF13.mdb'
+28/07/2026 18:11:52 - [CREATE_LINK] Creazione TableDef per 'Msys_DF13_}----------------------------------------------------@'...
+28/07/2026 18:11:52 - [CREATE_LINK] TableDef creato.
+28/07/2026 18:11:52 - [CREATE_LINK] Connect string impostata
+28/07/2026 18:11:52 - [CREATE_LINK] SourceTableName impostato: 'Msys_DF13_}----------------------------------------------------@'
+28/07/2026 18:11:52 - [CREATE_LINK] Appendo TableDef al database...
+28/07/2026 18:11:52 - [CREATE_LINK] TableDef appeso con successo.
+28/07/2026 18:11:52 - [CREATE_LINK] Refresh del link...
+28/07/2026 18:11:52 - [CREATE_LINK] Link aggiornato con successo.
+28/07/2026 18:11:52 - [CREATE_LINK] Link creato correttamente per 'Msys_DF13_}----------------------------------------------------@'
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Link CREATO con successo!
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Stato assegnato: OK
+28/07/2026 18:11:52 - [AGGIORNAMENTO] Salvataggio stato nel campo Verifica_s...
+28/07/2026 18:11:52 - [AGGIORNAMENTO] COD_SUB_PROGETTO_s impostato a: 'Msys_DF13'
+28/07/2026 18:11:52 - [AGGIORNAMENTO] Recordset aggiornato con stato: 'OK' nel campo Verifica_s
+28/07/2026 18:11:52 - [STATISTICHE] Aggiornamento contatori:
+28/07/2026 18:11:52 -             OK: 20
+28/07/2026 18:11:52 -             MISSING: 0
+28/07/2026 18:11:52 -             INVALID_PATH: 0
+28/07/2026 18:11:52 -             NOT_REGISTERED: 0
+28/07/2026 18:11:52 -             Totale elaborati: 20
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - 
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - RECORD N. 21
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - [LETTURA_RECORD] Nome tabella: 'Msys_DF13_DLL_PROGETTO'
+28/07/2026 18:11:52 - [LETTURA_RECORD] Database path: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF13\MDB\MSys_DF13.mdb'
+28/07/2026 18:11:52 - [LETTURA_RECORD] Type: 6
+28/07/2026 18:11:52 - [VALIDAZIONE] Avvio validazione...
+28/07/2026 18:11:52 - [VALIDAZIONE] Path valido. File database ESISTE.
+28/07/2026 18:11:52 - [VALIDAZIONE] Inizio verifica lato SORGENTE...
+28/07/2026 18:11:52 - [APERTURA_DB] Tentativo apertura database: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF13\MDB\MSys_DF13.mdb'
+28/07/2026 18:11:52 - [APERTURA_DB] Database aperto con successo.
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Ricerca tabella 'Msys_DF13_DLL_PROGETTO' in MSysObjects...
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Tabella 'Msys_DF13_DLL_PROGETTO' TROVATA
+28/07/2026 18:11:52 - [CHIUSURA_DB] Database chiuso e risorse rilasciate.
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Tabella 'Msys_DF13_DLL_PROGETTO' TROVATA nel database di destinazione.
+28/07/2026 18:11:52 - [ELIMINAZIONE_LINK] Link esistente NON trovato in MSysObjects.
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Creazione nuovo link...
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Tabella: 'Msys_DF13_DLL_PROGETTO'
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Database sorgente: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF13\MDB\MSys_DF13.mdb'
+28/07/2026 18:11:52 - [CREATE_LINK] Creazione TableDef per 'Msys_DF13_DLL_PROGETTO'...
+28/07/2026 18:11:52 - [CREATE_LINK] TableDef creato.
+28/07/2026 18:11:52 - [CREATE_LINK] Connect string impostata
+28/07/2026 18:11:52 - [CREATE_LINK] SourceTableName impostato: 'Msys_DF13_DLL_PROGETTO'
+28/07/2026 18:11:52 - [CREATE_LINK] Appendo TableDef al database...
+28/07/2026 18:11:52 - [CREATE_LINK] TableDef appeso con successo.
+28/07/2026 18:11:52 - [CREATE_LINK] Refresh del link...
+28/07/2026 18:11:52 - [CREATE_LINK] Link aggiornato con successo.
+28/07/2026 18:11:52 - [CREATE_LINK] Link creato correttamente per 'Msys_DF13_DLL_PROGETTO'
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Link CREATO con successo!
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Stato assegnato: OK
+28/07/2026 18:11:52 - [AGGIORNAMENTO] Salvataggio stato nel campo Verifica_s...
+28/07/2026 18:11:52 - [AGGIORNAMENTO] COD_SUB_PROGETTO_s impostato a: 'Msys_DF13'
+28/07/2026 18:11:52 - [AGGIORNAMENTO] Recordset aggiornato con stato: 'OK' nel campo Verifica_s
+28/07/2026 18:11:52 - [STATISTICHE] Aggiornamento contatori:
+28/07/2026 18:11:52 -             OK: 21
+28/07/2026 18:11:52 -             MISSING: 0
+28/07/2026 18:11:52 -             INVALID_PATH: 0
+28/07/2026 18:11:52 -             NOT_REGISTERED: 0
+28/07/2026 18:11:52 -             Totale elaborati: 21
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - 
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - RECORD N. 22
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - [LETTURA_RECORD] Nome tabella: 'MSys_DF14_{@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@}_Tab'
+28/07/2026 18:11:52 - [LETTURA_RECORD] Database path: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF14\MDB\MSys_DF14.mdb'
+28/07/2026 18:11:52 - [LETTURA_RECORD] Type: 6
+28/07/2026 18:11:52 - [VALIDAZIONE] Avvio validazione...
+28/07/2026 18:11:52 - [VALIDAZIONE] Path valido. File database ESISTE.
+28/07/2026 18:11:52 - [VALIDAZIONE] Inizio verifica lato SORGENTE...
+28/07/2026 18:11:52 - [APERTURA_DB] Tentativo apertura database: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF14\MDB\MSys_DF14.mdb'
+28/07/2026 18:11:52 - [APERTURA_DB] Database aperto con successo.
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Ricerca tabella 'MSys_DF14_{@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@}_Tab' in MSysObjects...
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Tabella 'MSys_DF14_{@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@}_Tab' TROVATA
+28/07/2026 18:11:52 - [CHIUSURA_DB] Database chiuso e risorse rilasciate.
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Tabella 'MSys_DF14_{@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@}_Tab' TROVATA nel database di destinazione.
+28/07/2026 18:11:52 - [ELIMINAZIONE_LINK] Link esistente NON trovato in MSysObjects.
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Creazione nuovo link...
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Tabella: 'MSys_DF14_{@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@}_Tab'
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Database sorgente: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF14\MDB\MSys_DF14.mdb'
+28/07/2026 18:11:52 - [CREATE_LINK] Creazione TableDef per 'MSys_DF14_{@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@}_Tab'...
+28/07/2026 18:11:52 - [CREATE_LINK] TableDef creato.
+28/07/2026 18:11:52 - [CREATE_LINK] Connect string impostata
+28/07/2026 18:11:52 - [CREATE_LINK] SourceTableName impostato: 'MSys_DF14_{@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@}_Tab'
+28/07/2026 18:11:52 - [CREATE_LINK] Appendo TableDef al database...
+28/07/2026 18:11:52 - [CREATE_LINK] TableDef appeso con successo.
+28/07/2026 18:11:52 - [CREATE_LINK] Refresh del link...
+28/07/2026 18:11:52 - [CREATE_LINK] Link aggiornato con successo.
+28/07/2026 18:11:52 - [CREATE_LINK] Link creato correttamente per 'MSys_DF14_{@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@}_Tab'
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Link CREATO con successo!
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Stato assegnato: OK
+28/07/2026 18:11:52 - [AGGIORNAMENTO] Salvataggio stato nel campo Verifica_s...
+28/07/2026 18:11:52 - [AGGIORNAMENTO] COD_SUB_PROGETTO_s impostato a: 'MSys_DF14'
+28/07/2026 18:11:52 - [AGGIORNAMENTO] Recordset aggiornato con stato: 'OK' nel campo Verifica_s
+28/07/2026 18:11:52 - [STATISTICHE] Aggiornamento contatori:
+28/07/2026 18:11:52 -             OK: 22
+28/07/2026 18:11:52 -             MISSING: 0
+28/07/2026 18:11:52 -             INVALID_PATH: 0
+28/07/2026 18:11:52 -             NOT_REGISTERED: 0
+28/07/2026 18:11:52 -             Totale elaborati: 22
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - 
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - RECORD N. 23
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - [LETTURA_RECORD] Nome tabella: 'Msys_DF14_}----------------------------------------------------@'
+28/07/2026 18:11:52 - [LETTURA_RECORD] Database path: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF14\MDB\MSys_DF14.mdb'
+28/07/2026 18:11:52 - [LETTURA_RECORD] Type: 6
+28/07/2026 18:11:52 - [VALIDAZIONE] Avvio validazione...
+28/07/2026 18:11:52 - [VALIDAZIONE] Path valido. File database ESISTE.
+28/07/2026 18:11:52 - [VALIDAZIONE] Inizio verifica lato SORGENTE...
+28/07/2026 18:11:52 - [APERTURA_DB] Tentativo apertura database: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF14\MDB\MSys_DF14.mdb'
+28/07/2026 18:11:52 - [APERTURA_DB] Database aperto con successo.
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Ricerca tabella 'Msys_DF14_}----------------------------------------------------@' in MSysObjects...
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Tabella 'Msys_DF14_}----------------------------------------------------@' TROVATA
+28/07/2026 18:11:52 - [CHIUSURA_DB] Database chiuso e risorse rilasciate.
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Tabella 'Msys_DF14_}----------------------------------------------------@' TROVATA nel database di destinazione.
+28/07/2026 18:11:52 - [ELIMINAZIONE_LINK] Link esistente NON trovato in MSysObjects.
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Creazione nuovo link...
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Tabella: 'Msys_DF14_}----------------------------------------------------@'
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Database sorgente: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF14\MDB\MSys_DF14.mdb'
+28/07/2026 18:11:52 - [CREATE_LINK] Creazione TableDef per 'Msys_DF14_}----------------------------------------------------@'...
+28/07/2026 18:11:52 - [CREATE_LINK] TableDef creato.
+28/07/2026 18:11:52 - [CREATE_LINK] Connect string impostata
+28/07/2026 18:11:52 - [CREATE_LINK] SourceTableName impostato: 'Msys_DF14_}----------------------------------------------------@'
+28/07/2026 18:11:52 - [CREATE_LINK] Appendo TableDef al database...
+28/07/2026 18:11:52 - [CREATE_LINK] TableDef appeso con successo.
+28/07/2026 18:11:52 - [CREATE_LINK] Refresh del link...
+28/07/2026 18:11:52 - [CREATE_LINK] Link aggiornato con successo.
+28/07/2026 18:11:52 - [CREATE_LINK] Link creato correttamente per 'Msys_DF14_}----------------------------------------------------@'
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Link CREATO con successo!
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Stato assegnato: OK
+28/07/2026 18:11:52 - [AGGIORNAMENTO] Salvataggio stato nel campo Verifica_s...
+28/07/2026 18:11:52 - [AGGIORNAMENTO] COD_SUB_PROGETTO_s impostato a: 'Msys_DF14'
+28/07/2026 18:11:52 - [AGGIORNAMENTO] Recordset aggiornato con stato: 'OK' nel campo Verifica_s
+28/07/2026 18:11:52 - [STATISTICHE] Aggiornamento contatori:
+28/07/2026 18:11:52 -             OK: 23
+28/07/2026 18:11:52 -             MISSING: 0
+28/07/2026 18:11:52 -             INVALID_PATH: 0
+28/07/2026 18:11:52 -             NOT_REGISTERED: 0
+28/07/2026 18:11:52 -             Totale elaborati: 23
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - 
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - RECORD N. 24
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - [LETTURA_RECORD] Nome tabella: 'Msys_DF14_DLL_LIBRERIE'
+28/07/2026 18:11:52 - [LETTURA_RECORD] Database path: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF14\MDB\MSys_DF14.mdb'
+28/07/2026 18:11:52 - [LETTURA_RECORD] Type: 6
+28/07/2026 18:11:52 - [VALIDAZIONE] Avvio validazione...
+28/07/2026 18:11:52 - [VALIDAZIONE] Path valido. File database ESISTE.
+28/07/2026 18:11:52 - [VALIDAZIONE] Inizio verifica lato SORGENTE...
+28/07/2026 18:11:52 - [APERTURA_DB] Tentativo apertura database: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF14\MDB\MSys_DF14.mdb'
+28/07/2026 18:11:52 - [APERTURA_DB] Database aperto con successo.
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Ricerca tabella 'Msys_DF14_DLL_LIBRERIE' in MSysObjects...
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Tabella 'Msys_DF14_DLL_LIBRERIE' TROVATA
+28/07/2026 18:11:52 - [CHIUSURA_DB] Database chiuso e risorse rilasciate.
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Tabella 'Msys_DF14_DLL_LIBRERIE' TROVATA nel database di destinazione.
+28/07/2026 18:11:52 - [ELIMINAZIONE_LINK] Link esistente NON trovato in MSysObjects.
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Creazione nuovo link...
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Tabella: 'Msys_DF14_DLL_LIBRERIE'
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Database sorgente: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_DF14\MDB\MSys_DF14.mdb'
+28/07/2026 18:11:52 - [CREATE_LINK] Creazione TableDef per 'Msys_DF14_DLL_LIBRERIE'...
+28/07/2026 18:11:52 - [CREATE_LINK] TableDef creato.
+28/07/2026 18:11:52 - [CREATE_LINK] Connect string impostata
+28/07/2026 18:11:52 - [CREATE_LINK] SourceTableName impostato: 'Msys_DF14_DLL_LIBRERIE'
+28/07/2026 18:11:52 - [CREATE_LINK] Appendo TableDef al database...
+28/07/2026 18:11:52 - [CREATE_LINK] TableDef appeso con successo.
+28/07/2026 18:11:52 - [CREATE_LINK] Refresh del link...
+28/07/2026 18:11:52 - [CREATE_LINK] Link aggiornato con successo.
+28/07/2026 18:11:52 - [CREATE_LINK] Link creato correttamente per 'Msys_DF14_DLL_LIBRERIE'
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Link CREATO con successo!
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Stato assegnato: OK
+28/07/2026 18:11:52 - [AGGIORNAMENTO] Salvataggio stato nel campo Verifica_s...
+28/07/2026 18:11:52 - [AGGIORNAMENTO] COD_SUB_PROGETTO_s impostato a: 'Msys_DF14'
+28/07/2026 18:11:52 - [AGGIORNAMENTO] Recordset aggiornato con stato: 'OK' nel campo Verifica_s
+28/07/2026 18:11:52 - [STATISTICHE] Aggiornamento contatori:
+28/07/2026 18:11:52 -             OK: 24
+28/07/2026 18:11:52 -             MISSING: 0
+28/07/2026 18:11:52 -             INVALID_PATH: 0
+28/07/2026 18:11:52 -             NOT_REGISTERED: 0
+28/07/2026 18:11:52 -             Totale elaborati: 24
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - 
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - RECORD N. 25
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - [LETTURA_RECORD] Nome tabella: 'Msys_TB01_}---------------------------------------@PROGETTI'
+28/07/2026 18:11:52 - [LETTURA_RECORD] Database path: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_TB01_PROGETTI\MDB\Msys_TB01_PROGETTI.mdb'
+28/07/2026 18:11:52 - [LETTURA_RECORD] Type: 6
+28/07/2026 18:11:52 - [VALIDAZIONE] Avvio validazione...
+28/07/2026 18:11:52 - [VALIDAZIONE] Path valido. File database ESISTE.
+28/07/2026 18:11:52 - [VALIDAZIONE] Inizio verifica lato SORGENTE...
+28/07/2026 18:11:52 - [APERTURA_DB] Tentativo apertura database: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_TB01_PROGETTI\MDB\Msys_TB01_PROGETTI.mdb'
+28/07/2026 18:11:52 - [APERTURA_DB] Database aperto con successo.
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Ricerca tabella 'Msys_TB01_}---------------------------------------@PROGETTI' in MSysObjects...
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Tabella 'Msys_TB01_}---------------------------------------@PROGETTI' TROVATA
+28/07/2026 18:11:52 - [CHIUSURA_DB] Database chiuso e risorse rilasciate.
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Tabella 'Msys_TB01_}---------------------------------------@PROGETTI' TROVATA nel database di destinazione.
+28/07/2026 18:11:52 - [ELIMINAZIONE_LINK] Link esistente NON trovato in MSysObjects.
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Creazione nuovo link...
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Tabella: 'Msys_TB01_}---------------------------------------@PROGETTI'
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Database sorgente: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_TB01_PROGETTI\MDB\Msys_TB01_PROGETTI.mdb'
+28/07/2026 18:11:52 - [CREATE_LINK] Creazione TableDef per 'Msys_TB01_}---------------------------------------@PROGETTI'...
+28/07/2026 18:11:52 - [CREATE_LINK] TableDef creato.
+28/07/2026 18:11:52 - [CREATE_LINK] Connect string impostata
+28/07/2026 18:11:52 - [CREATE_LINK] SourceTableName impostato: 'Msys_TB01_}---------------------------------------@PROGETTI'
+28/07/2026 18:11:52 - [CREATE_LINK] Appendo TableDef al database...
+28/07/2026 18:11:52 - [CREATE_LINK] TableDef appeso con successo.
+28/07/2026 18:11:52 - [CREATE_LINK] Refresh del link...
+28/07/2026 18:11:52 - [CREATE_LINK] Link aggiornato con successo.
+28/07/2026 18:11:52 - [CREATE_LINK] Link creato correttamente per 'Msys_TB01_}---------------------------------------@PROGETTI'
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Link CREATO con successo!
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Stato assegnato: OK
+28/07/2026 18:11:52 - [AGGIORNAMENTO] Salvataggio stato nel campo Verifica_s...
+28/07/2026 18:11:52 - [AGGIORNAMENTO] COD_SUB_PROGETTO_s impostato a: 'Msys_TB01'
+28/07/2026 18:11:52 - [AGGIORNAMENTO] Recordset aggiornato con stato: 'OK' nel campo Verifica_s
+28/07/2026 18:11:52 - [STATISTICHE] Aggiornamento contatori:
+28/07/2026 18:11:52 -             OK: 25
+28/07/2026 18:11:52 -             MISSING: 0
+28/07/2026 18:11:52 -             INVALID_PATH: 0
+28/07/2026 18:11:52 -             NOT_REGISTERED: 0
+28/07/2026 18:11:52 -             Totale elaborati: 25
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - 
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - RECORD N. 26
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - [LETTURA_RECORD] Nome tabella: 'Msys_TB01_PROGETTI'
+28/07/2026 18:11:52 - [LETTURA_RECORD] Database path: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_TB01_PROGETTI\MDB\Msys_TB01_PROGETTI.mdb'
+28/07/2026 18:11:52 - [LETTURA_RECORD] Type: 6
+28/07/2026 18:11:52 - [VALIDAZIONE] Avvio validazione...
+28/07/2026 18:11:52 - [VALIDAZIONE] Path valido. File database ESISTE.
+28/07/2026 18:11:52 - [VALIDAZIONE] Inizio verifica lato SORGENTE...
+28/07/2026 18:11:52 - [APERTURA_DB] Tentativo apertura database: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_TB01_PROGETTI\MDB\Msys_TB01_PROGETTI.mdb'
+28/07/2026 18:11:52 - [APERTURA_DB] Database aperto con successo.
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Ricerca tabella 'Msys_TB01_PROGETTI' in MSysObjects...
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Tabella 'Msys_TB01_PROGETTI' TROVATA
+28/07/2026 18:11:52 - [CHIUSURA_DB] Database chiuso e risorse rilasciate.
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Tabella 'Msys_TB01_PROGETTI' TROVATA nel database di destinazione.
+28/07/2026 18:11:52 - [ELIMINAZIONE_LINK] Link esistente NON trovato in MSysObjects.
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Creazione nuovo link...
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Tabella: 'Msys_TB01_PROGETTI'
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Database sorgente: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_TB01_PROGETTI\MDB\Msys_TB01_PROGETTI.mdb'
+28/07/2026 18:11:52 - [CREATE_LINK] Creazione TableDef per 'Msys_TB01_PROGETTI'...
+28/07/2026 18:11:52 - [CREATE_LINK] TableDef creato.
+28/07/2026 18:11:52 - [CREATE_LINK] Connect string impostata
+28/07/2026 18:11:52 - [CREATE_LINK] SourceTableName impostato: 'Msys_TB01_PROGETTI'
+28/07/2026 18:11:52 - [CREATE_LINK] Appendo TableDef al database...
+28/07/2026 18:11:52 - [CREATE_LINK] TableDef appeso con successo.
+28/07/2026 18:11:52 - [CREATE_LINK] Refresh del link...
+28/07/2026 18:11:52 - [CREATE_LINK] Link aggiornato con successo.
+28/07/2026 18:11:52 - [CREATE_LINK] Link creato correttamente per 'Msys_TB01_PROGETTI'
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Link CREATO con successo!
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Stato assegnato: OK
+28/07/2026 18:11:52 - [AGGIORNAMENTO] Salvataggio stato nel campo Verifica_s...
+28/07/2026 18:11:52 - [AGGIORNAMENTO] COD_SUB_PROGETTO_s impostato a: 'Msys_TB01'
+28/07/2026 18:11:52 - [AGGIORNAMENTO] Recordset aggiornato con stato: 'OK' nel campo Verifica_s
+28/07/2026 18:11:52 - [STATISTICHE] Aggiornamento contatori:
+28/07/2026 18:11:52 -             OK: 26
+28/07/2026 18:11:52 -             MISSING: 0
+28/07/2026 18:11:52 -             INVALID_PATH: 0
+28/07/2026 18:11:52 -             NOT_REGISTERED: 0
+28/07/2026 18:11:52 -             Totale elaborati: 26
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - 
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - RECORD N. 27
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - [LETTURA_RECORD] Nome tabella: 'Msys_TB02_}----------------------------------------@TIPO_OGGETTI'
+28/07/2026 18:11:52 - [LETTURA_RECORD] Database path: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_TB02_TIPO_OGGETTI\MDB\Msys_TB02_TIPO_OGGETTI.MDB'
+28/07/2026 18:11:52 - [LETTURA_RECORD] Type: 6
+28/07/2026 18:11:52 - [VALIDAZIONE] Avvio validazione...
+28/07/2026 18:11:52 - [VALIDAZIONE] Path valido. File database ESISTE.
+28/07/2026 18:11:52 - [VALIDAZIONE] Inizio verifica lato SORGENTE...
+28/07/2026 18:11:52 - [APERTURA_DB] Tentativo apertura database: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_TB02_TIPO_OGGETTI\MDB\Msys_TB02_TIPO_OGGETTI.MDB'
+28/07/2026 18:11:52 - [APERTURA_DB] Database aperto con successo.
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Ricerca tabella 'Msys_TB02_}----------------------------------------@TIPO_OGGETTI' in MSysObjects...
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Tabella 'Msys_TB02_}----------------------------------------@TIPO_OGGETTI' TROVATA
+28/07/2026 18:11:52 - [CHIUSURA_DB] Database chiuso e risorse rilasciate.
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Tabella 'Msys_TB02_}----------------------------------------@TIPO_OGGETTI' TROVATA nel database di destinazione.
+28/07/2026 18:11:52 - [ELIMINAZIONE_LINK] Link esistente NON trovato in MSysObjects.
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Creazione nuovo link...
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Tabella: 'Msys_TB02_}----------------------------------------@TIPO_OGGETTI'
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Database sorgente: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_TB02_TIPO_OGGETTI\MDB\Msys_TB02_TIPO_OGGETTI.MDB'
+28/07/2026 18:11:52 - [CREATE_LINK] Creazione TableDef per 'Msys_TB02_}----------------------------------------@TIPO_OGGETTI'...
+28/07/2026 18:11:52 - [CREATE_LINK] TableDef creato.
+28/07/2026 18:11:52 - [CREATE_LINK] Connect string impostata
+28/07/2026 18:11:52 - [CREATE_LINK] SourceTableName impostato: 'Msys_TB02_}----------------------------------------@TIPO_OGGETTI'
+28/07/2026 18:11:52 - [CREATE_LINK] Appendo TableDef al database...
+28/07/2026 18:11:52 - [CREATE_LINK] TableDef appeso con successo.
+28/07/2026 18:11:52 - [CREATE_LINK] Refresh del link...
+28/07/2026 18:11:52 - [CREATE_LINK] Link aggiornato con successo.
+28/07/2026 18:11:52 - [CREATE_LINK] Link creato correttamente per 'Msys_TB02_}----------------------------------------@TIPO_OGGETTI'
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Link CREATO con successo!
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Stato assegnato: OK
+28/07/2026 18:11:52 - [AGGIORNAMENTO] Salvataggio stato nel campo Verifica_s...
+28/07/2026 18:11:52 - [AGGIORNAMENTO] COD_SUB_PROGETTO_s impostato a: 'Msys_TB02'
+28/07/2026 18:11:52 - [AGGIORNAMENTO] Recordset aggiornato con stato: 'OK' nel campo Verifica_s
+28/07/2026 18:11:52 - [STATISTICHE] Aggiornamento contatori:
+28/07/2026 18:11:52 -             OK: 27
+28/07/2026 18:11:52 -             MISSING: 0
+28/07/2026 18:11:52 -             INVALID_PATH: 0
+28/07/2026 18:11:52 -             NOT_REGISTERED: 0
+28/07/2026 18:11:52 -             Totale elaborati: 27
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - 
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - RECORD N. 28
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - [LETTURA_RECORD] Nome tabella: 'Msys_TB02_TIPO_OGGETTI'
+28/07/2026 18:11:52 - [LETTURA_RECORD] Database path: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_TB02_TIPO_OGGETTI\MDB\Msys_TB02_TIPO_OGGETTI.MDB'
+28/07/2026 18:11:52 - [LETTURA_RECORD] Type: 6
+28/07/2026 18:11:52 - [VALIDAZIONE] Avvio validazione...
+28/07/2026 18:11:52 - [VALIDAZIONE] Path valido. File database ESISTE.
+28/07/2026 18:11:52 - [VALIDAZIONE] Inizio verifica lato SORGENTE...
+28/07/2026 18:11:52 - [APERTURA_DB] Tentativo apertura database: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_TB02_TIPO_OGGETTI\MDB\Msys_TB02_TIPO_OGGETTI.MDB'
+28/07/2026 18:11:52 - [APERTURA_DB] Database aperto con successo.
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Ricerca tabella 'Msys_TB02_TIPO_OGGETTI' in MSysObjects...
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Tabella 'Msys_TB02_TIPO_OGGETTI' TROVATA
+28/07/2026 18:11:52 - [CHIUSURA_DB] Database chiuso e risorse rilasciate.
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Tabella 'Msys_TB02_TIPO_OGGETTI' TROVATA nel database di destinazione.
+28/07/2026 18:11:52 - [ELIMINAZIONE_LINK] Link esistente NON trovato in MSysObjects.
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Creazione nuovo link...
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Tabella: 'Msys_TB02_TIPO_OGGETTI'
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Database sorgente: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_TB02_TIPO_OGGETTI\MDB\Msys_TB02_TIPO_OGGETTI.MDB'
+28/07/2026 18:11:52 - [CREATE_LINK] Creazione TableDef per 'Msys_TB02_TIPO_OGGETTI'...
+28/07/2026 18:11:52 - [CREATE_LINK] TableDef creato.
+28/07/2026 18:11:52 - [CREATE_LINK] Connect string impostata
+28/07/2026 18:11:52 - [CREATE_LINK] SourceTableName impostato: 'Msys_TB02_TIPO_OGGETTI'
+28/07/2026 18:11:52 - [CREATE_LINK] Appendo TableDef al database...
+28/07/2026 18:11:52 - [CREATE_LINK] TableDef appeso con successo.
+28/07/2026 18:11:52 - [CREATE_LINK] Refresh del link...
+28/07/2026 18:11:52 - [CREATE_LINK] Link aggiornato con successo.
+28/07/2026 18:11:52 - [CREATE_LINK] Link creato correttamente per 'Msys_TB02_TIPO_OGGETTI'
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Link CREATO con successo!
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Stato assegnato: OK
+28/07/2026 18:11:52 - [AGGIORNAMENTO] Salvataggio stato nel campo Verifica_s...
+28/07/2026 18:11:52 - [AGGIORNAMENTO] COD_SUB_PROGETTO_s impostato a: 'Msys_TB02'
+28/07/2026 18:11:52 - [AGGIORNAMENTO] Recordset aggiornato con stato: 'OK' nel campo Verifica_s
+28/07/2026 18:11:52 - [STATISTICHE] Aggiornamento contatori:
+28/07/2026 18:11:52 -             OK: 28
+28/07/2026 18:11:52 -             MISSING: 0
+28/07/2026 18:11:52 -             INVALID_PATH: 0
+28/07/2026 18:11:52 -             NOT_REGISTERED: 0
+28/07/2026 18:11:52 -             Totale elaborati: 28
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - 
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - RECORD N. 29
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - [LETTURA_RECORD] Nome tabella: 'Msys_TB03_ELENCO_}----------------------------------@ObjProgetti'
+28/07/2026 18:11:52 - [LETTURA_RECORD] Database path: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_TB03_ELENCO_OGGETTI\MDB\Msys_TB03_ELENCO_ObjProgetti.mdb'
+28/07/2026 18:11:52 - [LETTURA_RECORD] Type: 6
+28/07/2026 18:11:52 - [VALIDAZIONE] Avvio validazione...
+28/07/2026 18:11:52 - [VALIDAZIONE] Path valido. File database ESISTE.
+28/07/2026 18:11:52 - [VALIDAZIONE] Inizio verifica lato SORGENTE...
+28/07/2026 18:11:52 - [APERTURA_DB] Tentativo apertura database: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_TB03_ELENCO_OGGETTI\MDB\Msys_TB03_ELENCO_ObjProgetti.mdb'
+28/07/2026 18:11:52 - [APERTURA_DB] Database aperto con successo.
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Ricerca tabella 'Msys_TB03_ELENCO_}----------------------------------@ObjProgetti' in MSysObjects...
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Tabella 'Msys_TB03_ELENCO_}----------------------------------@ObjProgetti' TROVATA
+28/07/2026 18:11:52 - [CHIUSURA_DB] Database chiuso e risorse rilasciate.
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Tabella 'Msys_TB03_ELENCO_}----------------------------------@ObjProgetti' TROVATA nel database di destinazione.
+28/07/2026 18:11:52 - [ELIMINAZIONE_LINK] Link esistente NON trovato in MSysObjects.
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Creazione nuovo link...
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Tabella: 'Msys_TB03_ELENCO_}----------------------------------@ObjProgetti'
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Database sorgente: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_TB03_ELENCO_OGGETTI\MDB\Msys_TB03_ELENCO_ObjProgetti.mdb'
+28/07/2026 18:11:52 - [CREATE_LINK] Creazione TableDef per 'Msys_TB03_ELENCO_}----------------------------------@ObjProgetti'...
+28/07/2026 18:11:52 - [CREATE_LINK] TableDef creato.
+28/07/2026 18:11:52 - [CREATE_LINK] Connect string impostata
+28/07/2026 18:11:52 - [CREATE_LINK] SourceTableName impostato: 'Msys_TB03_ELENCO_}----------------------------------@ObjProgetti'
+28/07/2026 18:11:52 - [CREATE_LINK] Appendo TableDef al database...
+28/07/2026 18:11:52 - [CREATE_LINK] TableDef appeso con successo.
+28/07/2026 18:11:52 - [CREATE_LINK] Refresh del link...
+28/07/2026 18:11:52 - [CREATE_LINK] Link aggiornato con successo.
+28/07/2026 18:11:52 - [CREATE_LINK] Link creato correttamente per 'Msys_TB03_ELENCO_}----------------------------------@ObjProgetti'
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Link CREATO con successo!
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Stato assegnato: OK
+28/07/2026 18:11:52 - [AGGIORNAMENTO] Salvataggio stato nel campo Verifica_s...
+28/07/2026 18:11:52 - [AGGIORNAMENTO] COD_SUB_PROGETTO_s impostato a: 'Msys_TB03'
+28/07/2026 18:11:52 - [AGGIORNAMENTO] Recordset aggiornato con stato: 'OK' nel campo Verifica_s
+28/07/2026 18:11:52 - [STATISTICHE] Aggiornamento contatori:
+28/07/2026 18:11:52 -             OK: 29
+28/07/2026 18:11:52 -             MISSING: 0
+28/07/2026 18:11:52 -             INVALID_PATH: 0
+28/07/2026 18:11:52 -             NOT_REGISTERED: 0
+28/07/2026 18:11:52 -             Totale elaborati: 29
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - 
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - RECORD N. 30
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - [LETTURA_RECORD] Nome tabella: 'Msys_TB03_ELENCO_ObjProgetti'
+28/07/2026 18:11:52 - [LETTURA_RECORD] Database path: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_TB03_ELENCO_OGGETTI\MDB\Msys_TB03_ELENCO_ObjProgetti.mdb'
+28/07/2026 18:11:52 - [LETTURA_RECORD] Type: 6
+28/07/2026 18:11:52 - [VALIDAZIONE] Avvio validazione...
+28/07/2026 18:11:52 - [VALIDAZIONE] Path valido. File database ESISTE.
+28/07/2026 18:11:52 - [VALIDAZIONE] Inizio verifica lato SORGENTE...
+28/07/2026 18:11:52 - [APERTURA_DB] Tentativo apertura database: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_TB03_ELENCO_OGGETTI\MDB\Msys_TB03_ELENCO_ObjProgetti.mdb'
+28/07/2026 18:11:52 - [APERTURA_DB] Database aperto con successo.
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Ricerca tabella 'Msys_TB03_ELENCO_ObjProgetti' in MSysObjects...
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Tabella 'Msys_TB03_ELENCO_ObjProgetti' TROVATA
+28/07/2026 18:11:52 - [CHIUSURA_DB] Database chiuso e risorse rilasciate.
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Tabella 'Msys_TB03_ELENCO_ObjProgetti' TROVATA nel database di destinazione.
+28/07/2026 18:11:52 - [ELIMINAZIONE_LINK] Link esistente NON trovato in MSysObjects.
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Creazione nuovo link...
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Tabella: 'Msys_TB03_ELENCO_ObjProgetti'
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Database sorgente: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_TB03_ELENCO_OGGETTI\MDB\Msys_TB03_ELENCO_ObjProgetti.mdb'
+28/07/2026 18:11:52 - [CREATE_LINK] Creazione TableDef per 'Msys_TB03_ELENCO_ObjProgetti'...
+28/07/2026 18:11:52 - [CREATE_LINK] TableDef creato.
+28/07/2026 18:11:52 - [CREATE_LINK] Connect string impostata
+28/07/2026 18:11:52 - [CREATE_LINK] SourceTableName impostato: 'Msys_TB03_ELENCO_ObjProgetti'
+28/07/2026 18:11:52 - [CREATE_LINK] Appendo TableDef al database...
+28/07/2026 18:11:52 - [CREATE_LINK] TableDef appeso con successo.
+28/07/2026 18:11:52 - [CREATE_LINK] Refresh del link...
+28/07/2026 18:11:52 - [CREATE_LINK] Link aggiornato con successo.
+28/07/2026 18:11:52 - [CREATE_LINK] Link creato correttamente per 'Msys_TB03_ELENCO_ObjProgetti'
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Link CREATO con successo!
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Stato assegnato: OK
+28/07/2026 18:11:52 - [AGGIORNAMENTO] Salvataggio stato nel campo Verifica_s...
+28/07/2026 18:11:52 - [AGGIORNAMENTO] COD_SUB_PROGETTO_s impostato a: 'Msys_TB03'
+28/07/2026 18:11:52 - [AGGIORNAMENTO] Recordset aggiornato con stato: 'OK' nel campo Verifica_s
+28/07/2026 18:11:52 - [STATISTICHE] Aggiornamento contatori:
+28/07/2026 18:11:52 -             OK: 30
+28/07/2026 18:11:52 -             MISSING: 0
+28/07/2026 18:11:52 -             INVALID_PATH: 0
+28/07/2026 18:11:52 -             NOT_REGISTERED: 0
+28/07/2026 18:11:52 -             Totale elaborati: 30
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - 
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - RECORD N. 31
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - [LETTURA_RECORD] Nome tabella: 'MSYS_TB04_DB_}----------------------------------@ESTERNOProgetti'
+28/07/2026 18:11:52 - [LETTURA_RECORD] Database path: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_TB04_DB_ESTERNO\MDB\MSys_TB04_DB_ESTERNO.mdb'
+28/07/2026 18:11:52 - [LETTURA_RECORD] Type: 6
+28/07/2026 18:11:52 - [VALIDAZIONE] Avvio validazione...
+28/07/2026 18:11:52 - [VALIDAZIONE] Path valido. File database ESISTE.
+28/07/2026 18:11:52 - [VALIDAZIONE] Inizio verifica lato SORGENTE...
+28/07/2026 18:11:52 - [APERTURA_DB] Tentativo apertura database: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_TB04_DB_ESTERNO\MDB\MSys_TB04_DB_ESTERNO.mdb'
+28/07/2026 18:11:52 - [APERTURA_DB] Database aperto con successo.
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Ricerca tabella 'MSYS_TB04_DB_}----------------------------------@ESTERNOProgetti' in MSysObjects...
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Tabella 'MSYS_TB04_DB_}----------------------------------@ESTERNOProgetti' TROVATA
+28/07/2026 18:11:52 - [CHIUSURA_DB] Database chiuso e risorse rilasciate.
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Tabella 'MSYS_TB04_DB_}----------------------------------@ESTERNOProgetti' TROVATA nel database di destinazione.
+28/07/2026 18:11:52 - [ELIMINAZIONE_LINK] Link esistente NON trovato in MSysObjects.
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Creazione nuovo link...
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Tabella: 'MSYS_TB04_DB_}----------------------------------@ESTERNOProgetti'
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Database sorgente: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_TB04_DB_ESTERNO\MDB\MSys_TB04_DB_ESTERNO.mdb'
+28/07/2026 18:11:52 - [CREATE_LINK] Creazione TableDef per 'MSYS_TB04_DB_}----------------------------------@ESTERNOProgetti'...
+28/07/2026 18:11:52 - [CREATE_LINK] TableDef creato.
+28/07/2026 18:11:52 - [CREATE_LINK] Connect string impostata
+28/07/2026 18:11:52 - [CREATE_LINK] SourceTableName impostato: 'MSYS_TB04_DB_}----------------------------------@ESTERNOProgetti'
+28/07/2026 18:11:52 - [CREATE_LINK] Appendo TableDef al database...
+28/07/2026 18:11:52 - [CREATE_LINK] TableDef appeso con successo.
+28/07/2026 18:11:52 - [CREATE_LINK] Refresh del link...
+28/07/2026 18:11:52 - [CREATE_LINK] Link aggiornato con successo.
+28/07/2026 18:11:52 - [CREATE_LINK] Link creato correttamente per 'MSYS_TB04_DB_}----------------------------------@ESTERNOProgetti'
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Link CREATO con successo!
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Stato assegnato: OK
+28/07/2026 18:11:52 - [AGGIORNAMENTO] Salvataggio stato nel campo Verifica_s...
+28/07/2026 18:11:52 - [AGGIORNAMENTO] COD_SUB_PROGETTO_s impostato a: 'MSYS_TB04'
+28/07/2026 18:11:52 - [AGGIORNAMENTO] Recordset aggiornato con stato: 'OK' nel campo Verifica_s
+28/07/2026 18:11:52 - [STATISTICHE] Aggiornamento contatori:
+28/07/2026 18:11:52 -             OK: 31
+28/07/2026 18:11:52 -             MISSING: 0
+28/07/2026 18:11:52 -             INVALID_PATH: 0
+28/07/2026 18:11:52 -             NOT_REGISTERED: 0
+28/07/2026 18:11:52 -             Totale elaborati: 31
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - 
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - RECORD N. 32
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - [LETTURA_RECORD] Nome tabella: 'MSYS_TB04_DB_ESTERNO'
+28/07/2026 18:11:52 - [LETTURA_RECORD] Database path: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_TB04_DB_ESTERNO\MDB\MSys_TB04_DB_ESTERNO.mdb'
+28/07/2026 18:11:52 - [LETTURA_RECORD] Type: 6
+28/07/2026 18:11:52 - [VALIDAZIONE] Avvio validazione...
+28/07/2026 18:11:52 - [VALIDAZIONE] Path valido. File database ESISTE.
+28/07/2026 18:11:52 - [VALIDAZIONE] Inizio verifica lato SORGENTE...
+28/07/2026 18:11:52 - [APERTURA_DB] Tentativo apertura database: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_TB04_DB_ESTERNO\MDB\MSys_TB04_DB_ESTERNO.mdb'
+28/07/2026 18:11:52 - [APERTURA_DB] Database aperto con successo.
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Ricerca tabella 'MSYS_TB04_DB_ESTERNO' in MSysObjects...
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Tabella 'MSYS_TB04_DB_ESTERNO' TROVATA
+28/07/2026 18:11:52 - [CHIUSURA_DB] Database chiuso e risorse rilasciate.
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Tabella 'MSYS_TB04_DB_ESTERNO' TROVATA nel database di destinazione.
+28/07/2026 18:11:52 - [ELIMINAZIONE_LINK] Link esistente NON trovato in MSysObjects.
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Creazione nuovo link...
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Tabella: 'MSYS_TB04_DB_ESTERNO'
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Database sorgente: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_TB04_DB_ESTERNO\MDB\MSys_TB04_DB_ESTERNO.mdb'
+28/07/2026 18:11:52 - [CREATE_LINK] Creazione TableDef per 'MSYS_TB04_DB_ESTERNO'...
+28/07/2026 18:11:52 - [CREATE_LINK] TableDef creato.
+28/07/2026 18:11:52 - [CREATE_LINK] Connect string impostata
+28/07/2026 18:11:52 - [CREATE_LINK] SourceTableName impostato: 'MSYS_TB04_DB_ESTERNO'
+28/07/2026 18:11:52 - [CREATE_LINK] Appendo TableDef al database...
+28/07/2026 18:11:52 - [CREATE_LINK] TableDef appeso con successo.
+28/07/2026 18:11:52 - [CREATE_LINK] Refresh del link...
+28/07/2026 18:11:52 - [CREATE_LINK] Link aggiornato con successo.
+28/07/2026 18:11:52 - [CREATE_LINK] Link creato correttamente per 'MSYS_TB04_DB_ESTERNO'
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Link CREATO con successo!
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Stato assegnato: OK
+28/07/2026 18:11:52 - [AGGIORNAMENTO] Salvataggio stato nel campo Verifica_s...
+28/07/2026 18:11:52 - [AGGIORNAMENTO] COD_SUB_PROGETTO_s impostato a: 'MSYS_TB04'
+28/07/2026 18:11:52 - [AGGIORNAMENTO] Recordset aggiornato con stato: 'OK' nel campo Verifica_s
+28/07/2026 18:11:52 - [STATISTICHE] Aggiornamento contatori:
+28/07/2026 18:11:52 -             OK: 32
+28/07/2026 18:11:52 -             MISSING: 0
+28/07/2026 18:11:52 -             INVALID_PATH: 0
+28/07/2026 18:11:52 -             NOT_REGISTERED: 0
+28/07/2026 18:11:52 -             Totale elaborati: 32
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - 
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - RECORD N. 33
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - [LETTURA_RECORD] Nome tabella: 'MSys_TB05_}-----------------------------------------------@FORMS'
+28/07/2026 18:11:52 - [LETTURA_RECORD] Database path: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\Msys_TB05_FORMS\MDB\MSys_TB05_FORMS.mdb'
+28/07/2026 18:11:52 - [LETTURA_RECORD] Type: 6
+28/07/2026 18:11:52 - [VALIDAZIONE] Avvio validazione...
+28/07/2026 18:11:52 - [VALIDAZIONE] Path valido. File database ESISTE.
+28/07/2026 18:11:52 - [VALIDAZIONE] Inizio verifica lato SORGENTE...
+28/07/2026 18:11:52 - [APERTURA_DB] Tentativo apertura database: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\Msys_TB05_FORMS\MDB\MSys_TB05_FORMS.mdb'
+28/07/2026 18:11:52 - [APERTURA_DB] Database aperto con successo.
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Ricerca tabella 'MSys_TB05_}-----------------------------------------------@FORMS' in MSysObjects...
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Tabella 'MSys_TB05_}-----------------------------------------------@FORMS' TROVATA
+28/07/2026 18:11:52 - [CHIUSURA_DB] Database chiuso e risorse rilasciate.
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Tabella 'MSys_TB05_}-----------------------------------------------@FORMS' TROVATA nel database di destinazione.
+28/07/2026 18:11:52 - [ELIMINAZIONE_LINK] Link esistente NON trovato in MSysObjects.
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Creazione nuovo link...
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Tabella: 'MSys_TB05_}-----------------------------------------------@FORMS'
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Database sorgente: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\Msys_TB05_FORMS\MDB\MSys_TB05_FORMS.mdb'
+28/07/2026 18:11:52 - [CREATE_LINK] Creazione TableDef per 'MSys_TB05_}-----------------------------------------------@FORMS'...
+28/07/2026 18:11:52 - [CREATE_LINK] TableDef creato.
+28/07/2026 18:11:52 - [CREATE_LINK] Connect string impostata
+28/07/2026 18:11:52 - [CREATE_LINK] SourceTableName impostato: 'MSys_TB05_}-----------------------------------------------@FORMS'
+28/07/2026 18:11:52 - [CREATE_LINK] Appendo TableDef al database...
+28/07/2026 18:11:52 - [CREATE_LINK] TableDef appeso con successo.
+28/07/2026 18:11:52 - [CREATE_LINK] Refresh del link...
+28/07/2026 18:11:52 - [CREATE_LINK] Link aggiornato con successo.
+28/07/2026 18:11:52 - [CREATE_LINK] Link creato correttamente per 'MSys_TB05_}-----------------------------------------------@FORMS'
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Link CREATO con successo!
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Stato assegnato: OK
+28/07/2026 18:11:52 - [AGGIORNAMENTO] Salvataggio stato nel campo Verifica_s...
+28/07/2026 18:11:52 - [AGGIORNAMENTO] COD_SUB_PROGETTO_s impostato a: 'MSys_TB05'
+28/07/2026 18:11:52 - [AGGIORNAMENTO] Recordset aggiornato con stato: 'OK' nel campo Verifica_s
+28/07/2026 18:11:52 - [STATISTICHE] Aggiornamento contatori:
+28/07/2026 18:11:52 -             OK: 33
+28/07/2026 18:11:52 -             MISSING: 0
+28/07/2026 18:11:52 -             INVALID_PATH: 0
+28/07/2026 18:11:52 -             NOT_REGISTERED: 0
+28/07/2026 18:11:52 -             Totale elaborati: 33
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - 
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - RECORD N. 34
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - [LETTURA_RECORD] Nome tabella: 'MSys_TB05_FORMS'
+28/07/2026 18:11:52 - [LETTURA_RECORD] Database path: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\Msys_TB05_FORMS\MDB\MSys_TB05_FORMS.mdb'
+28/07/2026 18:11:52 - [LETTURA_RECORD] Type: 6
+28/07/2026 18:11:52 - [VALIDAZIONE] Avvio validazione...
+28/07/2026 18:11:52 - [VALIDAZIONE] Path valido. File database ESISTE.
+28/07/2026 18:11:52 - [VALIDAZIONE] Inizio verifica lato SORGENTE...
+28/07/2026 18:11:52 - [APERTURA_DB] Tentativo apertura database: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\Msys_TB05_FORMS\MDB\MSys_TB05_FORMS.mdb'
+28/07/2026 18:11:52 - [APERTURA_DB] Database aperto con successo.
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Ricerca tabella 'MSys_TB05_FORMS' in MSysObjects...
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Tabella 'MSys_TB05_FORMS' TROVATA
+28/07/2026 18:11:52 - [CHIUSURA_DB] Database chiuso e risorse rilasciate.
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Tabella 'MSys_TB05_FORMS' TROVATA nel database di destinazione.
+28/07/2026 18:11:52 - [ELIMINAZIONE_LINK] Link esistente NON trovato in MSysObjects.
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Creazione nuovo link...
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Tabella: 'MSys_TB05_FORMS'
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Database sorgente: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\Msys_TB05_FORMS\MDB\MSys_TB05_FORMS.mdb'
+28/07/2026 18:11:52 - [CREATE_LINK] Creazione TableDef per 'MSys_TB05_FORMS'...
+28/07/2026 18:11:52 - [CREATE_LINK] TableDef creato.
+28/07/2026 18:11:52 - [CREATE_LINK] Connect string impostata
+28/07/2026 18:11:52 - [CREATE_LINK] SourceTableName impostato: 'MSys_TB05_FORMS'
+28/07/2026 18:11:52 - [CREATE_LINK] Appendo TableDef al database...
+28/07/2026 18:11:52 - [CREATE_LINK] TableDef appeso con successo.
+28/07/2026 18:11:52 - [CREATE_LINK] Refresh del link...
+28/07/2026 18:11:52 - [CREATE_LINK] Link aggiornato con successo.
+28/07/2026 18:11:52 - [CREATE_LINK] Link creato correttamente per 'MSys_TB05_FORMS'
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Link CREATO con successo!
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Stato assegnato: OK
+28/07/2026 18:11:52 - [AGGIORNAMENTO] Salvataggio stato nel campo Verifica_s...
+28/07/2026 18:11:52 - [AGGIORNAMENTO] COD_SUB_PROGETTO_s impostato a: 'MSys_TB05'
+28/07/2026 18:11:52 - [AGGIORNAMENTO] Recordset aggiornato con stato: 'OK' nel campo Verifica_s
+28/07/2026 18:11:52 - [STATISTICHE] Aggiornamento contatori:
+28/07/2026 18:11:52 -             OK: 34
+28/07/2026 18:11:52 -             MISSING: 0
+28/07/2026 18:11:52 -             INVALID_PATH: 0
+28/07/2026 18:11:52 -             NOT_REGISTERED: 0
+28/07/2026 18:11:52 -             Totale elaborati: 34
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - 
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - RECORD N. 35
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - [LETTURA_RECORD] Nome tabella: 'MSys_TB05_FORMS_TMP'
+28/07/2026 18:11:52 - [LETTURA_RECORD] Database path: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\Msys_TB05_FORMS\MDB\MSys_TB05_FORMS.mdb'
+28/07/2026 18:11:52 - [LETTURA_RECORD] Type: 6
+28/07/2026 18:11:52 - [VALIDAZIONE] Avvio validazione...
+28/07/2026 18:11:52 - [VALIDAZIONE] Path valido. File database ESISTE.
+28/07/2026 18:11:52 - [VALIDAZIONE] Inizio verifica lato SORGENTE...
+28/07/2026 18:11:52 - [APERTURA_DB] Tentativo apertura database: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\Msys_TB05_FORMS\MDB\MSys_TB05_FORMS.mdb'
+28/07/2026 18:11:52 - [APERTURA_DB] Database aperto con successo.
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Ricerca tabella 'MSys_TB05_FORMS_TMP' in MSysObjects...
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Tabella 'MSys_TB05_FORMS_TMP' TROVATA
+28/07/2026 18:11:52 - [CHIUSURA_DB] Database chiuso e risorse rilasciate.
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Tabella 'MSys_TB05_FORMS_TMP' TROVATA nel database di destinazione.
+28/07/2026 18:11:52 - [ELIMINAZIONE_LINK] Link esistente NON trovato in MSysObjects.
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Creazione nuovo link...
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Tabella: 'MSys_TB05_FORMS_TMP'
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Database sorgente: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\Msys_TB05_FORMS\MDB\MSys_TB05_FORMS.mdb'
+28/07/2026 18:11:52 - [CREATE_LINK] Creazione TableDef per 'MSys_TB05_FORMS_TMP'...
+28/07/2026 18:11:52 - [CREATE_LINK] TableDef creato.
+28/07/2026 18:11:52 - [CREATE_LINK] Connect string impostata
+28/07/2026 18:11:52 - [CREATE_LINK] SourceTableName impostato: 'MSys_TB05_FORMS_TMP'
+28/07/2026 18:11:52 - [CREATE_LINK] Appendo TableDef al database...
+28/07/2026 18:11:52 - [CREATE_LINK] TableDef appeso con successo.
+28/07/2026 18:11:52 - [CREATE_LINK] Refresh del link...
+28/07/2026 18:11:52 - [CREATE_LINK] Link aggiornato con successo.
+28/07/2026 18:11:52 - [CREATE_LINK] Link creato correttamente per 'MSys_TB05_FORMS_TMP'
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Link CREATO con successo!
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Stato assegnato: OK
+28/07/2026 18:11:52 - [AGGIORNAMENTO] Salvataggio stato nel campo Verifica_s...
+28/07/2026 18:11:52 - [AGGIORNAMENTO] COD_SUB_PROGETTO_s impostato a: 'MSys_TB05'
+28/07/2026 18:11:52 - [AGGIORNAMENTO] Recordset aggiornato con stato: 'OK' nel campo Verifica_s
+28/07/2026 18:11:52 - [STATISTICHE] Aggiornamento contatori:
+28/07/2026 18:11:52 -             OK: 35
+28/07/2026 18:11:52 -             MISSING: 0
+28/07/2026 18:11:52 -             INVALID_PATH: 0
+28/07/2026 18:11:52 -             NOT_REGISTERED: 0
+28/07/2026 18:11:52 -             Totale elaborati: 35
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - 
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - RECORD N. 36
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - [LETTURA_RECORD] Nome tabella: 'MSys_TB30_}----------------------------------------------------@'
+28/07/2026 18:11:52 - [LETTURA_RECORD] Database path: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\Msys_TB30_UTIL\MDB\Msys_TB30_UTIL.mdb'
+28/07/2026 18:11:52 - [LETTURA_RECORD] Type: 6
+28/07/2026 18:11:52 - [VALIDAZIONE] Avvio validazione...
+28/07/2026 18:11:52 - [VALIDAZIONE] Path valido. File database ESISTE.
+28/07/2026 18:11:52 - [VALIDAZIONE] Inizio verifica lato SORGENTE...
+28/07/2026 18:11:52 - [APERTURA_DB] Tentativo apertura database: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\Msys_TB30_UTIL\MDB\Msys_TB30_UTIL.mdb'
+28/07/2026 18:11:52 - [APERTURA_DB] Database aperto con successo.
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Ricerca tabella 'MSys_TB30_}----------------------------------------------------@' in MSysObjects...
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Tabella 'MSys_TB30_}----------------------------------------------------@' TROVATA
+28/07/2026 18:11:52 - [CHIUSURA_DB] Database chiuso e risorse rilasciate.
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Tabella 'MSys_TB30_}----------------------------------------------------@' TROVATA nel database di destinazione.
+28/07/2026 18:11:52 - [ELIMINAZIONE_LINK] Link esistente NON trovato in MSysObjects.
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Creazione nuovo link...
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Tabella: 'MSys_TB30_}----------------------------------------------------@'
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Database sorgente: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\Msys_TB30_UTIL\MDB\Msys_TB30_UTIL.mdb'
+28/07/2026 18:11:52 - [CREATE_LINK] Creazione TableDef per 'MSys_TB30_}----------------------------------------------------@'...
+28/07/2026 18:11:52 - [CREATE_LINK] TableDef creato.
+28/07/2026 18:11:52 - [CREATE_LINK] Connect string impostata
+28/07/2026 18:11:52 - [CREATE_LINK] SourceTableName impostato: 'MSys_TB30_}----------------------------------------------------@'
+28/07/2026 18:11:52 - [CREATE_LINK] Appendo TableDef al database...
+28/07/2026 18:11:52 - [CREATE_LINK] TableDef appeso con successo.
+28/07/2026 18:11:52 - [CREATE_LINK] Refresh del link...
+28/07/2026 18:11:52 - [CREATE_LINK] Link aggiornato con successo.
+28/07/2026 18:11:52 - [CREATE_LINK] Link creato correttamente per 'MSys_TB30_}----------------------------------------------------@'
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Link CREATO con successo!
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Stato assegnato: OK
+28/07/2026 18:11:52 - [AGGIORNAMENTO] Salvataggio stato nel campo Verifica_s...
+28/07/2026 18:11:52 - [AGGIORNAMENTO] COD_SUB_PROGETTO_s impostato a: 'MSys_TB30'
+28/07/2026 18:11:52 - [AGGIORNAMENTO] Recordset aggiornato con stato: 'OK' nel campo Verifica_s
+28/07/2026 18:11:52 - [STATISTICHE] Aggiornamento contatori:
+28/07/2026 18:11:52 -             OK: 36
+28/07/2026 18:11:52 -             MISSING: 0
+28/07/2026 18:11:52 -             INVALID_PATH: 0
+28/07/2026 18:11:52 -             NOT_REGISTERED: 0
+28/07/2026 18:11:52 -             Totale elaborati: 36
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - 
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - RECORD N. 37
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - [LETTURA_RECORD] Nome tabella: 'MSys_TB30_UTIL_MSysObjects'
+28/07/2026 18:11:52 - [LETTURA_RECORD] Database path: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\Msys_TB30_UTIL\MDB\Msys_TB30_UTIL.mdb'
+28/07/2026 18:11:52 - [LETTURA_RECORD] Type: 6
+28/07/2026 18:11:52 - [VALIDAZIONE] Avvio validazione...
+28/07/2026 18:11:52 - [VALIDAZIONE] Path valido. File database ESISTE.
+28/07/2026 18:11:52 - [VALIDAZIONE] Inizio verifica lato SORGENTE...
+28/07/2026 18:11:52 - [APERTURA_DB] Tentativo apertura database: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\Msys_TB30_UTIL\MDB\Msys_TB30_UTIL.mdb'
+28/07/2026 18:11:52 - [APERTURA_DB] Database aperto con successo.
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Ricerca tabella 'MSys_TB30_UTIL_MSysObjects' in MSysObjects...
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Tabella 'MSys_TB30_UTIL_MSysObjects' TROVATA
+28/07/2026 18:11:52 - [CHIUSURA_DB] Database chiuso e risorse rilasciate.
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Tabella 'MSys_TB30_UTIL_MSysObjects' TROVATA nel database di destinazione.
+28/07/2026 18:11:52 - [ELIMINAZIONE_LINK] Link esistente NON trovato in MSysObjects.
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Creazione nuovo link...
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Tabella: 'MSys_TB30_UTIL_MSysObjects'
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Database sorgente: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\Msys_TB30_UTIL\MDB\Msys_TB30_UTIL.mdb'
+28/07/2026 18:11:52 - [CREATE_LINK] Creazione TableDef per 'MSys_TB30_UTIL_MSysObjects'...
+28/07/2026 18:11:52 - [CREATE_LINK] TableDef creato.
+28/07/2026 18:11:52 - [CREATE_LINK] Connect string impostata
+28/07/2026 18:11:52 - [CREATE_LINK] SourceTableName impostato: 'MSys_TB30_UTIL_MSysObjects'
+28/07/2026 18:11:52 - [CREATE_LINK] Appendo TableDef al database...
+28/07/2026 18:11:52 - [CREATE_LINK] TableDef appeso con successo.
+28/07/2026 18:11:52 - [CREATE_LINK] Refresh del link...
+28/07/2026 18:11:52 - [CREATE_LINK] Link aggiornato con successo.
+28/07/2026 18:11:52 - [CREATE_LINK] Link creato correttamente per 'MSys_TB30_UTIL_MSysObjects'
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Link CREATO con successo!
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Stato assegnato: OK
+28/07/2026 18:11:52 - [AGGIORNAMENTO] Salvataggio stato nel campo Verifica_s...
+28/07/2026 18:11:52 - [AGGIORNAMENTO] COD_SUB_PROGETTO_s impostato a: 'MSys_TB30'
+28/07/2026 18:11:52 - [AGGIORNAMENTO] Recordset aggiornato con stato: 'OK' nel campo Verifica_s
+28/07/2026 18:11:52 - [STATISTICHE] Aggiornamento contatori:
+28/07/2026 18:11:52 -             OK: 37
+28/07/2026 18:11:52 -             MISSING: 0
+28/07/2026 18:11:52 -             INVALID_PATH: 0
+28/07/2026 18:11:52 -             NOT_REGISTERED: 0
+28/07/2026 18:11:52 -             Totale elaborati: 37
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - 
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - RECORD N. 38
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - [LETTURA_RECORD] Nome tabella: 'MSys_TB40_}-----------------------------------------@PROG_MASTER'
+28/07/2026 18:11:52 - [LETTURA_RECORD] Database path: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\Msys_TB40_PROG_MASTER\MDB\Msys_TB40_PROG_MASTER.mdb'
+28/07/2026 18:11:52 - [LETTURA_RECORD] Type: 6
+28/07/2026 18:11:52 - [VALIDAZIONE] Avvio validazione...
+28/07/2026 18:11:52 - [VALIDAZIONE] Path valido. File database ESISTE.
+28/07/2026 18:11:52 - [VALIDAZIONE] Inizio verifica lato SORGENTE...
+28/07/2026 18:11:52 - [APERTURA_DB] Tentativo apertura database: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\Msys_TB40_PROG_MASTER\MDB\Msys_TB40_PROG_MASTER.mdb'
+28/07/2026 18:11:52 - [APERTURA_DB] Database aperto con successo.
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Ricerca tabella 'MSys_TB40_}-----------------------------------------@PROG_MASTER' in MSysObjects...
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Tabella 'MSys_TB40_}-----------------------------------------@PROG_MASTER' TROVATA
+28/07/2026 18:11:52 - [CHIUSURA_DB] Database chiuso e risorse rilasciate.
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Tabella 'MSys_TB40_}-----------------------------------------@PROG_MASTER' TROVATA nel database di destinazione.
+28/07/2026 18:11:52 - [ELIMINAZIONE_LINK] Link esistente NON trovato in MSysObjects.
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Creazione nuovo link...
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Tabella: 'MSys_TB40_}-----------------------------------------@PROG_MASTER'
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Database sorgente: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\Msys_TB40_PROG_MASTER\MDB\Msys_TB40_PROG_MASTER.mdb'
+28/07/2026 18:11:52 - [CREATE_LINK] Creazione TableDef per 'MSys_TB40_}-----------------------------------------@PROG_MASTER'...
+28/07/2026 18:11:52 - [CREATE_LINK] TableDef creato.
+28/07/2026 18:11:52 - [CREATE_LINK] Connect string impostata
+28/07/2026 18:11:52 - [CREATE_LINK] SourceTableName impostato: 'MSys_TB40_}-----------------------------------------@PROG_MASTER'
+28/07/2026 18:11:52 - [CREATE_LINK] Appendo TableDef al database...
+28/07/2026 18:11:52 - [CREATE_LINK] TableDef appeso con successo.
+28/07/2026 18:11:52 - [CREATE_LINK] Refresh del link...
+28/07/2026 18:11:52 - [CREATE_LINK] Link aggiornato con successo.
+28/07/2026 18:11:52 - [CREATE_LINK] Link creato correttamente per 'MSys_TB40_}-----------------------------------------@PROG_MASTER'
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Link CREATO con successo!
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Stato assegnato: OK
+28/07/2026 18:11:52 - [AGGIORNAMENTO] Salvataggio stato nel campo Verifica_s...
+28/07/2026 18:11:52 - [AGGIORNAMENTO] COD_SUB_PROGETTO_s impostato a: 'MSys_TB40'
+28/07/2026 18:11:52 - [AGGIORNAMENTO] Recordset aggiornato con stato: 'OK' nel campo Verifica_s
+28/07/2026 18:11:52 - [STATISTICHE] Aggiornamento contatori:
+28/07/2026 18:11:52 -             OK: 38
+28/07/2026 18:11:52 -             MISSING: 0
+28/07/2026 18:11:52 -             INVALID_PATH: 0
+28/07/2026 18:11:52 -             NOT_REGISTERED: 0
+28/07/2026 18:11:52 -             Totale elaborati: 38
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - 
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - RECORD N. 39
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - [LETTURA_RECORD] Nome tabella: 'MSys_TB40_PROG_MASTER'
+28/07/2026 18:11:52 - [LETTURA_RECORD] Database path: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\Msys_TB40_PROG_MASTER\MDB\Msys_TB40_PROG_MASTER.mdb'
+28/07/2026 18:11:52 - [LETTURA_RECORD] Type: 6
+28/07/2026 18:11:52 - [VALIDAZIONE] Avvio validazione...
+28/07/2026 18:11:52 - [VALIDAZIONE] Path valido. File database ESISTE.
+28/07/2026 18:11:52 - [VALIDAZIONE] Inizio verifica lato SORGENTE...
+28/07/2026 18:11:52 - [APERTURA_DB] Tentativo apertura database: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\Msys_TB40_PROG_MASTER\MDB\Msys_TB40_PROG_MASTER.mdb'
+28/07/2026 18:11:52 - [APERTURA_DB] Database aperto con successo.
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Ricerca tabella 'MSys_TB40_PROG_MASTER' in MSysObjects...
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Tabella 'MSys_TB40_PROG_MASTER' TROVATA
+28/07/2026 18:11:52 - [CHIUSURA_DB] Database chiuso e risorse rilasciate.
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Tabella 'MSys_TB40_PROG_MASTER' TROVATA nel database di destinazione.
+28/07/2026 18:11:52 - [ELIMINAZIONE_LINK] Link esistente NON trovato in MSysObjects.
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Creazione nuovo link...
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Tabella: 'MSys_TB40_PROG_MASTER'
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Database sorgente: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\Msys_TB40_PROG_MASTER\MDB\Msys_TB40_PROG_MASTER.mdb'
+28/07/2026 18:11:52 - [CREATE_LINK] Creazione TableDef per 'MSys_TB40_PROG_MASTER'...
+28/07/2026 18:11:52 - [CREATE_LINK] TableDef creato.
+28/07/2026 18:11:52 - [CREATE_LINK] Connect string impostata
+28/07/2026 18:11:52 - [CREATE_LINK] SourceTableName impostato: 'MSys_TB40_PROG_MASTER'
+28/07/2026 18:11:52 - [CREATE_LINK] Appendo TableDef al database...
+28/07/2026 18:11:52 - [CREATE_LINK] TableDef appeso con successo.
+28/07/2026 18:11:52 - [CREATE_LINK] Refresh del link...
+28/07/2026 18:11:52 - [CREATE_LINK] Link aggiornato con successo.
+28/07/2026 18:11:52 - [CREATE_LINK] Link creato correttamente per 'MSys_TB40_PROG_MASTER'
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Link CREATO con successo!
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Stato assegnato: OK
+28/07/2026 18:11:52 - [AGGIORNAMENTO] Salvataggio stato nel campo Verifica_s...
+28/07/2026 18:11:52 - [AGGIORNAMENTO] COD_SUB_PROGETTO_s impostato a: 'MSys_TB40'
+28/07/2026 18:11:52 - [AGGIORNAMENTO] Recordset aggiornato con stato: 'OK' nel campo Verifica_s
+28/07/2026 18:11:52 - [STATISTICHE] Aggiornamento contatori:
+28/07/2026 18:11:52 -             OK: 39
+28/07/2026 18:11:52 -             MISSING: 0
+28/07/2026 18:11:52 -             INVALID_PATH: 0
+28/07/2026 18:11:52 -             NOT_REGISTERED: 0
+28/07/2026 18:11:52 -             Totale elaborati: 39
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - 
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - RECORD N. 40
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - [LETTURA_RECORD] Nome tabella: 'MSys_TB40_PROG_MASTER_TMP'
+28/07/2026 18:11:52 - [LETTURA_RECORD] Database path: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\Msys_TB40_PROG_MASTER\MDB\Msys_TB40_PROG_MASTER.mdb'
+28/07/2026 18:11:52 - [LETTURA_RECORD] Type: 6
+28/07/2026 18:11:52 - [VALIDAZIONE] Avvio validazione...
+28/07/2026 18:11:52 - [VALIDAZIONE] Path valido. File database ESISTE.
+28/07/2026 18:11:52 - [VALIDAZIONE] Inizio verifica lato SORGENTE...
+28/07/2026 18:11:52 - [APERTURA_DB] Tentativo apertura database: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\Msys_TB40_PROG_MASTER\MDB\Msys_TB40_PROG_MASTER.mdb'
+28/07/2026 18:11:52 - [APERTURA_DB] Database aperto con successo.
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Ricerca tabella 'MSys_TB40_PROG_MASTER_TMP' in MSysObjects...
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Tabella 'MSys_TB40_PROG_MASTER_TMP' TROVATA
+28/07/2026 18:11:52 - [CHIUSURA_DB] Database chiuso e risorse rilasciate.
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Tabella 'MSys_TB40_PROG_MASTER_TMP' TROVATA nel database di destinazione.
+28/07/2026 18:11:52 - [ELIMINAZIONE_LINK] Link esistente NON trovato in MSysObjects.
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Creazione nuovo link...
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Tabella: 'MSys_TB40_PROG_MASTER_TMP'
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Database sorgente: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\Msys_TB40_PROG_MASTER\MDB\Msys_TB40_PROG_MASTER.mdb'
+28/07/2026 18:11:52 - [CREATE_LINK] Creazione TableDef per 'MSys_TB40_PROG_MASTER_TMP'...
+28/07/2026 18:11:52 - [CREATE_LINK] TableDef creato.
+28/07/2026 18:11:52 - [CREATE_LINK] Connect string impostata
+28/07/2026 18:11:52 - [CREATE_LINK] SourceTableName impostato: 'MSys_TB40_PROG_MASTER_TMP'
+28/07/2026 18:11:52 - [CREATE_LINK] Appendo TableDef al database...
+28/07/2026 18:11:52 - [CREATE_LINK] TableDef appeso con successo.
+28/07/2026 18:11:52 - [CREATE_LINK] Refresh del link...
+28/07/2026 18:11:52 - [CREATE_LINK] Link aggiornato con successo.
+28/07/2026 18:11:52 - [CREATE_LINK] Link creato correttamente per 'MSys_TB40_PROG_MASTER_TMP'
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Link CREATO con successo!
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Stato assegnato: OK
+28/07/2026 18:11:52 - [AGGIORNAMENTO] Salvataggio stato nel campo Verifica_s...
+28/07/2026 18:11:52 - [AGGIORNAMENTO] COD_SUB_PROGETTO_s impostato a: 'MSys_TB40'
+28/07/2026 18:11:52 - [AGGIORNAMENTO] Recordset aggiornato con stato: 'OK' nel campo Verifica_s
+28/07/2026 18:11:52 - [STATISTICHE] Aggiornamento contatori:
+28/07/2026 18:11:52 -             OK: 40
+28/07/2026 18:11:52 -             MISSING: 0
+28/07/2026 18:11:52 -             INVALID_PATH: 0
+28/07/2026 18:11:52 -             NOT_REGISTERED: 0
+28/07/2026 18:11:52 -             Totale elaborati: 40
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - 
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - RECORD N. 41
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - [LETTURA_RECORD] Nome tabella: 'MSys_TB41_{@==================================================@}'
+28/07/2026 18:11:52 - [LETTURA_RECORD] Database path: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_TB41_VISUAL_PAG_MASTER\MDB\MSys_TB41_VISUAL_PAG_MASTER.mdb'
+28/07/2026 18:11:52 - [LETTURA_RECORD] Type: 6
+28/07/2026 18:11:52 - [VALIDAZIONE] Avvio validazione...
+28/07/2026 18:11:52 - [VALIDAZIONE] Path valido. File database ESISTE.
+28/07/2026 18:11:52 - [VALIDAZIONE] Inizio verifica lato SORGENTE...
+28/07/2026 18:11:52 - [APERTURA_DB] Tentativo apertura database: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_TB41_VISUAL_PAG_MASTER\MDB\MSys_TB41_VISUAL_PAG_MASTER.mdb'
+28/07/2026 18:11:52 - [APERTURA_DB] Database aperto con successo.
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Ricerca tabella 'MSys_TB41_{@==================================================@}' in MSysObjects...
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Tabella 'MSys_TB41_{@==================================================@}' TROVATA
+28/07/2026 18:11:52 - [CHIUSURA_DB] Database chiuso e risorse rilasciate.
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Tabella 'MSys_TB41_{@==================================================@}' TROVATA nel database di destinazione.
+28/07/2026 18:11:52 - [ELIMINAZIONE_LINK] Link esistente NON trovato in MSysObjects.
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Creazione nuovo link...
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Tabella: 'MSys_TB41_{@==================================================@}'
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Database sorgente: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_TB41_VISUAL_PAG_MASTER\MDB\MSys_TB41_VISUAL_PAG_MASTER.mdb'
+28/07/2026 18:11:52 - [CREATE_LINK] Creazione TableDef per 'MSys_TB41_{@==================================================@}'...
+28/07/2026 18:11:52 - [CREATE_LINK] TableDef creato.
+28/07/2026 18:11:52 - [CREATE_LINK] Connect string impostata
+28/07/2026 18:11:52 - [CREATE_LINK] SourceTableName impostato: 'MSys_TB41_{@==================================================@}'
+28/07/2026 18:11:52 - [CREATE_LINK] Appendo TableDef al database...
+28/07/2026 18:11:52 - [CREATE_LINK] TableDef appeso con successo.
+28/07/2026 18:11:52 - [CREATE_LINK] Refresh del link...
+28/07/2026 18:11:52 - [CREATE_LINK] Link aggiornato con successo.
+28/07/2026 18:11:52 - [CREATE_LINK] Link creato correttamente per 'MSys_TB41_{@==================================================@}'
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Link CREATO con successo!
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Stato assegnato: OK
+28/07/2026 18:11:52 - [AGGIORNAMENTO] Salvataggio stato nel campo Verifica_s...
+28/07/2026 18:11:52 - [AGGIORNAMENTO] COD_SUB_PROGETTO_s impostato a: 'MSys_TB41'
+28/07/2026 18:11:52 - [AGGIORNAMENTO] Recordset aggiornato con stato: 'OK' nel campo Verifica_s
+28/07/2026 18:11:52 - [STATISTICHE] Aggiornamento contatori:
+28/07/2026 18:11:52 -             OK: 41
+28/07/2026 18:11:52 -             MISSING: 0
+28/07/2026 18:11:52 -             INVALID_PATH: 0
+28/07/2026 18:11:52 -             NOT_REGISTERED: 0
+28/07/2026 18:11:52 -             Totale elaborati: 41
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - 
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - RECORD N. 42
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - [LETTURA_RECORD] Nome tabella: 'MSys_TB41_VISUAL_PAG_MASTER'
+28/07/2026 18:11:52 - [LETTURA_RECORD] Database path: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_TB41_VISUAL_PAG_MASTER\MDB\MSys_TB41_VISUAL_PAG_MASTER.mdb'
+28/07/2026 18:11:52 - [LETTURA_RECORD] Type: 6
+28/07/2026 18:11:52 - [VALIDAZIONE] Avvio validazione...
+28/07/2026 18:11:52 - [VALIDAZIONE] Path valido. File database ESISTE.
+28/07/2026 18:11:52 - [VALIDAZIONE] Inizio verifica lato SORGENTE...
+28/07/2026 18:11:52 - [APERTURA_DB] Tentativo apertura database: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_TB41_VISUAL_PAG_MASTER\MDB\MSys_TB41_VISUAL_PAG_MASTER.mdb'
+28/07/2026 18:11:52 - [APERTURA_DB] Database aperto con successo.
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Ricerca tabella 'MSys_TB41_VISUAL_PAG_MASTER' in MSysObjects...
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Tabella 'MSys_TB41_VISUAL_PAG_MASTER' TROVATA
+28/07/2026 18:11:52 - [CHIUSURA_DB] Database chiuso e risorse rilasciate.
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Tabella 'MSys_TB41_VISUAL_PAG_MASTER' TROVATA nel database di destinazione.
+28/07/2026 18:11:52 - [ELIMINAZIONE_LINK] Link esistente NON trovato in MSysObjects.
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Creazione nuovo link...
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Tabella: 'MSys_TB41_VISUAL_PAG_MASTER'
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Database sorgente: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_TB41_VISUAL_PAG_MASTER\MDB\MSys_TB41_VISUAL_PAG_MASTER.mdb'
+28/07/2026 18:11:52 - [CREATE_LINK] Creazione TableDef per 'MSys_TB41_VISUAL_PAG_MASTER'...
+28/07/2026 18:11:52 - [CREATE_LINK] TableDef creato.
+28/07/2026 18:11:52 - [CREATE_LINK] Connect string impostata
+28/07/2026 18:11:52 - [CREATE_LINK] SourceTableName impostato: 'MSys_TB41_VISUAL_PAG_MASTER'
+28/07/2026 18:11:52 - [CREATE_LINK] Appendo TableDef al database...
+28/07/2026 18:11:52 - [CREATE_LINK] TableDef appeso con successo.
+28/07/2026 18:11:52 - [CREATE_LINK] Refresh del link...
+28/07/2026 18:11:52 - [CREATE_LINK] Link aggiornato con successo.
+28/07/2026 18:11:52 - [CREATE_LINK] Link creato correttamente per 'MSys_TB41_VISUAL_PAG_MASTER'
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Link CREATO con successo!
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Stato assegnato: OK
+28/07/2026 18:11:52 - [AGGIORNAMENTO] Salvataggio stato nel campo Verifica_s...
+28/07/2026 18:11:52 - [AGGIORNAMENTO] COD_SUB_PROGETTO_s impostato a: 'MSys_TB41'
+28/07/2026 18:11:52 - [AGGIORNAMENTO] Recordset aggiornato con stato: 'OK' nel campo Verifica_s
+28/07/2026 18:11:52 - [STATISTICHE] Aggiornamento contatori:
+28/07/2026 18:11:52 -             OK: 42
+28/07/2026 18:11:52 -             MISSING: 0
+28/07/2026 18:11:52 -             INVALID_PATH: 0
+28/07/2026 18:11:52 -             NOT_REGISTERED: 0
+28/07/2026 18:11:52 -             Totale elaborati: 42
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - 
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - RECORD N. 43
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - [LETTURA_RECORD] Nome tabella: 'MSys_TB41_VISUAL_PAG_MASTER_TMP'
+28/07/2026 18:11:52 - [LETTURA_RECORD] Database path: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_TB41_VISUAL_PAG_MASTER\MDB\MSys_TB41_VISUAL_PAG_MASTER.mdb'
+28/07/2026 18:11:52 - [LETTURA_RECORD] Type: 6
+28/07/2026 18:11:52 - [VALIDAZIONE] Avvio validazione...
+28/07/2026 18:11:52 - [VALIDAZIONE] Path valido. File database ESISTE.
+28/07/2026 18:11:52 - [VALIDAZIONE] Inizio verifica lato SORGENTE...
+28/07/2026 18:11:52 - [APERTURA_DB] Tentativo apertura database: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_TB41_VISUAL_PAG_MASTER\MDB\MSys_TB41_VISUAL_PAG_MASTER.mdb'
+28/07/2026 18:11:52 - [APERTURA_DB] Database aperto con successo.
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Ricerca tabella 'MSys_TB41_VISUAL_PAG_MASTER_TMP' in MSysObjects...
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Tabella 'MSys_TB41_VISUAL_PAG_MASTER_TMP' TROVATA
+28/07/2026 18:11:52 - [CHIUSURA_DB] Database chiuso e risorse rilasciate.
+28/07/2026 18:11:52 - [VERIFICA_TABELLA] Tabella 'MSys_TB41_VISUAL_PAG_MASTER_TMP' TROVATA nel database di destinazione.
+28/07/2026 18:11:52 - [ELIMINAZIONE_LINK] Link esistente NON trovato in MSysObjects.
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Creazione nuovo link...
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Tabella: 'MSys_TB41_VISUAL_PAG_MASTER_TMP'
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Database sorgente: 'C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_TB41_VISUAL_PAG_MASTER\MDB\MSys_TB41_VISUAL_PAG_MASTER.mdb'
+28/07/2026 18:11:52 - [CREATE_LINK] Creazione TableDef per 'MSys_TB41_VISUAL_PAG_MASTER_TMP'...
+28/07/2026 18:11:52 - [CREATE_LINK] TableDef creato.
+28/07/2026 18:11:52 - [CREATE_LINK] Connect string impostata
+28/07/2026 18:11:52 - [CREATE_LINK] SourceTableName impostato: 'MSys_TB41_VISUAL_PAG_MASTER_TMP'
+28/07/2026 18:11:52 - [CREATE_LINK] Appendo TableDef al database...
+28/07/2026 18:11:52 - [CREATE_LINK] TableDef appeso con successo.
+28/07/2026 18:11:52 - [CREATE_LINK] Refresh del link...
+28/07/2026 18:11:52 - [CREATE_LINK] Link aggiornato con successo.
+28/07/2026 18:11:52 - [CREATE_LINK] Link creato correttamente per 'MSys_TB41_VISUAL_PAG_MASTER_TMP'
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Link CREATO con successo!
+28/07/2026 18:11:52 - [RICOSTRUZIONE_LINK] Stato assegnato: OK
+28/07/2026 18:11:52 - [AGGIORNAMENTO] Salvataggio stato nel campo Verifica_s...
+28/07/2026 18:11:52 - [AGGIORNAMENTO] COD_SUB_PROGETTO_s impostato a: 'MSys_TB41'
+28/07/2026 18:11:52 - [AGGIORNAMENTO] Recordset aggiornato con stato: 'OK' nel campo Verifica_s
+28/07/2026 18:11:52 - [STATISTICHE] Aggiornamento contatori:
+28/07/2026 18:11:52 -             OK: 43
+28/07/2026 18:11:52 -             MISSING: 0
+28/07/2026 18:11:52 -             INVALID_PATH: 0
+28/07/2026 18:11:52 -             NOT_REGISTERED: 0
+28/07/2026 18:11:52 -             Totale elaborati: 43
+28/07/2026 18:11:52 - ----------------------------------------
+28/07/2026 18:11:52 - 
+28/07/2026 18:11:52 - ========================================================================
+28/07/2026 18:11:52 - STATISTICHE FINALI
+28/07/2026 18:11:52 - ========================================================================
+28/07/2026 18:11:52 - Data/Ora fine: 28/07/2026 18:11:52
+28/07/2026 18:11:52 - Durata totale: 00:00:03
+28/07/2026 18:11:52 - 
+28/07/2026 18:11:52 - TOTALE RECORD ELABORATI: 43
+28/07/2026 18:11:52 - OK (link ricostruiti): 43
+28/07/2026 18:11:52 - MISSING (DB non trovato): 0
+28/07/2026 18:11:52 - INVALID_PATH (path errato): 0
+28/07/2026 18:11:52 - NOT_REGISTERED (tabella inesistente): 0
+28/07/2026 18:11:52 - ========================================================================
+28/07/2026 18:11:52 - [CHIUSURA] File di log salvato in: c:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\MDB\MSys_TB99_LINK\MDB\LOGS\20260728_181149_TB99_Link_Rebuild_Log.txt
