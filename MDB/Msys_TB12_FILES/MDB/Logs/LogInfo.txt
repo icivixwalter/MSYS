@@ -1,0 +1,2 @@
+2026-07-28 18:59:28 | Form_Load | INFO: Form inizializzata correttamente (Logger + FileSystem + Database + Manager + Inspector)
+2026-07-28 18:59:30 | Form_Unload | INFO: Form in chiusura

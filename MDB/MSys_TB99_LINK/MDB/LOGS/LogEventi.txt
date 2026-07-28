@@ -1,0 +1,2 @@
+2026-07-28 18:57:20 | Classe: Msys_GEFILE_CLS01_GESTIONI | Funzione: ApriFileConApplicazionePredefinita | Evento: File aperto con applicazione predefinita: C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\OBJECT\PDF\PROGETTO_Campo_Scelt_b.pdf
+2026-07-28 18:57:20 | Classe: Msys_GEFILE_CLS01_GESTIONI | Funzione: Cmd_ApriFilePDF_Click | Evento: File aperto correttamente: C:\CASA\LINGUAGGI\ACCESS\PROGETTI_MDB\MSYS_OGGETTI\MSYS\OBJECT\PDF\PROGETTO_Campo_Scelt_b.pdf
